@@ -118,6 +118,14 @@ a:hover{color:var(--acl)}
 .dr-item-meta{font-size:11px;color:var(--tx3);display:flex;gap:10px}
 .empty{text-align:center;padding:40px 16px;color:var(--tx3);font-size:14px}
 
+/* ===== LAPTOP / DESKTOP — 等比例放大至舒適檢視 =====
+   只作用於 >768px（筆電/桌面）。zoom 同時放大字級與間距，比例不變，
+   且會等比例收斂 layout 寬度，故不產生水平卷軸；JS sticky 定位（updateStickyOffsets）
+   在同一 zoom 座標系下仍精準對齊。平板/手機（≤768px）維持原本優化尺寸不受影響。 */
+@media(min-width:769px){
+  body{zoom:1.2}
+}
+
 /* ===== RESPONSIVE — TABLET ===== */
 @media(max-width:768px){
   .hdr{padding:10px 14px 10px calc(14px + env(safe-area-inset-left, 0px))}
