@@ -1,0 +1,71 @@
+name: Keep Alive
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # First of every month at UTC 00:00
+
+permissions:
+  contents: write
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update keep_alive timestamp
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          from datetime import datetime, timezone, timedelta
+
+          # Get current timestamp in Taiwan timezone (UTC+8)
+          taipei_tz = timezone(timedelta(hours=8))
+          now = datetime.now(taipei_tz)
+          CURRENT_TIME = now.strftime('%Y-%m-%d %H:%M:%S')
+          CURRENT_MONTH = now.strftime('%Y-%m')
+
+          # Read current health data
+          health_file = 'data/health.json'
+          if os.path.exists(health_file):
+            with open(health_file, 'r') as f:
+              health = json.load(f)
+          else:
+            health = {
+              "status": "ok",
+              "last_missed": None,
+              "consecutive_failures": 0,
+              "keep_alive": None,
+              "note": ""
+            }
+
+          # Update keep_alive timestamp
+          health["keep_alive"] = CURRENT_TIME
+
+          # Write updated health data
+          with open(health_file, 'w') as f:
+            json.dump(health, f, indent=2, ensure_ascii=False)
+
+          print(f"Updated keep_alive timestamp: {CURRENT_TIME}")
+          print(f"Current month: {CURRENT_MONTH}")
+          EOF
+
+          CURRENT_MONTH=$(TZ=Asia/Taipei date +%Y-%m)
+          echo "CURRENT_MONTH=$CURRENT_MONTH" >> $GITHUB_ENV
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/health.json
+
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            COMMIT_MSG="🔄 Keep alive ${{ env.CURRENT_MONTH }}"
+            git commit -m "$COMMIT_MSG"
+            git push
+          else
+            echo "No changes to commit"
+          fi

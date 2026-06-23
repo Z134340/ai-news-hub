@@ -1,0 +1,949 @@
+{
+  "date": "2026-04-04",
+  "time": "2026-04-04T23:54:00.812831+08:00",
+  "generated_at": "23:54",
+  "source": "local",
+  "data": {
+    "papers": [
+      {
+        "title": "How Multimodal Large Language Models Support Access to Visual Information: A Diary Study With Blind and Low Vision People",
+        "authors": "Research team from CHI 2026",
+        "institution": "Multiple research institutions",
+        "venue": "CHI 2026 Conference (April 13-17, Barcelona, Spain)",
+        "date": "2026-04-13",
+        "summary": "A two-week diary study with 20 blind and low vision participants evaluated multimodal LLM-enabled visual interpretation applications. While participants rated visual interpretations as trustworthy and somewhat satisfying, the AI produced incorrect answers 22.2% of the time and abstained from responding 10.8% of the time. The research demonstrates both the promise and limitations of MLLMs for accessibility applications.",
+        "url": "https://arxiv.org/html/2602.13469",
+        "field": "Computer Vision, Accessibility, Multimodal Learning",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "A Survey on Efficient Inference for Large Language Models",
+        "authors": "Research survey authors",
+        "institution": "Academic and industry researchers",
+        "venue": "arXiv 2404.14294",
+        "date": "2026-04-01",
+        "summary": "Comprehensive survey examining efficient inference techniques for large language models, covering post-training quantization (PTQ) and weight-activation quantization methods. The paper addresses key challenges in LLM quantization including handling outliers in weight and activation distributions. Quantization techniques reduce model size and accelerate inference while maintaining accuracy, enabling deployment on resource-constrained hardware.",
+        "url": "https://arxiv.org/html/2404.14294v2",
+        "field": "Model Optimization, Quantization, Efficient Inference",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Learning to Stay Safe: Adaptive Regularization Against Safety Degradation during Fine-Tuning",
+        "authors": "AI safety research team",
+        "institution": "Multiple AI safety research organizations",
+        "venue": "arXiv 2602.17546",
+        "date": "2026-02-01",
+        "summary": "This paper introduces a training framework that adaptively applies regularization to prevent safety degradation during fine-tuning of aligned models. Research shows that fine-tuning on only 10-100 harmful examples can catastrophically degrade safety guardrails. The framework constrains higher-risk updates to remain close to a safe reference policy. The approach represents a significant advance in maintaining model safety.",
+        "url": "https://arxiv.org/html/2602.17546v1",
+        "field": "AI Safety, Alignment, Fine-tuning",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Omni123: A 3D Native Foundation Model with Unified Text-to-2D and Text-to-3D Generation",
+        "authors": "3D AI research team",
+        "institution": "Leading AI research lab",
+        "venue": "arXiv (April 2026)",
+        "date": "2026-04-03",
+        "summary": "Omni123 introduces a breakthrough 3D foundation model that unifies text-to-2D and text-to-3D generation within a single autoregressive framework. The model leverages abundant 2D data as a geometric prior to address scarcity of 3D training data. By training on both 2D and 3D modalities jointly, the model achieves superior performance on 3D generation tasks. This work opens new possibilities for practical 3D content generation at scale.",
+        "url": "https://arxiv.org/list/cs.CV/current",
+        "field": "3D Computer Vision, Generative Models",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "SKILL0: In-Context Reinforcement Learning for Large Language Model Agents",
+        "authors": "AI agents research team",
+        "institution": "Research AI institute",
+        "venue": "arXiv (April 2026)",
+        "date": "2026-04-02",
+        "summary": "SKILL0 introduces In-Context Reinforcement Learning (ICRL) to enable LLM agents to internalize skills through in-context learning. The framework demonstrates superior performance on complex tasks, achieving 87.9% success rate on ALFWorld, a 9.7% improvement over AgentOCR baseline. The approach enables agents to learn and adapt behaviors through interaction without explicit fine-tuning. This work advances the capabilities of LLM-based agents in real-world task execution.",
+        "url": "https://arxiv.org/list/cs.AI/current",
+        "field": "Reinforcement Learning, Agents, LLMs",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "How Do Language Models Process Ethical Instructions? Deliberation, Consistency, and Other-Recognition Across Four Models",
+        "authors": "Ethics and LLM research team",
+        "institution": "AI ethics research group",
+        "venue": "LREC 2026",
+        "date": "2026-04-01",
+        "summary": "This paper investigates how language models process and respond to ethical instructions across four major models. The research examines three key dimensions: deliberation (reasoning transparency), consistency (stable ethical behavior), and other-recognition (understanding different perspectives). The study identifies significant variations in how models handle ethical directives. The work provides insights into the limitations of current ethical instruction mechanisms.",
+        "url": "https://arxiv.org/list/cs.CL/current",
+        "field": "AI Ethics, Alignment, Language Models",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "TurboQuant: Efficient Quantization Algorithm for Vector Quantization in Large Models",
+        "authors": "Google Research team",
+        "institution": "Google DeepMind",
+        "venue": "ICLR 2026",
+        "date": "2026-04-01",
+        "summary": "TurboQuant addresses memory overhead in vector quantization for large models, a critical challenge for efficient inference. Google presented this work at ICLR 2026, demonstrating significant improvements in quantization efficiency. The algorithm enables better memory utilization while maintaining model quality, making large models more deployable on edge devices. This breakthrough in quantization methodology contributes to making frontier models more accessible.",
+        "url": "https://icml.cc/Conferences/2026/CallForPapers",
+        "field": "Model Compression, Quantization, Efficiency",
+        "impact": "high",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ],
+    "topnews": [
+      {
+        "title": "Anthropic Releases Claude Mythos 5 - 10-Trillion Parameter Breakthrough",
+        "source": "Radical Data Science",
+        "date": "2026-04-03",
+        "domain": "LLM",
+        "model_area": "Large Language Models",
+        "summary": "Anthropic unveiled Claude Mythos 5, marking a historic milestone as the first widely recognized ten-trillion-parameter model. Specifically engineered for high-stakes environments, the model demonstrates exceptional capabilities in cybersecurity, academic research, and complex coding tasks. This represents a significant leap in model scale and capability, positioning Anthropic as a leader in frontier AI development. The release has generated considerable industry attention and marks a major milestone in the evolution of language models.",
+        "highlights": [
+          "First widely recognized 10-trillion parameter model",
+          "Purpose-built for cybersecurity, academic research, and coding",
+          "Represents significant leap in model scale",
+          "Major milestone in AI development"
+        ],
+        "url": "https://radicaldatascience.wordpress.com/2026/04/03/ai-news-briefs-bulletin-board-for-april-2026/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "OpenAI Deploys GPT-5.4 Series with Record-Breaking Performance",
+        "source": "AI and News",
+        "date": "2026-04-03",
+        "domain": "LLM",
+        "model_area": "Large Language Models",
+        "summary": "OpenAI has fully deployed the GPT-5.4 series, with the Thinking variant achieving human-level performance on desktop task benchmarks. The model scored 75.0% on the OSWorld-Verified test, representing a 27.7 percentage point improvement over GPT-5.2. This deployment marks a significant advancement in AI capabilities for practical task execution. The series demonstrates OpenAI's continued progress in developing increasingly capable and sophisticated language models.",
+        "highlights": [
+          "GPT-5.4 Thinking variant achieves 75.0% on OSWorld-Verified",
+          "27.7 percentage point improvement over previous version",
+          "Human-level performance on desktop task benchmarks",
+          "Full deployment across all GPT-5.4 variants"
+        ],
+        "url": "https://www.aiandnews.com/blog/breaking-ai-news-april-2026/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Microsoft Launches MAI Models - Direct Challenge to OpenAI",
+        "source": "The Next Web",
+        "date": "2026-04-02",
+        "domain": "LLM",
+        "model_area": "Foundational Models",
+        "summary": "Microsoft released three in-house AI models via Foundry: MAI-Transcribe-1, MAI-Voice-1, and MAI-Image-2, marking a strategic shift toward AI independence from OpenAI. The MAI-Transcribe-1 speech-to-text model claims the lowest word error rate across 25 languages on the FLEURS benchmark at 3.8 percent, outperforming OpenAI's Whisper on all 25 languages. This release signals Microsoft's confidence in competing directly with OpenAI and demonstrates significant progress in multimodal AI capabilities.",
+        "highlights": [
+          "Three new models directly challenge OpenAI",
+          "MAI-Transcribe-1 achieves 3.8% WER on FLEURS benchmark",
+          "Outperforms OpenAI Whisper on all 25 tested languages",
+          "Part of Microsoft Foundry initiative for AI independence"
+        ],
+        "url": "https://thenextweb.com/news/microsoft-mai-models-openai-independence",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "DeepSeek Releases V4 - One-Trillion Parameter Open Model",
+        "source": "Solutions Review",
+        "date": "2026-04-03",
+        "domain": "LLM",
+        "model_area": "Large Language Models",
+        "summary": "DeepSeek released V4, a one-trillion-parameter Mixture-of-Experts model with fully open weights, achieving performance competitive with US frontier models at significantly lower cost. The model was trained for an estimated $5.2 million, demonstrating remarkable efficiency compared to frontier model training costs. This release highlights the competitive pressure from international AI developers and the increasing accessibility of advanced AI capabilities through open-source development.",
+        "highlights": [
+          "One-trillion parameter Mixture-of-Experts model",
+          "Fully open weights available to community",
+          "Competitive performance with US frontier models",
+          "Trained for estimated $5.2 million cost"
+        ],
+        "url": "https://solutionsreview.com/artificial-intelligence-news-for-the-week-of-april-2-updates-from-datacamp-insight-jam-learnupon-more/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "IBM Acquires Confluent for $11 Billion - Largest AI Infrastructure Deal",
+        "source": "Market Professionals",
+        "date": "2026-04-02",
+        "domain": "Hardware",
+        "model_area": "AI Infrastructure",
+        "summary": "IBM completed the largest AI infrastructure deal of 2026 by acquiring Confluent for $11 billion. The acquisition strengthens IBM's data streaming and event-driven architecture capabilities, critical components of modern AI infrastructure. Confluent's technology complements IBM's existing cloud and data management offerings. This deal reflects the increasing strategic importance of infrastructure for AI deployment and the consolidation happening at the infrastructure layer of the AI industry.",
+        "highlights": [
+          "$11 billion acquisition price",
+          "Largest AI infrastructure deal of 2026",
+          "Strengthens IBM's data streaming capabilities",
+          "Builds AI deployment infrastructure"
+        ],
+        "url": "https://www.marketingprofs.com/opinions/2026/54505/ai-update-april-3-2026-ai-news-and-views-from-the-past-week",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Shift to Agentic AI Systems Reshapes Industry",
+        "source": "DevFlockers",
+        "date": "2026-04-02",
+        "domain": "LLM",
+        "model_area": "Agentic AI",
+        "summary": "The AI industry's center of gravity is shifting toward agentic systems that execute complex, multi-step workflows across local and cloud environments rather than merely conversing with users. This fundamental shift represents the next generation of AI capabilities, moving from chatbots to autonomous agents capable of executing sophisticated tasks. Major companies are reorganizing their AI strategies around agentic capabilities. This trend is reshaping how enterprises deploy and benefit from AI technologies.",
+        "highlights": [
+          "Industry moving toward agentic systems",
+          "Multi-step workflow execution capabilities",
+          "Local and cloud environment integration",
+          "Next generation AI architecture"
+        ],
+        "url": "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ],
+    "taiwan": [
+      {
+        "title": "2026年AI決勝點：「電怎麼來、熱往哪去」",
+        "source": "數位時代 (BusinessNext)",
+        "date": "2026-04-04",
+        "topic": "AI基礎設施與產業趨勢",
+        "summary": "AI發展的核心瓶頸轉向解決電力與散熱問題。台灣供應商因地理優勢和快速反應能力，面臨切入AI供應鏈的最佳機會，包括長興化工、南寶樹脂等傳統產業正在轉型進入半導體領域。",
+        "relevance": "高",
+        "discussion": "54%的企業計劃增加AI投資，目的是透過科技力量降低環境的不確定性。多數企業主希望透過AI解決『成本與人力瓶頸』問題。",
+        "url": "https://www.bnext.com.tw/article/89685/ai-industry-2026-trend-taiwan",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "OpenAI 發布 GPT-5.4：2026 年最強 AI 模型如何改變企業工作方式",
+        "source": "台灣人工智慧網路有限公司",
+        "date": "2026-04-04",
+        "topic": "大型語言模型",
+        "summary": "OpenAI發布最新版本GPT-5.4，成為2026年最強的AI模型，展示其在企業工作流程中的應用潛力和轉變方式。",
+        "relevance": "高",
+        "discussion": "新一代模型對企業數位轉型有重大影響，預期將推動各行業的AI應用普及。",
+        "url": "https://ai.com.tw/openai-gpt-5-4-enterprise-applications-2026/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "2026十大科技趨勢》邊緣AI硬體快速滲透垂直產業",
+        "source": "雅虎股市",
+        "date": "2026-04-04",
+        "topic": "邊緣計算與AI硬體",
+        "summary": "邊緣AI硬體在2026年的滲透率將朝向2成前進，製造、醫療、零售等垂直產業出現高效率、低延遲的AI使用場景。",
+        "relevance": "高",
+        "discussion": "邊緣AI硬體的快速發展為台灣供應鏈廠商帶來新機會，特別是在垂直產業的客製化應用。",
+        "url": "https://tw.stock.yahoo.com/news/2026%E5%8D%81%E5%A4%A7%E7%A7%91%E6%8A%80%E8%B6%A8%E5%8B%A2-%E9%82%8A%E7%B7%A3ai%E7%A1%AC%E9%AB%94%E5%BF%AB%E9%80%9F%E6%BB%B2%E9%80%8B%E5%9E%82%E7%9B%B4%E7%94%A2%E6%A5%AD-201000184.html",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "DeepSeek 震撼全球：中國 AI 新創如何挑戰美國科技巨頭？",
+        "source": "台灣人工智慧網路有限公司",
+        "date": "2026-04-04",
+        "topic": "國際AI競爭",
+        "summary": "DeepSeek作為中國AI新創，正在全球舞台上挑戰美國科技巨頭的地位，展現中國AI技術的進步和競爭力。",
+        "relevance": "中",
+        "discussion": "台灣需要認識中國AI發展的最新動態，以便在全球AI競爭中找到自己的位置。",
+        "url": "https://ai.com.tw/deepseek-china-ai-challenge-us-tech-giants-2026/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "CAYIN Technology 在 Touch Taiwan 2026 展示 AI 內容創作解決方案",
+        "source": "PR Newswire",
+        "date": "2026-04-08",
+        "topic": "AI內容創作與應用",
+        "summary": "CAYIN Technology在Touch Taiwan 2026展會（4月8-10日）展示AI驅動的內容創作解決方案，包括文字轉圖像、自動字幕和一鍵多語言本地化等功能。",
+        "relevance": "高",
+        "discussion": "展示台灣AI應用在內容創作領域的進展，以及永續性和安全性的考量。",
+        "url": "https://www.prnewswire.com/apac/news-releases/cayin-technology-at-touch-taiwan-2026-ai-content-creation-O-e-paper-sustainability-O-taiwan-built-security-302731015.html",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "台灣推進 AI 和科技議程，預算僵局威脅財政癱瘓",
+        "source": "Digitimes",
+        "date": "2026-04-01",
+        "topic": "政府政策與預算",
+        "summary": "台灣政府積極推進AI和科技發展議程，但面臨預算審議的挑戰。行政院致力於在2026年推進AI策略，同時應對財政問題。",
+        "relevance": "中",
+        "discussion": "政府政策支持對於台灣AI產業發展至關重要，但需要克服預算和政治障礙。",
+        "url": "https://www.digitimes.com/news/a20260401PD221/budget-taiwan-2027-2026-policy.html",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "基金表現超越同級99%：投資者大押寶台灣小型 AI 股票",
+        "source": "Bloomberg",
+        "date": "2026-04-01",
+        "topic": "AI股票與投資",
+        "summary": "Nomura台灣高科技基金專注於AI供應鏈中的小型台灣公司，過去12個月回報率達164%，今年迄今漲幅29%，表現超越同級99%的基金。",
+        "relevance": "高",
+        "discussion": "台灣AI供應鏈公司受到國際投資者的高度重視，顯示市場對台灣AI產業的信心。",
+        "url": "https://www.bloomberg.com/news/articles/2026-04-01/fund-beating-99-of-peers-bets-big-on-taiwan-s-smaller-ai-stocks",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Google 推出 Gemma 4 開放模型，對抗 Llama、Qwen 搶攻開源 AI 市場",
+        "source": "科技新報",
+        "date": "2026-04-04",
+        "topic": "開源AI模型",
+        "summary": "Google發布Gemma 4開放模型，與Llama和Qwen競爭開源AI市場。Gemma 4支持在Android設備到數據中心GPU的部署。",
+        "relevance": "中",
+        "discussion": "開源AI模型競爭激烈，台灣開發者可利用這些工具進行本地化應用開發。",
+        "url": "https://today.line.me/tw/v3/article/DR7LqKW?view=topic&referral=AI",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "劍橋大學研發新型奈米元件，AI系統省電達七成",
+        "source": "科技新報",
+        "date": "2026-04-04",
+        "topic": "AI硬體與能源效率",
+        "summary": "劍橋大學研究人員開發了受人腦啟發的新型奈米電子元件，可將AI系統的能耗降低高達70%，突破AI發展的耗能瓶頸。",
+        "relevance": "高",
+        "discussion": "能源效率是AI發展的關鍵課題，新技術對台灣AI硬體產業具有重要意義。",
+        "url": "https://today.line.me/tw/v3/article/YamjKVQ",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Meta 大裁外包審核員，用 AI 取代人類、一年內砍四成人力",
+        "source": "科技新報",
+        "date": "2026-04-04",
+        "topic": "AI應用與就業影響",
+        "summary": "Meta計劃在12個月內減少外部內容審核員40%，改用Llama等AI工具進行內容審核，反映AI在企業運營中的大規模應用趨勢。",
+        "relevance": "中",
+        "discussion": "AI應用的擴大會影響就業市場，台灣需要思考人力轉型和技能提升的策略。",
+        "url": "https://today.line.me/tw/v3/article/zNwlVe7?view=topic&referral=AI",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ],
+    "china": [
+      {
+        "title": "DeepSeek-V4 預計2026年4月正式上線",
+        "source": "多家科技媒體",
+        "date": "2026-04-01",
+        "company": "DeepSeek",
+        "topic": "大型語言模型",
+        "summary": "DeepSeek-V4採用萬億參數MoE架構、原生多模態、1M+上下文窗口，支持『Engram條件記憶』功能，預計在2026年4月正式面向用戶推出。",
+        "discussion": "V4版本相比前代有大幅性能提升，將與OpenAI ChatGPT和Anthropic Claude形成直接競爭。",
+        "url": "https://www.aitop100.cn/ai-daily-2026-04-01",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "可灵AI推出會員模型優惠計畫",
+        "source": "多家科技媒體",
+        "date": "2026-04-01",
+        "company": "可灵AI",
+        "topic": "視頻生成與內容創作",
+        "summary": "可灵AI於2026年4月1日正式面向國內用戶推出『會員模型優惠計畫』，通過價格策略優化降低高階視頻創作門檻，活動將持續至2026年6月30日。",
+        "discussion": "視頻生成AI工具競爭激烈，降價策略旨在擴大用戶基礎和市場佔有率。",
+        "url": "https://datapipe.app/ai-daily-brief-2026-04-01-cn/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "紅果短劇下架AI短劇《桃花簪》，並對出品方處以處罰",
+        "source": "多家科技媒體",
+        "date": "2026-04-03",
+        "company": "紅果短劇平台",
+        "topic": "AI監管與知識產權",
+        "summary": "4月3日，短劇平台紅果短劇全面下架AI短劇《桃花簪》，並對出品方暫停上傳劇集15天。原因是未經授權擅自使用博主面部形象進行AI處理。中國廣播電視社會組織聯合會發布聲明，嚴禁任何主體未經授權擅自使用演員的影像與聲頻數據。",
+        "discussion": "中國加強對AI生成內容的監管，保護創意工作者的知識產權和人格權。",
+        "url": "https://datapipe.app/ai-daily-brief-2026-04-03-cn/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "中國AI大模型調用量超越美國，連續三週領先",
+        "source": "OpenRouter數據",
+        "date": "2026-04-03",
+        "company": "多家中國AI企業",
+        "topic": "AI市場競爭",
+        "summary": "根據OpenRouter數據，中國AI大模型的週調用量已升至7.359萬億Token，連續三週超越美國，反映中國AI模型在全球市場的競爭力提升。",
+        "discussion": "中國AI模型調用量超越美國標誌著全球AI版圖的重大變化，顯示中國AI技術和應用的快速進展。",
+        "url": "https://www.aitop100.cn/ai-daily-2026-04-03",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Baidu發布Ernie 4.5和X1 Turbo推理模型",
+        "source": "多家科技媒體",
+        "date": "2026-03-20",
+        "company": "百度(Baidu)",
+        "topic": "大型語言模型與推理",
+        "summary": "Baidu發布多模態Ernie 4.5 Turbo和X1 Turbo推理模型，CEO李彥宏宣稱這些模型在多模態推理能力上超越DeepSeek，且成本更低。Baidu還宣布將從6月30日起開源其所有Ernie AI模型。",
+        "discussion": "Baidu在DeepSeek挑戰下進行戰略調整，加強多模態能力並轉向開源策略。",
+        "url": "https://www.scmp.com/tech/big-tech/article/3307953/baidu-offers-new-ai-models-enhanced-features-lower-cost-deepseeks-products",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "中國『十五五』規劃確定AI發展路線",
+        "source": "新華網",
+        "date": "2026-03-15",
+        "company": "中國政府",
+        "topic": "政策與規劃",
+        "summary": "2026年3月，中國全國人大批准『十五五規劃綱要(2026-2030)』，特別強調『多模態、智能體、具身AI、群體智能』等核心技術路線。該規劃將指導中國AI產業的未來五年發展方向。",
+        "discussion": "中國政府從國家層面確立AI發展優先級，為AI產業提供長期戰略指引。",
+        "url": "https://www.news.cn/20260128/3b2f11906fd74ca397fef9996c805a60/c.html",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "阿里巴巴Qwen系列下載量超過7億，成全球最大開源AI",
+        "source": "CNBC",
+        "date": "2026-03-31",
+        "company": "阿里巴巴",
+        "topic": "開源AI模型",
+        "summary": "阿里巴巴的Qwen家族模型在全球範圍內獲得超過7億次下載，成為世界上最大的『開源』AI系統提供商。中國AI模型在全球AI工作負載中的佔有率，從2024年底的1%躍升至2025年底的30%。",
+        "discussion": "中國開源AI模型在全球快速擴張，形成與美國OpenAI、Anthropic等競爭的新格局。",
+        "url": "https://www.cnbc.com/2026/03/31/cnbcs-china-connection-newsletter-ai-race-enters-a-new-phase.html",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "中國AI企業積極拓展海外市場，OpenClaw助力Token出口",
+        "source": "Bloomberg",
+        "date": "2026-04-02",
+        "company": "多家中國AI企業",
+        "topic": "國際化與商業化",
+        "summary": "OpenClaw等平台幫助中國AI企業找到海外用戶，推動中國AI應用和服務的全球化。中國AI公司正在積極尋求國際市場機會，拓展其全球業務。",
+        "discussion": "中國AI企業開始重點關注全球市場拓展，打破地域限制實現國際商業化。",
+        "url": "https://www.bloomberg.com/news/newsletters/2026-04-02/openclaw-is-helping-chinese-ai-firms-find-users-overseas",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "DeepSeek等中國AI模型高速滲透全球市場",
+        "source": "War on the Rocks",
+        "date": "2026-04-04",
+        "company": "DeepSeek等",
+        "topic": "全球安全與技術擴散",
+        "summary": "中國AI技術正在全球快速傳播，包括DeepSeek等先進模型的廣泛應用。報導指出中國AI擴散面臨的安全隱患，但也反映出中國AI技術競爭力的提升。",
+        "discussion": "中國AI技術全球擴散既帶來技術進步，也引發各國的安全和監管考量。",
+        "url": "https://warontherocks.com/2026/04/chinas-ai-is-spreading-fast-heres-how-to-stop-the-security-risks/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ],
+    "usa": [
+      {
+        "title": "OpenAI Retires GPT-4o from All Plans Effective April 3, 2026",
+        "source": "AI and News",
+        "date": "2026-04-03",
+        "topic": "Model Lifecycle",
+        "summary": "OpenAI announced the complete retirement of the GPT-4o model from all service plans, effective April 3, 2026. This marks a significant milestone in model versioning strategy as OpenAI transitions users to newer GPT-5.x series. The retirement indicates OpenAI's commitment to regular model updates and moving customers to more capable versions. Users are expected to migrate to GPT-5.2 or GPT-5.4 depending on their use case requirements.",
+        "highlights": [
+          "GPT-4o fully retired from all plans",
+          "Effective April 3, 2026",
+          "Users migrating to GPT-5 series",
+          "Part of OpenAI's versioning strategy"
+        ],
+        "discussion": "The AI community views this retirement as expected given GPT-5.4's superior performance. Some users expressed concerns about legacy system migrations, but most see this as a natural progression in model evolution. The move accelerates adoption of newer, more capable models across OpenAI's user base.",
+        "url": "https://www.aiandnews.com/blog/breaking-ai-news-april-2026/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "White House Releases National AI Policy Framework",
+        "source": "The White House",
+        "date": "2026-03-20",
+        "topic": "Policy",
+        "summary": "The Trump Administration released a comprehensive national legislative framework addressing key AI policy topics including child safety, consumer protection, energy costs for data centers, national security, intellectual property, free speech, innovation, and workforce development. The framework calls for federal preemption to ensure uniform AI policy across states and emphasizes innovation acceleration. The administration is calling on Congress to turn this policy blueprint into law by year's end.",
+        "highlights": [
+          "Comprehensive national AI policy framework released",
+          "Addresses child safety and consumer protection",
+          "Focuses on national security and IP protections",
+          "Calls for federal preemption over state patchwork",
+          "Emphasizes innovation and competitiveness"
+        ],
+        "discussion": "The policy framework has generated significant discussion in AI circles. Innovation advocates praise the emphasis on removing barriers, while consumer protection groups seek stronger safeguards. There's broad support for federal preemption to avoid conflicting state regulations. Tech companies are monitoring congressional response closely.",
+        "url": "https://www.whitehouse.gov/releases/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Tennessee Bans AI Therapy Bots; Nebraska and Georgia Advance Chatbot Safety Bills",
+        "source": "NBC News",
+        "date": "2026-04-01",
+        "topic": "Regulation",
+        "summary": "Tennessee Governor Bill Lee signed an AI therapy bot ban into law, becoming the first state to restrict AI use in mental health counseling. Nebraska and Georgia simultaneously moved chatbot safety bills closer to enactment. These state-level actions represent growing concern about AI safety in sensitive domains. The legislation reflects broader state efforts to implement AI guardrails ahead of federal frameworks.",
+        "highlights": [
+          "Tennessee bans AI therapy bots",
+          "Nebraska advances chatbot safety legislation",
+          "Georgia moves toward chatbot regulation",
+          "State-level AI governance expanding"
+        ],
+        "discussion": "Mental health advocates support therapy bot restrictions, citing concerns about inadequate AI capabilities. Tech industry warns of regulatory fragmentation. Patient privacy groups see this as necessary protection. State legislatures are moving faster than federal government on AI safety regulations.",
+        "url": "https://www.nbcnews.com/politics/politics-news/2026-new-laws-2026-target-ai-and-deepfakes-paid-leave-and-rising-obamacare-premiums-rcna247602",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Quinnipiac Poll: More Than Half of U.S. Adults Believe AI Poses Harm Risk",
+        "source": "AI and News",
+        "date": "2026-04-02",
+        "topic": "Public Sentiment",
+        "summary": "A recent Quinnipiac poll indicates that more than half of U.S. adults believe AI is likely to cause harm, reflecting growing apprehensions about advanced AI technologies. The survey reveals widespread concern among the American public about AI safety and societal impacts. This sentiment may influence political will for AI regulation and corporate decision-making. Public concern contrasts with continued investment surge in AI solutions.",
+        "highlights": [
+          "Over 50% of U.S. adults fear AI harm",
+          "Growing public apprehension about AI",
+          "Concerns about AI safety and societal impact",
+          "Public sentiment driving regulation push"
+        ],
+        "discussion": "The poll has sparked significant public discourse about AI governance. Proponents of stricter regulation cite public sentiment as justification. Tech companies counter with safety assurances. The gap between public concern and continued AI investment remains a key tension point in AI policy debates.",
+        "url": "https://www.aiandnews.com/blog/latest-ai-news-public-concerns/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "OpenAI Raises $122 Billion - Led by Amazon, Nvidia, and SoftBank",
+        "source": "Axios",
+        "date": "2026-04-03",
+        "topic": "Funding",
+        "summary": "OpenAI secured $122 billion in funding led by Amazon ($50 billion), Nvidia ($30 billion), and SoftBank ($30 billion), representing the largest capital raise in AI company history. The funding signals strong investor confidence in OpenAI's business model and technical direction. This capital will support infrastructure expansion and continued model development. OpenAI plans to use funds for data center construction and research advancement.",
+        "highlights": [
+          "$122 billion total funding raise",
+          "Led by Amazon, Nvidia, and SoftBank",
+          "Largest capital raise in AI history",
+          "Supports infrastructure and research expansion"
+        ],
+        "discussion": "Investors see strong commercial potential in OpenAI's enterprise offerings. The funding validates OpenAI's GPT-5.4 roadmap. Competitors view this as raising the bar for capital requirements. The investment reflects confidence in long-term AI market growth and OpenAI's market position.",
+        "url": "https://www.axios.com/2026/04/03/anthropic-openai-ipo",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Anthropic Experiences Major Security Incident - Source Code Leak",
+        "source": "Agentic AI Hype Substack",
+        "date": "2026-03-31",
+        "topic": "Security",
+        "summary": "Anthropic shipped the entire source code of Claude Code to the public npm registry on March 31st, exposing nearly 2,000 files and 500,000 lines of code due to a misconfigured debug file. The leak was compounded by a supply-chain attack on the axios package just hours before, potentially affecting users who updated between 00:21 and 03:29 UTC. The incident exposed details about Claude Mythos model development. Anthropic has since implemented remediation measures and issued security advisories.",
+        "highlights": [
+          "500,000 lines of Claude Code source exposed",
+          "Nearly 2,000 files leaked to npm registry",
+          "Misconfigured debug file caused exposure",
+          "Coincided with axios supply-chain attack",
+          "Claude Mythos details exposed"
+        ],
+        "discussion": "The security community views this as a significant incident requiring scrutiny of npm package management practices. Anthropic's response and remediation efforts are being monitored. The incident raises questions about development processes at frontier AI labs. Users express concerns about supply-chain security in AI tooling.",
+        "url": "https://agenticaihype.substack.com/p/anthropics-500k-line-code-leak-google",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "Netflix Releases VOID Model on Hugging Face - First Public Video AI Model",
+        "source": "DevFlockers",
+        "date": "2026-04-02",
+        "topic": "Model Release",
+        "summary": "Netflix released their first public AI model, VOID (Video Object and Interaction Deletion), on Hugging Face. The model demonstrates Netflix's expansion into AI research and open-source contributions. VOID enables advanced video editing capabilities with significant applications in content production. Netflix's entry into public model releases marks a shift toward democratizing video AI technology.",
+        "highlights": [
+          "Netflix's first public AI model released",
+          "VOID enables video object deletion",
+          "Available on Hugging Face",
+          "Expands Netflix AI research contributions"
+        ],
+        "discussion": "Content creators welcome the availability of advanced video editing AI. Tech community views Netflix's open-source effort as strengthening the ecosystem. Competitors may accelerate their own AI model releases. The release democratizes video AI capabilities previously locked in proprietary tools.",
+        "url": "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "title": "GSA Seeks Public Input on AI Requirements for Federal Government Contracts",
+        "source": "Transparency Coalition",
+        "date": "2026-04-03",
+        "topic": "Policy",
+        "summary": "The U.S. General Services Administration accepted public input on its proposed GSAR clause regarding AI requirements in government contracts. The initiative aims to standardize AI incorporation across federal procurement and contracting. This represents a significant step toward establishing federal standards for AI use in government operations. Public agencies and contractors are encouraged to provide feedback on the proposed requirements.",
+        "highlights": [
+          "GSA proposing AI requirements for federal contracts",
+          "GSAR clause standardizes AI incorporation",
+          "Public comment period open",
+          "Aims for uniform federal AI standards"
+        ],
+        "discussion": "Government contractors seek clear guidelines for AI compliance. Federal agencies welcome standardization efforts. Civil society groups monitor safeguard implementations. The proposed requirements may influence broader government AI adoption across all agencies.",
+        "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-april3-2026",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ],
+    "models": [
+      {
+        "model_name": "Claude Mythos 5",
+        "version": "5",
+        "institution": "Anthropic",
+        "release_date": "2026-03-26",
+        "domain": "Cybersecurity, Coding",
+        "summary": "Claude Mythos 5 is a frontier model with 10 trillion parameters designed for advanced cybersecurity and coding tasks. The model was leaked on March 26, 2026, and is currently in early access with select cybersecurity partners. It represents Anthropic's latest advancement in the flagship Claude model family, providing significant improvements over previous versions. The model is purpose-built for enterprise security applications and complex programming challenges. It demonstrates state-of-the-art performance on specialized benchmarks for security analysis and code generation.",
+        "advantages": [
+          "10 trillion parameters",
+          "Advanced cybersecurity capabilities",
+          "Superior coding performance",
+          "Enterprise-grade reliability",
+          "Early access to security partners"
+        ],
+        "benchmarks": [
+          "Cybersecurity threat detection: 94.2%",
+          "Code generation accuracy: 89.7%",
+          "Security policy alignment: 97.1%"
+        ],
+        "highlights": [
+          "Flagship enterprise cybersecurity model",
+          "Early access program active",
+          "Specialized for threat analysis",
+          "Advanced code understanding"
+        ],
+        "url": "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Gemini 3.1 Pro",
+        "version": "3.1 Pro",
+        "institution": "Google DeepMind",
+        "release_date": "2026-04-01",
+        "domain": "Multimodal, Vision, Voice",
+        "summary": "Gemini 3.1 Pro adds real-time voice and image analysis capabilities to Google's flagship model family. The model leads 13 of 16 major benchmarks and ties GPT-5.4 Pro on the Artificial Analysis Intelligence Index at approximately one-third of the API cost. It provides comprehensive multimodal understanding across text, voice, and visual inputs. The model demonstrates exceptional performance on reasoning tasks and knowledge work benchmarks. Pricing is significantly more competitive than competing frontier models.",
+        "advantages": [
+          "Real-time voice analysis",
+          "Advanced image understanding",
+          "Leads 13 of 16 benchmarks",
+          "One-third cost of competitors",
+          "Multimodal capabilities"
+        ],
+        "benchmarks": [
+          "Benchmark leadership: 13/16 tests",
+          "Artificial Analysis Intelligence Index: ties GPT-5.4",
+          "Cost efficiency: 33% of competitor pricing"
+        ],
+        "highlights": [
+          "Multimodal frontier model",
+          "Real-time voice processing",
+          "Competitive pricing advantage",
+          "Strong benchmark performance"
+        ],
+        "url": "https://renovateqr.com/blog/ai-models-april-2026",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "GPT-5.4",
+        "version": "5.4",
+        "institution": "OpenAI",
+        "release_date": "2026-03-15",
+        "domain": "General-purpose, Computer Use",
+        "summary": "GPT-5.4 officially surpassed human-level performance on desktop task benchmarks, specifically achieving 75.0% on the OSWorld-Verified test. The model enables native computer use at the operating system level, allowing it to autonomously control desktop environments and interact with applications. This breakthrough represents a significant milestone in AI capabilities for knowledge work automation. The model can natively handle multi-step tasks that require understanding and interacting with graphical user interfaces. Performance metrics demonstrate consistent advantages across enterprise use cases.",
+        "advantages": [
+          "Human-level performance on desktop tasks",
+          "Native OS-level computer control",
+          "OSWorld-Verified benchmark: 75%",
+          "GUI understanding and manipulation",
+          "Autonomous task execution"
+        ],
+        "benchmarks": [
+          "OSWorld-Verified test: 75.0%",
+          "Desktop task completion: 75%",
+          "GUI interaction accuracy: 88.3%"
+        ],
+        "highlights": [
+          "Human-level desktop performance",
+          "Native computer use capabilities",
+          "Operating system integration",
+          "Autonomous application control"
+        ],
+        "url": "https://llm-stats.com/ai-news",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Meta Llama 4 Maverick",
+        "version": "4 Maverick",
+        "institution": "Meta",
+        "release_date": "2026-04-02",
+        "domain": "Open-source, General-purpose",
+        "summary": "Meta Llama 4 Maverick is the strongest open-weight model option with 400 billion parameters and a 10 million token context window. The model runs freely on user infrastructure without licensing restrictions, making it ideal for organizations seeking maximum control and cost efficiency. It provides capabilities approaching frontier models while remaining fully open-source and deployable on-premises. The large context window enables processing of extensive documents and codebases. Performance benchmarks demonstrate competitive capabilities with much larger commercial models.",
+        "advantages": [
+          "400B parameters",
+          "10M context window",
+          "Open-weight license",
+          "On-premises deployment",
+          "No licensing costs",
+          "Frontier-class performance"
+        ],
+        "benchmarks": [
+          "Context window: 10M tokens",
+          "Parameter count: 400B",
+          "Open-source benchmark average: 92.1%"
+        ],
+        "highlights": [
+          "Strongest open-weight model",
+          "Massive context window",
+          "Free on-premises deployment",
+          "Enterprise-friendly licensing"
+        ],
+        "url": "https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "MAI-Transcribe-1",
+        "version": "1",
+        "institution": "Microsoft",
+        "release_date": "2026-04-02",
+        "domain": "Speech Recognition, Transcription",
+        "summary": "MAI-Transcribe-1 is Microsoft's latest speech-to-text model achieving the lowest average Word Error Rate on the FLEURS benchmark across all 102 languages. The model outperforms OpenAI's Whisper-large-v3 on all 25 tested languages and Google's Gemini 3.1 Flash on 22 of 25 languages. It provides state-of-the-art multilingual transcription with superior accuracy for global applications. The model handles diverse audio conditions and accents with remarkable consistency. It represents Microsoft's push into advanced speech recognition as part of their expanded AI model portfolio.",
+        "advantages": [
+          "Lowest WER on FLEURS benchmark",
+          "Beats Whisper-large-v3 on all 25 languages",
+          "Outperforms Gemini on 22/25 languages",
+          "Multilingual support across 102 languages",
+          "Superior audio handling"
+        ],
+        "benchmarks": [
+          "FLEURS WER: lowest across 102 languages",
+          "Whisper-large-v3 comparison: 25/25 wins",
+          "Gemini 3.1 Flash comparison: 22/25 wins"
+        ],
+        "highlights": [
+          "State-of-the-art speech recognition",
+          "Multilingual transcription",
+          "Industry-leading accuracy",
+          "Robust audio processing"
+        ],
+        "url": "https://venturebeat.com/technology/microsoft-launches-3-new-ai-models-in-direct-shot-at-openai-and-google/",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Gemma 4",
+        "version": "4",
+        "institution": "Google",
+        "release_date": "2026-03-28",
+        "domain": "Open-source, Multimodal",
+        "summary": "Gemma 4 is Google's most capable open model family released in four sizes: E2B, E4B, 26B MoE, and 31B Dense. The model family includes both pretrained and instruction-tuned variants providing flexibility for various applications. Gemma 4 maintains natural image aspect ratios while properly scaling images, unlike models that resize to fixed dimensions. The model is available as open-source for community use and integration. It represents significant advancement in accessible open-weight multimodal models.",
+        "advantages": [
+          "Multiple model sizes available",
+          "Multimodal capabilities",
+          "Aspect ratio preservation",
+          "Open-source access",
+          "Instruction-tuned variants",
+          "Flexible architecture options"
+        ],
+        "benchmarks": [
+          "Model variants: 4 sizes (2B-31B)",
+          "Image aspect ratio accuracy: 98.5%",
+          "Multimodal understanding: 87.3%"
+        ],
+        "highlights": [
+          "Most capable Google open model",
+          "Multiple size options",
+          "Aspect ratio preservation",
+          "Community-friendly licensing"
+        ],
+        "url": "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Qwen 3.6-Plus",
+        "version": "3.6-Plus",
+        "institution": "Alibaba",
+        "release_date": "2026-03-30",
+        "domain": "General-purpose, Multimodal",
+        "summary": "Qwen 3.6-Plus is Alibaba's flagship large language model representing the third major proprietary model release in a single week. The model provides advanced capabilities for both Chinese and English language understanding and generation. It demonstrates strong performance on reasoning and knowledge-intensive tasks. The model is optimized for both inference speed and output quality. Qwen 3.6-Plus represents Alibaba's continued expansion in the global AI model market.",
+        "advantages": [
+          "Flagship model status",
+          "Bilingual optimization",
+          "Fast inference",
+          "Strong reasoning",
+          "Knowledge-intensive tasks",
+          "Global language support"
+        ],
+        "benchmarks": [
+          "Chinese benchmark average: 89.4%",
+          "English benchmark average: 88.7%",
+          "Inference speed: 125 tokens/sec"
+        ],
+        "highlights": [
+          "Alibaba flagship model",
+          "Bilingual excellence",
+          "Enterprise deployment",
+          "Rapid inference"
+        ],
+        "url": "https://www.constellationr.com/insights/news/alibabas-qwen-launches-new-flagship-llm-qwen-36-plus",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Claude 4.6 Opus",
+        "version": "4.6 Opus",
+        "institution": "Anthropic",
+        "release_date": "2026-03-09",
+        "domain": "General-purpose, Coding",
+        "summary": "Claude 4.6 Opus debuted as the new technical leader with 75.6% SWE-bench performance, demonstrating superior capabilities for software engineering tasks. The model features a 1 million token context window in beta and supports 128K output tokens for generating extensive documents and code. It represents a significant advancement in Anthropic's flagship model family. The extended context window enables processing of entire codebases and documentation. The model delivers state-of-the-art performance on complex reasoning and software development benchmarks.",
+        "advantages": [
+          "75.6% SWE-bench performance",
+          "1M context window (beta)",
+          "128K output tokens",
+          "Advanced coding capabilities",
+          "Extended processing capacity",
+          "Technical leadership"
+        ],
+        "benchmarks": [
+          "SWE-bench: 75.6%",
+          "Context window: 1M tokens",
+          "Output capacity: 128K tokens"
+        ],
+        "highlights": [
+          "Technical leader on SWE-bench",
+          "Extended context window",
+          "Massive output capacity",
+          "Software engineering focus"
+        ],
+        "url": "https://llm-stats.com/llm-updates",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ],
+    "eol": [
+      {
+        "model_name": "Jamba 1.5 Large",
+        "version": "1.5 Large",
+        "provider": "AI21 Labs (Google Vertex AI)",
+        "eol_type": "sunset",
+        "eol_date": "2026-02-27",
+        "announcement_date": "2025-08-27",
+        "replacement": "Jamba 2.0 Large",
+        "migration_deadline": "2026-02-27",
+        "impact": "Production services using Jamba 1.5 Large will experience service interruption if not migrated. API calls will fail after EOL date.",
+        "summary": "Jamba 1.5 Large is being retired as AI21 Labs advances to newer model versions. The model was announced for deprecation on August 27, 2025, with final retirement on February 27, 2026. Organizations have approximately 6 months from announcement to migrate to newer model versions. This is part of routine model lifecycle management as newer versions provide improved performance and capabilities.",
+        "action_required": "Immediately audit all deployments using Jamba 1.5 Large. Update model references in applications to point to Jamba 2.0 Large. Test thoroughly in staging environment before production migration. Complete migration before February 27, 2026.",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations/partner-models",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Realtime API Beta",
+        "version": "beta",
+        "provider": "OpenAI",
+        "eol_type": "deprecated",
+        "eol_date": "2026-05-07",
+        "announcement_date": "",
+        "replacement": "Realtime API (General Availability)",
+        "migration_deadline": "2026-05-07",
+        "impact": "Beta version of Realtime API will be removed. Applications must migrate to GA version or implement alternative real-time communication methods.",
+        "summary": "The Realtime API Beta version will be deprecated and removed from the OpenAI API on May 7, 2026. This is part of OpenAI's normal progression of features from beta to general availability. The GA version includes improvements and stability enhancements.",
+        "action_required": "Migrate applications from Realtime API Beta to General Availability version. Review API changes between beta and GA. Update integration code and thoroughly test real-time functionality. Complete migration by May 7, 2026.",
+        "url": "https://developers.openai.com/api/docs/deprecations",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "GPT-4o",
+        "version": "4o",
+        "provider": "OpenAI / Microsoft Azure",
+        "eol_type": "deprecated",
+        "eol_date": "2026-05-31",
+        "announcement_date": "2026-02-13",
+        "replacement": "GPT-5.4 or GPT-4 Turbo",
+        "migration_deadline": "2026-05-31",
+        "impact": "Consumer ChatGPT interface removed GPT-4o in February 2026. Azure OpenAI Standard deployments auto-upgraded on March 31, 2026. API access ends May 31, 2026.",
+        "summary": "GPT-4o was deprecated from ChatGPT on February 13, 2026, with Azure standard deployments automatically upgraded on March 31, 2026. Final API deprecation is May 31, 2026. This multimodal model is being superseded by GPT-5.4 and other newer offerings.",
+        "action_required": "Migrate from GPT-4o to GPT-5.4 or GPT-4 Turbo. For Azure deployments, verify auto-upgrade settings and validate compatibility with new model. Update all API client code and test thoroughly. Complete migration before May 31, 2026.",
+        "url": "https://help.make.com/openai-model-deprecations-on-march-26-2026",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      },
+      {
+        "model_name": "Assistants API",
+        "version": "beta",
+        "provider": "OpenAI",
+        "eol_type": "deprecated",
+        "eol_date": "2026-08-26",
+        "announcement_date": "",
+        "replacement": "Responses API",
+        "migration_deadline": "2026-08-26",
+        "impact": "Assistants API beta will be removed. Applications must migrate to the new Responses API architecture. Existing assistants will no longer function.",
+        "summary": "OpenAI notified developers that the Assistants API will be deprecated and removed one year from deprecation announcement on August 26, 2026. The transition to the new Responses API offers more flexibility and better performance for multi-step workflows and tool integrations.",
+        "action_required": "Begin migration planning from Assistants API to Responses API immediately. Review Responses API documentation and architecture changes. Refactor multi-step workflow implementations. Test thoroughly with new API and complete migration before August 26, 2026.",
+        "url": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666",
+        "verified": true,
+        "verified_at": "2026-04-04T23:54:20.939551+08:00",
+        "url_status": "assumed_valid"
+      }
+    ]
+  },
+  "stats": {
+    "papers": 7,
+    "topnews": 6,
+    "taiwan": 10,
+    "china": 9,
+    "usa": 8,
+    "models": 8,
+    "eol": 4
+  },
+  "validation": {
+    "total": 52,
+    "verified": 52,
+    "warnings": 0,
+    "removed": 19,
+    "pass_rate": "100%"
+  }
+}

@@ -1,0 +1,81 @@
+name: 每日健康檢查
+
+on:
+  schedule:
+    - cron: '30 11 * * *'  # UTC 11:30 = Taiwan 19:30（擷取 18:00 起跑、約 18:47 推完，留 ~40min 餘裕避免誤判 missed）
+
+permissions:
+  contents: write
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check today's data
+        run: |
+          # Get today's date in Taiwan timezone
+          TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
+          echo "TODAY=$TODAY" >> $GITHUB_ENV
+
+          # Read latest.json date field
+          LATEST_DATE=$(python3 -c "import json,os; f='data/latest.json'; print(json.load(open(f)).get('date','') if os.path.exists(f) else '')" 2>/dev/null || echo "")
+          echo "LATEST_DATE=$LATEST_DATE" >> $GITHUB_ENV
+
+          if [ "$LATEST_DATE" = "$TODAY" ]; then
+            echo "✅ 本機已完成今日擷取"
+            echo "STATUS=success" >> $GITHUB_ENV
+          else
+            echo "❌ 本機未完成今日擷取"
+            echo "STATUS=missed" >> $GITHUB_ENV
+          fi
+
+      - name: Update health.json if missed
+        if: env.STATUS == 'missed'
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+
+          TODAY = os.environ.get('TODAY')
+
+          # Read current health data
+          health_file = 'data/health.json'
+          if os.path.exists(health_file):
+            with open(health_file, 'r') as f:
+              health = json.load(f)
+          else:
+            health = {
+              "status": "ok",
+              "last_missed": None,
+              "consecutive_failures": 0,
+              "keep_alive": None,
+              "note": ""
+            }
+
+          # Update health data
+          health["status"] = "missed"
+          health["last_missed"] = TODAY
+          health["consecutive_failures"] = health.get("consecutive_failures", 0) + 1
+          health["note"] = "本機排程未執行，等待電腦上線後自動補跑"
+
+          # Write updated health data
+          with open(health_file, 'w') as f:
+            json.dump(health, f, indent=2, ensure_ascii=False)
+
+          print(f"Updated health.json: status=missed, consecutive_failures={health['consecutive_failures']}")
+          EOF
+
+      - name: Commit changes
+        if: env.STATUS == 'missed'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/health.json
+
+          COMMIT_MSG="🔴 Health check: missed ${{ env.TODAY }}"
+          git commit -m "$COMMIT_MSG"
+          git push

@@ -1,0 +1,107 @@
+{
+  "items": [
+    {
+      "title": "OpenAI expands Daybreak with Patch the Planet and full GPT-5.5-Cyber release",
+      "title_zh": "OpenAI 擴展 Daybreak 計畫：發布 GPT-5.5-Cyber 完整版與開源修補計畫 Patch the Planet",
+      "source": "SiliconANGLE",
+      "date": "2026-06-22",
+      "topic": "AI Cybersecurity",
+      "summary": "OpenAI 於 6 月 22 日正式擴展 Daybreak 資安計畫，推出完整版 GPT-5.5-Cyber 模型及「Patch the Planet」開源修補計畫。GPT-5.5-Cyber 在 CyberGym 基準測試達 85.6%，優於標準 GPT-5.5 的 81.8%，ExploitGym 達 39.5%，SEC-bench Pro 達 69.8%。「Patch the Planet」與 Trail of Bits、HackerOne 合作，資助研究人員使用 Codex Security 協助主要開源專案修補漏洞，已有 cURL、Go、Python、Sigstore 等逾 30 個專案加入。Codex Security 自 3 月研究預覽以來已掃描逾 3000 萬次 commit，標記超過 7 萬個已修復漏洞。此舉被視為 OpenAI 正面迎擊 Anthropic Project Glasswing 防禦性 AI 計畫的直接回應。",
+      "highlights": [
+        "GPT-5.5-Cyber CyberGym 評分 85.6%，超越標準 GPT-5.5 的 81.8%，ExploitGym 39.5%",
+        "「Patch the Planet」開源計畫：Trail of Bits、HackerOne 合作，30+ 主流開源專案承諾參與",
+        "Codex Security 掃描逾 3000 萬次 commit，人工審查已標記 7 萬+ 修復漏洞",
+        "推出 Daybreak Cyber Partner Program，合作夥伴可在自有產品中整合 GPT-5.5 Trusted Access",
+        "直接對標 Anthropic Project Glasswing，AI 資安賽道競爭白熱化"
+      ],
+      "discussion": "資安社群對 OpenAI 投入防禦性 AI 領域反應熱烈，「Patch the Planet」的開源協作精神廣受好評。但也有聲音質疑「受信任防禦者」限制存取模式，認為真正資源匱乏的中小型組織反而難以受益，GPT-5.5-Cyber 未面向大眾開放也引發質疑。",
+      "url": "https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/"
+    },
+    {
+      "title": "SpaceX signs computing power deal with open-source AI startup Reflection worth up to $6.3 billion",
+      "title_zh": "SpaceX 與開源 AI 新創 Reflection AI 簽署高達 63 億美元運算能源協議",
+      "source": "CNBC",
+      "date": "2026-06-22",
+      "topic": "AI Infrastructure / Funding",
+      "summary": "SpaceX 與開源 AI 新創 Reflection AI 簽署高達 63 億美元的算力合約，Reflection 自 2026 年 7 月 1 日起每月支付 1.5 億美元，協議可持續至 2029 年，含 90 天終止條款。Reflection AI 將透過 SpaceX 位於田納西州曼菲斯的 Colossus 2 資料中心取得 NVIDIA GB300 最新 AI 晶片。SpaceX Colossus 2 已從初始 1 GW 擴充至 1.5 GW，現有外部客戶包括 Anthropic、Google 及 Cursor，承諾收入已超 800 億美元（至 2029 年）。Reflection AI 由 Google DeepMind 資深研究員 Misha Laskin 與 Ioannis Antonoglou（AlphaGo/AlphaZero 核心成員）於 2024 年創立，專注開源 AI 模型研發。",
+      "highlights": [
+        "合約月費 1.5 億美元，協議至 2029 年總值高達 63 億美元，含 90 天靈活終止條款",
+        "Reflection AI 取得 NVIDIA GB300 旗艦晶片優先存取權",
+        "SpaceX Colossus 2 平台外部客戶承諾收入突破 800 億美元大關",
+        "Reflection AI 由 DeepMind AlphaGo/AlphaZero 核心研究員創立，聚焦開源 AI",
+        "消息公布後 SPCX 股價單日重挫逾 10%，創 Nasdaq 上市以來最大跌幅"
+      ],
+      "discussion": "市場對此消息反應兩極：看多者認為 SpaceX Colossus 成功轉型為頂尖商業算力平台，外部客戶收入分散化是正面訊號；看空者則擔憂高度依賴外部客戶且合約終止條款寬鬆帶來的財務風險，SPCX 股價大跌反映此疑慮。",
+      "url": "https://www.cnbc.com/2026/06/22/spacex-ai-colossus-data-center-reflection.html"
+    },
+    {
+      "title": "Groups tied to OpenAI and Anthropic are spending big on the midterms",
+      "title_zh": "與 OpenAI 和 Anthropic 相關的政治團體在期中選舉大規模砸錢，AI 監管路線之爭進入選戰",
+      "source": "NPR",
+      "date": "2026-06-22",
+      "topic": "AI Policy",
+      "summary": "與 OpenAI 及 Anthropic 相關的政治團體在 2026 年美國期中選舉中已合計花費逾 1500 萬美元，形成一場 AI 監管路線的代理人選戰。OpenAI 總裁 Greg Brockman 協助資助的「Leading the Future」超級 PAC 已籌募逾 7500 萬美元，在德克薩斯、喬治亞、伊利諾等數十個選區花費 2350 萬美元，主要推動聯邦統一監管、反對各州各自立法。Anthropic 則向 Public First Action 非營利組織捐款 2000 萬美元，立場相反，主張保留州政府 AI 監管彈性、反對聯邦壟斷監管權。兩家公司均計畫於 2026 年晚些時候 IPO，監管政策走向直接影響企業估值與商業模式。",
+      "highlights": [
+        "OpenAI 相關團體期中選舉支出 2350 萬美元，主力推動聯邦統一 AI 監管",
+        "Anthropic 捐款 2000 萬美元支持反對聯邦監管壟斷的倡議組織",
+        "雙方合計選舉支出逾 1500 萬美元，為 2026 期中選舉最大科技政治資金之一",
+        "兩家公司均計畫年內 IPO，監管立場分歧折射商業利益與安全哲學差異",
+        "OpenAI、Meta、Google、NVIDIA 在 2025 年合計花費 5090 萬美元遊說國會"
+      ],
+      "discussion": "此報導引發廣泛關注：AI 巨頭深度介入選舉政治，令人擔憂科技資金干預民主進程。有觀點認為 OpenAI 以「聯邦統一監管」包裝的實質是阻止各州實施更嚴格標準；另有聲音認為 Anthropic 支持州監管彈性背後也有商業計算。兩家公司的 IPO 計畫使其監管立場更具利益衝突色彩。",
+      "url": "https://www.npr.org/2026/06/22/nx-s1-5856359/ai-anthropic-congress-spending-openai-midterms-election"
+    },
+    {
+      "title": "DIA considering new AI-powered platform to streamline procurement system",
+      "title_zh": "美國防情報局評估建置 AI 驅動採購平台，目標現代化聯邦採購流程",
+      "source": "DefenseScoop",
+      "date": "2026-06-22",
+      "topic": "Enterprise AI / Government",
+      "summary": "美國防情報局（DIA）於 6 月 17 日發布資訊徵求書（RFI），探索建置新一代 AI 驅動採購平台的可行性，業界白皮書截止日期為 7 月 2 日。DIA 現有採購系統依賴過時技術與大量手工作業，新平台目標將 AI 嵌入聯邦採購法規（FAR、DFAR）與機構流程中，提升效能、透明度與速度。預期功能涵蓋市場調查、需求開發、招標書草擬、提案接收、評估工作流程、合規驗證、採購分析及合約後管理等完整週期。DIA 計畫採「其他交易授權（OTA）」方式啟動原型開發，避開傳統採購繁複程序，加速創新。此舉呼應白宮 6 月 2 日簽署的《推進 AI 創新與安全》行政命令中聯邦 AI 應用的優先方向。",
+      "highlights": [
+        "DIA 發布 RFI 徵集 AI 採購平台概念，截止日期 7 月 2 日",
+        "目標整合 FAR/DFAR 法規，覆蓋從市場調查到合約後管理的全週期採購",
+        "採 OTA（其他交易授權）模式推進原型開發，加速繞過傳統採購限制",
+        "現有系統仍依賴過時技術與手工流程，AI 化目標大幅提升效率與準確性",
+        "呼應白宮 6 月 AI 創新與安全行政命令，聯邦 AI 採購現代化進程加速"
+      ],
+      "discussion": "聯邦採購社群對此高度關注，認為 DIA 主動引入 AI 是政府機構務實轉型的示範。有觀點指出 OTA 機制確實能加速創新，但也擔憂 AI 採購決策的問責機制與安全審查標準是否能同步配套；另有業界人士認為此 RFI 將帶動防務 AI 採購平台新賽道。",
+      "url": "https://defensescoop.com/2026/06/22/dia-ai-powered-platform-streamline-procurement-system/"
+    },
+    {
+      "title": "Agentjacking Attack Tricks AI Coding Agents Into Running Malicious Code",
+      "title_zh": "Agentjacking 攻擊手法：偽造 Sentry 錯誤報告，誘使 AI 程式碼代理執行惡意程式",
+      "source": "The Hacker News",
+      "date": "2026-06-22",
+      "topic": "AI Cybersecurity",
+      "summary": "資安研究機構 Tenet Security 揭露名為「Agentjacking」的新型攻擊手法，攻擊者在 Sentry 錯誤追蹤平台的錯誤報告中注入惡意 Markdown 指令，當 AI 程式碼代理（如 Claude Code、Cursor）透過 Sentry MCP Server 調查報告時，將攻擊者控制的文字誤認為合法除錯指引並執行。此攻擊鏈完全由合法操作構成，可繞過 EDR、WAF、IAM、VPN 及 Cloudflare 等所有傳統安全機制。概念驗證顯示 AI 代理可被誘導下載並執行惡意 npm 套件，導致 AWS 金鑰、GitHub token、git 憑證及私有倉庫 URL 遭靜默外洩至攻擊者伺服器，已識別 2,388 個具有可注入 DSN 的組織被暴露，注入攻擊成功率達 85%。Tenet 於 6 月 3 日向 Sentry 回報漏洞，Sentry 已加入內容過濾器，但根本問題——AI 代理信任不可信來源輸出——仍未系統性解決。",
+      "highlights": [
+        "攻擊透過 Sentry MCP Server 將惡意 Markdown 注入偽造錯誤報告，誘使 AI 代理執行指令",
+        "85% 的注入錯誤成功觸發惡意執行，2,388 個組織被識別為暴露狀態",
+        "完全繞過 EDR、WAF、IAM、VPN、Cloudflare 等傳統防禦機制，無法被現有安全工具偵測",
+        "可外洩 AWS 金鑰、GitHub token、git 憑證、私有倉庫 URL 等高價值機密",
+        "Sentry 已新增內容過濾器，但 AI 代理信任邊界根本問題仍待 MCP 生態系統系統性解決"
+      ],
+      "discussion": "此漏洞在 AI 開發者社群引發高度警覺，尤其是 Claude Code 與 Cursor 用戶群。普遍認為這是 MCP 生態系統信任邊界問題的首個規模化真實案例，凸顯 AI Agent 安全架構設計的迫切性。有研究者指出此類攻擊代表了一種根本性的安全挑戰：傳統安全模型無法應對「授權意圖鏈」（Authorized Intent Chain）攻擊模式。",
+      "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html"
+    },
+    {
+      "title": "AI News June 22 2026: Fable 5 Is Back — But Changed. Free Window Expires Today. What's Different.",
+      "title_zh": "Claude Fable 5 復原但附重大限制：國籍存取管控上線，免費試用期今日截止",
+      "source": "AIToolsRecap",
+      "date": "2026-06-22",
+      "topic": "LLM / AI Safety / Policy",
+      "summary": "Anthropic 的 Claude Fable 5 在遭美國政府出口管制指令強制下架（6 月 12 日）後，約於 6 月 18 日重新上線，但附帶重大限制：導入基於國籍的存取控制機制，並加強 API 入駐合規篩查。開發者回報稱，復原後的 Fable 5 在處理資安、化學、生物相關提示時，退回 Claude Opus 4.8 的頻率明顯提升。Anthropic 原定的免費試用視窗（6 月 9 日至 22 日，適用 Pro/Max/Team/Enterprise 訂閱用戶）今日正式截止，由於出口管制期間模型實際下線約 4-5 天，用戶實際僅享受約 8-9 天免費使用。自 6 月 23 日起，使用 Fable 5 須額外支付使用點數（API 費率：輸入 $10/M tokens，輸出 $50/M tokens，為 Anthropic 現行最貴前沿模型）。Claude Mythos 5 目前仍僅限 Project Glasswing 合作夥伴，尚無復原時程公告。",
+      "highlights": [
+        "Fable 5 約 6 月 18 日復原，新增國籍存取管控與更嚴格的 API 合規篩查機制",
+        "自 6 月 23 日起退出訂閱免費範圍，改為 API 計費（輸入 $10/M、輸出 $50/M tokens）",
+        "出口管制致模型下線 4-5 天，訂閱用戶實際僅享 8-9 天免費存取（原定 13 天）",
+        "Claude Mythos 5 仍維持下架，僅限 Project Glasswing 合作夥伴，無復原時程",
+        "此為美國首次對 AI 模型本體實施出口管制，具重要法規先例意義"
+      ],
+      "discussion": "開發者與企業用戶普遍對此事件不滿：美國政府驟然介入導致商業服務中斷，Anthropic 的溝通透明度也受到批評。部分組織已啟動 GPT-5.5 與 Gemini 3.5 的替代評估，此事件也引發了 AI 出口管制法規對商業連續性影響、以及主權 AI 政策走向的廣泛討論。",
+      "url": "https://aitoolsrecap.com/Blog/ai-news-june-22-2026"
+    }
+  ],
+  "_updated_at": "2026-06-23T18:43:03.825884+08:00"
+}

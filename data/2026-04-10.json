@@ -1,0 +1,2663 @@
+{
+  "date": "2026-04-10",
+  "time": "2026-04-10T21:12:01.856586+08:00",
+  "generated_at": "21:12",
+  "source": "local",
+  "data": {
+    "papers": [
+      {
+        "title": "ClawBench: Can AI Agents Complete Everyday Online Tasks?",
+        "authors": [
+          "ClawBench Team"
+        ],
+        "institution": "⚠️待確認（多機構合作）",
+        "venue": "arxiv (2604.08523)",
+        "date": "2026-04-09",
+        "summary": "提出 ClawBench，一個包含 153 項日常線上任務的 AI Agent 評測基準，橫跨 15 個生活類別與 144 個真實網站平台。不同於現有使用離線沙箱的基準，ClawBench 直接在生產環境網站上運行。評測結果顯示 Claude Sonnet 4.6 和 GPT-5.4 在傳統網頁基準上得分 65-75%，但在 ClawBench 上僅分別達到 33.3% 和 6.5%。該研究評測了 7 個前沿模型，並設計了輕量級攔截層確保安全評估。",
+        "url": "https://arxiv.org/abs/2604.08523",
+        "field": "Agent Evaluation",
+        "impact": "high — 首個在真實生產網站上評測 AI Agent 的大型基準，揭示現有模型在實際任務中的巨大落差，對 Agent 開發方向具重要指引意義",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365769",
+        "complete": true
+      },
+      {
+        "title": "ACIArena: Toward Unified Evaluation for Agent Cascading Injection",
+        "authors": [
+          "Hengyu An",
+          "et al."
+        ],
+        "institution": "Zhejiang University, Tsinghua University, UCLA, Palo Alto Networks",
+        "venue": "arxiv (2604.07775)",
+        "date": "2026-04-09",
+        "summary": "針對多智能體系統（MAS）中的級聯注入攻擊（Agent Cascading Injection）提出統一評估框架 ACIArena。該框架涵蓋多種攻擊面（外部輸入、Agent 設定檔、跨 Agent 訊息）和攻擊目標（指令劫持、任務中斷、資訊竊取）。基準包含 1,356 個測試用例，橫跨 6 種主流 MAS 實作。研究發現僅從拓撲結構評估 MAS 穩健性是不夠的，需要精心設計角色與控制互動模式。",
+        "url": "https://arxiv.org/abs/2604.07775",
+        "field": "Agent Evaluation",
+        "impact": "high — 首個系統性評估多智能體系統安全性的統一框架，1,356 個測試用例為 MAS 安全研究提供重要基礎設施",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365822",
+        "complete": true
+      },
+      {
+        "title": "YC-Bench: Benchmarking AI Agents for Long-Term Planning and Consistent Execution",
+        "authors": [
+          "Collinear AI Team"
+        ],
+        "institution": "Collinear AI",
+        "venue": "arxiv (2604.01212)",
+        "date": "2026-04-03",
+        "summary": "提出 YC-Bench，透過模擬一年期新創公司營運來評估 LLM Agent 的長期規劃與一致執行能力。Agent 需在數百個回合中管理員工、選擇合約、維持盈利，並在部分可觀察的對抗環境中學習識別不可信客戶。評測 12 個模型（專有與開源），僅 3 個模型持續超越 20 萬美元初始資金，Claude Opus 4.6 以平均 127 萬美元最終資金排名第一，GLM-5 以 121 萬美元居次。",
+        "url": "https://arxiv.org/abs/2604.01212",
+        "field": "Agent Evaluation",
+        "impact": "high — 首個評估 AI Agent 長期策略一致性的基準，涵蓋不確定性下的規劃、延遲回饋學習與錯誤累積，填補現有短期任務評測的空白",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365859",
+        "complete": true
+      },
+      {
+        "title": "PIArena: A Platform for Prompt Injection Evaluation",
+        "authors": [
+          "Runpeng Geng",
+          "Chenlong Yin",
+          "Yanting Wang",
+          "Ying Chen",
+          "Jinyuan Jia"
+        ],
+        "institution": "The Pennsylvania State University",
+        "venue": "arxiv (2604.08499)",
+        "date": "2026-04-09",
+        "summary": "提出 PIArena，一個統一且可擴展的提示注入評估平台，使研究者能輕鬆整合最新攻擊與防禦方法。該平台引入基於動態策略的自適應攻擊方法，能根據防禦回饋優化注入提示。研究揭露現有最先進防禦的關鍵限制：跨任務泛化能力有限、面對自適應攻擊時的脆弱性，以及注入任務與目標任務對齊時的根本性挑戰。程式碼已開源於 GitHub。",
+        "url": "https://arxiv.org/abs/2604.08499",
+        "field": "LLM",
+        "impact": "high — 提供統一的提示注入評估基礎設施，自適應攻擊方法揭示防禦機制的根本弱點，對 LLM 安全部署具重要意義",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365899",
+        "complete": true
+      },
+      {
+        "title": "PolySwarm: A Multi-Agent Large Language Model Framework for Prediction Market Trading and Latency Arbitrage",
+        "authors": [
+          "Rajat M. Barot",
+          "Arjun S. Borkhatariya"
+        ],
+        "institution": "⚠️待確認",
+        "venue": "arxiv (2604.03888)",
+        "date": "2026-04-04",
+        "summary": "提出 PolySwarm，一個部署 50 個多樣化 LLM 角色的多智能體框架，用於 Polymarket 等去中心化預測市場的即時交易。系統透過置信度加權的貝葉斯方法組合群體共識與市場隱含機率，並採用 Quarter-Kelly 頭寸管理控制風險。引入資訊理論市場分析引擎，使用 KL 散度和 JS 散度偵測跨市場低效率與定價偏差。延遲套利模組能在人類反應時間窗口內執行交易。",
+        "url": "https://arxiv.org/abs/2604.03888",
+        "field": "Agent",
+        "impact": "medium — 展示多智能體 LLM 系統在金融市場的實際應用潛力，50 個 Agent 協作的架構設計具參考價值",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365929",
+        "complete": true
+      },
+      {
+        "title": "A Multi-Agent Approach to Validate and Refine LLM-Generated Personalized Math Problems",
+        "authors": [
+          "Fareya Ikram",
+          "Nischal Ashok Kumar",
+          "Junyang Lu",
+          "Hunter McNichols",
+          "Candace Walkington",
+          "Neil Heffernan",
+          "Andrew S. Lan"
+        ],
+        "institution": "⚠️待確認（多機構合作）",
+        "venue": "arxiv (2604.05160)",
+        "date": "2026-04-06",
+        "summary": "針對 LLM 生成個人化數學題目的品質問題，提出多智能體生成-驗證-修訂迭代框架。系統包含四個專門驗證 Agent，分別負責可解性、現實性、可讀性和真實性檢查。在 ASSISTments 平台上以 600 道題目和 20 個學生興趣主題進行評估。結果顯示真實性和現實性是初始生成中最常見的失敗模式，但單次迭代修訂即可大幅降低錯誤率。",
+        "url": "https://arxiv.org/abs/2604.05160",
+        "field": "Agent",
+        "impact": "medium — 提出 LLM 輸出品質控制的多 Agent 迭代框架，generate-validate-revise 模式可推廣至其他教育與內容生成場景",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365958",
+        "complete": true
+      },
+      {
+        "title": "FermiLink: A Unified Agent Framework for Multidomain Autonomous Scientific Simulations",
+        "authors": [
+          "FermiLink Team"
+        ],
+        "institution": "⚠️待確認",
+        "venue": "arxiv (2604.03460)",
+        "date": "2026-04-04",
+        "summary": "提出 FermiLink，一個統一且可擴展的開源科學模擬 Agent 框架。核心設計將軟體知識庫與模擬工作流分離，透過四層漸進揭示機制統一操作約 50 個科學軟體包，橫跨物理到工程共 9 個研究領域。使用 OpenAI Codex 作為 Agent 提供者，在 132 個真實圖表級重現任務中，成功重現 74 個（56.1%），其中 30 個達到高保真度。",
+        "url": "https://arxiv.org/abs/2604.03460",
+        "field": "Agent",
+        "impact": "medium — 展示 LLM Agent 在跨領域科學計算的自動化能力，56.1% 的論文圖表重現率展現實用價值",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.365985",
+        "complete": true
+      },
+      {
+        "title": "A Multi-Agent Framework for Automated Exploit Generation with Constraint-Guided Comprehension and Reflection (Vulnsage)",
+        "authors": [
+          "Siyi Chen",
+          "Tianhan Luo",
+          "Shijian Wu",
+          "Xiangyu Liu",
+          "Yilin Zhou",
+          "Qi Li",
+          "Wenyuan Xu"
+        ],
+        "institution": "Tsinghua University ⚠️待確認",
+        "venue": "ICPC 2026 (arxiv 2604.05130)",
+        "date": "2026-04-06",
+        "summary": "提出 Vulnsage，一個模擬人類安全研究員工作流程的多智能體自動化漏洞利用生成框架。系統將複雜的 AEG 過程分解為多個專業化子 Agent：程式碼分析 Agent（靜態分析與漏洞相關切片提取）、程式碼生成 Agent（將利用生成問題編碼為約束集合）、驗證 Agent 和反思 Agent 群組。被 ICPC 2026 收錄，將於里約熱內盧發表。",
+        "url": "https://arxiv.org/abs/2604.05130",
+        "field": "Agent",
+        "impact": "medium — 多 Agent 協作分解安全分析任務的架構設計值得參考，被頂級程式理解會議 ICPC 收錄",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366014",
+        "complete": true
+      },
+      {
+        "title": "TelcoAgent-Bench: A Multilingual Benchmark for Telecom AI Agents",
+        "authors": [
+          "Lina Bariah",
+          "Brahim Mefgouda",
+          "Farbod Tavakkoli",
+          "Enrique Molero",
+          "Louis Powell",
+          "Merouane Debbah"
+        ],
+        "institution": "⚠️待確認",
+        "venue": "arxiv (2604.06209)",
+        "date": "2026-04-08",
+        "summary": "提出電信領域專用的多語言 AI Agent 基準 TelcoAgent-Bench 及配套指標 TelcoAgent-Metrics。不同於現有僅測試回答能力的基準，該框架評估 Agent 是否能實際解決網路問題：識別正確意圖、在對話適當階段選擇並執行診斷工具、以阿拉伯語和英語維持連貫多輪對話、並產出可靠的最終解決方案摘要。資料集基於網路工程師與 LLM Agent 的模擬互動設計。",
+        "url": "https://arxiv.org/abs/2604.06209",
+        "field": "Agent Evaluation",
+        "impact": "medium — 首個電信領域專用的多語言 Agent 基準，從「能否回答」轉向「能否解決問題」的評估範式轉變具產業意義",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366043",
+        "complete": true
+      },
+      {
+        "title": "Confidence-Based Decoding is Provably Efficient for Diffusion Language Models",
+        "authors": [
+          "⚠️待確認"
+        ],
+        "institution": "⚠️待確認",
+        "venue": "arxiv (2603.22248)",
+        "date": "2026-04-03",
+        "summary": "為擴散語言模型的高效解碼提供理論基礎，證明基於置信度的解碼方法可自適應地根據預測置信度選擇每步要解碼的 token 數量與位置。不同於自回歸模型逐一生成 token，擴散語言模型可並行生成但面臨解碼效率問題。本文首次提供可證明的效率保證，為擴散語言模型的實用化部署掃除理論障礙。",
+        "url": "https://arxiv.org/abs/2603.22248",
+        "field": "LLM",
+        "impact": "medium — 為新興的擴散語言模型解碼效率提供理論保證，推動非自回歸生成模型的實用化進程",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366071",
+        "complete": true
+      }
+    ],
+    "topnews": [
+      {
+        "title": "Anthropic Debuts Claude Mythos Preview in Project Glasswing Cybersecurity Initiative（Anthropic 發布 Claude Mythos 預覽版，啟動 Project Glasswing 資安計畫）",
+        "source": "TechCrunch",
+        "date": "2026-04-07",
+        "domain": "Cybersecurity",
+        "model_area": "Claude Mythos Preview",
+        "summary": "Anthropic 發布旗下最強大的前沿模型 Claude Mythos Preview，但因其強大的資安能力而不公開釋出。該模型已自主發現數千個零日漏洞，涵蓋所有主流作業系統與瀏覽器，包括一個隱藏 27 年的 OpenBSD 遠端崩潰漏洞及 FFmpeg 中存在 16 年的缺陷。Anthropic 投入 1 億美元使用額度，透過 Project Glasswing 計畫將 Mythos Preview 提供給超過 50 家合作組織進行防禦性資安研究，合作方包括 AWS、Apple、Google、Microsoft、NVIDIA、CrowdStrike 等科技巨頭。",
+        "highlights": [
+          "Claude Mythos Preview 發現數千個高危及重大零日漏洞，遍及所有主流 OS 與瀏覽器",
+          "Project Glasswing 投入 1 億美元額度，與 50+ 組織合作防禦性資安研究",
+          "發現 OpenBSD 隱藏 27 年的遠端崩潰漏洞、FFmpeg 16 年的缺陷",
+          "因模型能力過於強大，Anthropic 決定不公開釋出，僅限定合作組織使用"
+        ],
+        "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366106",
+        "complete": true
+      },
+      {
+        "title": "Meta Debuts Muse Spark, First Model from Meta Superintelligence Labs（Meta 發布 Muse Spark，超智實驗室首款模型）",
+        "source": "TechCrunch",
+        "date": "2026-04-08",
+        "domain": "LLM",
+        "model_area": "Meta Muse Spark",
+        "summary": "Meta 發布 Muse Spark 模型，這是 Meta 超智實驗室（MSL）成立後的首款模型，代號 Avocado，由前 Scale AI 執行長 Alexandr Wang 領導團隊歷時九個月開發。Muse Spark 為原生多模態推理模型，支援工具使用、視覺推理鏈及多代理協作。自評基準顯示其與 Claude Opus 4.6、Gemini 3.1 Pro、GPT-5.4 具競爭力。新增「沉思模式」（Contemplating mode）可調度多個 Agent 平行推理。目前已部署於 Meta AI 應用，即將擴展至 WhatsApp、Instagram、Facebook 等平台。",
+        "highlights": [
+          "Meta 超智實驗室首款模型，由 Alexandr Wang 領軍開發（代號 Avocado）",
+          "原生多模態推理，支援語音、文字、圖像輸入及多代理協作",
+          "新增「沉思模式」，多 Agent 平行推理，對標 Gemini Deep Think 與 GPT Pro",
+          "自評基準與 Opus 4.6、Gemini 3.1 Pro、GPT-5.4 具競爭力",
+          "Morgan Stanley 分析師稱其為「重新評價 META 的第一步」"
+        ],
+        "url": "https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366134",
+        "complete": true
+      },
+      {
+        "title": "Google Releases Gemma 4 Under Apache 2.0 — Most Capable Open Models Yet（Google 以 Apache 2.0 釋出 Gemma 4，史上最強開源模型）",
+        "source": "Google Blog",
+        "date": "2026-04-02",
+        "domain": "LLM",
+        "model_area": "Google Gemma 4",
+        "summary": "Google DeepMind 正式發布 Gemma 4 系列開源模型，首次採用完全開放的 Apache 2.0 授權。模型家族包含四個版本：31B Dense、26B MoE、E4B 及 E2B 邊緣版本。所有版本皆為原生多模態（文字+圖像，邊緣版本另支援音訊），專為進階推理與 Agentic 工作流設計。支援高達 256K token 上下文窗口，邊緣版本可在智慧手機、Raspberry Pi 等裝置上完全離線運行，實現近零延遲推理。",
+        "highlights": [
+          "首次以完全開放 Apache 2.0 授權釋出，可自由商用無限制",
+          "四種版本：31B Dense / 26B MoE / E4B / E2B，涵蓋雲端到邊緣裝置",
+          "原生多模態支援，邊緣版本可完全離線運行於手機與 Raspberry Pi",
+          "256K token 長上下文窗口，專為 Agentic 工作流設計"
+        ],
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366164",
+        "complete": true
+      },
+      {
+        "title": "DARPA Launches MATHBAC Program for Multi-Agent AI Research（DARPA 啟動 MATHBAC 多代理 AI 研究計畫）",
+        "source": "The Register",
+        "date": "2026-04-08",
+        "domain": "Agent",
+        "model_area": "Multi-Agent Systems",
+        "summary": "美國國防高等研究計畫署（DARPA）於 4 月 7 日正式啟動「提升代理式通訊的數學基礎」（MATHBAC）計畫，旨在為多 AI Agent 網路的有效協作建立數學與科學基礎。計畫為期 34 個月、分兩階段進行，第一階段經費上限 200 萬美元，重點開發分析與改善 AI Agent 間資訊交換的數學工具。提案日 4 月 21 日舉行，提案截止 6 月 16 日。計畫聚焦科學領域（化學、生物醫學），目標是讓多 Agent 系統協同產出超越單一系統或人類專家的科學洞見。",
+        "highlights": [
+          "34 個月分兩階段執行，Phase I 上限 200 萬美元",
+          "聚焦多 Agent 協作的數學基礎，應用於科學發現與國防",
+          "徵求大學、研究機構及企業提案，4/21 提案日、6/16 截止",
+          "目標領域：化學、生物醫學等跨學科知識整合"
+        ],
+        "url": "https://www.theregister.com/2026/04/08/darpa_wants_ai_agent_communication/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366225",
+        "complete": true
+      },
+      {
+        "title": "Meta Debuts New AI Model, Attempting to Catch Google, OpenAI After Spending Billions（Meta 砸數十億後推出新 AI 模型，追趕 Google 與 OpenAI）",
+        "source": "CNBC",
+        "date": "2026-04-08",
+        "domain": "LLM",
+        "model_area": "Meta Muse Spark",
+        "summary": "CNBC 深度報導 Meta 在收購 Alexandr Wang 的 Scale AI（143 億美元交易）後推出首款重大 AI 模型 Muse Spark。報導分析 Meta 在 AI 競賽中的策略轉變：從開源 Llama 系列轉向建立超智實驗室（MSL），直接挑戰 OpenAI、Google 與 Anthropic 的前沿模型。Meta 目前年化營收超過 250 億美元的 AI 相關營收，Muse Spark 被視為縮短與競爭對手技術差距的關鍵一步。",
+        "highlights": [
+          "Meta 以 143 億美元收購 Scale AI 後首款重大模型",
+          "策略轉變：從開源 Llama 轉向超智實驗室直接競爭前沿模型",
+          "Alexandr Wang 領導九個月開發，團隊「徹底重構」AI 基礎設施",
+          "目標追趕 Google、OpenAI 與 Anthropic 的技術領先地位"
+        ],
+        "url": "https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366307",
+        "complete": true
+      },
+      {
+        "title": "LOBO Launches Claw AI Agent Platform for Export Manufacturing（LOBO 推出 Claw AI 代理平台，加速出口製造業 AI 應用）",
+        "source": "GlobeNewsWire",
+        "date": "2026-04-09",
+        "domain": "Agent",
+        "model_area": "Claw AI Agent Platform",
+        "summary": "LOBO Technologies 發布 Claw AI Agent 平台，專為出口導向製造業場景設計。該平台整合多個主流 AI 模型，包括 Claude、Gemini、ChatGPT、MiniMax、智譜及 Kimi，透過多模型路由架構提供最佳化的 AI 代理服務。平台聚焦解決製造業在跨境貿易、品質管理、供應鏈協調等實際場景中的 AI 應用落地問題，降低中小型製造企業導入 AI 的門檻。",
+        "highlights": [
+          "專為出口導向製造業設計的 AI Agent 平台",
+          "整合 Claude、Gemini、ChatGPT、MiniMax、智譜、Kimi 等多模型",
+          "多模型路由架構，依場景自動選擇最適模型",
+          "降低中小型製造企業導入 AI 的門檻"
+        ],
+        "url": "https://www.globenewswire.com/news-release/2026/04/09/3270874/0/en/LOBO-Launches-Claw-AI-Agent-Platform-to-Accelerate-AI-Adoption-in-Export-Oriented-Manufacturing.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366337",
+        "complete": true
+      },
+      {
+        "title": "DeepSeek R2 Reasoning Model Reportedly Nearing Release（DeepSeek R2 推理模型據報即將發布）",
+        "source": "BGR",
+        "date": "2026-04-08",
+        "domain": "LLM",
+        "model_area": "DeepSeek R2",
+        "summary": "中國 AI 實驗室 DeepSeek 的下一代推理模型 R2 據報已接近發布。傳聞顯示 R2 為 1.2 兆參數模型，採用混合 MoE 架構，每 token 僅激活 780 億參數。訓練使用華為昇騰 910B 晶片，訓練資料規模達 5.2 PB（含金融、法律、專利等專業領域）。定價傳聞為每百萬輸入 token 0.07 美元、輸出 0.27 美元，延續 DeepSeek 的低價策略。若性能達到預期（AIME 2025 達 92.7%、MATH-500 達 89.4%），將與 OpenAI o3 直接競爭。⚠️ 以上規格為未經證實的預發布消息。",
+        "highlights": [
+          "1.2 兆參數 MoE 架構，每 token 激活 780 億參數",
+          "使用華為昇騰 910B 晶片訓練，5.2 PB 訓練資料",
+          "傳聞定價：輸入 $0.07/M tokens、輸出 $0.27/M tokens",
+          "⚠️ 待確認：目標 AIME 2025 達 92.7%、MATH-500 達 89.4%，對標 OpenAI o3"
+        ],
+        "url": "https://www.bgr.com/tech/deepseek-r2-reasoning-ai-is-coming-soon-and-it-could-make-waves-again/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366366",
+        "complete": true
+      }
+    ],
+    "taiwan": [
+      {
+        "title": "Google Cloud 宣布 2026 為代理式 AI 元年，揭示企業 AI Agent 五大核心應用",
+        "source": "INSIDE 硬塞的網路趨勢觀察",
+        "date": "2026-04-08",
+        "topic": "AI Agent / Agentic AI",
+        "summary": "Google Cloud 台灣總經理在 AI 加速日指出 2026 年將是 Agentic AI 大爆發的關鍵元年。Google Cloud 揭示企業如何將 AI 從對話助手進化為能自主思考、執行的數位戰友，透過底層 TPU 算力、Vertex AI 平台到資安防禦的全端架構。五大核心運作包括：賦能員工日常生產力、融入核心工作流程、打造極致客戶體驗、主動式資安防禦，以及推動規模化與人才升級。Google 同步推出最新一代超級電腦 TPU「Ironwood」與 Gemini 3 模型。",
+        "relevance": "直接影響台灣企業 AI 轉型策略與雲端架構選擇",
+        "discussion": "高，企業 IT 社群熱議代理式 AI 落地路線圖",
+        "url": "https://www.inside.com.tw/article/40965-google2026",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366403",
+        "complete": true
+      },
+      {
+        "title": "Meta 發表全新 AI 模型 Muse Spark，汪滔領軍九個月從零重建，首度試水 API 付費模式",
+        "source": "數位時代 BusinessNext",
+        "date": "2026-04-08",
+        "topic": "LLM 模型發布",
+        "summary": "Meta 於 4 月 8 日正式發表由前 Scale AI 執行長汪滔領軍開發的 Muse Spark 模型，為 Meta 超智慧實驗室（Meta Superintelligence Labs）首款成果。該模型刻意設計為「小而快」，以科學化方式逐代驗證擴展。Meta 同步宣布 2026 年 AI 資本支出上看 1,150 至 1,350 億美元，並首度試水 API 付費模式。Muse Spark 已部署於 Meta AI 助理，未來將逐步推廣至台灣等市場。",
+        "relevance": "Meta 在台灣擁有大量 Facebook/Instagram 用戶，AI 助理功能將直接影響台灣使用者體驗",
+        "discussion": "極高，社群討論 Meta 放棄開源路線的戰略轉變",
+        "url": "https://www.bnext.com.tw/article/90554/meta-muse-spark-ai-model-launch",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366436",
+        "complete": true
+      },
+      {
+        "title": "Anthropic 年化收入首超 OpenAI 達 300 億美元，最快 10 月 IPO",
+        "source": "AI 郵報 (AI Post Hub)",
+        "date": "2026-04-09",
+        "topic": "LLM / 科技大廠動態",
+        "summary": "Anthropic 年化收入突破 300 億美元，較 2025 年底的 90 億美元大幅增長，已超過 OpenAI 的 250 億美元。企業客戶年消費超過百萬美元者已逾千家，不到兩個月翻了一倍。Anthropic 正評估最快 2026 年 10 月啟動 IPO，估值已達 3,800 億美元。同時 Anthropic 於 4 月 4 日切斷 OpenClaw 對 Claude Pro/Max 訂閱服務的存取，將重度用戶轉為按需付費模式。",
+        "relevance": "台灣企業導入 Claude 模型的成本與授權策略需重新評估",
+        "discussion": "高，開發者社群討論第三方工具被封鎖的影響",
+        "url": "https://www.aiposthub.com/claude-subscription-openclaw-ban-anthropac-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366463",
+        "complete": true
+      },
+      {
+        "title": "OpenAI 發布 13 頁超級智慧新政白皮書，主張公共財富基金與機器人稅",
+        "source": "iThome",
+        "date": "2026-04-07",
+        "topic": "AI 治理 / 科技大廠政策",
+        "summary": "OpenAI 發布《智能時代的產業政策：以人為先》白皮書，指出 AI 正從提升單一任務效率邁向超級智慧階段，未來對產業與勞動市場的影響可能超過工業革命。三大核心目標包括普惠繁榮、風險管控、AI 普及。具體建議政府設立公共財富基金讓公民共享 AI 經濟增長、推動四天工作制試點、降低創業門檻，並擴大照護、教育、醫療等人本產業就業機會以吸納因 AI 轉型而受影響的勞動力。",
+        "relevance": "台灣政府制定 AI 基本法可參考此政策框架",
+        "discussion": "中高，勞動市場議題引發台灣科技業熱議",
+        "url": "https://www.ithome.com.tw/news/174884",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366494",
+        "complete": true
+      },
+      {
+        "title": "GPT Image V2 提前現身 LMArena，三個膠帶代號在數小時內無聲消失",
+        "source": "INSIDE 硬塞的網路趨勢觀察",
+        "date": "2026-04-06",
+        "topic": "LLM / 模型發布",
+        "summary": "4 月 4 日三個代號 maskingtape-alpha、gaffertape-alpha、packingtape-alpha 悄然出現在 LMArena 盲測列表中，數小時內即消失。測試者幾乎一致表示表現完全不同於 GPT Image 1.5，特別在 UI 介面渲染、按鈕文字正確拼寫等長期弱項上有顯著突破。此手法與 2025 年 12 月 OpenAI 以 Chestnut/Hazelnut 代號灰度測試後推出 GPT Image 1.5 的模式一致，預計 GPT Image V2 最快 4 月底正式發布。",
+        "relevance": "台灣設計與行銷產業高度關注 AI 圖像生成工具的進化",
+        "discussion": "極高，AI 圈廣泛討論洩漏事件",
+        "url": "https://www.inside.com.tw/article/41014-gpt-image-2-surfaces-on-lmarena-as-three-tape-codenames-vanish-within-hours",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366521",
+        "complete": true
+      },
+      {
+        "title": "數發部攜手中研院釋出研究語料，台灣主權 AI 訓練語料庫突破 620 萬詞元",
+        "source": "中央社 CNA",
+        "date": "2026-04-10",
+        "topic": "台灣主權 AI / LLM",
+        "summary": "台灣主權 AI 訓練語料庫上線逾 3 個月，數位發展部於 4 月 10 日宣布攜手中央研究院上架多筆代表性研究及科普文本資源，涵蓋學術研究、政策分析、歷史文化及科普等多元面向，總計超過 620 萬詞元。此舉旨在支援 AI 模型在專業領域的多元應用，強化台灣自主繁體中文 AI 訓練資料的質與量。",
+        "relevance": "直接推動台灣自主 AI 語言模型發展，為 TAIDE 等計畫提供關鍵語料",
+        "discussion": "中，學術與 AI 開發社群關注",
+        "url": "https://www.cna.com.tw/news/afe/202604100215.aspx",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366549",
+        "complete": true
+      },
+      {
+        "title": "京元電資本支出大增至 500 億元創新高，因應 AI 晶片測試需求",
+        "source": "中央社 CNA",
+        "date": "2026-04-10",
+        "topic": "AI 晶片 / 半導體",
+        "summary": "晶圓測試廠京元電董事會決議通過今年資本支出由 393.72 億元提高至 500 億元，創歷史新高，因應 AI 繪圖處理器（GPU）晶片及 ASIC 晶片強勁測試需求。法人調升評等至買進，AI 測試動能帶動 2026 年營收成長逾 40%，AI 營收占比達 35%-40%。京元電已成為全球規模最大的 AI 晶片測試服務提供商，下一代 Rubin 平台較 Blackwell 測試時間增加 50-100%。",
+        "relevance": "直接反映台灣半導體供應鏈在 AI 晶片測試的核心地位",
+        "discussion": "高，投資圈與產業鏈高度關注",
+        "url": "https://www.cna.com.tw/news/afe/202604100185.aspx",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366577",
+        "complete": true
+      },
+      {
+        "title": "日月光 3 月及首季營收創同期高，AI 封測助攻",
+        "source": "中央社 CNA",
+        "date": "2026-04-10",
+        "topic": "AI 晶片 / 半導體",
+        "summary": "日月光投控公布 3 月營收數據，受惠於 AI 先進封裝需求持續增溫，3 月及第一季營收均創歷史同期新高。日月光 2026 年 EPS 成長率達 47.81%，FoCoS 業務預計下半年放量，主要客戶為 AMD、Broadcom 等，預估 2026 年先進封裝營收達 19 億美元，2027 年更有望翻倍至 48 億美元。日月光同步砸 176 億擴廠迎接 2027 高峰訂單。",
+        "relevance": "台灣封測產業直接受益於全球 AI 算力需求爆發",
+        "discussion": "高，法人持續調升目標價",
+        "url": "https://www.cna.com.tw/news/afe/202604100205.aspx",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366604",
+        "complete": true
+      },
+      {
+        "title": "聯強首季營收 1,262 億元年增 38%，創單季新高",
+        "source": "中央社 CNA",
+        "date": "2026-04-10",
+        "topic": "AI 產業 / 企業營收",
+        "summary": "聯強國際公布 3 月營收新台幣 560.59 億元，較去年同期大幅成長 64.42%；累計第一季營收 1,262.9 億元，年增 38.18%，3 月營收與第一季營收雙創歷史新高。受惠於 AI 應用進入擴展與普及週期，伺服器與 AI 相關硬體需求持續暢旺，帶動通路營收全面成長。",
+        "relevance": "反映台灣 AI 硬體通路市場的強勁需求",
+        "discussion": "中高，投資市場關注 AI 概念股營收表現",
+        "url": "https://www.cna.com.tw/news/afe/202604100203.aspx",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366630",
+        "complete": true
+      },
+      {
+        "title": "Gartner 揭露 2026 年網路安全六大趨勢，三項涉及 AI 應用風險",
+        "source": "iThome",
+        "date": "2026-04-09",
+        "topic": "AI 資安",
+        "summary": "Gartner 公布 2026 年網路安全重要趨勢，指出 AI 快速普及、地緣政治與監管環境變化、量子運算發展正在重塑網路安全環境。六大趨勢中三項與 AI 相關：代理式 AI（Agentic AI）帶來的新潛在風險、AI 驅動的安全營運中心（SOC）問世、AI 代理對身分識別與存取管理的挑戰。量子運算預計 2030 年前使非對稱加密失效，企業需提前導入後量子密碼學。",
+        "relevance": "台灣企業資安策略需因應 AI Agent 帶來的新攻擊面",
+        "discussion": "高，資安社群廣泛討論",
+        "url": "https://www.ithome.com.tw/news/174342",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366657",
+        "complete": true
+      },
+      {
+        "title": "2026 資安趨勢：AI 攻擊加速實戰化，企業防禦進入新戰場",
+        "source": "iThome",
+        "date": "2026-04-09",
+        "topic": "AI 資安",
+        "summary": "2026 年攻擊已進入「智能對抗」新階段，從自動生成釣魚信件、模擬客服對話，到 AI 驅動的漏洞掃描與滲透攻擊，攻擊流量可能來自具備自動化決策能力的 AI Agent，能模擬使用者行為、產生對話內容，甚至輔助漏洞偵測與利用。威脅行為者對 AI 的使用已從「例外」轉為「常態」，被廣泛應用於社交工程、資訊操作與惡意程式開發。攻擊成本大幅下降，企業防禦面臨全新挑戰。",
+        "relevance": "台灣企業需重新評估資安防禦策略以因應 AI 自動化攻擊",
+        "discussion": "高，資安從業者密切關注",
+        "url": "https://www.ithome.com.tw/pr/174921",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366684",
+        "complete": true
+      },
+      {
+        "title": "數發部率團參展 RSAC 2026，首度設立臺灣資安館展示 AI 資安防禦成果",
+        "source": "經濟日報",
+        "date": "2026-04-07",
+        "topic": "AI 資安 / 台灣國際參與",
+        "summary": "數位發展部部長林宜敬親自率團赴美國舊金山參與全球最具指標性的資安盛會 RSAC 2026 Conference，首度於會場設立「CYBER TAIWAN PAVILION（臺灣資安館）」，率領 8 家台灣資安業者展示在 AI 資安防禦、後量子密碼及零信任架構等關鍵領域的自主研發成果。RSAC 2026 官方主題聚焦 Agentic AI 與治理，與台灣面臨的法規壓力高度重疊。",
+        "relevance": "直接展現台灣資安產業的國際競爭力與政府推動力度",
+        "discussion": "中高，資安業界關注國際市場拓展",
+        "url": "https://money.udn.com/money/story/7307/9402443",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366711",
+        "complete": true
+      },
+      {
+        "title": "監察院辦理 AI 應用研習，院長盼兼顧資安與風險控管",
+        "source": "中央社 CNA",
+        "date": "2026-04-08",
+        "topic": "AI 治理 / 政府應用",
+        "summary": "監察院舉辦 AI 應用研習活動，院長李鴻鈞表示希望在導入 AI 工具提升行政效率的同時，兼顧資安與風險控管。此舉反映台灣政府機關正積極評估 AI 工具的導入，同時也關注 AI 應用可能帶來的資安風險與個資保護議題，顯示公部門在 AI 採用上的審慎態度。",
+        "relevance": "政府機關 AI 導入政策直接影響公部門數位轉型方向",
+        "discussion": "中，公務體系與資安社群關注",
+        "url": "https://www.cna.com.tw/news/aipl/202604080335.aspx",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366738",
+        "complete": true
+      },
+      {
+        "title": "輝達預計 Computex 2026 展出 PC 處理器，聯手聯發科挑戰 Intel 與 AMD",
+        "source": "科技新報 TechNews",
+        "date": "2026-04-03",
+        "topic": "AI 晶片 / 科技大廠動態",
+        "summary": "輝達（NVIDIA）正準備於 2026 年 Computex 推出專為消費市場設計的筆記型電腦處理器，首次正式進軍傳統上由 Intel 與 AMD 主導的消費性 PC 市場。新款 SoC 代號 N1X（高階）與 N1（入門），採用台積電 3 奈米製程，N1X 配備 20 核心 CPU、基於 Blackwell 架構的 6,144 CUDA 核心 GPU，支援 1 PetaFlops FP4 AI 算力。輝達計劃將開源 LLM Nemotron 與新晶片結合，瞄準 2030 年 1,600 億美元邊緣 AI 市場。",
+        "relevance": "聯發科為合作夥伴，直接帶動台灣 IC 設計供應鏈商機",
+        "discussion": "極高，Computex 焦點話題",
+        "url": "https://technews.tw/2026/03/30/nvidia-is-expected-to-showcase-pc-processors-at-computex-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366766",
+        "complete": true
+      },
+      {
+        "title": "AI 接管 COMPUTEX 舞台，輝達參展規模變遷見證產業質變",
+        "source": "科技新報 TechNews",
+        "date": "2026-04-03",
+        "topic": "AI 產業趨勢",
+        "summary": "科技新報分析 COMPUTEX 2026 展會焦點已完全被 AI 主導，輝達參展規模持續擴大，從過去的顯示卡廠商蛻變為 AI 平台巨頭。2026 年 COMPUTEX 將於 6 月 2-5 日在台北南港展覽館舉行，共有 1,500 家國內外企業使用 6,000 個攤位。黃仁勳預計發表主題演講，NVIDIA N1 晶片可能成為發表焦點，標誌 AI 產業從雲端向邊緣延伸的關鍵轉折。",
+        "relevance": "COMPUTEX 為台灣最重要的科技展會，AI 主題化反映台灣產業定位轉變",
+        "discussion": "高，產業鏈提前佈局",
+        "url": "https://technews.tw/2026/04/03/computex-ai-nvidia/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366799",
+        "complete": true
+      },
+      {
+        "title": "蘋果自研 AI 伺服器晶片 Baltra 曝光，採用台積電 3 奈米製程與三星玻璃基板",
+        "source": "科技新報 TechNews",
+        "date": "2026-04-09",
+        "topic": "AI 晶片 / 科技大廠動態",
+        "summary": "蘋果自研伺服器晶片 Baltra 最新消息顯示，該晶片將由台積電使用 N3E 製程製造，並採用三星電機的半導體玻璃基板。Baltra 主打 AI 推論應用，預計 2026 年下半年量產，首先部署在蘋果專注安全的雲端基礎設施中，減少對 NVIDIA GPU 的依賴。蘋果與博通合作開發，採用晶片組（chiplet）技術。郭明錤指出蘋果 AI 發展仍面臨 on-device 模型能力與伺服器成本兩大挑戰。",
+        "relevance": "台積電為唯一代工夥伴，直接受惠於蘋果 AI 晶片訂單",
+        "discussion": "極高，供應鏈密切追蹤",
+        "url": "https://technews.tw/2026/01/15/apple-still-have-two-short-term-proble-on-ai",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366827",
+        "complete": true
+      },
+      {
+        "title": "《數位時代》發布 AI 全球 100 + 台灣 20 年度榜單",
+        "source": "數位時代 BusinessNext",
+        "date": "2026-04-07",
+        "topic": "AI 產業趨勢",
+        "summary": "《數位時代》4 月號發布第二年度「AI 全球 100 + 台灣 20」榜單，從全球權威媒體、研究機構、投資資料庫整理出 770 家 AI 公司，依未來發展性、創新能力、台灣產業相關性等標準，選出 100 家最值得關注的全球 AI 公司。台灣名單從去年 50 家精簡為 20 家，涵蓋基礎建設、個人賦能、企業應用到垂直產業四大面向。專訪 Google、Notion、特斯拉等 6 大玩家，分析算力變國力、實體 AI 大舉進軍企業的趨勢。",
+        "relevance": "直接盤點台灣 AI 產業關鍵企業與競爭力",
+        "discussion": "高，產業界與投資圈廣泛討論",
+        "url": "https://www.bnext.com.tw/article/90498/ai100-tw20-26",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366855",
+        "complete": true
+      },
+      {
+        "title": "AI EXPO Taiwan 2026 五週年規模倍增，5 萬人次參觀",
+        "source": "DIGITIMES",
+        "date": "2026-04-04",
+        "topic": "AI 產業 / 展覽",
+        "summary": "第五屆 AI EXPO Taiwan 於 3 月 25-27 日在台北圓山花博圓頂舉行，約 250 家企業品牌參展，超過 5 萬人次參觀，規模較去年倍增。展覽主題「AI．X 跨域無限」，包含 30 位以上科技創作者與 AI 專家、50 場以上講座、300 種以上 AI 解決方案。台灣微軟、AWS、AMD、NVIDIA、IBM、趨勢科技等大廠發表超過 60 場專題演講。國網中心展示台灣頂尖 AI 算力。",
+        "relevance": "台灣最大年度 AI 博覽會，展現本土 AI 生態系發展",
+        "discussion": "高，參展企業與參觀者規模創新高",
+        "url": "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000751418_XBB35XTN2XIK147Y4TLH7",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366883",
+        "complete": true
+      },
+      {
+        "title": "台灣晶圓代工業 2026 年營收上看 1,700 億美元，AI 需求驅動年增近 30%",
+        "source": "經濟日報 / DIGITIMES",
+        "date": "2026-04-05",
+        "topic": "AI 晶片 / 半導體",
+        "summary": "DIGITIMES 分析師陳澤嘉預估，受惠 AI 算力需求爆發，台灣晶圓代工業 2026 年營收有望突破 1,700 億美元，年增率逼近 30%，再創歷史新高。全球超過 90% 的 AI 伺服器由台灣製造商生產，展現台灣在全球供應鏈的核心地位。AI ASIC 成為驅動半導體成長的核心關鍵，2024-2026 年全球半導體產出連續三年實現雙位數成長。",
+        "relevance": "直接反映台灣半導體在全球 AI 供應鏈的主導地位",
+        "discussion": "極高，投資市場焦點",
+        "url": "https://money.udn.com/money/story/5612/9378740",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366910",
+        "complete": true
+      },
+      {
+        "title": "2026 年 AI 工具生態系成形，專業化、代理型 AI 主導未來趨勢",
+        "source": "MarketersGo",
+        "date": "2026-04-08",
+        "topic": "AI Agent / AI 應用",
+        "summary": "至 2026 年，AI 工具的發展已從單一聊天機器人演變為高度專業化的生態系統，涵蓋程式編寫、研究、影像生成、影片製作、工作流程自動化及寫作等多元應用。McKinsey 調查顯示 72% 的企業已在至少一個業務流程中部署 AI Agent，相比 2024 年的 12% 大幅增長。然而高達 78% 的企業在將 AI 整合至現有技術堆疊時面臨挑戰。代理型 AI 正從概念驗證階段進入全面商業化部署。",
+        "relevance": "台灣企業面臨 AI 工具選型與整合的關鍵決策",
+        "discussion": "中高，企業 IT 決策者關注",
+        "url": "https://www.marketersgo.com/media-collaboration/sunmedia/202604/2026%E5%B9%B4ai%E5%B7%A5%E5%85%B7%E7%94%9F%E6%85%8B%E7%B3%BB%E6%88%90%E5%BD%A2-%E5%B0%88%E6%A5%AD%E5%8C%96%E3%80%81%E4%BB%A3%E7%90%86%E5%9E%8Bai%E4%B8%BB%E5%B0%8E%E6%9C%AA%E4%BE%86%E8%B6%A8%E5%8B%A2/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366950",
+        "complete": true
+      },
+      {
+        "title": "RSAC 2026 三大資安趨勢：Agentic AI 治理、身分管理與端點防護",
+        "source": "珈特科技",
+        "date": "2026-04-07",
+        "topic": "AI 資安 / AI Agent 治理",
+        "summary": "RSAC 2026 官方主題聚焦 Agentic AI 治理，代表 AI 在資安框架中的角色已根本轉變。今年重點不再是「要不要導入 AI 工具」，而是「AI 本身怎麼被管、被監控、出事怎麼回應」。AI Agent 可自主執行任務、存取系統、產生輸出，若缺乏清楚的可視性與控管機制，將成為不受傳統資安工具監控的新攻擊面。台灣企業面臨的個資法、ISO 27001 稽核等法規壓力與此三條主線高度重疊。",
+        "relevance": "台灣企業 AI Agent 部署需同步建立治理框架",
+        "discussion": "高，資安與 AI 社群跨域討論",
+        "url": "https://www.getinfo.com.tw/rsac2026-ai-identity-governance-endpoint-security/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.366977",
+        "complete": true
+      },
+      {
+        "title": "Meta Muse Spark 多模態 AI 深度整合社群生態系，擬革新旅遊規劃",
+        "source": "Cool3c 癮科技",
+        "date": "2026-04-10",
+        "topic": "AI 模型應用",
+        "summary": "Meta Muse Spark 模型正式上線後，已深度整合至 Facebook、Instagram、Messenger、WhatsApp 及 AI 眼鏡等多元平台。該模型目標將使用者的社群歷史與即時視覺資訊整合，有望深度革新旅遊產業的發現與規劃模式。Meta AI App 及 Meta.AI 網頁全面升級，提供個人化超級智慧助手體驗。Muse Spark 已部署於 Meta AI 助理，未來將逐步推廣至台灣。",
+        "relevance": "台灣旅遊業與社群行銷將受 AI 整合社群數據的直接影響",
+        "discussion": "中高，社群媒體用戶關注 AI 功能升級",
+        "url": "https://www.cool3c.com/article/247630",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367004",
+        "complete": true
+      },
+      {
+        "title": "物理 AI 迎接加速時刻，德勤預測三年內四成產業徹底洗牌",
+        "source": "科技新報 TechNews",
+        "date": "2026-04-04",
+        "topic": "AI 技術趨勢",
+        "summary": "德勤最新白皮書指出，Physical AI（物理 AI）正從概念進入實際部署階段。目前僅 3% 的公司已將其廣泛整合進營運，但 41% 的受訪者預測 Physical AI 將在未來三年內徹底改變產業。2026 年 AI 對「速度」和「功耗」要求越來越高，業界朝兩個方向發展：電源效率提升與光傳輸（矽光子技術）。資策會也點名矽光子與邊緣 AI 為 2026 年兩大硬核變革。",
+        "relevance": "台灣供應鏈在矽光子與邊緣 AI 硬體具有卡位優勢",
+        "discussion": "中高，半導體與 AI 業界關注",
+        "url": "https://finance.technews.tw/2026/03/18/physics-ai-is-entering-a-period-of-rapid-development",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367032",
+        "complete": true
+      },
+      {
+        "title": "2026 年 AI 決勝點：「電怎麼來、熱往哪去」產業專家解析台灣 AI 發展紅利",
+        "source": "數位時代 BusinessNext",
+        "date": "2026-04-06",
+        "topic": "AI 產業趨勢",
+        "summary": "隨著晶片算力與功耗持續提升，2026 年市場焦點轉向解決「電」與「熱」的物理限制。台灣供應鏈正處於「技術替代」的關鍵時刻，傳統產業與利基型廠商正在崛起。南寶樹脂跨足半導體封裝膠材、長興化工切入特殊啟動材料，欣興電子等高階載板廠商獲利大幅成長。AI 帶動的不僅是雲端算力需求，更延伸至散熱、電源管理、先進封裝等台灣具優勢的領域。",
+        "relevance": "台灣傳統產業轉型 AI 供應鏈的具體機會與案例",
+        "discussion": "高，投資界與產業界關注新受惠族群",
+        "url": "https://www.bnext.com.tw/article/89685/ai-industry-2026-trend-taiwan",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367062",
+        "complete": true
+      },
+      {
+        "title": "OpenAI 完成 1,220 億美元天量融資，估值達 8,520 億美元",
+        "source": "鉅亨網",
+        "date": "2026-04-04",
+        "topic": "科技大廠動態",
+        "summary": "OpenAI 創下史上最大融資紀錄，完成 1,220 億美元融資，估值逼近萬億美元大關達 8,520 億美元。年化收入已超過 250 億美元，企業業務收入佔比超過 40%。OpenAI 正採取初步措施邁向公開上市，可能最快 2026 年底實現 IPO。此輪融資將用於擴大 AI 基礎設施建設、超級智慧研究與全球市場拓展。",
+        "relevance": "OpenAI 的資金實力將加速 AI 產品迭代，影響台灣開發者與企業的技術選擇",
+        "discussion": "極高，全球科技界焦點",
+        "url": "https://news.cnyes.com/news/id/6364739",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367089",
+        "complete": true
+      },
+      {
+        "title": "2026 年 AI 資安威脅：台灣借鏡歐盟 CRA 的中小企韌性策略",
+        "source": "思想坦克 Voicettank",
+        "date": "2026-04-06",
+        "topic": "AI 資安 / 治理",
+        "summary": "王仁甫撰文分析 2026 年 AI 資安威脅態勢，指出駭客可能利用 AI 提前竊取加密資料，待量子技術成熟後再解密（Harvest Now, Decrypt Later）。文章建議台灣借鏡歐盟網路韌性法案（CRA），建立中小企業資安防護體系。數發部資安署已攜手經濟部中企署與資安院，推動中小企業基礎資安諮詢、教育訓練與資安指南等服務。",
+        "relevance": "直接提出台灣中小企業面對 AI 資安威脅的因應策略",
+        "discussion": "中，政策與資安社群討論",
+        "url": "https://voicettank.org/20260223-2/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367115",
+        "complete": true
+      },
+      {
+        "title": "資策會公布 2026 年十大 AI 關鍵技術：AI 從虛擬躍入實體",
+        "source": "iThome",
+        "date": "2026-04-05",
+        "topic": "AI 技術趨勢",
+        "summary": "資策會公布 2026 年十大 AI 關鍵技術，指出 AI 正從虛擬躍入實體世界，驅動軟體技術發展的主角已從傳統框架轉變為 AI 核心。同時資策會點名矽光子與邊緣 AI 為兩大硬核變革，將引爆下一波創新需求。MIC 科技預測也指出邊緣 AI 硬體滲透率將接近兩成，低軌衛星全球寬頻用戶將突破 1 千萬，AI 投資持續增加。",
+        "relevance": "台灣政府智庫對 AI 技術走向的權威預測，影響產業政策與企業佈局",
+        "discussion": "中高，技術社群與產業界參考",
+        "url": "https://www.ithome.com.tw/news/172987",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367137",
+        "complete": true
+      },
+      {
+        "title": "Google 預測 2026 年 AI Agent 五大趨勢，企業進入「代理世代」",
+        "source": "CIO Taiwan",
+        "date": "2026-04-08",
+        "topic": "AI Agent / 企業應用",
+        "summary": "Google Cloud AI 加速日上發布 2026 年 AI Agent 趨勢報告，剖析重塑企業價值的五大路徑。報告指出 2026 年企業將正式進入「代理世代」，AI Agent 將從概念驗證階段進入大規模部署。iThome 報導 Google 不只推出開源代理開發工具，還致力奠定各種代理互通協作標準，建立多代理生態系統。企業需從「人做事、AI 幫忙」轉變為「人領導、Agent 執行」的新模式。",
+        "relevance": "台灣企業 AI Agent 導入策略的重要參考框架",
+        "discussion": "高，企業數位轉型社群討論",
+        "url": "https://www.cio.com.tw/106812/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367161",
+        "complete": true
+      },
+      {
+        "title": "2026 生成式 AI 大爆發！雲盛科技助企業從「對話」轉向「行動」",
+        "source": "iThome",
+        "date": "2026-04-07",
+        "topic": "AI Agent / 企業應用",
+        "summary": "雲盛科技指出 2026 年生成式 AI 正從「對話式 AI」轉向「代理型 AI」，企業需求從簡單問答升級為自主執行複雜工作流程。台灣企業在 AI Agent 部署上面臨技術整合、資料治理與人才培育三大挑戰。雲盛科技提供從 AI 策略規劃、平台建置到持續優化的一站式服務，協助台灣企業在 Agentic AI 新紀元中搶占先機。",
+        "relevance": "台灣 SI 業者的 AI Agent 解決方案反映本地市場需求",
+        "discussion": "中，企業 IT 決策者關注",
+        "url": "https://www.ithome.com.tw/pr/173166",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367183",
+        "complete": true
+      },
+      {
+        "title": "NVIDIA 史上最大訂單：2027 年底前向 Amazon 供應 100 萬顆 AI 晶片",
+        "source": "TECHNICE 科技新知",
+        "date": "2026-04-08",
+        "topic": "AI 晶片 / 科技大廠動態",
+        "summary": "NVIDIA 宣布將於 2027 年底前向 Amazon 供應 100 萬顆 AI 晶片，創下 AI 產業史上最大單一訂單。此訂單將大量採用台積電先進製程生產，進一步鞏固台灣在全球 AI 晶片供應鏈的核心地位。隨著 DRAM 供應受限、台積電先進製程產能滿載，NVIDIA 必須在消費級與企業級產品間取得產能平衡，影響整體供應鏈的產能分配。",
+        "relevance": "台積電與台灣封測、記憶體供應鏈直接受惠",
+        "discussion": "極高，全球半導體與投資市場焦點",
+        "url": "https://www.technice.com.tw/issues/semicon/210108/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367207",
+        "complete": true
+      }
+    ],
+    "china": [
+      {
+        "title": "DeepSeek V4 進入灰度測試，預計 4 月正式發布",
+        "source": "36氪",
+        "date": "2026-04-05",
+        "company": "DeepSeek",
+        "topic": "模型發布",
+        "summary": "DeepSeek V4 已啟動小範圍灰度測試，預計 4 月正式發布。V4 將原生支持文本、圖像、視頻、音頻的聯合理解與生成，上下文窗口提升至 100 萬+ Token，記憶準確率宣稱可達 98.2%。V4 由梁文鋒領銜開發，在編程能力與長期記憶（LTM）技術方面實現質的飛躍。V4 將完全適配華為昇騰 950PR 晶片，阿里、字節、騰訊等大廠已採購數十萬顆該晶片。",
+        "discussion": "DeepSeek V4 被視為中國 AI 模型最重要的里程碑之一，業界高度關注其多模態與長期記憶能力是否能挑戰 GPT-5 系列。",
+        "url": "https://36kr.com/p/3679010708042505",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367230",
+        "complete": true
+      },
+      {
+        "title": "騰訊混元 3.0 定檔 4 月發布：推理與智能體能力迎來重大升級",
+        "source": "財新",
+        "date": "2026-04-08",
+        "company": "Tencent",
+        "topic": "模型發布 / AI Agent",
+        "summary": "騰訊混元 3.0 已進入內部業務測試，計劃 4 月正式對外發布。由前 OpenAI 研究員、清華姚班出身的姚順雨領衔研發，在推理能力、智能體（Agent）賦能及多模態方面實現重大升級。騰訊 2025 年在 AI 新產品投入 180 億元，2026 年投入將至少翻倍。混元 3.0 在 3D 生成、文生圖及世界建模等領域已處於行業領先地位。",
+        "discussion": "姚順雨加盟騰訊被視為中國 AI 人才爭奪戰的標誌性事件，混元 3.0 能否追上阿里 Qwen 系列備受關注。",
+        "url": "https://m.caixin.com/m/2026-03-18/102424384.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367253",
+        "complete": true
+      },
+      {
+        "title": "阿里通義千問 Qwen 3.6 Plus 免費預覽版上線，Agent 行為更可靠",
+        "source": "IT之家",
+        "date": "2026-04-09",
+        "company": "Alibaba",
+        "topic": "模型發布 / AI Agent",
+        "summary": "阿里通義千問 Qwen 3.6 Plus 免費預覽版在 OpenRouter 平台悄然上線，代表通義千問大語言模型的最新世代。相比 Qwen 3.5 系列提供更強的推理能力和更可靠的 Agent 行為表現。此前 Qwen3.5-Max-Preview 以 1464 分登頂 LM Arena，超越 GPT-5.4、Claude 4.5 等海外頂級模型。Qwen 系列月活用戶已突破 1 億。",
+        "discussion": "阿里在大模型競賽中持續領先，Qwen 3.6 的 Agent 能力提升被視為企業級 AI 應用的關鍵推動力。",
+        "url": "https://www.ithome.com/0/934/546.htm",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367276",
+        "complete": true
+      },
+      {
+        "title": "智譜發布 GLM-5.1 開源模型與 GLM-5V-Turbo 視覺編程模型",
+        "source": "量子位",
+        "date": "2026-04-08",
+        "company": "Zhipu AI",
+        "topic": "模型發布",
+        "summary": "智譜 AI 發布新一代開源模型 GLM-5.1，以及面向視覺編程的多模態模型 GLM-5V-Turbo。GLM-5V-Turbo 原生支持圖像視頻輸入，擁有 200K 上下文窗口，以更小參數量在編程與 GUI 操控基準測試中取得領先表現。GLM-5 在 Artificial Analysis Intelligence Index 達到 50 分，為開放權重模型首次達到此高分。智譜已穩定進入全球 AI 第一梯隊。",
+        "discussion": "智譜被稱為「中國的 Anthropic」，一季度 API 調用量增長 400%，股價暴漲 32% 創歷史新高，市值突破 4000 億港元。",
+        "url": "https://www.guancha.cn/economy/2026_04_01_812234.shtml",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367300",
+        "complete": true
+      },
+      {
+        "title": "2026 年被預測為多智能體「上崗」元年，中國企業加速部署",
+        "source": "第一財經",
+        "date": "2026-04-07",
+        "company": "多家企業",
+        "topic": "AI Agent / Multi-agent",
+        "summary": "多家企業預測 2026 年將成為多智能體系統規模化部署的元年，智能體從「一人一工具」進化到「一人一團隊」。超過 60% 的大型國企已構建「大模型 + Agent」雙引擎架構。Computer Use Agent（CUA）能力將成為 AI Agent 的標配，標誌著從問答到任務執行的根本轉變。中國有望成為全球多智能體系統的「超級引擎」。",
+        "discussion": "Agent 場景的單次任務 Token 消耗量遠超普通對話，推動了 API 調用量和營收的爆發式增長。",
+        "url": "https://www.yicai.com/news/102987719.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367323",
+        "complete": true
+      },
+      {
+        "title": "字節跳動豆包大模型日均 Token 突破 120 萬億，用戶規模達 22.7 億",
+        "source": "字節跳動",
+        "date": "2026-04-03",
+        "company": "ByteDance",
+        "topic": "AI 應用 / 產品發布",
+        "summary": "字節跳動披露旗下豆包大模型日均 Token 調用量突破 120 萬億，顯示平台被大規模採用。豆包已從聊天助手進化為全場景 AI 智能體平台，支持文本、圖像、音頻和視頻多模態，上下文超過 100 萬 Token。截至 2026 年 2 月，豆包用戶規模達 22.7 億，在 AIGC 原生應用賽道排名第一。豆包已完成應用內購物功能整合，與抖音電商打通。",
+        "discussion": "豆包的用戶規模和日均 Token 消耗量均為全球頂級水平，字節在 AI 商業化方面走在前列。",
+        "url": "https://jimo.studio/blog/bytedance-doubao-120-trillion-tokens-openai-secondary-market-unpicked/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367347",
+        "complete": true
+      },
+      {
+        "title": "阿里 23 天兩次 AI 變陣，1000 億美元目標倒逼「戰時狀態」",
+        "source": "新浪財經",
+        "date": "2026-04-09",
+        "company": "Alibaba",
+        "topic": "企業策略 / AI 產業",
+        "summary": "阿里巴巴在 23 天內進行兩次 AI 組織架構調整，設定 1000 億美元營收目標，進入「戰時狀態」。阿里雲通義團隊與電商、本地生活等業務深度整合，Qwen AI 應用支持在 App 內直接購物、訂餐和支付。阿里全面押注 AI 驅動的商業生態，將大模型能力嵌入所有核心業務線。這反映了中國科技巨頭間 AI 商業化競爭的白熱化程度。",
+        "discussion": "林俊旸（Qwen 核心研究員）的離職引發了關於阿里內部技術理想與商業現實深層博弈的討論。",
+        "url": "https://finance.sina.cn/stock/jdts/2026-04-09/detail-inhtwtew2039289.d.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367370",
+        "complete": true
+      },
+      {
+        "title": "華為昇騰 950PR 晶片 4 月正式量產，訂單爆發",
+        "source": "東方財富網",
+        "date": "2026-04-03",
+        "company": "Huawei",
+        "topic": "AI 晶片 / 基礎設施",
+        "summary": "華為昇騰 950PR 晶片在 2026 年 4 月正式進入量產階段，訂單出現爆發式增長。阿里、字節、騰訊等大廠已採購數十萬顆該晶片。華為已推出參數規模高達 7180 億的盤古 Ultra MoE 模型，完成國產算力 + 國產模型全流程自主可控的訓練實踐。昇騰生態持續擴張，標誌著中國 AI 算力自主化邁入新階段。",
+        "discussion": "在美國晶片出口管制持續收緊的背景下，昇騰 950PR 被視為中國自主 AI 算力的關鍵突破。",
+        "url": "https://caifuhao.eastmoney.com/news/20260403184338667658720",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367393",
+        "complete": true
+      },
+      {
+        "title": "中國修訂網路安全法，強化關鍵基礎設施防禦與 AI 風險管理",
+        "source": "ChinaTechNews",
+        "date": "2026-04-03",
+        "company": "中國政府",
+        "topic": "AI 治理 / 資安",
+        "summary": "中國對《網路安全法》進行自頒布以來的首次重大修訂，2026 年 1 月 1 日正式生效。修訂內容針對 AI 和跨境網路威脅帶來的新興風險，強化關鍵基礎設施防禦。新法規要求企業加強生成式 AI 的安全評估和數據保護。這是中國在 AI 快速發展背景下完善法律框架的重要舉措，對所有在華運營的 AI 企業產生直接影響。",
+        "discussion": "業界關注新法規對 AI 模型開發和數據使用的具體約束力，以及對跨國企業合規成本的影響。",
+        "url": "https://www.chinatechnews.com/2026/04/03/118775-china-toughens-critical-infrastructure-defenses-with-major-update-to-cybersecurity-law",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367416",
+        "complete": true
+      },
+      {
+        "title": "2026 網路安全六大新趨勢：AI 重構攻防，信任成為新防線",
+        "source": "36氪",
+        "date": "2026-04-06",
+        "company": "奇安信",
+        "topic": "AI 資安",
+        "summary": "奇安信發布 2026 網路安全十大趨勢報告，指出 AI Agent 成為 2026 年頭號安全威脅。AI 智能體具備推理、記憶和自主協作能力，滲透企業運營各環節，但自主性增加也無限放大了身份安全漏洞。OpenClaw 框架曝出關鍵 RCE 漏洞（CVE-2026-32917），全球 17.5 萬個 Ollama 實例暴露在攻擊面中。AI 正在從根本上重構網路安全的攻防格局。",
+        "discussion": "AI Agent 安全問題引發產業界高度重視，企業在部署多智能體系統時需重新評估安全架構。",
+        "url": "https://36kr.com/p/3608872755840262",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367438",
+        "complete": true
+      },
+      {
+        "title": "48 小時連發 5 款大模型，2026 年中國 AI 競爭白熱化",
+        "source": "騰訊雲開發者社區",
+        "date": "2026-04-05",
+        "company": "多家企業",
+        "topic": "模型發布 / 產業競爭",
+        "summary": "四家中國科技巨頭在 48 小時內同時推出 5 款大模型，引發業界廣泛關注，展現了中國 AI 產業的激烈競爭態勢。各家在架構創新、多模態能力、Agent 整合等方面各有突破。中國已建成 42 個「萬卡叢集」，數量全球領先，為大模型訓練提供強大算力支撐。這些叢集被視為 AI 領域的「發電廠」，標誌著中國 AI 基礎設施的規模化成熟。",
+        "discussion": "業界觀察到中國 AI 大模型已從單純追趕轉為差異化競爭，各廠商走出了截然不同的技術路線。",
+        "url": "https://cloud.tencent.com/developer/article/2650738",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367461",
+        "complete": true
+      },
+      {
+        "title": "騰訊雲公布 2026 年 AI 路線圖，首次發布 Agent 產品全景圖",
+        "source": "搜狐科技",
+        "date": "2026-04-07",
+        "company": "Tencent",
+        "topic": "AI Agent / 企業服務",
+        "summary": "騰訊雲首次發布 Agent 產品全景圖，公布 2026 年 AI 路線規劃。混元 3.0 將深度接入騰訊生態，核心強化 AI 智能體與企業服務能力。騰訊的 AI 戰略從底層基礎設施到應用層進行全面升級，包括架構重組、引進頂尖 AI 人才、重建預訓練與強化學習基礎設施。這標誌著騰訊從內部「深度內修」轉向對外全面進攻的戰略轉變。",
+        "discussion": "騰訊在 AI 領域的後發布局引發關注，Agent 產品全景圖被視為追趕阿里和字節的關鍵棋子。",
+        "url": "https://m.sohu.com/a/1002822308_211762",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367484",
+        "complete": true
+      },
+      {
+        "title": "Moonshot AI 發布 Kimi K2.5，影片生成和 Agent 能力超越美國三大模型",
+        "source": "CNBC",
+        "date": "2026-04-04",
+        "company": "Moonshot AI",
+        "topic": "模型發布 / AI Agent",
+        "summary": "北京新創公司 Moonshot AI 發布 Kimi K2.5，宣稱其影片生成和 Agentic 能力超越美國三大領先 AI 模型。Kimi 在影片理解、自主任務執行等方面展現出顯著優勢。Moonshot AI 持續在中國 AI 新創中保持技術領先地位，與 DeepSeek 並列為最受關注的中國 AI 獨角獸。K2.5 的發布進一步加劇了全球 AI 模型的競爭格局。",
+        "discussion": "Kimi K2.5 在國際基準測試中的表現引發海外科技媒體廣泛報導，強化了中國 AI 的全球競爭力敘事。",
+        "url": "https://www.cnbc.com/2026/01/28/chinese-tech-companies-accelerate-ai-model-rollouts-us-rivals-deepseek-moonshot-kimi.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367507",
+        "complete": true
+      },
+      {
+        "title": "《2026 年行業技術指數》發布：85% 中國企業已採用 AI，成本成首要顧慮",
+        "source": "新浪財經",
+        "date": "2026-04-07",
+        "company": "多家企業",
+        "topic": "AI 應用 / 企業導入",
+        "summary": "最新發布的《2026 年行業技術指數》顯示，85% 的中國受訪者表示所在企業已在不同程度上採用 AI 技術，74% 將成本列為 AI 應用的首要顧慮。中國日均 Token 消耗量從 2024 年初的 1000 億暴增至 2025 年 6 月的 30 萬億，一年半增長 300 倍。大模型率先在金融、政務等數位化基礎較好的行業落地，傳統產業落地較緩。",
+        "discussion": "報告反映中國企業 AI 採用已進入「深水區」，從試驗階段轉向規模化部署，成本優化成為關鍵議題。",
+        "url": "https://finance.sina.com.cn/jjxw/2026-04-07/doc-inhtrume3702359.shtml",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367532",
+        "complete": true
+      },
+      {
+        "title": "魔搭社區服務全球超 2500 萬用戶，匯聚 17 萬+ 開源模型",
+        "source": "網易",
+        "date": "2026-04-06",
+        "company": "Alibaba / 魔搭",
+        "topic": "AI 開源生態",
+        "summary": "阿里旗下魔搭（ModelScope）社區已服務全球超過 2500 萬用戶，匯聚超過 17 萬個開源模型和 1000 多個頂尖科研機構及企業。魔搭已成為中國 AI 開源生態的典型樣本，在模型託管、推理服務、社群協作等方面形成了完整生態。社區的快速增長反映了中國 AI 開源運動的蓬勃發展，以及開發者對本土化 AI 基礎設施的強烈需求。",
+        "discussion": "魔搭與 Hugging Face 的競爭日趨激烈，在中國市場佔據主導地位，國際化擴張也在加速。",
+        "url": "https://www.163.com/dy/article/KON5BPVQ0511DTVV.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367555",
+        "complete": true
+      },
+      {
+        "title": "AI 智能體成 2026 年頭號威脅：OpenClaw RCE 漏洞與 Ollama 17.5 萬攻擊面",
+        "source": "騰訊雲開發者社區",
+        "date": "2026-04-07",
+        "company": "多家企業",
+        "topic": "AI 資安 / 漏洞",
+        "summary": "安全週報指出 AI 智能體已成為 2026 年頭號安全威脅。OpenClaw AI Agent 框架曝出關鍵遠端程式碼執行漏洞（CVE-2026-32917），源於 iMessage 附件暫存工作流程的缺陷。全球有 17.5 萬個 Ollama 實例暴露在公開網路上，形成巨大攻擊面。中國相關威脅行動者被發現利用零日漏洞與 N-day 漏洞組合發動「高速度」攻擊，入侵面向網際網路的易受攻擊系統。",
+        "discussion": "AI Agent 安全漏洞引發全球關注，企業在部署開源 AI 框架時需加強安全審計和漏洞管理。",
+        "url": "https://developer.cloud.tencent.com/article/2627347",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367578",
+        "complete": true
+      },
+      {
+        "title": "杭州推出城市文旅智能體「杭小憶」，AI 落地公共服務",
+        "source": "人民網",
+        "date": "2026-04-07",
+        "company": "杭州市政府",
+        "topic": "AI 應用 / 智慧城市",
+        "summary": "杭州推出城市文旅智能體「杭小憶」，可即時提供城市旅遊導覽、客流查詢等服務，是 AI 在公共服務領域落地的典型案例。該智能體結合大模型與本地知識庫，能理解自然語言並提供個性化旅遊建議。人工智能正在為文旅產業高品質發展賦能，從智慧導覽到客流預測再到個性化推薦，AI 應用場景持續拓展。這也是中國地方政府積極擁抱 AI 技術的縮影。",
+        "discussion": "地方政府導入 AI 智能體用於公共服務被視為 AI 落地的重要方向，預計將有更多城市跟進。",
+        "url": "https://cpc.people.com.cn/n1/2026/0407/c64387-40696189.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367601",
+        "complete": true
+      }
+    ],
+    "usa": [
+      {
+        "title": "Anthropic Debuts Preview of Powerful New AI Model Mythos in New Cybersecurity Initiative（Anthropic 推出強大新模型 Mythos 預覽版，結合資安倡議）",
+        "source": "TechCrunch",
+        "date": "2026-04-07",
+        "topic": "AI Agent / 模型發布 / 資安",
+        "summary": "Anthropic 於 4 月 7 日發布 Claude Mythos Preview，作為 Project Glasswing 計畫的一部分。該模型在預發布測試中展現出驚人的資安能力，成功識別出所有主流作業系統和瀏覽器中數千個零日漏洞。Anthropic 因此決定不向大眾公開，僅限合作夥伴使用。Mythos 發現了一個存在 27 年的 OpenBSD 漏洞，以及一個 FFmpeg 中存在 16 年、自動測試工具曾觸及 500 萬次卻未發現的漏洞。定價為每百萬 input/output tokens $25/$125。",
+        "highlights": [
+          "Claude Mythos Preview 為 Anthropic 迄今最強模型，尤其在代理式程式設計與推理能力方面",
+          "Project Glasswing 合作夥伴包括 Amazon、Apple、Broadcom、Cisco、CrowdStrike、Linux Foundation、Microsoft、Palo Alto Networks",
+          "因資安能力過強，Anthropic 決定不向公眾開放，採限量發布策略",
+          "發現 OpenBSD 27 年漏洞與 FFmpeg 16 年漏洞",
+          "透過 Claude API、Amazon Bedrock、Google Vertex AI、Microsoft Foundry 提供"
+        ],
+        "discussion": "Bloomberg 評論此舉開創了 AI 模型發布的新時代。Axios 指出此模型若被惡意使用，可能帶來巨大資安風險。NBC News 報導 Anthropic 不公開發布的決策引發業界對 AI 安全與透明度的討論。",
+        "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367627",
+        "complete": true
+      },
+      {
+        "title": "Meta Debuts Muse Spark, First AI Model Under Alexandr Wang（Meta 發布 Muse Spark，Alexandr Wang 領導下首個 AI 模型）",
+        "source": "TechCrunch",
+        "date": "2026-04-08",
+        "topic": "模型發布 / 多模態 AI",
+        "summary": "Meta 發布 Muse Spark，為新成立的 Meta Superintelligence Labs 首個模型（代號 Avocado）。該模型由 Alexandr Wang 團隊歷時九個月開發，是原生多模態推理模型，支援語音、文字和圖像輸入，並具備工具使用、視覺思維鏈和多代理協作能力。Artificial Analysis 評分 52，僅落後 Gemini 3.1 Pro、GPT-5.4 和 Claude Opus 4.6。Meta 計劃以開源授權發布版本。",
+        "highlights": [
+          "Meta Superintelligence Labs 首個模型，由前 Scale AI CEO Alexandr Wang 領導開發",
+          "原生多模態推理模型，支援語音、文字、圖像輸入",
+          "已部署於 Meta AI 應用和網站，將擴展至 WhatsApp、Instagram、Facebook、Messenger 及 AI 眼鏡",
+          "計劃以開源授權發布",
+          "華爾街分析師反應正面，認為消除了 Meta AI 策略的不確定性"
+        ],
+        "discussion": "CNBC 報導 Meta 花費數十億美元試圖追趕 Google 和 OpenAI。Simon Willison 試用後認為 meta.ai 聊天工具有趣。TechRadar 認為感覺像是為社交網路打造的 ChatGPT。",
+        "url": "https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367652",
+        "complete": true
+      },
+      {
+        "title": "OpenAI, Anthropic and Google Unite Against Chinese AI Model Copying（OpenAI、Anthropic、Google 聯合對抗中國 AI 模型複製）",
+        "source": "Bloomberg",
+        "date": "2026-04-06",
+        "topic": "AI 安全 / 產業聯盟",
+        "summary": "OpenAI、Anthropic 和 Google 首次透過 Frontier Model Forum 共享威脅情報，對抗中國 AI 公司的對抗性蒸餾行為。Anthropic 記錄到來自三家中國公司（DeepSeek、Moonshot AI、MiniMax）的 1600 萬次蒸餾交換，涉及約 2.4 萬個詐騙帳戶。美國官員估計此行為每年造成美國 AI 實驗室數十億美元損失。這是 Frontier Model Forum 首次作為主動威脅情報行動啟動。",
+        "highlights": [
+          "三大競爭對手首次聯合進行主動威脅情報行動",
+          "Anthropic 記錄到 1600 萬次對抗性蒸餾交換",
+          "涉及 DeepSeek、Moonshot AI、MiniMax 三家中國公司",
+          "約 2.4 萬個詐騙帳戶被用於模型複製",
+          "估計每年造成美國 AI 實驗室數十億美元損失"
+        ],
+        "discussion": "此舉引發廣泛關注，被視為 AI 產業從競爭轉向合作應對外部威脅的里程碑。部分評論認為這反映了對抗性蒸餾已達到個別防禦無法應對的規模。",
+        "url": "https://www.roborhythms.com/openai-anthropic-google-fight-chinese-ai-copying-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367675",
+        "complete": true
+      },
+      {
+        "title": "Microsoft Takes on AI Rivals with Three New MAI Foundational Models（Microsoft 推出三款 MAI 基礎模型挑戰 AI 對手）",
+        "source": "TechCrunch",
+        "date": "2026-04-02",
+        "topic": "模型發布 / 企業 AI",
+        "summary": "Microsoft AI 於 4 月 2 日發布三款基礎模型：MAI-Transcribe-1（語音轉文字）、MAI-Voice-1（語音生成）和 MAI-Image-2（圖像生成）。這些模型透過 Microsoft Foundry 和新的 MAI Playground 提供。MAI-Transcribe-1 批次轉錄速度為現有 Azure Fast 方案的 2.5 倍，支援 25 種主要語言。MAI-Voice-1 能在 1 秒內生成 60 秒音頻。定價策略比 Google 和 OpenAI 更具競爭力。",
+        "highlights": [
+          "三款模型涵蓋語音轉文字、語音生成和圖像生成",
+          "MAI-Transcribe-1 批次轉錄速度為現有方案 2.5 倍",
+          "MAI-Voice-1 可在 1 秒生成 60 秒音頻",
+          "MAI-Image-2 在 Arena.ai 排行榜名列前三",
+          "定價具競爭力：轉錄 $0.36/小時、語音 $22/百萬字元、圖像 $5/$33 per MTok"
+        ],
+        "discussion": "VentureBeat 稱此舉是 Microsoft 直接挑戰 OpenAI 和 Google 的大膽行動。分析師認為這標誌著 Microsoft 減少對 OpenAI 依賴的戰略轉向。",
+        "url": "https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367698",
+        "complete": true
+      },
+      {
+        "title": "Google DeepMind Releases Gemma 4 Open Models Under Apache 2.0（Google DeepMind 以 Apache 2.0 授權發布 Gemma 4 開放模型）",
+        "source": "Google Blog",
+        "date": "2026-04-02",
+        "topic": "模型發布 / 開源 AI",
+        "summary": "Google DeepMind 於 4 月 2 日發布 Gemma 4 系列，為迄今最智能的開放模型。該系列包含四個變體：E2B、E4B、26B MoE 和 31B Dense，針對不同部署場景設計。首次採用 Apache 2.0 完全開放授權。支援多模態（文字+圖像輸入，邊緣模型支援音頻）、原生推理和代理式工作流、最長 256K tokens 上下文、超過 140 種語言。自系列推出以來已有超過 4 億次下載。",
+        "highlights": [
+          "首次採用 Apache 2.0 完全開放商業授權",
+          "四個模型變體適配手機到雲端 GPU 各種場景",
+          "支援多模態、原生推理和代理式工作流",
+          "最長 256K tokens 上下文窗口，超過 140 種語言",
+          "Gemma 系列累計超過 4 億次下載，10 萬個衍生變體"
+        ],
+        "discussion": "開發者社群對 Apache 2.0 授權反應熱烈，認為這大幅降低了開源 AI 的法律障礙。Medium 評論稱 31B 模型在多項基準上擊敗 400B 級對手，效率令人印象深刻。",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367722",
+        "complete": true
+      },
+      {
+        "title": "Microsoft and Publicis Groupe Expand Partnership for Agentic Marketing（Microsoft 與 Publicis Groupe 擴大代理式行銷合作）",
+        "source": "Microsoft News",
+        "date": "2026-04-08",
+        "topic": "AI Agent / 企業應用",
+        "summary": "Microsoft 和全球最大廣告集團 Publicis Groupe 擴大戰略合作，將代理式 AI 引入全球行銷領域。合作部署包括 Microsoft Copilot Studio、Microsoft Agent 365 和 Microsoft IQ，結合 Sapient 的 Bodhi 平台，讓企業能在營運、商務、行銷和客戶互動中部署和擴展安全的企業級 AI 代理。這代表代理式 AI 從技術概念走向大規模商業應用的重要里程碑。",
+        "highlights": [
+          "部署 Microsoft Copilot Studio、Agent 365 和 Microsoft IQ",
+          "Sapient 的 Bodhi 平台支援企業級 AI 代理擴展",
+          "涵蓋營運、商務、行銷和客戶互動全鏈條",
+          "全球最大廣告集團採用代理式 AI",
+          "標誌代理式 AI 商業化進入新階段"
+        ],
+        "discussion": "業界觀察家認為此合作顯示代理式 AI 已開始在非技術產業大規模落地，行銷領域可能是最早全面採用的行業之一。",
+        "url": "https://news.microsoft.com/source/2026/04/08/microsoft-and-publicis-groupe-expand-their-strategic-partnership-to-power-the-future-of-agentic-marketing-for-businesses-worldwide/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367804",
+        "complete": true
+      },
+      {
+        "title": "OpenAI Codex Crosses 3 Million Users, Enterprise AI Reaches 40% of Revenue（OpenAI Codex 用戶突破 300 萬，企業 AI 佔營收 40%）",
+        "source": "Fortune",
+        "date": "2026-04-09",
+        "topic": "AI Agent / 企業應用",
+        "summary": "OpenAI 的程式代理 Codex 從季初近零成長至突破 300 萬用戶，代理式工具 Codex 使用量自年初增長超過 5 倍。付費企業用戶 2 月達 900 萬（去年 8 月為 500 萬）。企業營收已佔 OpenAI 總營收超過 40%，預計年底達到與消費者營收持平。企業正從簡單任務 AI 輔助轉向部署協調「代理團隊」，在業務工具中自主運作。Codex 定位為 OpenAI 向企業銷售 AI 代理的核心機制。",
+        "highlights": [
+          "Codex 用戶從近零增長至 300 萬，季度增長超過 5 倍",
+          "付費企業用戶達 900 萬（同比增長 80%）",
+          "企業營收佔比超過 40%，預計年底與消費者持平",
+          "企業從任務輔助轉向代理團隊協作模式",
+          "Codex 被定位為「標準代理」核心產品"
+        ],
+        "discussion": "Fortune 指出 Codex 是 OpenAI 企業代理策略的核心。Decrypt 報導代理式工作流的轉變正在重塑企業 AI 採用模式。開發者社群對 Codex 代理能力的進步反應正面。",
+        "url": "https://fortune.com/2026/03/04/openai-codex-growth-enterprise-ai-agents/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367850",
+        "complete": true
+      },
+      {
+        "title": "Edgerunner AI Debuts WarClaw Agentic AI Assistant for Military（Edgerunner AI 推出軍事代理式 AI 助手 WarClaw）",
+        "source": "Defense One",
+        "date": "2026-04-09",
+        "topic": "AI Agent / 國防",
+        "summary": "退伍軍人創辦的 Edgerunner AI 發布軍事專用代理工具 WarClaw，採用與大型前沿模型不同的方法。模型能在無網路連接的本地環境運行，使用由軍事專家和前作戰人員策劃的特定資料集訓練。此趨勢反映業界從大型通用模型轉向小型、可控的客製化模型。公眾對「代理式 AI」的興趣在一年內增長 6100%，預計市場將從去年 40 億美元增長至 2030 年超過 1000 億美元。",
+        "highlights": [
+          "專為軍事設計的小型客製化代理模型",
+          "可在無網路環境本地運行，適合軍事作戰",
+          "由軍事專家和前作戰人員參與訓練數據策劃",
+          "代理式 AI 公眾興趣年增 6100%",
+          "市場預計從 40 億美元增長至 2030 年 1000 億美元"
+        ],
+        "discussion": "Defense One 報導此趨勢代表軍事 AI 從通用大模型轉向專業小模型的重要轉折。安全社群討論了在敏感軍事環境中部署 AI 代理的利弊。",
+        "url": "https://www.defenseone.com/technology/2026/04/startup-takes-different-approach-ai-assistants/412545/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367874",
+        "complete": true
+      },
+      {
+        "title": "2026 Agentic AI Era: Multi-Model Routing Becomes a Must-Have（2026 代理式 AI 時代：多模型路由成為必備技術）",
+        "source": "FinancialContent",
+        "date": "2026-04-03",
+        "topic": "AI Agent / 技術趨勢",
+        "summary": "2026 年被視為多代理 AI 系統的關鍵年，代理團隊能相互溝通和委派工作，無需持續人類監督。多模型路由從「錦上添花」變為「必備技術」，讓企業從簡單任務執行提升到端對端管理整個業務流程。這反映了代理式 AI 從單一模型到多模型協作的典範轉移，企業需要根據任務複雜度動態選擇最適合的模型組合。",
+        "highlights": [
+          "多代理系統無需人類持續監督即可自主協作",
+          "多模型路由從選配變為企業必備技術",
+          "代理團隊可端對端管理整個業務流程",
+          "從單一模型到多模型協作的典範轉移",
+          "企業可動態選擇最適任務的模型組合"
+        ],
+        "discussion": "產業分析師認為 2026 年是代理式 AI 從概念到生產的轉折點。企業 CTO 社群討論如何在多模型路由中平衡效能、成本和安全性。",
+        "url": "https://markets.financialcontent.com/stocks/article/abnewswire-2026-4-3-2026-agentic-ai-era-why-multi-model-routing-has-become-a-must-have-not-a-nice-to-have",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.367970",
+        "complete": true
+      },
+      {
+        "title": "Ex-Google DeepMind and Databricks Engineers Launch Pomo for Agentic Marketing（前 Google DeepMind 和 Databricks 工程師創辦 Pomo 代理式行銷平台）",
+        "source": "The AI Insider",
+        "date": "2026-04-09",
+        "topic": "AI Agent / 新創",
+        "summary": "Pomo 由前 Google DeepMind 和 Databricks 工程師創辦，獲得 Kindred Ventures 領投 450 萬美元種子輪融資，Databricks Ventures 及知名 AI 領袖也有投資。該公司將 AI 代理原則應用於決策密集的行銷功能，打造代理式行銷智慧平台。Pomo 的目標是將複雜的行銷決策流程自動化，讓 AI 代理能自主處理從策略規劃到執行優化的全流程。",
+        "highlights": [
+          "前 Google DeepMind 和 Databricks 工程師創辦",
+          "Kindred Ventures 領投 450 萬美元種子輪",
+          "Databricks Ventures 參與投資",
+          "將 AI 代理原則應用於行銷決策",
+          "瞄準決策密集型行銷功能自動化"
+        ],
+        "discussion": "創投社群關注代理式 AI 在行銷領域的商業化潛力。部分觀察家認為行銷是代理式 AI 最自然的應用場景之一。",
+        "url": "https://theaiinsider.tech/2026/04/09/ex-google-deepmind-and-databricks-engineers-launch-pomo-to-apply-ai-agent-principles-to-decision-dense-marketing-functions/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368033",
+        "complete": true
+      },
+      {
+        "title": "Apple Confirms Gemini-Powered Siri Will Use Private Cloud Compute（Apple 確認 Gemini 驅動的 Siri 將使用 Private Cloud Compute）",
+        "source": "9to5Mac",
+        "date": "2026-04-06",
+        "topic": "產品發布 / Apple AI",
+        "summary": "Apple 與 Google 達成多年合作，下一代 Apple Foundation Models 將基於 Google Gemini 模型和雲端技術。客製化 1.2 兆參數模型將在 Apple 的 Private Cloud Compute 基礎設施上運行，而非 Google Cloud，維持 Apple 的隱私保障。增強版 Siri 預計在 iOS 26.5（2026 年 5 月目標）推出初步功能，完整對話式 AI 能力將在 iOS 27（2026 年 9 月）到來。此合作代表 Apple 在 AI 競賽中的重大策略調整。",
+        "highlights": [
+          "Apple 與 Google 達成多年 AI 合作",
+          "客製化 1.2 兆參數 Gemini 模型驅動 Siri",
+          "在 Apple Private Cloud Compute 運行，保持隱私保障",
+          "增強版 Siri 預計 iOS 26.5（5 月）推出初步功能",
+          "完整對話式 AI 功能預計 iOS 27（9 月）到來"
+        ],
+        "discussion": "科技社群對 Apple 選擇 Google 而非自建模型感到意外。隱私倡導者關注 Gemini 模型在 Apple 基礎設施上運行的隱私影響。開發者期待新 Siri 的 API 開放程度。",
+        "url": "https://9to5mac.com/2026/01/29/apple-confirms-gemini-powered-siri-will-use-private-cloud-compute/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368067",
+        "complete": true
+      },
+      {
+        "title": "xAI Grok 5 Training on Colossus 2, Expected Q2 2026（xAI Grok 5 在 Colossus 2 上訓練，預計 Q2 2026 發布）",
+        "source": "NxCode",
+        "date": "2026-04-07",
+        "topic": "模型發布 / xAI",
+        "summary": "xAI 的 Colossus 2 超級計算叢集已全面運營，正在訓練 Grok 5。官方 X 帳號指向 2026 年 Q2 為最可能的發布窗口。Grok 5 的標題數字為 6 兆參數，是傳聞中 Grok 4 的 3 兆參數的兩倍。目前旗艦為 4 月 1 日發布的 Grok 4.20 Beta 2，引入多代理辯論架構。因 2026 年非自願深度偽造爭議，xAI 已限制 Grok 的圖像編輯和生成功能。SpaceX 收購 xAI 加速了運算建設。",
+        "highlights": [
+          "Grok 5 為 6 兆參數，是 Grok 4 的兩倍",
+          "Colossus 2 超級計算叢集全面運營並訓練 Grok 5",
+          "預計 2026 年 Q2 發布",
+          "Grok 4.20 引入多代理辯論架構",
+          "SpaceX 收購 xAI 加速運算建設"
+        ],
+        "discussion": "EWeek 分析 Grok 4.20 的多代理辯論架構如何將 AI 變成「辯論團隊」。社群對 6 兆參數規模表示驚訝。deepfake 限制獲得正面評價。",
+        "url": "https://www.nxcode.io/resources/news/grok-5-release-date-latest-news-2026",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368099",
+        "complete": true
+      },
+      {
+        "title": "DeepSeek V4 Expected to Launch on Huawei Chips in Coming Weeks（DeepSeek V4 預計近週內發布，將在華為晶片上運行）",
+        "source": "Reuters / TechNode",
+        "date": "2026-04-06",
+        "topic": "模型發布 / 中國 AI",
+        "summary": "Reuters 引述 The Information 報導，DeepSeek V4 預計在「未來幾週」發布，將在華為最新晶片上運行。V4 為約 1 兆參數混合專家模型，僅 370 億活躍參數/token，配備 100 萬 token 上下文窗口和 Engram 條件記憶，支援原生多模態生成。DeepSeek 已與華為和寒武紀合作，針對國產 AI 晶片優化 V4。原定 3 月發布但多次推遲。⚠️ 確切發布日期待確認。",
+        "highlights": [
+          "約 1 兆參數 MoE 模型，370 億活躍參數/token",
+          "100 萬 token 上下文窗口",
+          "將在華為 Ascend 950PR 晶片上運行",
+          "支援文字、圖像、影片原生多模態生成",
+          "SWE-bench 達 81%，API 定價 $0.30/MTok"
+        ],
+        "discussion": "Polymarket 上 V4 發布時間的預測市場引起交易者關注。中國 AI 社群期待 V4 證明國產晶片能支撐頂級模型訓練。⚠️ 具體發布日期仍有不確定性。",
+        "url": "https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368124",
+        "complete": true
+      },
+      {
+        "title": "Global AI Secures Agentic AI Deployment with Fortune 500 Pharma Leader（Global AI 與財富 500 大藥企完成代理式 AI 部署）",
+        "source": "GlobeNewsWire",
+        "date": "2026-04-08",
+        "topic": "AI Agent / 企業部署",
+        "summary": "Global AI Inc. 宣布其代理式 AI 平台與全球最大藥企之一完成重大生產環境部署。該平台已在監管報告和薪資功能中全面運營。這是代理式 AI 在受高度監管的製藥產業中成功落地的重要案例，證明 AI 代理能在嚴格合規要求下運作。此部署反映了企業 AI 從概念驗證轉向規模化生產的趨勢。",
+        "highlights": [
+          "全球最大藥企之一的生產環境代理式 AI 部署",
+          "已在監管報告和薪資功能中全面運營",
+          "高度監管產業中的成功落地案例",
+          "證明 AI 代理能在嚴格合規要求下運作",
+          "從概念驗證到規模化生產的里程碑"
+        ],
+        "discussion": "製藥產業觀察者認為此案例將加速其他受監管產業採用代理式 AI。合規和風控專家討論 AI 代理在監管報告中的準確性和責任歸屬。",
+        "url": "https://www.globenewswire.com/news-release/2026/04/08/3270176/0/en/Global-AI-Secures-Enterprise-Agentic-AI-Deployment-with-Fortune-Global-500-Pharmaceutical-Leader.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368149",
+        "complete": true
+      },
+      {
+        "title": "Enterprise AI Adoption 2026: 79% Face Challenges Despite High Investment（2026 企業 AI 採用：79% 面臨挑戰，儘管高投入）",
+        "source": "Writer",
+        "date": "2026-04-07",
+        "topic": "企業 AI / 調查報告",
+        "summary": "Writer 發布的企業 AI 採用報告顯示，79% 的組織在 AI 採用中面臨挑戰，比 2025 年兩位數增長。54% 的 C-suite 高管坦承 AI 採用正在「撕裂」其公司。然而 97% 的高管表示過去一年已部署 AI 代理，52% 員工已在使用。三分之二（66%）組織報告從企業 AI 獲得生產力和效率提升。Fortune 500 中 29% 和 Global 2000 中約 19% 已成為領先 AI 新創的付費客戶。",
+        "highlights": [
+          "79% 組織面臨 AI 採用挑戰，同比大幅增長",
+          "54% C-suite 高管稱 AI 正在「撕裂」公司",
+          "97% 高管已部署 AI 代理，52% 員工已使用",
+          "66% 組織報告生產力和效率提升",
+          "Fortune 500 中 29% 為 AI 新創付費客戶"
+        ],
+        "discussion": "Deloitte 的企業 AI 狀態報告呼應了類似發現。HN 討論中開發者分享了各自企業中 AI 採用的實際困境，包括資料品質、組織抗拒和技能差距。",
+        "url": "https://writer.com/blog/enterprise-ai-adoption-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368175",
+        "complete": true
+      },
+      {
+        "title": "LOBO Launches Claw AI Agent Platform for Export Manufacturing（LOBO 推出 Claw AI 代理平台加速製造業 AI 採用）",
+        "source": "GlobeNewsWire",
+        "date": "2026-04-09",
+        "topic": "AI Agent / 製造業",
+        "summary": "LOBO TECHNOLOGIES 正式發布自主研發的 Claw AI Agent Platform，專為出口導向製造業設計。該平台整合大型語言模型與代理式 AI 技術，支援從客戶獲取、訂單管理到供應鏈協調的完整出口工作流。這代表代理式 AI 在傳統製造業的應用拓展，從知識工作者場景延伸到供應鏈和國際貿易流程。",
+        "highlights": [
+          "專為出口導向製造業設計的 AI 代理平台",
+          "整合 LLM 與代理式 AI 技術",
+          "支援客戶獲取、訂單管理到供應鏈協調",
+          "代理式 AI 在傳統製造業的新應用",
+          "從知識工作延伸到國際貿易流程"
+        ],
+        "discussion": "製造業科技觀察者認為此類垂直應用平台將成為 AI 代理的重要增長方向。中小企業對 AI 降低出口門檻的潛力表示期待。",
+        "url": "https://www.globenewswire.com/news-release/2026/04/09/3270874/0/en/LOBO-Launches-Claw-AI-Agent-Platform-to-Accelerate-AI-Adoption-in-Export-Oriented-Manufacturing.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368199",
+        "complete": true
+      },
+      {
+        "title": "Gemini 3.1 Pro Leads SWE-bench at 78.80%, Top Benchmark Rankings April 2026（Gemini 3.1 Pro 以 78.80% 領先 SWE-bench，4 月基準排名）",
+        "source": "LM Council / BenchLM",
+        "date": "2026-04-08",
+        "topic": "LLM 評測 / 基準排名",
+        "summary": "2026 年 4 月 AI 基準排名顯示前沿模型競爭空前激烈。Claude Mythos Preview 以 99 分總評領先；Gemini 3.1 Pro 和 GPT-5.4 並列 94 分；Claude Opus 4.6 和 GPT-5.4 Pro 同為 92 分。Gemini 3.1 Pro 在 SWE-bench Verified 以 78.80% 領先，GPQA Diamond 達 94.3%。較難的基準如 HLE、GPQA 和 MMLU-Pro 成為前沿分界線。開放權重模型與專有模型差距縮小至 9 分。",
+        "highlights": [
+          "Claude Mythos Preview 總評 99 分領先所有模型",
+          "Gemini 3.1 Pro SWE-bench 78.80%、GPQA Diamond 94.3%",
+          "GPT-5.4 和 Gemini 3.1 Pro 並列 94 分",
+          "HLE、GPQA、MMLU-Pro 成為新的前沿分界基準",
+          "開放與專有模型差距縮小至 9 分"
+        ],
+        "discussion": "BenchLM 指出基準選擇比以往更重要，舊基準已飽和。開發者社群討論哪些基準最能反映真實應用能力。LiveBench 等動態基準受到更多關注。",
+        "url": "https://lmcouncil.ai/benchmarks",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368223",
+        "complete": true
+      },
+      {
+        "title": "How Trump's Tariffs Could Hurt U.S. in AI Race With China（關稅如何可能損害美國在 AI 競賽中的地位）",
+        "source": "TIME",
+        "date": "2026-04-08",
+        "topic": "AI 政策 / 貿易",
+        "summary": "TIME 深度報導分析關稅對美國 AI 發展的潛在衝擊。關稅可能使 AI 資料中心建設成本大幅上升，因 AI 伺服器和冷卻/電力設備大量進口。分析估計關稅將使資料中心材料成本增加約 20%，IT 硬體零件可能上漲 25%。然而，一項涵蓋每月 340 億美元進口的電腦和零件免稅條款是 AI 投資熱潮的關鍵保護傘。CSIS 分析指出關稅可能破壞美國 3 兆美元的 AI 基礎建設計畫。",
+        "highlights": [
+          "資料中心材料成本可能增加約 20%",
+          "IT 硬體零件可能上漲 25%",
+          "電腦零件免稅條款保護每月 340 億美元進口",
+          "CSIS 警告可能破壞 3 兆美元 AI 基礎建設",
+          "Atlantic Council 指出硬體關稅可能削弱美國競爭力"
+        ],
+        "discussion": "科技業界普遍擔憂關稅對 AI 基礎設施投資的影響。部分經濟學家認為免稅條款是維持 AI 發展的關鍵。中美 AI 競爭格局因關稅政策更加複雜化。",
+        "url": "https://time.com/7275771/trump-tariffs-ai-development-china/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368247",
+        "complete": true
+      },
+      {
+        "title": "Enterprise Agentic AI Landscape 2026: Trust, Flexibility, and Vendor Lock-in（2026 企業代理式 AI 格局：信任、靈活性與供應商鎖定）",
+        "source": "Kai Waehner Blog",
+        "date": "2026-04-06",
+        "topic": "AI Agent / 企業趨勢",
+        "summary": "深度分析 2026 年企業代理式 AI 的三大關鍵議題：信任、靈活性和供應商鎖定。隨著代理式 AI 進入企業生產環境，組織面臨如何建立對 AI 代理的信任、如何保持技術靈活性以及如何避免被單一供應商鎖定等挑戰。影子 AI 工具在安全團隊視線外運作，繞過控制並產生盲點。包含 AI 的資料外洩平均成本現為 488 萬美元，創歷史新高。",
+        "highlights": [
+          "企業代理式 AI 三大挑戰：信任、靈活性、供應商鎖定",
+          "影子 AI 繞過安全控制產生盲點",
+          "AI 相關資料外洩平均成本 488 萬美元創新高",
+          "從試驗轉向生產環境部署的關鍵階段",
+          "多框架支援成為避免鎖定的重要策略"
+        ],
+        "discussion": "CTO 和 CISO 社群密切關注供應商鎖定風險。部分企業選擇多雲多模型策略以保持靈活性。安全團隊開始制定專門的 AI 代理安全策略。",
+        "url": "https://www.kai-waehner.de/blog/2026/04/06/enterprise-agentic-ai-landscape-2026-trust-flexibility-and-vendor-lock-in/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368294",
+        "complete": true
+      },
+      {
+        "title": "AI-Powered Attacks Expose Critical Security Gaps: 2026 Cybersecurity Warning（AI 驅動攻擊暴露重大安全缺口：2026 資安警告）",
+        "source": "NTI Now / SecurityWeek",
+        "date": "2026-04-07",
+        "topic": "AI 資安 / 威脅",
+        "summary": "2026 年 AI 驅動的網路攻擊持續升級。威脅行為者正在串聯漏洞鏈，部署 AI 生成的釣魚誘餌和社交工程攻擊，構建更隱蔽且執行更快的複合攻擊。Shadow AI 工具在安全團隊視線外運作，造成不受控的資料暴露和擴大的攻擊面。IBM 報告含 AI 的資料外洩平均成本達 488 萬美元。SentinelOne 和 PurpleSec 列出了企業必須關注的主要 AI 安全風險，包括模型中毒、對抗性攻擊和 AI 供應鏈風險。",
+        "highlights": [
+          "AI 生成的釣魚和社交工程攻擊更難偵測",
+          "威脅者串聯漏洞鏈構建複合攻擊",
+          "Shadow AI 造成不受控資料暴露",
+          "AI 相關資料外洩平均成本 488 萬美元",
+          "模型中毒和 AI 供應鏈風險成為新威脅"
+        ],
+        "discussion": "資安社群呼籲建立 AI 專屬安全框架。CISO 論壇討論如何在推動 AI 採用的同時管控新型風險。Cranium 等公司推動 AI 治理的企業解決方案。",
+        "url": "https://ntinow.edu/ai-powered-attacks-expose-critical-security-gaps/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368317",
+        "complete": true
+      },
+      {
+        "title": "Treasury Launches AI Innovation Series for Government AI Adoption（美國財政部啟動 AI 創新系列推動政府 AI 採用）",
+        "source": "U.S. Department of the Treasury",
+        "date": "2026-04-07",
+        "topic": "AI 政策 / 政府",
+        "summary": "美國財政部啟動人工智慧創新系列，首席 AI 官表示「AI 正從實驗轉向全企業整合」。優先方向為將 AI 嵌入核心工作流中，以可衡量方式強化風險管理和韌性。此舉代表美國聯邦政府從觀望轉向主動採用 AI 的態度轉變。財政部作為關鍵經濟機構，其 AI 策略對金融監管和政策制定具有重大影響。",
+        "highlights": [
+          "財政部首席 AI 官宣布 AI 從實驗轉向全企業整合",
+          "優先將 AI 嵌入核心工作流",
+          "聚焦風險管理和韌性強化",
+          "聯邦政府主動採用 AI 的態度轉變",
+          "對金融監管和政策制定具重大影響"
+        ],
+        "discussion": "政府科技社群關注聯邦機構 AI 採用的實際挑戰，包括資料安全、採購流程和人才短缺。5 個軍種中已有 5 個採用 GenAI.mil 作為企業 AI 平台。",
+        "url": "https://home.treasury.gov/news/press-releases/sb0421",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368362",
+        "complete": true
+      },
+      {
+        "title": "OpenAI's $122B Infrastructure Pivot: A New Era of Compute Dominance（OpenAI 1220 億基礎設施轉型：運算霸權新時代）",
+        "source": "Market Minute",
+        "date": "2026-04-09",
+        "topic": "AI 產業 / 基礎設施",
+        "summary": "OpenAI 在完成 1220 億美元融資後，大規模投入 AI 基礎設施建設。公司計劃建設全球性「超級應用」，結合消費者和企業 AI 功能。Amazon 的 500 億投資、NVIDIA 和 SoftBank 各 300 億，顯示主要科技巨頭對 AI 基礎設施的戰略押注。OpenAI 正從純模型公司轉型為全方位 AI 基礎設施平台，這對整個 AI 產業格局有深遠影響。",
+        "highlights": [
+          "1220 億美元融資主要用於 AI 基礎設施建設",
+          "計劃建設全球性 AI「超級應用」",
+          "Amazon 500 億、NVIDIA 和 SoftBank 各 300 億的戰略投資",
+          "從模型公司轉型為全方位 AI 基礎設施平台",
+          "預計今年 IPO"
+        ],
+        "discussion": "投資者對 OpenAI 估值 8520 億美元是否合理存在分歧。部分分析師認為基礎設施投資將形成強大護城河，但也有人擔憂資本效率問題。",
+        "url": "https://markets.financialcontent.com/stocks/article/marketminute-2026-4-9-openais-122-billion-infrastructure-pivot-a-new-era-of-compute-dominance",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368385",
+        "complete": true
+      },
+      {
+        "title": "GLM-5.1 Released with Enhanced Coding Capabilities（GLM-5.1 發布，強化程式設計能力）",
+        "source": "LLM Stats",
+        "date": "2026-04-04",
+        "topic": "模型發布 / 中國 AI",
+        "summary": "智譜 AI（Zhipu）於 3 月 27 日發布 GLM-5.1，特別針對程式設計能力進行優化。在編碼基準測試中，GLM-5.1 獲得 45.3 分，接近 Claude Opus 4.6 的 47.9 分。GLM-5.1 代表了中國 AI 模型在特定能力上快速追趕前沿的趨勢，特別是在程式設計和推理領域。⚠️ 具體基準測試細節待確認。",
+        "highlights": [
+          "程式設計基準測試 45.3 分，接近 Claude Opus 4.6 的 47.9",
+          "智譜 AI 針對程式設計能力特別優化",
+          "中國 AI 模型在特定領域快速追趕",
+          "3 月 27 日發布"
+        ],
+        "discussion": "開發者社群對中國模型在編碼能力上的快速進步表示關注。部分評論認為特定領域的優化可能比全方位提升更具實用價值。⚠️ 詳細基準數據待確認。",
+        "url": "https://llm-stats.com/ai-news",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368409",
+        "complete": true
+      }
+    ],
+    "techtrends": [
+      {
+        "title": "Deloitte Tech Trends 2026：AI 成熟期——領先組織如何規模化 AI 以創造實質成果",
+        "source": "Deloitte",
+        "date": "2026-03-18",
+        "category": "產業報告",
+        "summary": "Deloitte 第 17 屆年度科技趨勢報告揭示五大關鍵趨勢，重點從 AI 實驗轉向規模化部署。報告指出 Token 成本兩年內下降 280 倍，但企業月度帳單仍高達數千萬美元，因使用量爆增速度超過成本下降。目前僅 11% 的企業將 AI Agent 投入正式生產環境，25% 仍處於試驗階段。報告探討混合人機勞動力、實體 AI 與機器人、AI 優先基礎設施轉型、科技組織重塑，以及 AI 在企業安全的矛盾角色。同時識別八大新興技術訊號，包括神經形態晶片與邊緣 AI。",
+        "highlights": [
+          "僅 11% 企業 AI Agent 進入正式生產，25% 處於試驗階段",
+          "Token 成本兩年降 280 倍，但企業月帳單仍達千萬美元級",
+          "五大趨勢涵蓋混合人機勞動力、實體 AI、基礎設施轉型",
+          "識別八大新興技術訊號包括神經形態晶片與邊緣 AI"
+        ],
+        "url": "https://www.deloitte.com/us/en/about/press-room/deloitte-tech-trends-2026.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368446",
+        "complete": true
+      },
+      {
+        "title": "Forrester 2026 預測：AI 炒作消退，企業將延遲 25% AI 支出至 2027 年",
+        "source": "Forrester",
+        "date": "2026-03-15",
+        "category": "AI趨勢",
+        "summary": "Forrester 預測 AI 將面臨「清算時刻」，廠商膨脹的承諾與實際交付價值之間的差距正在擴大，迫使市場修正。不到三分之一的決策者能將 AI 價值與組織財務成長掛鉤，CEO 將更依賴 CFO 以 ROI 為基礎批准 AI 投資。Neocloud（新型雲端供應商）將搶下 200 億美元營收，侵蝕超大規模業者在 GenAI 領域的主導地位。開發人員招聘時間將翻倍，因企業更重視資深架構能力。60% 的 Fortune 100 企業將設立 AI 治理主管。",
+        "highlights": [
+          "企業將延遲 25% 已規劃的 AI 支出至 2027 年",
+          "不到 1/3 決策者能量化 AI 對財務成長的貢獻",
+          "Neocloud 將搶下 200 億美元營收",
+          "60% Fortune 100 將設立 AI 治理主管"
+        ],
+        "url": "https://www.forrester.com/press-newsroom/forrester-tech-security-2026-predictions/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368535",
+        "complete": true
+      },
+      {
+        "title": "IDC：AI 基礎設施支出 2025 Q3 創紀錄達 860 億美元，2029 年將達 7,580 億",
+        "source": "IDC",
+        "date": "2026-03-03",
+        "category": "產業報告",
+        "summary": "IDC 最新報告顯示 2025 年第三季全球 AI 基礎設施支出創紀錄達 860 億美元，2025 全年預計達 3,340 億美元。2029 年 AI 基礎設施支出預計達 7,580 億美元，加速伺服器佔總市場支出的 94.3%。2027 年前年成長率維持 30% 以上，之後逐步放緩至 20% 區間。日本 AI 基礎設施市場 2026 年預計年增 18%，超過 55 億美元。IDC 上修預期，認為 AI 投資熱潮將持續到 2026 年底。",
+        "highlights": [
+          "2025 Q3 AI 基礎設施支出創紀錄 860 億美元",
+          "2029 年預計達 7,580 億美元，加速伺服器佔 94.3%",
+          "2027 年前年成長率維持 30% 以上",
+          "Agentic AI 至 2029 年將佔全球 IT 支出 26%，超過 1.3 兆美元"
+        ],
+        "url": "https://www.biztechreports.com/news-archive/2026/3/3/ai-infrastructure-spending-reached-a-record-86b-in-q3-2025-idc-march-03-2026",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368559",
+        "complete": true
+      },
+      {
+        "title": "PwC 2026 AI 商業預測：從地面向上到頂層設計的企業 AI 策略轉型",
+        "source": "PwC",
+        "date": "2026-03-10",
+        "category": "企業AI",
+        "summary": "PwC 2026 年 AI 預測報告指出，更多企業將跟隨 AI 先行者的腳步，採用以頂層設計為核心的企業級策略。報告批評目前許多企業採取「由下而上」的眾包式方式推動 AI，導致專案與企業優先順序不匹配且缺乏精確執行。PwC 強調企業需要統一的 AI 治理框架與清晰的投資回報衡量機制。報告預測 AI 將深入改變從客戶服務到供應鏈管理的各個業務功能。",
+        "highlights": [
+          "企業應從「由下而上」轉向「頂層設計」的 AI 策略",
+          "眾包式 AI 推動導致專案與企業優先順序不匹配",
+          "需要統一 AI 治理框架與 ROI 衡量機制",
+          "AI 先行者已展示企業級策略的明確優勢"
+        ],
+        "url": "https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368628",
+        "complete": true
+      },
+      {
+        "title": "KPMG AI 季度脈搏調查：AI Agent 部署四個季度內近四倍成長",
+        "source": "KPMG",
+        "date": "2026-03-15",
+        "category": "AI趨勢",
+        "summary": "KPMG 最新 AI 季度脈搏調查顯示 AI Agent 部署出現爆發式成長，42% 組織已部署至少部分 AI Agent，較兩季前的 11% 成長近四倍。但報告同時指出累積的技術債與持續的人才短缺是主要障礙，69% 組織為趕上交付壓力在安全性、可擴展性和資料標準化方面做出妥協。企業 AI 採用率已躍升至 72%，結束了 2020-2023 年徘徊在 50% 的階段。調查涵蓋多個產業的科技主管觀點。",
+        "highlights": [
+          "AI Agent 部署從 11% 躍升至 42%，近四倍成長",
+          "69% 組織為趕交付在安全性與可擴展性上妥協",
+          "企業 AI 採用率從 50% 躍升至 72%",
+          "技術債與人才短缺仍是首要障礙"
+        ],
+        "url": "https://kpmg.com/us/en/articles/2025/ai-quarterly-pulse-survey.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368652",
+        "complete": true
+      },
+      {
+        "title": "TechCrunch：2026 年 AI 從炒作走向務實主義",
+        "source": "TechCrunch",
+        "date": "2026-01-02",
+        "category": "AI趨勢",
+        "summary": "TechCrunch 分析指出 2026 年將是 AI 實用化的一年，產業重心從建構更大語言模型轉向讓 AI 真正可用：部署更小模型、將智慧嵌入實體裝置、設計與人類工作流程無縫整合的系統。精調小型語言模型（SLM）將成為成熟 AI 企業的重大趨勢，在準確度匹配大模型的同時提供更優越的成本與速度。投資者預測 AI 將在 2026 年真正衝擊勞動力市場，企業將透過更少供應商投入更多 AI 支出。",
+        "highlights": [
+          "2026 重心從更大模型轉向讓 AI 真正可用",
+          "精調 SLM 將成為成熟企業的重要趨勢",
+          "投資者預測 AI 將真正衝擊勞動力市場",
+          "企業 AI 支出增加但供應商數量減少"
+        ],
+        "url": "https://techcrunch.com/2026/01/02/in-2026-ai-will-move-from-hype-to-pragmatism/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368719",
+        "complete": true
+      },
+      {
+        "title": "MIT Technology Review：2026 年 AI 展望——中國開源模型崛起與前沿差距縮小",
+        "source": "MIT Technology Review",
+        "date": "2026-01-05",
+        "category": "AI趨勢",
+        "summary": "MIT Technology Review 年度展望指出中國開源模型在 2025 年取得重大突破，DeepSeek R1 開源推理模型震驚業界，展示小型公司在有限資源下的驚人能力。2026 年預期更多矽谷應用將悄悄建立在中國開源模型之上，中國與西方前沿模型的差距將從數月縮短至數週。報告分析了 AI 產業的權力動態變化、開源與閉源之爭，以及 AI 對各行業的深入滲透趨勢。",
+        "highlights": [
+          "DeepSeek R1 開源推理模型震驚全球 AI 產業",
+          "更多矽谷應用將在中國開源模型上運行",
+          "中西方前沿模型差距從數月縮短至數週",
+          "開源 vs 閉源之爭持續重塑產業格局"
+        ],
+        "url": "https://www.technologyreview.com/2026/01/05/1130662/whats-next-for-ai-in-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368742",
+        "complete": true
+      },
+      {
+        "title": "數位時代：2026 年 AI 決勝點——電怎麼來、熱往哪去，台灣產業誰能跟上紅利",
+        "source": "數位時代",
+        "date": "2026-03-15",
+        "category": "AI趨勢",
+        "summary": "數位時代深度報導台灣在 AI 時代的機遇與挑戰。台灣憑藉 AI 晶片與伺服器供應鏈核心優勢拉出亮眼經濟成長，但產業同時深陷「AI 焦慮」，不知如何將優勢轉化為驅動整體產業升級的實質動力。報導分析 AI 基礎設施的兩大關鍵瓶頸：電力供應與散熱技術。多數企業主最迫切希望透過 AI 解決「成本與人力瓶頸」問題。報導指出 95% 企業導入 AI 卻未獲良好投資回報，主因是「為 AI 而 AI」。",
+        "highlights": [
+          "台灣供應鏈優勢未能轉化為產業升級實質動力",
+          "電力供應與散熱技術是 AI 基礎設施兩大瓶頸",
+          "95% 企業導入 AI 未獲良好投資回報",
+          "企業最迫切需求是解決成本與人力瓶頸"
+        ],
+        "url": "https://www.bnext.com.tw/article/89685/ai-industry-2026-trend-taiwan",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368828",
+        "complete": true
+      },
+      {
+        "title": "前 Coatue 合夥人創辦企業 AI Agent 新創 Sycamore，獲 6,500 萬美元種子輪",
+        "source": "TechCrunch",
+        "date": "2026-03-30",
+        "category": "Agent應用",
+        "summary": "前 Coatue Management 合夥人創辦的企業 AI Agent 新創公司 Sycamore 宣布完成 6,500 萬美元種子輪融資，由 Coatue 與 Lightspeed 共同領投。天使投資人陣容豪華，包括前 OpenAI 首席科學家 Bob McGrew、Intel CEO Lip-Bu Tan、以及 Databricks CEO Ali Ghodsi。此筆融資是 AI Agent 領域有史以來最大的種子輪之一，反映投資人對企業級 Agentic AI 市場的極度看好。",
+        "highlights": [
+          "6,500 萬美元種子輪為 AI Agent 領域史上最大之一",
+          "Coatue 與 Lightspeed 共同領投",
+          "天使投資人含前 OpenAI 首席科學家與 Intel CEO",
+          "反映投資人對企業 Agentic AI 市場極度看好"
+        ],
+        "url": "https://techcrunch.com/2026/03/30/former-coatue-partner-raises-huge-65m-seed-for-enterprise-ai-agent-startup/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368851",
+        "complete": true
+      },
+      {
+        "title": "MIT Sloan：2026 年 AI 與數據科學五大趨勢——從泡沫到務實",
+        "source": "MIT Sloan Management Review",
+        "date": "2026-03-20",
+        "category": "AI趨勢",
+        "summary": "MIT Sloan Management Review 由 Thomas Davenport 與 Randy Bean 撰文分析 2026 年五大 AI 與數據科學趨勢。第一，AI 泡沫正在消退，市場回歸理性。第二，AI 適配器的「工廠」基礎設施持續成長。第三，生成式 AI 正從個人工具演進為組織資源。第四，Agentic AI 儘管炒作嚴重，但正穩步邁向真正價值。第五，數據管理與 AI 治理的問題持續存在且亟需解決。報告提供務實而非炒作的產業觀察視角。",
+        "highlights": [
+          "AI 泡沫正在消退，市場回歸理性",
+          "生成式 AI 從個人工具演進為組織級資源",
+          "Agentic AI 正穩步邁向真正價值",
+          "數據管理與 AI 治理問題亟需解決"
+        ],
+        "url": "https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368875",
+        "complete": true
+      }
+    ],
+    "emerging": [
+      {
+        "title": "量子電腦突破對網路安全構成迫切威脅：2030 年前可能破解加密系統",
+        "source": "Nature",
+        "date": "2026-04-07",
+        "category": "量子電腦",
+        "summary": "Google 團隊與 Oratomic 分別於 3 月 30 日發表兩份研究，顯示量子電腦可能在本十年結束前破解目前廣泛使用的加密金鑰與加密貨幣。德州大學奧斯汀分校量子計算研究員 Scott Aaronson 稱這些研究為「量子計算炸彈」。研究指出，破解常見的 P-256 安全金鑰技術可能僅需約 10,000 個量子位元，大幅低於先前估計。這一發現顛覆了業界認為量子電腦至少十年內不構成威脅的假設，迫使各方加速部署後量子密碼學方案。",
+        "highlights": [
+          "Google 與 Oratomic 同日發表研究，指量子電腦可在 2030 年前破解現有加密系統",
+          "破解 P-256 安全金鑰可能僅需約 10,000 個量子位元",
+          "Scott Aaronson 稱此為「量子計算炸彈」，時程預測大幅提前",
+          "信用卡系統、加密貨幣、網路通訊等均面臨風險"
+        ],
+        "url": "https://www.nature.com/articles/d41586-026-01054-1",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368905",
+        "complete": true
+      },
+      {
+        "title": "Bitcoin 首個量子抗性錢包救援工具原型問世",
+        "source": "CoinDesk",
+        "date": "2026-04-09",
+        "category": "虛擬資產/區塊鏈",
+        "summary": "Lightning Labs 技術長 Olaoluwa Osuntokun 於 4 月 8 日在 Bitcoin 開發者郵件列表發布首個可運作的量子抗性錢包救援工具原型。該工具解決了一個關鍵難題：為對抗量子攻擊而設計的「緊急煞車」升級可能同時鎖住數百萬用戶的資金。新系統讓用戶透過數學證明自己是錢包的原始建立者，而無需揭露種子金鑰。在高階消費級 MacBook 上，生成證明約需 55 秒，驗證不到 2 秒，證明檔案約 1.7 MB。",
+        "highlights": [
+          "Lightning Labs CTO 發布首個量子抗性錢包救援工具原型",
+          "使用零知識證明技術，無需揭露種子金鑰即可證明錢包所有權",
+          "MacBook 上生成證明約 55 秒，驗證不到 2 秒",
+          "解決量子防禦升級可能鎖住用戶資金的兩難問題"
+        ],
+        "url": "https://www.coindesk.com/tech/2026/04/09/bitcoin-gets-first-working-prototype-of-quantum-resistant-wallet-rescue-tool",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368928",
+        "complete": true
+      },
+      {
+        "title": "Naoris Protocol 量子抗性區塊鏈正式上線",
+        "source": "CoinDesk",
+        "date": "2026-04-03",
+        "category": "虛擬資產/區塊鏈",
+        "summary": "Naoris Protocol 正式推出其量子抗性區塊鏈，旨在應對 Bitcoin 和 Ethereum 面臨的「Q-Day」量子威脅。該區塊鏈採用後量子密碼學演算法，即使未來強大的量子電腦出現，也能維持安全性。這是目前少數已上線運行的量子安全區塊鏈之一，標誌著加密貨幣產業正積極為量子時代做準備。同期，穩定幣發行商 Circle 也宣布其 Layer-1 區塊鏈 Arc 將內建量子抗性功能。",
+        "highlights": [
+          "Naoris Protocol 量子抗性區塊鏈正式上線運行",
+          "採用後量子密碼學，可抵禦未來量子電腦攻擊",
+          "Circle 的 Arc 區塊鏈也將內建量子時代防護功能",
+          "加密產業加速因應「Q-Day」量子威脅"
+        ],
+        "url": "https://www.coindesk.com/markets/2026/04/03/naoris-protocol-s-quantum-resistance-blockchain-goes-live-as-bitcoin-and-ethereum-face-q-day-threats",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368951",
+        "complete": true
+      },
+      {
+        "title": "科學家找到「縮小」量子電腦體積的關鍵方法",
+        "source": "科技新報 TechNews",
+        "date": "2026-04-02",
+        "category": "量子電腦",
+        "summary": "麻省大學阿默斯特分校和加州大學聖塔巴巴拉分校的研究團隊展示了一項突破性技術，首次證明大型精密雷射可由小型光子晶片取代，成功控制捕獲離子以執行量子位元操作。這項技術有潛力將量子計算硬體從整個房間大小縮小至撲克牌大小的晶片規模。該論文於 3 月 30 日發表，展示了整合量子計算系統所需的關鍵穩定雷射元件微型化方案。",
+        "highlights": [
+          "首次展示大型精密雷射可由小型光子晶片取代",
+          "有潛力將量子電腦硬體縮小至撲克牌大小",
+          "成功以晶片控制捕獲離子進行量子位元操作",
+          "由麻省大學阿默斯特分校與加州大學聖塔巴巴拉分校合作完成"
+        ],
+        "url": "https://technews.tw/2026/04/02/umass-amherst-research-demonstrates-new-tech-for-shrinking-quantum-computers/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368973",
+        "complete": true
+      },
+      {
+        "title": "零工經濟新戰場：全球 gig workers 在家訓練人形機器人",
+        "source": "MIT Technology Review",
+        "date": "2026-04-01",
+        "category": "機器人",
+        "summary": "MIT Technology Review 報導，在家錄製資料正成為全球蓬勃發展的零工經濟。數據公司如 Scale AI 和 Encord 正大規模招募資料記錄員，DoorDash 付費請外送員拍攝自己做家務的影片。工人們將 iPhone 架在頭上，錄製自己摺衣服、洗碗、煮飯的過程。Micro1 已在 50 多國聘用數千名約聘工人。人形機器人可能比大型語言模型需要更多訓練資料，因為控制機器人關節比生成文字更為複雜。",
+        "highlights": [
+          "人形機器人訓練資料需求催生全新零工經濟",
+          "Scale AI、Encord、DoorDash 等公司大規模招募資料記錄員",
+          "Micro1 已在 50 多國聘用數千名約聘工人",
+          "人形機器人可能比 LLM 需要更多訓練資料",
+          "涉及隱私與知情同意等倫理問題"
+        ],
+        "url": "https://www.technologyreview.com/2026/04/01/1134863/humanoid-data-training-gig-economy-2026-breakthrough-technology/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.368997",
+        "complete": true
+      },
+      {
+        "title": "Bitcoin 1.3 兆美元安全攻防戰：量子防護關鍵行動一覽",
+        "source": "CoinDesk",
+        "date": "2026-04-04",
+        "category": "虛擬資產/區塊鏈",
+        "summary": "CoinDesk 深度報導 Bitcoin 生態系統因應量子威脅的全方位防護行動。隨著量子電腦技術進展加速，價值 1.3 兆美元的 Bitcoin 網路面臨前所未有的安全挑戰。多項關鍵倡議正同步推進，包括後量子密碼學標準導入、新型量子安全簽章方案，以及無需軟分叉即可實現的量子安全方案（每筆成本約 200 美元）。華爾街券商 Bernstein 評估量子威脅「真實但可控」。",
+        "highlights": [
+          "Bitcoin 1.3 兆美元網路面臨量子計算安全挑戰",
+          "多項量子防護倡議同步推進中",
+          "無需軟分叉的量子安全方案每筆成本約 200 美元",
+          "Bernstein 評估威脅「真實但可控」"
+        ],
+        "url": "https://www.coindesk.com/tech/2026/04/04/bitcoin-s-usd1-3-trillion-security-race-key-initiatives-aimed-at-quantum-proofing-the-world-s-largest-blockchain",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369044",
+        "complete": true
+      },
+      {
+        "title": "Circle 穩定幣區塊鏈 Arc 內建量子時代防護功能即將亮相",
+        "source": "CoinDesk",
+        "date": "2026-04-06",
+        "category": "虛擬資產/區塊鏈",
+        "summary": "穩定幣發行商 Circle 宣布其 Layer-1 區塊鏈 Arc 將內建量子抗性功能，專為穩定幣金融與機構用途設計。Arc 從底層架構即採用量子安全密碼學，確保在傳統區塊鏈可能因量子攻擊而崩潰的未來，仍能維持安全運作。這是主流金融科技公司首次在新區塊鏈中原生整合後量子密碼學，反映出量子威脅已從理論議題轉為產業實際行動。",
+        "highlights": [
+          "Circle 的 Arc 區塊鏈從底層架構原生整合量子抗性功能",
+          "專為穩定幣金融與機構用途設計",
+          "主流金融科技公司首次在新鏈中內建後量子密碼學",
+          "反映量子威脅已從理論轉為產業實際行動"
+        ],
+        "url": "https://www.coindesk.com/markets/2026/04/06/stablecoin-issuer-circle-s-arc-blockchain-to-debut-with-quantum-era-features",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369068",
+        "complete": true
+      },
+      {
+        "title": "500 萬美元大獎：量子電腦能否解決醫療難題即將揭曉",
+        "source": "MIT Technology Review",
+        "date": "2026-04-08",
+        "category": "量子電腦",
+        "summary": "量子生物計算競賽 Q4Bio 將於 4 月中旬宣布贏家。參賽團隊必須成功運行量子演算法，使用 100 個以上量子位元解決真實世界的醫療問題，才能贏得 500 萬美元大獎。這項競賽旨在證明量子電腦已能在生物醫療領域產生實際價值，而非僅停留在理論階段。若有團隊成功，將標誌著量子計算從實驗室走向臨床應用的重要里程碑。",
+        "highlights": [
+          "Q4Bio 競賽 500 萬美元大獎即將於 4 月中旬揭曉",
+          "需使用 100+ 量子位元解決真實醫療問題",
+          "旨在驗證量子電腦在生醫領域的實用價值",
+          "可能成為量子計算走向臨床應用的里程碑"
+        ],
+        "url": "https://www.technologyreview.com/2026/03/19/1134409/a-5-million-prize-awaits-proof-that-quantum-computers-can-solve-health-care-problems/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369091",
+        "complete": true
+      },
+      {
+        "title": "6G 觸覺與全息通訊研究新進展：不只是更快的 5G",
+        "source": "IEEE Spectrum",
+        "date": "2026-04-05",
+        "category": "6G",
+        "summary": "IEEE Spectrum 報導 6G 研究最新進展，強調 6G 不應只是「5G+」的效能升級，而必須在語義通訊（Semantic Communication）領域實現根本突破。芬蘭奧盧大學主導的 6GENESIS 等全球倡議正推進標準化進程。6G 將整合邊緣運算、機器人、AI 與擴增實境，實現「技能網際網路」（Internet of Skills）——即透過網路傳輸觸覺與動作技能的能力，支援遠端手術、全息通訊等應用場景。",
+        "highlights": [
+          "6G 須在語義通訊領域實現根本突破，不只是 5G 的加速版",
+          "芬蘭 6GENESIS 等全球倡議推進標準化",
+          "將實現「技能網際網路」，支援觸覺傳輸與全息通訊",
+          "整合邊緣運算、機器人、AI 與 AR 技術"
+        ],
+        "url": "https://spectrum.ieee.org/6g-haptic-holography",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369114",
+        "complete": true
+      }
+    ],
+    "governance": [
+      {
+        "title": "OWASP 發布 2026 年代理式 AI 應用十大安全風險",
+        "source": "OWASP",
+        "date": "2026-04-01",
+        "category": "AI安全標準",
+        "summary": "OWASP 發布《Agentic Applications Top 10 for 2026》，這是全球首個針對自主 AI 代理系統的正式風險分類框架，由超過 100 位業界專家、研究人員和實務工作者協力完成。報告指出 48% 的資安專業人員已將代理式 AI 視為 2026 年首要攻擊向量。該框架涵蓋目標劫持、工具濫用、身分與權限濫用、防護機制不足、敏感資料洩漏、資料中毒、資源耗盡、供應鏈弱點、進階提示注入及級聯失效等十大風險類別。目前僅 26% 的組織擁有完整 AI 安全治理政策。",
+        "highlights": [
+          "首個針對自主 AI 代理的正式風險分類框架，涵蓋十大風險類別",
+          "48% 資安專業人員將代理式 AI 視為 2026 年首要攻擊向量",
+          "僅 26% 組織具備完整 AI 安全治理政策",
+          "同步發布代理式 AI 安全解決方案全景圖及 GenAI 資料安全風險指南"
+        ],
+        "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369140",
+        "complete": true
+      },
+      {
+        "title": "Microsoft 開源 Agent Governance Toolkit，涵蓋 OWASP 代理式 AI 十大風險",
+        "source": "Microsoft",
+        "date": "2026-04-02",
+        "category": "AI安全標準",
+        "summary": "Microsoft 以 MIT 授權釋出 Agent Governance Toolkit，為首款涵蓋 OWASP 代理式 AI 全部十大風險的開源工具套件。該套件包含七個套件（Agent OS、Agent Mesh、Agent Runtime、Agent SRE、Agent Compliance、Agent Marketplace、Agent Lightning），支援 Python、TypeScript、Rust、Go 和 .NET 五種語言。核心 Agent OS 引擎以低於 0.1 毫秒的 p99 延遲攔截每個代理操作。已整合 LangChain、CrewAI、Google ADK、OpenAI Agents SDK 等主流框架。",
+        "highlights": [
+          "首款涵蓋 OWASP 十大代理式 AI 風險的開源工具套件",
+          "Agent OS 策略引擎 p99 延遲低於 0.1 毫秒",
+          "支援 Python、TypeScript、Rust、Go、.NET 五種語言",
+          "已整合 LangChain、CrewAI、Google ADK、OpenAI Agents SDK 等框架",
+          "內含超過 9,500 項測試，具備 SLSA 溯源及 CodeQL 掃描"
+        ],
+        "url": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369164",
+        "complete": true
+      },
+      {
+        "title": "中國十部門發布《人工智能科技倫理審查與服務辦法》",
+        "source": "證券時報",
+        "date": "2026-04-03",
+        "category": "AI治理",
+        "summary": "中國工信部等十部門聯合發布《人工智能科技倫理審查與服務辦法（試行）》，要求所有在中國境內進行的 AI 科技活動將科技倫理要求貫穿全過程。辦法適用於可能涉及人類尊嚴、公共秩序、生命健康、生態環境及永續發展等倫理風險的 AI 活動。該辦法強調以技術手段防範 AI 科技倫理風險，標誌中國在 AI 倫理治理從原則層面邁向具體執行階段。",
+        "highlights": [
+          "十部門聯合發布，涵蓋 AI 科技活動全生命週期",
+          "適用於涉及人類尊嚴、公共秩序、生態環境等倫理風險的 AI 活動",
+          "強調以技術手段防範倫理風險",
+          "標誌中國 AI 倫理治理進入具體執行階段"
+        ],
+        "url": "https://www.stcn.com/article/detail/3726797.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369187",
+        "complete": true
+      },
+      {
+        "title": "中國網信辦公開徵求數位虛擬人資訊服務管理意見",
+        "source": "中新網",
+        "date": "2026-04-03",
+        "category": "AI治理",
+        "summary": "中國國家互聯網信息辦公室就《人工智慧擬人化互動服務管理暫行辦法》公開徵求意見。草案要求服務提供者必須明確告知用戶正在與 AI 互動而非真人，用戶連續使用兩小時後需提示休息，並評估用戶是否對 AI 產生依賴。服務提供者需承擔全生命週期安全責任，建立完善的算法審查、數據安全及個人資訊保護制度。若用戶出現極端情緒或成癮行為，需立即介入干預。",
+        "highlights": [
+          "要求明確告知用戶正在與 AI 而非真人互動",
+          "連續使用兩小時須提示休息，評估依賴風險",
+          "服務提供者承擔全生命週期安全責任",
+          "用戶出現極端情緒或成癮行為時需立即干預"
+        ],
+        "url": "https://www.chinanews.com.cn/gn/2026/04-03/10598214.shtml",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369211",
+        "complete": true
+      },
+      {
+        "title": "OpenAI 發布《智慧時代產業政策》白皮書，呼籲重塑 AI 治理框架",
+        "source": "The AI Insider",
+        "date": "2026-04-07",
+        "category": "AI治理",
+        "summary": "OpenAI 發表題為《Industrial Policy for the Intelligence Age》的政策白皮書，提出邁向「超級智慧」的治理框架。文件警告若不採取干預措施，AI 可能導致財富與權力集中並取代大量勞工。白皮書主張不應採取漸進式監管，而應重新思考產業政策，結合公共投資、市場激勵與治理機制來引導 AI 融入經濟體系。該框架強調在追求技術突破的同時，需維護廣泛的經濟參與、民主控制和社會穩定。",
+        "highlights": [
+          "提出邁向超級智慧的完整治理框架",
+          "警告 AI 可能導致財富權力集中與勞工替代",
+          "主張結合公共投資、市場激勵與治理機制的產業政策",
+          "強調維護經濟參與、民主控制和社會穩定"
+        ],
+        "url": "https://theaiinsider.tech/2026/04/07/openai-calls-for-new-industrial-policy-as-ai-reshapes-economy-and-governance/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369233",
+        "complete": true
+      },
+      {
+        "title": "CSA 研究：92% 大型企業缺乏 AI 身分全面可視性，代理式 AI 治理缺口嚴重",
+        "source": "Cloud Security Alliance",
+        "date": "2026-04-03",
+        "category": "AI安全標準",
+        "summary": "雲端安全聯盟（CSA）發布研究報告指出，代理式 AI 治理存在嚴重缺口。92% 的大型企業安全主管缺乏對 AI 身分的全面可視性，86% 未對 AI 身分執行存取政策。71% 的組織報告 AI 系統已取得核心業務平台存取權，但僅 16% 有效治理該存取。此外，僅 38% 的組織端到端監控 AI 流量（包含提示、工具呼叫和輸出），僅 17% 持續監控代理間互動。",
+        "highlights": [
+          "92% 大型企業缺乏 AI 身分全面可視性",
+          "86% 未對 AI 身分執行存取政策",
+          "71% AI 系統已取得核心業務平台存取權，僅 16% 有效治理",
+          "僅 38% 組織端到端監控 AI 流量，17% 監控代理間互動"
+        ],
+        "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-agent-governance-framework-gap-20260403/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369256",
+        "complete": true
+      },
+      {
+        "title": "美國 19 項 AI 新法於三月底通過，州層級立法加速",
+        "source": "Plural Policy",
+        "date": "2026-04-01",
+        "category": "AI治理",
+        "summary": "截至 2026 年 4 月，美國已通過 25 項 AI 新法，另有 27 項法案已通過兩院審議。僅三月下半月就有 19 項新法通過。Utah 州 HB 273 全面規範課堂科技使用，限制螢幕時間並強制 AI 素養教育；HB 276 禁止未經同意生成和散布 AI 深偽親密影像。Colorado、Texas 和 Illinois 均有 AI 法律將於 2026 年生效。白宮去年 12 月發布行政命令，成立 AI 訴訟工作小組來挑戰州層級 AI 法律。",
+        "highlights": [
+          "截至四月已有 25 項 AI 新法通過，27 項待簽署",
+          "Utah 強制 AI 素養教育並禁止 AI 深偽親密影像",
+          "Colorado、Texas、Illinois 的 AI 法律將於 2026 年生效",
+          "白宮成立 AI 訴訟工作小組，聯邦與州監管權之爭加劇"
+        ],
+        "url": "https://pluralpolicy.com/blog/the-ai-governance-watch-april-2026-nineteen-new-ai-bills-passed-into-law/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369278",
+        "complete": true
+      },
+      {
+        "title": "歐盟議會通過 AI Act 高風險系統延期，同步禁止 Nudifier 應用",
+        "source": "European Parliament",
+        "date": "2026-03-28",
+        "category": "AI治理",
+        "summary": "歐洲議會通過決議，將 EU AI Act 高風險系統合規期限延後。獨立高風險 AI 系統執行日期推遲至 2027 年 12 月 2 日，嵌入式產品高風險 AI 系統推遲至 2028 年 8 月 2 日。延期原因為合規生態系統尚未就緒，包括執行標準和官方指引均未按時完成。議會同時通過禁止 AI 生成未經同意的裸露影像（nudifier）應用的修正案，將其納入 AI Act 禁止行為清單。",
+        "highlights": [
+          "獨立高風險 AI 系統合規延至 2027 年 12 月",
+          "嵌入式產品高風險 AI 系統延至 2028 年 8 月",
+          "延期因合規標準和指引未按時完成",
+          "同步禁止 AI 生成未經同意裸露影像的 Nudifier 應用"
+        ],
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20260323IPR38829/artificial-intelligence-act-delayed-application-ban-on-nudifier-apps",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369301",
+        "complete": true
+      },
+      {
+        "title": "EU AI Act Digital Omnibus 提案延後高風險 AI 合規期限，引發監管缺口擔憂",
+        "source": "TechPolicy.Press",
+        "date": "2026-04-02",
+        "category": "AI治理",
+        "summary": "TechPolicy.Press 分析報導指出，歐盟 Digital Omnibus 提案將 AI Act 核心義務從原定 2026 年 8 月推遲至 2027 年底甚至 2028 年。批評者認為延期讓高風險 AI 系統得以規避監管，形成治理真空期。原定 2026 年 8 月 2 日的全面執行日期已不可行，因為合規基礎設施（包括標準制定和官方指引）均未如期到位。政治協議須在六月前達成以確保法律效力。",
+        "highlights": [
+          "高風險 AI 合規義務從 2026 年 8 月推遲至 2027-2028 年",
+          "批評者擔憂延期造成高風險系統監管真空",
+          "合規標準和官方指引均未如期完成",
+          "政治協議須在六月前達成以確保延期法律效力"
+        ],
+        "url": "https://www.techpolicy.press/eus-ai-act-delays-let-highrisk-systems-dodge-oversight/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369324",
+        "complete": true
+      },
+      {
+        "title": "NIST 啟動 AI Agent Standards Initiative，制定代理式 AI 安全標準",
+        "source": "NIST",
+        "date": "2026-02-28",
+        "category": "AI安全標準",
+        "summary": "NIST 旗下 AI 標準與創新中心（CAISI）宣布啟動 AI Agent Standards Initiative，旨在確保自主 AI 代理能被安全、可靠地廣泛採用。該計畫建立在 2026 年 1 月 8 日發布的聯邦公報資訊徵求（RFI）基礎上，徵集業界對 AI 代理系統威脅態勢、現有緩解措施與缺口、代理安全量測方法及安全開發最佳實踐的觀點。同時 NIST 計畫推出「控制覆蓋層保護 AI 系統」（COSAIS）的五個 AI 使用案例。",
+        "highlights": [
+          "啟動專注代理式 AI 安全的標準制定計畫",
+          "基於聯邦公報 RFI 徵集業界對 AI 代理威脅態勢的觀點",
+          "計畫推出 COSAIS 控制覆蓋層的五個 AI 使用案例",
+          "語言模型評估指南草案公開徵求意見至 2026 年 3 月底"
+        ],
+        "url": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369368",
+        "complete": true
+      },
+      {
+        "title": "台灣《人工智慧基本法》三讀通過，國科會為主管機關",
+        "source": "iThome",
+        "date": "2026-03-28",
+        "category": "AI治理",
+        "summary": "立法院三讀通過《人工智慧基本法》，確立政府推動 AI 發展的七大原則：永續發展與福祉、人類自主、隱私保護與資料治理、資安與安全、透明與可解釋、公平與不歧視及問責。中央主管機關為國科會，行政院將成立國家 AI 戰略特別委員會。數位發展部負責參考國際標準推動 AI 風險分類框架，協助各主管機關訂定管理規範。條文規定政府應寬列預算支持 AI 發展。",
+        "highlights": [
+          "確立 AI 發展七大原則：永續、人類自主、隱私、資安、透明、公平、問責",
+          "國科會為中央主管機關，行政院成立 AI 戰略特別委員會",
+          "數位發展部負責推動 AI 風險分類框架",
+          "政府應寬列預算支持 AI 政策發展"
+        ],
+        "url": "https://www.ithome.com.tw/news/172980",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369393",
+        "complete": true
+      },
+      {
+        "title": "Gartner 揭露 2026 年網路安全六大趨勢，代理式 AI 風險為首",
+        "source": "iThome",
+        "date": "2026-03-31",
+        "category": "資安標準",
+        "summary": "Gartner 發布 2026 年網路安全六大趨勢報告，將代理式 AI 帶來的新風險列為首要議題。報告指出全球地緣政治與監管環境快速變化，加劇了 AI 安全的複雜度。TrendAI 同步發布調查顯示，儘管 AI 為防禦方提供強大自動化工具，也同時呈指數級擴大企業攻擊面。64% 商業決策者對治理 AI 的法律框架僅有中度了解，53% 組織仍在起草 AI 相關政策。",
+        "highlights": [
+          "代理式 AI 風險列為 2026 年網路安全首要趨勢",
+          "地緣政治與監管環境快速變化加劇 AI 安全複雜度",
+          "64% 商業決策者對 AI 法律框架僅有中度了解",
+          "53% 組織仍在起草 AI 相關政策"
+        ],
+        "url": "https://www.ithome.com.tw/news/174342",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369435",
+        "complete": true
+      },
+      {
+        "title": "中國加速構建人工智慧安全標準體系，應對技術賦能風險",
+        "source": "證券時報",
+        "date": "2026-04-08",
+        "category": "AI安全標準",
+        "summary": "中國正加速構建人工智慧安全標準體系，以應對 AI 技術賦能帶來的風險挑戰。該標準體系涵蓋 AI 基礎安全、數據安全、算法安全、應用安全等多個層面。配合《網路安全法》修訂版（2026 年 1 月 1 日生效），新增 AI 基礎研究支持、算法開發指引、基礎設施建設、倫理標準及風險監測等安全治理條款。北京市在 4 月 3 日新增 15 項已備案的生成式 AI 服務。",
+        "highlights": [
+          "加速構建涵蓋基礎安全、數據安全、算法安全的標準體系",
+          "配合修訂版《網路安全法》於 2026 年生效",
+          "新增 AI 基礎研究、算法開發、倫理標準等治理條款",
+          "北京新增 15 項已備案的生成式 AI 服務"
+        ],
+        "url": "https://www.stcn.com/article/detail/3728833.html",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369479",
+        "complete": true
+      },
+      {
+        "title": "The Register：解構 2026 年 AI 安全——從實驗到代理式 AI 時代",
+        "source": "The Register",
+        "date": "2026-04-10",
+        "category": "AI安全標準",
+        "summary": "The Register 深度報導分析 2026 年 AI 安全的演進，指出產業正從實驗階段邁入代理式 AI 時代。報導整合 OWASP、NIST、CSA 等機構的最新標準與框架，分析企業在部署自主 AI 代理時面臨的安全挑戰。文章指出代理式 AI 的自主決策能力帶來前所未有的攻擊面擴大風險，企業需要從「被動防禦」轉向「主動治理」的安全思維轉型。",
+        "highlights": [
+          "AI 安全從實驗階段邁入代理式時代",
+          "整合 OWASP、NIST、CSA 最新標準分析安全挑戰",
+          "代理式 AI 自主決策帶來攻擊面擴大風險",
+          "企業需從被動防禦轉向主動治理"
+        ],
+        "url": "https://www.theregister.com/2026/04/10/unpacking_ai_security_2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369504",
+        "complete": true
+      },
+      {
+        "title": "金管會推動金融業專用 AI 模型，預計 2026 年上線",
+        "source": "經濟日報",
+        "date": "2026-04-01",
+        "category": "金融監管",
+        "summary": "台灣金管會持續推動金融業運用 AI 指引的落實，金融研訓院正打造具大學畢業水準的金融專用 AI 模型，資料源自金融研訓院教材、學術研究與業者實務案例，由中信銀及九家銀行驗證知識內容以確保合規與精確性。AI 主要應用於智能客服（強化回應速度與精準度）和內部法規判讀與決策輔助兩大面向。金管會同步推動金融科技創投基金，預計募集 60 至 75 億元，首輪 30 億元將於 2026 年首季完成。",
+        "highlights": [
+          "金融研訓院打造大學水準金融專用 AI 模型",
+          "中信銀等九家銀行參與驗證確保合規性",
+          "AI 應用聚焦智能客服和法規判讀兩大面向",
+          "金融科技創投基金首輪募資 30 億元於首季完成"
+        ],
+        "url": "https://money.udn.com/money/story/5613/9133066",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369528",
+        "complete": true
+      }
+    ],
+    "tutorials": [
+      {
+        "title": "Claude Code 2026 年 4 月更新：/powerup、MCP 500K、Session 穩定性完整指南",
+        "source": "Daily 1 Bite",
+        "date": "2026-04-07",
+        "tool_name": "Claude Code",
+        "difficulty": "intermediate",
+        "category": "AI Agent 開發",
+        "summary": "詳細介紹 Claude Code 2026 年 4 月第一週四項重大更新。新增互動式學習系統 /powerup，MCP 大小限制大幅提升至 500K，headless 模式支援權限延遲處理，以及改進的成本可見性功能。這些更新使 Claude Code 從編碼助手進化為更完整的自主開發平台。",
+        "highlights": [
+          "新增 /powerup 互動式學習系統，幫助開發者快速上手進階功能",
+          "MCP 上下文大小限制從原先大幅提升至 500K，支援更複雜的工具整合",
+          "Headless 模式新增權限延遲處理，適合 CI/CD 自動化場景",
+          "成本追蹤功能改進，開發者可即時掌握 Token 使用量與費用"
+        ],
+        "url": "https://daily1bite.com/en/blog/ai-tutorial/claude-code-april-2026-update",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369557",
+        "complete": true
+      },
+      {
+        "title": "使用 LangChain 建構 AI Agent：2026 初學者完整指南",
+        "source": "GROWAI",
+        "date": "2026-04-01",
+        "tool_name": "LangChain / LangGraph",
+        "difficulty": "beginner",
+        "category": "AI Agent 建構",
+        "summary": "針對 2026 年 LangChain v0.3+ 與 LangGraph 1.0 的初學者教學。介紹如何使用 LangGraph 建構有狀態、可循環的 Agent，涵蓋 RAG + 工具使用 + 記憶三大生產級 Agent 核心支柱。文章從環境設定、基礎概念到部署實戰，提供完整的學習路徑。",
+        "highlights": [
+          "2026 LangChain 技術棧使用 LangGraph 建構有狀態的循環 Agent",
+          "RAG、工具使用、記憶是生產級 Agent 的三大核心支柱",
+          "LangGraph 1.0 支援持久化狀態、人機協作模式與中間件客製化",
+          "提供從零開始到部署的完整實作流程"
+        ],
+        "url": "https://growai.in/building-ai-agents-with-langchain-a-beginners-guide-for-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369581",
+        "complete": true
+      },
+      {
+        "title": "Claude Code 完整教學 2026：從安裝到實戰，不會寫程式也能用",
+        "source": "Grenade 手榴彈",
+        "date": "2026-03-31",
+        "tool_name": "Claude Code",
+        "difficulty": "beginner",
+        "category": "AI 工具實戰教學",
+        "summary": "面向非程式背景使用者的 Claude Code 完整入門教學。從安裝 Node.js 環境、CLI 設定到日常應用實戰，手把手教學。涵蓋檔案整理、影片下載、文件翻譯等非技術場景的 AI 自動化應用。同時介紹 MCP 串接外部服務如 Google Drive、LINE 等工具的基礎概念。",
+        "highlights": [
+          "零程式基礎也能上手的 Claude Code 安裝與設定教學",
+          "實戰案例涵蓋檔案整理、影片下載、文件翻譯等日常任務",
+          "MCP 協議介紹：像 USB-C 一樣的 AI 工具通用連接標準",
+          "支援 Terminal、VS Code、JetBrains 及桌面 App 多平台使用"
+        ],
+        "url": "https://grenade.tw/blog/claude-code-tutorial-ai/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369605",
+        "complete": true
+      },
+      {
+        "title": "Claude Code 之父 Boris Cherny 親授 15 個隱藏功能：從手機寫程式到 AI 自動排程",
+        "source": "AI 郵報 (AI Post Hub)",
+        "date": "2026-03-30",
+        "tool_name": "Claude Code",
+        "difficulty": "intermediate",
+        "category": "AI 工具實戰教學",
+        "summary": "Anthropic Claude Code 創建者 Boris Cherny 公開分享 15 個鮮為人知的進階功能。包括透過 iOS App 在手機上編寫程式碼、teleport 遠端傳送功能、遠端控制能力、以及 Remote Tasks 雲端自動排程。這些功能展示 Claude Code 已從單純的編碼工具進化為完整的開發者生態系統。",
+        "highlights": [
+          "iOS App 支援讓開發者可在手機上直接使用 Claude Code 寫程式",
+          "Teleport 功能實現跨裝置無縫切換開發環境",
+          "Remote Tasks 支援定義 GitHub repo + 排程，Claude 在雲端自主執行",
+          "15 個實用技巧由 Claude Code 原始開發者親自講解"
+        ],
+        "url": "https://www.aiposthub.com/claude-code-boris-cherny-15-hidden-features-mobile-coding-ai-scheduling/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369630",
+        "complete": true
+      },
+      {
+        "title": "GPT-5.2 Prompt 工程指南：2026 開發者與 Agent 實戰手冊",
+        "source": "Atlabs AI",
+        "date": "2026-03-25",
+        "tool_name": "GPT-5.2 / OpenAI API",
+        "difficulty": "intermediate",
+        "category": "Prompt 工程",
+        "summary": "針對 GPT-5.2 模型特性撰寫的開發者 Prompt 工程實戰指南。GPT-5.2 特別適合需要高可靠性、可評估性與一致行為的生產級 Agent，在程式編寫、文件分析、金融應用與多工具 Agent 場景表現優異。文章涵蓋 zero-shot、few-shot、chain-of-thought 等提示技巧的最佳實踐。",
+        "highlights": [
+          "GPT-5.2 針對生產級 Agent 優化，強調可靠性與一致性",
+          "涵蓋 zero-shot、few-shot、chain-of-thought 等進階提示技巧",
+          "多工具 Agent 場景的 Prompt 設計模式與最佳實踐",
+          "程式編寫、文件分析、金融等垂直領域的具體應用指南"
+        ],
+        "url": "https://www.atlabs.ai/blog/gpt-5.2-prompting-guide-the-2026-playbook-for-developers-agents",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369653",
+        "complete": true
+      },
+      {
+        "title": "Claude 推出 13 堂免費線上課程：Agent Skills、Claude Code 實作一次學",
+        "source": "數位時代 BusinessNext",
+        "date": "2026-03-20",
+        "tool_name": "Claude Code / MCP / Claude API",
+        "difficulty": "beginner",
+        "category": "AI 工具實戰教學",
+        "summary": "Anthropic 於 2026 年 3 月推出 Anthropic Academy 平台，提供 13 堂完全免費的官方課程與認證。涵蓋 Claude 入門指南、AI 通識基礎、Agent Skills 開發、Claude API 全解析（函數呼叫、工具使用、串流回應）、Claude Code 實戰整合、以及 MCP 模型上下文協議從零搭建。完成課程可獲得官方證書。",
+        "highlights": [
+          "13 堂免費課程涵蓋從入門到進階的完整 Claude 生態系學習路徑",
+          "Claude Code 實戰課程教授 GitHub 整合與 MCP 伺服器應用",
+          "MCP 課程使用 Python SDK 從零建構伺服器與客戶端",
+          "完成後可獲得 Anthropic 官方證書，可添加至 LinkedIn"
+        ],
+        "url": "https://www.bnext.com.tw/article/90216/claude-13-free-lessons",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369677",
+        "complete": true
+      },
+      {
+        "title": "Claude 追擊 ChatGPT？使用者能輕鬆產生互動式視覺內容",
+        "source": "TechNews 科技新報",
+        "date": "2026-03-17",
+        "tool_name": "Claude",
+        "difficulty": "beginner",
+        "category": "AI 工具實戰教學",
+        "summary": "報導 Anthropic 為所有 Claude 使用者（包括免費版）推出互動式視覺化功能。使用者只需用自然語言描述需求，Claude 即可生成互動式圖表、流程圖與資料視覺化。此功能目前為測試階段，展示 Claude 在內容產出方面超越純文字回應的新能力，對數據分析與簡報製作有實質幫助。",
+        "highlights": [
+          "免費使用者也能使用互動式視覺化功能",
+          "用自然語言描述即可生成互動圖表與流程圖",
+          "目前為測試階段，功能持續擴展中",
+          "特別適合數據分析師與需要製作簡報的商務使用者"
+        ],
+        "url": "https://technews.tw/2026/03/17/claude-ai-can-now-explain-concepts-with-interactive-visuals/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369700",
+        "complete": true
+      },
+      {
+        "title": "Anthropic 進階工具使用：Claude 開發者控制台新功能介紹",
+        "source": "Anthropic Blog",
+        "date": "2026-03-05",
+        "tool_name": "Claude API",
+        "difficulty": "advanced",
+        "category": "LLM 應用開發",
+        "summary": "Anthropic 官方工程部落格介紹 Claude Developer Console 的進階工具使用功能。涵蓋結構化工具定義、多工具編排、錯誤處理模式與效能優化策略。為開發者提供將 Claude 整合進複雜工作流程的最佳實踐，包括並行工具呼叫、條件式工具選擇與工具結果快取機制。",
+        "highlights": [
+          "結構化工具定義與多工具編排的進階技巧",
+          "並行工具呼叫提升 Agent 執行效率",
+          "條件式工具選擇與錯誤處理模式",
+          "工具結果快取機制減少重複 API 呼叫"
+        ],
+        "url": "https://www.anthropic.com/engineering/advanced-tool-use",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369722",
+        "complete": true
+      },
+      {
+        "title": "用 Google Gemini 3 和開源框架建構 AI Agent",
+        "source": "Google Developers Blog",
+        "date": "2026-03-01",
+        "tool_name": "Gemini 3 / LangChain / LlamaIndex",
+        "difficulty": "intermediate",
+        "category": "AI Agent 建構",
+        "summary": "Google 官方開發者部落格介紹如何使用 Gemini 3 Pro Preview 建構 AI Agent。Gemini 3 Pro 是 Google 最強大的 Agent 專用模型，設計為進階工作流程的核心編排器。文章展示與 LangChain、Vercel AI SDK、LlamaIndex、Pydantic AI、n8n 等開源框架的整合方式與實作範例。",
+        "highlights": [
+          "Gemini 3 Pro Preview 專為 Agent 編排設計的最強模型",
+          "支援 LangChain、LlamaIndex、Pydantic AI 等主流框架整合",
+          "提供多個開源框架的完整整合範例程式碼",
+          "n8n 低程式碼平台整合讓非開發者也能建構 Agent 工作流程"
+        ],
+        "url": "https://developers.googleblog.com/building-ai-agents-with-google-gemini-3-and-open-source-frameworks/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369746",
+        "complete": true
+      },
+      {
+        "title": "LangChain Python 教學：2026 完整指南",
+        "source": "JetBrains PyCharm Blog",
+        "date": "2026-02-20",
+        "tool_name": "LangChain / Python",
+        "difficulty": "beginner",
+        "category": "LLM 應用開發",
+        "summary": "JetBrains 官方 PyCharm 部落格發布的 2026 年 LangChain Python 完整教學指南。從環境設定、基礎鏈式呼叫到進階 Agent 建構，提供在 PyCharm IDE 中開發 LangChain 應用的最佳工作流程。涵蓋 LangChain 1.0 新功能 create_agent 抽象層、中間件系統與 LangGraph 整合。",
+        "highlights": [
+          "LangChain 1.0 新版 create_agent 快速建構 Agent 的方法",
+          "PyCharm IDE 中開發 LangChain 的最佳實踐與工具整合",
+          "中間件系統實現逐步控制與客製化",
+          "統一文件站 docs.langchain.com 整合 Python 與 JavaScript 教學"
+        ],
+        "url": "https://blog.jetbrains.com/pycharm/2026/02/langchain-tutorial-2026/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369769",
+        "complete": true
+      },
+      {
+        "title": "MCP 與 Claude：基礎概念、快速教學與十大 MCP Server",
+        "source": "Obot AI",
+        "date": "2026-02-10",
+        "tool_name": "MCP / Claude",
+        "difficulty": "intermediate",
+        "category": "MCP 開發",
+        "summary": "Model Context Protocol (MCP) 的完整入門指南，涵蓋基礎概念、快速上手教學與十大推薦 MCP Server。MCP 是 Anthropic 開源的標準協議，讓 AI 模型能安全地與本地資料、外部工具和資料庫互動。文章介紹 MCP 的三大核心原語（tools、resources、prompts）以及在 Claude Desktop 和 Claude Code 中的實際設定方式。",
+        "highlights": [
+          "MCP 三大核心原語：tools、resources、prompts 完整解析",
+          "十大推薦 MCP Server 與使用場景介紹",
+          "Claude Desktop 和 Claude Code 的 MCP 設定實作",
+          "開源標準協議，支援跨平台 AI 工具整合"
+        ],
+        "url": "https://obot.ai/resources/learning-center/mcp-claude/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369791",
+        "complete": true
+      }
+    ],
+    "courses": [
+      {
+        "title": "Agentic AI：建構 AI 代理的四大設計模式",
+        "source": "DeepLearning.AI",
+        "date": "2026-04-01",
+        "provider": "DeepLearning.AI",
+        "is_free": true,
+        "cert_included": true,
+        "level": "intermediate",
+        "duration": "⚠️待確認",
+        "topics": [
+          "Agentic AI",
+          "Reflection",
+          "Tool Use",
+          "Planning",
+          "Multi-Agent Collaboration",
+          "Python"
+        ],
+        "summary": "由 Andrew Ng 親自教授的最新課程，聚焦 AI Agent 建構技能。課程涵蓋四大 Agentic 設計模式：Reflection（代理檢視自身輸出並改進）、Tool Use（LLM 決定呼叫哪些函數）、Planning（將任務分解為子任務）、Multi-Agent Collaboration（建構多個專門代理協作完成複雜任務）。採用純 Python 教學，不依賴特定框架，適合有 Python 基礎的開發者。",
+        "highlights": [
+          "Andrew Ng 親授，聚焦當前最熱門的 AI Agent 開發技能",
+          "涵蓋四大 Agentic 設計模式：Reflection、Tool Use、Planning、Multi-Agent",
+          "採用 vendor-neutral 純 Python 教學，不隱藏框架細節",
+          "從設計模式到部署與評估的完整生產級知識"
+        ],
+        "url": "https://www.deeplearning.ai/courses/agentic-ai/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369817",
+        "complete": true
+      },
+      {
+        "title": "AWS AI & ML Scholars 2026 計畫：免費 AI 職涯培訓",
+        "source": "AWS Training and Certification",
+        "date": "2026-03-24",
+        "provider": "AWS",
+        "is_free": true,
+        "cert_included": true,
+        "level": "beginner",
+        "duration": "3 months (Challenge phase: March 24 - June 24)",
+        "topics": [
+          "AWS AI Practitioner",
+          "Agentic AI",
+          "Agent Developer",
+          "Machine Learning"
+        ],
+        "summary": "AWS 2026 年度 AI & ML Scholars 計畫已開放申請，Challenge 階段從 3 月 24 日至 6 月 24 日。提供免費培訓協助學員取得 AWS Certified AI Practitioner 認證。前 4,500 名表現優異者將獲得全額贊助的 Udacity Nanodegree，可選擇三個職涯方向：AI Programmer、Agentic AI Business Professional 及 Agent Developer。",
+        "highlights": [
+          "完全免費，含 AWS Certified AI Practitioner 認證準備",
+          "前 4,500 名晉級者獲全額 Udacity Nanodegree 獎學金",
+          "三大職涯方向：AI Programmer、Agentic AI Business Professional、Agent Developer",
+          "Challenge 階段 2026/3/24 至 2026/6/24"
+        ],
+        "url": "https://aws.amazon.com/blogs/training-and-certification/aws-ai-ml-scholars-is-open-for-2026-get-started-on-your-ai-learning-journey/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369840",
+        "complete": true
+      },
+      {
+        "title": "Anthropic Academy：13 門免費 AI 課程（含 Claude 與 MCP 開發）",
+        "source": "Anthropic",
+        "date": "2026-03-02",
+        "provider": "Anthropic",
+        "is_free": true,
+        "cert_included": true,
+        "level": "beginner",
+        "duration": "Self-paced (13 courses)",
+        "topics": [
+          "Claude",
+          "MCP Development",
+          "Prompt Engineering",
+          "AI Fluency",
+          "API Development"
+        ],
+        "summary": "Anthropic 於 2026 年 3 月推出 Anthropic Academy，提供 13 門完全免費的自學課程，涵蓋從基礎 AI 使用到生產級 API 部署。三大學習路線：AI Fluency（適合非技術人員的 AI 基礎）、Product Training（產品應用訓練）、Developer Deep-Dives（開發者深度課程含 MCP 開發）。僅需 Email 即可註冊，完成後頒發可加入 LinkedIn 的證書。",
+        "highlights": [
+          "13 門課程全部免費，完成即發證書",
+          "三大學習路線：AI Fluency、Product Training、Developer Deep-Dives",
+          "涵蓋 Claude 101 到 MCP（Model Context Protocol）開發",
+          "僅需 Email 註冊，自訂學習進度"
+        ],
+        "url": "https://anthropic.skilljar.com/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369864",
+        "complete": true
+      },
+      {
+        "title": "Google AI Professional Certificate：七門課程掌握 AI 實務技能",
+        "source": "Coursera / Google",
+        "date": "2026-02-25",
+        "provider": "Google",
+        "is_free": false,
+        "cert_included": true,
+        "level": "beginner",
+        "duration": "7 courses, ~1 hour each",
+        "topics": [
+          "AI Fundamentals",
+          "Data Analysis",
+          "Prompt Engineering",
+          "Google Workspace AI",
+          "Responsible AI"
+        ],
+        "summary": "Google 透過 Grow with Google 推出全新 AI Professional Certificate，由七門課程組成，每門約一小時可完成。課程教授實用 AI 技能，涵蓋資料分析、研究、溝通等 AI 轉型工作的核心領域。Walmart、Deloitte、Verizon 等企業已採用此證書培訓員工。Google 向所有中小企業免費提供此證書及 Google Workspace Business Standard。",
+        "highlights": [
+          "七門課程，每門約 1 小時，可自訂進度",
+          "Walmart、Deloitte、Verizon 等大企業採用為內部培訓",
+          "中小企業可免費取得證書及 Google Workspace Business Standard",
+          "涵蓋資料分析、研究、內容創建與溝通等核心 AI 應用"
+        ],
+        "url": "https://www.coursera.org/professional-certificates/google-ai",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369887",
+        "complete": true
+      },
+      {
+        "title": "Microsoft AI 認證挑戰：三項免費 Applied Skills 證照",
+        "source": "Microsoft Learn",
+        "date": "2026-02-20",
+        "provider": "Microsoft",
+        "is_free": true,
+        "cert_included": true,
+        "level": "beginner",
+        "duration": "45 minutes per assessment",
+        "topics": [
+          "Microsoft Copilot Studio",
+          "AI Chat",
+          "AI Research Agents",
+          "Power Platform"
+        ],
+        "summary": "Microsoft 於 2026 年初推出 AI Credentials Challenge，提供三項全新免費 AI Applied Skills 認證，活動期間為 1 月 20 日至 3 月 2 日。包含：使用 AI Chat 簡化業務工作流程、以 AI Research Agents 產生報告、在 Microsoft Copilot Studio 建立代理。每項實作評估僅需 45 分鐘即可完成，完成者有機會獲得 Microsoft Certification 考試五折優惠。",
+        "highlights": [
+          "三項免費 AI Applied Skills：AI Chat 工作流程、AI Research Agents、Copilot Studio",
+          "實作評估僅需 45 分鐘，快速取得證照",
+          "完成挑戰者可獲 Microsoft Certification 考試 50% 折扣",
+          "同期推出四項新 AI Certifications（含 AI Business Professional、AI Transformation Leader）"
+        ],
+        "url": "https://learn.microsoft.com/en-us/credentials/microsoft-credentials-ai-challenge",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369910",
+        "complete": true
+      },
+      {
+        "title": "NVIDIA Generative AI Teaching Kit：LLM 認證考試限時五折",
+        "source": "NVIDIA Developer Blog",
+        "date": "2026-02-11",
+        "provider": "NVIDIA DLI",
+        "is_free": true,
+        "cert_included": true,
+        "level": "intermediate",
+        "duration": "Self-paced",
+        "topics": [
+          "Generative AI",
+          "LLM",
+          "NLP",
+          "Multimodal AI",
+          "NVIDIA GPU"
+        ],
+        "summary": "NVIDIA Deep Learning Institute 更新 Generative AI Teaching Kit，包含投影片、教學影片、動手實驗、Jupyter Notebooks 及知識測驗，專為課堂教學設計。涵蓋 NLP 基礎到 LLM 與生成式 AI 進階概念。教育者可為學生發放 NVIDIA-Certified Associate: Generative AI LLMs 及 Generative AI Multimodal 認證考試的 50% 折扣券（至 2026/5/31）。",
+        "highlights": [
+          "完整教學資源包：投影片、影片、實驗、Jupyter Notebooks",
+          "NVIDIA-Certified Associate 認證考試限時五折（至 2026/5/31）",
+          "涵蓋 Generative AI LLMs 及 Multimodal 兩大認證方向",
+          "使用 NVIDIA GPU、工具與開源框架進行實作"
+        ],
+        "url": "https://developer.nvidia.com/blog/nvidia-deep-learning-institute-releases-new-generative-ai-teaching-kit/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369933",
+        "complete": true
+      },
+      {
+        "title": "PyTorch for Deep Learning Professional Certificate",
+        "source": "Coursera / DeepLearning.AI",
+        "date": "2026-02-03",
+        "provider": "DeepLearning.AI",
+        "is_free": false,
+        "cert_included": true,
+        "level": "intermediate",
+        "duration": "3 courses",
+        "topics": [
+          "PyTorch",
+          "Deep Learning",
+          "Computer Vision",
+          "NLP",
+          "Model Deployment"
+        ],
+        "summary": "DeepLearning.AI 與 Coursera 聯合推出 PyTorch for Deep Learning Professional Certificate，由三門循序漸進的課程組成。教授使用 PyTorch 框架建構、訓練、優化及部署深度學習模型，涵蓋電腦視覺與自然語言處理的實務經驗。Coursera 2026 年度技能報告指出 AI 相關技能需求持續激增，此證書直接回應市場對 PyTorch 開發者的需求。",
+        "highlights": [
+          "三門課程循序漸進：基礎、進階、部署",
+          "涵蓋 Computer Vision 與 NLP 實務應用",
+          "使用業界主流 PyTorch 框架，直接對接就業市場需求",
+          "由 Laurence Moroney 教授，DeepLearning.AI 出品"
+        ],
+        "url": "https://www.coursera.org/professional-certificates/pytorch-for-deep-learning",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369957",
+        "complete": true
+      },
+      {
+        "title": "AWS Certified Generative AI Developer – Professional",
+        "source": "AWS Certification",
+        "date": "2026-02-01",
+        "provider": "AWS",
+        "is_free": false,
+        "cert_included": true,
+        "level": "advanced",
+        "duration": "Self-paced (exam prep + 3-day classroom available)",
+        "topics": [
+          "Amazon Bedrock",
+          "AgentCore",
+          "Foundation Models",
+          "RAG",
+          "Agentic AI",
+          "Enterprise AI"
+        ],
+        "summary": "AWS 推出全新 Generative AI Developer Professional 認證，驗證開發者將基礎模型整合到應用程式與業務流程的能力。考試已更新加入 Amazon Bedrock AgentCore 相關內容。官方提供 Exam Prep Plan（含模擬題與 SimuLearn 動手實驗）及三天 Advanced Generative AI Development on AWS 實體課程，涵蓋 Foundation Model 實作、RAG、Agentic AI 開發與企業整合模式。",
+        "highlights": [
+          "全新 Professional 級認證，聚焦生成式 AI 開發",
+          "考試涵蓋 Amazon Bedrock AgentCore 最新內容",
+          "官方 Exam Prep Plan 含 SimuLearn 動手實驗",
+          "配套三天 Advanced Classroom Training 深度課程"
+        ],
+        "url": "https://aws.amazon.com/certification/certified-generative-ai-developer-professional/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.369982",
+        "complete": true
+      },
+      {
+        "title": "Google Cloud Agentic AI 免費課程：從 LLM 到多代理架構",
+        "source": "Google Cloud Skills Boost",
+        "date": "2026-01-15",
+        "provider": "Google Cloud",
+        "is_free": true,
+        "cert_included": true,
+        "level": "beginner",
+        "duration": "⚠️待確認",
+        "topics": [
+          "Agentic AI",
+          "LLM",
+          "Multi-Agent Architecture",
+          "Google Cloud",
+          "Vertex AI"
+        ],
+        "summary": "Google Cloud 推出 Agentic AI on Google Cloud 專門培訓課程，提供從 LLM 基礎到多代理架構部署的完整學習路徑。課程設計面向初學者與專業人士，循序漸進教授大型語言模型基礎、Agent 設計模式、Google Cloud 上的 AI 服務，以及進階多代理系統的部署與管理。完成後獲得 Google Cloud 技能徽章。",
+        "highlights": [
+          "完整學習路徑：從 LLM 基礎到多代理架構部署",
+          "免費課程含 Google Cloud 技能徽章",
+          "針對 Agentic AI 這一最新趨勢設計的專門課程",
+          "適合初學者到進階開發者的循序漸進設計"
+        ],
+        "url": "https://coursejoiner.com/free-online-courses/google-cloud-agentic-ai-free-course/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.370016",
+        "complete": true
+      },
+      {
+        "title": "台灣人工智慧學校 2026 生成式 AI 實體課程",
+        "source": "台灣人工智慧學校",
+        "date": "2026-01-10",
+        "provider": "台灣人工智慧學校 (AIA)",
+        "is_free": false,
+        "cert_included": true,
+        "level": "intermediate",
+        "duration": "⚠️待確認（依班別不同）",
+        "topics": [
+          "生成式 AI",
+          "AI PM",
+          "LLM 應用",
+          "企業 AI 導入"
+        ],
+        "summary": "台灣人工智慧學校推出 2026 年度生成式 AI 實體課程，包含經理人 AI PM 班等多個班別。課程聚焦生成式 AI 在企業中的實際應用，涵蓋 LLM 應用開發、AI 專案管理、企業 AI 導入策略等主題。由台灣 AI 領域專家授課，提供實體教學與動手實作，完成後頒發 AIA 認證證書。適合企業經理人及技術主管進修。",
+        "highlights": [
+          "台灣在地 AI 教育機構，實體課程含動手實作",
+          "經理人 AI PM 班：聚焦 AI 專案管理與企業導入",
+          "2026 年度新課程，對應最新生成式 AI 趨勢",
+          "適合企業經理人及技術主管的進階課程"
+        ],
+        "url": "https://aiacademy.tw/genai2026-courses/",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.370040",
+        "complete": true
+      }
+    ],
+    "models": [
+      {
+        "model_name": "DeepSeek V4",
+        "version": "V4",
+        "institution": "DeepSeek",
+        "release_date": "2026-04-05",
+        "domain": "LLM/Multimodal",
+        "summary": "DeepSeek V4 is a ~1 trillion parameter MoE model with ~37B active parameters per token, featuring a 1M-token context window powered by Engram conditional memory. It introduces three key architectural innovations: Engram conditional memory, Manifold-Constrained Hyper-Connections (mHC), and DeepSeek Sparse Attention. The model supports native multimodal generation across text, image, and video. V4 Lite appeared on March 9, with the full rollout in April 2026. Notably, V4 runs on Huawei Ascend 950PR chips. ⚠️ Benchmarks pending independent verification.",
+        "advantages": [
+          "~1T parameters with only 37B active — extreme MoE efficiency",
+          "Engram conditional memory for persistent context",
+          "Native multimodal generation (text, image, video)",
+          "1M-token context window",
+          "Runs on Huawei Ascend 950PR chips"
+        ],
+        "benchmarks": [
+          "HumanEval: ~90% ⚠️待確認",
+          "SWE-bench Verified: ~80%+ ⚠️待確認"
+        ],
+        "highlights": [
+          "Three novel architectural innovations (Engram, mHC, Sparse Attention)",
+          "First major model confirmed running on Huawei Ascend 950PR",
+          "V4 Lite incremental rollout began March 9",
+          "Open-source continuation of DeepSeek's strategy"
+        ],
+        "url": "https://www.nxcode.io/resources/news/deepseek-v4-release-specs-benchmarks-2026",
+        "is_new": true,
+        "first_seen": "2026-04-07T17:27:17.426142+08:00",
+        "last_seen": "2026-04-07T17:27:17.426142+08:00",
+        "url_status": "verified",
+        "verified": true,
+        "verified_at": "2026-04-10T21:13:00.370064",
+        "complete": true
+      }
+    ]
+  },
+  "stats": {
+    "papers": 10,
+    "topnews": 7,
+    "taiwan": 30,
+    "china": 17,
+    "usa": 23,
+    "techtrends": 10,
+    "emerging": 9,
+    "governance": 15,
+    "tutorials": 11,
+    "courses": 10,
+    "models": 1
+  },
+  "_updated_at": {
+    "papers": "2026-04-10T20:40:02.050219+08:00",
+    "topnews": "2026-04-10T20:43:17.608895+08:00",
+    "taiwan": "2026-04-10T20:49:26.922104+08:00",
+    "china": "2026-04-10T20:53:26.044411+08:00",
+    "usa": "2026-04-10T21:00:55.573231+08:00",
+    "techtrends": "2026-04-10T21:05:09.158056+08:00",
+    "emerging": "2026-04-10T21:08:01.975077+08:00",
+    "governance": "2026-04-10T21:12:01.823997+08:00",
+    "tutorials": "2026-04-08T22:36:55.197190+08:00",
+    "courses": "2026-04-08T22:36:55.197190+08:00",
+    "models": "2026-04-07T09:10:37.629326+08:00"
+  },
+  "validation": {
+    "total": 167,
+    "verified": 143,
+    "warnings": 118,
+    "removed": 27,
+    "pass_rate": 85.63
+  }
+}

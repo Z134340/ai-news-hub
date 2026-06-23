@@ -1,0 +1,150 @@
+name: Push Notification
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - data/latest.json
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create GitHub Issue Notification
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Read latest.json
+            const latestPath = path.join(process.env.GITHUB_WORKSPACE, 'data/latest.json');
+            const latestData = JSON.parse(fs.readFileSync(latestPath, 'utf8'));
+
+            // Read health.json (optional)
+            let healthData = { validation_rate: 0 };
+            const healthPath = path.join(process.env.GITHUB_WORKSPACE, 'data/health.json');
+            if (fs.existsSync(healthPath)) {
+              healthData = JSON.parse(fs.readFileSync(healthPath, 'utf8'));
+            }
+
+            // Extract date and time
+            const date = latestData.date || new Date().toISOString().split('T')[0];
+            // time 欄位是 ISO8601（如 "2026-05-12T11:38:34+08:00"），需從 T 後取 HH
+            const timeStr = latestData.time || new Date().toISOString();
+            const hour = parseInt(timeStr.includes('T') ? timeStr.split('T')[1].split(':')[0] : timeStr.split(':')[0]) || 0;
+
+            // Determine period
+            const period = hour < 12 ? '🌅 早班' : '🌆 午班';
+
+            // Count total news items
+            let totalCount = 0;
+            const categoryData = {};
+            if (latestData.data) {
+              for (const [category, items] of Object.entries(latestData.data)) {
+                const count = Array.isArray(items) ? items.length : 0;
+                totalCount += count;
+                categoryData[category] = { count, items: Array.isArray(items) ? items : [] };
+              }
+            }
+
+            // Get validation rate
+            const validationRate = latestData.validation?.pass_rate || healthData.validation_pass_rate || 'N/A';
+
+            // Create issue title
+            const title = `✅ AI News ${date} ${period} · ${totalCount} 筆 · 驗證 ${validationRate}`;
+
+            // Build issue body
+            let body = `## 📊 每日新聞摘要\n\n`;
+
+            // Status table
+            body += `| 欄位 | 內容 |\n`;
+            body += `|------|------|\n`;
+            body += `| 日期 | ${date} |\n`;
+            body += `| 時間 | ${timeStr.includes('T') ? timeStr.split('T')[1].slice(0,5) : (timeStr.slice(0,5) || 'N/A')} |\n`;
+            body += `| 來源數 | ${latestData.source_count || 'N/A'} |\n`;
+            body += `| 驗證率 | ${validationRate} |\n\n`;
+
+            // Categories with top 3 items
+            body += `## 📰 分類新聞\n\n`;
+            for (const [category, data] of Object.entries(categoryData)) {
+              body += `### ${category} (${data.count})\n`;
+              const topItems = data.items.slice(0, 3);
+              topItems.forEach((item, index) => {
+                const rawTitle = (item && typeof item === 'object')
+                  ? (item.title || item.model_name || item.name || '(無標題)')
+                  : String(item);
+                const title = String(rawTitle).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+                const url = (item && typeof item === 'object' && item.url) ? item.url : '#';
+                body += `${index + 1}. [${title}](${url})\n`;
+              });
+              body += '\n';
+            }
+
+            // Footer CTA
+            const { owner, repo } = context.repo;
+            body += `---\n`;
+            body += `🔗 [前往 AI News Hub 查看完整內容](https://${owner}.github.io/${repo}/)\n`;
+
+            // Create or get the label
+            const labelName = 'ai-news-daily';
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: labelName,
+              });
+            } catch (error) {
+              if (error.status === 404) {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelName,
+                  color: '0366d6',
+                  description: 'AI News daily notification',
+                });
+              }
+            }
+
+            // Create issue
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: [labelName],
+            });
+
+            console.log(`Created issue #${issue.data.number}`);
+
+            // Close old issues with ai-news-daily label (older than 7 days)
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+            const oldIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: labelName,
+              state: 'open',
+              per_page: 100,
+            });
+
+            for (const issue of oldIssues.data) {
+              const createdAt = new Date(issue.created_at);
+              if (createdAt < sevenDaysAgo) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: 'closed',
+                });
+                console.log(`Closed old issue #${issue.number}`);
+              }
+            }

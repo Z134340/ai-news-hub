@@ -1,0 +1,285 @@
+{
+  "items": [
+    {
+      "title": "LLM Judges Have Dark Current: A Psychometric Datasheet for LLM-as-a-Judge Evaluation",
+      "title_zh": "LLM 評審存在暗電流：LLM-as-a-Judge 評估的心理測量資料表",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-14",
+      "summary": "本文針對 LLM-as-a-Judge 評估系統的系統性偏差問題進行深入研究。作者提出「Judge Datasheet」協議，透過在真空輸入下測量暗電流、同品質表面變異的穩定交叉敏感度、位置假偏好、受控品質梯度上的目標敏感度以及平局指令誘導的準則等五個維度來量化評審偏差。研究發現，即使是最先進的 LLM 評審也存在系統性的心理測量缺陷，這些缺陷可能導致評估結果的偏差與不可重現性。本研究為 LLM-as-a-Judge 評估建立了標準化的心理測量框架，有助於量化和比較不同評審模型的偏差特性。",
+      "url": "https://arxiv.org/abs/2606.15610",
+      "field": "LLM-as-a-Judge",
+      "impact": "high — 為 LLM 評審建立標準化心理測量框架，填補評估方法論的重要空缺"
+    },
+    {
+      "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
+      "title_zh": "LLM-as-a-Judge 在長篇輸出評估上的基準測試",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-01",
+      "summary": "LLM-as-a-Judge 提供了可擴展的人工評估替代方案，但其在長篇輸出評估的可靠性仍未得到充分研究，現有元評估基準多聚焦於短篇輸出。作者引入 LongJudgeBench，這是一個針對長篇輸出的全面基準測試，涵蓋多樣化的現實場景和評審協議。研究發現 LLM 評審在長篇輸出上的表現與短篇輸出有顯著差異，特別是在多步推理和跨段落一致性評估方面存在系統性弱點。LongJudgeBench 為長篇內容評審標準化提供了重要工具，推動 LLM 評估方法論的進一步完善。",
+      "url": "https://arxiv.org/abs/2606.01629",
+      "field": "LLM-as-a-Judge",
+      "impact": "high — 填補長篇輸出 LLM 評審基準的空缺，對評估方法論有直接實踐意義"
+    },
+    {
+      "title": "Catching One in Five: LLM-as-Judge Blind Spots in Production Multi-Turn Transaction Agents",
+      "title_zh": "五分之一的漏網之魚：生產環境多輪交易代理中 LLM-as-Judge 的盲點",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "本研究以窮舉式人工轉錄審查作為基準真值，調查生產環境中多輪交易代理評估時 LLM-as-Judge 的假陰性率與盲點問題。研究發現 LLM 評審平均遺漏約 20% 的錯誤，即每五個錯誤只偵測到四個。研究識別出評審模型在多輪對話、金融交易指令追蹤以及模糊用戶意圖識別等場景存在系統性盲點。這些發現對依賴 LLM-as-Judge 進行質量保證的生產 AI 系統具有重要警示，呼籲補充更嚴謹的評估機制。",
+      "url": "https://arxiv.org/html/2606.10315",
+      "field": "LLM-as-a-Judge",
+      "impact": "high — 揭示生產環境中 LLM-as-Judge 的系統性盲點，對 AI 系統質量保證有直接影響"
+    },
+    {
+      "title": "Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge via Perceptual Perturbation and Reward Modeling",
+      "title_zh": "透過感知擾動與獎勵建模減輕多模態 LLM-as-a-Judge 的感知判斷偏差",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-02",
+      "summary": "本研究發現，當視覺證據與文字線索衝突時，多模態 LLM 評審傾向於獎勵合理的文字敘述而非感知上正確的答案，形成感知判斷偏差。這種偏差導致評審系統系統性地偏袒能生成流暢文字描述的模型，而非真正準確理解視覺內容的模型。作者提出感知擾動與獎勵建模兩種互補方法來緩解這一偏差，並在多個視覺問答基準上驗證方法的有效性。研究結果表明，感知擾動能有效迫使評審關注視覺細節，而獎勵建模提供了更穩健的偏差校正機制。",
+      "url": "https://arxiv.org/abs/2606.02578v1",
+      "field": "LLM-as-a-Judge",
+      "impact": "medium — 針對多模態評審的感知偏差提出具體解決方案，對多模態 AI 評估有實踐意義"
+    },
+    {
+      "title": "Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents",
+      "title_zh": "代理規劃基準：LLM 代理規劃能力的診斷框架",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-03",
+      "summary": "本文引入代理規劃基準（APB），包含 4,209 個跨 22 個領域、五種設定的多模態案例，專門診斷 LLM 代理的規劃能力。基準涵蓋整體規劃、反饋條件下的逐步規劃，以及在無關工具、損壞工具和不可解任務下的魯棒性測試五大設定。研究評估多個主流 LLM 代理，發現即使最先進的模型在面對工具噪聲和不可解任務時表現顯著下降。本基準為系統性診斷 LLM 代理規劃弱點提供了標準化工具，有助於指導未來代理改進方向。",
+      "url": "https://arxiv.org/abs/2606.04874",
+      "field": "Agent Evaluation",
+      "impact": "high — 提供系統性代理規劃能力診斷框架，4,209 個多模態案例涵蓋廣泛場景"
+    },
+    {
+      "title": "MCP-Persona: Benchmarking LLM Agents on Real-World Personal Applications via Environment Simulation",
+      "title_zh": "MCP-Persona：透過環境模擬對 LLM 代理進行真實個人應用基準測試",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-01",
+      "summary": "MCP-Persona 是首個專門針對 Model Context Protocol（MCP）工具上代理表現的基準測試，評估 LLM 代理在真實個人化應用上的能力。研究透過環境模擬建構貼近真實使用場景的測試環境，涵蓋個人助理、日曆管理和郵件處理等多種個人應用場景。研究評估多個主流 LLM 代理在這些真實場景中的表現，發現代理在個人化上下文理解和工具協調方面仍存在較大提升空間。本研究為 MCP 生態系統中的代理評估建立了標準化框架，對推動 AI 個人助理發展有重要意義。",
+      "url": "https://arxiv.org/html/2606.02470v1",
+      "field": "Agent Evaluation",
+      "impact": "high — 首個針對 MCP 工具的代理基準測試，隨著 MCP 生態快速發展具有重要時效性"
+    },
+    {
+      "title": "DeployBench: Benchmarking LLM Agents for Research Artifact Deployment",
+      "title_zh": "DeployBench：針對研究產出部署的 LLM 代理基準測試",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-03",
+      "summary": "DeployBench 是一個專注於研究產出部署的 LLM 代理基準測試，解決軟體工程和 ML 研究任務中代理能力評估的問題。基準涵蓋從環境設置、依賴安裝到代碼執行和結果驗證的完整部署流程。研究發現現有 LLM 代理在處理複雜依賴關係和跨平台環境配置時面臨顯著挑戰，成功率因代理架構和任務複雜度而異。本基準推動了 LLM 代理在實際研究工作流程中的能力評估，為提升代理實用性提供了標準化測試平台。",
+      "url": "https://arxiv.org/abs/2606.05238",
+      "field": "Agent Evaluation",
+      "impact": "medium — 為研究產出部署提供專業化代理基準，對 ML 研究自動化有直接應用價值"
+    },
+    {
+      "title": "Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents",
+      "title_zh": "更少上下文，更好的代理：長期工具使用 LLM 代理的高效上下文工程",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "大型語言模型作為企業工作流程的自主代理時，面臨企業系統冗長工具回應導致的上下文視窗溢出和推理成本過高的關鍵挑戰。本文系統性研究如何透過高效上下文工程處理這一問題，提出一系列壓縮和過濾工具回應的方法而不損失關鍵資訊。研究表明，在長期工具使用任務中，減少上下文長度不僅降低推理成本，還提升代理任務完成率，原因是減少了無關上下文對模型注意力的干擾。實驗在多個企業工作流程基準上驗證所提方法的有效性，相較基線方法成本降低約 40%。",
+      "url": "https://arxiv.org/html/2606.10209",
+      "field": "AI Agent Engineering",
+      "impact": "high — 直接解決企業級 LLM 代理部署的核心成本和性能問題，有強烈的實踐意義"
+    },
+    {
+      "title": "Agentic Environment Engineering for Large Language Models: A Survey of Environment Modeling, Synthesis, Evaluation, and Application",
+      "title_zh": "大型語言模型的代理環境工程：環境建模、合成、評估與應用調查",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-11",
+      "summary": "本調查從四個互補視角系統性描述代理在動態環境中演進的主要路徑：以記憶為中心的經驗演進、以編排為中心的工作流程演進、以軌跡為中心的離線演進，以及以探索為中心的在線演進。研究對代理環境工程的最新進展進行全面梳理，涵蓋環境建模方法論、合成環境技術方案、評估框架設計以及各類應用場景。調查識別了當前代理環境工程面臨的主要挑戰，包括環境真實性、可擴展性以及跨環境遷移能力等問題。本調查為研究者提供了代理環境工程領域的全面參考圖景，並指出了未來重要的研究方向。",
+      "url": "https://arxiv.org/abs/2606.12191",
+      "field": "AI Agent Engineering",
+      "impact": "high — 全面調查代理環境工程的四大演進路徑，為研究者提供系統性參考框架"
+    },
+    {
+      "title": "Multi-Agent Transactive Memory",
+      "title_zh": "多代理交易式記憶",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-18",
+      "summary": "分散式部署的 LLM 代理具備不同能力，如何在異質代理群體間建立知識共享基礎設施是多代理系統的核心挑戰之一。本文引入多代理交易式記憶框架，使代理能夠在去中心化環境中有效存取和貢獻共享知識。系統透過知識交易機制允許不同專業能力的代理相互借用彼此的記憶，從而協同解決超出任何單一代理能力範圍的複雜任務。實驗評估在多個多代理協作基準上顯示，交易式記憶機制相較於無共享記憶的基線系統在任務完成率上有顯著提升。",
+      "url": "https://arxiv.org/html/2606.19911v1",
+      "field": "AI Agent Engineering",
+      "impact": "high — 解決多代理系統的知識共享問題，對分散式 AI 代理部署有重要意義"
+    },
+    {
+      "title": "A Technical Taxonomy of LLM Agent Communication Protocols",
+      "title_zh": "LLM 代理通訊協議的技術分類法",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-17",
+      "summary": "本文建立全面的技術分類法，用於分類和分析 LLM 代理通訊協議，涵蓋 MCP、A2A、ANP 等主要協議及其設計原則。研究從通訊語義、協議層次、安全模型和互操作性四個維度對現有協議進行系統性比較，揭示了不同協議在設計取捨上的差異。分類法識別了當前代理通訊協議生態系統中的缺口，包括跨協議互操作性標準的缺失和代理身份驗證機制的不一致性。本研究為代理框架開發者和系統架構師提供了協議選擇和設計的指導框架，有助於推動代理通訊標準的統一。",
+      "url": "https://arxiv.org/html/2606.19135v1",
+      "field": "Agent Ecosystem",
+      "impact": "high — 對快速發展的代理通訊協議生態建立系統分類，對 MCP/A2A 生態標準化有重要意義"
+    },
+    {
+      "title": "Decentralized Multi-Agent Systems with Shared Context",
+      "title_zh": "具備共享上下文的去中心化多代理系統",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "多代理系統能夠在測試時透過分解複雜問題為並行子任務來擴展大型語言模型的推理能力。本文提出 DeLM（去中心化語言模型），一個透過並行代理、共享驗證上下文和任務佇列來去中心化協調的多代理框架。DeLM 允許代理在不依賴中央協調器的情況下共享和驗證中間計算結果，從而提高系統的魯棒性和可擴展性。實驗結果表明，DeLM 在多個複雜推理基準上相較中央化多代理系統有顯著改進，特別是在任務並行度高的場景下效率提升更為明顯。",
+      "url": "https://arxiv.org/abs/2606.10662",
+      "field": "Multi-Agent",
+      "impact": "high — 提出去中心化多代理架構，解決傳統中央協調器的瓶頸問題"
+    },
+    {
+      "title": "Divide and Cooperate: Role-Decomposed Multi-Agent LLM Training with Cross-Agent Learning Signals",
+      "title_zh": "分工合作：具備跨代理學習信號的角色分解多代理 LLM 訓練",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "本文提出 DAC（分工合作）框架，透過將代理式搜索分解為兩個協作子任務來訓練角色分解的多代理系統。框架引入跨代理學習信號，使各角色代理能夠從彼此的行為中學習，從而提升整體系統的協作效率。實驗表明，DAC 在多個代理搜索基準上相較於傳統單代理和非角色分解的多代理方法有顯著改進。角色分解機制使每個代理能夠專業化於特定任務類型，而跨代理學習信號確保了系統整體的一致性和協調性。",
+      "url": "https://arxiv.org/abs/2606.10684",
+      "field": "Multi-Agent",
+      "impact": "high — 提出角色分解多代理訓練框架，為多代理協作學習提供新的訓練範式"
+    },
+    {
+      "title": "State-Grounded Multi-Agent Synthetic Data Generation for Tool-Augmented LLMs",
+      "title_zh": "針對工具增強 LLM 的狀態錨定多代理合成資料生成",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-15",
+      "summary": "本文提出 StateGen，一個透過協調四角色 LLM 循環來生成帶評分、推理軌跡豐富的訓練對話的合成資料平台。StateGen 利用狀態錨定機制確保生成的訓練數據在工具調用序列上保持語義一致性，解決了現有合成數據方法中常見的工具調用幻覺問題。四角色分工包括任務規劃者、工具調用者、結果驗證者和數據打分者，每個角色確保合成數據的特定質量維度。實驗表明，使用 StateGen 生成的數據訓練的模型在工具增強任務上的表現顯著優於使用傳統合成數據訓練的模型。",
+      "url": "https://arxiv.org/html/2606.16307",
+      "field": "AI Agent",
+      "impact": "medium — 為工具增強 LLM 訓練提供高質量合成數據方案，對代理訓練數據工程有實踐意義"
+    },
+    {
+      "title": "Phoenix: Safe GitHub Issue Resolution via Multi-Agent LLMs",
+      "title_zh": "Phoenix：透過多代理 LLM 安全解決 GitHub Issue",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-18",
+      "summary": "本文提出 Phoenix，一個從問題分類到拉取請求創建的完整多代理 LLM 系統，專注於安全地自動化解決 GitHub 問題。系統採用多個專業化代理協同工作，包括問題分析、代碼修改和測試驗證代理，每個代理負責工作流程的特定階段。Phoenix 特別強調安全性，透過設計約束確保生成的修改不會引入安全漏洞或破壞現有功能。在多個開源 GitHub 倉庫的實驗中，Phoenix 在問題解決成功率和安全性方面均優於現有的單代理方案，展示了多代理協作在軟體工程自動化中的潛力。",
+      "url": "https://arxiv.org/html/2606.20243",
+      "field": "Multi-Agent",
+      "impact": "medium — 為 GitHub 問題自動化解決提供安全的多代理方案，對軟體工程 AI 自動化有實踐意義"
+    },
+    {
+      "title": "Assessing Automated Prompt Injection Attacks in Agentic Environments",
+      "title_zh": "評估代理環境中的自動化提示注入攻擊",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "本研究系統性評估了代理環境中自動化提示注入攻擊的威脅面和影響範圍。研究設計了一套自動化攻擊框架，能夠在代理工作流程的不同注入點測試多種攻擊向量，並量化不同代理架構對這些攻擊的脆弱性。研究發現，當代主流代理框架在應對複雜的間接提示注入攻擊時存在顯著弱點，特別是在多工具鏈和多代理協作場景中攻擊成功率更高。本研究為代理安全評估提供了標準化的測試框架，並提出多項緩解措施來提升代理系統對提示注入攻擊的抵抗力。",
+      "url": "https://arxiv.org/html/2606.10525",
+      "field": "AI Security",
+      "impact": "high — 系統性評估代理環境中的提示注入攻擊，對 AI 代理安全部署有重要警示意義"
+    },
+    {
+      "title": "CAPRA: Scaling Feedback on Software Architecture Deliverables with a Multi-Agent LLM System",
+      "title_zh": "CAPRA：以多代理 LLM 系統擴展軟體架構交付物的反饋",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-06-17",
+      "summary": "CAPRA 是一個多代理 LLM 系統，能夠在軟體架構交付物上提供可擴展的自動化反饋。系統設計了多個專業化評審代理，分別負責架構一致性、設計模式合規性、安全最佳實踐和文檔質量等不同維度的評審。CAPRA 透過代理協調機制整合各維度的評審意見，生成結構化的反饋報告，有助於早期識別架構問題。在多個軟體工程課程和工業項目的實驗中，CAPRA 生成的反饋質量與人工評審具有可比性，同時大幅降低了反饋週期時間。",
+      "url": "https://arxiv.org/html/2606.18976v1",
+      "field": "Multi-Agent",
+      "impact": "medium — 將多代理 LLM 應用於軟體架構評審，對工程教育和工業實踐有實際價值"
+    },
+    {
+      "title": "Your Agent is More Brittle Than You Think: Uncovering Indirect Injection Vulnerabilities in Agentic LLMs",
+      "title_zh": "你的代理比你想像的更脆弱：揭露代理 LLM 中的間接注入漏洞",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-04-03",
+      "summary": "本文揭露了代理 LLM 系統中間接提示注入漏洞的廣泛存在性，這類漏洞比直接提示注入更難防範且更具破壞性。研究透過系統性測試多個主流代理框架，發現即使看似安全的代理架構也存在可被間接注入利用的攻擊面，包括工具輸出污染、上下文操縱和行動劫持等攻擊類型。研究對十多個常見代理部署場景進行漏洞分析，量化了不同場景下的攻擊成功率和潛在影響範圍。本研究呼籲代理系統開發者重新審視間接輸入路徑的安全設計，並提出了多層防禦策略來緩解這類漏洞。",
+      "url": "https://arxiv.org/pdf/2604.03870",
+      "field": "AI Security",
+      "impact": "high — 揭露代理 LLM 中普遍存在的間接注入漏洞，對代理安全設計有重要警示意義"
+    },
+    {
+      "title": "Agentic AI in the Software Development Lifecycle: Architecture, Empirical Evidence, and the Reshaping of Software Engineering",
+      "title_zh": "軟體開發生命週期中的代理 AI：架構、實證研究與軟體工程的重塑",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "Anthropic, OpenAI, Google DeepMind, Microsoft Research, Princeton, Stanford",
+      "venue": "arXiv",
+      "date": "2026-04-26",
+      "summary": "本文綜合來自 Anthropic、OpenAI、Google DeepMind、Microsoft Research、Princeton 和 Stanford 的貢獻，描述代理 AI 在軟體工程中的轉型趨勢。研究提供了代理 AI 系統在軟體開發生命週期各階段（需求分析、設計、實現、測試、部署）的架構模式和實證研究結果。作者量化了代理 AI 對開發者生產力的影響，並識別了代理 AI 改變軟體工程工作流程的關鍵機制。研究探討了代理 AI 在軟體工程中的限制、風險和未來發展方向，為從業者和研究者提供了全面的參考框架。",
+      "url": "https://arxiv.org/abs/2604.26275",
+      "field": "AI Agent",
+      "impact": "high — 來自 Anthropic/OpenAI/Google DeepMind 等頂尖機構的綜合研究，為代理 AI 在軟工的發展提供權威參考"
+    },
+    {
+      "title": "Agent2 RL-Bench: Can LLM Agents Engineer Agentic RL Post-Training?",
+      "title_zh": "Agent2 RL-Bench：LLM 代理能否工程化代理強化學習後訓練？",
+      "authors": [
+        "N/A"
+      ],
+      "institution": "N/A",
+      "venue": "arXiv",
+      "date": "2026-04-12",
+      "summary": "本文提出 Agent2 RL-Bench，研究 LLM 代理是否能夠自主工程化代理強化學習的後訓練流程，探索一個新的代理能力邊界。研究讓 LLM 代理不僅執行任務，還能自動設計和運行強化學習訓練管線來提升其他代理的能力。基準涵蓋多個強化學習後訓練場景，包括獎勵函數設計、訓練流程配置和超參數調整等子任務。實驗評估多個主流 LLM 在這些任務上的表現，揭示了 LLM 在理解和操作複雜機器學習工作流程方面的能力邊界與提升空間。",
+      "url": "https://arxiv.org/html/2604.10547v1",
+      "field": "Agent Evaluation",
+      "impact": "high — 探索 LLM 代理工程化 RL 後訓練的新能力邊界，對 AI 自動化和元學習有重要意義"
+    }
+  ],
+  "_updated_at": "2026-06-23T18:08:58.520660+08:00"
+}

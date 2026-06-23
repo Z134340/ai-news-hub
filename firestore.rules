@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// AI News Hub — Firestore 安全規則
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 書籤：每位使用者僅能讀寫自己 uid 底下的資料
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // 冷封存新聞：公開可讀（與公開網站一致），僅指定 writer 帳號可寫。
+    // 將 WRITER_UID 換成 archiver 帳號的 uid（Console → Authentication → Users）。
+    match /archives/{date} {
+      allow read:  if true;
+      allow write: if request.auth != null && request.auth.uid == 'WRITER_UID';
+    }
+  }
+}

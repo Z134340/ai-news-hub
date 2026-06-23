@@ -1,0 +1,65 @@
+{
+  "items": [
+    {
+      "title": "Claude Fable 5 Moves Behind Paywall Starting June 23",
+      "title_zh": "Claude Fable 5 自6月23日起改為付費制，不再包含於訂閱方案",
+      "source": "Build Fast With AI",
+      "date": "2026-06-23",
+      "domain": "LLM",
+      "model_area": "Claude Fable 5, Anthropic",
+      "summary": "Anthropic 旗艦 Mythos 級模型 Claude Fable 5 自2026年6月23日起不再包含於 Pro、Max、Team 及企業版訂閱方案。API 定價設為每百萬輸入 token $10、輸出 $50，是 Claude Opus 4.8 的兩倍。該模型曾因美國政府出口管制指令於6月12日至18日下線，訂閱用戶實際僅享約4-5天免費存取，而非完整13天。此定價調整標誌著 Anthropic 對最高端模型採取獨立付費商業策略。",
+      "highlights": [
+        "API 定價每百萬 token 輸入 $10、輸出 $50，較 Opus 4.8 貴一倍",
+        "因美國出口管制於6月12-18日下線，訂閱期間實際可用天數大幅縮短",
+        "最高能力模型不再包含於一般訂閱，改採獨立計費模式"
+      ],
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026"
+    },
+    {
+      "title": "Google Gemini 3.5 Pro Enters General Availability Window, Expected June 23-30",
+      "title_zh": "Google Gemini 3.5 Pro 進入正式發布窗口，預計6月23至30日上線",
+      "source": "Build Fast With AI",
+      "date": "2026-06-23",
+      "domain": "LLM",
+      "model_area": "Gemini 3.5 Pro, Google",
+      "summary": "Google Gemini 3.5 Pro 正式發布預計落在2026年6月23至30日。確認規格包含200萬 token 上下文視窗，為目前所有量產前沿模型最大，另設限 $250/月 Ultra 訂閱用戶存取的 Deep Think 推理模式。預計定價為每百萬輸入 token $15、輸出 $60，約為 Gemini 3.5 Flash 的10倍。模型支援文字與圖像多模態輸入。",
+      "highlights": [
+        "200萬 token 上下文視窗，為目前所有量產前沿模型最大",
+        "Deep Think 深度推理模式限 $250/月 Ultra 訂閱層級存取",
+        "定價 $15/$60 每百萬 token（輸入/輸出），遠高於同系列 Flash 版本"
+      ],
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026"
+    },
+    {
+      "title": "AutoScientist Challenge Part 2 Launches June 23, Spanning Science, Agriculture, and Language Domains",
+      "title_zh": "AutoScientist 挑戰賽第二階段6月23日啟動，涵蓋科學、農業及語言等多領域",
+      "source": "Build Fast With AI",
+      "date": "2026-06-23",
+      "domain": "AI Research",
+      "model_area": "AI Research Agents",
+      "summary": "AutoScientist 挑戰賽第二階段於2026年6月23日正式啟動，持續至7月6日共兩週。本次挑戰涵蓋科學、農業、資料可視化、語言等多個領域，旨在測試並推進 AI 在自主科學研究任務上的能力邊界。這是繼第一階段後的延伸，持續比較不同 AI 系統在跨領域科研自動化的實際表現。",
+      "highlights": [
+        "挑戰期間為2026年6月23日至7月6日",
+        "涵蓋科學、農業、數據可視化、語言等多元研究領域",
+        "聚焦 AI 自主科研能力的跨領域系統性測試"
+      ],
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026"
+    },
+    {
+      "title": "Writer Launches AI Agents That Can Act Without Prompts, Taking on Amazon, Microsoft and Salesforce",
+      "title_zh": "Writer 推出無需提示即可自主行動的 AI Agents，直接挑戰 Amazon、Microsoft 及 Salesforce",
+      "source": "VentureBeat",
+      "date": "2026-06-22",
+      "domain": "Agent",
+      "model_area": "Writer AI Agents, Enterprise AI Automation",
+      "summary": "企業 AI 平台 Writer 推出新一代 AI Agents，無需使用者主動提示即可自主偵測情境並採取行動，直接切入 Amazon、Microsoft 及 Salesforce 主導的企業自動化市場。這代表企業 AI 從「被動問答式」進化為「主動執行式」的關鍵轉型，Agent 系統可在零觸發下自動偵測工作流狀態並執行任務。Writer 定位為企業級 AI 自動化的獨立競爭選項。",
+      "highlights": [
+        "Agent 無需用戶提示即可主動偵測情境並執行動作，突破傳統互動模式",
+        "直接挑戰 Amazon、Microsoft、Salesforce 在企業 AI 自動化市場的主導地位",
+        "標誌企業 AI 從互動式問答向完全自主執行模式的重要轉型"
+      ],
+      "url": "https://venturebeat.com/technology/writer-launches-ai-agents-that-can-act-without-prompts-taking-on-amazon-microsoft-and-salesforce"
+    }
+  ],
+  "_updated_at": "2026-06-23T18:15:28.286748+08:00"
+}
