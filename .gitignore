@@ -17,3 +17,6 @@ data/emerging.json
 *.env
 .archiver.env
 archiver.env
+
+# 維運手冊：repo 為 public，ops 細節僅留本機（如需備份請存私有知識庫）
+OPS-RUNBOOK.md
