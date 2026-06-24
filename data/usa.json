@@ -15,24 +15,12 @@
         "直接對標 Anthropic Project Glasswing，AI 資安賽道競爭白熱化"
       ],
       "discussion": "資安社群對 OpenAI 投入防禦性 AI 領域反應熱烈，「Patch the Planet」的開源協作精神廣受好評。但也有聲音質疑「受信任防禦者」限制存取模式，認為真正資源匱乏的中小型組織反而難以受益，GPT-5.5-Cyber 未面向大眾開放也引發質疑。",
-      "url": "https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/"
-    },
-    {
-      "title": "SpaceX signs computing power deal with open-source AI startup Reflection worth up to $6.3 billion",
-      "title_zh": "SpaceX 與開源 AI 新創 Reflection AI 簽署高達 63 億美元運算能源協議",
-      "source": "CNBC",
-      "date": "2026-06-22",
-      "topic": "AI Infrastructure / Funding",
-      "summary": "SpaceX 與開源 AI 新創 Reflection AI 簽署高達 63 億美元的算力合約，Reflection 自 2026 年 7 月 1 日起每月支付 1.5 億美元，協議可持續至 2029 年，含 90 天終止條款。Reflection AI 將透過 SpaceX 位於田納西州曼菲斯的 Colossus 2 資料中心取得 NVIDIA GB300 最新 AI 晶片。SpaceX Colossus 2 已從初始 1 GW 擴充至 1.5 GW，現有外部客戶包括 Anthropic、Google 及 Cursor，承諾收入已超 800 億美元（至 2029 年）。Reflection AI 由 Google DeepMind 資深研究員 Misha Laskin 與 Ioannis Antonoglou（AlphaGo/AlphaZero 核心成員）於 2024 年創立，專注開源 AI 模型研發。",
-      "highlights": [
-        "合約月費 1.5 億美元，協議至 2029 年總值高達 63 億美元，含 90 天靈活終止條款",
-        "Reflection AI 取得 NVIDIA GB300 旗艦晶片優先存取權",
-        "SpaceX Colossus 2 平台外部客戶承諾收入突破 800 億美元大關",
-        "Reflection AI 由 DeepMind AlphaGo/AlphaZero 核心研究員創立，聚焦開源 AI",
-        "消息公布後 SPCX 股價單日重挫逾 10%，創 Nasdaq 上市以來最大跌幅"
-      ],
-      "discussion": "市場對此消息反應兩極：看多者認為 SpaceX Colossus 成功轉型為頂尖商業算力平台，外部客戶收入分散化是正面訊號；看空者則擔憂高度依賴外部客戶且合約終止條款寬鬆帶來的財務風險，SPCX 股價大跌反映此疑慮。",
-      "url": "https://www.cnbc.com/2026/06/22/spacex-ai-colossus-data-center-reflection.html"
+      "url": "https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/",
+      "url_status": "verified",
+      "title_score": 0.9,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654777",
+      "complete": true
     },
     {
       "title": "Groups tied to OpenAI and Anthropic are spending big on the midterms",
@@ -49,7 +37,12 @@
         "OpenAI、Meta、Google、NVIDIA 在 2025 年合計花費 5090 萬美元遊說國會"
       ],
       "discussion": "此報導引發廣泛關注：AI 巨頭深度介入選舉政治，令人擔憂科技資金干預民主進程。有觀點認為 OpenAI 以「聯邦統一監管」包裝的實質是阻止各州實施更嚴格標準；另有聲音認為 Anthropic 支持州監管彈性背後也有商業計算。兩家公司的 IPO 計畫使其監管立場更具利益衝突色彩。",
-      "url": "https://www.npr.org/2026/06/22/nx-s1-5856359/ai-anthropic-congress-spending-openai-midterms-election"
+      "url": "https://www.npr.org/2026/06/22/nx-s1-5856359/ai-anthropic-congress-spending-openai-midterms-election",
+      "url_status": "verified",
+      "title_score": 0.96,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654832",
+      "complete": true
     },
     {
       "title": "DIA considering new AI-powered platform to streamline procurement system",
@@ -66,7 +59,12 @@
         "呼應白宮 6 月 AI 創新與安全行政命令，聯邦 AI 採購現代化進程加速"
       ],
       "discussion": "聯邦採購社群對此高度關注，認為 DIA 主動引入 AI 是政府機構務實轉型的示範。有觀點指出 OTA 機制確實能加速創新，但也擔憂 AI 採購決策的問責機制與安全審查標準是否能同步配套；另有業界人士認為此 RFI 將帶動防務 AI 採購平台新賽道。",
-      "url": "https://defensescoop.com/2026/06/22/dia-ai-powered-platform-streamline-procurement-system/"
+      "url": "https://defensescoop.com/2026/06/22/dia-ai-powered-platform-streamline-procurement-system/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654858",
+      "complete": true
     },
     {
       "title": "Agentjacking Attack Tricks AI Coding Agents Into Running Malicious Code",
@@ -83,7 +81,12 @@
         "Sentry 已新增內容過濾器，但 AI 代理信任邊界根本問題仍待 MCP 生態系統系統性解決"
       ],
       "discussion": "此漏洞在 AI 開發者社群引發高度警覺，尤其是 Claude Code 與 Cursor 用戶群。普遍認為這是 MCP 生態系統信任邊界問題的首個規模化真實案例，凸顯 AI Agent 安全架構設計的迫切性。有研究者指出此類攻擊代表了一種根本性的安全挑戰：傳統安全模型無法應對「授權意圖鏈」（Authorized Intent Chain）攻擊模式。",
-      "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html"
+      "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654884",
+      "complete": true
     },
     {
       "title": "AI News June 22 2026: Fable 5 Is Back — But Changed. Free Window Expires Today. What's Different.",
@@ -100,8 +103,190 @@
         "此為美國首次對 AI 模型本體實施出口管制，具重要法規先例意義"
       ],
       "discussion": "開發者與企業用戶普遍對此事件不滿：美國政府驟然介入導致商業服務中斷，Anthropic 的溝通透明度也受到批評。部分組織已啟動 GPT-5.5 與 Gemini 3.5 的替代評估，此事件也引發了 AI 出口管制法規對商業連續性影響、以及主權 AI 政策走向的廣泛討論。",
-      "url": "https://aitoolsrecap.com/Blog/ai-news-june-22-2026"
+      "url": "https://aitoolsrecap.com/Blog/ai-news-june-22-2026",
+      "url_status": "verified",
+      "title_score": 0.83,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654910",
+      "complete": true
+    },
+    {
+      "title": "Anthropic's Claude AI Back Online After 90-Minute Global Outage",
+      "title_zh": "Anthropic Claude AI 全球停機 90 分鐘後恢復上線",
+      "source": "Cyber Security News",
+      "date": "2026-06-22",
+      "topic": "AI Cybersecurity / Incident",
+      "summary": "Anthropic 的 Claude AI 平台於 6 月 22 日 UTC 00:37 發生重大服務中斷，同時影響 Opus 4.8、Opus 4.7、Opus 4.6、Sonnet 4.6 及 Haiku 4.5 等五個旗艦模型，為本月最廣泛的多模型同步停機事件。受影響服務涵蓋 Claude.ai 聊天介面、API（api.anthropic.com）、Claude Code 及 Claude Cowork，全球依賴 API 的開發者與自動化工作流程均陷入中斷。Anthropic 工程團隊隨即介入調查，於 UTC 02:06 宣告所有元件全面恢復正常，停機時間約 90 分鐘。此事件適逢 Fable 5 出口管制禁令持續期間，進一步引發業界對 AI 平台可靠性與商業依賴程度的重新審視。",
+      "highlights": [
+        "Claude API、Claude Code、Claude Cowork 三大服務同時中斷，開發者工作流程全面停擺",
+        "五個旗艦模型（Opus 4.8/4.7/4.6、Sonnet 4.6、Haiku 4.5）同步受影響，為平台本月最廣泛停機",
+        "Anthropic 於 UTC 02:06 宣告全面恢復，進入主動監控模式",
+        "此次停機發生在 Fable 5 仍遭出口管制下架期間，令 Anthropic 局面雪上加霜",
+        "事件引發業界廣泛討論：AI 服務應達到與傳統 IT 基礎設施同等的 SLA 可靠性標準"
+      ],
+      "discussion": "全球開發者在 X 平台及 GitHub 即時回報近 90 分鐘的業務中斷，部分使用 Claude Code 的工程師被迫手動接管自動化流程。此事件加劇業界對「單一 AI 供應商依賴」的警惕，促使更多企業評估多供應商 AI 備援策略。",
+      "url": "https://cybersecuritynews.com/anthropic-claude-ai-outage/",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-06-23T18:44:14.654935",
+      "complete": true
+    },
+    {
+      "title": "US Acts to Speed Up Power Grid Hook-Ups for AI Data Centers",
+      "title_zh": "美國採取行動加速 AI 資料中心電網接入",
+      "source": "Insurance Journal",
+      "date": "2026-06-22",
+      "topic": "AI Policy / Infrastructure",
+      "summary": "美國聯邦能源監管委員會（FERC）於 6 月 22 日核准一系列針對全美電網的專項命令，目標是消除阻礙 AI 基礎設施擴張的電力接網瓶頸。FERC 主席 Laura Swett 將 AI 電網整合定位為「國家優先事項」，命令全美六大區域電網運營商在 60 天內就現行大型用電客戶接網收費制度提出辯護或修訂方案，目標是將接網申請處理時間壓縮至 90 天（目前動輒耗時數年）。AI 資料中心目前占美國電力需求約 4–5%，預計 2035 年將攀升至 10–20%，為此電網升級費用龐大，業者可能須自備電力或在高壓時段削減負載。",
+      "highlights": [
+        "FERC 命令六大區域電網在 60 天內修訂大型用電客戶（含 AI 資料中心）接網規則",
+        "目標將接網申請處理縮至 90 天，現行流程常需數年",
+        "AI 資料中心 2035 年預估占美國電力需求 10–20%（現為 4–5%）",
+        "資料中心或須自備電力或在電網高壓時段削峰，並承擔電網升級費用",
+        "FERC 主席 Laura Swett 明確稱 AI 電網整合為「國家優先事項」，配合特朗普政府 AI 強國政策"
+      ],
+      "discussion": "能源業者與公用事業公司擔憂如何公平分配數十億美元電網升級成本；AI 科技公司則樂見監管為擴展加速。環保倡議者亦關切 AI 能源需求爆發對電網碳排放目標的長期衝擊。",
+      "url": "https://www.insurancejournal.com/news/national/2026/06/22/874598.htm",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654961",
+      "complete": true
+    },
+    {
+      "title": "Claude outage, June 2026: Reckoning with AI's increasing status as infrastructure",
+      "title_zh": "Claude 停機事件：AI 作為關鍵基礎設施的現實覺醒",
+      "source": "Thoughtworks",
+      "date": "2026-06-22",
+      "topic": "AI Agent Engineering / Enterprise",
+      "summary": "Thoughtworks 針對 Claude 平台 6 月 22 日停機事件發表深度分析，指出此次中斷不只是服務事故，更是業界必須面對的現實：企業對 AI 平台的依賴深度已達「基礎設施等級」，而非可隨時替換的增值功能。Claude Code 停機導致開發工作流程、CI/CD 管道等核心流程全面中斷；Claude Cowork 停服令部分企業內部協作陷入癱瘓。Thoughtworks 建議企業建立多供應商 AI 備援架構，並將 AI 服務可靠性納入正式企業風險管理框架，而非事後補救。",
+      "highlights": [
+        "Claude Code 與 Claude Cowork 同時中斷，暴露 AI 已深嵌入核心業務工作流程",
+        "企業普遍缺乏 AI 服務降級備援（graceful degradation）計畫，治理缺口顯著",
+        "Thoughtworks 建議建立多供應商 AI 策略以分散單一供應商依賴風險",
+        "呼籲將 AI 服務 SLA 標準納入與傳統 IT 基礎設施同等的企業採購要求",
+        "此事件可能加速企業 AI 治理政策從「使用許可」升級至「韌性設計」框架"
+      ],
+      "discussion": "技術社群反應熱烈，工程師普遍分享了緊急切換至備用模型（GPT-5.5、Gemini 3.5 Flash 等）的第一手經驗，AI 基礎設施韌性設計（resilience design）迅速成為工程部落格的熱門話題。",
+      "url": "https://www.thoughtworks.com/en-us/insights/blog/generative-ai/claude-outage-june-2026",
+      "url_status": "verified",
+      "title_score": 0.99,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.654987",
+      "complete": true
+    },
+    {
+      "title": "A24, Focus and Netflix Have Passed on 'Artificial'",
+      "title_zh": "A24、Focus 與 Netflix 相繼婉拒《Artificial》",
+      "source": "Awards Radar",
+      "date": "2026-06-22",
+      "topic": "Enterprise / Business",
+      "summary": "繼 Amazon MGM Studios 因 500 億美元 OpenAI 投資協議而放棄 Luca Guadagnino 執導的 OpenAI 傳記片《Artificial》後，Netflix、Focus Features 及 A24 在篩看後相繼婉拒接手發行。影片由 Andrew Garfield 飾演 OpenAI 執行長 Sam Altman、Monica Barbaro 飾演前 CTO Mira Murati、Ike Barinholtz 飾演 Elon Musk，製作費約 4000 萬美元，仍在後製階段。目前 Mubi 被視為最有意願的潛在發行商，Neon 也可能跟進，此案凸顯科技資本如何滲透好萊塢內容決策。",
+      "highlights": [
+        "Netflix、A24、Focus Features、Warner Bros. 相繼在篩看後婉拒發行",
+        "Mubi 為目前最積極競購者，Neon 也在考量中",
+        "影片以 2023 年 11 月 Altman 被 OpenAI 董事會解僱 72 小時後復職的戲劇性事件為核心",
+        "Amazon MGM 因 500 億美元 OpenAI 投資協議放棄發行，明顯利益衝突",
+        "知情人士透露 Altman 與 Musk 在片中形象均不討喜，可能影響各平台評估"
+      ],
+      "discussion": "媒體業界將此案視為「AI 資本影響創作自由」的標誌性案例，科技巨頭億美元級 AI 投資正開始左右傳統娛樂公司的內容決策。觀察人士亦關注此片最終能否透過 Mubi 等獨立平台觸及觀眾。",
+      "url": "https://awardsradar.com/2026/06/22/a24-focus-and-netflix-have-passed-on-artificial/",
+      "url_status": "verified",
+      "title_score": 0.86,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655027",
+      "complete": true
+    },
+    {
+      "title": "Beyond Siri: Here are the practical AI features coming to your iPhone in iOS 27",
+      "title_zh": "超越 Siri：iOS 27 即將帶來的 AI 實用功能",
+      "source": "TechCrunch",
+      "date": "2026-06-21",
+      "topic": "AI Product (Apple)",
+      "summary": "TechCrunch 深入分析 WWDC 2026 發表的 iOS 27 AI 功能，指出 Apple 策略的核心不在全新改版的 Siri AI 本身，而是將智慧功能無縫嵌入用戶已習慣使用的原生 App。新版 Siri AI 整合 Google Gemini 技術，在作業系統層級即時存取 Messages、Mail、Photos 及螢幕內容，無需切換應用程式。具體亮點包括：AI 掃描收據自動拆分帳單、在資料外洩後代理式（agentic）自動更新受影響密碼、自動化日常任務等。功能已在開發者 Beta 上線，公開 Beta 即將推出，完整發佈預計今年秋季。",
+      "highlights": [
+        "Siri AI 整合 Google Gemini 技術，於 OS 層級實現跨 App 即時存取（無需切換應用程式）",
+        "AI 帳單拆分：拍攝收據即自動提取品項、數量、小費並計算各人分攤",
+        "密碼安全代理：AI 自動識別弱密碼與外洩密碼，並代理式更新受影響帳號",
+        "Apple Intelligence 採本地 Foundation Models 與 Gemini 雲端的混合架構",
+        "聚焦解決具體日常問題而非展示抽象能力，降低用戶採用門檻"
+      ],
+      "discussion": "科技評論人普遍肯定 Apple 的「漸進式 AI」策略比競爭對手更貼近用戶真實需求。隱私倡議者則持續關注 Siri AI 的資料存取範圍，以及 Google Gemini 整合對 Apple 隱私品牌形象的潛在衝擊。",
+      "url": "https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655055",
+      "complete": true
+    },
+    {
+      "title": "When the Trump administration cracks down on Anthropic, who benefits?",
+      "title_zh": "特朗普政府打壓 Anthropic，誰是最終受益者？",
+      "source": "TechCrunch",
+      "date": "2026-06-21",
+      "topic": "AI Policy",
+      "summary": "TechCrunch 深度分析美國政府對 Anthropic Fable 5 和 Mythos 5 實施出口管制所引發的市場競爭格局重塑。文章指出在 Fable 5 停服第 9 天，Anthropic 與特朗普政府的緊張關係在主要 AI 公司中顯得最為突出。Fable 5 下架的直接受益者涵蓋 OpenAI（GPT-5.5）、Google（Gemini 3.5 Flash）、xAI（Grok 4.3）及開源社群（Qwen、Llama 等），各方均見到不同程度的用戶流入。出口管制的核心理由是：NSA Director 向參議院情報委員會報告，Mythos 5 在數小時內自主突破幾乎所有 NSA 機密系統。",
+      "highlights": [
+        "Fable 5、Mythos 5 自 6 月 12 日起全球停服，第 9 天仍無恢復跡象",
+        "OpenAI、Google、xAI 等競爭對手直接受益於 Anthropic 用戶流失",
+        "開源模型（Qwen、Llama 等）因此獲得更多企業試用機會",
+        "NSA Director 稱 Mythos 5 在數小時內自主突破幾乎所有 NSA 機密系統，為出口管制核心理由",
+        "Anthropic IPO 進程（已於 6 月 1 日向 SEC 提交草案 S-1）可能受此事件影響"
+      ],
+      "discussion": "AI 圈廣泛討論此事件是否預示美國政府將加強對 AI 模型能力的國家安全審查制度化，多家 AI 公司開始評估如何主動配合政府安全審查以避免類似命運。",
+      "url": "https://techcrunch.com/2026/06/21/when-the-trump-administration-cracks-down-on-anthropic-who-benefits/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655079",
+      "complete": true
+    },
+    {
+      "title": "Amazon Dropped a Near-Complete Sam Altman Film After $50 Billion OpenAI Investment",
+      "title_zh": "Amazon 在 500 億美元 OpenAI 投資後放棄幾近完成的 Sam Altman 傳記片",
+      "source": "TechTimes",
+      "date": "2026-06-21",
+      "topic": "Enterprise / Business",
+      "summary": "Amazon MGM Studios 放棄了 Luca Guadagnino 執導、幾乎製作完成的電影《Artificial》，影片耗資約 4000 萬美元、已於 2025 年 10 月完成拍攝，仍在後製階段。此舉發生在 Amazon 今年 2 月宣布向 OpenAI 投資 500 億美元的多年戰略夥伴關係後數月，被業界視為明確的利益衝突案例。影片以「AI 版《社群網路》」為定位，由 Andrew Garfield 飾演 Sam Altman，再現 2023 年 11 月 OpenAI 董事會危機；知情人士透露 Altman 與 Musk 在片中均非正面形象，可能令 Amazon 難以繼續發行。",
+      "highlights": [
+        "Amazon MGM Studios 放棄《Artificial》發行，直接原因指向 500 億美元 OpenAI 投資協議",
+        "影片主演：Andrew Garfield（Sam Altman）、Monica Barbaro（Mira Murati）、Ike Barinholtz（Elon Musk）",
+        "製作費約 4000 萬美元，影片核心為 2023 年 11 月 Altman 被解僱 72 小時後復職",
+        "多個主流平台（Netflix、A24、Focus、Warner Bros.）相繼在篩看後婉拒發行",
+        "Mubi 成為最有意願的競購者，此案成為科技資本影響好萊塢決策的典型案例"
+      ],
+      "discussion": "媒體業界廣泛討論此案標誌著科技巨頭億美元級 AI 投資如何開始左右傳統娛樂產業的創作與發行決策，有評論指出這可能只是此類利益衝突的開端。",
+      "url": "https://www.techtimes.com/articles/318808/20260621/amazon-dropped-near-complete-sam-altman-film-after-50-billion-openai-investment.htm",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655104",
+      "complete": true
+    },
+    {
+      "title": "Is Fable 5 Back? No — Status & Alternatives (June 21, 2026)",
+      "title_zh": "Fable 5 恢復了嗎？尚未——第 9 天狀態更新與替代方案",
+      "source": "explainx.ai",
+      "date": "2026-06-21",
+      "topic": "AI Policy / LLM",
+      "summary": "距美國政府 6 月 12 日發出出口管制令強制 Anthropic 下架 Fable 5 和 Mythos 5 已進入第 9 天，截至 6 月 21 日兩個模型仍完全離線，API 端點持續返回錯誤。Anthropic Managing Director Chris Ciauri 於首爾辦公室開幕活動（6 月 17–18 日）上公開表示「非常有信心」模型將在近期恢復，但預測市場給出的 7 月 1 日前恢復機率僅 57%、7 月 17 日前為 75%。文章同時整理可替代方案：Claude Opus 4.8、GPT-5.5、Gemini 3.5 Flash 及 Grok 4.3。Fable 5 的 Pro/Max/Team/Enterprise 方案免費試用窗口原訂 6 月 22 日關閉，而模型仍未恢復。",
+      "highlights": [
+        "美國出口管制令於 6 月 12 日 17:21 ET 生效，禁止任何外籍人士（含 Anthropic 員工）使用 Fable 5 和 Mythos 5",
+        "截至 6 月 21 日第 9 天，claude-fable-5 API 仍持續返回錯誤",
+        "NSA Director 稱 Mythos 5 在數小時內自主突破幾乎所有 NSA 機密系統（出口管制核心依據）",
+        "Anthropic 免費試用窗口原訂 6 月 22 日關閉，模型仍未恢復形成爽約",
+        "預測市場：7 月 1 日前恢復機率 57%，7 月 17 日前機率 75%"
+      ],
+      "discussion": "開發者社群對 Fable 5 下架的持續關注已從「何時恢復」轉向「如何建立多供應商備援架構」。許多依賴 Anthropic API 的產品正緊急評估切換至 GPT-5.5 或 Gemini 3.5 Flash 的技術可行性與成本。",
+      "url": "https://explainx.ai/blog/is-fable-5-back-2026",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655129",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-06-23T18:43:03.825884+08:00"
+  "_updated_at": "2026-06-23T18:43:03.825884+08:00",
+  "_fallback": true
 }

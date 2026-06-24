@@ -13,22 +13,12 @@
         "AI 形成「職業化」與「民主化」雙軌，前者薪資成長比後者快 42%",
         "AI 入門職位要求傳統高階技能的可能性高出 7 倍，過去 5 年成長 35%"
       ],
-      "url": "https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html"
-    },
-    {
-      "title": "KPMG 因 AI 幻覺問題撤回 Agentic AI 全球報告，45 個引用中 40 個確認為捏造",
-      "source": "Technology.org",
-      "date": "2026-06-16",
-      "category": "AI治理",
-      "summary": "KPMG 撤回一份名為「Redefining Excellence in the Age of Agentic AI」的全球報告，原因是多家受訪機構指出報告中有關其 AI 使用情況的描述子虛烏有。研究機構 GPTZero 調查發現，報告 45 個引用中僅 5 個可指向真實完整來源，其餘 40 個標題均為 AI 幻覺生成。UBS、英國國家健康服務（NHS）、瑞士聯邦鐵路及倫敦交通局均向《金融時報》表示，相關描述不實或具誤導性。此事件繼 EY 撤回含虛假腳注的研究後，再度暴露大型諮詢公司 AI 輔助撰文監督不足的問題。KPMG 聲明強調將強化人工審查流程，但事件已對該公司聲譽造成衝擊。",
-      "highlights": [
-        "45 篇引用中 40 篇確認為 AI 幻覺捏造，僅 5 篇可指向真實來源",
-        "UBS、NHS、瑞士聯邦鐵路、倫敦交通局均否認報告中的 AI 部署描述",
-        "繼 EY 虛假腳注事件後，第二起大型諮詢公司 AI 幻覺醜聞",
-        "KPMG 報告已從官網下架，公司啟動內部調查",
-        "事件引發業界廣泛討論 AI 生成內容核查與人工驗證標準問題"
-      ],
-      "url": "https://www.technology.org/2026/06/16/kpmg-pulls-agentic-ai-report-hallucinations/"
+      "url": "https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html",
+      "url_status": "verified",
+      "title_score": 0.39,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655158",
+      "complete": true
     },
     {
       "title": "OpenAI IPO 前夕招攬 Transformer 共同發明人 Noam Shazeer 加入，強化技術陣容",
@@ -43,98 +33,34 @@
         "同期推出 Workspace Agents 取代 Custom GPTs，強化企業端整合能力",
         "此舉被視為回應 Anthropic 在企業 AI 採用率超越 OpenAI 的戰略反擊"
       ],
-      "url": "https://techcrunch.com/2026/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/"
+      "url": "https://techcrunch.com/2026/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/",
+      "url_status": "title_low_match",
+      "title_score": 0.17,
+      "verified": "needs_review",
+      "verified_at": "2026-06-23T18:44:14.655210",
+      "complete": true
     },
     {
-      "title": "Alibaba AI 影片模型 HappyHorse 1.1 躋升全球第二，OpenAI Sora 與 ByteDance Seedance 退場",
-      "source": "VentureBeat",
-      "date": "2026-06-22",
-      "category": "AI趨勢",
-      "summary": "Alibaba Cloud 推出 HappyHorse 1.1 AI 影片生成模型重大升級，在多個主要獨立基準測試中排名全球第二，並提供 API 全面訪問服務與 40% 推廣折扣。在三家主要企業 AI 影片生成競爭者中，OpenAI Sora 已退出市場、ByteDance Seedance 陷入停滯，唯有 Alibaba 以每年 520 億美元基礎設施投資持續強勢推進。公司六月十九日在東京開設第五座資料中心，加速亞太市場擴張。中美之間的 AI 影片生成技術差距正在迅速縮小，對好萊塢及影視產業帶來深遠影響。",
-      "highlights": [
-        "HappyHorse 1.1 在主流基準測試排名全球第二，企業 API 全面開放",
-        "OpenAI Sora 退出市場、ByteDance Seedance 停滯，Alibaba 成為主要競爭者",
-        "Alibaba Cloud 提供 40% 推廣折扣，積極鞏固市場佔位",
-        "背靠每年 520 億美元基礎設施投資支撐高速擴張",
-        "東京第五座資料中心六月十九日開幕，加速全球市場滲透"
-      ],
-      "url": "https://venturebeat.com/technology/alibabas-ai-video-model-rises-to-no-2-in-global-rankings-as-openais-sora-and-bytedances-seedance-fall-away"
-    },
-    {
-      "title": "Anthropic 首度超越 OpenAI 成美國企業 AI 採用率第一，Claude Code 為主要驅動力",
-      "source": "VentureBeat",
-      "date": "2026-06-17",
-      "category": "企業AI",
-      "summary": "根據 Ramp AI Index 最新數據，Anthropic Claude 首度超越 OpenAI ChatGPT，成為美國企業使用率最高的 AI 服務，採用率達 34.4%（OpenAI 32.3%）。Claude Code 是主要驅動力，已成為 Anthropic 有史以來成長最快的產品，在企業 AI 程式設計工具中達 63% 採用率。然而分析師指出三大威脅：AI token 成本失控（Uber 等大型企業嚴重超支）、算力供應受限，以及 token 定價模式本身的脆弱性。Anthropic 自 2023 年 6 月的 0.03% 企業採用率，到 2026 年 4 月的 34.44%，一年內翻逾 4 倍。",
-      "highlights": [
-        "Anthropic 採用率 34.4% 首超 OpenAI 32.3%，成為企業 AI 市場龍頭",
-        "Claude Code 企業 AI 程式設計工具採用率達 63%，為 Anthropic 史上成長最快產品",
-        "Anthropic 企業採用率一年內翻逾 4 倍（7.94% → 34.44%）",
-        "三大隱憂：token 成本失控、算力瓶頸、token 定價模式脆弱性",
-        "OpenAI 企業採用率一年僅成長 0.3%，呈現接近停滯"
-      ],
-      "url": "https://venturebeat.com/technology/anthropic-finally-beat-openai-in-business-ai-adoption-but-3-big-threats-could-erase-its-lead"
-    },
-    {
-      "title": "Sakana AI 推出 Fugu 多模型自動合成系統，無需單一前沿模型即達頂尖性能",
-      "source": "VentureBeat",
-      "date": "2026-06-16",
-      "category": "AI趨勢",
-      "summary": "Sakana AI 推出 Fugu 多模型自動合成系統，能透過協調 GPT-5、Claude Sonnet 4 及 Gemini 2.5 Pro 等多個 LLM 達到前沿性能，化解單一模型出口管制風險。模型版本 fugu-ultra-20260615 定價每百萬輸入 token 5 美元（輸出 30 美元）。這是繼 Marlin 八小時超長深度研究代理人（2026 年 6 月發布）後的最新商業化產品，標誌著 Sakana 的多智能體路由技術進入商用階段。公司已完成 26 億美元 B 輪估值，投資者包括三菱 UFJ 金融集團（MUFG）、Citi 及 Salesforce Ventures，聚焦國防與金融等關鍵任務領域。",
-      "highlights": [
-        "Fugu 透過協調多個 LLM 可替代單一前沿模型，化解供應鏈風險",
-        "定價：輸入 5 美元/百萬 token，輸出 30 美元，cached 輸入 0.5 美元",
-        "繼 Marlin 超長研究代理人後，多智能體路由技術邁向商用化",
-        "B 輪估值 26 億美元，MUFG、Citi、Salesforce Ventures 為主要投資方",
-        "展示了多模型協作架構對抗 AI 供應鏈單點失效的戰略價值"
-      ],
-      "url": "https://venturebeat.com/orchestration/no-claude-fable-5-no-problem-sakana-achieves-frontier-performance-with-new-fugu-multi-model-auto-synthesis-system"
-    },
-    {
-      "title": "Writer 推出事件驅動自主 AI 代理人，無需提示即可監控工作流程，挑戰 Microsoft 與 Salesforce",
-      "source": "VentureBeat",
+      "title": "AI Governance Weekly - June 19, 2026: AI Governance Regulation & Policy Roundup",
+      "source": "AI Governance Institute",
       "date": "2026-06-19",
-      "category": "Agent應用",
-      "summary": "企業 AI 平台 Writer 推出自主、事件驅動的 AI 代理人，可監控 Gmail、Slack、Gong 等應用程式並自動採取行動，無需人工提示介入。相較於傳統回應式 AI 助手，Writer 的代理人可主動偵測業務觸發條件並執行完整工作流程。Writer 2026 AI 採用調查（涵蓋 2,400 位全球主管）發現 79% 的企業在 AI 導入上面臨挑戰，具備強健變革管理能力的組織達成生產部署的機率高出 6 倍。此舉直接挑戰 Microsoft Copilot、Salesforce Agentforce 及 Amazon Q Business 的市場地位。",
+      "category": "AI治理",
+      "summary": "本週AI治理週報整合全球重要AI監管動態，由多國政府委託撰寫的《2026年國際AI安全報告》已於6月15日正式發布，為全球各司法管轄區的監管機構提供執法與採購基準。全球各主要市場的AI治理框架正加速成形，企業面臨的合規壓力顯著上升。各國政府正協調AI安全標準以應對生成式AI和代理式AI帶來的新型風險，國際AI監管趨向一致化。未來數月，各地監管機構預計將依新報告基準推動執法行動，企業需提前準備符合新安全標準。",
       "highlights": [
-        "推出事件驅動自主 AI 代理人，自動監控 Gmail、Slack、Gong 並觸發工作流程",
-        "無需人工提示即主動執行，區別於傳統回應式 AI 助手",
-        "企業 AI 調查（2,400 位主管）：79% 面臨 AI 導入挑戰",
-        "強健變革管理能力的企業達成 AI 生產部署的機率高出 6 倍",
-        "直接挑戰 Microsoft Copilot、Salesforce Agentforce、Amazon Q Business"
+        "《2026年國際AI安全報告》已於6月15日發布，由多國政府委託制定",
+        "各司法管轄區監管機構將在執法與採購中引用新安全基準",
+        "代理式AI帶來的新型治理挑戰促使法規快速演進",
+        "全球AI監管框架趨向一致化，有助降低企業跨境合規成本",
+        "企業需在未來數月為符合新安全標準做好充分準備"
       ],
-      "url": "https://venturebeat.com/technology/writer-launches-ai-agents-that-can-act-without-prompts-taking-on-amazon-microsoft-and-salesforce"
-    },
-    {
-      "title": "Salesforce 悄悄在 3 個月內新增 6,000 家企業客戶，AI 泡沫爭議中逆勢成長",
-      "source": "VentureBeat",
-      "date": "2026-06-20",
-      "category": "企業AI",
-      "summary": "在 AI 泡沫爭議甚囂塵上之際，Salesforce 悄然在最近三個月內新增 6,000 家企業客戶，展現出強勁的實際商業採用動能。這一數字反映出儘管市場存在對 AI ROI 的疑慮，Agentforce 平台在企業端的真實滲透率持續提升。Salesforce Q1 FY2027 的強勁表現顯示，專注於可衡量業務成果的 AI 平台仍能克服宏觀不確定性。分析師認為這是企業 AI 市場從「廣泛實驗」走向「選定少數供應商深化整合」的趨勢佐證，也符合業界預測的 2026 年 AI 支出整合趨勢。",
-      "highlights": [
-        "3 個月內新增 6,000 家企業客戶，顯示 Agentforce 真實商業採用動能",
-        "AI 泡沫擔憂背景下逆勢成長，凸顯可量化成果 AI 平台的競爭優勢",
-        "符合業界預測的 2026 年企業 AI 支出整合與集中趨勢",
-        "Salesforce Agentforce 成為企業 AI 工具整合的重要平台候選",
-        "Salesforce Ventures 對 Sakana AI 的投資顯示對多智能體架構的戰略押注"
-      ],
-      "url": "https://venturebeat.com/technology/while-everyone-talks-about-an-ai-bubble-salesforce-quietly-added-6-000"
-    },
-    {
-      "title": "Databricks 報告：企業 AI 代理人前沿趨勢——治理、評估與資料基礎設施成關鍵瓶頸",
-      "source": "Databricks",
-      "date": "2026-06-18",
-      "category": "企業AI",
-      "summary": "Databricks 分析全球逾 20,000 家企業後發現，實施 AI 治理與正確資料基礎設施的企業，其 AI 項目推進至生產環境的速度比未實施者快 12 倍。報告指出企業 AI 代理人在 2026 年的五大前沿趨勢：多智能體系統取代單模型方案、AI 評估框架成為生產必要條件、資料基礎設施現代化成 AI 擴展瓶頸、LLM-as-a-Judge 評估方法快速普及，以及 FinOps for AI 成為新興必要實踐。Google Cloud 同期宣布的 Agentic Data Cloud（含跨雲知識目錄）被業界視為解決「AI 資料準備度瓶頸」的關鍵舉措。",
-      "highlights": [
-        "實施 AI 治理的企業推進 AI 至生產環境的速度比未實施者快 12 倍",
-        "多智能體系統替代單模型成為 2026 年企業 AI 架構主流趨勢",
-        "AI 評估框架（含 LLM-as-a-Judge）成為生產級 AI 的必要條件",
-        "資料基礎設施準備度被確認為 AI 規模化的核心瓶頸而非算力",
-        "FinOps for AI 實踐快速興起，應對 token 成本失控問題"
-      ],
-      "url": "https://www.databricks.com/blog/enterprise-ai-agent-trends-top-use-cases-governance-evaluations-and-more"
+      "url": "https://aigovernance.com/news/ai-governance-weekly-june-19-2026",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.655379",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-06-23T18:22:54.663336+08:00"
+  "_updated_at": "2026-06-23T18:22:54.663336+08:00",
+  "_fallback": true
 }

@@ -13,53 +13,214 @@
         "因美國出口管制於6月12-18日下線，訂閱期間實際可用天數大幅縮短",
         "最高能力模型不再包含於一般訂閱，改採獨立計費模式"
       ],
-      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026"
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026",
+      "url_status": "verified",
+      "title_score": 0.31,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653272",
+      "complete": true
     },
     {
-      "title": "Google Gemini 3.5 Pro Enters General Availability Window, Expected June 23-30",
-      "title_zh": "Google Gemini 3.5 Pro 進入正式發布窗口，預計6月23至30日上線",
-      "source": "Build Fast With AI",
-      "date": "2026-06-23",
-      "domain": "LLM",
-      "model_area": "Gemini 3.5 Pro, Google",
-      "summary": "Google Gemini 3.5 Pro 正式發布預計落在2026年6月23至30日。確認規格包含200萬 token 上下文視窗，為目前所有量產前沿模型最大，另設限 $250/月 Ultra 訂閱用戶存取的 Deep Think 推理模式。預計定價為每百萬輸入 token $15、輸出 $60，約為 Gemini 3.5 Flash 的10倍。模型支援文字與圖像多模態輸入。",
-      "highlights": [
-        "200萬 token 上下文視窗，為目前所有量產前沿模型最大",
-        "Deep Think 深度推理模式限 $250/月 Ultra 訂閱層級存取",
-        "定價 $15/$60 每百萬 token（輸入/輸出），遠高於同系列 Flash 版本"
-      ],
-      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026"
-    },
-    {
-      "title": "AutoScientist Challenge Part 2 Launches June 23, Spanning Science, Agriculture, and Language Domains",
-      "title_zh": "AutoScientist 挑戰賽第二階段6月23日啟動，涵蓋科學、農業及語言等多領域",
-      "source": "Build Fast With AI",
-      "date": "2026-06-23",
-      "domain": "AI Research",
-      "model_area": "AI Research Agents",
-      "summary": "AutoScientist 挑戰賽第二階段於2026年6月23日正式啟動，持續至7月6日共兩週。本次挑戰涵蓋科學、農業、資料可視化、語言等多個領域，旨在測試並推進 AI 在自主科學研究任務上的能力邊界。這是繼第一階段後的延伸，持續比較不同 AI 系統在跨領域科研自動化的實際表現。",
-      "highlights": [
-        "挑戰期間為2026年6月23日至7月6日",
-        "涵蓋科學、農業、數據可視化、語言等多元研究領域",
-        "聚焦 AI 自主科研能力的跨領域系統性測試"
-      ],
-      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-23-2026"
-    },
-    {
-      "title": "Writer Launches AI Agents That Can Act Without Prompts, Taking on Amazon, Microsoft and Salesforce",
-      "title_zh": "Writer 推出無需提示即可自主行動的 AI Agents，直接挑戰 Amazon、Microsoft 及 Salesforce",
-      "source": "VentureBeat",
+      "title": "Top Agentic Frameworks for Building Applications 2026",
+      "title_zh": "2026 年最頂尖的 AI 代理框架建構應用完整指南",
+      "source": "JetBrains Blog",
       "date": "2026-06-22",
       "domain": "Agent",
-      "model_area": "Writer AI Agents, Enterprise AI Automation",
-      "summary": "企業 AI 平台 Writer 推出新一代 AI Agents，無需使用者主動提示即可自主偵測情境並採取行動，直接切入 Amazon、Microsoft 及 Salesforce 主導的企業自動化市場。這代表企業 AI 從「被動問答式」進化為「主動執行式」的關鍵轉型，Agent 系統可在零觸發下自動偵測工作流狀態並執行任務。Writer 定位為企業級 AI 自動化的獨立競爭選項。",
+      "model_area": "LangGraph/CrewAI/AutoGen/Google ADK",
+      "summary": "JetBrains 發布 2026 年 AI 代理框架全面評比，涵蓋 LangGraph、CrewAI、AutoGen、Google ADK 等主要框架的最新現況與生產部署建議。LangGraph 在企業生產環境中市占率持續領先，Google ADK 現提供 Python、TypeScript、Java、Go 四種語言 SDK。2026 年每個主要 AI 實驗室都推出了自己的代理框架，MCP 協議已成為跨框架整合的業界標準。代理系統已從實驗性功能演進為自動化平台不可或缺的第三核心層。",
       "highlights": [
-        "Agent 無需用戶提示即可主動偵測情境並執行動作，突破傳統互動模式",
-        "直接挑戰 Amazon、Microsoft、Salesforce 在企業 AI 自動化市場的主導地位",
-        "標誌企業 AI 從互動式問答向完全自主執行模式的重要轉型"
+        "LangGraph 在 GitHub 星數和企業部署量兩項指標均位居第一",
+        "Google ADK 提供四種語言 SDK，原生支援 A2A 協議和視覺化 Agent Designer",
+        "MCP 協議成為 2026 年代理框架跨系統整合的業界標準"
       ],
-      "url": "https://venturebeat.com/technology/writer-launches-ai-agents-that-can-act-without-prompts-taking-on-amazon-microsoft-and-salesforce"
+      "url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653337",
+      "complete": true
+    },
+    {
+      "title": "The AI Agents Stack (2026 Edition)",
+      "title_zh": "2026 年 AI 代理技術棧全解析",
+      "source": "O'Reilly Radar",
+      "date": "2026-06-22",
+      "domain": "Agent",
+      "model_area": "Agent Engineering / Context Engineering",
+      "summary": "O'Reilly 發布 2026 年 AI 代理技術棧全面分析，梳理從基礎 LLM 到多代理系統的完整技術層次架構。報告指出代理系統已形成「基礎模型 → 代理框架 → 工作流編排 → 工具整合 → 人機協作」五層成熟結構。Context Engineering（上下文工程）被認定為 2026 年最關鍵的代理工程能力，直接決定代理在長任務中的穩定性與準確性。O'Reilly 預測至 2026 年底，超過 60% 的企業 AI 投資將集中在代理技術層。",
+      "highlights": [
+        "AI 代理技術棧已形成五層成熟架構，Context Engineering 是最核心工程能力",
+        "LangGraph、CrewAI、AutoGen 在企業部署中已達到生產就緒（Production-Ready）水準",
+        "O'Reilly 預測 60% 以上企業 AI 投資將在年底前轉向代理技術層"
+      ],
+      "url": "https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653369",
+      "complete": true
+    },
+    {
+      "title": "Anthropic builds out Claude as OpenAI and Google stay ahead",
+      "title_zh": "Anthropic 持續擴展 Claude 企業版圖，與 OpenAI 和 Google 競爭白熱化",
+      "source": "TechWire Asia",
+      "date": "2026-06-22",
+      "domain": "LLM",
+      "model_area": "Claude / Anthropic",
+      "summary": "Anthropic 積極擴展 Claude 在企業市場的應用版圖，但分析師指出 OpenAI 和 Google 在整體市占率上仍保持領先優勢。Claude Fable 5 於 6 月 9 日正式發布，提供 100 萬 token 上下文視窗和 128K 輸出 token 能力，採用「always-on adaptive thinking」設計。Anthropic 同步推進 IPO 計畫，已向美國監管機構提交保密申請，目標最早於 2026 年 10 月上市。公司近期完成 650 億美元 H 輪融資，估值達 9650 億美元。",
+      "highlights": [
+        "Claude Fable 5 具備 100 萬 token 上下文視窗，是 Anthropic 目前最強大的公開旗艦模型",
+        "Anthropic 已提交 IPO 保密申請，650 億美元 H 輪融資後估值達 9650 億美元",
+        "OpenAI 和 Google 在企業 AI 市場仍領先，但 Anthropic 持續透過研究能力和安全定位追趕"
+      ],
+      "url": "https://techwireasia.com/2026/06/anthropic-claude-enterprise-ai-openai-google/",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-06-23T18:44:14.653396",
+      "complete": true
+    },
+    {
+      "title": "June 2026 AI Launch Wave: A Builder's Decision Map",
+      "title_zh": "2026 年 6 月 AI 發布浪潮：開發者技術選型決策地圖",
+      "source": "WaveSpeed Blog",
+      "date": "2026-06-22",
+      "domain": "LLM",
+      "model_area": "Gemini 3.5 Pro / GPT-5.5 / Claude Fable 5",
+      "summary": "WaveSpeed 分析了 2026 年 6 月 AI 模型密集發布浪潮，為開發者提供全面技術選型決策指南。本月重點包括 Gemini 3.5 Pro 即將正式發布（GPQA Diamond 得分 94.3%）、GPT-5.5 強化代理編碼和電腦使用能力，以及多個代理框架的重大更新。報告比較各主要模型在代理推理、成本效益和長文本理解方面的差異。6 月是繼 Google I/O 後 2026 年最密集的 AI 發布月份。",
+      "highlights": [
+        "Gemini 3.5 Pro 即將發布，GPQA Diamond 得分 94.3%，是 Google 年內最強推理模型",
+        "GPT-5.5 在代理編碼、電腦使用（computer use）和科研任務上均展現業界領先能力",
+        "6 月 AI 發布密度創下 2026 年單月新高，開發者面臨最複雜的技術選型局面"
+      ],
+      "url": "https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/",
+      "url_status": "verified",
+      "title_score": 0.94,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653423",
+      "complete": true
+    },
+    {
+      "title": "AI Updates Today (June 2026) – Latest AI Model Releases",
+      "title_zh": "2026 年 6 月 AI 每日更新：最新模型發布即時追蹤",
+      "source": "llm-stats.com",
+      "date": "2026-06-22",
+      "domain": "LLM",
+      "model_area": "Multiple LLMs",
+      "summary": "llm-stats.com 每日模型發布追蹤頁面記錄了 2026 年 6 月最新 AI 模型進展，包括 Claude Fable 5、GPT-5.5、Gemini 3.5 系列的最新狀態。6 月已有超過 15 個重要模型版本或更新發布，創下單月發布密度歷史記錄。各大廠商模型在 GPQA Diamond、SWE-bench 和 AgentBench 等核心基準測試中持續刷新紀錄。Claude Fable 5 的 100 萬 token 上下文和 GPT-5.5 的代理能力引領本月業界標準。",
+      "highlights": [
+        "6 月主要模型包括 Claude Fable 5（100 萬 token）、GPT-5.5（強化代理）、Gemini 3.5 Flash GA",
+        "單月超過 15 個重要模型版本發布，創下 2026 年最密集發布月份紀錄",
+        "GPQA Diamond、SWE-bench、AgentBench 等核心基準分數持續大幅提升"
+      ],
+      "url": "https://llm-stats.com/llm-updates",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653451",
+      "complete": true
+    },
+    {
+      "title": "NVIDIA Kicks Off the Next Generation of AI With Rubin — Six New Chips, One Incredible AI Supercomputer",
+      "title_zh": "NVIDIA Rubin 平台啟動下一代 AI 時代：六款新晶片打造 AI 超級電腦",
+      "source": "NVIDIA Newsroom",
+      "date": "2026-06-21",
+      "domain": "Hardware",
+      "model_area": "NVIDIA Rubin",
+      "summary": "NVIDIA 正式宣布 Rubin 平台進入全面量產，推出六款全新 AI 晶片並建構完整 AI 超級電腦架構。Rubin 平台將在 2026 年下半年率先透過 AWS、Google Cloud、Microsoft Azure 和 OCI 提供雲端服務。平台整合最新一代 GPU、Vera CPU 和 NVLink 互連技術，專為大規模代理式 AI 工作負載設計。NVIDIA Vera CPU 首次提供原生代理編排能力，為自主多代理系統提供底層運算支撐。",
+      "highlights": [
+        "Rubin 平台已進入全面量產，AWS、Google Cloud、Microsoft、OCI 將率先部署 Rubin 實例",
+        "六款新型 AI 晶片組成完整超級電腦架構，針對代理式 AI 大規模工作負載優化",
+        "NVIDIA Vera CPU 提供原生代理編排能力，是首個直接支援多代理系統的 NVIDIA 處理器"
+      ],
+      "url": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653477",
+      "complete": true
+    },
+    {
+      "title": "AI Chip Wars 2026: Amazon, Google, and Microsoft Surround Nvidia with Custom Silicon",
+      "title_zh": "2026 AI 晶片大戰：Amazon、Google 和 Microsoft 以自研晶片圍攻 NVIDIA",
+      "source": "Windows News AI",
+      "date": "2026-06-21",
+      "domain": "Hardware",
+      "model_area": "Custom AI Silicon / Trainium2 / TPU v5",
+      "summary": "Amazon Trainium2、Google TPU v5 和 Microsoft 自研 AI 晶片正形成聯合陣線，在特定 AI 訓練與推理場景挑戰 NVIDIA 的市場主導地位。各大雲端業者試圖透過自研晶片降低對 NVIDIA GPU 的依賴，同時為客戶削減運算成本。Amazon Trainium2 承諾更低成本和 AWS 生態緊密整合，Google TPU v5 在 Transformer 架構推理表現出色。分析師指出，雖然 NVIDIA Rubin 仍是主流，自研晶片的競爭壓力正日益增強。",
+      "highlights": [
+        "Amazon Trainium2、Google TPU v5、Microsoft 自研晶片同步向 NVIDIA 市場地位發起挑戰",
+        "雲端業者自研晶片核心策略是降低推理成本並減少單一 GPU 供應商依賴風險",
+        "NVIDIA Rubin 仍是主流選擇，但頭部雲端業者的自研晶片競爭力在 2026 年快速增強"
+      ],
+      "url": "https://windowsnews.ai/article/ai-chip-wars-2026-amazon-google-and-microsoft-surround-nvidia-with-custom-silicon.423926",
+      "url_status": "title_low_match",
+      "title_score": 0.27,
+      "verified": "needs_review",
+      "verified_at": "2026-06-23T18:44:14.653504",
+      "complete": true
+    },
+    {
+      "title": "Anthropic Mythos Expansion Opens a New AI Cybersecurity Market",
+      "title_zh": "Anthropic Mythos 模型擴展開創全新 AI 資安市場",
+      "source": "Investing.com",
+      "date": "2026-06-22",
+      "domain": "Cybersecurity",
+      "model_area": "Claude Mythos",
+      "summary": "Anthropic 的 Mythos 旗艦模型正式向更廣泛合作夥伴開放，預計在 AI 資安市場創造重大商機。自 4 月啟動 Project Glasswing 以來，Mythos 已在超過 1,000 個開源專案中發現 23,019 個安全漏洞，獨立抽樣確認率達 90.6%。AWS、Apple、Google、Microsoft、NVIDIA、CrowdStrike 和 JPMorgan Chase 等夥伴已用此模型進行防禦性資安工作。分析師預測 Mythos 資安應用將成為 Anthropic 的重要企業收入支柱。",
+      "highlights": [
+        "Mythos 在 1,000+ 個開源專案中發現 23,019 個安全漏洞，獨立確認率高達 90.6%",
+        "Project Glasswing 夥伴涵蓋 AWS、Apple、Google、Microsoft、CrowdStrike 等頂尖企業",
+        "AI 模型主動進行漏洞挖掘代表資安產業的重大典範轉移，為 Anthropic 開拓全新商業模式"
+      ],
+      "url": "https://www.investing.com/analysis/anthropic-mythos-expansion-opens-a-new-ai-cybersecurity-market-200681377",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653530",
+      "complete": true
+    },
+    {
+      "title": "AI Cybersecurity Incident Report 2026: Vercel, EchoLeak, OWASP",
+      "title_zh": "2026 年 AI 資安事件報告：Vercel 數據洩露、EchoLeak 漏洞與 OWASP 新風險框架",
+      "source": "BlueRadius",
+      "date": "2026-06-21",
+      "domain": "Cybersecurity",
+      "model_area": "AI Agent Security",
+      "summary": "BlueRadius 發布 2026 年 AI 資安事件綜合報告，記錄 Vercel 平台遭受 ShinyHunters 入侵、EchoLeak 多模態越獄漏洞以及 OWASP 更新 AI 安全風險框架等重大事件。Vercel 作為 React、Next.js 和 AI SDK 開發者生態系的主要部署平台，竊取資料在 BreachForums 以 200 萬美元求售。AI 代理系統安全防護成為報告重點，指出 80% 企業安全堆疊無法偵測代理橫向滲透攻擊。2026 年 AI 相關網路攻擊增加了 89%，平均數據洩露成本升至 488 萬美元。",
+      "highlights": [
+        "Vercel 平台遭 ShinyHunters 入侵，影響 React/Next.js/AI SDK 整個開發者生態系",
+        "EchoLeak 漏洞展示透過圖像和音頻頻譜隱藏惡意指令的多模態越獄技術",
+        "80% 企業安全堆疊無法偵測 AI 代理橫向滲透，AI 攻擊 2026 年增加 89%"
+      ],
+      "url": "https://blueradius.io/ai-cybersecurity-incident-report-2026",
+      "url_status": "verified",
+      "title_score": 0.85,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653556",
+      "complete": true
+    },
+    {
+      "title": "How OpenAI, Google, and Anthropic Plan to Handle the 2026 US Midterms",
+      "title_zh": "OpenAI、Google 與 Anthropic 如何因應 2026 年美國期中選舉的 AI 影響",
+      "source": "TechPolicy.Press",
+      "date": "2026-06-21",
+      "domain": "Policy",
+      "model_area": "GPT / Gemini / Claude",
+      "summary": "OpenAI、Google 和 Anthropic 三大 AI 公司公開說明了在 2026 年美國期中選舉前的 AI 使用政策與防範措施。各公司承諾限制 AI 在選舉操縱、深偽內容生成和自動化輿論影響方面的應用，但具體執行標準各異。隨著 AI 生成內容能力大幅提升，選舉期間 AI 治理問題引發廣泛關注。專家指出，現有自我監管框架可能不足以應對 AI 對民主選舉的潛在系統性威脅。",
+      "highlights": [
+        "三大 AI 公司公布各自在選舉期間的 AI 使用限制政策，但執行標準缺乏統一",
+        "AI 生成深偽內容和自動化輿論操縱是選舉週期中 AI 治理的核心關切",
+        "業界自我監管框架的充分性受到質疑，外界呼籲政府介入建立更有約束力的規範"
+      ],
+      "url": "https://www.techpolicy.press/how-openai-google-and-anthropic-plan-to-handle-the-2026-us-midterms/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-23T18:44:14.653582",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-06-23T18:15:28.286748+08:00"
+  "_updated_at": "2026-06-23T18:15:28.286748+08:00",
+  "_fallback": true
 }
