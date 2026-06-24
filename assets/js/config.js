@@ -6,12 +6,12 @@
 /* 取得方式見 FIREBASE-SETUP.md。未填入前（保持 YOUR_API_KEY）網站照常運作，
    書籤僅存於本機 localStorage；填入真實 config 後自動啟用跨裝置雲端同步。 */
 const FIREBASE_CONFIG = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT.firebaseapp.com",
-  projectId:         "YOUR_PROJECT",
-  storageBucket:     "YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey:            "AIzaSyB9Z56fYHkDBGh-6pHRu5KgeLZFNFj2D8I",
+  authDomain:        "ai-news-hub-33c51.firebaseapp.com",
+  projectId:         "ai-news-hub-33c51",
+  storageBucket:     "ai-news-hub-33c51.firebasestorage.app",
+  messagingSenderId: "883782660919",
+  appId:             "1:883782660919:web:4a80131ec4b69fbe34a0b2"
 };
 
 /* ======== SVG ICONS ======== */
