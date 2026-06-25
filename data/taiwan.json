@@ -1,205 +1,115 @@
 {
   "items": [
     {
-      "title": "Anthropic推Claude Tag，讓Claude化身Slack團隊成員接受交辦任務",
-      "source": "iThome",
+      "title": "Anthropic推主動式AI同事 Claude Tag進駐Slack掀企業協作新革命",
+      "source": "科技新報/商傳媒（PChome 轉載）",
       "date": "2026-06-24",
       "topic": "AI Agent",
-      "summary": "Anthropic 推出 Claude Tag 功能，讓 Claude 能夠以 @可提及成員的身分加入企業 Slack 頻道，直接接受任務交辦。使用者只需在 Slack 中 @Claude 即可將工作事項交給 AI 處理，無需離開通訊工具。Anthropic 將 Claude Tag 定位為「共享 AI 同事」，強調這是供整個團隊共同使用的工作夥伴，而非個人助理。這是 Anthropic 持續深化 AI 代理與企業工作流程整合策略的最新舉措，直接與 OpenAI 的 Slack 整合功能競爭。此舉也反映 AI 代理嵌入日常協作工具已成為各大 AI 公司的核心布局方向。",
-      "relevance": "直接關係台灣企業如何在 Slack 等通訊工具中整合 AI 代理，對台灣科技公司 AI 工作流程具有高度參考價值",
-      "discussion": "高度熱議，AI 代理融入企業協作工具是台灣技術社群廣泛關注的焦點",
-      "url": "https://www.ithome.com.tw/news/176837"
+      "summary": "Anthropic 推出名為 Claude Tag 的主動式 AI 協作功能，將 Claude 化為可在 Slack 中被 @mention 指派任務的「AI 同事」。使用者可像對待團隊成員一樣，直接在頻道中標記 Claude 並交辦工作，由 Agent 自主完成後回報。此舉把 LLM 從被動問答工具推進到嵌入企業日常協作流的主動式代理階段。對導入 Slack 的台灣企業而言，等同把 Agent 直接放進既有溝通介面，降低採用門檻。屬 Agent 工程中「工具使用＋工作流嵌入」的代表性產品化案例。",
+      "relevance": "台灣眾多企業使用 Slack 協作，Claude Tag 提供低門檻的 Agent 導入路徑，可直接對接既有工作流。",
+      "discussion": "企業協作與 Agent 落地圈高度關注，被視為主動式 AI 代理進入職場的指標性功能。",
+      "url": "https://news.pchome.com.tw/science/sunmedia/20260624/index-78231584082156329005.html"
     },
     {
-      "title": "讓 AI 代你追蹤最新訊息，Google 資訊代理功能首先向 AI Ultra 用戶開放",
+      "title": "Anthropic 點名阿里巴巴！控訴用蒸餾手法擷取 Claude 技術能力",
+      "source": "TechNews 科技新報",
+      "date": "2026-06-25",
+      "topic": "AI 資安/模型 IP",
+      "summary": "Anthropic 公開指控阿里巴巴透過模型蒸餾（distillation）手法非法擷取 Claude 的能力。Anthropic 指該行為發生於 2026 年 4 月 22 日至 6 月 5 日間，涉及近 25,000 個詐欺帳號，累計與 Claude 產生超過 2,880 萬次互動。此案凸顯前沿 LLM 業者面臨的模型智財竊取與大規模濫用風險。Anthropic 同步揭露其年度經常性營收（ARR）已飆升至約 450 億美元等級。事件牽動中美 AI 競爭與模型治理議題。",
+      "relevance": "模型蒸餾與帳號濫用是 AI 治理與資安核心議題，對台灣金融與科技業評估第三方 LLM 風險具參考價值。",
+      "discussion": "中美 AI 競爭與模型智財保護話題，技術與法務社群討論熱烈。",
+      "url": "https://technews.tw/2026/06/25/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities/"
+    },
+    {
+      "title": "OpenAI 首款 AI 推理晶片「Jalapeño」亮相，攜手博通設計、台積電生產",
       "source": "TechNews 科技新報",
       "date": "2026-06-24",
-      "topic": "AI Agent",
-      "summary": "Google 宣布 I/O 2026 大會發表的資訊代理（Information Agent）功能正式開放，率先向 AI 模式中的 AI Ultra 訂閱用戶推出。此功能讓 AI 持續自動監控網路上用戶指定主題的最新動態，並主動通知用戶，無需手動搜尋。這是 Google Search 從被動查詢工具進化為主動 AI 代理服務的里程碑，標誌著 Agentic 搜尋時代正式到來。Google 透過 AI Ultra 訂閱制推廣代理功能，也預示未來 AI 代理能力將成為付費訂閱的差異化競爭點。",
-      "relevance": "Google Agentic AI 搜尋策略轉型直接影響台灣用戶與企業的工作方式，台灣 AI 從業者高度關注",
-      "discussion": "高度熱議，AI 代理取代主動搜尋的趨勢引發台灣技術社群廣泛討論",
-      "url": "https://technews.tw/2026/06/24/google-search-can-now-monitor-the-web-for-updates-on-things-you-care-about/"
+      "topic": "技術大廠/半導體",
+      "summary": "OpenAI 與博通（Broadcom）共同發表首款自研 AI 推論晶片 Jalapeño，並交由台積電生產，預計 2026 年底開始部署。工程樣品已能運行 GPT-5.3-Codex-Spark 等工作負載，顯示 OpenAI 朝垂直整合自有運算基礎設施邁進，以降低對外部 GPU 的依賴。此晶片針對 LLM 推論最佳化設計。對台灣供應鏈而言，台積電再添一筆大型 AI 自研晶片代工訂單。屬科技大廠運算自主化的重要動態。",
+      "relevance": "台積電承接 OpenAI 自研晶片代工，直接連動台灣半導體供應鏈訂單能見度。",
+      "discussion": "AI 自研晶片去 GPU 化趨勢，半導體與投資圈高度關注。",
+      "url": "https://technews.tw/2026/06/24/openai-and-broadcom-unveil-llm-optimized-inference-chip"
     },
     {
-      "title": "1Password併購身分安全新創Apono，強化AI代理與非人類身分即時存取治理",
-      "source": "iThome",
-      "date": "2026-06-24",
-      "topic": "AI Agent",
-      "summary": "密碼管理大廠 1Password 宣布併購以色列身分安全新創 Apono，目標是強化對 AI 代理程式與非人類身分（Non-Human Identity, NHI）的即時存取治理能力。隨著企業大規模部署 AI 代理，管理代理程式的身分驗證與細粒度存取權限已成為關鍵的新型資安挑戰。Apono 的技術專長在於提供 just-in-time（即時）的細粒度存取控制，特別適合 AI 代理在動態工作流程中的瞬間授權需求。此次收購讓 1Password 能夠提供從人類身分到 AI 代理身分的完整企業身分安全解決方案。",
-      "relevance": "AI 代理身分安全是台灣企業 AI 導入最迫切的資安議題之一，此併購案對台灣資安業者具有直接參考意義",
-      "discussion": "中度熱議，AI 代理的存取治理問題正在台灣資安社群快速升溫",
-      "url": "https://www.ithome.com.tw/news/176826"
+      "title": "黃仁勳喊Vera Rubin已全面量產 輝達股東會最大重點「跟台積電有關」",
+      "source": "工商時報 CTEE",
+      "date": "2026-06-25",
+      "topic": "技術大廠/半導體",
+      "summary": "輝達於 6 月 25 日凌晨舉行股東會，執行長黃仁勳宣布次世代 Vera Rubin 平台已全面量產，強化「AI 工廠」敘事。他指出 Agentic AI 已讓 AI 從回答問題走向實際執行工作，推升運算需求。輝達 2026 年度營收達 2,159 億美元、年增 65%。對台灣供應鏈而言，需求正從 Blackwell 延伸至 Vera Rubin 與實體 AI，台積電、鴻海、緯創、廣達等後續訂單能見度受高度關注。等同確認 AI 資本支出主軸未變。",
+      "relevance": "Vera Rubin 量產與 CoWoS 需求直接牽動台積電及鴻海、緯創、廣達等台廠訂單。",
+      "discussion": "輝達股東會為台股 AI 供應鏈最受矚目事件，投資圈熱議。",
+      "url": "https://www.ctee.com.tw/news/20260625700509-430704"
     },
     {
-      "title": "日本新創發表 Sakana Fugu，系統協調存取不同 Agent、效能媲美 Fable 5",
+      "title": "黃仁勳定調地緣政治與科技戰底線，輝達永遠將國家安全放在首位",
       "source": "TechNews 科技新報",
-      "date": "2026-06-23",
-      "topic": "AI Agent Engineering",
-      "summary": "日本 AI 新創 Sakana AI 正式發表 Sakana Fugu，這是一套透過系統性協調多個 AI 代理存取來達成高效能的 Agent 協作框架。Sakana Fugu 的核心設計理念是不依賴單一超大型模型，而是透過精妙的多 Agent 協調機制，讓系統整體效能媲美 Anthropic 頂尖的 Claude Fable 5 模型。此框架代表 Agent 工程（Harness Engineering）的重要突破，展示透過架構設計可以彌補單一模型規模的限制。這也印證了「上下文工程（Context Engineering）」與「Agent 協調策略」對整體 AI 系統效能的決定性影響。此架構思路對台灣 AI 工程師設計低成本高效能 Agent 系統具有重要啟發。",
-      "relevance": "Agent 架構工程是台灣 AI 開發社群最熱門的技術議題，此突破直接提供台灣工程師設計高效能多 Agent 系統的新思路",
-      "discussion": "高度熱議，以多 Agent 協調取代單一大模型的架構思路在台灣技術社群引發深度討論",
-      "url": "https://technews.tw/2026/06/23/sakana-ai-introduces-sakana-fugu/"
+      "date": "2026-06-25",
+      "topic": "產業政策",
+      "summary": "黃仁勳在輝達股東會上重申，國家安全是輝達的最高優先事項。在中美雙邊政策夾擊下，輝達在中國市場業績受到明顯衝擊，2026 財年中國市場僅佔總體營收的 9%。他強調公司在地緣政治與科技戰中的立場底線，並將國安置於商業利益之上。此番表態反映 AI 晶片出口管制對輝達營運結構的實質影響。對台灣供應鏈而言，地緣政治走向將牽動 AI 晶片市場版圖。",
+      "relevance": "AI 晶片出口管制與地緣政治直接影響以台積電為核心的台灣 AI 供應鏈布局。",
+      "discussion": "中美科技戰與晶片管制是台灣科技與財經圈長期關注焦點。",
+      "url": "https://technews.tw/2026/06/25/jensen-huang-sets-the-bottom-line-for-geopolitical-and-technological-warfare/"
     },
     {
-      "title": "迎戰 Physical AI！工業機器人如何成為 AI 落地代名詞？",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-23",
-      "topic": "AI Agent",
-      "summary": "COMPUTEX 2026 展示 Physical AI 在工業機器人的最新實際應用，以 FANUC 為代表的廠商展出可接受語音命令的 AI 驅動工業機器人。AI 模型即時分析工作指令並自動生成機器人動作程式，工程師無需手動撰寫複雜程式即可配置複雜任務，大幅降低操作門檻。台灣作為全球精密製造重鎮，工業 AI 代理的落地應用被視為下一波製造業升級的核心驅動力。Physical AI 將 AI 代理從虛擬數位空間延伸到真實物理世界，與台灣在精密機械和半導體設備的既有優勢高度契合。機器人與 AI 的結合預計帶動台灣智慧製造供應鏈的重要商機。",
-      "relevance": "直接涉及台灣製造業 AI 升級方向，COMPUTEX 展示成果對台灣工業自動化廠商具有直接商業影響",
-      "discussion": "高度熱議，Physical AI 是台灣製造業最關注的 AI 落地應用趨勢之一",
-      "url": "https://technews.tw/2026/06/23/physicalaicomputexfanuc/"
+      "title": "Agility拚美掛牌上市 鴻海先行布局續領投私募",
+      "source": "中央社 CNA",
+      "date": "2026-06-25",
+      "topic": "產業應用/機器人",
+      "summary": "人形機器人公司 Agility 規劃透過與 Churchill Capital 合併在美掛牌上市，鴻海先行布局並續領投其私募輪。鴻海與輝達合作開發工業級 AI 人形機器人，涵蓋輪式與足式機器人。此案顯示鴻海在實體 AI（Physical AI）與機器人領域的策略卡位。實體 AI 結合 Agent 決策與機器人本體，是 AI 從數位走向實體的重要方向。對台灣硬體業者而言，是切入全球人形機器人供應鏈的指標案例。",
+      "relevance": "鴻海領投全球人形機器人新創並與輝達合作，是台灣硬體業切入實體 AI 的重大布局。",
+      "discussion": "人形機器人與實體 AI 為市場熱門題材，台股機器人概念股連動討論。",
+      "url": "https://www.cna.com.tw/news/afe/202606250074.aspx"
     },
     {
-      "title": "從截圖到程式碼：Claude Fable 5「視覺 SOTA」顛覆軟體外包產業",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-24",
-      "topic": "LLM 模型",
-      "summary": "Anthropic 的 Claude Fable 5 是首款公開發表的 Mythos 級 AI 模型，視覺理解力達業界巔峰，能僅憑一張網頁截圖直接重建整個 Web 應用程式的完整原始碼。在軟體工程實測中，Fable 5 在一天內完成 Stripe 5,000 萬行 Ruby 程式碼庫的遷移，同樣工作過去需要工程師團隊數週才能完成。這種跨模態程式生成能力直接衝擊台灣軟體外包產業的商業模式，引發業界對工程師角色轉型的深度討論。美國政府以國家安全為由，已發出出口管制令，禁止外國人存取 Fable 5 與 Mythos 5 模型。儘管如此，Fable 5 的視覺 SOTA 能力仍被視為目前最具代表性的 AI 工程能力突破。",
-      "relevance": "Claude Fable 5 的程式生成能力直接影響台灣軟體外包業、AI 工程師就業市場，美國出口管制也影響台灣開發者取用最強模型的機會",
-      "discussion": "高度熱議，Fable 5 的 SOTA 能力和出口管制引發台灣工程師社群廣泛討論",
-      "url": "https://technews.tw/2026/06/24/claude-fable-5-visual-sota/"
-    },
-    {
-      "title": "OpenRouter 推 Fusion API：三模型混合逼近 Fable 5，成本僅一半",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-23",
-      "topic": "LLM 多模型協作",
-      "summary": "AI 模型整合平台 OpenRouter 正式推出 Fusion API，透過三個模型混合協同作業，在特定測試場景中效能可接近 Claude Fable 5 頂尖模型，但成本僅需 Fable 5 的一半。Fusion API 的設計理念是讓多個中等規模模型以最佳策略分工協作，發揮各模型專長以達到遠超單一模型的性價比。這一突破挑戰了「頂尖效能必須依賴超大型單一模型」的傳統假設，為台灣開發者提供以更低成本部署高效能 AI 服務的新選項。多模型協作架構也是 Context Engineering 和 Agent 工程的重要實踐方向，正在改變 AI 競爭邏輯。",
-      "relevance": "台灣 AI 開發者面臨高性能 LLM 的成本與可及性限制，Fusion API 提供高性價比的替代方案，對本地 AI 產業具有直接影響",
-      "discussion": "高度熱議，多模型協作逼近頂尖單一模型效能的突破在台灣 AI 開發社群引發熱烈迴響",
-      "url": "https://technews.tw/2026/06/23/openrouter-fusion-api/"
-    },
-    {
-      "title": "逾6成LLM iOS App暴露AI服務存取資訊",
-      "source": "iThome",
-      "date": "2026-06-24",
-      "topic": "LLM 資安",
-      "summary": "Wake Forest 大學最新研究指出，超過 64% 的導入 LLM 功能 iOS 應用程式在執行期間存在嚴重安全漏洞。問題在於應用程式的網路流量暴露可直接使用的 LLM API 憑證，或存在未經驗證即可存取的後端代理介面。攻擊者一旦取得這些憑證，即可透過受害 App 的帳號無限制呼叫 LLM API，造成費用盜用與資料安全風險。部分應用的後端代理甚至完全無需驗證即可直接呼叫 AI 服務，漏洞嚴重程度令研究人員警惕。此研究揭示快速整合 LLM 功能的 App 開發者普遍忽略 API 安全設計的問題。",
-      "relevance": "台灣 App 開發者大量整合 LLM 功能，此研究對本地開發社群具有直接的安全警示，建議立即審查 API 憑證的存儲方式",
-      "discussion": "高度熱議，LLM API 憑證暴露問題是台灣開發者社群討論熱度迅速上升的資安議題",
-      "url": "https://www.ithome.com.tw/news/176825"
-    },
-    {
-      "title": "Meta發表Meta Glasses AI眼鏡，首搭Muse Spark模型",
-      "source": "iThome",
-      "date": "2026-06-24",
-      "topic": "大廠新品",
-      "summary": "Meta 正式推出自有品牌 Meta Glasses AI 智慧眼鏡，定價 299 美元，是 Meta 首款以自有品牌命名的 AI 眼鏡產品線，正式有別於過去合作的 Ray-Ban Meta 系列。眼鏡首搭 Meta Superintelligence Labs 研發的 Muse Spark 模型，提供即時 AI 語音互動與視覺理解功能。產品提供多種鏡框樣式，並支援不同規格鏡片搭配，瞄準更廣泛的消費族群。Meta 透過自有品牌 AI 硬體，加速在可穿戴 AI 設備市場的布局，與 Apple Vision Pro 等高價競品形成差異化競爭。",
-      "relevance": "可穿戴 AI 設備對台灣電子製造供應鏈具有重要影響，Meta 硬體策略是台灣消費電子廠商關注的市場方向",
-      "discussion": "高度熱議，Meta AI 眼鏡正式登場引發台灣科技媒體廣泛報導",
-      "url": "https://www.ithome.com.tw/news/176835"
-    },
-    {
-      "title": "輝達擴張歐洲版圖，祭 35 台 AI 超級電腦布局 23 國史上最龐大計畫",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-23",
-      "topic": "大廠動態",
-      "summary": "NVIDIA 於 ISC 2026 高效能運算大會宣布，將在 23 個歐洲國家建立總計 35 台 AI 超級電腦，規模創 NVIDIA 歷史紀錄，是 NVIDIA 單一地區布局史上最龐大計畫。這些超算將採用 Hopper、Blackwell 及即將推出的 Vera Rubin 平台，預計支援超過 300 萬名歐洲研究人員的 AI 與高效能運算需求。NVIDIA 此舉配合歐盟推動 AI 主權的政策目標，透過大規模算力基礎設施深綁歐洲市場。龐大的 GPU 採購需求對台灣 AI 供應鏈廠商（台積電、廣達、緯創、鴻海等）帶來正面訂單動能。",
-      "relevance": "NVIDIA 超算計畫直接拉動台灣 AI 伺服器供應鏈，台積電晶圓代工和台廠 AI 伺服器代工訂單具有顯著連帶效益",
-      "discussion": "高度熱議，NVIDIA 歐洲布局規模創紀錄，台灣科技業高度關注訂單流向",
-      "url": "https://technews.tw/2026/06/23/europe-unveils-a-record-35-new-nvidia-ai-supercomputers"
-    },
-    {
-      "title": "參與國安測試 Anthropic模型發現美政府電腦系統漏洞",
+      "title": "美管制難擋中企強勁需求 輝達AI晶片黑市價翻倍",
       "source": "中央社 CNA",
       "date": "2026-06-24",
-      "topic": "AI 資安",
-      "summary": "Anthropic 的 AI 模型在受邀參與美國政府機構主導的國家安全測試過程中，成功識別出美國政府電腦系統中的多處安全漏洞。這一結果引發外界對 AI 模型在資安攻防雙重角色的廣泛討論，顯示頂尖 AI 模型已具備足以發現政府級系統弱點的能力。Anthropic 表示此為受邀參與的合法安全評估，旨在協助政府機構強化系統防護，而非真實入侵。AI 在資安領域的攻防能力快速提升，對應的使用規範與倫理框架亟需同步建立。事件也引發各國政府對 AI 模型能力邊界的管制討論。",
-      "relevance": "AI 資安能力快速進化對台灣政府機關與企業的資安策略具有深遠影響，中央社詳細報導顯示台灣媒體對此議題的高度重視",
-      "discussion": "高度熱議，AI 協助發現政府系統漏洞是高敏感度資安議題，台灣業界廣泛討論",
-      "url": "https://www.cna.com.tw/news/ait/202606240144.aspx"
+      "topic": "產業/出口管制",
+      "summary": "儘管華府新一波出口限制措施加碼，中國企業對輝達 AI 晶片的需求依然強勁，使這些晶片在中國黑市價格已翻倍以上。此現象顯示管制與市場需求之間的張力，走私與灰色市場持續存在。對輝達而言，中國正規營收受限，但底層需求並未消失。事件凸顯 AI 算力短缺下的全球供需失衡。對台灣供應鏈而言，反映 AI 晶片需求結構性強勁。",
+      "relevance": "AI 晶片供需與出口管制走向，連動以台積電為核心的台灣晶片製造與出貨布局。",
+      "discussion": "晶片管制與黑市議題在科技與地緣政治圈持續發酵。",
+      "url": "https://www.cna.com.tw/news/aopl/202606240107.aspx"
     },
     {
-      "title": "Claude Mythos 攻入美國安局系統傳聞發酵，外媒澄清模擬環境紅隊測試",
+      "title": "歐盟加入美國主導「矽盛世」倡議 降低對中國AI供應鏈依賴",
+      "source": "中央社 CNA",
+      "date": "2026-06-25",
+      "topic": "產業政策/供應鏈",
+      "summary": "歐盟執行委員會簽署美國主導的「矽盛世（Silicon Prosperity）」倡議，旨在將中國排除於具備 AI 能力的半導體供應鏈之外。此舉是西方陣營在 AI 晶片供應鏈上對中國「去風險化」的進一步整合。倡議牽動全球半導體地緣分工與盟友協作。對掌握先進製程的台灣而言，可能進一步鞏固在西方 AI 供應鏈中的關鍵地位。屬 AI 半導體地緣政治的重要動向。",
+      "relevance": "西方 AI 半導體供應鏈重組，台灣先進製程地位與訂單分布將受直接影響。",
+      "discussion": "AI 供應鏈陣營化與去中化議題，財經與政策圈關注。",
+      "url": "https://www.cna.com.tw/news/aopl/202606250006.aspx"
+    },
+    {
+      "title": "AI 電費誰買單？美政府擬要求用電大戶負擔成本",
       "source": "TechNews 科技新報",
-      "date": "2026-06-23",
-      "topic": "AI 資安",
-      "summary": "網路上流傳 Anthropic Claude Mythos 模型在數小時內成功攻入幾乎所有 NSA 機密系統的震撼消息，在安全社群與媒體間迅速擴散。外媒隨後澄清，這是 Anthropic 安全研究團隊在模擬環境中進行的紅隊（Red Team）測試，並非針對真實 NSA 系統的實際入侵。此類紅隊測試是評估 AI 模型潛在資安風險的標準作業程序，旨在協助業界了解 AI 的能力邊界。事件凸顯現代大型語言模型在網路攻防領域已展現驚人能力，令資安業界重新評估 AI 對既有防禦體系的威脅程度。台灣資安業者正密切關注此類測試結果對 AI 安全政策的影響。",
-      "relevance": "AI 在資安攻擊面的潛在能力是台灣資安廠商和政府高度關注的議題，直接影響台灣的資安策略規劃",
-      "discussion": "高度熱議，AI 攻入政府系統的傳聞在台灣資安社群引發高度警覺與討論",
-      "url": "https://technews.tw/2026/06/23/claude-mythos-reportedly-breached-nearly-all-nsa-classified-systems-within-hours-during-red-team-test/"
+      "date": "2026-06-25",
+      "topic": "AI 基礎設施/能源",
+      "summary": "面對 AI 資料中心暴增的電力需求，美國政府研擬要求用電大戶（如資料中心營運商）負擔其造成的電網與供電成本，避免成本轉嫁至一般用戶。此政策方向反映 AI 算力擴張對電網的實質壓力，能源已成為 AI 規模化的瓶頸之一。對 AI 工廠與資料中心的擴建成本結構帶來不確定性。能源議題正逐漸成為 AI 產業治理的核心面向之一。",
+      "relevance": "AI 資料中心能源成本與政策走向，影響台灣資料中心與相關供應鏈的全球布局評估。",
+      "discussion": "AI 耗電與能源成本分攤為新興治理議題，產業與政策圈關注升溫。",
+      "url": "https://technews.tw/2026/06/25/ai-grid-electricity-bill-who-going-to-be-responsible/"
     },
     {
-      "title": "受Klue被駭影響，LastPass外洩客戶聯絡、支援資料",
-      "source": "iThome",
-      "date": "2026-06-24",
-      "topic": "資安",
-      "summary": "密碼管理服務 LastPass 披露，受合作平台 Klue 遭駭客入侵事件波及，導致 LastPass 部分客戶聯絡資訊與客戶支援資料外洩。此事件屬於典型供應鏈資安攻擊，駭客透過攻擊第三方合作廠商間接取得目標企業資料。LastPass 表示已通知受影響用戶，並強調核心密碼庫資料未受波及。然而外洩的客戶聯絡資料仍可能成為後續社交工程攻擊的素材。企業在評估 SaaS 服務風險時，合作廠商的資安防護能力必須納入整體考量。",
-      "relevance": "台灣企業廣泛使用 LastPass 等密碼管理工具，供應鏈資安攻擊風險對台灣企業資安管理具有直接警示意義",
-      "discussion": "中度熱議，供應鏈資安攻擊事件持續引發台灣資安社群高度關注",
-      "url": "https://www.ithome.com.tw/news/176821"
-    },
-    {
-      "title": "科技吃肉、傳產喝湯！台積電 3.8 兆營收稱霸全台、中後段傳產卻在縮編缺人",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-24",
-      "topic": "台灣產業",
-      "summary": "台積電過去 12 個月累計營收達 3.8 兆新台幣，在全台企業中遙遙領先，與 AI 晶片需求爆發高度相關。科技業在 AI 算力需求拉動下維持強勁成長，但台灣傳統產業卻面臨截然不同的困境，中後段製造業普遍面臨縮編與人力短缺的雙重壓力。「科技吃肉、傳產喝湯」現象反映台灣經濟在 AI 時代出現顯著的結構性分化。業界開始討論如何透過 AI 工具協助傳統產業提升生產力，縮小與科技業的成長差距。AI 帶動的產業分化趨勢對台灣整體經濟政策和產業轉型策略提出新的挑戰。",
-      "relevance": "直接描述 AI 帶動台灣產業結構分化的現象，對台灣企業界和政策制定者具有高度相關性",
-      "discussion": "高度熱議，台灣各界廣泛討論 AI 時代的產業落差問題",
-      "url": "https://technews.tw/2026/06/24/technology-eats-meat/"
-    },
-    {
-      "title": "美國務院主辦「矽盛世」峰會25日登場 台灣將出席",
+      "title": "孫正義駁AI泡沫化傳聞 軟銀集團有意投資東京電力",
       "source": "中央社 CNA",
       "date": "2026-06-24",
-      "topic": "台灣 AI 政策",
-      "summary": "美國國務院將於 6 月 25 日舉辦「矽盛世（Silicon Prosperity）」峰會，台灣確認出席此重要科技峰會。峰會聚焦關鍵礦產、能源、先進製造、半導體及 AI 基礎設施等戰略議題，正是台灣在全球供應鏈中扮演關鍵角色的領域。台灣獲邀出席反映在美國主導的 AI 與半導體供應鏈重組中，台灣的戰略地位獲得正式認可。峰會討論結果預計將對台美半導體與 AI 合作的未來方向產生影響。此次出席也是台灣在國際科技外交舞台強化存在感的重要機會。",
-      "relevance": "直接涉及台灣在美國主導 AI 基礎設施峰會中的角色，對台灣半導體和 AI 外交政策具有重大意義",
-      "discussion": "高度熱議，台灣參與此類國際 AI 峰會引發廣泛關注",
-      "url": "https://www.cna.com.tw/news/aopl/202606240015.aspx"
+      "topic": "AI 投資",
+      "summary": "日本軟銀集團社長孫正義駁斥 AI 泡沫化的傳聞，強調「AI 革命才剛開始」，並表態將與美國 OpenAI 一同推進 AI 模型的建構與進化。報導指軟銀集團有意投資東京電力，反映其對 AI 算力背後龐大電力需求的布局。孫正義持續看多 AI 長期投資週期。此番表態與市場對 AI 估值過熱的疑慮形成對照。能源與算力的綁定成為大型 AI 投資的新主軸。",
+      "relevance": "軟銀與 OpenAI 的 AI 算力與能源投資動向，間接牽動全球 AI 基建供應鏈（含台廠）。",
+      "discussion": "AI 是否泡沫化為市場長期論戰，孫正義表態具話題性。",
+      "url": "https://www.cna.com.tw/news/afe/202606240246.aspx"
     },
     {
-      "title": "創見推出 218 層堆疊 3D NAND 工業儲存解決方案，布局 AI 運算與邊緣應用",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-24",
-      "topic": "台灣半導體",
-      "summary": "台灣記憶體模組廠創見資訊正式推出採用 218 層堆疊 3D NAND 快閃記憶體的全新工業儲存產品線，涵蓋工業級固態硬碟與記憶卡。新產品針對 AI 邊緣運算的高吞吐、低延遲和高耐用性需求進行優化，可應用於 AI 伺服器、邊緣節點與工業自動化設備。218 層 3D NAND 技術大幅提升儲存密度和效能，有助降低 AI 基礎設施整體成本。創見搶先布局 AI 運算儲存市場，展現台灣半導體廠商在 AI 時代的技術升級能力與企圖心。",
-      "relevance": "創見為台灣本土半導體廠商，此產品直接針對 AI 算力儲存需求，反映台灣半導體供應鏈的 AI 應用轉型動態",
-      "discussion": "中度熱議，台灣半導體廠商 AI 產品布局受到業界持續關注",
-      "url": "https://technews.tw/2026/06/24/transcend-launches-218-layer-stacked-3d-nand-industrial-storage-solution/"
-    },
-    {
-      "title": "調研：2026 年 GenAI 智慧型手機將占全球出貨量 45%",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-24",
-      "topic": "技術趨勢",
-      "summary": "最新市調報告顯示，具備生成式 AI（GenAI）功能的智慧型手機在 2026 年將占全球出貨量的 45%，較 2025 年的 36% 大幅提升。GenAI 手機滲透率的快速成長，反映消費者對終端 AI 功能接受度持續提高，主要手機品牌的終端 AI 功能競爭也日趨激烈。台灣半導體業者包括聯發科（MediaTek）、台積電在 AI 手機晶片供應鏈中扮演關鍵角色，受益明顯。此趨勢對台灣智慧型手機零組件供應商預示著穩定的訂單動能，是半導體業者關注的重要市場指標。",
-      "relevance": "直接影響台灣手機供應鏈廠商出貨展望，聯發科、台積電等受益於 GenAI 手機需求持續成長",
-      "discussion": "中度熱議，GenAI 手機市場份額成長是台灣半導體業者密切追蹤的市場指標",
-      "url": "https://technews.tw/2026/06/24/2026-genai-smartphone-shipment"
-    },
-    {
-      "title": "美風投家 2030 年五大 AI 預言：台積電與 ASML 不再能壟斷晶圓代工市場",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-24",
-      "topic": "技術趨勢",
-      "summary": "美國知名科技風險投資人 Rob Toews 發表 2030 年五大 AI 預言，其中最受台灣業界矚目的是預測台積電與 ASML 將不再能壟斷晶圓代工市場。Toews 指出新技術路徑與競爭者崛起將在 2030 年前打破現有半導體供應鏈格局。他同時預測 AI 權利議題將在法庭、選舉和日常生活中引發激烈辯論，AI 可能取代 50% 的軟體工程工作。台灣業界對台積電壟斷地位相關預言看法分歧，但普遍同意半導體競爭格局的長期演變值得嚴肅看待。",
-      "relevance": "台積電的全球市場地位是台灣最重要的科技戰略資產，任何涉及其壟斷地位的分析都在台灣引發高度關注",
-      "discussion": "高度熱議，此預言在台灣半導體業者和政策圈引發廣泛討論",
-      "url": "https://technews.tw/2026/06/24/5-more-ai-predictions-for-the-year-2030/"
-    },
-    {
-      "title": "Alphabet 痛失大神、股價摔 逼近波克夏認購價",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-23",
-      "topic": "大廠人才動態",
-      "summary": "Google 母公司 Alphabet 在 2024 年諾貝爾化學獎得主、Google DeepMind 副總裁 John Jumper 宣布離職並加入 Anthropic 後，股價單日大跌逾 5%，並逼近波克夏哈薩威先前認購的股價水準。Jumper 以 AlphaFold 蛋白質結構預測突破而榮獲諾貝爾獎，是 DeepMind 不可多得的頂尖科學家。股價劇跌反映市場對 Google 在 AI 頂尖人才競爭中維持領導地位的深度憂慮。AI 人才大戰已成為直接影響大型科技公司市值的關鍵因素，顯示 AI 人才稀缺已超越技術層面、成為資本市場高度敏感的議題。",
-      "relevance": "Google 與 Anthropic 的人才爭奪戰對台灣 AI 生態觀察者和投資者是重要參考信號，也影響全球 AI 競爭格局",
-      "discussion": "中度熱議，頂尖 AI 人才流動與股市反應是台灣科技財經媒體重點追蹤議題",
-      "url": "https://finance.technews.tw/2026/06/23/alphabet-stock-tumbles-as-googles-deepmind-loses-nobel-prize-winner-to-anthropic/"
-    },
-    {
-      "title": "AI 新秀 Cerebras 首份財報撐不住高估值 盤後重挫",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-24",
-      "topic": "AI 硬體",
-      "summary": "AI 晶片新創 Cerebras 公布上市後首份季度財報，儘管業績表現強勁且有大量訂單積壓，股價在財報發布後盤後仍重挫近 12%。股價大跌反映市場認為 Cerebras 現有估值已高度反映 AI 成長預期，實際業績表現不足以支撐高昂估值。Cerebras 以其晶圓級（Wafer-Scale Engine）AI 晶片設計著稱，在特定 AI 推論場景擁有效能優勢。此案例提醒投資人 AI 硬體公司高估值背後的風險，也是台灣 AI 相關股票投資者的重要參考案例。",
-      "relevance": "AI 晶片公司估值與財報反應對台灣 AI 相關股票（台積電、廣達等）市場情緒具有連帶影響",
-      "discussion": "中度熱議，AI 晶片公司首份財報後股價重挫引發台灣科技投資者反思 AI 股估值泡沫風險",
-      "url": "https://finance.technews.tw/2026/06/24/cerebras-systems-announces-strong-first-quarter-2026-results"
+      "title": "日本擬砸74兆元投資17個領域 押注AI與半導體",
+      "source": "中央社 CNA",
+      "date": "2026-06-25",
+      "topic": "產業政策",
+      "summary": "日本政府計劃在截至 2041 年 3 月的近 15 年間，累計投入逾 370 兆日圓（約新台幣 74 兆元）於 17 個重點領域，其中包括實體 AI 與半導體。此大規模國家級投資顯示日本欲在 AI 與晶片自主上加速追趕。投資涵蓋從基礎研究到產業落地的全鏈條。對亞洲半導體版圖而言，日本的加碼可能改變區域分工與競合格局。屬 AI 與半導體國家戰略的重要動態。",
+      "relevance": "日本大舉投資 AI 與半導體，將牽動台日半導體競合與供應鏈分工關係。",
+      "discussion": "亞洲半導體國家戰略競賽，財經與產業圈關注。",
+      "url": "https://www.cna.com.tw/news/aopl/202606250007.aspx"
     }
   ],
-  "_updated_at": "2026-06-24T18:14:33.989939+08:00"
+  "_updated_at": "2026-06-25T18:04:37.328009+08:00"
 }
