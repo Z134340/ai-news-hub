@@ -1,50 +1,61 @@
 {
   "items": [
     {
-      "title": "Amazon will present its framework for engineering trustworthy AI agents at VB Transform 2026",
-      "title_zh": "Amazon 將於 VB Transform 2026 發表打造可信賴 AI Agent 的工程框架",
-      "source": "VentureBeat",
-      "date": "2026-06-24",
-      "domain": "Agent",
-      "model_area": "Agent Engineering / Trustworthy AI",
-      "summary": "Amazon 的 AGI autonomy 研究實驗室宣布將在 VB Transform 2026 公開一套打造可信賴 AI Agent 的結構化工程框架，於 6 月 24 日上午 9:30（PT）發表。該框架不再以原始效能 benchmark 為核心，而是聚焦於一致性（consistency）、強健性（robustness）、可預測性（predictability）與安全性（safety）四大支柱。此舉反映企業在賦予 Agent 存取內部系統權限時的高度戒慎，治理重點由「能力」轉向「可控」。",
+      "title": "Databricks' former AI chief thinks he can cut AI's power bill by 1,000x",
+      "title_zh": "Databricks 前 AI 負責人聲稱能將 AI 用電量砍至千分之一",
+      "source": "TechCrunch",
+      "date": "2026-06-25",
+      "domain": "Hardware",
+      "model_area": "推論運算/能效晶片架構",
+      "summary": "Databricks 前 AI 負責人 Naveen Rao 創立的 Unconventional AI，主張以振盪器（oscillator）為基礎的全新運算架構，將 AI 推論能耗降至傳統系統的約千分之一。公司於週四發布首個模型 Un-0，一套影像生成系統，用以驗證其技術能複製主流 AI 系統的能力。Rao 形容願景為「prompt 從網路線進來、推論結果輸出，全程以 1/1000 功耗完成」。",
       "highlights": [
-        "研究重心由效能 benchmark 轉向 consistency／robustness／predictability／safety 四大維度",
-        "回應企業對 Agent 自主存取內部系統權限的疑慮",
-        "由 Amazon AGI autonomy 研究實驗室主導"
+        "以振盪器運算架構切入推論能效，宣稱省電達 1000 倍",
+        "首發模型 Un-0 為影像生成系統，作為技術概念驗證"
       ],
-      "url": "https://venturebeat.com/orchestration/amazon-will-present-its-framework-for-engineering-trustworthy-ai-agents-at-vb-transform-2026"
+      "url": "https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1000x/"
     },
     {
-      "title": "Writer launches AI agents that can act without prompts, taking on Amazon, Microsoft and Salesforce",
-      "title_zh": "Writer 推出無需提示即可主動行動的 AI Agent，正面對決 Amazon、Microsoft 與 Salesforce",
-      "source": "VentureBeat",
-      "date": "2026-06-24",
-      "domain": "Agent",
-      "model_area": "Event-driven Agents / Enterprise Orchestration",
-      "summary": "企業 AI 平台 Writer 推出 event-based triggers，讓 AI Agent 能自主偵測跨 Gmail、Gong、Google Calendar、Google Drive、Microsoft SharePoint 與 Slack 的商業訊號，並在無人啟動的情況下執行多步驟工作流程。此產品將 Agent 由「被動回應提示」推進到「主動依事件觸發」，直接切入 Amazon、Microsoft 與 Salesforce 主導的企業 Agent 市場。對金融業而言，event-driven 自主執行意味治理重點須前移至觸發條件與權限邊界的設計。",
+      "title": "Amazon ups India bet with fresh $13B AI infrastructure investment",
+      "title_zh": "Amazon 加碼印度，追加 130 億美元 AI 基礎設施投資",
+      "source": "TechCrunch",
+      "date": "2026-06-25",
+      "domain": "Infrastructure",
+      "model_area": "雲端/資料中心",
+      "summary": "Amazon 宣布在 2030 年前對印度 AI 與雲端布局追加投資 130 億美元，資金用於擴建 AWS 在孟買與海德拉巴的資料中心容量。此舉呼應全球科技巨頭競相在印度擴張 AI 基礎設施的趨勢，反映印度市場已成 AI 算力部署的關鍵戰場。",
       "highlights": [
-        "以 event-based triggers 取代人工 prompt，Agent 主動偵測商業訊號後自動執行",
-        "整合 Gmail、Gong、Google Drive、SharePoint、Slack 等企業系統",
-        "定位對標 Amazon、Microsoft、Salesforce 的企業 Agent 平台"
+        "追加 130 億美元，期程延伸至 2030 年",
+        "聚焦孟買、海德拉巴 AWS 資料中心擴容"
       ],
-      "url": "https://venturebeat.com/technology/writer-launches-ai-agents-that-can-act-without-prompts-taking-on-amazon-microsoft-and-salesforce"
+      "url": "https://techcrunch.com/2026/06/25/amazon-ups-india-bet-with-fresh-13b-ai-infrastructure-investment/"
     },
     {
-      "title": "OpenAI unveils Workspace Agents, a successor to custom GPTs for enterprises that can plug directly into Slack, Salesforce and more",
-      "title_zh": "OpenAI 發表 Workspace Agents，作為企業版 custom GPTs 的後繼者，可直接串接 Slack、Salesforce 等系統",
-      "source": "VentureBeat",
+      "title": "AI researchers continue to leave Google for its rivals",
+      "title_zh": "AI 研究人員持續從 Google 出走投奔競爭對手",
+      "source": "TechCrunch",
       "date": "2026-06-24",
-      "domain": "Agent",
-      "model_area": "Enterprise Agents / Tool Integration",
-      "summary": "OpenAI 推出 Workspace Agents，定位為企業版 custom GPTs 的後繼產品，能直接整合 Slack、Salesforce 等企業系統並執行任務。相較於早期僅能對話的 custom GPTs，Workspace Agents 具備直接連接工具、資料與工作流程的能力，強化在企業環境中的可落地性。此產品延續 OpenAI 在 Agents SDK 之上的企業整合策略，與 Microsoft Copilot、Google 等爭奪企業 Agent 入口。",
+      "domain": "Industry",
+      "model_area": "前沿實驗室人才流動",
+      "summary": "TechCrunch 報導頂尖 AI 研究人員持續自 Google 流向競爭對手。Jonas Adler 與 Alexander Pritzel 轉投 Anthropic，兩人皆為 Google Gemini 模型開發的要角；資深研究員 Noam Shazeer 則離開 Google 加入 OpenAI。人才外流凸顯前沿實驗室之間日益激烈的挖角戰。",
       "highlights": [
-        "定位為 custom GPTs 的企業後繼者，從對話進化為可執行任務的 Agent",
-        "原生串接 Slack、Salesforce 等企業 SaaS 系統",
-        "延續 OpenAI Agents SDK 的企業整合路線"
+        "Jonas Adler、Alexander Pritzel 轉投 Anthropic",
+        "Gemini 開發要角與資深研究員相繼出走"
       ],
-      "url": "https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more"
+      "url": "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/"
+    },
+    {
+      "title": "AI was supposed to kill engineering jobs, but new data suggests they're the most resilient",
+      "title_zh": "原以為 AI 會消滅工程職缺，新數據卻顯示工程職位最具韌性",
+      "source": "TechCrunch",
+      "date": "2026-06-24",
+      "domain": "Industry",
+      "model_area": "AI 對勞動市場衝擊",
+      "summary": "TechCrunch 援引新數據指出，外界原預期 AI 將大幅衝擊工程相關職位，但實際數據顯示工程職缺反而是最具韌性的類別之一。報導以此反駁「AI 將取代軟體工程師」的主流敘事，認為工程角色在 AI 浪潮中的需求並未如預期崩跌。",
+      "highlights": [
+        "新數據顯示工程職位在 AI 浪潮中最具韌性",
+        "與「AI 取代工程師」的普遍預期相反"
+      ],
+      "url": "https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/"
     }
   ],
-  "_updated_at": "2026-06-25T18:06:26.678504+08:00"
+  "_updated_at": "2026-06-26T18:08:00.200460+08:00"
 }

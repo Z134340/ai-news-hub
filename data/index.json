@@ -1,5 +1,31 @@
 [
   {
+    "date": "2026-06-26",
+    "time": "2026-06-26T18:12:40.561912+08:00",
+    "source": "local",
+    "item_count": 132,
+    "validation_pass_rate": 98.51,
+    "stats": {
+      "papers": 10,
+      "topnews": 4,
+      "taiwan": 19,
+      "china": 9,
+      "usa": 13,
+      "techtrends": 4,
+      "governance": 12,
+      "tutorials": 40,
+      "courses": 4,
+      "models": 17
+    },
+    "validation": {
+      "total": 134,
+      "verified": 132,
+      "warnings": 84,
+      "removed": 2,
+      "pass_rate": 98.51
+    }
+  },
+  {
     "date": "2026-06-25",
     "time": "2026-06-25T18:10:50.049936+08:00",
     "source": "local",

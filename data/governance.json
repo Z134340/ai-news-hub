@@ -1,33 +1,95 @@
 {
   "items": [
     {
-      "title": "AI 治理週報 2026 年 6 月 19 日：AI 治理法規與政策匯整",
-      "source": "AI Governance Institute",
-      "date": "2026-06-19",
+      "title": "AI 事故通報法案出爐：要求前沿 AI 開發者 7 日內通報危險能力",
+      "source": "The Cryptonomist",
+      "date": "2026-06-25",
       "category": "AI治理",
-      "summary": "AI Governance Institute 發布每週治理法規匯整。本期指出代理式 AI（agentic AI）治理已從新興議題升級為「營運層級的緊急狀況」，研究顯示生產環境中的 AI Agent 部署被高比例回退，主因為個資（PII）外洩與幻覺（hallucination）。報導強調 EU AI Act 高風險義務原定 2026 年 8 月 2 日生效，使單一全球合規方案日益難以維持。同時點名跨國治理碎片化（EU、US、Asia-Pacific 各行其道），以及加拿大新版國家 AI 戰略納入勞動力素養與主權基礎設施等對企業有直接合規影響的要求。",
+      "summary": "美國眾議員 Nathaniel Moran（R-Texas）於 2026 年 6 月 25 日提出《AI Incident Reporting Act》，建立聯邦層級的前沿 AI 事故通報框架。法案要求最先進 AI 模型的開發者在發現危險活動後 7 日內，向商務部長通報危險能力、資安破口與安全事故；商務部須在收到最嚴重事故後 48 小時內通報國會領袖與相關委員會主席。可通報事項包括 AI 模型試圖規避人類監督、繞過內建防護、未授權存取模型權重，以及涉及化學、生物、核子等公共安全威脅。法案直接回應 6 月 12 日商務部以國安為由對 Anthropic 最新模型採取行動、導致該公司全球停用的事件，凸顯目前缺乏前沿 AI 事故的識別與升報透明框架。商務部須與 AI 開發者、學界、資安與國安專家協商制定通報門檻，以反映技術現實並避免過度負擔。",
       "highlights": [
-        "代理式 AI 治理升級為營運緊急議題，生產環境 Agent 因 PII 外洩與幻覺被高比例回退",
-        "EU AI Act 高風險義務指向 2026/8/2，跨轄區法規碎片化使全球單一合規方案難維持",
-        "加拿大國家 AI 戰略新增勞動力素養與主權基礎設施合規要求",
-        "建議企業將代理人控制（agent controls）視為基礎設施層級的治理項目"
+        "前沿 AI 開發者須於發現危險活動 7 日內通報商務部",
+        "商務部須於 48 小時內將最嚴重事故上報國會",
+        "可通報事項涵蓋規避監督、繞過防護、模型權重外洩、CBRN 威脅",
+        "立法動機源於 6/12 商務部對 Anthropic 模型的國安干預",
+        "採諮詢式門檻設計，避免對產業造成不必要負擔"
       ],
-      "url": "https://aigovernance.com/news/ai-governance-weekly-june-19-2026"
+      "url": "https://en.cryptonomist.ch/2026/06/25/ai-incident-reporting-bill/"
     },
     {
-      "title": "EU AI Act 透明度義務：為 2026 年 8 月 2 日合規期限預作準備",
-      "source": "Sidley Austin (Data Matters)",
+      "title": "Warren 籲國會強化對 AI 與併購審查的反壟斷監督",
+      "source": "Bloomberg",
       "date": "2026-06-24",
-      "category": "AI治理",
-      "summary": "Sidley Austin 在 Data Matters 部落格分析 EU AI Act 第 50 條（Article 50）透明度義務，提醒企業為 2026 年 8 月 2 日適用日預作準備。文章說明該條對特定 AI 系統的提供者與部署者課予透明度要求，核心包括：與 AI 互動時須揭露、合成內容（synthetic content）須標示、深偽（deepfake）須辨識，以避免使用者在不知情下與 AI 互動或誤認 AI 生成內容為真人產製。文中並對照歐盟執委會於 2026 年 6 月 10 日發布的 AI 生成內容標示行為準則（Code of Practice），指出相關指引雖屬非拘束性，但為合規的重要參考依據。",
+      "category": "AI監管",
+      "summary": "美國參議員 Elizabeth Warren 於 2026 年 6 月 24 日呼籲國會更新競爭法規，以因應 AI 日益擴大的市場影響力，並提高政府併購審查程序的透明度。她主張現行反壟斷法應更積極地適用於新興技術，警告企業不應僅因定價或商業決策仰賴 AI 即可豁免於競爭執法。Warren 強調「企業不會因為用了演算法就獲得反壟斷的免死金牌」，並要求國會強化反壟斷執法者的工具、任命熟悉反壟斷的法官以因應市場集中化。她特別點名房市中的 AI 定價工具，主張若被用於非法推升租金，監理機關應介入。此舉延續她對大型科技公司 AI「acqui-hire」交易規避併購審查的長期關切。",
       "highlights": [
-        "Article 50 透明度義務 2026/8/2 適用，涵蓋 AI 互動揭露、合成內容標示與深偽辨識",
-        "對照執委會 2026/6/10 發布之 AI 生成內容標示 Code of Practice",
-        "指引為非拘束性，但實務上構成合規參考基準",
-        "建議提供者與部署者即刻盤點 AI 互動點與內容標示流程"
+        "要求國會更新競爭法以涵蓋 AI 市場集中化",
+        "主張企業不得因使用演算法而豁免反壟斷執法",
+        "點名房市 AI 定價工具恐非法推升租金",
+        "呼籲任命熟悉反壟斷的聯邦法官",
+        "延續對科技巨頭 AI acqui-hire 交易的審查訴求"
       ],
-      "url": "https://datamatters.sidley.com/2026/06/24/eu-ai-act-transparency-obligations-preparing-for-compliance-by-2-august-2026/"
+      "url": "https://www.bloomberg.com/news/articles/2026-06-24/warren-to-call-for-antitrust-scrutiny-of-ai-deal-review-revamp"
+    },
+    {
+      "title": "歐盟立法者達成協議 延後 EU AI Act 多項關鍵義務",
+      "source": "Sidley Data Matters",
+      "date": "2026-06-22",
+      "category": "EU AI Act",
+      "summary": "依據 Digital Omnibus on AI（AI 綜合簡化案），歐洲議會於 2026 年 6 月 16 日以 423 票贊成、57 票反對、174 票棄權通過 EU AI Act 的針對性修正，延後多項合規義務。Annex III 所列、以獨立方式部署的高風險 AI 系統，全面合規期限由 2026 年 8 月 2 日延至 2027 年 12 月 2 日。Article 50 的透明度與浮水印義務方面，2026 年 8 月 2 日前已上市的系統可延至 2026 年 12 月 2 日，其餘系統仍適用 8 月 2 日期限。此次修法同時在 Article 5 禁止清單新增一項實質規定，明文禁止用於生成未經同意親密影像的「nudification」工具與兒少性虐待素材。理事會預計於 6 月 29 日正式通過文本，隨後刊登於官方公報。",
+      "highlights": [
+        "歐洲議會 6/16 以 423:57:174 通過 Digital Omnibus 修正",
+        "Annex III 高風險系統合規期限延至 2027/12/2",
+        "Article 50 透明度義務多數仍自 2026/8/2 適用，浮水印對既有系統延至 12/2",
+        "新增禁止 nudification 與 CSAM 生成工具",
+        "理事會預計 6/29 正式採認後刊憲"
+      ],
+      "url": "https://datamatters.sidley.com/2026/06/22/eu-lawmakers-reach-provisional-agreement-to-delay-key-eu-ai-act-obligations/"
+    },
+    {
+      "title": "中國研擬 2,950 億美元國家 AI 基礎建設計畫 強制 80% 國產晶片、排除 Nvidia",
+      "source": "Tech Times",
+      "date": "2026-06-22",
+      "category": "科技治理",
+      "summary": "中國正研擬一項為期五年、規模約 2,950 億美元（人民幣 2 兆元）的國家級 AI 基礎建設計畫，串連全國資料中心成為統一的主權算力網。計畫由國家發改委等部會主導，要求至少 80% 的技術須國產化，並由中國移動、中國電信等國企營運主要資料中心。在美國出口管制下，中國無法採用 Nvidia、AMD 最尖端晶片，轉而仰賴華為等本土廠商並彙整分散算力。此計畫公布之際，中國旗艦前沿模型 DeepSeek V4-Pro 剛宣布原生運行於華為昇騰（Ascend）晶片。相較之下，Meta、Microsoft 等美國企業光是 2026 年的 AI 投資承諾即達 7,250 億美元。",
+      "highlights": [
+        "五年約 2,950 億美元、串連全國資料中心為主權算力網",
+        "技術國產化比例強制達 80%，排除 Nvidia、AMD",
+        "由國企（中國移動、中國電信）營運主要資料中心",
+        "回應美國對先進 AI 晶片的出口管制",
+        "DeepSeek V4-Pro 已原生運行於華為昇騰晶片"
+      ],
+      "url": "https://www.techtimes.com/articles/318868/20260622/china-ai-data-center-grid-locks-out-nvidia-295-billion-domestic-chip-mandate.htm"
+    },
+    {
+      "title": "AI 立法動態更新：2026 年 6 月 26 日（美國州層級）",
+      "source": "Transparency Coalition",
+      "date": "2026-06-26",
+      "category": "AI監管",
+      "summary": "Transparency Coalition 於 2026 年 6 月 26 日發布每週 AI 立法動態，彙整美國各州的最新進展。加州 SB 947（AI 與自動決策系統的勞工保護）與 SB 1159（明定 AI 系統不構成《加州公共紀錄法》下的「人」）於 6 月 23 日經議會隱私委員會審議通過、送交司法委員會。加州立法者並將一項禁止 AI 擔任公立學校教師的法案送交 Newsom 州長簽署。羅德島州長 McKee 則簽署了禁止聊天機器人提供治療服務（chatbot therapy ban）的法律。整體顯示在聯邦層級傾向去管制之際，州層級立法持續快速推進，聚焦勞工保護、教育、心理健康與自動決策透明度。",
+      "highlights": [
+        "加州 SB 947、SB 1159 於 6/23 過隱私委員會送司法委員會",
+        "加州禁止 AI 擔任公校教師法案送州長簽署",
+        "羅德島簽署禁止聊天機器人治療服務法",
+        "聯邦去管制之際，州層級立法持續加速",
+        "焦點涵蓋勞工保護、教育、心理健康與自動決策透明"
+      ],
+      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-june26-2026"
+    },
+    {
+      "title": "Sprawling new House AI bill includes frontier model oversight, open-source security grants",
+      "source": "Cybersecurity Dive",
+      "date": "2026-06-25",
+      "category": "AI治理",
+      "summary": "美國眾議院出現一項範圍廣泛的新 AI 法案，涵蓋前沿模型監督，以及面向 CISA、NIST 與開源生態的資安補助。法案試圖在缺乏聯邦綜合性 AI 立法的情況下，建立跨機關的監督與資安強化機制，與同期 Moran 提出的 AI 事故通報法案同屬本週前沿 AI 治理的立法浪潮。內容包括強化 CISA／NIST 在 AI 安全標準上的角色，並提供開源軟體安全補助以降低供應鏈風險。⚠️待確認：本則確切發布日期未經 web_fetch 二次核對，URL 與標題以搜尋結果為準；正文細節以 Cybersecurity Dive 原文為準。",
+      "highlights": [
+        "眾議院廣泛 AI 法案涵蓋前沿模型監督",
+        "納入 CISA、NIST 角色與開源資安補助",
+        "與 Moran 的 AI 事故通報法案同屬本週立法浪潮",
+        "聚焦在缺乏聯邦綜合立法下的跨機關監督",
+        "⚠️發布日期待二次核對，URL／標題以搜尋結果為準"
+      ],
+      "url": "https://www.cybersecuritydive.com/news/house-ai-bill-regulation-cisa-nist-open-source/822131/"
     }
   ],
-  "_updated_at": "2026-06-25T18:10:50.002076+08:00"
+  "_updated_at": "2026-06-26T18:11:19.135821+08:00"
 }

@@ -1,149 +1,133 @@
 {
   "items": [
     {
-      "title": "Runlayer Raises $30M Series A to Help Enterprises Go All In On AI",
-      "title_zh": "Runlayer 完成 3,000 萬美元 A 輪募資，協助企業全面導入 AI Agent",
-      "source": "PR Newswire / Fortune",
-      "date": "2026-06-24",
-      "topic": "AI Agent / Funding",
-      "summary": "企業級 AI Agent 治理新創 Runlayer 宣布完成 3,000 萬美元 A 輪募資，由 Felicis 領投、Khosla Ventures 參與，總募資額達 4,200 萬美元。Runlayer 圍繞 Model Context Protocol（MCP）打造安全與合規基礎設施，定義 AI Agent 如何安全接入企業系統與資料。其平台作為企業 AI 活動的集中控制層，提供權限映射、審批工作流與稽核軌跡，讓企業看清每個 Agent 的實際行為、對敏感操作要求人工簽核，並保留合規所需的紀錄。Gusto、dbt Labs、Instacart、Opendoor 等八家獨角獸與多家上市公司為早期採用者。Vinod Khosla 據報想「買下這輪每一塊可投的錢」。",
-      "highlights": [
-        "以 MCP 為核心，建立 Agent 接入企業系統的安全與合規控制層",
-        "提供權限映射、人工審批工作流、完整稽核軌跡與成本可視性",
-        "Felicis 領投、Khosla Ventures 參與，總募資達 4,200 萬美元",
-        "早期客戶含 Gusto、dbt Labs、Instacart、Opendoor 等八家獨角獸"
-      ],
-      "discussion": "社群將其視為「Agent 工作力治理」賽道升溫的指標，反映企業在大規模放行 Agent 存取權限前，對可觀測性與最小權限控制的剛性需求；與金融業 Agent guardrail 落地痛點高度呼應。",
-      "url": "https://www.prnewswire.com/news-releases/runlayer-raises-30m-series-a-to-help-enterprises-go-all-in-on-ai-302809271.html"
-    },
-    {
-      "title": "How Shopify built an AI stack that doesn't care which models survive",
-      "title_zh": "Shopify 如何打造「不在乎哪個模型存活」的 AI 技術堆疊",
-      "source": "VentureBeat",
-      "date": "2026-06-24",
-      "topic": "AI Agent Engineering / Orchestration",
-      "summary": "VentureBeat 揭露 Shopify 的 AI 工程做法：建立一套集中式 LLM proxy（內部閘道），將所有 AI 請求路由經單一平台層，讓每位工程師都能存取多家供應商模型，並在任一供應商故障、變更或下架時自動容錯切換。當 Claude Fable 5 停用時，proxy 自動把工程師切到 Claude Opus 或 GPT-5.5，工作流不中斷。Shopify 以批量採購 token、集中計費與報表管理成本，並刻意不押注單一工具，而是打造可讓多模型共存的平台層，以維持彈性與韌性。",
-      "highlights": [
-        "集中式 LLM proxy 將所有 AI 請求路由經單一平台層",
-        "供應商故障時自動、無縫容錯切換至備援模型",
-        "批量採購 token + 集中報表，兼顧成本控管與可觀測性",
-        "策略核心為「模型可替換」，避免單一供應商鎖定"
-      ],
-      "discussion": "被工程社群引為 harness/context engineering 的實務典範，凸顯企業應把模型視為可替換零件而非架構基石；對受監理、需供應商風險分散的金融機構特別具參考價值。",
-      "url": "https://venturebeat.com/orchestration/how-shopify-built-an-ai-stack-that-doesnt-care-which-models-survive"
-    },
-    {
-      "title": "OpenAI unveils its first custom chip, built by Broadcom",
-      "title_zh": "OpenAI 攜手 Broadcom 推出首款自研晶片 Jalapeño",
-      "source": "TechCrunch",
-      "date": "2026-06-24",
-      "topic": "Tech Giant / AI Infrastructure",
-      "summary": "OpenAI 與 Broadcom 共同發表 Jalapeño，OpenAI 首款「智慧處理器」，是專為 LLM 推論（inference）打造的加速器，鎖定 ChatGPT、Codex、API 及未來 agentic 產品的工作負載。該晶片由 OpenAI 從零設計，結合其對 LLM 模型、kernel、serving 系統的深度理解，並由 Broadcom 與 Celestica 協助量產化。從設計到 tape-out 僅九個月，可能創下高效能先進半導體史上最快的 ASIC 開發週期。早期測試顯示其每瓦效能大幅優於現有業界最佳水準，預計於 2026 年底首次部署，為多世代運算平台的第一步。",
-      "highlights": [
-        "OpenAI 首款自研晶片，專為 LLM 推論最佳化",
-        "從設計到 tape-out 僅九個月，號稱史上最快 ASIC 開發週期",
-        "每瓦效能大幅優於現有 SOTA，瞄準 agentic 產品工作負載",
-        "Broadcom、Celestica 協助量產，2026 年底首次部署"
-      ],
-      "discussion": "市場解讀為 OpenAI 垂直整合、降低對 NVIDIA 依賴並掌握「全棧」的關鍵一步；同步衝擊輝達估值敘事，並被視為超大規模業者自研推論晶片的趨勢確認。",
-      "url": "https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/"
-    },
-    {
-      "title": "StealC and Amadey: Breaking down infostealers and the cybercrime services that deliver them",
-      "title_zh": "微軟以 AI 串連 StealC 與 Amadey 兩大惡意程式並發動聯合打擊",
-      "source": "Microsoft Security Blog",
-      "date": "2026-06-24",
-      "topic": "AI Cybersecurity",
-      "summary": "微軟數位犯罪部門（DCU）偕同 Europol 與業界夥伴，宣布對資訊竊取程式 StealC 與惡意載入器 Amadey 的基礎設施發動協同打擊，查封並封鎖逾 200 個 C2 網域與 IP。行動透過法院命令、網域查封與供應商通報，扣押逾 100 台犯罪伺服器、追回逾 2,400 萬筆遭竊登入憑證，並凍結約 4,100 萬歐元（約 4,650 萬美元）加密資產。值得注意的是，調查人員借助 AI 才發現：雖然兩款惡意程式由不同犯罪者開發，卻共用同一套基礎設施——這也成為微軟敲詐勒索訴訟的關鍵連結。截至 5 月上旬，兩者關聯全球逾 14 萬台受感染電腦。",
-      "highlights": [
-        "微軟 DCU 聯手 Europol 查封逾 200 個 C2 網域與 IP",
-        "追回逾 2,400 萬筆遭竊憑證、凍結約 4,650 萬美元加密資產",
-        "AI 協助識別兩款惡意程式共用同一基礎設施，成訴訟關鍵",
-        "5 月上旬資料顯示關聯全球逾 14 萬台受感染電腦"
-      ],
-      "discussion": "資安界視為 AI 驅動威脅情報落地的代表案例——以 AI 進行歸因分析、串連看似獨立的犯罪生態；也被討論為「以 AI 防禦對抗 AI 助攻犯罪」的攻防新常態。",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/24/stealc-and-amadey-breaking-down-infostealers-and-the-cybercrime-services-that-deliver-them/"
-    },
-    {
-      "title": "Circadence and Scale AI Partner to Strengthen AI-Driven Cyber Readiness Across Government and Enterprise",
-      "title_zh": "Circadence 與 Scale AI 結盟，強化政府與企業的 AI 驅動資安戰備",
-      "source": "Business Wire / VentureBeat",
-      "date": "2026-06-24",
-      "topic": "AI Cybersecurity / Agentic AI",
-      "summary": "Circadence 與 Scale AI 宣布策略結盟，加速在美國政府與企業環境部署先進 AI 能力，初期聚焦資安作戰與高優先任務情境。合作將 Circadence 的 AI 原生資安戰備平台，與 Scale AI 用於開發與營運大規模 agentic AI 系統的基礎設施結合，協助組織從 AI 實驗階段邁向實戰部署，補上「AI 能力」與「資安任務戰備」之間的關鍵落差。初期共同投入將鎖定 AI 賦能的網路任務環境、資安作戰的智慧工作流自動化，以及進階決策支援系統。",
-      "highlights": [
-        "Circadence 資安戰備平台結合 Scale AI 的 agentic AI 基礎設施",
-        "鎖定美國政府與企業的資安作戰與高優先任務情境",
-        "聚焦 AI 賦能網路任務環境與智慧工作流自動化",
-        "目標為填補 AI 能力與資安任務戰備之間的落差"
-      ],
-      "discussion": "被視為 agentic AI 進入國防／關鍵基礎設施資安的訊號，與美國近期 AI 行政命令推動「AI 資安清算所」的政策方向相互呼應。",
-      "url": "https://www.businesswire.com/news/home/20260624276348/en/Circadence-and-Scale-AI-Partner-to-Strengthen-AI-Driven-Cyber-Readiness-Across-Government-and-Enterprise"
-    },
-    {
-      "title": "Exclusive: Taktile raises $110 million from Goldman Sachs, Tiger Global to automate high-stakes financial decisions",
-      "title_zh": "Taktile 獲 Goldman Sachs、Tiger Global 注資 1.1 億美元，自動化金融高風險決策",
+      "title": "Exclusive: Vinod Khosla wanted 'every available dollar' of Runlayer's funding round. It just raised $30 million to govern the agent workforce",
+      "title_zh": "獨家：Vinod Khosla 想包下整輪；Runlayer 募得 3,000 萬美元治理 AI Agent 大軍",
       "source": "Fortune",
       "date": "2026-06-24",
-      "topic": "Agentic AI / Funding",
-      "summary": "金融決策自動化新創 Taktile 完成 1.1 億美元 C 輪募資，由 Goldman Sachs Alternatives 旗下成長股權團隊領投，Balderton Capital、Index Ventures、Tiger Global、Y Combinator、Dig Ventures 等參與，總募資達 1.84 億美元。Taktile 讓銀行與保險公司轉型為由自主 Agent 驅動的 AI 原生組織，其產品可結合 AI Agent、規則、相關脈絡與人工監督，自動化核保、理賠、詐欺偵測、客戶開戶與 AML 等工作流。2025 年需求因 AI 模型已能自動化過去需數小時人工的高風險決策而加速；某全球最大保險公司光是理賠處理就預估省下逾 9,000 萬美元。",
+      "topic": "AI Agent / Funding",
+      "summary": "企業級 AI Agent 治理平台 Runlayer 宣布完成 3,000 萬美元 A 輪募資，由 Felicis 領投、Khosla Ventures 跟投，累計募資達 4,200 萬美元。該公司七個月前才從隱身模式出場，定位為「企業 AI Agent 的應用商店＋控制塔」：員工可接入 ChatGPT、Claude、Salesforce Agentforce 或自建 Agent，並取得已預先核可、已串接公司資料且已設好 guardrail 的使用方式。IT 與資安團隊則透過單一儀表板掌握每個 Agent 在做什麼、碰過哪些資料、花了多少成本。Vinod Khosla 聽聞此輪時表示想「買下整輪每一塊錢」。此案凸顯「Agent 治理」正快速成為一個獨立的企業軟體類別。",
       "highlights": [
-        "C 輪 1.1 億美元由 Goldman Sachs Alternatives 領投，總募資 1.84 億美元",
-        "結合 Agent、規則、脈絡與人工監督，自動化核保／理賠／AML",
-        "鎖定銀行與保險業轉型為「agentic financial institution」",
-        "某大型保險客戶單就理賠處理預估省下逾 9,000 萬美元"
+        "A 輪 3,000 萬美元，Felicis 領投、Khosla Ventures 跟投，累計 4,200 萬美元",
+        "定位為企業 AI Agent 的應用商店＋控制塔，預先設定資料連接與 guardrail",
+        "IT／資安團隊以單一儀表板稽核每個 Agent 的行為、資料接觸與成本",
+        "出場僅七個月，前一輪為 1,100 萬美元種子輪（同批投資人）"
       ],
-      "discussion": "金融科技圈關注其「Agent + 規則 + human-in-the-loop」的混合決策架構，正契合受監理金融機構對可解釋性與人工覆核的剛性要求；高盛親自領投被視為傳統金融對 agentic 決策的背書。",
-      "url": "https://fortune.com/2026/06/24/exclusive-taktile-goldman-sachs-ai-bank-insurance-funding/"
+      "discussion": "社群普遍視此為「Agent 治理即新一代 SaaS」的代表案例，金融與受監管產業對於 Agent 行為可稽核、資料邊界可控的需求被點名為主要驅動力。",
+      "url": "https://fortune.com/2026/06/24/exclusive-vinod-khosla-felicis-runlayer-nanit-30-million-enterprise-ai/"
     },
     {
-      "title": "Assort Health Raises $120 Million Series C to Scale Largest Deployment of AI Agents for the Patient Journey",
-      "title_zh": "Assort Health 完成 1.2 億美元 C 輪，擴大全美最大規模病患旅程 AI Agent 部署",
-      "source": "PR Newswire",
+      "title": "Coval Raises $28M in Series A Funding Led by Norwest",
+      "title_zh": "Coval 完成 2,800 萬美元 A 輪募資，由 Norwest 領投",
+      "source": "Startuprise",
       "date": "2026-06-24",
-      "topic": "Healthcare AI / Funding",
-      "summary": "醫療語音 AI Agent 平台 Assort Health 宣布完成 1.2 億美元 C 輪募資，由 Menlo Ventures 領投，估值達 12 億美元，總募資逾 2.22 億美元。其平台涵蓋預約排程、初診表單、轉診、文件處理、用藥續方、即時資格核驗、檢驗申請與支付，被稱為全美最廣泛使用的病患旅程 AI Agent 平台。核心由自研模型 Synapse 驅動，訓練自 1.9 億筆病患語音互動、6.2 萬份照護協定與 160 萬條決策路徑；過去 15 個月營收成長 20 倍。投資人另包含 Lightspeed、Felicis、First Round 及 Joe Montana 等。",
+      "topic": "AI Agent / Funding",
+      "summary": "語音與聊天 AI Agent 的評測與可觀測性平台 Coval 宣布完成 2,800 萬美元 A 輪募資，由 Norwest 領投，Base10 Partners、Twilio Ventures 與 Y Combinator 跟投，自 2024 年成立以來累計募資 3,100 萬美元。Coval 提供針對 voice/chat agent 的模擬、可觀測性與標註平台，協助企業在規模化情境下測試、監控並持續改善 Agent。隨著企業導入語音 Agent 進入生產環境，如何在上線前以模擬大量壓測、上線後持續監控品質，成為剛性需求。此案與同日 Runlayer 募資共同反映資金正集中流向「Agent 工程基礎設施」（評測、可觀測性、治理）而非單純的模型層。",
       "highlights": [
-        "C 輪 1.2 億美元、估值 12 億美元，總募資逾 2.22 億美元",
-        "自研模型 Synapse 訓練自 1.9 億筆病患語音互動",
-        "涵蓋排程、轉診、續方、資格核驗、支付等病患旅程全流程",
-        "過去 15 個月營收成長 20 倍，鎖定 1.1 兆美元醫療行政負擔"
+        "A 輪 2,800 萬美元，Norwest 領投，累計募資 3,100 萬美元",
+        "聚焦 voice/chat agent 的模擬、可觀測性與標註",
+        "協助企業在上線前壓測、上線後持續監控 Agent 品質",
+        "Y Combinator、Twilio Ventures 等跟投，押注 Agent 評測賽道"
       ],
-      "discussion": "被視為垂直領域（healthcare）AI Agent 規模化落地的代表，凸顯語音 Agent 在高合規、高敏感場域的商業化成熟度；投資人加速押注「能執行真實業務動作」的 production AI。",
-      "url": "https://www.prnewswire.com/news-releases/assort-health-raises-120-million-series-c-to-scale-largest-deployment-of-ai-agents-for-the-patient-journey-302808634.html"
+      "discussion": "業界討論集中在『Agent 評測（agent eval）正在從研究題目變成生產工程紀律』，與 Runlayer 同日募資被視為 Agent 基礎設施投資升溫的訊號。",
+      "url": "https://startuprise.io/coval-raises-28m-in-series-a-funding-led-by-norwest/"
     },
     {
-      "title": "Venture Capital & Startup Funding Roundup, June 24, 2026",
-      "title_zh": "創投與新創募資彙整，2026 年 6 月 24 日",
-      "source": "Tech Startups",
+      "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
+      "title_zh": "OpenAI 與 Broadcom 發表為 LLM 最佳化的推論晶片",
+      "source": "OpenAI",
       "date": "2026-06-24",
-      "topic": "AI Industry / Funding",
-      "summary": "Tech Startups 當日募資彙整顯示，資金高度集中於「production AI」——能做出真實決策、移動資金、調度病患、治理 Agent 的系統，十筆募資中有九筆具直接 AI 產品、基礎設施或治理面向。其中 Attention 完成 3,000 萬美元 B 輪（RTP Global、Aglaé Ventures、Eniac 等參與），總募資至少 4,400 萬美元，聚焦營收 AI／企業軟體；Hang Ten Systems 完成 3,200 萬美元種子輪（Mayfield、Aramco Ventures 與天使投資人），鎖定企業 AI 轉型軟體與服務。整體反映企業在公司延後上市、資本需要更佳定價與流動性的市場下，正大舉投資 AI 落地所需的「軌道」基礎設施。",
+      "topic": "Tech Giant / Hardware",
+      "summary": "OpenAI 與 Broadcom 共同發表 OpenAI 首款自研推論加速器「Jalapeño」，為雙方多世代運算平台的第一顆 AI 加速器。該晶片從初始設計到製造 tape-out 僅費時九個月，被稱為高效能先進半導體領域可能最快的 ASIC 開發週期，過程中亦運用 OpenAI 模型協助設計與最佳化。架構圍繞 LLM 推論最關鍵的 kernel、記憶體搬移、網路與服務模式進行最佳化，早期測試顯示每瓦效能將大幅優於現行業界頂尖水準。雙方目標於 2026 年底前開始初步部署，並在未來數年擴大。此舉是 OpenAI「自建全棧（full stack）」、降低對外部 GPU 依賴並壓低推論成本的關鍵一步。",
       "highlights": [
-        "Attention 完成 3,000 萬美元 B 輪，總募資至少 4,400 萬美元",
-        "Hang Ten Systems 完成 3,200 萬美元種子輪",
-        "十筆募資中九筆具直接 AI 產品／基礎設施／治理面向",
-        "資金主軸轉向能執行真實業務動作的 production AI"
+        "Jalapeño 為 OpenAI 首款自研推論晶片，由 Broadcom 實作矽智財",
+        "設計到 tape-out 僅九個月，號稱最快 ASIC 開發週期之一",
+        "每瓦效能宣稱大幅優於現行 SOTA，專為 LLM 推論最佳化",
+        "目標 2026 年底前初步部署，夥伴含 Broadcom、Celestica"
       ],
-      "discussion": "創投社群討論焦點為資金正從「會聊天的 AI」轉向「會做事、會治理的 AI」，Agent 治理與執行層（execution layer）成為新主戰場。",
-      "url": "https://techstartups.com/2026/06/24/venture-capital-startup-funding-roundup-june-24-2026/"
+      "discussion": "市場將其解讀為對 NVIDIA 的長期去依賴訊號，Broadcom 股價受激勵；分析師關注 OpenAI 是否能以自研矽顯著壓低 ChatGPT／Codex 的推論單位成本。",
+      "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/"
+    },
+    {
+      "title": "Anthropic accuses Alibaba of campaign to 'brazenly' and 'illicitly' extract AI capabilities",
+      "title_zh": "Anthropic 指控 Alibaba「明目張膽」且「非法」竊取其 AI 能力",
+      "source": "CNBC",
+      "date": "2026-06-24",
+      "topic": "Cybersecurity / Model Distillation",
+      "summary": "Anthropic 致函美國官員，指控 Alibaba「明目張膽」且「非法」嘗試萃取其 AI 能力，稱這是迄今對 Anthropic 規模最大的一次 distillation 攻擊。Anthropic 主張與 Alibaba 及其 Qwen AI 實驗室相關的操作者，在 2026 年 4 月 22 日至 6 月 5 日間，使用約 25,000 個假帳號、進行 2,880 萬次模型互動，意圖以蒸餾方式複製 Claude 的能力。Distillation 指以較強模型的輸出來訓練較弱的小模型。此舉同時凸顯 Anthropic 將產品排除於中國市場之外的決策受到挑戰。今年二月 Anthropic 曾點名 DeepSeek、Moonshot 與 MiniMax 三起「工業級」蒸餾活動，並稱其強度與精密度持續升高。",
+      "highlights": [
+        "指控涉約 25,000 個假帳號、2,880 萬次互動（4/22–6/5）",
+        "Anthropic 稱為迄今對其規模最大的 distillation 攻擊",
+        "矛頭指向 Alibaba 及旗下 Qwen 實驗室",
+        "延續二月對 DeepSeek／Moonshot／MiniMax 的蒸餾指控"
+      ],
+      "discussion": "事件在美中 AI 競爭脈絡下引發資安與出口管制討論，市場關注是否升級為政策行動；Alibaba 股價傳出承壓。",
+      "url": "https://www.cnbc.com/2026/06/24/anthropic-alibaba-distillation-campaign.html"
     },
     {
       "title": "AI researchers continue to leave Google for its rivals",
-      "title_zh": "AI 研究人員持續從 Google 出走、轉投競爭對手",
+      "title_zh": "AI 研究人員持續從 Google 出走投奔競爭對手",
       "source": "TechCrunch",
       "date": "2026-06-24",
       "topic": "Talent / Industry",
-      "summary": "TechCrunch 報導，Google 持續面臨頂尖 AI 人才流失：被視為 Gemini 模型關鍵貢獻者的 Google AI 研究員 Jonas Adler 與 Alexander Pritzel 計畫離開、轉投 Anthropic；此前 Google DeepMind 總監、AlphaFold 諾貝爾獎得主 John Jumper 亦傳出將離開 Google 加入 Anthropic。一連串人事異動凸顯在前沿模型軍備競賽下，Anthropic、OpenAI 等對手持續從 Google 挖角核心研究人才，加劇大廠之間的人才爭奪戰。",
+      "summary": "TechCrunch 報導 Google 的頂尖 AI 研究人才持續流向競爭對手，最新案例為曾在 Gemini 模型開發中扮演要角的 Jonas Adler 與 Alexander Pritzel 離開 Google 轉投 Anthropic。此前自 2000 年起便在 Google 的傳奇研究者 Noam Shazeer 已宣布離開投奔 OpenAI。人才外流發生在前沿模型競爭白熱化、各家以高額待遇與運算資源爭搶頂尖研究者之際。此趨勢對 Google DeepMind 的研究連續性構成壓力，也反映 Anthropic、OpenAI 在人才市場的吸引力上升。",
       "highlights": [
-        "Gemini 關鍵貢獻者 Jonas Adler、Alexander Pritzel 傳轉投 Anthropic",
-        "DeepMind 總監、AlphaFold 諾獎得主 John Jumper 亦傳將加入 Anthropic",
-        "反映前沿模型軍備競賽下大廠的核心人才爭奪",
-        "Anthropic 成為近期吸納 Google 頂尖研究人才的主要去向"
+        "Gemini 要角 Jonas Adler、Alexander Pritzel 轉投 Anthropic",
+        "資深研究者 Noam Shazeer 先前已離開 Google 投奔 OpenAI",
+        "前沿模型競爭推升頂尖研究人才的爭奪戰",
+        "對 Google DeepMind 研究連續性形成壓力"
       ],
-      "discussion": "業界討論聚焦 Anthropic 在 IPO 前夕積極補強研究陣容，以及 Google 在 Gemini 動能正盛之際卻留不住核心人才的張力；人才流向被視為前沿實驗室競爭格局的領先指標。",
+      "discussion": "社群熱議大廠人才版圖重整，部分觀點認為運算資源配置與研究自主度是研究者跳槽的關鍵拉力。",
       "url": "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/"
+    },
+    {
+      "title": "Venture Capital & Startup Funding Roundup, June 24, 2026",
+      "title_zh": "創投與新創募資彙整（2026 年 6 月 24 日）",
+      "source": "Tech Startups",
+      "date": "2026-06-24",
+      "topic": "Funding / Enterprise",
+      "summary": "6 月 24 日多筆 AI 新創募資同日揭露，顯示資金持續湧入垂直應用與企業 AI。醫療 AI 與病患就醫自動化的 Assort Health 完成 1.2 億美元 C 輪，由 Menlo Ventures、Lightspeed 等領投；金融機構 AI 決策平台 Taktile（紐約）由 Goldman Sachs 領投取得 1.1 億美元 C 輪；營收 AI 的 Attention 完成 3,000 萬美元 B 輪。整體呈現「應用層與受監管產業（醫療、金融）優先」的資金流向。其中 Taktile 鎖定金融機構的自動化決策，與金融業 AI 治理與風控落地高度相關。",
+      "highlights": [
+        "Assort Health：1.2 億美元 C 輪，醫療 AI／就醫自動化",
+        "Taktile：1.1 億美元 C 輪，Goldman Sachs 領投，金融機構 AI 決策",
+        "Attention：3,000 萬美元 B 輪，營收 AI",
+        "資金明顯偏向垂直應用與受監管產業（醫療、金融）"
+      ],
+      "discussion": "金融圈關注 Taktile 這類『AI 決策引擎』在信用、風控場景的落地與可解釋性／可稽核性要求，視為金融 AI 治理的實務試金石。",
+      "url": "https://techstartups.com/2026/06/24/venture-capital-startup-funding-roundup-june-24-2026/"
+    },
+    {
+      "title": "AI was supposed to kill engineering jobs, but new data suggests they're the most resilient",
+      "title_zh": "AI 本被認為會消滅工程師職位，但新數據顯示工程職反而最具韌性",
+      "source": "TechCrunch",
+      "date": "2026-06-24",
+      "topic": "Industry / Research",
+      "summary": "TechCrunch 引用創投機構 SignalFire 的研究指出，相較 2019 年水準，各大型科技公司整體招聘下降約 25%，但工程職位僅下降約 11%，且 2025 年工程師占大型科技公司新進員工的 55%。數據顯示在 AI 衝擊下，軟體工程職位的韌性遠高於普遍預期，NVIDIA 執行長黃仁勳亦公開反對「AI 將摧毀軟體工程工作」的論點。報導置於 2026 年整體招聘放緩、部分公司以 AI 為由裁員的背景下，提供與「AI 取代工程師」敘事相反的實證。此議題對人力配置與技能投資策略具參考價值。",
+      "highlights": [
+        "大型科技公司整體招聘較 2019 年降約 25%，工程職僅降約 11%",
+        "2025 年工程師占大型科技公司新進員工的 55%",
+        "黃仁勳公開反對『AI 摧毀工程工作』論",
+        "與 2026 年 AI 裁員潮敘事形成對照"
+      ],
+      "discussion": "社群對『AI 是否取代工程師』兩極辯論再起，偏向認為 AI 改變工作內容（更偏系統設計與 Agent 監督）而非單純消滅職位。",
+      "url": "https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/"
+    },
+    {
+      "title": "ChatGPT — Release Notes",
+      "title_zh": "ChatGPT 更新說明（Active sessions 安全功能與 GPT-5.5 Instant 更新）",
+      "source": "OpenAI Help Center",
+      "date": "2026-06-25",
+      "topic": "Product / LLM Update",
+      "summary": "OpenAI 在 6 月 25 日的 ChatGPT 更新中推出「Active sessions」安全功能，使用者可於 設定 > 安全性 > Active sessions 檢視與帳號相關的所有登入工作階段，查看裝置、App、約略位置、登入時間、是否為信任裝置與目前工作階段等資訊，並可逐一或一次登出不認得的工作階段。同時 GPT-5.5 Instant 進行更新，改善對話品質、上下文處理與指令遵循，提升在決策、建議、規劃、研究與購物情境的實用性。此外亦新增即時職缺搜尋與履歷格式化功能。整體聚焦於帳號安全與日常實用性的漸進強化。",
+      "highlights": [
+        "新增 Active sessions：可檢視並登出可疑的登入工作階段",
+        "GPT-5.5 Instant 更新：上下文處理與指令遵循改善",
+        "新增即時職缺搜尋與履歷格式化",
+        "更新定位於帳號安全與日常使用體驗"
+      ],
+      "discussion": "使用者普遍肯定 Active sessions 提升帳號可視性與安全控管，企業 IT 視其為降低帳號遭盜用風險的實用功能。",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
     }
   ],
-  "_updated_at": "2026-06-25T18:10:32.068685+08:00"
+  "_updated_at": "2026-06-26T18:11:51.020831+08:00"
 }
