@@ -3,11 +3,12 @@
   "last_success": "2026-06-26T18:13:30.139724+08:00",
   "last_date": "2026-06-26",
   "source": "local",
-  "status": "partial",
+  "status": "missed",
   "categories_ok": 6,
   "categories_failed": 1,
   "validation_pass_rate": 98,
-  "consecutive_failures": 0,
-  "last_missed": null,
-  "errors": []
+  "consecutive_failures": 1,
+  "last_missed": "2026-06-27",
+  "errors": [],
+  "note": "本機排程未執行，等待電腦上線後自動補跑"
 }
