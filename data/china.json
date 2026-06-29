@@ -8,7 +8,12 @@
       "topic": "具身智能/多模態大模型",
       "summary": "杭州宇樹科技於 6 月 24 日宣布雙足人形機器人 Unitree R1 官方售價由 3.99 萬元下調至 2.99 萬元起，並即日起開放現貨銷售。整機重約 25 公斤、配備 26 個高精度關節，頭部內置 10 TOPS AI 算力，本地整合語音與圖像多模態大模型，可自主識別環境並語音互動。末端支援快速換裝夾爪與靈巧手，單臂最大負載 2 公斤、操作精度達 ±0.1 毫米。降價核心原因為核心零部件 90% 國產化自研，電機、減速器、控制器自產配套大幅壓縮成本。市場關注此舉是否引發消費級人形機器人價格戰。",
       "discussion": "高，IT之家、快科技、每日經濟新聞、網易、新浪同步報導，社群聚焦『2.99 萬元能否帶動具身智能整機降價潮』。",
-      "url": "https://www.ithome.com/0/968/145.htm"
+      "url": "https://www.ithome.com/0/968/145.htm",
+      "url_status": "verified",
+      "title_score": 0.79,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992310",
+      "complete": true
     },
     {
       "title": "鏈博會首設人工智慧專區，中國供應鏈走向 AI 產業深處",
@@ -18,7 +23,12 @@
       "topic": "產業應用/AI Agent",
       "summary": "第四屆中國國際供應鏈促進博覽會於北京舉行，首次設立人工智慧專區，完整呈現從資料採集、智能計算到行業場景落地的全鏈條產業生態。探跡科技展示銷售智能體，依託數十萬億商品資料庫快速匹配上下游供應鏈資源，人工下達指令後客戶篩選、對接、效果統計等全流程自動化。科大訊飛展出 AI 眼鏡、智能多模態交互測試機器人等 10 款軟硬體產品，涵蓋多模態大模型、語音識別合成、具身智能等核心技術。TCL 展示『星智』『伏羲』『深藍』三大模型，已深度應用於半導體顯示與智能終端領域。",
       "discussion": "中，央媒（經濟參考報、新華絲路）與財經媒體集中報導，焦點在於 Agent 由概念走向供應鏈場景的規模化落地。",
-      "url": "https://finance.eastmoney.com/a/202606233779848018.html"
+      "url": "https://finance.eastmoney.com/a/202606233779848018.html",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992336",
+      "complete": true
     },
     {
       "title": "澎湃 AI 晚新聞丨2026 年 6 月 25 日",
@@ -28,7 +38,12 @@
       "topic": "AI 綜合日報",
       "summary": "澎湃新聞 6 月 25 日 AI 晚新聞綜合彙整當日重點：字節跳動旗下豆包推出付費專業版，原免費版仍保留；Google 將下一代 Gemini 3.5 Pro 模型發布由 6 月延後至 7 月，以爭取更多早期測試回饋與優化時間；同時涵蓋國內外大模型、智能體與 AI 硬體的當日動態。屬於彙整型來源，可作為當日中國 AI 圈整體脈動的索引。",
       "discussion": "中，為日更彙整型內容，適合掌握全貌但單則深度有限。",
-      "url": "https://m.thepaper.cn/newsDetail_forward_33453980"
+      "url": "https://m.thepaper.cn/newsDetail_forward_33453980",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-06-26T18:13:29.992363",
+      "complete": true
     },
     {
       "title": "新浪AI热点小时报丨2026年06月25日08时",
@@ -38,8 +53,89 @@
       "topic": "AI 綜合速報",
       "summary": "新浪 6 月 25 日 08 時 AI 熱點小時報彙整當日即時動態，內容涉及雄安人工智能產業園以具身智能訓練生成的高品質資料上傳城市可信資料空間、支撐複雜城市場景下的演算法迭代與大模型應用，以及科技鏈、新技術等多模型相關訊息。屬高頻彙整型速報，可作為當日 China AI 動態的時間軸索引，單則深度有限。",
       "discussion": "低至中，為自動化高頻彙整速報，適合做時間軸監看而非深度閱讀。",
-      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001907bv5e.html?from=tech"
+      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001907bv5e.html?from=tech",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992393",
+      "complete": true
+    },
+    {
+      "title": "周鸿祎ISC宣布打造\"中国版Mythos\"：已具备同等漏洞自动挖掘能力",
+      "source": "新浪科技",
+      "date": "2026-06-24",
+      "company": "360 (三六零)",
+      "topic": "AI Agent / 資安",
+      "summary": "360 集團創始人周鴻禕在 6 月 24 日 ISC.AI 2026 大會上發布 360 AI 安全「倚天屠龍」兩大核心能力：漏洞自動化挖掘智能體「圖龍鋒」與網路安全自動化防禦系統「儀天陣」，對標美國 Mythos 等級的自動化攻防 Agent。周鴻禕強調對手已複製出大批黑客智能體同時運作，傳統靠少數安全專家人工分析的「人海戰術」已失靈。其論點是「以算力對抗算力」，讓中國網路安全防禦從人工走向「自動駕駛」。此為國產資安領域具體的 Agent 產品落地，而非概念展示。",
+      "discussion": "ISC.AI 大會為中國資安年度焦點，周鴻禕「漏洞挖掘智能體」與對標 Mythos 的說法在資安與 Agent 社群引發高度關注與爭論。",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-06-24/doc-inienpne3132787.shtml",
+      "url_status": "verified",
+      "title_score": 0.94,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992420",
+      "complete": true
+    },
+    {
+      "title": "周鸿祎谈三六零押注AI：传统软件将沦为智能体工具",
+      "source": "網易科技",
+      "date": "2026-06-24",
+      "company": "360 (三六零)",
+      "topic": "AI Agent",
+      "summary": "周鴻禕闡述 360 全面押注 AI Agent 的策略判斷，認為傳統軟體未來將淪為智能體調用的「工具」，軟體的價值重心從人機介面轉向被 Agent 編排與工具調用。此觀點呼應其「百億智能體」預測，主張企業應以 Agent 為核心重構產品形態。對金融與企業 IT 而言，意味應用層將由智能體統籌調度既有系統，而非由人逐一操作。",
+      "discussion": "「軟體淪為智能體工具」的論斷在國內開發者與企業數位轉型圈引發討論，部分認同 Agent-first 趨勢，部分質疑落地節奏。",
+      "url": "https://www.163.com/dy/article/L07EF9920550WHYR.html",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992446",
+      "complete": true
+    },
+    {
+      "title": "天鹜科技入选36氪「2026最具价值成长企业100」，位列人工智能/大模型赛道",
+      "source": "網易財經 / 36氪",
+      "date": "2026-06-24",
+      "company": "天鹜科技 (Matwings)",
+      "topic": "AI Agent / 產業應用",
+      "summary": "天鶩科技入選 36氪「2026 最具價值成長企業 100」，位列人工智能/大模型賽道。其核心產品 MatwingsVenus™（曉鶩™）為對話式蛋白質研究智能體平台，將 Agent 與工具調用能力應用於生命科學與藥物研發場景。此為垂直領域 Agent 落地的代表案例，顯示中國智能體應用正從通用對話延伸至專業科研工作流。",
+      "discussion": "生物醫藥 AI 與 Agent 結合為 2026 熱點賽道，入選 36氪榜單帶動該領域關注，但專業圈對科研智能體實際效能仍持觀望。",
+      "url": "https://www.163.com/money/article/KVNAPESS00259I71.html",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992487",
+      "complete": true
+    },
+    {
+      "title": "中国AI大模型词元调用量连续稳居全球首位",
+      "source": "世界互聯網大會",
+      "date": "2026-06-24",
+      "company": "（產業整體）",
+      "topic": "產業動態 / LLM 生態",
+      "summary": "據統計，6 月 15 至 21 日全球 AI 大模型 token 調用量達 46.7 兆，其中中國大模型貢獻 18.81 兆 token，連續八週穩居全球首位。國家網信辦並表示中國已有超過 900 個大模型上線提供服務，正研究制定智能體規範化應用相關規定。此數據反映國產模型在實際生產調用量上的規模化滲透，而非僅停留在發布與評測。",
+      "discussion": "「調用量全球第一」成為官方宣傳國產大模型實力的關鍵指標，產業界多正面解讀，亦有聲音指出調用量不完全等同技術領先。",
+      "url": "https://cn.wicinternet.org/2026-06/24/content_38846771.htm",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992517",
+      "complete": true
+    },
+    {
+      "title": "\"人工智能+\"迈向规模化落地",
+      "source": "新浪財經",
+      "date": "2026-06-24",
+      "company": "（產業整體）",
+      "topic": "產業應用 / 政策",
+      "summary": "報導指中國「人工智能+」戰略正從試點走向規模化落地，AI 與製造、能源、教育、醫療等千行百業深度結合，智能體成為規模化部署的主要載體。配合近期四部委《關於促進人工智能與能源雙向賦能的行動方案》與國家數據局數據集建設方案，政策面持續強化 AI 對產業轉型的倍增效應。對金融業而言，凸顯監管正以「規模化落地」為導向推動 AI 應用。",
+      "discussion": "「人工智能+」為 2026 政策主軸，規模化落地論述在產業與政策圈廣泛轉載，市場關注後續具體補貼與標準。",
+      "url": "https://finance.sina.com.cn/roll/2026-06-24/doc-inientua3039376.shtml",
+      "url_status": "verified",
+      "title_score": 0.86,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992544",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-06-26T18:05:01.556979+08:00"
+  "_updated_at": "2026-06-26T18:05:01.556979+08:00",
+  "_fallback": true
 }

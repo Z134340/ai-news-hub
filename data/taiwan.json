@@ -8,7 +8,12 @@
       "summary": "報導指出企業導入 AI Agent 的測試與部署正面臨與傳統軟體截然不同的挑戰，核心在於 LLM 的機率性特性，使同一提示在不同執行中可能產生不同的工具調用序列，難以用既有測試方法驗證。IBM Institute for Business Value 研究顯示，高達八成的 CIO 與 CTO 表示執行長已下達 AI 轉型指令，但僅 11% 認為已為未來一年預期的 AI agent 規模化部署做好準備。文章建議企業從流程設計、建立標準化工具池、推行 AI 專業使用者培訓三方向著手。IDC 台灣預測到 2029 年代理式 AI 將占企業整體 AI 支出的 17%。",
       "relevance": "直接點出台灣與全球企業在 Agent 落地的治理與資安落差，對應金融業導入 Agentic AI 的風險控管需求",
       "discussion": "高，企業 IT 與資安社群關注 Agent 部署準備度落差",
-      "url": "https://n.yam.com/Article/20260626884691"
+      "url": "https://n.yam.com/Article/20260626884691",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991673",
+      "complete": true
     },
     {
       "title": "Anthropic 點名阿里巴巴！控訴用蒸餾手法擷取 Claude 技術",
@@ -18,7 +23,12 @@
       "summary": "Anthropic 致函美國參議院銀行委員會參議員 Tim Scott 與 Elizabeth Warren，指控阿里巴巴透過蒸餾（distillation）手法非法擷取 Claude 模型能力，稱這是公司面臨過最大規模的同類攻擊。Anthropic 表示阿里巴巴相關人員與通義實驗室（Tongyi Lab）在 2026 年 4 月 22 日至 6 月 5 日間，使用近 2.5 萬個詐欺帳號，產生逾 2,880 萬次與 Claude 的互動。蒸餾是以較強模型輸出訓練較弱模型、加速追趕的技術。此前 2026 年 2 月 Anthropic 也曾指控 DeepSeek、Moonshot AI、MiniMax 以蒸餾非法擷取 Claude 能力。",
       "relevance": "涉及前沿模型 IP 保護與中美技術競爭，對台灣 AI 供應鏈與模型治理具警示意義",
       "discussion": "高，模型 IP 與中美對抗熱議話題",
-      "url": "https://technews.tw/2026/06/25/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities/"
+      "url": "https://technews.tw/2026/06/25/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991701",
+      "complete": true
     },
     {
       "title": "應川普政府要求，OpenAI 模型延後推出、逐一審核早期客戶資格",
@@ -28,7 +38,12 @@
       "summary": "報導指出 OpenAI 將延後 GPT-5.6 的推出，回應川普政府的要求，並逐一審核早期客戶的資格。此舉與 Anthropic 透過 Project Glasswing 以限量方式釋出最強模型的做法相似，反映美國政府對前沿模型釋出節奏的監管介入加深。模型分階段釋出（staggered release）成為大廠在政府壓力下的新常態。此政策變化可能影響企業取得最新模型的時程與資格門檻。",
       "relevance": "前沿模型釋出受政府監管，牽動台灣企業取得 GPT 系列最新模型的時程與條件",
       "discussion": "高，AI 監管與模型可得性受關注",
-      "url": "https://technews.tw/2026/06/26/openai-will-delay-gpt-5-6-after-trump-administration-request/"
+      "url": "https://technews.tw/2026/06/26/openai-will-delay-gpt-5-6-after-trump-administration-request/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991730",
+      "complete": true
     },
     {
       "title": "生成式AI年化營收突破1,750億美元，報告指AI需求已獲營收驗證",
@@ -38,7 +53,12 @@
       "summary": "據 Exponential View 發布的首份「AI Economy Report」，生成式 AI 在過去 12 個月（排除中國與重複計算）創造約 1,100 億美元營收，最新年化營收已突破 1,750 億美元。報告認為 AI 需求已獲得實際營收驗證，不再僅是資本支出驅動的預期。此數據為市場對 AI 泡沫疑慮提供了營收面的回應。報告同時揭示 agentic AI 與企業應用是營收成長的主要推力。",
       "relevance": "為 AI 投資與企業導入提供營收實證，對台灣產業評估 AI 商業化價值具參考性",
       "discussion": "中高，AI 商業化是否真實獲利為市場焦點",
-      "url": "https://www.ithome.com.tw/news/176907"
+      "url": "https://www.ithome.com.tw/news/176907",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991757",
+      "complete": true
     },
     {
       "title": "蘋果調漲Mac及iPad等硬體裝置價格，漲幅15%起",
@@ -48,17 +68,12 @@
       "summary": "蘋果於 6 月 25 日宣布調漲 MacBook、iPad、HomePod 與 iMac 等硬體產品價格，漲幅自 15% 起、部分達 25%。蘋果將漲價歸因於 AI 資料中心需求推升記憶體與儲存元件價格，導致供應吃緊與成本上揚。此為記憶體因 AI 需求暴漲的連鎖效應首度直接反映在消費性終端定價。中國市場 iPad 漲幅尤為顯著。",
       "relevance": "AI 算力需求推升記憶體價格，透過蘋果終端漲價反映台灣記憶體供應鏈受惠與成本傳導",
       "discussion": "高，消費者與供應鏈同步關注漲價",
-      "url": "https://www.ithome.com.tw/news/176894"
-    },
-    {
-      "title": "高通攜手 Meta 強勢進軍 ASIC 市場，市場憂心分食聯發科商機股價打入跌停",
-      "source": "TechNews 科技新報",
-      "date": "2026-06-26",
-      "topic": "AI 晶片 / 台灣供應鏈",
-      "summary": "高通宣布與 Meta 合作進軍 AI ASIC 市場，取得 Meta 資料中心訂單，市場憂心將分食聯發科既有商機，導致聯發科股價一度打入跌停。報導指出聯電、南亞科等台廠有望在此合作中受惠。此事件凸顯 AI 客製化晶片（ASIC）市場競爭白熱化，大廠紛紛尋求自研與多元供應。對台灣 IC 設計龍頭構成直接競爭壓力。",
-      "relevance": "直接衝擊台灣 IC 設計龍頭聯發科股價與競爭態勢，牽動 ASIC 供應鏈版圖",
-      "discussion": "高，台股 AI 概念股劇烈反應",
-      "url": "https://finance.technews.tw/2026/06/26/qualcomm-and-meta-join-forces-to-aggressively-enter-the-ai-asic-market"
+      "url": "https://www.ithome.com.tw/news/176894",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991785",
+      "complete": true
     },
     {
       "title": "大摩預估 AMD Venice 出貨量將超車輝達 Vera，台積電成最大贏家",
@@ -68,7 +83,12 @@
       "summary": "摩根士丹利預估 AMD 下世代 Venice 平台出貨量將超越輝達 Vera，而無論誰勝出，代工的台積電都將是最大贏家。報告反映 AI 晶片雙雄競爭加劇，但先進製程與封裝產能仍高度集中於台積電。台積電在 CoWoS 等先進封裝的主導地位，使其在 AI 算力軍備競賽中持續受惠。此預估強化市場對台積電 AI 訂單能見度的信心。",
       "relevance": "台積電在 AI 晶片代工的不可替代性，直接關係台灣半導體產業與台股估值",
       "discussion": "高，台積電 AI 訂單能見度為投資焦點",
-      "url": "https://finance.technews.tw/2026/06/26/morgan-stanley-amd-venice-shipments-surpass-nvidia-vera"
+      "url": "https://finance.technews.tw/2026/06/26/morgan-stanley-amd-venice-shipments-surpass-nvidia-vera",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991848",
+      "complete": true
     },
     {
       "title": "美光營收創歷史新高，外資全面調升台廠記憶體四雄目標價",
@@ -78,7 +98,12 @@
       "summary": "美光（Micron）公布第三季財報營收創歷史新高、毛利率超過 84%，帶動盤後股價收復跌幅。受此激勵，外資全面調升台灣記憶體四雄目標價。報導指出 AI 時代記憶體需求強勁，且記憶體吃緊態勢可能延續至 2027 年後，並有 5 年客戶長約支撐。全球記憶體市場今年估飆 3 倍。",
       "relevance": "AI 推升記憶體超級循環，直接帶動台灣記憶體模組與封測產業營收與股價",
       "discussion": "高，記憶體類股為台股 AI 行情主軸之一",
-      "url": "https://finance.technews.tw/2026/06/26/foreign-investors-have-raised-their-target-prices-for-the-four-major-taiwanese-memory-chip-manufacturers-across-the-board"
+      "url": "https://finance.technews.tw/2026/06/26/foreign-investors-have-raised-their-target-prices-for-the-four-major-taiwanese-memory-chip-manufacturers-across-the-board",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991876",
+      "complete": true
     },
     {
       "title": "從 AI 晶片到太空軌道運算，蔡明介領軍聯發科描繪半導體未來藍圖",
@@ -88,7 +113,12 @@
       "summary": "聯發科舉辦 MARC Workshop 2026，董事長蔡明介領軍描繪半導體未來藍圖，主題涵蓋從 AI 晶片到太空軌道運算（Orbit Compute）的前瞻應用。聯發科聚焦 AI 與先進通訊技術，並探討軌道運算等新興場景。此展現台灣 IC 設計龍頭在 AI 晶片之外的長線技術布局。會議釋出聯發科欲拓展 AI 運算版圖的訊號。",
       "relevance": "台灣 IC 設計龍頭的 AI 與前瞻運算策略，攸關台灣半導體產業升級方向",
       "discussion": "中高，聯發科技術路線受產業關注",
-      "url": "https://technews.tw/2026/06/25/from-ai-chips-to-orbital-computing-in-space/"
+      "url": "https://technews.tw/2026/06/25/from-ai-chips-to-orbital-computing-in-space/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991903",
+      "complete": true
     },
     {
       "title": "智慧眼鏡需求大漲，調研：Q126 全球市場出貨量年增 83%",
@@ -98,7 +128,12 @@
       "summary": "最新調研顯示，2026 年第一季全球智慧眼鏡市場（含 VR、AR 眼鏡與智慧眼鏡）出貨量年增 83%，需求大漲。AI 智慧眼鏡成為大廠新戰場，Meta 等業者積極投入。報導反映穿戴式 AI 裝置正快速放量，成為 AI 終端載具的重要成長動能。此趨勢為台灣光學、組裝與零組件供應鏈帶來新機會。",
       "relevance": "AI 穿戴裝置放量帶動台灣光學與零組件供應鏈新商機",
       "discussion": "中，穿戴 AI 為新興成長題材",
-      "url": "https://technews.tw/2026/06/25/ai-smart-glass-q1-26/"
+      "url": "https://technews.tw/2026/06/25/ai-smart-glass-q1-26/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991930",
+      "complete": true
     },
     {
       "title": "Meta 攜手 Kylie Jenner 推出獨立品牌 AI 智慧眼鏡，引爆網路隱私論戰",
@@ -108,7 +143,12 @@
       "summary": "Meta 宣布推出自有獨立品牌的 AI 智慧眼鏡，並與名人 Kylie Jenner 合作行銷，結束與 Ray-Ban 長達四年的合作關係，標誌 Meta 穿戴裝置策略的重大轉向。新品上市同時引爆網路對 AI 眼鏡隱私疑慮的論戰，外界擔憂內建鏡頭與 AI 的隨身蒐證能力。隱私與監控議題成為 AI 穿戴裝置普及的關鍵阻力。",
       "relevance": "AI 穿戴裝置的隱私爭議，對應台灣與全球對 AI 蒐證與個資治理的關注",
       "discussion": "高，隱私論戰引發網路熱議",
-      "url": "https://ccc.technews.tw/2026/06/26/kylie-jenners-meta-ai-glasses-spark-online-debate"
+      "url": "https://ccc.technews.tw/2026/06/26/kylie-jenners-meta-ai-glasses-spark-online-debate",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991957",
+      "complete": true
     },
     {
       "title": "加州推出AI失業追蹤器，監測AI對勞動市場衝擊",
@@ -118,7 +158,12 @@
       "summary": "加州州長 Gavin Newsom 於 6 月 25 日宣布推出全美首個 AI 失業追蹤器（CAIT），透過分析失業保險申請與 AI 對各職業的衝擊，監測 AI 對勞動市場的潛在影響。此為政府以數據工具系統性追蹤 AI 就業衝擊的開創性做法。工具旨在為政策制定提供即時的勞動市場 AI 衝擊證據。反映各國政府開始將 AI 對就業的影響納入治理框架。",
       "relevance": "AI 勞動衝擊的政府治理工具範例，對台灣 AI 就業政策與監管思維具參考價值",
       "discussion": "中高，AI 取代就業為社會關注議題",
-      "url": "https://www.ithome.com.tw/news/176904"
+      "url": "https://www.ithome.com.tw/news/176904",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.991993",
+      "complete": true
     },
     {
       "title": "【資安週報】0622-0626，FortiBleed憑證外洩事件受矚目，Klue供應鏈攻擊風暴更延燒至多家資安業者",
@@ -128,7 +173,12 @@
       "summary": "iThome 資安週報彙整 6 月 22 至 26 日重大資安事件，FortiBleed 憑證外洩事件受高度矚目，Klue 供應鏈攻擊風暴更延燒至多家資安業者。供應鏈攻擊與憑證外洩持續成為企業資安最大威脅面向。報導反映資安業者本身也成為攻擊目標，凸顯供應鏈信任鏈的脆弱性。對台灣企業資安防護敲響警鐘。",
       "relevance": "供應鏈攻擊與憑證外洩直接威脅台灣企業，金融業供應鏈資安治理需強化",
       "discussion": "高，資安週報為台灣 IT 圈固定關注",
-      "url": "https://www.ithome.com.tw/news/176892"
+      "url": "https://www.ithome.com.tw/news/176892",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992020",
+      "complete": true
     },
     {
       "title": "台電去年轉盈 756 億元，今年持續強化財務體質",
@@ -138,7 +188,12 @@
       "summary": "台電於 6 月 26 日召開 2026 年股東會，公布 2025 年稅前盈餘達 756 億元，終結連續三年虧損。獲利受惠於國際燃料價格穩定、電價調整，以及 AI 與半導體用電需求持續成長。AI 資料中心與半導體製造的龐大電力需求成為台電營運結構改善的關鍵驅動之一。「電力即算力」的議題在台灣持續發酵。",
       "relevance": "AI 算力的電力需求直接影響台灣能源供需與電價，攸關 AI 基礎設施可持續性",
       "discussion": "中高，AI 用電與能源政策受關注",
-      "url": "https://technews.tw/2026/06/26/taipower-shareholder-meeting/"
+      "url": "https://technews.tw/2026/06/26/taipower-shareholder-meeting/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992046",
+      "complete": true
     },
     {
       "title": "今年全球記憶體市場估飆 3 倍、明年首破 1 兆美元",
@@ -148,7 +203,12 @@
       "summary": "報導引述調研指出，受 AI 需求驅動，2026 年全球記憶體市場估達 9,600 億美元，較 2025 年的約 2,300 億美元飆升逾 3 倍，並預估 2027 年將首度突破 1 兆美元、達 1.4 兆美元。記憶體進入由 AI 驅動的超級循環，HBM 與高階 DRAM 供不應求。此規模成長為台灣記憶體供應鏈帶來罕見的長線成長動能。",
       "relevance": "AI 記憶體超級循環直接惠及台灣記憶體與封測產業的營收與資本規劃",
       "discussion": "高，記憶體景氣為台股 AI 主軸",
-      "url": "https://technews.tw/2026/06/25/global-memory-market-estimated-triple-this-year-break-1-trillion-next-year-first-time"
+      "url": "https://technews.tw/2026/06/25/global-memory-market-estimated-triple-this-year-break-1-trillion-next-year-first-time",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992074",
+      "complete": true
     },
     {
       "title": "AI 應用邁向規模化，企業如何建立可信任治理",
@@ -158,7 +218,12 @@
       "summary": "文章探討企業在 AI 應用邁向規模化部署之際，如何建立可信任的 AI 治理框架。隨著 Agentic AI 進入生產環境，治理、可解釋性與風險控管成為企業能否安全擴大 AI 應用的關鍵。內容聚焦企業在規模化階段面臨的信任、合規與監控挑戰。為金融等高度監管產業導入 AI 提供治理思路。",
       "relevance": "直接對應金融業 AI 規模化的可信任治理需求，與 W1-W6 治理工項高度相關",
       "discussion": "中，企業 AI 治理為決策層關注",
-      "url": "https://www.ithome.com.tw/pr/176906"
+      "url": "https://www.ithome.com.tw/pr/176906",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992100",
+      "complete": true
     },
     {
       "title": "HONOR 600 系列預告登台，主打 2 億像素人像與 AI 圖轉影片",
@@ -168,8 +233,59 @@
       "summary": "HONOR 600 系列智慧型手機預告登台，主打 2 億像素人像拍攝與 AI 圖轉影片（image-to-video）功能。生成式 AI 影像能力成為旗艦手機的核心賣點，將 AI 影音生成下放至消費級終端。此反映端側 AI（on-device AI）影像生成快速普及的趨勢。台灣消費市場成為各大手機品牌 AI 功能競逐的戰場。",
       "relevance": "端側 AI 影像生成普及，反映 AI 終端應用在台灣消費市場的落地",
       "discussion": "中，消費級 AI 手機功能受關注",
-      "url": "https://technews.tw/2026/06/25/honor-600-series-2"
+      "url": "https://technews.tw/2026/06/25/honor-600-series-2",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992132",
+      "complete": true
+    },
+    {
+      "title": "Anthropic推主動式AI同事 Claude Tag進駐Slack掀企業協作新革命",
+      "source": "科技新報/商傳媒（PChome 轉載）",
+      "date": "2026-06-24",
+      "topic": "AI Agent",
+      "summary": "Anthropic 推出名為 Claude Tag 的主動式 AI 協作功能，將 Claude 化為可在 Slack 中被 @mention 指派任務的「AI 同事」。使用者可像對待團隊成員一樣，直接在頻道中標記 Claude 並交辦工作，由 Agent 自主完成後回報。此舉把 LLM 從被動問答工具推進到嵌入企業日常協作流的主動式代理階段。對導入 Slack 的台灣企業而言，等同把 Agent 直接放進既有溝通介面，降低採用門檻。屬 Agent 工程中「工具使用＋工作流嵌入」的代表性產品化案例。",
+      "relevance": "台灣眾多企業使用 Slack 協作，Claude Tag 提供低門檻的 Agent 導入路徑，可直接對接既有工作流。",
+      "discussion": "企業協作與 Agent 落地圈高度關注，被視為主動式 AI 代理進入職場的指標性功能。",
+      "url": "https://news.pchome.com.tw/science/sunmedia/20260624/index-78231584082156329005.html",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-06-26T18:13:29.992217",
+      "complete": true
+    },
+    {
+      "title": "OpenAI 首款 AI 推理晶片「Jalapeño」亮相，攜手博通設計、台積電生產",
+      "source": "TechNews 科技新報",
+      "date": "2026-06-24",
+      "topic": "技術大廠/半導體",
+      "summary": "OpenAI 與博通（Broadcom）共同發表首款自研 AI 推論晶片 Jalapeño，並交由台積電生產，預計 2026 年底開始部署。工程樣品已能運行 GPT-5.3-Codex-Spark 等工作負載，顯示 OpenAI 朝垂直整合自有運算基礎設施邁進，以降低對外部 GPU 的依賴。此晶片針對 LLM 推論最佳化設計。對台灣供應鏈而言，台積電再添一筆大型 AI 自研晶片代工訂單。屬科技大廠運算自主化的重要動態。",
+      "relevance": "台積電承接 OpenAI 自研晶片代工，直接連動台灣半導體供應鏈訂單能見度。",
+      "discussion": "AI 自研晶片去 GPU 化趨勢，半導體與投資圈高度關注。",
+      "url": "https://technews.tw/2026/06/24/openai-and-broadcom-unveil-llm-optimized-inference-chip",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.992248",
+      "complete": true
+    },
+    {
+      "title": "黃仁勳喊Vera Rubin已全面量產 輝達股東會最大重點「跟台積電有關」",
+      "source": "工商時報 CTEE",
+      "date": "2026-06-25",
+      "topic": "技術大廠/半導體",
+      "summary": "輝達於 6 月 25 日凌晨舉行股東會，執行長黃仁勳宣布次世代 Vera Rubin 平台已全面量產，強化「AI 工廠」敘事。他指出 Agentic AI 已讓 AI 從回答問題走向實際執行工作，推升運算需求。輝達 2026 年度營收達 2,159 億美元、年增 65%。對台灣供應鏈而言，需求正從 Blackwell 延伸至 Vera Rubin 與實體 AI，台積電、鴻海、緯創、廣達等後續訂單能見度受高度關注。等同確認 AI 資本支出主軸未變。",
+      "relevance": "Vera Rubin 量產與 CoWoS 需求直接牽動台積電及鴻海、緯創、廣達等台廠訂單。",
+      "discussion": "輝達股東會為台股 AI 供應鏈最受矚目事件，投資圈熱議。",
+      "url": "https://www.ctee.com.tw/news/20260625700509-430704",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-06-26T18:13:29.992277",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-06-26T18:05:29.849891+08:00"
+  "_updated_at": "2026-06-26T18:05:29.849891+08:00",
+  "_fallback": true
 }

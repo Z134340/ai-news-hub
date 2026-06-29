@@ -17,7 +17,12 @@
     "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.6,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.993445",
+    "complete": true
   },
   {
     "title": "使用 LangGraph 模板實現狀態機式 AI 工作流程",
@@ -35,13 +40,13 @@
       "適用於需要可重複執行且可靠的生產級 AI Agent 工作流程"
     ],
     "url": "https://earezki.com/ai-news/2026-05-25-langgraph-v39/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "title_low_match",
     "title_score": 0.29,
     "verified": "needs_review",
-    "verified_at": "2026-06-19T18:45:12.263951",
+    "verified_at": "2026-06-26T18:13:29.993474",
     "complete": true
   },
   {
@@ -60,13 +65,13 @@
       "監控包含效能指標追蹤和 regression 自動偵測"
     ],
     "url": "https://www.langchain.com/blog/the-agent-development-lifecycle",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "title_low_match",
     "title_score": 0.28,
     "verified": "needs_review",
-    "verified_at": "2026-06-19T18:45:12.264028",
+    "verified_at": "2026-06-26T18:13:29.993501",
     "complete": true
   },
   {
@@ -87,27 +92,12 @@
     "url": "https://medium.com/@n913239/mcp-%E5%AF%A6%E6%88%B0-%E8%AE%93-claude-code-%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9C%E8%B3%87%E6%96%99%E5%BA%AB-%E6%89%93-api-%E8%AE%80-figma-d53051afde01",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
-    "title": "Claude Managed Agents 完整指南：Anthropic 全託管 AI Agent 架構解析",
-    "source": "Vibe Coding Academy Blog",
-    "date": "2026-05-01",
-    "tool_name": "Claude, Anthropic Managed Agents",
-    "difficulty": "intermediate",
-    "category": "AI Agent 建構",
-    "summary": "Anthropic 於 2026 年 4 月 8 日正式推出 Claude Managed Agents，本文詳細解析這項全託管基礎設施服務的架構設計與最佳實踐。Claude Managed Agents 讓開發者無需自行建構 Agent 執行環境即可部署生產級自主 AI Agent，大幅降低 DevOps 負擔。文章涵蓋如何定義 Agent 任務範圍、配置工具呼叫權限、處理長時間執行任務以及設定安全防護層。與自建 Agent Harness 相比，全託管模式提供內建的 Token 預算管理、執行超時控制與錯誤重試機制。適合無充裕 DevOps 資源但需要快速部署 Agent 的開發團隊。",
-    "highlights": [
-      "Claude Managed Agents 是 Anthropic 首個全託管 Agent 執行基礎設施，2026 年 4 月 8 日推出",
-      "內建 Token 預算管理、執行超時控制、錯誤重試，大幅降低自建 Agent Harness 的複雜度",
-      "支援長時間運行的多步驟複雜任務，適合自動化研究與資料分析工作流",
-      "提供細粒度的工具存取控制與安全防護層設定",
-      "與 Claude API 無縫整合，可直接升級現有 Claude 應用為全託管 Agent 模式"
-    ],
-    "url": "https://www.vibecodingacademy.ai/blog/claude-managed-agents-guide",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.993528",
+    "complete": true
   },
   {
     "title": "使用 Claude Agent SDK 建構 AI Agent：Anthropic 工程部落格實戰指南",
@@ -127,7 +117,12 @@
     "url": "https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.38,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.993561",
+    "complete": true
   },
   {
     "title": "AI Agent 的 Context Engineering 完整課程",
@@ -145,13 +140,13 @@
       "強調 context 管理對 Agent 決策品質和可靠性的決定性影響"
     ],
     "url": "https://medium.com/data-science-collective/context-engineering-for-ai-agents-complete-course-fd509e276a9e",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264093",
+    "verified_at": "2026-06-26T18:13:29.993587",
     "complete": true
   },
   {
@@ -170,13 +165,13 @@
       "結合 LangSmith 可追蹤 HITL 事件和人工介入完整歷程"
     ],
     "url": "https://medium.com/@syeedmdtalha/how-to-build-a-human-in-the-loop-ai-agent-with-langchain-langgraph-26f2f5d2b83e",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264157",
+    "verified_at": "2026-06-26T18:13:29.993614",
     "complete": true
   },
   {
@@ -195,13 +190,13 @@
       "包含 RAGAS 評分框架用於評估 RAG 系統的精確率和召回率"
     ],
     "url": "https://medium.com/codetodeploy/building-your-own-rag-a-step-by-step-guide-using-langchain-and-a-vector-database-21d0566d3c51",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264220",
+    "verified_at": "2026-06-26T18:13:29.993640",
     "complete": true
   },
   {
@@ -219,13 +214,13 @@
       "建議在 CLAUDE.md 中明確定義編碼風格、測試指令、禁止行為等規則"
     ],
     "url": "https://medium.com/@n913239/claude-md-%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5-%E8%AE%93-claude-code-%E7%9C%9F%E6%AD%A3%E7%90%86%E8%A7%A3%E4%BD%A0%E7%9A%84%E5%B0%88%E6%A1%88-3a9478865a11",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264285",
+    "verified_at": "2026-06-26T18:13:29.993700",
     "complete": true
   },
   {
@@ -243,13 +238,13 @@
       "Shopify CEO 定義：Context Engineering 是讓 LLM 有機會解決任務的完整資訊設計藝術"
     ],
     "url": "https://medium.com/@codewithrashid/context-engineering-has-eaten-prompt-engineerin-eb3a869c0362",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264348",
+    "verified_at": "2026-06-26T18:13:29.993919",
     "complete": true
   },
   {
@@ -270,7 +265,12 @@
     "url": "https://www.marktechpost.com/2026/04/21/hugging-face-releases-ml-intern-an-open-source-ai-agent-that-automates-the-llm-post-training-workflow/",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.61,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.993950",
+    "complete": true
   },
   {
     "title": "建構 Multi-Agent AI 系統的 SmolAgents 實戰教學：Code 執行、工具呼叫與動態協作",
@@ -288,13 +288,13 @@
       "整合 HuggingFace Hub 開源模型，實現無需付費 API 的完整 Multi-Agent 系統"
     ],
     "url": "https://www.marktechpost.com/2026/04/15/a-coding-implementation-to-build-multi-agent-ai-systems-with-smolagents-using-code-execution-tool-calling-and-dynamic-orchestration/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-18T07:54:21.359316+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "title_low_match",
     "title_score": 0.13,
     "verified": "needs_review",
-    "verified_at": "2026-06-19T18:45:12.264418",
+    "verified_at": "2026-06-26T18:13:29.993981",
     "complete": true
   },
   {
@@ -313,13 +313,13 @@
       "Traces 功能完整追蹤 Agent 執行鏈，大幅提升除錯效率"
     ],
     "url": "https://www.youngju.dev/blog/ai-platform/2026-04-12-openai-responses-api-agents-sdk-practical-guide.en",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.49,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264486",
+    "verified_at": "2026-06-26T18:13:29.994009",
     "complete": true
   },
   {
@@ -337,13 +337,13 @@
       "幫助開發者從系統架構角度理解各框架定位"
     ],
     "url": "https://ithelp.ithome.com.tw/articles/10399686",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T13:21:26.854788+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.74,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264553",
+    "verified_at": "2026-06-26T18:13:29.994036",
     "complete": true
   },
   {
@@ -361,13 +361,13 @@
       "提供 Tool Poisoning 攻擊的防禦策略"
     ],
     "url": "https://ithelp.ithome.com.tw/articles/10399691",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T13:21:26.854788+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.72,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264620",
+    "verified_at": "2026-06-26T18:13:29.994063",
     "complete": true
   },
   {
@@ -385,13 +385,13 @@
       "提供完整範例：研究員 Agent + 撰稿員 Agent 協作產出分析報告"
     ],
     "url": "https://medium.com/@andriodsaurabh/building-your-first-ai-squad-a-beginners-guide-to-multi-agent-orchestration-with-crewai-76353faf58fb",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264684",
+    "verified_at": "2026-06-26T18:13:29.994090",
     "complete": true
   },
   {
@@ -409,13 +409,13 @@
       "自訂 Tool 只需繼承 BaseTool 並實作 _run 方法，可無縫整合 REST API 或資料庫"
     ],
     "url": "https://medium.com/@venkatesh.dev.vijayasarathy/crewai-building-intelligent-agent-teams-1b963319509a",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264748",
+    "verified_at": "2026-06-26T18:13:29.994117",
     "complete": true
   },
   {
@@ -436,7 +436,12 @@
     "url": "https://technews.tw/2026/04/08/prompt-generative-ai-vibe-coding/",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.97,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.994144",
+    "complete": true
   },
   {
     "title": "Claude Code 利用 Event-Driven Hooks 打造自動化開發大腦",
@@ -453,13 +458,13 @@
       "實戰應用案例展示自動化工作流"
     ],
     "url": "https://ithelp.ithome.com.tw/articles/10399199",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T13:21:26.854788+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264814",
+    "verified_at": "2026-06-26T18:13:29.994171",
     "complete": true
   },
   {
@@ -480,7 +485,12 @@
     "url": "https://technews.tw/2026/04/07/five-prompt-tips-to-eliminate-standard-syntax/",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.994197",
+    "complete": true
   },
   {
     "title": "Real-World Agent Examples with Gemini 3",
@@ -497,13 +507,13 @@
       "所有範例可直接 clone、執行與檢視"
     ],
     "url": "https://developers.googleblog.com/real-world-agent-examples-with-gemini-3/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T13:21:26.854788+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264880",
+    "verified_at": "2026-06-26T18:13:29.994224",
     "complete": true
   },
   {
@@ -522,13 +532,13 @@
       "2026 年頂尖開發者普遍採用「小 context + 平行 session」策略"
     ],
     "url": "https://medium.com/@richardhightower/claude-code-2026-the-daily-operating-system-top-developers-actually-use-d393a2a5186d",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T21:04:44.589759+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.264942",
+    "verified_at": "2026-06-26T18:13:29.994250",
     "complete": true
   },
   {
@@ -547,13 +557,13 @@
       "文件分塊策略對回答品質影響重大，需根據文件類型調整"
     ],
     "url": "https://dev.to/dharshan_a_23835c7dc05682/build-a-production-ready-rag-system-over-your-own-documents-in-2026-a-practical-tutorial-4hd0",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T10:29:23.592103+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "title_low_match",
     "title_score": 0.14,
     "verified": "needs_review",
-    "verified_at": "2026-06-19T18:45:12.265011",
+    "verified_at": "2026-06-26T18:13:29.994278",
     "complete": true
   },
   {
@@ -571,13 +581,13 @@
       "MCP 被比喻為 AI 的 USB-C 通用介面"
     ],
     "url": "https://medium.com/@sarankumar.nkl/mcp-vs-rag-vs-ai-agents-a-technical-deep-dive-with-code-b097280b3be6",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T13:21:26.854788+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265074",
+    "verified_at": "2026-06-26T18:13:29.994302",
     "complete": true
   },
   {
@@ -595,13 +605,13 @@
       "討論金融業 Agentic AI 的合規考量：審計軌跡、Human-in-the-loop 審查節點設計"
     ],
     "url": "https://medium.com/@er.rajkumaar/building-multi-agent-ai-systems-for-banking-simple-task-automation-with-crewai-part-2-eff01d8b0579",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265137",
+    "verified_at": "2026-06-26T18:13:29.994327",
     "complete": true
   },
   {
@@ -622,7 +632,12 @@
     "url": "https://www.shareuhack.com/en/posts/openai-agents-sdk-indie-maker-guide-2026",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.12,
+    "verified": "needs_review",
+    "verified_at": "2026-06-26T18:13:29.994354",
+    "complete": true
   },
   {
     "title": "2026 年 LangChain AI Agent 建構入門完整指南",
@@ -642,31 +657,11 @@
     "url": "https://medium.com/@aryavr2030/building-ai-agents-with-langchain-a-beginners-guide-for-2026-bd5efe29eecb",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
-    "title": "使用 LangChain 建構 AI Agent：2026 年初學者完整指南",
-    "source": "Medium",
-    "date": "2026-04-01",
-    "tool_name": "LangChain",
-    "difficulty": "beginner",
-    "category": "AI Agent 建構",
-    "summary": "本文為 LangChain 初學者提供系統性的 AI Agent 建構入門教學。文章介紹 LangChain v0.3 的核心架構，包含 LangGraph 作為有狀態編排層，以及如何定義工具、設定記憶體和串接外部 API。作者從最簡單的 ReAct Agent 開始，逐步擴展到多工具 Agent，並提供可直接執行的 Python 程式碼。特別適合非 AI 專業但有程式基礎的開發者，快速上手現代 AI Agent 開發。",
-    "highlights": [
-      "LangChain v0.3 搭配 LangGraph 已成為 2026 年 AI Agent 最主流開發框架，GitHub Stars 超過 90,000",
-      "ReAct Agent 架構讓 LLM 交替進行「推理」和「行動」，有效完成複雜多步驟任務",
-      "工具定義使用 @tool 裝飾器，可輕鬆包裝任何 Python 函數為 LLM 可調用工具",
-      "ConversationBufferMemory 和 ConversationSummaryMemory 提供不同層次的記憶管理",
-      "從零到完整 Agent 僅需約 50 行 Python 程式碼，入門門檻大幅降低"
-    ],
-    "url": "https://medium.com/@aryavr2030/building-ai-agents-with-langchain-a-beginners-guide-for-2026-bd5efe29eecb",
-    "is_new": false,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265199",
+    "verified_at": "2026-06-26T18:13:29.994381",
     "complete": true
   },
   {
@@ -684,13 +679,13 @@
       "生產部署建議：Docker 多階段建構 + OpenTelemetry + 健康檢查 + 優雅關閉"
     ],
     "url": "https://medium.com/@sanwarhossain/model-context-protocol-mcp-developer-guide-build-custom-ai-tools-in-2026-md-sanwar-hossain-28c8cab38217",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265261",
+    "verified_at": "2026-06-26T18:13:29.994407",
     "complete": true
   },
   {
@@ -708,13 +703,13 @@
       "建構完成的 MCP Server 可在 Claude Desktop、Zed、Cursor 等支援 MCP 的客戶端中直接使用"
     ],
     "url": "https://medium.com/@1150748716rick/ultimate-guide-to-model-context-protocol-mcp-c65e182bccfa",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265324",
+    "verified_at": "2026-06-26T18:13:29.994434",
     "complete": true
   },
   {
@@ -732,13 +727,13 @@
       "介紹 LangGraph 和 OpenAI Agents SDK 的具體 Context 管理實作方式"
     ],
     "url": "https://medium.com/@arvisionlab/context-engineering-for-ai-agents-a-practical-playbook-for-developers-in-2026-934ac7c4b676",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265387",
+    "verified_at": "2026-06-26T18:13:29.994461",
     "complete": true
   },
   {
@@ -756,13 +751,13 @@
       "2026 年趨勢：各框架統一支援 MCP 協議，A2A（Agent-to-Agent）通訊標準逐漸成形"
     ],
     "url": "https://medium.com/@atnoforgenai/10-ai-agent-frameworks-you-should-know-in-2026-langgraph-crewai-autogen-more-2e0be4055556",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265449",
+    "verified_at": "2026-06-26T18:13:29.994486",
     "complete": true
   },
   {
@@ -781,13 +776,13 @@
       "2026 年新增 Credit 計費模式，高級 Agent 操作（如 Copilot Coding Agent）按 Credit 計費"
     ],
     "url": "https://medium.com/@hpultimatemedia/github-copilot-the-complete-deep-dive-guide-b740684607cc",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-18T07:54:21.359316+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265512",
+    "verified_at": "2026-06-26T18:13:29.994512",
     "complete": true
   },
   {
@@ -806,13 +801,13 @@
       "提供完整 Python 程式碼範例，適合從未接觸 Agent 框架的初學者快速入門"
     ],
     "url": "https://medium.com/@kapilkumar080/langgraph-explained-the-simplest-guide-to-building-ai-agents-094806bcdcb8",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-18T07:54:21.359316+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265575",
+    "verified_at": "2026-06-26T18:13:29.994537",
     "complete": true
   },
   {
@@ -831,13 +826,13 @@
       "AgentCore 的日誌監控與自動擴展讓 Multi-Agent 系統在高負載下保持穩定"
     ],
     "url": "https://thecraftman.medium.com/host-crewai-multi-agent-crews-with-amazon-bedrock-models-on-agentcore-runtime-fe719ca5b0f3",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-18T07:54:21.359316+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265639",
+    "verified_at": "2026-06-26T18:13:29.994563",
     "complete": true
   },
   {
@@ -856,13 +851,13 @@
       "建議先在小型專案或沙箱環境熟悉 Agent 模式，再引入生產程式碼庫"
     ],
     "url": "https://medium.com/@mpholoane/how-to-use-github-copilot-agent-mode-in-visual-studio-2026-practical-tips-and-lessons-learned-3e5e2d2110be",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-18T07:54:21.359316+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265703",
+    "verified_at": "2026-06-26T18:13:29.994588",
     "complete": true
   },
   {
@@ -881,13 +876,13 @@
       "2026 年 Agent 架構趨勢是「簡化 Agent + 強化 Skill」而非堆疊更多 Agent"
     ],
     "url": "https://medium.com/@nayanarshet5/what-it-actually-takes-to-build-ai-agents-that-work-d228781f5993",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T21:04:44.589759+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265765",
+    "verified_at": "2026-06-26T18:13:29.994613",
     "complete": true
   },
   {
@@ -906,77 +901,13 @@
       "文章提供從零到部署的完整學習資源清單，適合完全初學者"
     ],
     "url": "https://medium.com/activated-thinker/beginners-guide-to-ai-agents-37e16f04b89d",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-04-13T10:29:23.592103+08:00",
-    "last_seen": "2026-05-11T12:47:43.107901+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265828",
+    "verified_at": "2026-06-26T18:13:29.994639",
     "complete": true
-  },
-  {
-    "title": "六個月轉職 AI 工程師？190 萬瀏覽的學習路徑完整解析",
-    "source": "TechNews 科技新報",
-    "date": "2026-03-30",
-    "tool_name": "Python, LLM API, RAG, AI Agent",
-    "difficulty": "beginner",
-    "category": "AI 學習路徑規劃",
-    "summary": "本文解析一篇獲得 190 萬次瀏覽的 AI 工程師轉職指南，詳細說明六個月結構化學習計畫的內容與邏輯。文章強調現今企業最迫切需要的 AI 工程師，是能將現有 AI 模型轉化為可實際應用產品並成功部署上線的工程型人才，而非 AI 研究型科學家。完整學習路徑涵蓋 Python 基礎、LLM API 整合使用、RAG 架構設計與實作、AI Agent 開發到雲端部署。文章分析 AI 工程師與傳統軟體工程師的技能差異，並提供 2026 年市場薪資與職缺需求趨勢資料。",
-    "highlights": [
-      "六個月結構化學習計畫，從零開始到能獨立承接 AI 應用開發專案",
-      "市場需要的是能落地部署 AI 應用的工程師，不是 AI 研究員",
-      "學習路徑：Python → LLM API → RAG 架構 → AI Agent 開發 → 雲端部署",
-      "2026 年 AI 工程師薪資區間與市場職缺需求趨勢分析",
-      "提供可立即開始的學習資源清單，包含免費課程與實作專案建議"
-    ],
-    "url": "https://technews.tw/2026/03/30/become-an-ai-engineer-in-six-months/",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
-    "title": "銀行業 Multi-Agent AI 系統建構：CrewAI Agentic AI 實踐指南（第一部分）",
-    "source": "Medium",
-    "date": "2026-03-26",
-    "tool_name": "CrewAI",
-    "difficulty": "advanced",
-    "category": "Multi-Agent 應用",
-    "summary": "本文是專為金融業設計的 Multi-Agent AI 系統建構系列第一部，介紹架構設計與基礎建設。作者說明傳統自動化在銀行業面臨監管、解釋性與複雜決策的挑戰，以及 Agentic AI 如何提供更靈活的解決方案。文章詳細設計三層 Agent 架構：資料收集 Agent、分析推理 Agent、決策輸出 Agent，並說明各層之間的職責分工與資料流動。包含環境設置與第一個信用評估 Agent 的完整程式碼。",
-    "highlights": [
-      "銀行業 Agentic AI 三大挑戰：監管合規（可稽核）、模型可解釋性、高可靠性需求",
-      "三層架構：資料收集層（爬取/API）→ 推理分析層（LLM + 規則）→ 決策輸出層（結構化報告）",
-      "CrewAI 在金融場景的優勢：Agent 角色設定對應真實業務職能，易於與 Compliance 團隊溝通",
-      "第一個範例：信用評估 Agent，結合財務比率分析與 LLM 定性推理"
-    ],
-    "url": "https://medium.com/@er.rajkumaar/building-multi-agent-ai-systems-for-banking-a-practical-guide-to-agentic-ai-with-crewai-part-1-4fb47e4d9193",
-    "is_new": false,
-    "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-06-19T18:45:12.265892",
-    "complete": true
-  },
-  {
-    "title": "寫提示詞別再加「你是專家」：研究建議直接發送指令",
-    "source": "TechNews 科技新報",
-    "date": "2026-03-24",
-    "tool_name": "ChatGPT, Claude",
-    "difficulty": "beginner",
-    "category": "Prompt 工程",
-    "summary": "南加州大學研究團隊及多項最新實驗發現，在提示詞中添加「你是 X 領域專家」等人格設定，在程式編寫與數學運算等任務中反而會導致模型表現下滑。研究建議使用者直接以清晰、明確的任務指令發送提示詞，省略不必要的角色扮演設定。本文整理相關研究結果，說明背後可能的機制，並提供將舊式「專家角色」提示詞改寫為直接指令的具體範例。對於長期依賴此類提示策略的使用者，文章提供了逐步調整的轉換建議，以及在什麼情境下角色設定仍具有效果。",
-    "highlights": [
-      "學術研究證實：「你是專家」類提示在程式碼與數學任務中會降低模型輸出品質",
-      "直接明確的任務指令比角色扮演設定更能提升 AI 輸出表現",
-      "提供舊式「角色設定型」提示詞改寫為直接指令的具體對比範例",
-      "說明角色設定在少數特定情境仍可能有效，提供使用判斷原則",
-      "適用於 ChatGPT、Claude 等主流 LLM 的 Prompt 最佳化建議"
-    ],
-    "url": "https://technews.tw/2026/03/24/dont-add-youre-an-expert-to-your-prompts-anymore/",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
   }
 ]

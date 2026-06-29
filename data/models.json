@@ -1,37 +1,5 @@
 [
   {
-    "model_name": "GLM-5.2",
-    "version": "5.2",
-    "institution": "Z.ai (Zhipu AI)",
-    "release_date": "2026-06-13",
-    "domain": "LLM",
-    "summary": "GLM-5.2 是 Z.ai（前智譜 AI）發布的完全開源混合專家模型，具備 744B 總參數（40B 激活），上下文視窗擴展至 100 萬 token，採 MIT 許可證。模型引入 IndexShare 技術，每四層共享一個輕量索引器，在百萬 token 場景下每 token 計算量降低 2.9 倍。在 SWE-bench Pro（62.1）上超越 GPT-5.5（58.6），以約六分之一成本完成長時程編程任務。同步支援百萬 token 實用推論，適用於大型代碼倉庫分析與複雜代理工作流程。",
-    "advantages": [
-      "完全開源（MIT 授權），無地區鎖定或使用限制",
-      "百萬 token 上下文（較 GLM-5.1 的 200K 擴展 5 倍）",
-      "IndexShare 技術在百萬 token 推論效率提升 2.9 倍",
-      "SWE-bench Pro 62.1，超越 GPT-5.5（58.6）",
-      "成本約為 GPT-5.5 的六分之一"
-    ],
-    "benchmarks": [
-      "Terminal-Bench 2.1: 81.0",
-      "SWE-bench Pro: 62.1",
-      "AIME 2026: 99.2%",
-      "Artificial Analysis Intelligence Index v4.1: 51"
-    ],
-    "highlights": [
-      "首個在長時程編程基準超越 GPT-5.5 的中國開源模型",
-      "IndexShare 技術創新，大幅降低百萬 token 上下文推論成本",
-      "Z.ai 首家在港交所上市的中國 AI 實驗室背景",
-      "MoE 架構以 40B 激活參數實現超高效率",
-      "744B 參數規模完全開源，Hugging Face 及 ModelScope 可下載"
-    ],
-    "url": "https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
     "model_name": "Kimi K2.7 Code",
     "version": "K2.7",
     "institution": "Moonshot AI",
@@ -61,7 +29,12 @@
     "url": "https://www.kimi.com/resources/kimi-k2-7-code",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.994870",
+    "complete": true
   },
   {
     "model_name": "Claude Fable 5",
@@ -91,7 +64,12 @@
     "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.994898",
+    "complete": true
   },
   {
     "model_name": "MiniMax M3",
@@ -123,7 +101,12 @@
     "url": "https://www.minimax.io/blog/minimax-m3",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.994926",
+    "complete": true
   },
   {
     "model_name": "Qwen3.7-Plus",
@@ -153,7 +136,12 @@
     "url": "https://www.marktechpost.com/2026/06/02/alibabas-qwen-team-launches-qwen3-7-plus-adding-vision-deep-reasoning-tool-invocation-and-autonomous-iteration-on-the-bailian-platform/",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.26,
+    "verified": "needs_review",
+    "verified_at": "2026-06-26T18:13:29.994955",
+    "complete": true
   },
   {
     "model_name": "Claude Opus",
@@ -184,13 +172,13 @@
       "定價凍結，每百萬 token $5/$25 維持不變"
     ],
     "url": "https://www.anthropic.com/news/claude-opus-4-8",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267178",
+    "verified_at": "2026-06-26T18:13:29.994981",
     "complete": true
   },
   {
@@ -224,42 +212,11 @@
     "url": "https://www.marktechpost.com/2026/05/21/qwen-introduces-qwen3-7-max-a-reasoning-agent-model-with-a-1m-token-context-window/",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
-    "model_name": "Qwen3.7-Max",
-    "version": "3.7-Max",
-    "institution": "Alibaba (Qwen Team)",
-    "release_date": "2026-05-20",
-    "domain": "LLM",
-    "summary": "Alibaba 於 2026 年 5 月 20 日在雲棲大會發布 Qwen3.7-Max，定位為 Agent 時代的旗艦推理模型，專為程式設計、辦公自動化及長時程 Agent 任務最佳化。支援高達 100 萬 token 的上下文視窗，具備超強的自主執行能力，在一次自主核心最佳化任務中持續運行長達 35 小時，執行超過 1,000 次工具呼叫不中斷。在 Artificial Analysis Intelligence Index 達 56.6，並深度整合 MCP 協定與多 Agent 協作架構。搭配 Alibaba 同步發布的 T-Head Zhenwu M890 AI 加速晶片，打造完整的 AI 基礎設施生態。純文字輸入設計，商業 API 於發布前一天即上線 OpenRouter 等多個第三方平台。",
-    "advantages": [
-      "100 萬 token 超長上下文視窗，支援超長程 Agent 任務",
-      "35 小時連續自主執行，執行 1,000+ 次工具呼叫不中斷",
-      "深度整合 MCP 協定與多 Agent 協作架構",
-      "Artificial Analysis Intelligence Index 達 56.6",
-      "發布首日即在 OpenRouter、Together AI 等多平台上線"
-    ],
-    "benchmarks": [
-      "Artificial Analysis Intelligence Index: 56.6",
-      "Long-horizon autonomous task: 35+ hours, 1000+ tool calls",
-      "Context Window: 1M tokens"
-    ],
-    "highlights": [
-      "Agent 時代旗艦模型，專為數百至數千步驟自動化任務設計",
-      "35 小時連續自主執行創業界記錄",
-      "搭配 T-Head Zhenwu M890 AI 加速晶片的完整 AI 生態系",
-      "發布首日即覆蓋多個第三方 API 平台",
-      "Alibaba Cloud Summit 2026 重磅發布"
-    ],
-    "url": "https://www.alibabacloud.com/blog/qwen3-7-the-agent-frontier_603154",
-    "is_new": false,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
-    "title_score": 0.42,
+    "title_score": 0.41,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267247",
+    "verified_at": "2026-06-26T18:13:29.995008",
     "complete": true
   },
   {
@@ -291,43 +248,11 @@
     "url": "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
-    "model_name": "Gemini 3.5 Flash",
-    "version": "3.5 Flash",
-    "institution": "Google DeepMind",
-    "release_date": "2026-05-19",
-    "domain": "Multimodal LLM",
-    "summary": "Google 於 2026 年 5 月 19 日 Google I/O 大會發布 Gemini 3.5 Flash，作為 Gemini 3.5 系列首個公開模型即日全球上線。在 coding、agentic 任務及多模態推理等關鍵基準上，全面超越前代旗艦模型 Gemini 3.1 Pro，同時保持 Flash 系列低成本與高速度優勢。輸出 token 速度比同等前沿模型快 4 倍，Terminal-Bench 2.1 達 76.2%，MCP Atlas 工具協調達 83.6%。發布當天即成為 Gemini 應用程式與 Google 搜尋 AI 模式的全球預設模型，定價低於同等能力競爭模型的一半。",
-    "advantages": [
-      "在 coding、agentic 及多模態基準上全面超越 Gemini 3.1 Pro",
-      "輸出速度比同類前沿模型快 4 倍",
-      "Terminal-Bench 2.1 達 76.2%，領先長時程 Agent 任務測試",
-      "成本低於同等能力競爭對手一半以上",
-      "MCP Atlas 工具協調達 83.6%，Agent 整合能力突出"
-    ],
-    "benchmarks": [
-      "Terminal-Bench 2.1: 76.2%",
-      "MCP Atlas: 83.6%",
-      "GDPval-AA: 1656 Elo",
-      "CharXiv (multimodal understanding): 84.2%"
-    ],
-    "highlights": [
-      "Google I/O 2026 重磅發布，即日全球上線",
-      "成為 Gemini 應用程式與 Google 搜尋的全球預設模型",
-      "長時程 Agent 任務最佳成本效益方案",
-      "多模態理解 CharXiv 達 84.2%",
-      "Flash 系列成本優勢與前沿能力兼得"
-    ],
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
-    "is_new": false,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
-    "title_score": 0.46,
+    "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267311",
+    "verified_at": "2026-06-26T18:13:29.995035",
     "complete": true
   },
   {
@@ -358,13 +283,13 @@
       "簡潔、實用、職場友好的回應風格全面優化"
     ],
     "url": "https://openai.com/index/gpt-5-5-instant/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267374",
+    "verified_at": "2026-06-26T18:13:29.995061",
     "complete": true
   },
   {
@@ -398,11 +323,11 @@
     "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
     "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267435",
+    "verified_at": "2026-06-26T18:13:29.995087",
     "complete": true
   },
   {
@@ -432,13 +357,13 @@
       "與 V4 Pro 共享相同長文推理架構優勢"
     ],
     "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267495",
+    "verified_at": "2026-06-26T18:13:29.995111",
     "complete": true
   },
   {
@@ -472,11 +397,11 @@
     "url": "https://openai.com/index/introducing-gpt-5-5/",
     "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267557",
+    "verified_at": "2026-06-26T18:13:29.995137",
     "complete": true
   },
   {
@@ -503,13 +428,13 @@
       "首批 Qwen 在代理能力對標閉源旗艦的開源模型"
     ],
     "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267614",
+    "verified_at": "2026-06-26T18:13:29.995162",
     "complete": true
   },
   {
@@ -541,13 +466,13 @@
       "Kimi.com、官方 API 及 Hugging Face 全管道可用"
     ],
     "url": "https://huggingface.co/moonshotai/Kimi-K2.6",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267656",
+    "verified_at": "2026-06-26T18:13:29.995187",
     "complete": true
   },
   {
@@ -581,39 +506,12 @@
     "url": "https://artificialanalysis.ai/articles/xai-launches-grok-4-3-with-improved-agentic-performance-and-lower-pricing",
     "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
-  },
-  {
-    "model_name": "Claude Opus 4.7",
-    "version": "Opus 4.7",
-    "institution": "Anthropic",
-    "release_date": "2026-04-16",
-    "domain": "LLM",
-    "summary": "Claude Opus 4.7 是 Anthropic 於 2026 年 4 月 16 日發布的旗艦代理推理模型，在 SWE-bench Verified（87.6%，較 4.6 提升 6.8 個百分點）和 SWE-bench Pro（64.3%，較 4.6 提升 10.9 個百分點）上創下業界最高紀錄。修正 4.6 版過度擴展範圍的問題，代理執行更精確、修改更少檔案並能清楚說明推理過程。Rakuten-SWE-Bench 生產任務解決率為 Opus 4.6 的三倍。視覺解析度同步提升，能以更高精度理解圖像。定價維持 $5/$25 每百萬 token 不漲價。",
-    "advantages": [
-      "SWE-bench Verified 87.6% 業界最高，SWE-bench Pro 64.3% 超越所有競爭模型",
-      "修正 4.6 過度擴展問題，代理行為更精確可控",
-      "Rakuten-SWE-Bench 生產任務解決率為 Opus 4.6 的 3 倍",
-      "視覺解析度顯著提升，圖像理解能力增強",
-      "定價維持 $5/$25 不漲，提供更高性價比"
-    ],
-    "benchmarks": [
-      "SWE-bench Verified: 87.6% (+6.8% vs 4.6)",
-      "SWE-bench Pro: 64.3% (+10.9% vs 4.6)",
-      "Rakuten-SWE-Bench: 3x production tasks vs Opus 4.6",
-      "LMSYS Arena (thinking mode): #1"
-    ],
-    "highlights": [
-      "SWE-bench Pro 64.3% 超越當時所有前沿模型",
-      "修正 4.6 過度擴展社群反饋，代理行為更精確",
-      "在 Claude API、AWS Bedrock、GCP Vertex AI、Microsoft Foundry 全平台可用",
-      "思考模式在 LMSYS Arena 排名第一",
-      "專業任務輸出更具美感與創意（介面、投影片、文件）"
-    ],
-    "url": "https://www.anthropic.com/news/claude-opus-4-7",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-06-26T18:13:29.995215",
+    "complete": true
   },
   {
     "model_name": "Qwen3.6-35B-A3B",
@@ -643,44 +541,14 @@
       "以 27B 密集模型成本實現 35B MoE 性能"
     ],
     "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-06-01T20:27:05.901051+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267699",
+    "verified_at": "2026-06-26T18:13:29.995239",
     "complete": true
-  },
-  {
-    "model_name": "Meta Muse Spark",
-    "version": "Muse Spark",
-    "institution": "Meta",
-    "release_date": "2026-04-08",
-    "domain": "Multimodal LLM",
-    "summary": "Meta Muse Spark 是 Meta Superintelligence Labs 於 2026 年 4 月 8 日推出的首款模型，標誌 Meta 從 Llama 開源策略轉向閉源旗艦路線。模型為原生多模態推理設計，支援工具使用、視覺思維鏈及多代理協作。Contemplating 模式可並行啟動多個推理代理，與 Gemini Deep Think 和 GPT Pro 等極端推理模式競爭。Meta AI 團隊歷時九個月從頭重建整個 AI 技術棧。模型以閉源形式部署於 WhatsApp、Instagram、Facebook 及 Meta AI 眼鏡。",
-    "advantages": [
-      "九個月從頭重建 AI 技術棧，突破前代 Llama 架構限制",
-      "Contemplating 模式並行多代理推理，競爭極端推理模式",
-      "原生多模態設計（視覺思維鏈）",
-      "工具使用與多代理協作原生支援",
-      "廣泛部署至 WhatsApp/Instagram/Facebook/AI 眼鏡（20 億用戶觸達）"
-    ],
-    "benchmarks": [
-      "科學、數學、健康等複雜推理可競爭前沿模型",
-      "Contemplating 模式：可與 Gemini Deep Think 競爭"
-    ],
-    "highlights": [
-      "Meta 宣告放棄 Llama 開源品牌，轉向閉源旗艦路線",
-      "Meta Superintelligence Labs 九個月全棧重建首個成果",
-      "Contemplating 並行代理推理模式首次亮相",
-      "史上最廣泛社群平台部署規模",
-      "標誌 Meta AI 戰略的重大轉向，引發開源社群廣泛爭議"
-    ],
-    "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00"
   },
   {
     "model_name": "Microsoft MAI Foundational Models",
@@ -706,13 +574,13 @@
       "MAI Superintelligence 團隊首款商業產品"
     ],
     "url": "https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-05-25T08:21:05.776543+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.67,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267792",
+    "verified_at": "2026-06-26T18:13:29.995266",
     "complete": true
   },
   {
@@ -745,11 +613,11 @@
     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
     "is_new": true,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-06-22T18:46:04.581666+08:00",
+    "last_seen": "2026-06-29T18:02:00.879338+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-06-19T18:45:12.267837",
+    "verified_at": "2026-06-26T18:13:29.995292",
     "complete": true
   }
 ]

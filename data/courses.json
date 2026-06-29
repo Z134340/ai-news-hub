@@ -24,7 +24,12 @@
         "透過 OpenAI Academy 平台完全免費開放",
         "強調實際職場場景，包含草稿撰寫、摘要、規劃與會議準備等應用情境"
       ],
-      "url": "https://openai.com/index/academy-courses-applying-ai-at-work/"
+      "url": "https://openai.com/index/academy-courses-applying-ai-at-work/",
+      "url_status": "verified",
+      "title_score": 0.39,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.994749",
+      "complete": true
     },
     {
       "title": "DeepLearning.AI × Google 短期課程：AI Agents for Image and Video Generation（圖像與影片生成 AI Agent 實作）",
@@ -51,35 +56,12 @@
         "由 Google Cloud AI 資深工程師主講，結合最新 Google 生成式 AI 工具",
         "適合希望建構媒體自動化 AI Agent 的開發者"
       ],
-      "url": "https://www.deeplearning.ai/courses/ai-agents-for-image-and-video-generation"
-    },
-    {
-      "title": "Microsoft Certified：Azure AI Apps and Agents Developer Associate 新認證（考試 AI-103）",
-      "source": "Microsoft",
-      "date": "2026-04-15",
-      "provider": "Microsoft",
-      "is_free": false,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "自訂備考（考試 120 分鐘）",
-      "topics": [
-        "Azure AI",
-        "Agentic AI",
-        "Generative AI",
-        "Microsoft Foundry",
-        "AI-103",
-        "Multimodal AI",
-        "Responsible AI"
-      ],
-      "summary": "Microsoft 宣布推出全新 Azure AI Apps and Agents Developer Associate 認證（考試代號 AI-103），專為使用 Azure 服務與 Microsoft Foundry 開發生成式 AI、多模態情境及 Agentic 工作流程的開發者設計，預計 2026 年 6 月正式公開發行（GA）。此 Associate 級別認證反映企業對 Agentic AI 開發能力的快速增長需求，考試 AI-103 目前處於 Beta 測試階段可報名。配套自學課程《AI-103：Develop AI apps and agents on Azure》已在 Microsoft Learn 上免費開放。此次認證更新為 Microsoft 2026 年 AI 認證體系大改版的一部分，同步包含 Azure AI Fundamentals 更新與 ML Ops 工程師新認證等多項調整。",
-      "highlights": [
-        "全新 Associate 級別認證，聚焦 Azure AI Agent 與生成式 AI 應用開發",
-        "考試 AI-103 涵蓋生成式 AI、多模態情境、Agentic 工作流程與 Responsible AI",
-        "整合 Microsoft Foundry，對齊最新企業 AI 開發平台",
-        "2026 年 6 月預計 GA，Beta 考試已開放報名",
-        "備考學習課程在 Microsoft Learn 免費提供"
-      ],
-      "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-azure-ai-apps-and-agents-developer-associate/4494126"
+      "url": "https://www.deeplearning.ai/courses/ai-agents-for-image-and-video-generation",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.994777",
+      "complete": true
     },
     {
       "title": "Microsoft Azure AI Fundamentals 認證更新：AI-901 考試 Beta 上線，AI-900 將於 2026 年 6 月 30 日退役",
@@ -106,7 +88,12 @@
         "現有 AI-900 認證在有效期間內繼續有效",
         "Microsoft Learn 免費提供 AI-901 備考學習路徑"
       ],
-      "url": "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/"
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/",
+      "url_status": "verified",
+      "title_score": 0.49,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.994805",
+      "complete": true
     },
     {
       "title": "DeepLearning.AI × Oracle 短期課程：Agent Memory — Building Memory-Aware Agents（建構記憶感知 AI Agent）",
@@ -133,8 +120,14 @@
         "教授設計跨會話長期記憶機制，適用於企業級 AI Agent 開發",
         "由 Oracle AI 資深工程師 Richmond Alake 主講，適合有 Agent 開發基礎的工程師"
       ],
-      "url": "https://www.deeplearning.ai/courses/agent-memory-building-memory-aware-agents"
+      "url": "https://www.deeplearning.ai/courses/agent-memory-building-memory-aware-agents",
+      "url_status": "verified",
+      "title_score": 0.62,
+      "verified": true,
+      "verified_at": "2026-06-26T18:13:29.994832",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-06-22T18:42:39.504704+08:00"
+  "_updated_at": "2026-06-22T18:42:39.504704+08:00",
+  "_fallback": true
 }
