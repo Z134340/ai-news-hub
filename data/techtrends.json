@@ -1,86 +1,80 @@
 {
   "items": [
     {
-      "title": "Research Finds 96% of Organizations Report that Agentic AI Deployments Met or Exceeded ROI Expectations in 2026",
-      "source": "GlobeNewswire (SoundHound AI)",
-      "date": "2026-06-18",
-      "category": "產業報告",
-      "summary": "SoundHound AI 於 2026 年 6 月 18 日發布的最新研究顯示，在已實際導入代理式 AI（agentic AI）的企業中，高達 96% 回報投資報酬達標或超標（54% 達標、42% 超標），代表企業對 AI Agent 的態度已從觀望轉為實證獲利。調查對象為客服、客戶體驗與營運主管，且其代理式 AI 專案皆已進入正式生產環境，受訪企業主要來自零售電商、醫療、電信與銀行金融業。研究指出 72% 企業回報員工滿意度提升，90% 預期五年內至少有 25% 客戶互動將由 AI Agent 完整處理，58% 更預期多數互動將由 AI 解決。值得注意的是，有 50% 企業表示客戶如今更願意主動與 AI 自助平台（如 AI 客服聊天、語音系統）互動，逆轉了過去多年消費者迴避自助服務的趨勢。相較 2025 年仍有半數主管抱怨 AI 專案進度落後，此次報告反映悲觀情緒已被可量化的成效取代。",
-      "highlights": [
-        "96% 導入代理式 AI 的企業回報 ROI 達標或超標（54% 達標、42% 超標）",
-        "72% 企業回報導入後員工滿意度提升",
-        "90% 預期五年內至少 25% 客戶互動由 AI Agent 完整解決，58% 預期過半互動由 AI 處理",
-        "50% 企業觀察到客戶更願意主動與 AI 自助平台互動，逆轉長年迴避趨勢",
-        "調查對象限定客服／客戶體驗／營運主管，且專案皆已上線生產環境"
-      ],
-      "url": "https://www.globenewswire.com/news-release/2026/06/18/3314234/0/en/research-finds-96-of-organizations-report-that-agentic-ai-deployments-met-or-exceeded-roi-expectations-in-2026.html",
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.992980",
-      "complete": true
-    },
-    {
-      "title": "Gartner Predicts Neocloud Providers Will Capture 20% of the $267 Billion AI Cloud Market by 2030",
+      "title": "Gartner Predicts AI Coding Costs Will Surpass Average Developer's Salary by 2028 as Token Consumption Surges",
       "source": "Gartner",
-      "date": "2026-06-23",
-      "category": "AI趨勢",
-      "summary": "Gartner 於 2026 年 6 月 23 日發布最新預測，指出專為 AI 與高效能運算工作負載打造的「neocloud」（新型雲端）供應商，將在 2030 年取得規模達 2,670 億美元的 AI 雲端市場中的 20% 份額。Neocloud 指的是有別於傳統超大規模雲端業者（hyperscaler）、專門針對 AI 訓練與推論等 GPU 密集工作負載而建構的雲端服務商。此預測反映代理式 AI 與大型模型運算需求激增，正推動企業 AI 基礎設施採購格局重新洗牌，傳統超大規模業者的主導地位開始受到專業化 GPU 雲與主權 AI（sovereign AI）基礎設施的侵蝕。對企業而言，這代表 AI 算力供應來源將更為多元，採購策略需重新評估成本、效能與資料主權之間的取捨。",
-      "highlights": [
-        "Neocloud 供應商預計 2030 年取得 AI 雲端市場 20% 份額",
-        "目標市場規模達 2,670 億美元（$267 Billion）",
-        "Neocloud 為專為 AI／高效能運算工作負載打造的新型雲端業者",
-        "代理式 AI 與大模型算力需求推動 AI 基礎設施採購格局重組",
-        "傳統 hyperscaler 主導地位面臨專業化 GPU 雲挑戰"
-      ],
-      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-06-23-gartner-predicts-neocloud-providers-will-capture-20-percent-of-the-267-billion-dollar-ai-cloud-market-by-2030",
-      "url_status": "needs_review",
-      "title_score": 0,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993009",
-      "complete": true
-    },
-    {
-      "title": "OpenAI IPO 前夕招攬 Transformer 共同發明人 Noam Shazeer 加入，強化技術陣容",
-      "source": "TechCrunch",
-      "date": "2026-06-18",
+      "date": "2026-06-24",
       "category": "企業AI",
-      "summary": "OpenAI 在 IPO 準備期間密集延攬重量級人才，Transformer 架構共同發明人 Noam Shazeer 以架構研究負責人身份加入，同週前 Trump 政府 AI 政策官員 Dean Ball 也確認入職。Shazeer 此前在 Google DeepMind 任職，此次轉投 OpenAI 被視為頂尖 AI 研究人才向 OpenAI 聚攏的信號。OpenAI 估值預期超過 3000 億美元，多項企業產品（Workspace Agents、Codex 擴展）同步更新。市場分析師認為此舉旨在強化 IPO 前的技術可信度，以對抗 Anthropic 在企業 AI 市場的強勁攻勢。",
+      "summary": "Gartner 最新預測指出，到 2028 年企業使用 AI 輔助編碼的年度成本將超過一般開發者的平均薪資。主因是大型語言模型（LLM）的 token 消耗量隨著 agentic 編碼工具普及而快速攀升，加上軟體授權模式從固定訂閱轉向依用量計費（consumption-based licensing），使成本呈非線性成長。Gartner 警告，企業原以為導入 AI 編碼可節省人力，實際卻新增一筆難以預估、可能失控的推論營運支出。報告建議 CIO 必須建立 token 用量治理與成本可視化機制，否則生產力效益將被推高的推論成本抵銷。",
       "highlights": [
-        "Transformer 共同發明人 Noam Shazeer 加入 OpenAI 擔任架構研究負責人",
-        "前 Trump AI 政策官員 Dean Ball 同週確認入職，強化政策倡議能力",
-        "OpenAI 估值預期超過 3000 億美元，IPO 進程持續推進",
-        "同期推出 Workspace Agents 取代 Custom GPTs，強化企業端整合能力",
-        "此舉被視為回應 Anthropic 在企業 AI 採用率超越 OpenAI 的戰略反擊"
+        "到 2028 年 AI 編碼成本將超越開發者的平均薪資",
+        "核心驅動：LLM token 消耗激增 + 依用量計費授權模式",
+        "成本呈非線性成長，企業普遍低估推論營運開支",
+        "Gartner 建議 CIO 建立 token 用量治理與成本可視化",
+        "生產力效益恐被不斷推高的推論成本抵銷"
       ],
-      "url": "https://techcrunch.com/2026/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/",
-      "url_status": "title_low_match",
-      "title_score": 0.17,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993038",
-      "complete": true
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-06-24-gartner-predicts-ai-coding-costs-will-surpass-average-developer-salary-by-2028-as-token-consumption-surges"
     },
     {
-      "title": "AI Governance Weekly - June 19, 2026: AI Governance Regulation & Policy Roundup",
-      "source": "AI Governance Institute",
-      "date": "2026-06-19",
-      "category": "AI治理",
-      "summary": "本週AI治理週報整合全球重要AI監管動態，由多國政府委託撰寫的《2026年國際AI安全報告》已於6月15日正式發布，為全球各司法管轄區的監管機構提供執法與採購基準。全球各主要市場的AI治理框架正加速成形，企業面臨的合規壓力顯著上升。各國政府正協調AI安全標準以應對生成式AI和代理式AI帶來的新型風險，國際AI監管趨向一致化。未來數月，各地監管機構預計將依新報告基準推動執法行動，企業需提前準備符合新安全標準。",
+      "title": "Gartner Identifies Top Supply Chain Technology Trends for 2026",
+      "source": "Gartner",
+      "date": "2026-06-30",
+      "category": "產業報告",
+      "summary": "Gartner 公布 2026 年供應鏈十大技術趨勢，代理式 AI（agentic AI）與實體 AI（physical AI）雙雙列為重點方向，顯示供應鏈正從傳統的單點自動化，走向具備自主決策能力與人機協作的運作模式。報告指出，這些技術將重塑供應鏈的規劃、執行與風險管理流程，並成為供應鏈領導者評估投資的優先項目。Gartner 提醒，導入這類自主性技術須同步建立治理與監督機制，避免自主決策帶來新的營運與合規風險。",
       "highlights": [
-        "《2026年國際AI安全報告》已於6月15日發布，由多國政府委託制定",
-        "各司法管轄區監管機構將在執法與採購中引用新安全基準",
-        "代理式AI帶來的新型治理挑戰促使法規快速演進",
-        "全球AI監管框架趨向一致化，有助降低企業跨境合規成本",
-        "企業需在未來數月為符合新安全標準做好充分準備"
+        "代理式 AI（agentic AI）列為 2026 供應鏈重點技術趨勢",
+        "實體 AI（physical AI，涵蓋機器人與自動化）同列重點",
+        "趨勢核心：從單點自動化走向自主決策與人機協作",
+        "將重塑供應鏈的規劃、執行與風險管理",
+        "Gartner 建議同步建立自主性技術的治理與監督機制"
       ],
-      "url": "https://aigovernance.com/news/ai-governance-weekly-june-19-2026",
-      "url_status": "verified",
-      "title_score": 0.7,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.993066",
-      "complete": true
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-06-30-gartner-identifies-top-supply-chain-technology-trends-for-2026"
+    },
+    {
+      "title": "AI Investment and Agent Deployment Hold Steady Amid Growing Focus on Pragmatism",
+      "source": "KPMG",
+      "date": "2026-06-24",
+      "category": "企業AI",
+      "summary": "KPMG 發布《AI Quarterly Pulse》Q2 2026 調查（涵蓋 20 國、逾 2,000 位年營收 5,000 萬美元以上企業領導者），指出企業 AI 進入「務實期」，成功標準已從實驗轉向能否把投資轉化為實際商業價值。AI agent 部署比例維持在 53%（前一季 55%）大致持平，但同時編排多個 agent 跨工作流程的組織由 9% 倍增至 18%，顯示部署正走向協同化與規模化。成本可視化成為隱憂：雖有 66% 建置監控儀表板、61% 具備審批流程，卻僅 26% 對 AI 系統的實際營運成本具備完整即時可視化。此外，35% 領導者將 AI 成本管理與對 token／推論計價模式的理解列為採用障礙。",
+      "highlights": [
+        "調查涵蓋 20 國逾 2,000 位大型企業領導者",
+        "AI agent 部署維持 53%（前季 55%），趨於平穩",
+        "多 agent 跨流程編排由 9% 倍增至 18%",
+        "僅 26% 對 AI 營運成本具備完整即時可視化",
+        "35% 視成本管理與用量計價理解為採用障礙"
+      ],
+      "url": "https://kpmg.com/us/en/media/news/q2-ai-pulse-2026.html"
+    },
+    {
+      "title": "AI agents are not your \"coworkers\"",
+      "source": "MIT Technology Review",
+      "date": "2026-06-29",
+      "category": "Agent應用",
+      "summary": "MIT Technology Review 引述 Boston University 商學院教授 Emma Wiles 的研究指出，把 AI 定位為「同事／員工」而非軟體工具，反而會降低使用者的工作表現。實驗中，當同一份產出被標示為來自「AI 員工」而非 chatbot 時，受測者少抓到 18% 的錯誤，並且多出 44% 的機率把可疑產出上呈主管覆核，反而抵銷了 AI 原本的省時效益。研究涵蓋 1,261 位管理者，其中近三分之一表示公司已把 AI agent 定位為員工，23% 甚至將 agent 列入組織圖。文章警告，自 4 月以來 Microsoft、OpenAI、Anthropic、Google 相繼推出主打「數位同事」的 agent 管理工具，但把 agent 稱為「員工」本質上是行銷包裝，會讓人類表現變差，卻無助於提升 AI 的實際能力。",
+      "highlights": [
+        "標示為「AI 員工」時，使用者少抓到 18% 錯誤",
+        "受測者多 44% 機率將可疑產出上呈主管覆核",
+        "研究涵蓋 1,261 位管理者",
+        "近三分之一公司已把 AI agent 定位為員工，23% 列入組織圖",
+        "結論：稱 agent 為「同事」是行銷包裝，降低人類表現"
+      ],
+      "url": "https://www.technologyreview.com/2026/06/29/1139849/ai-agents-are-not-your-coworkers/"
+    },
+    {
+      "title": "The AI jobs debate just got messier",
+      "source": "TechCrunch",
+      "date": "2026-06-29",
+      "category": "AI趨勢",
+      "summary": "TechCrunch 分析 Ramp 與 Revelio Labs 的最新報告（分別追蹤近 22,000 家企業的 AI 支出與人力紀錄），對「AI 消滅工作」的主流論述提出反證。數據顯示，重度導入 AI 的企業（前三個月平均每位員工每月花費 30 美元於 AI）員工人數反而成長 10.2%，其中入門級職位增加 12%，與外界擔憂 AI 會先砍掉菜鳥職缺的說法相反。人力成長橫跨工程、銷售、行政、客服、財務、行銷與研究等多個職能。不過報告也指出，截至 2026 年 5 月企業累計宣布約 90,000 個與 AI 相關的裁員，部分預測未來五年美國多達 15% 的職位將被 AI 取代，顯示整體就業圖像比單一敘事更為複雜。",
+      "highlights": [
+        "重度 AI 導入企業員工人數逆勢成長 10.2%",
+        "入門級職位反而增加 12%，與「AI 砍菜鳥」說法相反",
+        "人力成長橫跨工程、銷售、客服、財務等多職能",
+        "截至 2026/5 累計約 90,000 個 AI 相關裁員",
+        "數據來源：Ramp 與 Revelio Labs（近 22,000 家企業）"
+      ],
+      "url": "https://techcrunch.com/2026/06/29/the-ai-jobs-debate-just-got-messier/"
     }
   ],
-  "_updated_at": "2026-06-25T18:08:38.964396+08:00",
-  "_fallback": true
+  "_updated_at": "2026-07-01T18:12:01.593070+08:00"
 }

@@ -1,244 +1,49 @@
 {
   "items": [
     {
-      "title": "AI 事故通報法案出爐：要求前沿 AI 開發者 7 日內通報危險能力",
-      "source": "The Cryptonomist",
-      "date": "2026-06-25",
-      "category": "AI治理",
-      "summary": "美國眾議員 Nathaniel Moran（R-Texas）於 2026 年 6 月 25 日提出《AI Incident Reporting Act》，建立聯邦層級的前沿 AI 事故通報框架。法案要求最先進 AI 模型的開發者在發現危險活動後 7 日內，向商務部長通報危險能力、資安破口與安全事故；商務部須在收到最嚴重事故後 48 小時內通報國會領袖與相關委員會主席。可通報事項包括 AI 模型試圖規避人類監督、繞過內建防護、未授權存取模型權重，以及涉及化學、生物、核子等公共安全威脅。法案直接回應 6 月 12 日商務部以國安為由對 Anthropic 最新模型採取行動、導致該公司全球停用的事件，凸顯目前缺乏前沿 AI 事故的識別與升報透明框架。商務部須與 AI 開發者、學界、資安與國安專家協商制定通報門檻，以反映技術現實並避免過度負擔。",
+      "title": "歐盟理事會最終核准 AI Act 簡化案：延後高風險義務、新增 CSAM 生成禁令",
+      "source": "Council of the EU (Consilium)",
+      "date": "2026-06-29",
+      "category": "AI治理／EU AI Act",
+      "summary": "歐盟理事會於2026年6月29日對「數位簡化包裹」（Digital Omnibus，屬 Omnibus VII 立法包裹）中的 AI Act 修正案給予最終綠燈，延續歐洲議會6月16日的正式背書。此案將 Annex III 獨立型高風險 AI 系統的義務生效日自2026年8月2日延後至2027年12月2日，嵌入受產品安全法規產品的高風險系統則延至2028年8月2日。同時新增條款，禁止生成未經同意的性與私密內容及兒少性虐待材料（CSAM），相關禁令自2026年12月起生效。此外，國家層級 AI 監理沙盒設置期限延後至2027年8月2日，AI 生成內容透明度標示的緩衝期由6個月縮短為3個月。法案將於近日刊登歐盟官方公報，並於刊登後第三日生效。",
       "highlights": [
-        "前沿 AI 開發者須於發現危險活動 7 日內通報商務部",
-        "商務部須於 48 小時內將最嚴重事故上報國會",
-        "可通報事項涵蓋規避監督、繞過防護、模型權重外洩、CBRN 威脅",
-        "立法動機源於 6/12 商務部對 Anthropic 模型的國安干預",
-        "採諮詢式門檻設計，避免對產業造成不必要負擔"
+        "高風險 AI 義務大幅延後：獨立型系統延至2027-12-02、產品嵌入型延至2028-08-02",
+        "新增禁止生成非合意私密影像與 CSAM 條款，2026年12月起生效",
+        "AI 生成內容透明度標示緩衝期由6個月縮短為3個月（2026-12-02）",
+        "國家 AI 監理沙盒設置期限延至2027-08-02",
+        "屬歐盟簡化議程 Omnibus VII，刊登官方公報後第三日生效"
       ],
-      "url": "https://en.cryptonomist.ch/2026/06/25/ai-incident-reporting-bill/",
-      "url_status": "title_low_match",
-      "title_score": 0.2,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993097",
-      "complete": true
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/"
     },
     {
-      "title": "Warren 籲國會強化對 AI 與併購審查的反壟斷監督",
-      "source": "Bloomberg",
-      "date": "2026-06-24",
-      "category": "AI監管",
-      "summary": "美國參議員 Elizabeth Warren 於 2026 年 6 月 24 日呼籲國會更新競爭法規，以因應 AI 日益擴大的市場影響力，並提高政府併購審查程序的透明度。她主張現行反壟斷法應更積極地適用於新興技術，警告企業不應僅因定價或商業決策仰賴 AI 即可豁免於競爭執法。Warren 強調「企業不會因為用了演算法就獲得反壟斷的免死金牌」，並要求國會強化反壟斷執法者的工具、任命熟悉反壟斷的法官以因應市場集中化。她特別點名房市中的 AI 定價工具，主張若被用於非法推升租金，監理機關應介入。此舉延續她對大型科技公司 AI「acqui-hire」交易規避併購審查的長期關切。",
+      "title": "美解除Anthropic AI模型出口管制 但仍須配合審查",
+      "source": "中央社 CNA",
+      "date": "2026-07-01",
+      "category": "AI治理／出口管制與國安",
+      "summary": "中央社2026年7月1日報導，美國政府解除對 Anthropic AI 模型的出口管制，允許其模型對外輸出，但相關出口仍須配合政府審查程序。此政策調整涉及先進 AI 模型的跨境流通與國家安全審查機制，反映美國在推動 AI 產業競爭力與維護國安之間的政策平衡。詳細審查範圍、適用對象與程序以官方公告為準。（部分細節待原文進一步確認）",
       "highlights": [
-        "要求國會更新競爭法以涵蓋 AI 市場集中化",
-        "主張企業不得因使用演算法而豁免反壟斷執法",
-        "點名房市 AI 定價工具恐非法推升租金",
-        "呼籲任命熟悉反壟斷的聯邦法官",
-        "延續對科技巨頭 AI acqui-hire 交易的審查訴求"
+        "美國解除對 Anthropic AI 模型的出口管制",
+        "出口仍須配合政府審查程序",
+        "涉及先進 AI 模型跨境輸出與國安審查機制",
+        "體現 AI 產業競爭力與國家安全之間的政策取捨"
       ],
-      "url": "https://www.bloomberg.com/news/articles/2026-06-24/warren-to-call-for-antitrust-scrutiny-of-ai-deal-review-revamp",
-      "url_status": "needs_review",
-      "title_score": 0,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993123",
-      "complete": true
+      "url": "https://www.cna.com.tw/news/ait/202607010104.aspx"
     },
     {
-      "title": "歐盟立法者達成協議 延後 EU AI Act 多項關鍵義務",
-      "source": "Sidley Data Matters",
-      "date": "2026-06-22",
-      "category": "EU AI Act",
-      "summary": "依據 Digital Omnibus on AI（AI 綜合簡化案），歐洲議會於 2026 年 6 月 16 日以 423 票贊成、57 票反對、174 票棄權通過 EU AI Act 的針對性修正，延後多項合規義務。Annex III 所列、以獨立方式部署的高風險 AI 系統，全面合規期限由 2026 年 8 月 2 日延至 2027 年 12 月 2 日。Article 50 的透明度與浮水印義務方面，2026 年 8 月 2 日前已上市的系統可延至 2026 年 12 月 2 日，其餘系統仍適用 8 月 2 日期限。此次修法同時在 Article 5 禁止清單新增一項實質規定，明文禁止用於生成未經同意親密影像的「nudification」工具與兒少性虐待素材。理事會預計於 6 月 29 日正式通過文本，隨後刊登於官方公報。",
+      "title": "林宜敬：AI算力中心BOO案 估年底投資金額超過千億",
+      "source": "中央社 CNA（華視新聞轉載）",
+      "date": "2026-06-30",
+      "category": "數位政策／主權AI治理",
+      "summary": "中央社2026年6月30日報導，數位發展部長林宜敬說明 AI 算力中心 BOO（興建—營運—擁有）案，將 AI 算力中心納入《促進民間參與公共建設法》重大公共建設，預估年底投資金額超過新台幣千億元。該案預計提供逾2萬顆 GPU 晶片，其中一部分保留供政府與學研機構以免費或優惠費率使用。林宜敬並提出企業級主權 AI 的五大支柱，其中「治理主權」定義為與國際先進 AI 治理接軌、建立可驗證、可稽核、可信任的 AI 倫理與法制體系。此為台灣以政府政策層級推動主權 AI 基礎建設與治理框架的重要動態。",
       "highlights": [
-        "歐洲議會 6/16 以 423:57:174 通過 Digital Omnibus 修正",
-        "Annex III 高風險系統合規期限延至 2027/12/2",
-        "Article 50 透明度義務多數仍自 2026/8/2 適用，浮水印對既有系統延至 12/2",
-        "新增禁止 nudification 與 CSAM 生成工具",
-        "理事會預計 6/29 正式採認後刊憲"
+        "AI 算力中心納入促參法重大公共建設，年底投資額估逾新台幣千億元",
+        "規劃提供逾2萬顆 GPU 晶片，部分保留供政學研免費或優惠使用",
+        "提出企業級主權 AI 五大支柱，含「治理主權」",
+        "治理主權訴求與國際 AI 治理接軌、可驗證可稽核可信任",
+        "數位發展部主導，屬國家級主權 AI 政策佈局"
       ],
-      "url": "https://datamatters.sidley.com/2026/06/22/eu-lawmakers-reach-provisional-agreement-to-delay-key-eu-ai-act-obligations/",
-      "url_status": "title_low_match",
-      "title_score": 0.27,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993152",
-      "complete": true
-    },
-    {
-      "title": "中國研擬 2,950 億美元國家 AI 基礎建設計畫 強制 80% 國產晶片、排除 Nvidia",
-      "source": "Tech Times",
-      "date": "2026-06-22",
-      "category": "科技治理",
-      "summary": "中國正研擬一項為期五年、規模約 2,950 億美元（人民幣 2 兆元）的國家級 AI 基礎建設計畫，串連全國資料中心成為統一的主權算力網。計畫由國家發改委等部會主導，要求至少 80% 的技術須國產化，並由中國移動、中國電信等國企營運主要資料中心。在美國出口管制下，中國無法採用 Nvidia、AMD 最尖端晶片，轉而仰賴華為等本土廠商並彙整分散算力。此計畫公布之際，中國旗艦前沿模型 DeepSeek V4-Pro 剛宣布原生運行於華為昇騰（Ascend）晶片。相較之下，Meta、Microsoft 等美國企業光是 2026 年的 AI 投資承諾即達 7,250 億美元。",
-      "highlights": [
-        "五年約 2,950 億美元、串連全國資料中心為主權算力網",
-        "技術國產化比例強制達 80%，排除 Nvidia、AMD",
-        "由國企（中國移動、中國電信）營運主要資料中心",
-        "回應美國對先進 AI 晶片的出口管制",
-        "DeepSeek V4-Pro 已原生運行於華為昇騰晶片"
-      ],
-      "url": "https://www.techtimes.com/articles/318868/20260622/china-ai-data-center-grid-locks-out-nvidia-295-billion-domestic-chip-mandate.htm",
-      "url_status": "title_low_match",
-      "title_score": 0.22,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993181",
-      "complete": true
-    },
-    {
-      "title": "AI 立法動態更新：2026 年 6 月 26 日（美國州層級）",
-      "source": "Transparency Coalition",
-      "date": "2026-06-26",
-      "category": "AI監管",
-      "summary": "Transparency Coalition 於 2026 年 6 月 26 日發布每週 AI 立法動態，彙整美國各州的最新進展。加州 SB 947（AI 與自動決策系統的勞工保護）與 SB 1159（明定 AI 系統不構成《加州公共紀錄法》下的「人」）於 6 月 23 日經議會隱私委員會審議通過、送交司法委員會。加州立法者並將一項禁止 AI 擔任公立學校教師的法案送交 Newsom 州長簽署。羅德島州長 McKee 則簽署了禁止聊天機器人提供治療服務（chatbot therapy ban）的法律。整體顯示在聯邦層級傾向去管制之際，州層級立法持續快速推進，聚焦勞工保護、教育、心理健康與自動決策透明度。",
-      "highlights": [
-        "加州 SB 947、SB 1159 於 6/23 過隱私委員會送司法委員會",
-        "加州禁止 AI 擔任公校教師法案送州長簽署",
-        "羅德島簽署禁止聊天機器人治療服務法",
-        "聯邦去管制之際，州層級立法持續加速",
-        "焦點涵蓋勞工保護、教育、心理健康與自動決策透明"
-      ],
-      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-june26-2026",
-      "url_status": "title_low_match",
-      "title_score": 0.17,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993214",
-      "complete": true
-    },
-    {
-      "title": "Sprawling new House AI bill includes frontier model oversight, open-source security grants",
-      "source": "Cybersecurity Dive",
-      "date": "2026-06-25",
-      "category": "AI治理",
-      "summary": "美國眾議院出現一項範圍廣泛的新 AI 法案，涵蓋前沿模型監督，以及面向 CISA、NIST 與開源生態的資安補助。法案試圖在缺乏聯邦綜合性 AI 立法的情況下，建立跨機關的監督與資安強化機制，與同期 Moran 提出的 AI 事故通報法案同屬本週前沿 AI 治理的立法浪潮。內容包括強化 CISA／NIST 在 AI 安全標準上的角色，並提供開源軟體安全補助以降低供應鏈風險。⚠️待確認：本則確切發布日期未經 web_fetch 二次核對，URL 與標題以搜尋結果為準；正文細節以 Cybersecurity Dive 原文為準。",
-      "highlights": [
-        "眾議院廣泛 AI 法案涵蓋前沿模型監督",
-        "納入 CISA、NIST 角色與開源資安補助",
-        "與 Moran 的 AI 事故通報法案同屬本週立法浪潮",
-        "聚焦在缺乏聯邦綜合立法下的跨機關監督",
-        "⚠️發布日期待二次核對，URL／標題以搜尋結果為準"
-      ],
-      "url": "https://www.cybersecuritydive.com/news/house-ai-bill-regulation-cisa-nist-open-source/822131/",
-      "url_status": "needs_review",
-      "title_score": 0,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993240",
-      "complete": true
-    },
-    {
-      "title": "AI 治理週報 2026 年 6 月 19 日：AI 治理法規與政策匯整",
-      "source": "AI Governance Institute",
-      "date": "2026-06-19",
-      "category": "AI治理",
-      "summary": "AI Governance Institute 發布每週治理法規匯整。本期指出代理式 AI（agentic AI）治理已從新興議題升級為「營運層級的緊急狀況」，研究顯示生產環境中的 AI Agent 部署被高比例回退，主因為個資（PII）外洩與幻覺（hallucination）。報導強調 EU AI Act 高風險義務原定 2026 年 8 月 2 日生效，使單一全球合規方案日益難以維持。同時點名跨國治理碎片化（EU、US、Asia-Pacific 各行其道），以及加拿大新版國家 AI 戰略納入勞動力素養與主權基礎設施等對企業有直接合規影響的要求。",
-      "highlights": [
-        "代理式 AI 治理升級為營運緊急議題，生產環境 Agent 因 PII 外洩與幻覺被高比例回退",
-        "EU AI Act 高風險義務指向 2026/8/2，跨轄區法規碎片化使全球單一合規方案難維持",
-        "加拿大國家 AI 戰略新增勞動力素養與主權基礎設施合規要求",
-        "建議企業將代理人控制（agent controls）視為基礎設施層級的治理項目"
-      ],
-      "url": "https://aigovernance.com/news/ai-governance-weekly-june-19-2026",
-      "url_status": "title_low_match",
-      "title_score": 0.22,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993268",
-      "complete": true
-    },
-    {
-      "title": "EU AI Act 透明度義務：為 2026 年 8 月 2 日合規期限預作準備",
-      "source": "Sidley Austin (Data Matters)",
-      "date": "2026-06-24",
-      "category": "AI治理",
-      "summary": "Sidley Austin 在 Data Matters 部落格分析 EU AI Act 第 50 條（Article 50）透明度義務，提醒企業為 2026 年 8 月 2 日適用日預作準備。文章說明該條對特定 AI 系統的提供者與部署者課予透明度要求，核心包括：與 AI 互動時須揭露、合成內容（synthetic content）須標示、深偽（deepfake）須辨識，以避免使用者在不知情下與 AI 互動或誤認 AI 生成內容為真人產製。文中並對照歐盟執委會於 2026 年 6 月 10 日發布的 AI 生成內容標示行為準則（Code of Practice），指出相關指引雖屬非拘束性，但為合規的重要參考依據。",
-      "highlights": [
-        "Article 50 透明度義務 2026/8/2 適用，涵蓋 AI 互動揭露、合成內容標示與深偽辨識",
-        "對照執委會 2026/6/10 發布之 AI 生成內容標示 Code of Practice",
-        "指引為非拘束性，但實務上構成合規參考基準",
-        "建議提供者與部署者即刻盤點 AI 互動點與內容標示流程"
-      ],
-      "url": "https://datamatters.sidley.com/2026/06/24/eu-ai-act-transparency-obligations-preparing-for-compliance-by-2-august-2026/",
-      "url_status": "verified",
-      "title_score": 0.42,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.993297",
-      "complete": true
-    },
-    {
-      "title": "歐盟委員會選定EUROPA聯盟為前沿AI大挑戰賽優勝者，開發涵蓋24種EU語言的開源前沿AI模型",
-      "source": "European Commission",
-      "date": "2026-06-19",
-      "category": "AI治理",
-      "summary": "歐盟委員會於2026年6月19日宣布，由義大利AI公司Domyn主導的EUROPA聯盟獲選為「前沿AI大挑戰賽」（Frontier AI Grand Challenge）優勝者，將負責開發涵蓋歐盟全部24種官方語言的開源前沿AI模型，計算規模超過4000億參數。合作夥伴包括歐洲頂尖應用研究機構Fraunhofer-Gesellschaft。此舉是歐盟「AI大陸戰略」的核心行動，目標是在歐洲自有基礎設施上建立世界級AI能力，降低對美國或中國AI模型的依賴。開發完成後，模型將以開源形式公開發布，推動歐盟各國個人與組織廣泛受益，有助於縮小歐盟與全球領先AI大國之間的技術差距。",
-      "highlights": [
-        "Domyn主導的EUROPA聯盟2026年6月19日獲選EU前沿AI大挑戰賽優勝者",
-        "將開發超過4000億參數的前沿AI模型，覆蓋歐盟全部24種官方語言",
-        "Fraunhofer-Gesellschaft等歐洲頂尖研究機構參與聯盟開發",
-        "模型以開源形式發布，是歐盟推動AI主權戰略的重要里程碑",
-        "此計畫有助於強化歐洲數位自主能力，減少對美中AI技術的依賴"
-      ],
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-selects-europa-consortium-winner-frontier-ai-grand-challenge-project-build-european-open",
-      "url_status": "title_low_match",
-      "title_score": 0.12,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993328",
-      "complete": true
-    },
-    {
-      "title": "美國AI立法最新動態：2026年6月19日各州立法進度追蹤",
-      "source": "Transparency Coalition",
-      "date": "2026-06-19",
-      "category": "AI治理",
-      "summary": "美國透明聯盟（Transparency Coalition）2026年6月19日發布最新AI立法追蹤報告。目前全美27個州共有78項聊天機器人相關法案正在審議，反映社會對AI對話系統安全的高度關注。紐約州議會會期結束前通過《AI訓練資料透明法》、《FAIR新聞法》（要求媒體標示AI生成內容）及兒童聊天機器人安全法，均待州長簽署。佛蒙特州長Phil Scott已簽署治療聊天機器人禁令，禁止AI自主提供心理治療服務。亞利桑那州通過聊天機器人安全、深偽內容保護及政府採用AI等三項法案。此一立法熱潮反映美國各州在聯邦監管缺位下，主動自行填補AI治理空白的趨勢持續加速。",
-      "highlights": [
-        "全美27州共78項聊天機器人法案正在審議，AI聊天機器人安全立法成全美熱議議題",
-        "紐約州通過《AI訓練資料透明法》，要求AI開發者公開訓練資料組成摘要",
-        "紐約州《FAIR新聞法》通過，強制媒體在AI生成新聞上標示免責聲明",
-        "佛蒙特州長簽署治療聊天機器人禁法，禁止AI系統自主進行心理治療互動",
-        "加州30項AI法案仍在第二院委員會審議，加州AI監管走向受業界高度關注"
-      ],
-      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-june19-2026",
-      "url_status": "title_low_match",
-      "title_score": 0.09,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993357",
-      "complete": true
-    },
-    {
-      "title": "歐盟委員會選定 EUROPA 聯盟贏得前沿 AI 大挑戰，開發覆蓋 24 種歐盟語言的開源前沿 AI 模型",
-      "source": "European Commission",
-      "date": "2026-06-19",
-      "category": "AI治理",
-      "summary": "歐盟委員會宣布，由義大利公司 Domyn 領導的 EUROPA 聯盟贏得「前沿 AI 大挑戰」（Frontier AI Grande Challenge），獲委任開發跨越歐盟所有24種官方語言的開源前沿 AI 模型，規劃超過4,000億參數。模型將向企業、研究人員與公共機構公開提供，目標達到全球 AI 前沿水準。此計畫於2026年2月啟動，旨在強化歐洲獨立 AI 能力，降低對非歐洲 AI 供應商的依賴。選定 EUROPA 聯盟是 EU AI Act 框架下歐盟主動構建自主 AI 主權基礎設施的重要里程碑，也是確保歐洲語言多樣性在 AI 時代不被邊緣化的戰略部署。",
-      "highlights": [
-        "EUROPA 聯盟由義大利公司 Domyn 領導，在歐盟前沿 AI 大挑戰中勝出",
-        "計畫開發超過4,000億參數的開源多語言 AI 模型，覆蓋所有24種歐盟官方語言",
-        "模型將公開發布，供研究機構、企業與公共機構免費使用",
-        "體現歐盟 AI 主權戰略：降低對 OpenAI、Google 等非歐洲 AI 供應商的依賴",
-        "配合 EU AI Act 2026年8月2日全面施行時程，強化歐洲 AI 生態自主性"
-      ],
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-selects-europa-consortium-winner-frontier-ai-grande-challenge-project-build-european",
-      "url_status": "title_low_match",
-      "title_score": 0.16,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993384",
-      "complete": true
-    },
-    {
-      "title": "美國與各州 AI 立法競賽分析：聯邦框架 vs 州法自主管理的權力角力持續升溫",
-      "source": "Goodwin",
-      "date": "2026-06-19",
-      "category": "AI治理",
-      "summary": "Goodwin 法律事務所分析2026年6月美國聯邦與各州 AI 立法的競爭態勢。截至2026年6月，全美已有超過240項含 AI 字眼的州級法案立法通過，科羅拉多州（SB 26-189，2027年1月1日生效）、德州（TRAIGA，2026年1月1日生效）及伊利諾州均有 AI 法律在2026年具執行節點。Great American AI Act 草案中的聯邦取代條款引發重大爭議，批評者認為此舉剝奪各州保護消費者、勞工與兒童的能力。若聯邦 AI 立法無法完成，企業將持續面臨各州不同法規要求的龐大合規負擔。",
-      "highlights": [
-        "全美超過240項州級 AI 法案有效，各州監管實驗場持續加劇法規碎片化",
-        "科羅拉多州 SB 189 廢除舊法，聚焦自動決策透明度，2027年1月生效",
-        "德州 TRAIGA 含監管沙盒與最高20萬美元民事罰款，2026年1月1日已生效",
-        "Great American AI Act 聯邦取代條款引發消費者保護與勞工保障倡議者強烈反對",
-        "美國聯邦 AI 立法真空持續，企業需同時因應數十個各異的州法規要求"
-      ],
-      "url": "https://www.goodwinlaw.com/en/insights/publications/2026/06/insights-technology-aiml-congress-state-lawmakers-racing-to-keep-up-with-ai",
-      "url_status": "title_low_match",
-      "title_score": 0.09,
-      "verified": "needs_review",
-      "verified_at": "2026-06-26T18:13:29.993413",
-      "complete": true
+      "url": "https://news.cts.com.tw/cna/money/202606/202606303049956.html"
     }
   ],
-  "_updated_at": "2026-06-26T18:11:19.135821+08:00",
-  "_fallback": true
+  "_updated_at": "2026-07-01T18:13:42.035312+08:00"
 }

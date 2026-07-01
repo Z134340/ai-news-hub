@@ -1,235 +1,229 @@
 {
   "items": [
     {
-      "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
-      "title_zh": "為長文輸出評估建立 LLM-as-a-Judge 基準",
+      "title": "Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?",
+      "title_zh": "LLM-as-a-Judge 能否在 Agentic 情境中可靠驗證評分標準？",
       "authors": [
-        "Junjie Chen",
-        "et al. (8 authors)"
+        "⚠️待確認（搜尋結果未提供作者）"
       ],
-      "institution": "Tsinghua University",
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-06-25",
+      "summary": "提出 RuVerBench，聚焦「深度研究」與「agentic coding」兩大 agentic 領域，共 2,458 筆實例，每筆包含模型生成輸出、一條 rubric 及人工標註標籤（判斷輸出是否滿足該 rubric）。實驗顯示前沿 LLM 作為 rubric 驗證者雖有強表現，但仍存在明顯雜訊與不一致，凸顯以 LLM 評審驗證 agent 軌跡的可靠度風險。日期為 arXiv 投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2606.29920",
+      "field": "LLM-as-a-Judge",
+      "impact": "high — 直接針對 agentic 場景下 rubric 驗證的可靠度，對 agent 評估治理有實務意義；⚠️日期/作者待確認"
+    },
+    {
+      "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
+      "title_zh": "長篇輸出評估的 LLM-as-a-Judge 基準測試",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-06-02",
+      "summary": "提出 LongJudgeBench，專門評估 LLM 評審處理長篇輸出的能力，候選輸出平均長度超過 9,000 tokens，遠高於既有 LLM-as-a-judge 基準常見的少於 500 tokens。研究揭示評審模型在長上下文下的一致性與定位能力衰退問題。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2606.01629",
+      "field": "LLM Evaluation",
+      "impact": "high — 補足長文本評審基準缺口；⚠️日期/作者待確認"
+    },
+    {
+      "title": "Beyond LLM-as-a-Judge: Deterministic Metrics for Multilingual Generative Text Evaluation",
+      "title_zh": "超越 LLM-as-a-Judge：多語生成文本評估的確定性指標",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-04-08",
+      "summary": "針對多語生成文本評估提出確定性（deterministic）指標，減少對 LLM 評審在跨語言場景中的不穩定依賴，主張以可重現的量化指標補強或取代主觀評審。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2604.05083",
+      "field": "LLM Evaluation",
+      "impact": "medium — 對多語評估可重現性有貢獻；⚠️日期/作者待確認"
+    },
+    {
+      "title": "Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge via Perceptual Perturbation and Reward Modeling",
+      "title_zh": "以知覺擾動與獎勵建模緩解多模態 LLM-as-a-Judge 的知覺判斷偏誤",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
       "venue": "arXiv",
       "date": "2026-06-01",
-      "summary": "提出 LongJudgeBench，專門評估 LLM 作為評審（judge）在長文輸出情境下的可靠度，涵蓋多種真實任務與評分協定（scoring / pairwise / reference-based）。其中一項子集自 VerifyBench-Hard 取樣 316 筆樣本，要求 judge 判斷模型輸出是否與參考答案一致。結果揭示明顯的可靠度落差：現有 LLM judge 在不同情境間穩定性不足，rubric 與參考答案雖有幫助但並非總是足夠。研究指出長文評估比短文更易出現位置偏誤與長度偏誤，呼籲建立更嚴謹的 judge 校準方法。",
-      "url": "https://arxiv.org/abs/2606.01629",
-      "field": "LLM-as-a-Judge",
-      "impact": "high：直接針對 LLM-as-a-Judge 在長文場景的系統性弱點，對所有以 LLM judge 做自動評測的 Agent / RAG 流程具警示意義。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991180",
-      "complete": true
+      "summary": "指出多模態 LLM 評審在視覺證據與文字線索衝突時，傾向獎勵「看似合理的敘事」而非知覺上正確的答案。作者以知覺擾動（perceptual perturbation）與獎勵建模來校正此偏誤，提升多模態評審的視覺忠實度。發布日期 2026-06-01。",
+      "url": "https://arxiv.org/abs/2606.02578",
+      "field": "LLM-as-a-Judge / Multimodal",
+      "impact": "medium — 揭露多模態評審的知覺偏誤並提出緩解；⚠️作者待確認"
     },
     {
-      "title": "RigorBench: Benchmarking Engineering Process Discipline in Autonomous AI Coding Agents",
-      "title_zh": "RigorBench：評測自主 AI 程式代理的工程流程紀律",
-      "authors": [],
-      "institution": "（作者未於搜尋結果列示，待確認）",
-      "venue": "arXiv",
-      "date": "2026-06-24",
-      "summary": "RigorBench 是首個衡量 AI 程式代理「工程流程紀律」的基準，不只看最終產物，而是分析完整執行軌跡（每個 plan、edit、test 呼叫、錯誤復原與 commit）。評測沿五大支柱展開：Planning Fidelity、Verification Coverage、Recovery Efficiency、Abstention Quality 與 Atomic Transition。作者調查 12 個主流 AI coding 基準，發現皆未評估代理「如何」得到解答的過程。受控實驗顯示，導入結構化紀律可使流程品質提升約 41%、最終結果品質提升約 17%。",
-      "url": "https://arxiv.org/abs/2606.22678",
-      "field": "Agent Evaluation",
-      "impact": "high：把 coding agent 評測從結果導向推向過程導向（process discipline），對治理與可稽核性具方法論價值。⚠️日期為依 arXiv 編號推估的 6 月下旬，待確認確切日。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991259",
-      "complete": true
-    },
-    {
-      "title": "ClawsBench: Evaluating Capability and Safety of LLM Productivity Agents in Simulated Workspaces",
-      "title_zh": "ClawsBench：在模擬工作環境中評估 LLM 生產力代理的能力與安全性",
+      "title": "ReflectRM: Boosting Generative Reward Models via Self-Reflection within a Unified Judgment Framework",
+      "title_zh": "ReflectRM：在統一判斷框架內以自我反思強化生成式獎勵模型",
       "authors": [
-        "Xiangyi Li",
-        "Kyoung Whan Choe",
-        "Yimin Liu",
-        "Xiaokun Chen",
-        "Chujun Tao",
-        "Bingran You",
-        "Wenbo Chen",
-        "Zonglin Di",
-        "Jiankai Sun",
-        "Shenghan Zheng",
-        "Jiajun Bao",
-        "Yuanli Wang",
-        "Weixiang Yan",
-        "Yiyuan Li",
-        "Han-chung Lee"
+        "⚠️待確認"
       ],
-      "institution": "benchflow-ai（多機構合作）",
+      "institution": "⚠️待確認",
       "venue": "arXiv",
-      "date": "2026-04-06",
-      "summary": "ClawsBench 在模擬辦公環境評估 LLM 生產力代理，內建 5 個高擬真 mock 服務（Gmail、Slack、Google Calendar、Google Docs、Google Drive），具完整狀態管理與確定性快照/還原。基準含 44 項結構化任務，涵蓋單服務、跨服務與安全關鍵情境。研究將 agent scaffolding 拆解為兩個獨立槓桿：以漸進揭露注入 API 知識的 domain skills，以及跨服務協調行為的 meta prompt，並分別與合併測量其效果。同時量測能力與安全（safety-critical）表現，揭示代理在跨服務任務的脆弱性。",
-      "url": "https://arxiv.org/abs/2604.05172",
-      "field": "Agent Evaluation",
-      "impact": "medium-high：以企業常用 SaaS 為場景的能力＋安全雙軸評測，對企業導入 productivity agent 的風險評估具實務參考。⚠️日期為 4 月推估，待確認。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991296",
-      "complete": true
+      "date": "2026-04-10",
+      "summary": "提出 ReflectRM，在統一的判斷框架中引入自我反思機制以提升生成式獎勵模型（generative reward model）的評分品質，強化 LLM 作為評審/獎勵訊號來源時的一致性與可解釋性。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2604.07506",
+      "field": "LLM Evaluation / Reward Model",
+      "impact": "medium — 生成式獎勵模型與 LLM 評審交集；⚠️日期/作者待確認"
     },
     {
-      "title": "SkillVetBench: LLM-as-Judge for Multi-Dimensional Security Risk Evaluation in Open-Source LLM Agent Skills",
-      "title_zh": "SkillVetBench：以 LLM-as-Judge 對開源 LLM 代理技能進行多維度資安風險評估",
-      "authors": [],
-      "institution": "（作者未於搜尋結果列示，待確認）",
+      "title": "Rubric-Grounded Reinforcement Learning: Structured Judge Rewards for Generalizable Reasoning in Language Models",
+      "title_zh": "以評分標準為基礎的強化學習：面向可泛化推理的結構化評審獎勵",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-05-08",
+      "summary": "將 rubric-grounded 強化學習形式化為一套框架：policy 針對凍結 LLM 評審所產生的結構化、多準則獎勵進行最佳化，以提升語言模型推理的可泛化性，銜接 LLM-as-a-Judge 與 RL 訓練訊號。發布日期 2026-05-08。",
+      "url": "https://arxiv.org/abs/2605.08061",
+      "field": "LLM Evaluation / RL",
+      "impact": "medium — 把評審獎勵結構化用於 RL 訓練；⚠️作者待確認"
+    },
+    {
+      "title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+      "title_zh": "SWE-Explore：評測程式碼 Agent 如何探索儲存庫",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "提出 SWE-Explore，隔離評估 coding agent 的「儲存庫探索」能力：給定 repo 與 issue，要求 explorer 在固定行數預算下回傳相關程式碼區域的排序清單。涵蓋 848 個 issue、10 種程式語言、203 個開源 repo，突破既有基準僅以「解決/未解決」二元結果評估、忽略 repo 理解與程式碼定位等細粒度能力的限制。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2606.07297",
+      "field": "Agent Evaluation",
+      "impact": "high — 提供 coding agent 細粒度探索能力的評測方法；⚠️日期/作者待確認"
+    },
+    {
+      "title": "Inside the Scaffold: A Source-Code Taxonomy of Coding Agent Architectures",
+      "title_zh": "拆解 Scaffold：程式碼 Agent 架構的原始碼分類法",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-04-05",
+      "summary": "以原始碼層級建立 coding agent 架構（scaffold）的分類法，系統化盤點 agent harness 的組成元件與設計選擇，將常被視為隱性基礎設施的 scaffold 提升為可分析、可比較的研究對象。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2604.03515",
+      "field": "AI Agent / Agent Engineering",
+      "impact": "medium — 對 harness engineering 提供分類法；⚠️日期/作者待確認"
+    },
+    {
+      "title": "Multi-Agent Transactive Memory",
+      "title_zh": "多代理交易記憶體",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
       "venue": "arXiv",
       "date": "2026-06-18",
-      "summary": "SkillVetBench 是面向開放式 agentic skill 生態的兩階段資安審查基準，第一階段對技能的自然語言規格做語意審查以偵測隱藏惡意意圖，第二階段在儀表化沙箱執行被標記技能以蒐集可稽核的執行期證據。導入 SARS（Skill Agentic Risk Score）五維代理風險指標與加權公式，並做完整 CVSS v4.0 向量分解。實驗顯示僅靠語意或簽章式 baseline 不足，會漏掉高達 89% 來自自然語言指令、多組件邏輯或跨組件互動的惡意技能。聚焦程式碼掃描器難以捕捉的 instruction-layer 與 multi-agent 風險。",
-      "url": "https://arxiv.org/abs/2606.15899",
-      "field": "Agent Evaluation",
-      "impact": "high：以 LLM-as-Judge 做 agent skill 供應鏈資安審查，對 Agent skill marketplace 治理高度相關。⚠️與 arXiv:2606.00925 同名 SkillVetBench，本筆以 2606.15899 標題為準；日期 6 月推估待確認。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991328",
-      "complete": true
-    },
-    {
-      "title": "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces",
-      "title_zh": "以編排軌跡（Orchestration Traces）對 LLM 多代理系統做強化學習",
-      "authors": [
-        "Chenchen Zhang",
-        "et al."
-      ],
-      "institution": "（多機構合作，待確認）",
-      "venue": "arXiv",
-      "date": "2026-05-04",
-      "summary": "本文研究以「編排軌跡」訓練 LLM 多代理系統的 RL 方法——將代理互動建模為時序互動圖，事件包含 sub-agent spawning、delegation、communication、tool use、return、aggregation 與 stopping 決策。編排學習被拆為五項子決策：何時 spawn、委派給誰、如何溝通、如何聚合、何時停止。獎勵設計橫跨八大族群，含 parallelism speedup、split correctness 與 aggregation quality 等 orchestration reward。提供將多代理協作行為可微化、可優化的訓練框架。",
-      "url": "https://arxiv.org/abs/2605.02801",
+      "summary": "針對具異質能力的 LLM agent 去中心化部署，提出跨異質 agent 族群共享知識的交易記憶（transactive memory）基礎設施，讓不同能力的 agent 能記住「誰知道什麼」以協調任務分派。發布日期 2026-06-18。",
+      "url": "https://arxiv.org/abs/2606.19911",
       "field": "Multi-Agent",
-      "impact": "high：把 multi-agent orchestration 從靜態 prompt 工程推向可學習的 RL 目標，對 agent 編排與 harness engineering 是方法論進展。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991365",
-      "complete": true
+      "impact": "medium — 多代理知識共享與記憶協調；⚠️作者待確認"
     },
     {
       "title": "Experience as a Compass: Multi-agent RAG with Evolving Orchestration and Agent Prompts",
-      "title_zh": "經驗為羅盤：具演化式編排與代理提示的多代理 RAG",
+      "title_zh": "以經驗為羅盤：具演化式編排與 Agent Prompt 的多代理 RAG",
       "authors": [
-        "Sha Li",
-        "Naren Ramakrishnan"
+        "⚠️待確認"
       ],
-      "institution": "Virginia Tech",
+      "institution": "⚠️待確認",
       "venue": "arXiv",
       "date": "2026-04-01",
-      "summary": "針對多代理 RAG 在多跳任務上行為靜態、編排固定導致表現脆弱的問題，提出 HERA 階層式框架，聯合演化多代理編排與角色專屬提示。全域層透過 reward-guided sampling 與經驗累積優化 query 專屬的代理拓撲；局部層以 Role-Aware Prompt Evolution 透過 credit assignment 與雙軸調適精修代理行為。在六項知識密集基準上，HERA 較近期 baseline 平均提升 38.69%，並維持良好泛化與 token 效率。拓撲分析顯示出現自組織現象：稀疏探索收斂成精簡且高效用的多代理網路。",
+      "summary": "提出以累積經驗引導的多代理 RAG 框架，讓編排（orchestration）策略與各 agent 的 prompt 隨互動經驗持續演化，提升多代理檢索增強生成的協同效果。日期為投稿月估算，⚠️待確認。",
       "url": "https://arxiv.org/abs/2604.00901",
-      "field": "AI Agent",
-      "impact": "medium-high：把 context/prompt engineering 與 orchestration 變成可演化目標，對 agent memory 與 self-improving agent 路線有參考價值。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991395",
-      "complete": true
-    },
-    {
-      "title": "MARL-GPT: Foundation Model for Multi-Agent Reinforcement Learning",
-      "title_zh": "MARL-GPT：多代理強化學習的基礎模型",
-      "authors": [
-        "Maria Nesterova",
-        "Mikhail Kolosov",
-        "Anton Andreychuk",
-        "Egor Cherepanov",
-        "Oleg Bulichev",
-        "Alexey Kovalev",
-        "Konstantin Yakovlev",
-        "Aleksandr Panov",
-        "Alexey Skrynnik"
-      ],
-      "institution": "Cognitive AI Systems",
-      "venue": "AAMAS 2026",
-      "date": "2026-04-07",
-      "summary": "MARL-GPT 以單一 GPT 架構的 transformer 解決多代理強化學習缺乏通用模型的問題，使一個模型能跨多種 MARL 環境與任務（SMACv2、Google Research Football、POGEMA）競爭性運作。方法採離線 RL 在大規模專家軌跡上訓練（SMACv2 4 億、GRF 1 億、POGEMA 10 億），搭配單一觀測編碼器且無需任務專屬微調。在所有測試環境中相較專用 baseline 達到具競爭力的表現。已被 AAMAS-2026 接收，程式碼開源於 Cognitive-AI-Systems repo。",
-      "url": "https://arxiv.org/abs/2604.05943",
       "field": "Multi-Agent",
-      "impact": "medium：偏傳統 MARL（非 LLM agent），但作為 multi-agent 通用基礎模型方向具研究意義。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991423",
-      "complete": true
+      "impact": "medium — agent 編排與 prompt 自我演化；⚠️日期/作者待確認"
     },
     {
-      "title": "AI Agents May Always Fall for Prompt Injections",
-      "title_zh": "AI 代理可能永遠難逃 Prompt Injection",
+      "title": "FileGram: Grounding Agent Personalization in File-System Behavioral Traces",
+      "title_zh": "FileGram：以檔案系統行為軌跡為基礎的 Agent 個人化",
       "authors": [
-        "Sahar Abdelnabi",
-        "Eugene Bagdasarian"
+        "⚠️待確認"
       ],
-      "institution": "ELLIS Institute Tübingen / MPI-IS / University of Massachusetts Amherst",
+      "institution": "⚠️待確認",
       "venue": "arXiv",
-      "date": "2026-05-17",
-      "summary": "本文以 Contextual Integrity（CI，一種隱私理論）重新框定 prompt injection，主張主流防禦範式 data-instruction separation 既無法偵測透過情境操弄發動的攻擊，又會削弱在情境中本應合理的行為。作者推導出一個近似「不可能性」結果：對手總能構造一個情境使被封鎖的資訊流看似合法，而收緊規範的防禦者則會誤擋真正合法的資訊流。論點指向以資料-指令分離為核心的防線在原理上有界限。對 agent 安全治理提出根本性質疑：injection 防禦不能只靠輸入分類。",
-      "url": "https://arxiv.org/abs/2605.17634",
-      "field": "AI Agent Security",
-      "impact": "high：對 agent 資安防禦的根本假設提出理論挑戰，對金融業 agent 落地的 guardrail 設計具治理啟示。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991450",
-      "complete": true
+      "date": "2026-04-06",
+      "summary": "提出 FileGram，利用使用者在檔案系統上的行為軌跡作為 agent 個人化的依據，讓 agent 從實際操作痕跡推斷偏好與工作脈絡，強化 context/記憶層的個人化能力。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2604.04901",
+      "field": "AI Agent / Agent Memory",
+      "impact": "low — 檔案軌跡驅動的 agent 個人化；⚠️日期/作者待確認"
     },
     {
       "title": "Your Agent is More Brittle Than You Think: Uncovering Indirect Injection Vulnerabilities in Agentic LLMs",
-      "title_zh": "你的代理比你想的更脆弱：揭露 Agentic LLM 的間接注入漏洞",
+      "title_zh": "你的 Agent 比你想的更脆弱：揭露 Agentic LLM 的間接注入漏洞",
       "authors": [
-        "Wenhui Zhu",
-        "Xuanzhao Dong",
-        "Xiwen Chen",
-        "Rui Cai",
-        "Peijie Qiu",
-        "Zhipeng Wang",
-        "Oana Frunza",
-        "Shao Tang",
-        "Jindong Gu",
-        "Yalin Wang"
+        "⚠️待確認"
       ],
-      "institution": "Arizona State University / Morgan Stanley / UC Davis / WUSTL / Rice / FSU / University of Oxford",
+      "institution": "⚠️待確認",
       "venue": "arXiv",
       "date": "2026-04-05",
-      "summary": "本文聚焦 Indirect Prompt Injection（IPI）——將惡意指令藏於第三方內容中，可在代理正常運作時觸發資料外洩等未授權行為。作者在動態多步 tool-calling 環境中、跨 9 個 LLM backbone，系統性評估 6 種防禦策略對抗 4 種精細 IPI 攻擊向量，以捕捉現代自主代理真實的攻擊面。結果顯示進階注入幾乎能繞過所有 baseline 防禦，部分表層緩解措施甚至產生反效果。作者提出 Representation Engineering（RepE）作為偵測策略，在多種 backbone 上達到高偵測準確率。",
+      "summary": "系統性揭露 agentic LLM 面對間接提示注入（indirect prompt injection）的脆弱性，顯示在工具/外部內容整合流程中，agent 比直覺預期更容易被外部資料植入的惡意指令操縱，對 agent 安全治理提出警示。日期為投稿月估算，⚠️待確認。",
       "url": "https://arxiv.org/abs/2604.03870",
-      "field": "AI Agent Security",
-      "impact": "medium-high：在真實多步 tool-use 環境下實測 IPI，金融機構（含 Morgan Stanley 參與）背景使其對產業防禦設計具參考。⚠️日期 4 月推估，待確認。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991477",
-      "complete": true
+      "field": "AI Agent / Security",
+      "impact": "high — 間接注入是 agentic AI 核心資安風險；⚠️日期/作者待確認"
     },
     {
-      "title": "SkillAttack: Automated Red Teaming of Agent Skills through Attack Path Refinement",
-      "title_zh": "SkillAttack：透過攻擊路徑精修對代理技能進行自動化紅隊測試",
+      "title": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
+      "title_zh": "以搜尋驅動強化學習最佳化獎勵函數強化 LLM 推理",
       "authors": [
-        "Zenghao Duan",
-        "Yuxin Tian",
-        "Zhiyi Yin",
-        "Liang Pang",
-        "Jingcheng Deng",
-        "Zihao Wei",
-        "Shicheng Xu",
-        "Yuyao Ge",
-        "Xueqi Cheng"
+        "⚠️待確認"
       ],
-      "institution": "Chinese Academy of Sciences（ICT/CAS，待最終確認）",
+      "institution": "⚠️待確認",
       "venue": "arXiv",
-      "date": "2026-04-05",
-      "summary": "SkillAttack 是以對抗式提示動態驗證技能漏洞可利用性的紅隊框架，將漏洞分析、surface-parallel 攻擊生成與回饋驅動的 exploit 精修整合為閉迴路搜尋，逐步收斂至成功利用。其核心觀察是：非惡意技能仍可能潛藏漏洞，攻擊者無需修改技能本身、僅靠對抗式提示即可利用。在 10 個 LLM、71 個對抗技能與 100 個真實技能上的實驗顯示，SkillAttack 大幅優於所有 baseline，對抗技能的攻擊成功率介於 0.73–0.93。",
-      "url": "https://arxiv.org/abs/2604.04989",
-      "field": "AI Agent Security",
-      "impact": "medium-high：與 SkillVetBench 互補（攻方視角），對 agent skill 生態的紅隊與防禦研究具實務價值。⚠️日期 4 月推估，待確認。",
-      "url_status": "verified",
-      "title_score": 0,
-      "verified": true,
-      "verified_at": "2026-06-26T18:13:29.991504",
-      "complete": true
+      "date": "2026-05-03",
+      "summary": "指出 RL 後訓練提升 LLM 推理的成效高度受獎勵函數設計影響，提出一套搜尋驅動框架，將「獎勵規格本身」視為可最佳化的對象，透過搜尋自動改良獎勵設計以穩定提升推理表現。發布日期 2026-05-03（後於 5/8 修訂）。",
+      "url": "https://arxiv.org/abs/2605.02073",
+      "field": "LLM",
+      "impact": "medium — 針對 RL 獎勵設計敏感性提出自動化解法；⚠️作者待確認"
+    },
+    {
+      "title": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
+      "title_zh": "超越推理：強化學習解鎖 LLM 的參數化知識",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-05-08",
+      "summary": "探討 RL 是否能提升 LLM 對參數化知識的直接回憶能力。跨三個模型家族與多個事實型 QA 基準的實驗顯示，RL 帶來約 27% 的平均相對增益，說明 RL 不只改善推理、也能激活模型既有的內部知識。發布日期 2026-05-08。",
+      "url": "https://arxiv.org/abs/2605.07153",
+      "field": "LLM",
+      "impact": "medium — RL 對知識回憶的量化效益；⚠️作者待確認"
+    },
+    {
+      "title": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+      "title_zh": "強化學習能教會 LLM 長程推理嗎？表達力是關鍵",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-05-09",
+      "summary": "提出 ScaleLogic 框架，可生成可細緻控制難度的合成邏輯推理題，用以系統化研究 RL 訓練如何隨任務難度擴展，結論指出模型「表達力（expressiveness）」是長程推理能否被 RL 教會的關鍵因素。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2605.06638",
+      "field": "LLM",
+      "impact": "medium — 釐清 RL 訓練長程推理的擴展條件；⚠️日期/作者待確認"
+    },
+    {
+      "title": "Dynin-Omni: Omnimodal Unified Large Diffusion Language Model",
+      "title_zh": "Dynin-Omni：全模態統一大型擴散語言模型",
+      "authors": [
+        "⚠️待確認"
+      ],
+      "institution": "⚠️待確認",
+      "venue": "arXiv",
+      "date": "2026-04-01",
+      "summary": "提出 Dynin-Omni，一個統一的全模態（omnimodal）大型擴散語言模型，嘗試以擴散式生成骨幹整合多模態理解與生成任務。日期為投稿月估算，⚠️待確認。",
+      "url": "https://arxiv.org/abs/2604.00007",
+      "field": "Multimodal",
+      "impact": "low — 全模態擴散語言模型探索；⚠️日期/作者待確認"
     }
   ],
-  "_updated_at": "2026-06-26T18:05:10.897743+08:00",
-  "_fallback": true
+  "_updated_at": "2026-07-01T18:04:08.771365+08:00"
 }
