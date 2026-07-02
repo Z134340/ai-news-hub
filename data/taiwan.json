@@ -1,95 +1,75 @@
 {
   "items": [
     {
-      "title": "台灣大資訊長：逆分工時代到來！「超人計畫」為框架，解密內部4個AI嵌入場景",
-      "source": "數位時代 BusinessNext",
-      "date": "2026-07-01",
-      "topic": "AI Agent 應用（台灣）",
-      "summary": "台灣大哥大於 7 月 1 日正式上線企業級 AI Agent 系統，資訊長蔡祈岩以「超人計畫」為框架，提出「逆分工」概念：讓 Agent 承接會議逐字稿整理、寄送確認信、追蹤待辦進度、專案延遲自動示警等低判斷性重複工作，員工則專注最終確認與決策。系統系統性嵌入四大場景——一般員工日常工作 AI 化、IT 部門 AI Coding、直營門市智慧推薦、客服人員即時 AI 協作。實測成果包含以 AI 電話路由機制將門市成約率提升 40%。計畫涵蓋近 7,000 名員工。",
-      "relevance": "台灣電信龍頭把 AI Agent 從概念落地為全員上線的企業內部系統，是本土企業導入 agentic AI 的指標案例，對金融、電信等強調流程自動化的產業具高度參考價值。",
-      "discussion": "高；同步登上 LINE TODAY 轉載，Agent 落地與組織分工重構為社群熱議焦點。",
-      "url": "https://www.bnext.com.tw/article/91390/taiwan-mobile-cio-reverse-division-of-labor-ai-agent"
-    },
-    {
-      "title": "AWS 全自費推 FDE 新團隊，送整批專家到公司手把手建設 AI 系統並教到會",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-01",
-      "topic": "AI Agent 部署生態",
-      "summary": "AWS 宣布成立規模達 10 億美元的「前線部署工程師」(Forward-Deployed Engineer, FDE) 組織，跟進 OpenAI 與 Anthropic 的同類布局，搶攻企業 AI 與 Agent 落地部署市場。做法是由 AWS 自費派遣整批專家進駐客戶端，手把手協助建置 AI 系統並完成知識移轉，降低企業自行導入 agentic AI 的門檻。此舉反映前沿廠商競爭已從「賣模型／算力」延伸到「賣落地服務」，以綁定企業長期用量。",
-      "relevance": "FDE 模式牽動台灣大型企業採購與導入策略，尤其金融、製造業評估雲端 AI 供應商時，落地服務能力將成關鍵權衡點。",
-      "discussion": "高；INSIDE 同步報導（文章 41695），為三大雲廠 AI 服務戰的最新一役。",
-      "url": "https://technews.tw/2026/07/01/amazon-launches-new-1-billion-fde-org-following-openai-and-anthropic/"
-    },
-    {
-      "title": "Anthropic發表Claude Sonnet 5，成為免費與Pro版預設模型",
+      "title": "Anthropic稱Fable 5出口管制解除，7月1日恢復全球上線",
       "source": "iThome",
-      "date": "2026-06-30",
-      "topic": "LLM 新模型發布",
-      "summary": "Anthropic 於 6 月 30 日發表 Claude Sonnet 5，主打歷來代理能力最強的 Sonnet 模型，並升為 Claude 免費版與 Pro 版預設模型，同步開放 Max、Team、Enterprise 方案。除能力提升外，安全性亦強化——更能拒絕惡意請求、抵抗 prompt injection，幻覺與迎合使用者的比率低於前一代。定價方面推出 API 上市優惠，8 月 31 日前每百萬輸入／輸出 token 為 2 美元／10 美元，9 月起調為 3 美元／15 美元，仍低於 Opus 4.8 的 5 美元／25 美元。",
-      "relevance": "中階模型首度具備旗艦級自主代理能力、價格僅 Opus 四折，直接影響台灣企業建構 Agent 應用的成本結構與模型選型。",
-      "discussion": "極高；iThome、數位時代（91393）、ETtoday、電腦王阿達、mashdigi、鏈新聞等台灣媒體 6/30–7/1 大量跟進報導。",
-      "url": "https://www.ithome.com.tw/news/177002"
+      "date": "2026-07-01",
+      "topic": "大廠模型動態",
+      "summary": "Anthropic宣布美國政府已解除對Claude Fable 5與Claude Mythos 5的出口管制，其中Fable 5自7月1日起恢復全球存取。此前美國商務部於6月中對這兩款前沿模型祭出出口限制，理由是擔憂遭中國、俄羅斯等敏感國家軍事或情報單位濫用。Claude Mythos 5目前仍僅限Glasswing計畫的受信任合作夥伴使用，尚未全面開放。此舉反映美國對前沿AI模型「發布即管制」的治理思路正在調整。",
+      "relevance": "Claude為台灣開發者與企業廣泛採用的主力模型之一，出口管制鬆綁直接影響台灣團隊對Fable 5的可用性與導入時程。",
+      "discussion": "iThome新聞，AI社群高度關注美國前沿模型出口管制動向",
+      "url": "https://www.ithome.com.tw/news/177013"
     },
     {
-      "title": "美解除Anthropic AI模型出口管制 但仍須配合審查",
-      "source": "中央社 CNA",
-      "date": "2026-07-01",
-      "topic": "AI 治理／科技大廠",
-      "summary": "美國商務部解除對 Anthropic 的 Fable 與 Mythos AI 模型出口管制，距該公司因國安風險被要求暫停提供最先進 AI 模型服務不到三週。解除後仍須配合政府審查機制，並僅對特定受信任夥伴開放存取 Claude Mythos 5，涵蓋逾百家企業與機構。此案凸顯美國以國安為由對前沿 AI 模型實施的動態出口管制，成為框架版本與模型可用性的重大變數。",
-      "relevance": "前沿模型出口管制直接牽動台灣企業與研究機構取得最先進 Claude 模型的權限，是 AI 治理與供應鏈自主的重要觀察指標。",
-      "discussion": "高；為近期美國 AI 出口政策反覆的最新進展，CNA、iThome 皆有追蹤。",
-      "url": "https://www.cna.com.tw/news/ait/202607010104.aspx"
+      "title": "美擬制定 AI 模型發表自願準則，最快下週公布",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-02",
+      "topic": "AI治理",
+      "summary": "據金融時報報導，美國政府正與AI企業密集協商新的模型發布自願性準則，最快下週公布，將針對前沿AI模型的測試、發布與存取權限建立指引。此舉延續美國近期強化前沿模型監管的方向：6月12日商務部曾對Anthropic的Fable與Mythos模型祭出出口限制、6月30日解除，OpenAI也應政府要求延後全面公開GPT-5.6。Google在發布新一代程式開發模型前亦曾諮詢美國政府。準則核心考量是防止領先模型遭敏感國家軍事或情報單位濫用。",
+      "relevance": "美國模型發布治理準則將成為各國AI治理參照範本，牽動台灣金管會、數發部研擬本土前沿模型評測與發布規範的方向。",
+      "discussion": "科技新報資安頻道，AI治理圈關注度高",
+      "url": "https://infosecu.technews.tw/2026/07/02/us-ai-model-voluntary-guidelines-announcement-next-week"
+    },
+    {
+      "title": "美AI巨頭OpenAI、Anthropic陷發展困境 中國開源模型趁勢崛起",
+      "source": "PChome新聞（三立新媒體）",
+      "date": "2026-07-02",
+      "topic": "LLM競賽",
+      "summary": "報導指出美國兩大AI巨頭OpenAI與Anthropic近期同時面臨挑戰，關鍵模型發布因美國政府監管介入而受阻，商業模式與技術能力遭到質疑。與此同時，中國開源模型趁勢崛起，智譜（Zhipu）GLM 5.2在受矚目的評測基準上僅落後Anthropic Opus 4.8約一個百分點，成本卻僅約五分之一。DeepSeek等中國開源模型持續以低成本、高性價比策略搶占全球開發者市場。此消長顯示AI模型競賽格局正在重新洗牌。",
+      "relevance": "中國開源模型以低成本崛起，直接影響台灣企業與新創在模型選型上的成本效益權衡，也牽動主權AI對模型來源的信任評估。",
+      "discussion": "入口網站轉載，AI產業競爭態勢為市場焦點",
+      "url": "https://news.pchome.com.tw/science/sunmedia/20260702/index-78295385570252329005.html"
     },
     {
       "title": "數發部揭主權AI策略：算力中心必須在臺灣、模型需具備3大理解力，另看好主權AI服務出海",
       "source": "iThome",
-      "date": "2026-06-30",
-      "topic": "AI 政策／治理（台灣）",
-      "summary": "數位發展部部長林宜敬 6 月 30 日出席主權 AI 峰會，揭露推動台灣主權 AI 的整體策略：一是 AI 算力中心必須設在台灣境內（強調「算力在哪就受哪國法律管轄」）；二是模型須符合台灣情境，由 AI 評測中心 AIEC 驗證是否具備台灣語言、社會、價值觀三大理解力；三是推動金融、法務等垂直領域大型語言模型；四是把台灣硬體、資安、資料治理與模型訓練能力打包成主權 AI 解決方案，輸出東南亞與中東。",
-      "relevance": "牽動台灣算力基礎建設、繁中語料與垂直 LLM 發展方向，對金融業自建／採用主權 AI、資料治理合規具直接政策指引意義。",
-      "discussion": "高；聯合報、經濟日報、天下雜誌同步專訪報導數發部主權 AI 兩路並進策略。",
+      "date": "2026-07-01",
+      "topic": "台灣AI政策",
+      "summary": "數發部部長林宜敬揭露臺灣主權AI策略，涵蓋四大層面：第一，採BOO模式鼓勵民間在臺灣建置AI算力中心，因「算力中心在哪個國家，就受該國法律管轄」；第二，模型須具備臺灣語言、社會敘事與民主價值觀三大理解能力，而非僅能以繁中回應卻套用他國政治框架；第三，推動金融、法務等垂直領域大型語言模型；第四，將臺灣硬體、資安、資料治理、模型訓練與評測能力打包成主權AI解決方案輸出東南亞與中東。",
+      "relevance": "直接定調台灣AI產業政策方向，垂直領域LLM（金融、法務）與算力落地要求對本土金融業AI導入具實質治理意涵。",
+      "discussion": "iThome新聞，數發部政策向來為台灣科技治理圈重點追蹤",
       "url": "https://www.ithome.com.tw/news/177017"
     },
     {
-      "title": "超級電腦晶創26系統Nano4正式營運 開放算力申請",
-      "source": "中央社 CNA",
+      "title": "美中 AI 競賽下，中國網攻鎖定人員與供應鏈",
+      "source": "TechNews 科技新報",
       "date": "2026-07-01",
-      "topic": "AI 算力基礎設施（台灣）",
-      "summary": "國研院國網中心建置的「晶創26」超級電腦 H200 架構系統 Nano4 於 7 月 1 日起正式營運，提供 81.55 Petaflops 運算效能，開放產、學、研各界申請使用。此系統為因應生成式 AI 快速發展帶來的龐大運算需求而建置，強化台灣本土公共算力供給。",
-      "relevance": "呼應數發部主權 AI「算力中心在台灣」策略，公共算力擴充降低台灣學研與新創訓練大型模型的算力門檻，屬國家級 AI 基礎建設布局。",
-      "discussion": "中高；與同日數發部主權 AI 策略形成政策與基建的相互呼應。",
-      "url": "https://www.cna.com.tw/news/afe/202607010046.aspx"
+      "topic": "AI資安",
+      "summary": "據美國資安業者CrowdStrike六月觀察，截至3月31日止的12個月內，針對科技公司的國家級入侵中逾半數可歸因於中國相關組織，攻擊焦點鎖定AI資產、人員與供應鏈。Anthropic指控包含阿里巴巴在內的中國企業試圖非法竊取其AI能力。Copyleaks亦報告DeepSeek R1模型的回應與OpenAI ChatGPT相似度近75%，暗示該中國開源模型訓練資料可能部分取用美國模型輸出。報導凸顯AI競賽已從技術本身延伸至人員與供應鏈的滲透攻防。",
+      "relevance": "台灣半導體與AI供應鏈為國家級網攻高風險目標，供應鏈滲透警訊對台廠資安防護與人員社交工程防範具直接參考價值。",
+      "discussion": "科技新報資安頻道，美中AI資安對抗為持續熱點",
+      "url": "https://infosecu.technews.tw/2026/07/01/china-linked-actors-target-more-than-technology-as-ai-competition-with-u-s-intensifies"
     },
     {
-      "title": "台灣微軟公布 2026 工作趨勢指數，AI 成效 67% 卡在組織",
-      "source": "INSIDE",
-      "date": "2026-06-30",
-      "topic": "AI 產業應用（台灣）",
-      "summary": "台灣微軟公布 2026 工作趨勢指數，調查涵蓋十個市場、2 萬名 AI 使用者與數兆筆 Microsoft 365 匿名生產力訊號。結果顯示 67% 的 AI 成效取決於組織文化、管理支持與人才管理等組織因素，逾個人因素（32%）兩倍；Microsoft 365 活躍 Agent 數量較去年成長 15 倍。台灣有 22% 使用者屬「前沿專業人才」，高於全球 16%，但僅 17% 認為企業領導層有清晰一致的 AI 策略（全球為 26%），呈現「員工已就緒、組織未跟上」的轉型悖論；製造、醫療業 Agent 導入領先全球，金融業相對落後。",
-      "relevance": "點名台灣金融業 AI Agent 導入相對落後，對金融業 AI 治理與組織轉型是直接警訊；量化揭示成效瓶頸在組織而非個人。",
-      "discussion": "中高；聯合報、CIO Taiwan、科技報橘等多家跟進，⚠️待確認：發布日以 INSIDE 文章序號（41689，介於 07-01 確認文之間）推定為 06-30。",
-      "url": "https://www.inside.com.tw/article/41689-microsoft-2026-work-trend-index-taiwan-org-gap"
+      "title": "PChome旗下拍付國際傳遭竊取個資，數發部將進行行政檢查",
+      "source": "iThome",
+      "date": "2026-07-01",
+      "topic": "台灣資安",
+      "summary": "勒索軟體團體Settra聲稱竊取PChome旗下拍付國際（Pi拍錢包）的內部資料，保守估計涉及約350萬名Pi錢包用戶個資。數發部表示將對拍付國際進行行政檢查，釐清資料外洩範圍與通報是否合規。此事件為台灣近期規模較大的個資外洩案例之一，涉及行動支付敏感財務資料。金融支付業者的資料治理與事件通報機制再度受到檢視。",
+      "relevance": "涉及台灣行動支付用戶大規模個資外洩，對金融業資料治理、事件應變與主管機關監理具高度警示意義。",
+      "discussion": "iThome新聞，個資外洩事件引發台灣用戶與資安圈關注",
+      "url": "https://www.ithome.com.tw/news/177001"
     },
     {
-      "title": "台大教授徐宏民：實體AI 2030年迎商業化甜蜜點，致動器降本＋VLA 模型成熟雙線收斂",
-      "source": "數位時代 BusinessNext",
+      "title": "應材推一系列全新系統，搶攻 DRAM、先進封裝商機",
+      "source": "TechNews 科技新報",
       "date": "2026-07-01",
-      "topic": "AI 技術趨勢（台灣學研觀點）",
-      "summary": "台大資工系教授徐宏民指出，實體 AI（Physical AI／人形機器人）預計在 2030 年前後迎來商業化甜蜜點，關鍵在於兩條路線收斂：一是致動器（actuator）等硬體成本下降，二是 VLA（Vision-Language-Action）模型逐漸成熟，使機器人能將視覺與語言指令轉化為實際動作。此觀點呼應資策會將「AI 從虛擬躍入實體」列為 2026 十大技術趨勢的判斷。",
-      "relevance": "台灣在致動器、感測與半導體供應鏈具優勢，實體 AI 與 VLA 模型成熟為台廠切入機器人與 embodied AI 的時間窗提供學研端評估基準。",
-      "discussion": "中；數位時代 AI 專題報導，⚠️待確認：發布日以 bnext 文章序號（91388，鄰近 07-01 確認文）推定為 07-01。",
-      "url": "https://www.bnext.com.tw/article/91388/physical-ai-2030-sweet-spot-humanoid-robot"
-    },
-    {
-      "title": "5G 用戶衝破 31 億，愛立信最新報告揭示 AI 如何改寫行動網路",
-      "source": "INSIDE",
-      "date": "2026-07-01",
-      "topic": "AI 產業趨勢",
-      "summary": "愛立信 (Ericsson) 最新行動趨勢報告指出，全球 5G 用戶於 2026 年第一季突破 31 億，逾 50% 行動網路數據流量已由 5G 承載。報告分析 AI 如何改寫行動網路，包括以 AI 優化網路資源配置、流量管理與 AI-RAN 等新興架構，反映電信網路與 AI 深度整合的趨勢。",
-      "relevance": "與台灣電信商（如台灣大）AI Agent／AI-RAN 布局形成產業背景，惟本則以全球數據為主，與台灣 AI 產業直接關聯度中等。",
-      "discussion": "中；電信與 AI 融合議題，AI-RAN 為近期產業關注主題。",
-      "url": "https://www.inside.com.tw/article/41696-5g-users-top-31-billion-ericsson-report-reveals-how-ai-is-reshaping-mobile-networks"
+      "topic": "AI半導體",
+      "summary": "應用材料（Applied Materials）發表一系列全新製程系統，鎖定支援次世代AI所需的先進3D晶片架構。應材指出，隨著AI模型規模持續擴大，運算與資料傳輸需求快速攀升，帶動DRAM與先進封裝的設備需求。新系統聚焦記憶體與先進封裝環節，正是台積電、日月光等台廠AI供應鏈的關鍵瓶頸所在。此舉反映上游設備商正加速布局AI算力基礎設施的材料與製程升級。",
+      "relevance": "先進封裝與記憶體為台灣AI供應鏈核心，應材新設備直接牽動台積電CoWoS、HBM等台廠產能與技術升級節奏。",
+      "discussion": "科技新報，AI半導體供應鏈為台股與產業長期焦點",
+      "url": "https://technews.tw/2026/07/01/applied-materials-2026-new-products/"
     }
   ],
-  "_updated_at": "2026-07-01T18:04:48.244404+08:00"
+  "_updated_at": "2026-07-02T18:04:05.003550+08:00"
 }

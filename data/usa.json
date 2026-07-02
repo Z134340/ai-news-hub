@@ -1,103 +1,116 @@
 {
   "items": [
     {
-      "title": "Introducing Claude Sonnet 5",
-      "title_zh": "Anthropic 發表 Claude Sonnet 5",
-      "source": "Anthropic",
-      "date": "2026-06-30",
-      "topic": "LLM Release / AI Agent",
-      "summary": "Anthropic 於 6 月 30 日發表中階模型 Claude Sonnet 5，主打以更低成本執行 agentic 工作負載。官方指出該模型能自行規劃、呼叫瀏覽器與終端機等工具並自主運行，達到數月前需仰賴更大、更昂貴模型才能完成的水準。相較 2 月推出的 Sonnet 4.6，在推理、工具使用、程式碼撰寫與知識型工作上均有顯著提升，官方稱在某項知識型工作 benchmark 上甚至略勝 Opus 4.8。上市即以促銷價每百萬 input token 2 美元、output token 10 美元供應（至 8 月 31 日止），並成為 Free 與 Pro 方案的預設模型。",
-      "highlights": [
-        "定位為可自主規劃、使用工具（瀏覽器/終端機）並長時間執行的 agentic 中階模型",
-        "在知識型工作 benchmark 上官方稱略微超越旗艦 Opus 4.8",
-        "促銷價 $2/$10 每百萬 input/output token，至 2026-08-31，為 Free/Pro 預設模型",
-        "跨 Claude 各方案與 API 全面可用",
-        "官方稱較前代降低不當行為比率，並提升對 prompt-injection 劫持的抵抗力"
-      ],
-      "discussion": "社群普遍聚焦於「以中階價格拿到接近旗艦效能」對 agent 部署成本結構的衝擊，多家科技媒體（TechCrunch、Engadget、MacRumors、9to5Mac）同日跟進報導，並將其視為對 OpenAI GPT-5.6 系列與 Google Gemini 的直接施壓。",
-      "url": "https://www.anthropic.com/news/claude-sonnet-5"
-    },
-    {
-      "title": "Google delays Gemini 3.5 Pro launch to July 2026",
-      "title_zh": "Google 將 Gemini 3.5 Pro 發布延至 2026 年 7 月",
-      "source": "Crypto Briefing",
-      "date": "2026-06-30",
+      "title": "Claude Sonnet 5 Ships as Anthropic Default: Agentic Performance Closes Opus Gap",
+      "title_zh": "Claude Sonnet 5 上線成為 Anthropic 預設模型：agentic 表現逼近 Opus",
+      "source": "Tech Times",
+      "date": "2026-07-01",
       "topic": "LLM Release",
-      "summary": "多家媒體引述內部消息報導，Google 已把備受期待的 Gemini 3.5 Pro 前沿模型發布延至 2026 年 7 月，原先市場預期在 6 月推出。Google 據稱正依早期測試者回饋，針對程式碼能力、token 效率與長時程 agentic 任務表現進行調校，並將 Flash 模型的經驗導入開發流程。Gemini 3.5 Pro 目前仍處於內部測試與有限企業預覽階段，其姊妹版 Gemini 3.5 Flash 則已上線。此延期使 Sundar Pichai 在 5 月 I/O 上「下個月交付」的承諾成為連續第二次未如期兌現。Google 發言人對修訂後時程「拒絕置評」。",
+      "summary": "Anthropic 於 6/30 發布 Claude Sonnet 5，並自 7/1 起將其設為所有 Free 與 Pro 用戶的預設模型，同時開放 Max、Team、Enterprise 使用。官方定位為「史上最 agentic 的 Sonnet」，在多項任務上表現逼近旗艦 Opus 4.8，具備自主規劃、使用瀏覽器與終端機等工具並長時間自主執行的能力。導入期定價（至 8/31）為每百萬 token 輸入 2 美元、輸出 10 美元，較 Sonnet 4.6 更低，之後調整為 3/15 美元。原生支援 1M token 上下文窗，可透過 Claude API、Claude Code 與 Claude Platform 使用。",
       "highlights": [
-        "Gemini 3.5 Pro 由 6 月延至 7 月，官方尚未正式確認",
-        "延期原因指向程式碼、token 效率與長任務表現的最後調校",
-        "Gemini 3.5 Flash 已上線，Pro 仍限內部測試與企業預覽",
-        "被視為 Pichai 在 I/O 承諾的連續第二次跳票",
-        "時程與 GPT-5.6、Claude 系列的年中發布競賽正面交鋒"
+        "7/1 起成為 Free 與 Pro 用戶預設模型",
+        "強化 agentic 任務與多步驟工作流，逼近 Opus 4.8",
+        "導入期定價 2/10 美元（至 8/31），低於 Sonnet 4.6",
+        "原生 1M token 上下文窗，支援瀏覽器與終端機工具"
       ],
-      "discussion": "外界解讀此延期反映前沿模型「趕時程 vs. 品質」的兩難，部分報導同時提及 Google AI 人才流動加深壓力；由於延期屬未經 Google 官方確認的內部消息，⚠️待確認實際文章發布日期。",
-      "url": "https://cryptobriefing.com/google-delays-gemini-35-pro-launch-to-july-2026/"
+      "discussion": "開發者社群關注重點在於「以更低價格取得接近旗艦的 agentic 能力」，被視為 Anthropic 回應市場從 tokenmaxxing 轉向成本效率的策略；部分討論質疑降價是否反映競爭壓力加劇。",
+      "url": "https://www.techtimes.com/articles/319409/20260701/claude-sonnet-5-ships-anthropic-default-agentic-performance-closes-opus-gap.htm"
     },
     {
-      "title": "Startup OpenMatter wants to make enterprises prove what their AI agents do",
-      "title_zh": "新創 OpenMatter 要讓企業能「證明」其 AI agent 做了什麼",
-      "source": "SiliconANGLE",
-      "date": "2026-06-30",
-      "topic": "AI Agent / Governance",
-      "summary": "SiliconANGLE 於 6 月 30 日報導新創 OpenMatter，其核心命題是讓企業能對外可稽核地證明自家 AI agent 實際執行了哪些行為。公司鎖定敏感資料在不同方之間交換的場景，切入 agent 行為的可驗證性與問責。應用場景涵蓋醫療協作、安全的 AI 模型訓練、金融分析與分散式科學研究。此舉呼應 2026 年企業導入 agent 後對「可證明、可稽核」治理層的迫切需求。",
+      "title": "Anthropic Redeploys Claude Fable 5 on July 1 After US Export Controls Lift, Adds New Cybersecurity Classifier",
+      "title_zh": "美國出口管制解除後，Anthropic 於 7/1 重新部署 Claude Fable 5 並新增資安分類器",
+      "source": "MarkTechPost",
+      "date": "2026-07-01",
+      "topic": "Model / Cybersecurity",
+      "summary": "Anthropic 於 7/1 在美國出口管制解除後全球重新開放 Claude Fable 5，並同步為特定美國組織重新啟用 Claude Mythos 5。此次重新部署搭配新增的資安分類器（cybersecurity classifier），強化對高風險資安相關請求的偵測與攔截。此舉反映前沿模型的可用性與地緣政治出口管制高度連動，安全機制成為模型重新上架的前置條件。",
       "highlights": [
-        "主打 agent 行為的可驗證性與對外可稽核的問責機制",
-        "鎖定敏感資料跨方交換的高風險場景",
-        "應用橫跨醫療協作、AI 模型訓練、金融分析、分散式科研",
-        "反映企業從 agent 部署轉向 agent 治理與證明的趨勢"
+        "出口管制解除後全球重新開放 Claude Fable 5",
+        "為特定美國組織重新啟用 Claude Mythos 5",
+        "新增 cybersecurity classifier 強化資安風險偵測",
+        "顯示前沿模型可用性與出口管制政策直接連動"
       ],
-      "discussion": "在 agent 大規模進入生產環境的 2026 年，「如何證明 agent 做了什麼」成為金融、醫療等受監管產業的核心痛點，OpenMatter 這類 agent 問責基礎設施被視為治理落地的必要拼圖。",
-      "url": "https://siliconangle.com/2026/06/30/startup-openmatter-wants-make-enterprises-prove-ai-agents/"
+      "discussion": "治理與資安圈關注新資安分類器的實際攔截效果與誤判率；部分聲音認為模型隨政策反覆上下架，對企業導入的穩定性構成不確定性。",
+      "url": "https://www.marktechpost.com/2026/07/01/anthropic-redeploys-claude-fable-5-on-july-1-after-us-export-controls-lift-adds-new-cybersecurity-classifier/"
     },
     {
-      "title": "Securing AI agents: When AI tools move from reading to acting",
-      "title_zh": "保護 AI agent：當 AI 工具從「讀取」走向「執行」",
-      "source": "Microsoft Security Blog",
-      "date": "2026-06-30",
-      "topic": "Cybersecurity / Agent Security",
-      "summary": "Microsoft 資安部落格於 6 月 30 日發文，聚焦當 AI 工具從單純讀取升級為可實際採取行動時所放大的攻擊面。文章重點在於工具濫用與 agentic 供應鏈弱點，特別是透過被污染的 MCP 工具中繼資料（poisoned MCP tool metadata）發動的攻擊，對應 ASI02 與 ASI04 威脅類別。相關技術最早由 Invariant Labs 於 2025 年 4 月揭露，2026 年已被觀察到針對日益增加的企業 agent 使用。此文與 2026 年 6 月 MCP 生態普遍存在的認證缺口、供應鏈風險相互呼應。",
-      "highlights": [
-        "核心風險：工具濫用與 agentic 供應鏈攻擊",
-        "攻擊向量為被污染的 MCP 工具中繼資料，對應 ASI02/ASI04",
-        "技術首見於 Invariant Labs（2025-04），2026 年已針對企業 agent 實戰觀察",
-        "呼應大量 MCP 服務未認證、供應鏈風險升高的整體態勢"
-      ],
-      "discussion": "資安社群持續將 prompt injection 與 MCP 中繼資料污染列為 agentic AI 生產環境的首要失敗來源；Microsoft 官方發文被視為把此類研究層級的威脅正式納入企業防禦框架的訊號。",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/30/securing-ai-agents-ai-tools-move-from-reading-acting/"
-    },
-    {
-      "title": "AppViewX Launches Global Partner Program Amid Rising Demand for Machine and Agent Identity Security",
-      "title_zh": "AppViewX 推出全球夥伴計畫，因應機器與 agent 身分安全需求攀升",
-      "source": "Tech Startups",
-      "date": "2026-06-30",
-      "topic": "Cybersecurity / Agent Identity",
-      "summary": "AppViewX 於 6 月 30 日宣布推出其首個全球夥伴計畫（Global Partner Program），定位為專為 AI 與量子時代打造的「機器與 agent 身分安全」公司。此舉反映在 agent 大量進入企業環境後，非人類身分（機器、服務、autonomous agent）的身分治理與憑證管理需求快速上升。夥伴計畫意在透過通路擴大其身分安全方案的部署規模。",
-      "highlights": [
-        "推出首個全球夥伴計畫，透過通路擴張市場",
-        "定位為 AI 與量子時代的機器與 agent 身分安全供應商",
-        "切入非人類身分（機器/服務/agent）治理的新興缺口",
-        "反映 agent 部署帶動的身分與憑證管理需求"
-      ],
-      "discussion": "隨著 autonomous agent 成為企業中新的「行為主體」，機器與 agent 身分（machine/agent identity）被視為零信任與 IAM 的下一個戰場，通路夥伴計畫是此類供應商規模化的常見打法。",
-      "url": "https://techstartups.com/2026/06/30/appviewx-launches-global-partner-program-amid-rising-demand-for-machine-and-agent-identity-security/"
-    },
-    {
-      "title": "Venture Capital & Startup Funding Roundup, June 30, 2026",
-      "title_zh": "創投與新創募資彙整，2026 年 6 月 30 日",
-      "source": "Tech Startups",
-      "date": "2026-06-30",
+      "title": "Neocloud Together AI raises $800M, leaps to $8.3B valuation",
+      "title_zh": "Neocloud 業者 Together AI 募得 8 億美元，估值躍升至 83 億美元",
+      "source": "TechCrunch",
+      "date": "2026-07-01",
       "topic": "Funding",
-      "summary": "Tech Startups 於 6 月 30 日彙整當日多筆募資，其中含 AI 相關案。Higharc 完成由 Insight Partners 領投的 9,500 萬美元 C 輪，累計募資逾 1.7 億美元；該公司開發用於住宅營建「設計到施工」全生命週期的 AI 軟體。另 LeapXpert 取得由 Riverwood Capital 領投、既有投資人 Portage Ventures 參與的 1.8 億美元成長型投資。整體反映 2026 年 AI 應用型新創在企業垂直場景持續吸金。",
+      "summary": "Together AI 於 7/1 宣布完成 8 億美元 C 輪募資，投後估值達 83 億美元，較約 16 個月前 B 輪的 33 億美元估值翻倍以上。本輪由 Aramco Ventures 領投，Vista Equity Partners、General Catalyst、Emergence Capital、Nvidia、March Capital、Pegatron 等參與。公司以 DeepSeek、MiniMax、Kimi 等開源模型為基礎，提供企業訓練與部署 AI 工作負載，成本低於 OpenAI、Anthropic 等封閉系統。上季年度預訂金額突破 11.5 億美元，客戶包含 Cursor、Cognition、Decagon，並已取得逾 500 MW 算力承諾。",
       "highlights": [
-        "Higharc：9,500 萬美元 C 輪（Insight Partners 領投），累計逾 1.7 億美元",
-        "Higharc 專注住宅營建設計到施工全流程的 AI 軟體",
-        "LeapXpert：1.8 億美元成長型投資（Riverwood Capital 領投）",
-        "顯示資金持續流向垂直產業的 AI 應用新創"
+        "8 億美元 C 輪，投後估值 83 億美元，16 個月內翻倍",
+        "Aramco Ventures 領投，Nvidia、General Catalyst 等參與",
+        "以開源模型（DeepSeek/MiniMax/Kimi）提供低成本推論訓練",
+        "年度預訂突破 11.5 億美元，取得逾 500 MW 算力承諾"
       ],
-      "discussion": "在 Q1 2026 全球創投逾八成資金流入 AI 的背景下，市場關注焦點已從通用模型轉向能在特定產業（營建、企業通訊）落地變現的應用層新創。",
-      "url": "https://techstartups.com/2026/06/30/venture-capital-startup-funding-roundup-june-30-2026/"
+      "discussion": "業界視此為開源模型雲端需求爆發的訊號；討論聚焦 neocloud 業者能否在超大規模雲廠（AWS/Azure/GCP）夾擊下靠成本與開源生態站穩，以及 Aramco 主權資本進場的意涵。",
+      "url": "https://techcrunch.com/2026/07/01/neocloud-together-ai-raises-800m-leaps-to-8-3b-valuation/"
+    },
+    {
+      "title": "The AI Buildout Hits A Wall: Free Cash Flow of Big Tech is Collapsing",
+      "title_zh": "AI 基建撞牆：科技巨頭自由現金流正在崩跌",
+      "source": "WinBuzzer",
+      "date": "2026-07-01",
+      "topic": "Enterprise / Industry",
+      "summary": "報導指出，科技巨頭為 AI 基礎建設的龐大資本支出正嚴重侵蝕自由現金流，使 AI 投入從成長題材轉為投資人檢視財務紀律的壓力測試。文章分析大廠 capex 與現金流之間的失衡，警示 690B 級別的基建競賽在缺乏對應營收回收下的永續性風險。此議題呼應近期市場從「tokenmaxxing」轉向效率與投資報酬的討論。",
+      "highlights": [
+        "AI 基建 capex 大幅壓縮大廠自由現金流",
+        "AI 支出由成長敘事轉為財務紀律考驗",
+        "呼應市場從 tokenmaxxing 轉向效率與 ROI",
+        "對大規模基建競賽的永續性提出警訊"
+      ],
+      "discussion": "投資圈對 AI 資本支出是否「過度建設」出現分歧；部分分析師認為現金流壓力將迫使大廠放緩 capex 或加速商業化變現。",
+      "url": "https://winbuzzer.com/2026/07/01/big-tech-ai-spending-turns-cash-flow-into-investor-test-xcxwbn/"
+    },
+    {
+      "title": "AI News Today July 1 2026: 15 Biggest Stories",
+      "title_zh": "2026 年 7 月 1 日今日 AI 新聞：15 則最重要動態",
+      "source": "Build Fast with AI",
+      "date": "2026-07-01",
+      "topic": "Industry Roundup",
+      "summary": "此為 7/1 當日 AI 產業重點彙整，整理當日跨模型發布、agent 生態、企業導入與資本市場的十五則主要動態，供快速掌握全日產業脈動。內容涵蓋前沿模型更新、agentic 產品進展與產業投資訊號等主題。",
+      "highlights": [
+        "彙整 7/1 當日 15 則主要 AI 動態",
+        "涵蓋模型發布、agent 生態與企業導入",
+        "反映當日資本市場與產業投資訊號"
+      ],
+      "discussion": "作為每日彙整型內容，讀者多用於快速盤點；社群提醒此類 roundup 需回溯原始出處以確認個別事件細節。",
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-1-2026"
+    },
+    {
+      "title": "Venture Capital & Startup Funding Roundup, July 1, 2026",
+      "title_zh": "創投與新創募資彙整，2026 年 7 月 1 日",
+      "source": "Tech Startups",
+      "date": "2026-07-01",
+      "topic": "Funding",
+      "summary": "7/1 當日創投募資彙整，除 Together AI 8 億美元 C 輪外，另收錄多筆 AI 與基礎設施新創交易：晶片設計新創 Oxmiq 募得 3,500 萬美元，主打將 GPU+CPU+TPU 整合為單一架構；Omen AI 募得 3,100 萬美元，部署感測器監控資料中心冷卻液的機件健康。生醫領域則有 Beeline Medicine 募得 1.263 億美元、Flare Therapeutics 募得 8,500 萬美元。整體呈現基礎設施與製藥的大額集中、專用 AI 與自動化工具的中型下注格局。",
+      "highlights": [
+        "Oxmiq 募 3,500 萬美元：GPU+CPU+TPU 單一架構",
+        "Omen AI 募 3,100 萬美元：資料中心冷卻液健康監測",
+        "生醫大額：Beeline Medicine 1.263 億、Flare 8,500 萬美元",
+        "資本集中於基建與製藥，AI 工具走中型注碼"
+      ],
+      "discussion": "投資圈觀察資金明顯向 AI 基礎設施（算力、資料中心運維、晶片架構）集中，反映算力瓶頸仍是主要投資主題。",
+      "url": "https://techstartups.com/2026/07/01/venture-capital-startup-funding-roundup-july-1-2026/"
+    },
+    {
+      "title": "The case for AI disclosures in news",
+      "title_zh": "新聞內容應揭露 AI 使用的理由",
+      "source": "The Capitol Pressroom",
+      "date": "2026-07-01",
+      "topic": "Policy",
+      "summary": "報導聚焦州級立法者推動要求新聞媒體在內容中「大量使用生成式 AI」時須主動揭露的政策倡議。討論核心為 AI 生成內容的透明度、閱聽人知情權與新聞公信力之間的張力，反映生成式 AI 在媒體產製普及後的治理需求。文章從立法動機與可行性角度切入，探討揭露義務的邊界與執行難題。",
+      "highlights": [
+        "州級立法者推動新聞 AI 使用揭露義務",
+        "核心為透明度、知情權與新聞公信力",
+        "反映生成式 AI 深入媒體產製後的治理壓力",
+        "探討揭露門檻（「大量使用」）的界定與執行難題"
+      ],
+      "discussion": "媒體與政策圈對「大量使用」如何定義、由誰認定、以及是否會造成過度合規負擔存在爭論；支持者強調閱聽人信任，反對者擔憂執行標準模糊。",
+      "url": "https://capitolpressroom.org/2026/07/01/the-case-for-ai-disclosures-in-news/"
     }
   ],
-  "_updated_at": "2026-07-01T18:11:15.141649+08:00"
+  "_updated_at": "2026-07-02T18:10:14.885186+08:00"
 }

@@ -1,20 +1,50 @@
 {
   "items": [
     {
-      "title": "Anthropic launches Claude Sonnet 5, an agentic model built for cost efficiency",
-      "title_zh": "Anthropic 推出 Claude Sonnet 5，主打代理能力與成本效率兼顧",
-      "source": "Anthropic Newsroom",
-      "date": "2026-06-30",
-      "domain": "LLM",
-      "model_area": "Claude Sonnet 5 / Agentic model",
-      "summary": "Anthropic 於本週二（6/30）發表最新模型 Claude Sonnet 5，定位為在代理式（agentic）能力與成本節約之間取得平衡。透過 Claude Code 使用時，Sonnet 5 的輸入為每百萬 token 2 美元、輸出每百萬 token 10 美元，價格不到 Opus 4.8 的一半。此定價策略明顯針對大量 agent 工作負載的企業用戶，降低長時間運行 agent 的推論成本。",
+      "title": "Meta, like SpaceX, looks to turn excess AI compute into cash",
+      "title_zh": "Meta 效法 SpaceX，將過剩 AI 運算產能變現",
+      "source": "TechCrunch",
+      "date": "2026-07-01",
+      "domain": "Industry",
+      "model_area": "AI 基礎設施 / 雲端運算",
+      "summary": "Meta 推出名為 Meta Compute 的雲端運算業務，對外出售其過剩的 AI 運算產能，直接挑戰 AWS、Google Cloud 與 Microsoft Azure。該業務鎖定兩大營收來源：出租資料中心的原始 GPU 產能，以及出售自家封閉權重模型 Muse Spark 的存取權。此業務由基礎設施主管 Santosh Janardhan、Meta Superintelligence Labs 主管 Daniel Gross 與總裁 Dina Powell McCormick 共同領導。消息一出，供應 Meta 的 neocloud 業者 CoreWeave 股價跌約 10%、Nebius 跌約 12%。",
       "highlights": [
-        "定價 $2/1M 輸入、$10/1M 輸出，約為 Opus 4.8 的一半",
-        "主打 agentic 能力與成本效率並重，鎖定企業級 agent 部署",
-        "透過 Claude Code 使用，強化 Anthropic 在編碼 agent 市場布局"
+        "Meta Compute 雙軌營收：出租 GPU 原始產能 + 出售 Muse Spark 模型存取",
+        "直接對打 AWS、Google Cloud、Azure 三大雲端巨頭",
+        "neocloud 供應商 CoreWeave（-10%）、Nebius（-12%）股價重挫"
       ],
-      "url": "https://www.anthropic.com/news"
+      "url": "https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/"
+    },
+    {
+      "title": "Anthropic Launches Claude Science Workbench For Researchers",
+      "title_zh": "Anthropic 為研究人員推出 Claude Science 工作台",
+      "source": "Dataconomy",
+      "date": "2026-07-01",
+      "domain": "Product",
+      "model_area": "科學計算 / AI Agent 應用",
+      "summary": "Anthropic 推出 Claude Science，這是一款面向科學家的 AI 工作台，將分散的資料庫、運算 pipeline 與各式工具整合至單一環境，以加速計算型研究。Anthropic 特別澄清 Claude Science「並非新的 AI 模型，也不是生物學能力更強的模型」，而是運行在既有 Claude 模型之上的應用層工具。此舉延續 Anthropic 近期鎖定企業與專業領域垂直應用的產品策略。",
+      "highlights": [
+        "整合資料庫、pipeline 與研究工具於單一 workbench 環境",
+        "官方明確定位為應用層工具，非新模型、非強化版生物學模型",
+        "延續 Anthropic 針對專業垂直領域的企業級佈局"
+      ],
+      "url": "https://dataconomy.com/2026/07/01/anthropic-claude-science-ai-research-launch/"
+    },
+    {
+      "title": "AI Cybersecurity Incident Report 2026: Cursor DuneSlide sandbox escape",
+      "title_zh": "Cato AI Labs 揭露 AI 編輯器 Cursor 的 DuneSlide 沙箱逃逸漏洞",
+      "source": "Cato AI Labs / BlueRadius",
+      "date": "2026-07-01",
+      "domain": "Cybersecurity",
+      "model_area": "AI Coding Agent / Prompt Injection",
+      "summary": "資安團隊 Cato AI Labs 揭露 AI 程式編輯器 Cursor 存在兩個嚴重漏洞，命名為 DuneSlide。攻擊者只需透過單一 prompt，即可突破編輯器的安全沙箱，在開發者電腦上執行任意命令。此漏洞凸顯 AI coding agent 面臨的 prompt injection 與 excessive agency 風險，也反映自主代理正成為企業中最具威脅的未受保護資產類別。",
+      "highlights": [
+        "單一 prompt 即可突破 Cursor 安全沙箱、執行任意命令",
+        "屬 prompt injection 與 excessive agency 風險類別",
+        "反映 AI coding agent 供應鏈與代理自主性資安隱憂升溫"
+      ],
+      "url": "https://blueradius.io/ai-cybersecurity-incident-report-2026"
     }
   ],
-  "_updated_at": "2026-07-01T18:08:16.387746+08:00"
+  "_updated_at": "2026-07-02T18:07:34.198637+08:00"
 }
