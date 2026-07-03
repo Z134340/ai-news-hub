@@ -2,182 +2,114 @@
   "items": [
     {
       "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
-      "title_zh": "LongJudgeBench：長文輸出評估的 LLM-as-a-Judge 基準測試",
+      "title_zh": "長文本輸出評估的 LLM-as-a-Judge 基準測試",
       "authors": [
-        "(multi-author, see arXiv)"
+        "Junjie Chen",
+        "Yuxi Dong",
+        "Haitao Li",
+        "Weihang Su",
+        "Yujia Zhou"
       ],
-      "institution": "arXiv preprint",
+      "institution": "Tsinghua University",
       "venue": "arXiv",
       "date": "2026-06-01",
-      "summary": "本文提出 LongJudgeBench，針對長文輸出（long-form output）評估的 LLM 裁判可靠性建立完整基準，補足既有 meta-evaluation 基準多聚焦短文輸出的缺口。研究涵蓋多種真實場景與裁判協定（judging protocol），系統性檢驗 LLM-as-a-Judge 在長文評估上的一致性與偏誤。結果顯示長文情境下裁判可靠性顯著下降，凸顯長脈絡評估的獨特挑戰。為 LLM 評估方法學提供可複現的診斷工具。",
+      "summary": "本文針對 LLM-as-a-Judge 在長文本（long-form）輸出評估上的可靠性建立系統性基準，涵蓋 pointwise 評分與 pairwise 比較兩種模式。研究發現 LLM 評審在長文本情境下對長度、風格與位置偏誤特別敏感，一致性顯著下降。作者以多個評審模型與多benchmark交叉驗證，量化各類偏誤幅度並提出緩解方向。結果顯示長文本評估仍是 LLM 評審的主要弱點，需要專門的偏誤校正機制。",
       "url": "https://arxiv.org/abs/2606.01629",
-      "field": "LLM Evaluation",
-      "impact": "high：直接補足 LLM-as-a-Judge 在長文評估的可靠性驗證缺口，對評估方法學具指標意義"
-    },
-    {
-      "title": "Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?",
-      "title_zh": "LLM-as-a-Judge 能否在代理式情境中可靠驗證評分標準？",
-      "authors": [
-        "Yangda Peng",
-        "Yunjia Qi",
-        "Hao Peng",
-        "Haotian Xia",
-        "Guanzhong He",
-        "Xintong Shi",
-        "Richeng Xuan",
-        "et al."
-      ],
-      "institution": "arXiv preprint",
-      "venue": "arXiv",
-      "date": "2026-06-29",
-      "summary": "本文探討在 agentic 任務情境下，LLM 裁判是否能可靠地依 rubric（評分標準）驗證代理行為。研究針對代理任務的多步驟軌跡設計 rubric 驗證測試，評估裁判在流程層級判斷的準確度與穩定性。發現裁判在 agentic 場景的 rubric 驗證存在明顯不一致，對自動化代理評估的信任度提出警示。屬 LLM-as-a-Judge 與 agent 評估交會的前沿議題。",
-      "url": "https://arxiv.org/abs/2606.29920",
       "field": "LLM-as-a-Judge",
-      "impact": "high：質疑 LLM 裁判在代理式評估的可靠性，對 agent 自動化評估管線有直接影響"
+      "impact": "high — 直接補足長文本評估這一 LLM-as-a-Judge 研究缺口，對金融文件審閱等長文本 AI 評測有實務參考價值"
     },
     {
-      "title": "AJ-Bench: Benchmarking Agent-as-a-Judge for Environment-Aware Evaluation",
-      "title_zh": "AJ-Bench：環境感知評估的 Agent-as-a-Judge 基準測試",
+      "title": "Judging the Judges: A Systematic Evaluation of Bias Mitigation Strategies in LLM-as-a-Judge Pipelines",
+      "title_zh": "評審中的評審：LLM-as-a-Judge 管線中偏誤緩解策略的系統性評估",
       "authors": [
-        "Wentao Shi",
-        "Yu Wang",
-        "Yuyang Zhao",
-        "Yuxin Chen",
-        "Fuli Feng",
-        "Xueyuan Hao",
-        "Xi Su",
-        "Qi Gu",
-        "Hui Su",
-        "Xunliang Cai",
-        "Xiangnan He"
+        "Sadman Kabir Soumik"
       ],
-      "institution": "University of Science and Technology of China / NUS / Meituan",
+      "institution": "Independent Researcher",
       "venue": "arXiv",
-      "date": "2026-04-20",
-      "summary": "AJ-Bench 提出 Agent-as-a-Judge 的環境感知評估基準，讓裁判主動與環境和工具互動以取得可驗證證據，而非僅靠靜態輸出判斷。基準涵蓋 Search、DS、GUI 三大領域，共 155 個任務與 516 條軌跡。研究補足 Agent-as-a-Judge 在互動環境中評估能力尚未被充分探索的缺口。為代理評估提供環境互動維度的量化框架。",
-      "url": "https://arxiv.org/abs/2604.18240",
+      "date": "2026-04-25",
+      "summary": "本文系統比較九種去偏（debiasing）策略，橫跨 Google、Anthropic、OpenAI、Meta 四大供應商的五個評審模型、三個 benchmark（MT-Bench n=400、LLMBar n=200、自建 n=225）與四類偏誤。核心發現是風格偏誤（style bias）為主導偏誤，分數高達 0.76–0.92，遠超位置偏誤（≤0.04），卻長期被研究忽視。研究指出多數既有去偏方法對風格偏誤幾乎無效。此結果對建立可信 LLM 評估管線具有直接方法論意義。",
+      "url": "https://arxiv.org/abs/2604.23178",
+      "field": "LLM-as-a-Judge",
+      "impact": "high — 量化揭示風格偏誤是 LLM 評審最嚴重且被低估的問題，對評測治理有直接影響"
+    },
+    {
+      "title": "An Empirical Study of Automating Agent Evaluation",
+      "title_zh": "自動化 Agent 評估的實證研究",
+      "authors": [
+        "Kang Zhou",
+        "Sangmin Woo",
+        "Haibo Ding",
+        "Kiran Ramnath",
+        "Subramanian Chidambaram",
+        "Aosong Feng",
+        "Vinayak Arannil",
+        "Muhyun Kim",
+        "Ishan Singh",
+        "Lin Lee Cheong"
+      ],
+      "institution": "AWS AI Labs",
+      "venue": "arXiv",
+      "date": "2026-05-14",
+      "summary": "本文探討 frontier 編碼助手能否可靠自動化 Agent 評估，結論是單純提示（prompting）並不足夠。缺乏領域評估知識時，編碼助手僅達 30% 執行成功率，且產出過度工程化的評估（平均每 agent 12+ 項指標）。作者提出 EVALAGENT，將評估領域專業編碼為可組合的 evaluation skills，形成 trace-based 管線。EvalAgent 將 Eval@1 從 17.5% 提升至 65%，並取得 79.5% 的人類專家偏好勝率。",
+      "url": "https://arxiv.org/abs/2605.11378",
       "field": "Agent Evaluation",
-      "impact": "high：首個系統化環境感知 Agent-as-a-Judge 基準，推進互動式代理評估方法"
+      "impact": "high — 來自 AWS AI Labs，提供可落地的 Agent 評估自動化框架，對企業級 agent 品質治理實用"
     },
     {
-      "title": "Counsel: A Meta-Evaluation Dataset for Agentic Tasks",
-      "title_zh": "Counsel：代理式任務的元評估資料集",
+      "title": "Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents",
+      "title_zh": "Agentic CLEAR：自動化 LLM Agent 的多層級評估",
       "authors": [
-        "Sashank Pisupati",
-        "Henry Broomfield",
-        "Eujeong Choi",
-        "Antonia Calvi",
-        "Charlie Wang",
-        "Roman Engeler",
-        "Max Bartolo",
-        "Patrick Lewis"
+        "Asaf Yehudai",
+        "Lilach Eden",
+        "Michal Shmueli-Scheuer"
       ],
-      "institution": "Atla AI / Cohere / Mistral AI / Google DeepMind",
+      "institution": "IBM Research",
       "venue": "arXiv",
-      "date": "2026-06-24",
-      "summary": "Counsel 是首個公開的代理式任務元評估（meta-evaluation）資料集，收錄開放權重 LLM 裁判對兩個代理基準（τ-bench 客服代理、DA-Code 程式碼代理）的流程層級批判。資料集另含人類對這些批判品質的元評估標註，可用於檢驗「裁判本身好不好」。由 Atla、Cohere、Mistral、Google DeepMind 跨機構合作產出。為 agent 評估的可信度校準提供關鍵資料基礎。",
-      "url": "https://arxiv.org/abs/2606.21627",
+      "date": "2026-05-21",
+      "summary": "IBM Research 提出 Agentic CLEAR，一個自動、動態且易用的 Agent 評估框架，可在系統（system）、軌跡（trace）、節點（node）三個粒度層級產出對 agent 行為的文字化洞察。相較傳統僅看最終任務成功率的評估，此框架能定位 agent 在多步驟執行中的具體失效環節。設計目標是降低人工設計評估指標的成本，並提供可解釋的行為診斷。",
+      "url": "https://arxiv.org/abs/2605.22608",
       "field": "Agent Evaluation",
-      "impact": "high：首個公開代理任務元評估資料集，跨頂尖機構合作，對裁判校準具基礎性價值"
+      "impact": "medium — 多粒度可解釋 agent 評估框架，對 agent 除錯與觀測性（observability）有實務價值"
     },
     {
-      "title": "A Unified Framework for the Evaluation of LLM Agentic Capabilities",
-      "title_zh": "LLM 代理能力評估的統一框架",
+      "title": "Can Agent Benchmarks Support Their Scores? Evidence-Supported Bounds for Interactive-Agent Evaluation",
+      "title_zh": "Agent 基準能支撐其分數嗎？互動式 Agent 評估的證據支撐界限",
       "authors": [
-        "Pengyu Zhu",
-        "Lijun Li",
-        "Yaxing Lyu",
-        "Qianxin Luo",
-        "Jingyi Yang",
-        "Yi Liu",
-        "Tingfeng Hui",
-        "Xinyu Yuan",
-        "Li Sun",
-        "Sen Su",
-        "Jing Shao"
+        "Shanshan Gao",
+        "Liyi Zhou"
       ],
-      "institution": "arXiv preprint",
+      "institution": "The University of Sydney",
       "venue": "arXiv",
-      "date": "2026-05-27",
-      "summary": "本文提出評估 LLM 代理能力的統一框架，整合分散的代理評估維度以進行一致比較。框架涵蓋代理在規劃、工具使用、多步驟執行等面向的能力量化。旨在解決當前代理基準彼此割裂、難以橫向比較的問題。為 agentic 能力評估建立可共用的標準化參照。",
-      "url": "https://arxiv.org/abs/2605.27898",
+      "date": "2026-05-11",
+      "summary": "本文質疑現有 Agent benchmark 分數的可信度，指出許多分數缺乏執行過程中所收集證據的實質支撐。作者引入一個「結果證據回報層」（outcome evidence reporting layer），用以驗證 benchmark 分數是否確實由 agent 執行軌跡中的證據支持。研究提出 evidence-supported bounds 方法，為互動式 agent 評估建立更嚴謹的可信度下界。此工作點出 agent 評測普遍存在的分數膨脹與不可驗證問題。",
+      "url": "https://arxiv.org/abs/2605.10448",
       "field": "Agent Evaluation",
-      "impact": "medium：整合代理評估維度，有助於跨基準比較標準化"
+      "impact": "medium — 對 agent benchmark 的可信度提出方法論批判，有助於建立更嚴謹的評測標準"
     },
     {
-      "title": "From Question Answering to Task Completion: A Survey on Agent System and Harness Design",
-      "title_zh": "從問答到任務完成：代理系統與 Harness 設計綜述",
+      "title": "AlphaEval: Evaluating Agents in Production",
+      "title_zh": "AlphaEval：在生產環境中評估 Agent",
       "authors": [
-        "Jianyuan Guo",
-        "Zhiwei Hao",
-        "Chengcheng Wang",
-        "et al."
+        "Pengrui Lu",
+        "Bingyu Xu",
+        "Wenjun Zhang",
+        "Shengjia Hua",
+        "Xuanjian Gao",
+        "Lyumanshan Ye",
+        "Kun Wang",
+        "Pengfei Liu"
       ],
-      "institution": "arXiv preprint",
+      "institution": "SII / GAIR / SJTU",
       "venue": "arXiv",
-      "date": "2026-06-14",
-      "summary": "本綜述論述 LLM 代理從被動問答轉向主動任務完成的典範轉移，並梳理代理系統從 prompt engineering、workflow 到 harness engineering 的演進脈絡。核心提問是：代理效能瓶頸究竟在基礎模型、執行 harness，還是兩者的耦合。系統性整理 harness 設計的關鍵模組與評估方式。對理解 Agent Engineering 全景與 harness 工程化極具參考價值。",
-      "url": "https://arxiv.org/abs/2606.20683",
-      "field": "AI Agent",
-      "impact": "high：系統梳理 harness engineering 演進，對代理工程實務具全景指引價值"
-    },
-    {
-      "title": "Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering",
-      "title_zh": "LLM 代理的外部化：記憶、技能、協定與 Harness 工程的統一綜述",
-      "authors": [
-        "Chenyu Zhou",
-        "Huacan Chai",
-        "Wenteng Chen",
-        "Zihan Guo",
-        "Rong Shan",
-        "et al. (21 位作者)"
-      ],
-      "institution": "Shanghai Jiao Tong University / CMU / OPPO",
-      "venue": "arXiv",
-      "date": "2026-04-09",
-      "summary": "本文以「外部化（externalization）」統一視角回顧 LLM 代理演進：過去期待模型內部復原的能力，如今被外部化為記憶庫、可重用技能、互動協定與周邊 harness。提出記憶外部化狀態、技能外部化程序性專長、協定外部化互動結構，而 harness engineering 作為協調三者的統一層。由 21 位跨機構作者共同完成。為 Agent Engineering 提供清晰的概念分層架構。",
-      "url": "https://arxiv.org/abs/2604.08224",
-      "field": "AI Agent",
-      "impact": "high：以外部化統一視角整合記憶/技能/協定/harness，對代理工程概念框架有結構性貢獻"
-    },
-    {
-      "title": "From Failed Trajectories to Reliable LLM Agents: Diagnosing and Repairing Harness Flaws",
-      "title_zh": "從失敗軌跡到可靠 LLM 代理：診斷與修復 Harness 缺陷",
-      "authors": [
-        "Mengzhuo Chen",
-        "Junjie Wang",
-        "Zhe Liu",
-        "Yawen Wang",
-        "Qing Wang"
-      ],
-      "institution": "Institute of Software, Chinese Academy of Sciences",
-      "venue": "arXiv",
-      "date": "2026-06-04",
-      "summary": "本文提出 HarnessFix，一套以軌跡為引導、用於診斷代理失敗並修復 agent harness 的框架。方法將原始執行軌跡與 harness 程式碼編譯為 Harness-aware Trace Intermediate Representation（HTIR），正規化碎片化的軌跡證據並捕捉步驟層級的來源與控制流關係。藉此定位失敗肇因於 harness 而非模型本身。為代理可靠性工程提供可操作的除錯與修復管線。",
-      "url": "https://arxiv.org/abs/2606.06324",
-      "field": "AI Agent",
-      "impact": "medium：提供 harness 缺陷診斷與修復的具體工程方法，實務落地性高"
-    },
-    {
-      "title": "Recursive Agent Harnesses",
-      "title_zh": "遞迴式代理 Harness",
-      "authors": [
-        "Elias Lumer",
-        "Sahil Sen",
-        "Kevin Paul",
-        "Vamse Kumar Subbiah"
-      ],
-      "institution": "PricewaterhouseCoopers (PwC), U.S.",
-      "venue": "arXiv",
-      "date": "2026-06-11",
-      "summary": "本文研究「遞迴式代理 harness（RAH）」模式：遞迴單元是具備檔案系統工具、程式碼執行與規劃能力的完整 agent harness，而非無工具的單純模型呼叫。相較傳統遞迴僅遞迴模型呼叫，RAH 讓每層遞迴都是完整代理。由 PwC 團隊提出，帶有企業級落地視角。對複雜任務分解與代理編排（orchestration）提供新架構思路。",
-      "url": "https://arxiv.org/abs/2606.13643",
-      "field": "AI Agent",
-      "impact": "medium：提出遞迴 harness 新架構，具企業實務背景，對代理編排設計有啟發"
+      "date": "2026-04-14",
+      "summary": "AlphaEval 是一個以生產環境為基礎（production-grounded）的 benchmark，收錄 94 個任務，來自七家在核心業務中實際部署 AI agent 的公司，橫跨六個 O*NET 職業領域。相較實驗室 benchmark，此資料集反映真實商業情境下的 agent 評估需求。研究強調生產環境評估與學術 benchmark 之間的落差。此工作為 agent 在真實部署下的可靠性衡量提供第一手資料。",
+      "url": "https://arxiv.org/abs/2604.12162",
+      "field": "Agent Evaluation",
+      "impact": "medium — 生產環境 agent 評估資料集，對企業實務部署評測具參考價值"
     },
     {
       "title": "Are We Ready For An Agent-Native Memory System?",
-      "title_zh": "我們準備好迎接原生代理記憶系統了嗎？",
+      "title_zh": "我們準備好迎接 Agent 原生記憶系統了嗎？",
       "authors": [
         "Wei Zhou",
         "Xuanhe Zhou",
@@ -191,158 +123,136 @@
       "institution": "Shanghai Jiao Tong University / Tsinghua University",
       "venue": "arXiv",
       "date": "2026-06-23",
-      "summary": "本文質問現行記憶方案是否足以支撐「原生代理（agent-native）」的記憶需求，並剖析代理長期運作下記憶的存取、更新與檢索挑戰。研究探討為代理量身設計的記憶系統架構，而非沿用對話式 LLM 的記憶模式。指出當前記憶系統在代理長時序、多會話任務下的能力落差。為 agent memory management 的系統設計提供前瞻性診斷。",
+      "summary": "本文從資料管理（data management）視角對 agent 記憶進行系統性實證研究，將 agent memory 拆解為四大核心模組：記憶表徵與儲存、擷取（extraction）、檢索與路由、以及維護（maintenance）。作者評估 12 個代表性記憶系統與兩個參考基線，橫跨五個 benchmark 工作負載、涵蓋 11 個資料集。核心結論是沒有單一架構全面占優，效能取決於記憶結構是否對齊工作負載瓶頸。研究也指出營運成本、模組間架構權衡與動態知識更新下的穩健性仍探索不足。",
       "url": "https://arxiv.org/abs/2606.24775",
       "field": "AI Agent",
-      "impact": "medium：聚焦 agent-native 記憶系統設計，對代理記憶管理架構有前瞻價值"
+      "impact": "high — 以資料管理框架系統評測 12 個 agent 記憶系統，是 agent memory 領域的重要實證參考"
     },
     {
-      "title": "MUSE: A Unified Agentic Harness for MLLMs",
-      "title_zh": "MUSE：多模態大模型的統一代理 Harness",
+      "title": "TokenPilot: Cache-Efficient Context Management for LLM Agents",
+      "title_zh": "TokenPilot：面向 LLM Agent 的快取高效上下文管理",
       "authors": [
-        "Jianglin Lu",
-        "Hailing Wang",
-        "Xu Ma",
-        "Qihua Dong",
-        "Mingyuan Zhang",
-        "Yizhou Wang",
-        "Yun Fu"
+        "Buqiang Xu",
+        "Zirui Xue",
+        "Dianmou Chen",
+        "Chenyang Fu",
+        "Jizhan Fang",
+        "Yunzhi Yao",
+        "Gong Yu",
+        "Ningyu Zhang"
       ],
-      "institution": "Northeastern University",
+      "institution": "Zhejiang University",
       "venue": "arXiv",
-      "date": "2026-06-03",
-      "summary": "MUSE 是一套多模態統一結構化執行 harness，無需模型重訓即可包裹任何現成 MLLM。它以可組合模組提供任務表徵、視覺處理、感知工具使用、結構化解析、確定性驗證與 verifier 引導的修復。透過 harness 層強化 MLLM 在多模態代理任務的可靠性。示範了 harness engineering 在多模態代理上的可行性。",
-      "url": "https://arxiv.org/abs/2606.03005",
+      "date": "2026-06-15",
+      "summary": "TokenPilot 是一個雙粒度（dual-granularity）上下文管理框架，處理 LLM agent 執行中不斷累積的 context 問題。它透過 Ingestion-Aware Compaction 穩定提示前綴（prompt prefix）以提升 KV cache 命中率，並以 Lifecycle-Aware Eviction 監控各 context 片段的效用進行淘汰。設計目標是在維持任務表現的同時降低推論成本與延遲。此工作屬於 context engineering 的核心工程議題。",
+      "url": "https://arxiv.org/abs/2606.17016",
+      "field": "AI Agent",
+      "impact": "medium — 針對 agent context 累積提出快取高效管理方案，對降低 agent 部署成本有實務意義"
+    },
+    {
+      "title": "From Question Answering to Task Completion: A Survey on Agent System and Harness Design",
+      "title_zh": "從問答到任務完成：Agent 系統與 Harness 設計綜述",
+      "authors": [
+        "Jianyuan Guo",
+        "Zhiwei Hao",
+        "Chengcheng Wang",
+        "Kai Han",
+        "Chang Xu",
+        "Yunhe Wang"
+      ],
+      "institution": "Huawei Noah's Ark Lab / University of Sydney",
+      "venue": "arXiv",
+      "date": "2026-06-14",
+      "summary": "本綜述系統梳理 agent 從「問答」邁向「任務完成」過程中所需的系統與 harness 設計，涵蓋 harness engineering、工具使用、記憶與編排等關鍵構件。作者整理當前 agent 系統的架構模式、設計取捨與評估方法，並歸納 harness 設計的最佳實踐。此工作是 harness engineering 這一新興 agent 工程領域的完整文獻整合。對建構可靠 agent 執行框架的實務者提供架構藍圖。",
+      "url": "https://arxiv.org/abs/2606.20683",
+      "field": "AI Agent",
+      "impact": "high — 系統性整合 harness engineering 領域，對 agent 工程實務具方法論參考價值"
+    },
+    {
+      "title": "Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering",
+      "title_zh": "LLM Agent 的外部化：記憶、技能、協定與 Harness 工程的統一綜述",
+      "authors": [
+        "Chenyu Zhou",
+        "Huacan Chai",
+        "Wenteng Chen",
+        "Jiachen Zhu",
+        "Jianghao Lin",
+        "Weinan Zhang"
+      ],
+      "institution": "Shanghai Jiao Tong University / CMU / OPPO",
+      "venue": "arXiv",
+      "date": "2026-04-09",
+      "summary": "本文提出「外部化」（externalization）視角統一回顧 LLM agent 的四大能力載體：記憶儲存、可重用技能（skills）、互動協定（protocols）與周邊 harness。核心論點是早期系統期待模型內部恢復的能力，如今已外部化為專門模組，由 harness 確保其在實務中可靠運作。作者橫跨 21 位研究者整合各子領域，建立統一的分類與設計框架。此工作為理解現代 agent 架構的模組化趨勢提供整合視角。",
+      "url": "https://arxiv.org/abs/2604.08224",
+      "field": "AI Agent",
+      "impact": "medium — 以外部化框架統整 agent 記憶/技能/協定/harness，適合作為 agent 工程領域全景導覽"
+    },
+    {
+      "title": "Decentralized Multi-Agent Systems with Shared Context",
+      "title_zh": "具共享上下文的去中心化多智能體系統",
+      "authors": [
+        "Yuzhen Mao",
+        "Azalia Mirhoseini"
+      ],
+      "institution": "Stanford University",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "本文提出 DeLM（Decentralized Language Models），一個去中心化的多智能體系統框架，透過平行 agent、共享且已驗證的上下文（shared verified context）與任務佇列（task queue）來去中心化協調。相較中心化 orchestrator 架構，DeLM 降低單點瓶頸並提升平行擴展性。共享驗證上下文機制確保多 agent 間資訊一致性。此工作為 multi-agent 協調的可擴展架構提供新設計。",
+      "url": "https://arxiv.org/abs/2606.10662",
       "field": "Multi-Agent",
-      "impact": "medium：將 harness engineering 延伸至多模態代理，工程上具通用性"
+      "impact": "medium — 來自 Stanford，提出去中心化多智能體協調架構，對可擴展 multi-agent 系統設計有參考價值"
     },
     {
-      "title": "The Hitchhiker's Guide to Agentic AI: From Foundations to Systems",
-      "title_zh": "代理式 AI 漫遊指南：從基礎原理到系統實作",
+      "title": "Assessing Automated Prompt Injection Attacks in Agentic Environments",
+      "title_zh": "評估 Agentic 環境中的自動化提示注入攻擊",
       "authors": [
-        "Haggai Roitman"
+        "David Hofer",
+        "Edoardo Debenedetti",
+        "Florian Tramèr"
       ],
-      "institution": "arXiv preprint",
+      "institution": "ETH Zurich",
       "venue": "arXiv",
-      "date": "2026-06-22",
-      "summary": "本文是一份約 600 頁的代理式 AI 全端實務參考，從第一性原理貫穿到生產部署。內容涵蓋 LLM 底層（Transformer、GPU 系統、SFT/LoRA/MoE 微調、推論最佳化）、對齊與推理層（RLHF、PPO、DPO、GRPO、獎勵建模）、代理訓練與軌跡式 RL、RAG 與 Agentic RAG、記憶系統、agent harness 設計與 MCP 跨代理協調。並論及代理開發框架、agentic UI、評估方法學與部署。適合作為 Agent Engineering 的系統性教科書。",
-      "url": "https://arxiv.org/abs/2606.24937",
-      "field": "AI Agent",
-      "impact": "medium：涵蓋代理全端的完整教科書式參考，對從業者知識體系整合有高實用價值"
-    },
-    {
-      "title": "Spend Your Rollouts Where It Counts: Rollout Allocation for Group-Based RL Post-Training",
-      "title_zh": "把 Rollout 用在刀口上：群組式 RL 後訓練的 Rollout 分配",
-      "authors": [
-        "Woojeong Kim",
-        "Ziyi Yang",
-        "Jing Nathan Yan",
-        "Jialu Liu"
-      ],
-      "institution": "arXiv preprint",
-      "venue": "arXiv",
-      "date": "2026-05-29",
-      "summary": "本文針對群組式（group-based）RL 後訓練，提出更有效率的 rollout 資源分配策略，將有限的 rollout 預算集中在最具學習價值的 prompt 上。透過小型可泛化的 prompt 預測模型引導大型推理模型的 RL 後訓練，提升樣本效率。屬 LLM 對齊與推理後訓練（RLVR/RLHF 系）的效率優化。對降低大模型 RL 訓練成本有實務意義。",
-      "url": "https://arxiv.org/abs/2605.26606",
-      "field": "LLM",
-      "impact": "medium：優化 RL 後訓練的 rollout 分配效率，對大模型訓練成本控制有幫助"
-    },
-    {
-      "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
-      "title_zh": "PI-Hunter：暴露與定位提示注入的自動化紅隊測試",
-      "authors": [
-        "Pengfei He",
-        "Lesly Miculicich",
-        "Vishesh Sharma",
-        "Ash Fox",
-        "George Lee",
-        "Jiliang Tang",
-        "Tomas Pfister",
-        "Long T. Le"
-      ],
-      "institution": "Google / Michigan State University",
-      "venue": "arXiv",
-      "date": "2026-06-10",
-      "summary": "PI-Hunter 是針對 LLM 代理主動暴露漏洞的自動化 agentic 稽核框架，能構建具真實情境、來源感知（source-aware）的測試案例。它透過回饋驅動的探索迭代演化測試案例，誘使代理去檢索並洩漏外部環境中潛藏的惡意指令。不僅偵測 prompt injection 是否存在，還能定位注入點。由 Google 與 MSU 團隊提出，具資安防禦實務價值。",
-      "url": "https://arxiv.org/abs/2606.12737",
-      "field": "AI Agent",
-      "impact": "high：自動化定位代理 prompt injection 漏洞，對 AI 資安紅隊測試有直接應用"
+      "date": "2026-06-09",
+      "summary": "本文在 AgentDojo 框架下對 LLM agent 進行自動化提示注入攻擊的系統性實證評估，將白箱 GCG 與黑箱 TAP 方法改造至 agentic 情境。研究引用一場大規模紅隊競賽，發現對 Qwen 成功的 95 個攻擊無法遷移至封閉源模型，顯示攻擊的模型特異性。結果指出自動化攻擊在 agent 環境中的效力與可遷移性仍有限。此工作為 agent 資安防禦評測提供實證基準。",
+      "url": "https://arxiv.org/abs/2606.10525",
+      "field": "AI Agent Security",
+      "impact": "medium — ETH Zurich 團隊對 agent 提示注入攻擊的嚴謹實證，對 agent 資安治理有直接參考"
     },
     {
       "title": "AI Agents May Always Fall for Prompt Injections",
-      "title_zh": "AI 代理可能永遠會落入提示注入陷阱",
+      "title_zh": "AI Agent 或許永遠難逃提示注入",
       "authors": [
         "Sahar Abdelnabi",
         "Eugene Bagdasarian"
       ],
-      "institution": "ELLIS Institute Tübingen & MPI-IS / UMass Amherst",
+      "institution": "ELLIS Institute Tübingen / University of Massachusetts Amherst",
       "venue": "arXiv",
       "date": "2026-05-17",
-      "summary": "本文以脈絡完整性（Contextual Integrity, CI）這一隱私理論重新框定 prompt injection，將其視為資訊流是否符合脈絡規範的問題。提出一個不可能性結果：對手總能構造出使被阻擋流看似合法的脈絡，或防禦者收緊規範時勢必連帶阻擋真正合法的流。意味純規則式防禦在理論上難以根治注入。為 AI 代理資安的理論邊界提供重要論證。",
+      "summary": "本文提出 ConVerse，將惡意請求嵌入 agent 對 agent 的對話（agent-to-agent discourse）中發動攻擊。實驗顯示隱私侵犯率最高達 88%、資安破壞率最高達 60%，揭示多 agent 互動是提示注入的高風險面向。作者論證在現有架構下提示注入可能是難以根除的結構性弱點。此結果對多 agent 系統的信任邊界設計提出嚴峻警示。",
       "url": "https://arxiv.org/abs/2605.17634",
-      "field": "AI Agent",
-      "impact": "high：以脈絡完整性提出 prompt injection 的不可能性論證，對代理資安理論具重要性"
+      "field": "AI Agent Security",
+      "impact": "high — 論證提示注入可能是 agent 的結構性難題，隱私侵犯率達 88%，對 agent 治理有警示意義"
     },
     {
-      "title": "Domain-Conditioned Safety in Frontier Computer-Using Agents: A 793-Episode Browser Benchmark, a Coding-Domain Cross-Reference, and a Reproducibility Audit of Recent Red-Teaming",
-      "title_zh": "前沿電腦操作代理的領域條件式安全：793 回合瀏覽器基準、程式碼領域交叉參照與紅隊測試可複現性稽核",
+      "title": "Your Agent is More Brittle Than You Think: Uncovering Indirect Injection Vulnerabilities in Agentic LLMs",
+      "title_zh": "你的 Agent 比你想的更脆弱：揭露 Agentic LLM 的間接注入漏洞",
       "authors": [
-        "Nicholas Saban"
+        "Wenhui Zhu",
+        "Xuanzhao Dong",
+        "Xiwen Chen",
+        "Rui Cai",
+        "Peijie Qiu",
+        "Jindong Gu",
+        "Yalin Wang"
       ],
-      "institution": "Patronus AI / UC Berkeley",
+      "institution": "Arizona State University / Morgan Stanley / University of Oxford",
       "venue": "arXiv",
-      "date": "2026-06-03",
-      "summary": "本文提出 CUA-HandCrafted，一個含 793 回合、涵蓋 24 個多步驟網頁任務、56 個攻擊模板、8 個攻擊家族與 4 種系統提示配置的公開基準，評估前沿電腦操作代理（computer-using agents）對 prompt injection 的安全性。研究發現當前模型的攻擊成功率顯著低於先前文獻報告的數字，並對近期紅隊測試進行可複現性稽核。指出過往部分紅隊結果可能高估風險。對 CUA 安全評估的嚴謹性有校正意義。",
-      "url": "https://arxiv.org/abs/2606.05233",
-      "field": "AI Agent",
-      "impact": "medium：以大規模基準校正電腦操作代理紅隊測試的可複現性，對資安評估嚴謹度有貢獻"
-    },
-    {
-      "title": "VistaHop: Benchmarking Multi-hop Visual Reasoning for Visual DeepSearch",
-      "title_zh": "VistaHop：視覺 DeepSearch 的多跳視覺推理基準測試",
-      "authors": [
-        "Hang He",
-        "Chuhuai Yue",
-        "Chengqi Dong",
-        "Chengcheng Wan",
-        "Ting Su",
-        "Haiying Sun",
-        "Jiajun Chai",
-        "Xiaohan Wang",
-        "Guojun Yin"
-      ],
-      "institution": "East China Normal University / Meituan",
-      "venue": "arXiv",
-      "date": "2026-06-02",
-      "summary": "VistaHop 是針對 Visual DeepSearch 的基準，評估以視覺為中心的搜尋與多跳（multi-hop）視覺推理，要求模型多次檢視影像並跨不同視覺區域串連證據。基準包含 300 張影像、25 種視覺搜尋場景與 350 個多跳問答任務。專門檢驗視覺語言模型在需反覆觀察與證據連結任務上的能力。為多模態代理的視覺深度搜尋能力提供量化評估。",
-      "url": "https://arxiv.org/abs/2606.03273",
-      "field": "Multimodal",
-      "impact": "medium：建立多跳視覺推理與視覺深度搜尋基準，補足多模態代理視覺評估維度"
-    },
-    {
-      "title": "MemLens: Benchmarking Multimodal Long-Term Memory in Large Vision-Language Models",
-      "title_zh": "MemLens：大型視覺語言模型的多模態長期記憶基準測試",
-      "authors": [
-        "Xiyu Ren",
-        "Zhaowei Wang",
-        "Yiming Du",
-        "Zhongwei Xie",
-        "Chi Liu",
-        "Xinlin Yang",
-        "Haoyue Feng",
-        "Wenjun Pan",
-        "Tianshi Zheng",
-        "Baixuan Xu",
-        "et al."
-      ],
-      "institution": "HKUST / NVIDIA",
-      "venue": "arXiv",
-      "date": "2026-05-14",
-      "summary": "MemLens 是評估多模態多會話對話中記憶能力的完整基準，含 789 個問題，橫跨資訊擷取、多會話推理、時序推理、知識更新與拒答共五種記憶能力。測試在 32K–256K tokens 四種標準脈絡長度下、以跨模態 token 計數方案進行。專門檢驗大型視覺語言模型在長期多模態記憶上的表現。為多模態 agent memory 提供細緻的能力分解評估。",
-      "url": "https://arxiv.org/abs/2605.14906",
-      "field": "Multimodal",
-      "impact": "medium：建立多模態長期記憶細分能力基準，對視覺語言代理記憶評估有貢獻"
+      "date": "2026-04-04",
+      "summary": "本文聚焦間接提示注入（Indirect Prompt Injection, IPI），即將惡意指令隱藏於第三方內容中，於正常運作時觸發資料外洩等未授權行為。研究揭露 agentic LLM 對此類攻擊的脆弱性遠超預期，即使外觀正常的內容也可能挾帶攻擊。作者（含 Morgan Stanley 金融實務團隊）系統化分析漏洞成因與觸發條件。此工作對處理外部內容的金融 agent 部署具直接資安警示。",
+      "url": "https://arxiv.org/abs/2604.03870",
+      "field": "AI Agent Security",
+      "impact": "medium — 含金融業（Morgan Stanley）作者，揭露間接注入漏洞，對金融 agent 資安部署有實務參考"
     }
   ],
-  "_updated_at": "2026-07-02T18:05:54.565676+08:00"
+  "_updated_at": "2026-07-03T18:05:06.794096+08:00"
 }

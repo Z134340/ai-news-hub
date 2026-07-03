@@ -1,75 +1,117 @@
 {
   "items": [
     {
-      "title": "The AI jobs debate just got messier",
-      "source": "TechCrunch",
-      "date": "2026-06-29",
-      "category": "產業報告",
-      "summary": "TechCrunch 引用 Ramp 與 Revelio Labs 的聯合報告，顛覆「AI 取代人力」的主流論述。報告發現「高強度採用者」——前三個月平均每位員工每月投入 30 美元於 AI 的企業——員工人數反而成長 10.2%，且成長橫跨工程、業務、行政、客服、財務、行銷與科研等職能。分析指出 AI 對積極投入的企業更像是「企業擴張工具」而非「人力替代工具」。相對地，僅購買訂閱、跑試點卻未持續投資的企業並未見到人數成長。結論是有意義的企業 AI 採用需要持續且策略性的投資，才能轉化為實質營運成果。",
+      "title": "Gartner Identifies Top Supply Chain Technology Trends for 2026",
+      "source": "Gartner",
+      "date": "2026-06-30",
+      "category": "AI趨勢",
+      "summary": "Gartner 公布 2026 年供應鏈技術八大趨勢，Agentic AI（代理式 AI）與 Physical AI（實體 AI）名列最重要主題。報告將 agentic AI 定義為「引入虛擬代理勞動力」的一類系統，能在複雜環境中規劃、行動並自我調整以達成目標。同時點名 Collaborative Multiagent Systems（協作式多代理系統，MAS），讓多個各自專精特定任務或領域的 agent 跨工作流協作，使企業能自動化多步驟複雜流程並提升可擴展性。此趨勢與 Gartner 先前預測「2026 年底 40% 企業應用將整合任務型 AI agent」相互呼應。",
       "highlights": [
-        "高強度採用者（每員工每月約 30 美元 AI 支出）員工數成長 10.2%",
-        "人數成長橫跨工程、業務、行政、客服、財務、行銷、科研等職能",
-        "AI 對積極投入企業是「擴張工具」而非「人力替代工具」",
-        "僅試點未持續投資者未見人力成長，凸顯持續投資的關鍵性"
+        "Agentic AI 與 Physical AI 並列 2026 供應鏈最重要技術趨勢",
+        "強調協作式多代理系統（MAS）跨工作流分工自動化多步驟流程",
+        "呼應 Gartner「2026 年底 40% 企業應用內建任務型 AI agent」預測",
+        "供應鏈成為 agentic AI 從試點走向規模化落地的重點場域"
       ],
-      "url": "https://techcrunch.com/2026/06/29/the-ai-jobs-debate-just-got-messier/"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-06-30-gartner-identifies-top-supply-chain-technology-trends-for-2026"
+    },
+    {
+      "title": "The Control Gap: Enterprise AI organizations have an ownership problem, not a technology problem — and most are governing it by hand",
+      "source": "VentureBeat",
+      "date": "2026-07-02",
+      "category": "企業AI",
+      "summary": "VentureBeat 以 Pulse Research 系列調查 145 家（100 人以上）企業，揭露企業 AI 治理的「控制落差」。約五分之四（79%）企業已實際發生自主 AI 造成的財務或營運控制失誤，而非僅是擔憂。近半（49%）將 shadow AI（未經授權、用公司信用卡在中央監管外運行的代理式流程）列為最嚴重的控制失誤，另有 25% 曾被失控「無限迴圈」agent 的帳單重創。治理面上，僅 38% 有中央團隊統管 AI，20% 由各平台團隊各自治理；最常被點名的跨平台治理障礙是「缺乏單一問責負責人」（32%）。結論是企業把 AI 的雄心標準化，卻遠早於把控制標準化。",
+      "highlights": [
+        "79% 企業已實際發生自主 AI 的財務或營運控制失誤",
+        "49% 將 shadow AI 列為最嚴重控制失誤，25% 曾遭失控迴圈 agent 帳單衝擊",
+        "僅 38% 有中央團隊統管 AI，最大治理障礙是缺乏單一問責負責人（32%）",
+        "核心結論：AI 的雄心已標準化，控制卻尚未標準化"
+      ],
+      "url": "https://venturebeat.com/resources/the-control-gap-enterprise-ai-organizations-have-an-ownership-problem-not-a-technology-problem-and-most-are-governing-it-by-hand"
     },
     {
       "title": "AI agents are not your \"coworkers\"",
       "source": "MIT Technology Review",
       "date": "2026-06-29",
-      "category": "AI趨勢",
-      "summary": "MIT Technology Review 引述一項研究，探討將 AI 工具定位為「AI 員工」對人類監督行為的影響。當工作被描述為來自代理式「AI 員工」而非聊天機器人時，受試者少抓到 18% 的錯誤。將 AI 工具框定為「員工」時，參與者認為自己對其產出的責任較低。他們也高出 44% 的機率把可疑成果上呈主管覆核，而非信任自己的修正。研究警示，把 Agent 擬人化為「同事」可能削弱人類的把關與當責機制。",
+      "category": "Agent應用",
+      "summary": "MIT Technology Review 引述研究警告，將 AI agent 行銷為「數位員工／AI 同事」可能反而使人類工作者更不擅長發現錯誤、更容易推卸責任。研究發現，當工作被標示為出自代理式「AI 員工」而非一般 chatbot 時，受試者少抓到 18% 的錯誤。文章主張這種「擬人化同事」定位改變了人對輸出結果的信任與問責心態，對企業導入 agent 的品質控管與課責設計形成隱性風險。",
       "highlights": [
-        "工作被標示為「AI 員工」產出時，人類少抓到 18% 的錯誤",
-        "擬人化為員工使受試者自覺對產出責任較低",
-        "上呈主管覆核的機率高出 44%",
-        "Agent 擬人化恐削弱人類監督與當責"
+        "工作被標示為出自「AI 員工」時，人們少抓到 18% 的錯誤",
+        "「數位員工」擬人化定位使人更易卸責、降低審查警覺",
+        "對企業 agent 部署的品質控管與課責機制構成隱性風險",
+        "呼籲審慎看待把 agent 包裝成「AI 同事」的行銷語言"
       ],
       "url": "https://www.technologyreview.com/2026/06/29/1139849/ai-agents-are-not-your-coworkers/"
     },
     {
-      "title": "Agent confidence on the technical frontier",
-      "source": "MIT Technology Review",
-      "date": "2026-06-29",
-      "category": "Agent應用",
-      "summary": "MIT Technology Review 基於對 300 位全球技術專家的調查，針對 AI、資料與雲端工作流中的 101 項任務，依受訪者「放心讓 Agent 代為執行」的信心程度進行排名。技術專家普遍認為 Agent 有助於日常工作，包括簡化流程、提升績效與減少重複性任務，其中信心最高的任務為產生報告與樣板程式碼。報告亦檢視技術團隊對代理式 AI 機會與挑戰的看法，以及該技術促進職涯的潛力。文中並指出 Gartner 將 2026 稱為組織將 AI 專案對齊策略目標的「拐點年」，隨著證明 ROI 的壓力升高，主管正寄望代理式 AI 帶來可衡量的財務成果。",
-      "highlights": [
-        "調查 300 位全球技術專家，排名 101 項 AI/資料/雲端任務的 Agent 信心度",
-        "信心最高任務：產生報告、樣板程式碼",
-        "專家普遍認為 Agent 有助簡化流程、提升績效、減少重複工作",
-        "2026 被視為 AI 專案對齊策略目標的「拐點年」"
-      ],
-      "url": "https://www.technologyreview.com/2026/06/29/1139635/agent-confidence-on-the-technical-frontier/"
-    },
-    {
-      "title": "Anthropic Economic Index report: Cadences",
-      "source": "Anthropic",
-      "date": "2026-06-26",
-      "category": "產業報告",
-      "summary": "Anthropic 發布第三份 Economic Index 報告「Cadences」，首度採用小時級連續取樣、產出物（artifact）分類，並納入 9,700 名使用者的問卷。資料顯示 Claude 的個人用途占比從平日約 35% 上升到週末近 50%。將最多工作委派給 Claude 的使用者對自身職涯最為樂觀；自動化占比較高者在薪酬、工作保障、再就業、意義、自主性與人際互動六個面向的預期影響皆較正面。Anthropic 將資料管線升級為小時級連續取樣，取代原本的七天快照，以更精細呈現 AI 使用如何貼合日常生活節奏。",
-      "highlights": [
-        "第三份 Economic Index，納入 9,700 名使用者問卷",
-        "Claude 個人用途占比：平日約 35% → 週末近 50%",
-        "高度委派 Claude 的使用者對職涯最樂觀（六面向預期皆較正面）",
-        "資料管線升級為小時級連續取樣，取代七天快照"
-      ],
-      "url": "https://www.anthropic.com/research/economic-index-june-2026-report"
-    },
-    {
-      "title": "Patronus AI lands $50M to build 'digital worlds' that stress-test AI agents",
+      "title": "A warning sign about AI's real cost, courtesy of Google and Amazon",
       "source": "TechCrunch",
-      "date": "2026-06-25",
-      "category": "產業動態",
-      "summary": "由前 Meta AI 研究員創立的 Agent 測試新創 Patronus AI 完成 5,000 萬美元募資，用於打造壓力測試 AI Agent 的模擬環境（「digital worlds」）。公司表示企業對 Agent 測試的需求近乎「無法滿足」。此輪募資反映企業在把 Agent 推向正式生產前，對評估、可靠性與風險控管工具的強勁需求，也印證代理式 AI 從試點邁向生產階段時，「可靠性與治理缺口」正成為新的投資主軸。",
+      "date": "2026-07-02",
+      "category": "產業報告",
+      "summary": "TechCrunch 分析 Google 與 Amazon 本週發布的永續報告，指出 AI 正使兩家公司更難達成其承諾的零碳排放目標。文章將此視為 AI 真實成本（尤其能源與環境代價）的警訊，反映在算力軍備競賽與資料中心擴張下，超大規模業者的碳排壓力持續攀升。此議題與 2026 年企業聚焦 AI ROI 與 FinOps／成本可視化的趨勢相互交織，凸顯 AI 規模化的隱性成本正浮上檯面。",
       "highlights": [
-        "Patronus AI 完成 5,000 萬美元募資，打造 Agent 壓力測試模擬環境",
-        "創辦團隊為前 Meta AI 研究員，稱企業測試需求「近乎無法滿足」",
-        "反映企業對 Agent 評估、可靠性與風險控管工具的強勁需求",
-        "呼應 Agent 進入生產前的「可靠性與治理缺口」趨勢"
+        "Google 與 Amazon 永續報告顯示 AI 使其零碳目標更難達成",
+        "AI 算力與資料中心擴張推升超大規模業者碳排壓力",
+        "反映 2026 年「AI 真實成本」（能源、環境）成為關注焦點",
+        "與企業聚焦 AI ROI、FinOps 成本可視化趨勢相互交織"
       ],
-      "url": "https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/"
+      "url": "https://techcrunch.com/2026/07/02/a-warning-sign-about-ais-real-cost-courtesy-of-google-and-amazon/"
+    },
+    {
+      "title": "Mark Zuckerberg tells staff that AI agents haven't progressed as quickly as he'd hoped",
+      "source": "TechCrunch",
+      "date": "2026-07-02",
+      "category": "Agent應用",
+      "summary": "TechCrunch 報導，Meta 執行長 Mark Zuckerberg 在內部全員大會告訴員工，AI agent 的發展速度並未如高層先前預期般加速。此番言論來自業界最積極投入 AI 的領導者之一，為 2026 年 agentic AI 的高度期待提供了現實檢驗訊號，呼應 Gartner「逾 40% agentic AI 專案將於 2027 年底前被取消」與 MIT 對 agent 擬人化的質疑，顯示市場正從炒作走向對 agent 實際成熟度的務實重估。",
+      "highlights": [
+        "Zuckerberg 坦言 AI agent 發展未如高層預期般加速",
+        "來自最積極投入 AI 的領導者，構成 agentic AI 期待的現實檢驗",
+        "呼應 Gartner「逾 40% agentic AI 專案 2027 年底前遭取消」預測",
+        "市場情緒從炒作轉向對 agent 成熟度的務實重估"
+      ],
+      "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/"
+    },
+    {
+      "title": "Microsoft launches its own AI deployment company with $2.5 billion commitment",
+      "source": "TechCrunch",
+      "date": "2026-07-02",
+      "category": "企業AI",
+      "summary": "TechCrunch 報導 Microsoft 成立新營運事業體 Microsoft Frontier Company，專注以既有 AI 工具交付成功的企業級 AI 部署，投入 25 億美元、集結約 6,000 名產業與工程專家。Microsoft 商業事業執行長稱其將成為「業界規模最大、能力最強、以成果為導向的工程組織」。此舉呼應 2026 年企業 AI 從實驗走向「從雄心到落地啟動」（Deloitte 語）的主軸，顯示大廠正把重心從模型能力轉向部署與交付服務化。",
+      "highlights": [
+        "Microsoft 成立 Frontier Company，投入 25 億美元、約 6,000 名專家",
+        "定位為以成果為導向、專注企業級 AI 部署交付的工程組織",
+        "反映大廠重心從模型能力轉向部署落地與服務化",
+        "呼應 2026 年企業 AI「從雄心到啟動落地」的產業主軸"
+      ],
+      "url": "https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/"
+    },
+    {
+      "title": "Jersey Mike's IPO illustrates how bad the AI hype has become",
+      "source": "TechCrunch",
+      "date": "2026-07-02",
+      "category": "AI趨勢",
+      "summary": "TechCrunch 以三明治連鎖 Jersey Mike's 的 IPO 為例，分析當前 AI 炒作已蔓延到與 AI 關聯薄弱的傳統產業敘事，反映市場對「AI 概念」估值的過熱。文章屬產業趨勢評論，呼應 Forrester、TechCrunch 等對 2026 年「AI 從炒作走向務實」的多方觀察，提醒投資人與企業辨識真實 ROI 與純敘事包裝之間的落差。",
+      "highlights": [
+        "以 Jersey Mike's IPO 為例，凸顯 AI 炒作蔓延至非 AI 傳統產業敘事",
+        "反映市場對「AI 概念」估值的過熱與泡沫化疑慮",
+        "呼應 2026 年「AI 從炒作走向務實」的主流觀察",
+        "提醒辨識真實 ROI 與純 AI 敘事包裝之間的落差"
+      ],
+      "url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/"
+    },
+    {
+      "title": "The Download: fixing AI's groupthink problem",
+      "source": "MIT Technology Review",
+      "date": "2026-07-02",
+      "category": "AI趨勢",
+      "summary": "MIT Technology Review 探討大型語言模型的「群體思維（groupthink）」問題：Claude、ChatGPT、Gemini 等 chatbot 傾向給出可預測、趨同的回答（例如被要求在 1 到 10 間取隨機數時常回答「7」）。報導介紹澳洲新創 Springboards 打造的 LLM「Flint」，經訓練以對開放式問題提供更多元的回應。此議題觸及 LLM 輸出同質化對創意、決策多樣性的限制，是模型能力評估與應用設計的新興關注點。",
+      "highlights": [
+        "主流 chatbot 對開放式問題傾向給出趨同、可預測的回答",
+        "澳洲新創 Springboards 的 LLM「Flint」訓練以提升回應多樣性",
+        "LLM 輸出同質化限制創意與決策多樣性，成新興關注點",
+        "涉及模型評估與應用設計中「答案多樣性」的品質面向"
+      ],
+      "url": "https://www.technologyreview.com/2026/07/02/1140027/the-download-ai-groupthink-llms"
     }
   ],
-  "_updated_at": "2026-07-02T18:11:35.814570+08:00"
+  "_updated_at": "2026-07-03T18:14:05.188943+08:00"
 }

@@ -1,75 +1,85 @@
 {
   "items": [
     {
-      "title": "Anthropic稱Fable 5出口管制解除，7月1日恢復全球上線",
-      "source": "iThome",
-      "date": "2026-07-01",
-      "topic": "大廠模型動態",
-      "summary": "Anthropic宣布美國政府已解除對Claude Fable 5與Claude Mythos 5的出口管制，其中Fable 5自7月1日起恢復全球存取。此前美國商務部於6月中對這兩款前沿模型祭出出口限制，理由是擔憂遭中國、俄羅斯等敏感國家軍事或情報單位濫用。Claude Mythos 5目前仍僅限Glasswing計畫的受信任合作夥伴使用，尚未全面開放。此舉反映美國對前沿AI模型「發布即管制」的治理思路正在調整。",
-      "relevance": "Claude為台灣開發者與企業廣泛採用的主力模型之一，出口管制鬆綁直接影響台灣團隊對Fable 5的可用性與導入時程。",
-      "discussion": "iThome新聞，AI社群高度關注美國前沿模型出口管制動向",
-      "url": "https://www.ithome.com.tw/news/177013"
+      "title": "同樣大舉投資開發 AI，祖克柏員工大會坦承 AI 代理進展不如預期",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-03",
+      "topic": "AI Agent",
+      "summary": "Meta 執行長祖克柏在 7 月 2 日員工大會坦承，過去至少四個月「AI 代理（AI agents）的發展速度並未如預期般真正加快」，並承認今年推動的大規模組織重組尚未展現成效、時機判斷失準。他預估三至六個月內可望看到部分效益。Meta 今年 AI 基礎建設支出上看 1,450 億美元，是大型科技公司總計逾 7,000 億美元投入的重要部分。此番表態與超智能負責人 Alexandr Wang 宣稱新模型已在基準測試追平 OpenAI 旗艦形成對比。",
+      "relevance": "直接觸及 AI Agent 技術落地進度與大廠 agentic 投資回報，為台灣媒體本週最受關注的 Agent 議題。",
+      "discussion": "台媒與社群聚焦「大廠燒錢卻進展緩慢」是否代表 agentic AI 泡沫，以及 Meta 內部路線分歧。",
+      "url": "https://finance.technews.tw/2026/07/03/zuckerberg-said-ai-agent-progress-has-been-slower-than-expected"
+    },
+    {
+      "title": "離開 Meta 自創 AI 實驗室獲 10 億美元融資，楊立昆直指 LLM 在機器人領域「毫無希望」",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-03",
+      "topic": "LLM / AI 研究",
+      "summary": "圖靈獎得主楊立昆（Yann LeCun）離開任職十年的 Meta 首席 AI 科學家職位，創辦 AMI Labs（Advanced Machine Intelligence Labs），完成逾 10 億美元種子輪融資，為歐洲史上最大規模種子輪之一，投資者包含 Nvidia 與貝佐斯家族基金。楊立昆批評 ChatGPT、Claude、Gemini 等大型語言模型「並不聰明」、「LLM 在機器人領域基本上毫無希望」，主張以「世界模型（World Model）」路線推動 AI 理解真實世界物理與因果。",
+      "relevance": "涉及 LLM 架構路線之爭與下一代 AI 研究方向，對 Agent 與具身智慧發展具指標意義。",
+      "discussion": "台灣工程師社群熱議 World Model 是否會取代 LLM 主流路線，以及楊立昆出走對 Meta AI 的衝擊。",
+      "url": "https://finance.technews.tw/2026/07/03/artificial-intelligence-yann-lecun-works-on-more-flexible-ai/"
+    },
+    {
+      "title": "Anthropic 自研晶片有譜？傳找三星洽談合作",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-03",
+      "topic": "大廠 / AI 晶片",
+      "summary": "The Information 報導，Anthropic 已與三星電子接洽，商討客製化 AI 晶片代工合作。計畫仍處早期階段，處理器負責的運算工作、效能規格與伺服器整合細節都尚未敲定，距量產仍有時間。Anthropic 向 The Information 表示，亞馬遜 Trainium、Google TPU 與 Nvidia GPU 仍將是其算力策略核心。此舉延續 OpenAI、Google、Meta 等 AI 巨頭自研晶片以降低對 Nvidia 依賴的產業趨勢。",
+      "relevance": "AI 大廠自研晶片賽局再添一員，牽動全球晶圓代工與台廠 ASIC 設計供應鏈布局。",
+      "discussion": "台媒關注三星若接單將如何影響台積電與世芯-KY 等台廠的 AI ASIC 訂單版圖。",
+      "url": "https://technews.tw/2026/07/03/anthropic-and-samsung-discuss-building-a-custom-ai-chip/"
+    },
+    {
+      "title": "亞馬遜全面轉向自研晶片搶攻 AI，郭明錤：世芯-KY 獨攬後段大單",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-03",
+      "topic": "大廠 / 台灣供應鏈",
+      "summary": "分析師郭明錤指出，亞馬遜將進行 20 年來最重大的處理器採購策略轉向，捨棄外購改採 COT（customer-owned tooling）自研模式，由台灣 IC 設計廠世芯-KY 獨家負責後段設計與測試。此舉受 AI 算力擴張壓縮現金流所驅動，亞馬遜截至 2026 年第一季的過去 12 個月自由現金流年減 95%。策略預計 2027 年起推動，全面轉換後年出貨量估約 4,000 萬顆，將顯著挹注世芯-KY 營運。受消息激勵，世芯股價一度攻上漲停。",
+      "relevance": "美系大廠自研晶片直接讓台灣 ASIC 設計龍頭世芯-KY 受惠，屬高關注度台廠題材。",
+      "discussion": "台股投資圈熱議世芯獨吃訂單的營收爆發性，以及聯發科是否因此流失潛在客戶。",
+      "url": "https://technews.tw/2026/07/03/amazon-fully-shifts-to-developing-its-own-chips-to-seize-the-ai-%E2%80%8B%E2%80%8Bmarket/"
+    },
+    {
+      "title": "金融時報：OpenAI籲政府持股5% 官商利益綁定",
+      "source": "中央社 CNA",
+      "date": "2026-07-02",
+      "topic": "大廠 / 政策",
+      "summary": "英國金融時報報導，OpenAI 提議將約 5% 股權讓渡美國政府，藉以將公司與川普政府的財務利益綁定，換取政策支持與監管空間。此舉被視為 OpenAI 在美國加強前沿模型監管、並推動 AI 行政命令的背景下，尋求與政府深度結盟的策略。報導引發外界對 AI 龍頭與政府關係過度緊密、可能形成官商利益共同體的質疑。",
+      "relevance": "涉及全球 AI 龍頭治理結構與政商關係，為 AI 治理與產業監理的重要指標事件。",
+      "discussion": "台灣治理與財經圈討論此舉是否為 AI 監管軟化交換條件，及對開放競爭的影響。",
+      "url": "https://www.cna.com.tw/news/aopl/202607020169.aspx"
     },
     {
       "title": "美擬制定 AI 模型發表自願準則，最快下週公布",
       "source": "TechNews 科技新報",
       "date": "2026-07-02",
-      "topic": "AI治理",
-      "summary": "據金融時報報導，美國政府正與AI企業密集協商新的模型發布自願性準則，最快下週公布，將針對前沿AI模型的測試、發布與存取權限建立指引。此舉延續美國近期強化前沿模型監管的方向：6月12日商務部曾對Anthropic的Fable與Mythos模型祭出出口限制、6月30日解除，OpenAI也應政府要求延後全面公開GPT-5.6。Google在發布新一代程式開發模型前亦曾諮詢美國政府。準則核心考量是防止領先模型遭敏感國家軍事或情報單位濫用。",
-      "relevance": "美國模型發布治理準則將成為各國AI治理參照範本，牽動台灣金管會、數發部研擬本土前沿模型評測與發布規範的方向。",
-      "discussion": "科技新報資安頻道，AI治理圈關注度高",
-      "url": "https://infosecu.technews.tw/2026/07/02/us-ai-model-voluntary-guidelines-announcement-next-week"
+      "topic": "AI 治理 / 安全",
+      "summary": "金融時報引述消息報導，美國政府與 AI 業者深入協商，最快下週公布前沿 AI 模型發表的自願性規範，內容將設定前沿模型的評估基準、發表時程，並釐清哪些國內外實體可存取這些模型。此規範用以落實川普 6 月的 AI 行政命令，要求政府與領先 AI 業者在模型發表前進行測試並建立評估標準，包含檢視 AI 模型資安等級的機密評估程序。強化監管主因在於憂心頂尖模型遭中國、俄羅斯等敏感國家軍事或情報單位濫用。",
+      "relevance": "前沿模型發布標準與資安評估直接關係 AI 安全治理框架，屬科技治理核心議題。",
+      "discussion": "台灣治理圈關注美式自願準則與 EU AI Act 強制監管的路線差異及對台廠合規影響。",
+      "url": "https://technews.tw/2026/07/02/us-ai-model-voluntary-guidelines-announcement-next-week/"
     },
     {
-      "title": "美AI巨頭OpenAI、Anthropic陷發展困境 中國開源模型趁勢崛起",
-      "source": "PChome新聞（三立新媒體）",
+      "title": "中華電舉辦科技研討會 展示AI智慧製造一站式方案",
+      "source": "中央社 CNA",
+      "date": "2026-07-03",
+      "topic": "台灣 AI 應用",
+      "summary": "中華電信舉辦「2026 製造業未來科技應用研討會」，透過生成式 AI、AI 運算基礎設施等技術，協助製造業者掌握數位轉型契機。中華電提供從基礎建設到應用落地的一站式解決方案，協助製造業提升營運效率、強化競爭優勢與營運韌性。此為台灣電信與 ICT 業者切入企業 AI 落地市場、鎖定製造業智慧化需求的具體布局。",
+      "relevance": "台灣本土大型電信業者推動製造業 AI 落地，屬在地 AI 產業應用的代表性動態。",
+      "discussion": "業界關注電信商跨足企業 AI 整合服務，與雲端大廠及系統整合商的競合關係。",
+      "url": "https://www.cna.com.tw/news/afe/202607030196.aspx"
+    },
+    {
+      "title": "日本 Socionext 攜手台積電 A14 製程，開發 AI 資料中心晶片訂 9 月完成設計定案",
+      "source": "TechNews 科技新報",
       "date": "2026-07-02",
-      "topic": "LLM競賽",
-      "summary": "報導指出美國兩大AI巨頭OpenAI與Anthropic近期同時面臨挑戰，關鍵模型發布因美國政府監管介入而受阻，商業模式與技術能力遭到質疑。與此同時，中國開源模型趁勢崛起，智譜（Zhipu）GLM 5.2在受矚目的評測基準上僅落後Anthropic Opus 4.8約一個百分點，成本卻僅約五分之一。DeepSeek等中國開源模型持續以低成本、高性價比策略搶占全球開發者市場。此消長顯示AI模型競賽格局正在重新洗牌。",
-      "relevance": "中國開源模型以低成本崛起，直接影響台灣企業與新創在模型選型上的成本效益權衡，也牽動主權AI對模型來源的信任評估。",
-      "discussion": "入口網站轉載，AI產業競爭態勢為市場焦點",
-      "url": "https://news.pchome.com.tw/science/sunmedia/20260702/index-78295385570252329005.html"
-    },
-    {
-      "title": "數發部揭主權AI策略：算力中心必須在臺灣、模型需具備3大理解力，另看好主權AI服務出海",
-      "source": "iThome",
-      "date": "2026-07-01",
-      "topic": "台灣AI政策",
-      "summary": "數發部部長林宜敬揭露臺灣主權AI策略，涵蓋四大層面：第一，採BOO模式鼓勵民間在臺灣建置AI算力中心，因「算力中心在哪個國家，就受該國法律管轄」；第二，模型須具備臺灣語言、社會敘事與民主價值觀三大理解能力，而非僅能以繁中回應卻套用他國政治框架；第三，推動金融、法務等垂直領域大型語言模型；第四，將臺灣硬體、資安、資料治理、模型訓練與評測能力打包成主權AI解決方案輸出東南亞與中東。",
-      "relevance": "直接定調台灣AI產業政策方向，垂直領域LLM（金融、法務）與算力落地要求對本土金融業AI導入具實質治理意涵。",
-      "discussion": "iThome新聞，數發部政策向來為台灣科技治理圈重點追蹤",
-      "url": "https://www.ithome.com.tw/news/177017"
-    },
-    {
-      "title": "美中 AI 競賽下，中國網攻鎖定人員與供應鏈",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-01",
-      "topic": "AI資安",
-      "summary": "據美國資安業者CrowdStrike六月觀察，截至3月31日止的12個月內，針對科技公司的國家級入侵中逾半數可歸因於中國相關組織，攻擊焦點鎖定AI資產、人員與供應鏈。Anthropic指控包含阿里巴巴在內的中國企業試圖非法竊取其AI能力。Copyleaks亦報告DeepSeek R1模型的回應與OpenAI ChatGPT相似度近75%，暗示該中國開源模型訓練資料可能部分取用美國模型輸出。報導凸顯AI競賽已從技術本身延伸至人員與供應鏈的滲透攻防。",
-      "relevance": "台灣半導體與AI供應鏈為國家級網攻高風險目標，供應鏈滲透警訊對台廠資安防護與人員社交工程防範具直接參考價值。",
-      "discussion": "科技新報資安頻道，美中AI資安對抗為持續熱點",
-      "url": "https://infosecu.technews.tw/2026/07/01/china-linked-actors-target-more-than-technology-as-ai-competition-with-u-s-intensifies"
-    },
-    {
-      "title": "PChome旗下拍付國際傳遭竊取個資，數發部將進行行政檢查",
-      "source": "iThome",
-      "date": "2026-07-01",
-      "topic": "台灣資安",
-      "summary": "勒索軟體團體Settra聲稱竊取PChome旗下拍付國際（Pi拍錢包）的內部資料，保守估計涉及約350萬名Pi錢包用戶個資。數發部表示將對拍付國際進行行政檢查，釐清資料外洩範圍與通報是否合規。此事件為台灣近期規模較大的個資外洩案例之一，涉及行動支付敏感財務資料。金融支付業者的資料治理與事件通報機制再度受到檢視。",
-      "relevance": "涉及台灣行動支付用戶大規模個資外洩，對金融業資料治理、事件應變與主管機關監理具高度警示意義。",
-      "discussion": "iThome新聞，個資外洩事件引發台灣用戶與資安圈關注",
-      "url": "https://www.ithome.com.tw/news/177001"
-    },
-    {
-      "title": "應材推一系列全新系統，搶攻 DRAM、先進封裝商機",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-01",
-      "topic": "AI半導體",
-      "summary": "應用材料（Applied Materials）發表一系列全新製程系統，鎖定支援次世代AI所需的先進3D晶片架構。應材指出，隨著AI模型規模持續擴大，運算與資料傳輸需求快速攀升，帶動DRAM與先進封裝的設備需求。新系統聚焦記憶體與先進封裝環節，正是台積電、日月光等台廠AI供應鏈的關鍵瓶頸所在。此舉反映上游設備商正加速布局AI算力基礎設施的材料與製程升級。",
-      "relevance": "先進封裝與記憶體為台灣AI供應鏈核心，應材新設備直接牽動台積電CoWoS、HBM等台廠產能與技術升級節奏。",
-      "discussion": "科技新報，AI半導體供應鏈為台股與產業長期焦點",
-      "url": "https://technews.tw/2026/07/01/applied-materials-2026-new-products/"
+      "topic": "台灣半導體",
+      "summary": "日本客製化 SoC 供應商 Socionext 宣布採用台積電最先進的 A14 製程，開發面向 AI 資料中心的高效能運算晶片，預計 2026 年 9 月完成設計定案（tape out）。該晶片將作為技術驗證平台，測試 CPU 與 xPU 架構在先進製程上的可擴展性，支援超大規模 AI 資料中心等運算密集應用。Socionext 表示透過與台積電 A14 合作可降低先進產品開發風險、加速差異化高效能客製晶片上市時程。",
+      "relevance": "台積電 A14 先進製程再獲國際客戶採用開發 AI 晶片，鞏固台灣在 AI 半導體製造核心地位。",
+      "discussion": "半導體圈關注 A14 製程客戶動能與台積電在 AI 資料中心晶片代工的領先優勢。",
+      "url": "https://technews.tw/2026/07/02/japans-socionext-partners-with-tsmc-for-a14-process/"
     }
   ],
-  "_updated_at": "2026-07-02T18:04:05.003550+08:00"
+  "_updated_at": "2026-07-03T18:09:16.547615+08:00"
 }
