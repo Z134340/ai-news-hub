@@ -1,85 +1,37 @@
 {
   "items": [
     {
-      "title": "New analytics and cost controls are available for Claude Enterprise",
-      "title_zh": "Claude Enterprise 推出全新用量分析與成本控管功能",
-      "source": "Anthropic (Claude Blog)",
-      "date": "2026-07-03",
-      "topic": "AI Agent 治理／企業級管控",
-      "summary": "Anthropic 為 Claude Enterprise 管理員推出更豐富的用量可視化與成本控管工具，鎖定 Agent 大規模導入後失控的 token 支出問題。新功能包含模型層級的權限設定（model-level entitlements），可限制特定團隊只能使用指定模型；並提供支出門檻警示，於達到預算 75%、90% 時自動通知管理員。同時開放 Analytics API，讓企業將 Claude 用量資料串接至 Datadog、CloudZero 等既有可觀測性與 FinOps 平台。此舉直接回應企業採用 agentic workflow 後最痛的成本治理缺口。對金融等高度監管產業而言，模型層級權限與支出審計是導入 AI Agent 的合規前提。",
-      "highlights": [
-        "新增模型層級權限（model-level entitlements），可依團隊限制可用模型",
-        "支出門檻警示：達預算 75%／90% 自動通知，防止 Agent token 費用失控",
-        "開放 Analytics API，串接 Datadog、CloudZero 等可觀測性與 FinOps 工具",
-        "定位為企業級 AI Agent 導入的成本治理與稽核基礎設施"
-      ],
-      "discussion": "企業 IT 與 FinOps 社群普遍認為這是 agentic AI 走向生產環境的必要配套——多數團隊在 Agent 導入後才驚覺 token 成本難以歸因與控管。模型層級權限被視為對受監管產業（金融、醫療）特別關鍵，可滿足最小權限與稽核要求。",
-      "url": "https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend"
-    },
-    {
-      "title": "LinqAlpha raises $22M Series A to build AI agents for institutional investors and public market research",
-      "title_zh": "LinqAlpha 完成 2,200 萬美元 A 輪募資，為機構投資人打造公開市場研究 AI Agent",
-      "source": "Tech Startups",
-      "date": "2026-07-02",
-      "topic": "AI Agent／募資",
-      "summary": "紐約新創 LinqAlpha 宣布完成 2,200 萬美元 A 輪募資，打造服務機構投資人的多重代理（multi-agent）AI 平台，專攻公開市場研究。本輪由 AVP 領投，Atinum Investment、GFT Ventures 等跟投。平台以多個專職 Agent 協作，涵蓋股票（equities）、總體經濟（macro）、信用（credit）與多資產（multi-asset）研究流程，將分析師耗時的資料蒐集與初步研判自動化。此案例代表 AI Agent 正加速滲透買方（buy-side）投研工作流，而非僅止於一般客服或程式碼場景。對台灣金融業而言，這是 agentic AI 落地投研的具體對標指標。",
-      "highlights": [
-        "A 輪募資 2,200 萬美元，AVP 領投，Atinum Investment、GFT Ventures 跟投",
-        "多重代理架構，覆蓋股票、總體、信用、多資產研究",
-        "鎖定機構投資人（買方）公開市場研究工作流自動化",
-        "顯示 AI Agent 從通用場景深入專業金融投研領域"
-      ],
-      "discussion": "金融科技與 AI 投資圈關注此案顯示 agentic AI 正切入高價值的買方投研市場；也有分析師提醒，投研 Agent 的輸出仍需嚴格的來源驗證與合規審查，否則幻覺風險在投資決策場景後果嚴重。",
-      "url": "https://techstartups.com/2026/07/02/linqalpha-raises-22m-series-a-to-build-ai-agents-for-institutional-investors-and-public-market-research/"
-    },
-    {
-      "title": "Microsoft launches its own AI deployment company with $2.5 billion commitment",
-      "title_zh": "Microsoft 成立自有 AI 部署公司，投入 25 億美元",
+      "title": "What is Bending Spoons? The little-known AOL and Vimeo owner that's now public",
+      "title_zh": "Bending Spoons 是什麼？收購 AOL 與 Vimeo 的低調母集團正式上市",
       "source": "TechCrunch",
-      "date": "2026-07-02",
-      "topic": "技術大廠／企業 AI 佈署",
-      "summary": "Microsoft 宣布成立自有的 AI 部署公司 Frontier，投入 25 億美元、規劃 6,000 名工程師，協助企業客戶將 AI 從概念驗證推進到生產落地。新公司由 Rodrigo Kede Lima 領軍，並由商務長 Judson Althoff 對外揭露。此舉緊隨 Amazon 投入 10 億美元的類似部署團隊、以及 OpenAI、Anthropic 各自推出的前向部署工程師（Forward Deployed Engineer, FDE）模式，顯示雲端與模型大廠正競相搶佔「企業 AI 落地實作」這一環節。競爭焦點已從模型本身，轉向誰能真正幫企業把 AI Agent 導入既有系統並產生營收。對照台灣，這預示大型 SI 與顧問業的 AI 落地服務將成兵家必爭之地。",
+      "date": "2026-07-05",
+      "topic": "IPO",
+      "summary": "收購 AOL、Vimeo 的米蘭科技集團 Bending Spoons 本週於 Nasdaq 掛牌，開盤即跳漲，市值一度突破 250 億美元。該公司以科技與 AI 手段（同時也常以漲價、裁員）提升被收購品牌的財務表現。受 AI 進展助力，其每位全職員工的營收由 2023 年的 112 萬美元升至 2025 年的 257 萬美元。此案被視為 2026 夏季 AI 帶動科技公司上市潮的一環。",
       "highlights": [
-        "新公司 Frontier，承諾投入 25 億美元、規劃 6,000 名工程師",
-        "由 Rodrigo Kede Lima 領軍，商務長 Judson Althoff 對外揭露",
-        "跟進 Amazon 10 億美元部署團隊與 OpenAI／Anthropic 的 FDE 模式",
-        "競爭主軸從模型能力轉向企業 AI 落地實作與交付"
+        "市值一度突破 250 億美元，開盤即上漲",
+        "營運模式：以 AI／科技優化被收購品牌，輔以漲價與精簡人力",
+        "每位全職員工營收兩年內由 112 萬美元增至 257 萬美元",
+        "被歸入 SpaceX、Anthropic、OpenAI 之後的 2026 科技 IPO 潮"
       ],
-      "discussion": "產業評論認為大廠爭相自建部署團隊，反映純模型能力已難以差異化，真正的護城河在落地交付與客戶關係；亦有觀點質疑 6,000 人規模的顧問式部署能否維持軟體業的毛利結構。",
-      "url": "https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/"
+      "discussion": "社群關注點在於其『買下老牌品牌＋以 AI 提效＋漲價』的獲利模式是否可持續，以及此類非模型型 AI 應用公司在公開市場的估值合理性。",
+      "url": "https://techcrunch.com/2026/07/05/what-is-bending-spoons-everything-to-know-about-aols-acquirer/"
     },
     {
-      "title": "Top Tech News Today, July 2, 2026",
-      "title_zh": "今日科技要聞，2026 年 7 月 2 日",
-      "source": "Tech Startups",
-      "date": "2026-07-02",
-      "topic": "AI 資安／基礎設施彙整",
-      "summary": "Tech Startups 每日科技彙整，7 月 2 日多則與 AI 資安及基礎設施相關。焦點包括：Anthropic 的 Fable 5 獲得出口管制鬆綁、Mythos 5 採審核制存取（vetted access）；美中在 AI 資安領域的軍備競賽持續升溫；Microsoft 宣布投入 33 億美元的威斯康辛資料中心；Intel 揭露 Crescent Island GPU；以及 Chevron 與 Microsoft 的供電合作案。整體反映 AI 競賽已延伸至出口管制、資安對抗與能源／算力基建等地緣戰略層面。對治理研究而言，出口管制與審核制存取的演變值得持續追蹤。",
+      "title": "Almost 90 new unicorns have been minted so far this year — here they are",
+      "title_zh": "⚠️待確認：今年以來已誕生近 90 家新獨角獸——完整名單",
+      "source": "TechCrunch",
+      "date": "2026-07-05",
+      "topic": "Funding",
+      "summary": "TechCrunch 盤點 2026 年迄今晉升獨角獸（估值逾 10 億美元）的創投支持新創，AI 是主要推手。名單包含 Jeff Bezos 共同創辦、估值 410 億美元的 Promethus（自動化通用工程任務，B 輪募 120 億美元）；估值 46.5 億美元的 AI 研究實驗室 Recursive（A 輪 6.5 億美元，GV、Greycroft 領投，Nvidia 參與）；以及為 AI Agent 打造網頁搜尋／爬取引擎、估值 19.5 億美元的 EXA（a16z 領投 C 輪 2.5 億美元）。",
       "highlights": [
-        "Anthropic Fable 5 出口管制鬆綁、Mythos 5 採審核制存取",
-        "美中 AI 資安軍備競賽持續升溫",
-        "Microsoft 投入 33 億美元建置威斯康辛資料中心",
-        "Intel 揭露 Crescent Island GPU；Chevron 與 Microsoft 供電合作"
+        "AI 熱潮推升新創估值，獨角獸產出速度加快",
+        "Promethus（Bezos 共同創辦）估值 410 億美元，B 輪募 120 億美元",
+        "Recursive AI 研究實驗室估值 46.5 億美元，Nvidia 參與投資",
+        "EXA 為 AI Agent 打造搜尋引擎，估值 19.5 億美元"
       ],
-      "discussion": "資安與政策社群關注出口管制鬆綁與審核制存取的界線，認為這反映模型能力已被視為戰略資產；能源與算力綁定（如 Chevron–Microsoft）則被視為 AI 基建的下一個瓶頸。",
-      "url": "https://techstartups.com/2026/07/02/top-tech-news-today-july-2-2026/"
-    },
-    {
-      "title": "Venture Capital & Startup Funding Roundup, July 2, 2026",
-      "title_zh": "創投與新創募資彙整，2026 年 7 月 2 日",
-      "source": "Tech Startups",
-      "date": "2026-07-02",
-      "topic": "募資彙整",
-      "summary": "Tech Startups 每日創投募資彙整，7 月 2 日多筆 AI 相關輪次。重點包括：影像理解新創 TwelveLabs 完成 1 億美元 B 輪，由 NEA 領投，Naver、Amazon 跟投；機器人視覺公司 Luxonis 募得 1,400 萬美元；另有多筆早期輪次。整體顯示資金持續往多模態理解與具身智慧（embodied AI）方向集中。TwelveLabs 的大額 B 輪與 Amazon 的戰略跟投，凸顯影像／影片理解在企業搜尋與 Agent 感知能力上的價值。此彙整為觀察美國 AI 資金流向的即時指標。",
-      "highlights": [
-        "TwelveLabs 完成 1 億美元 B 輪，NEA 領投，Naver、Amazon 跟投",
-        "機器人視覺公司 Luxonis 募得 1,400 萬美元",
-        "資金持續集中於多模態理解與具身智慧方向",
-        "Amazon 戰略跟投凸顯影片理解對企業 Agent 感知的價值"
-      ],
-      "discussion": "創投圈認為多模態／影片理解是 AI Agent 感知層的關鍵拼圖，TwelveLabs 獲 Amazon 跟投被解讀為大廠補強 Agent 視覺能力的佈局；亦有聲音提醒該領域商業化路徑仍待驗證。",
-      "url": "https://techstartups.com/2026/07/02/venture-capital-startup-funding-roundup-july-2-2026/"
+      "discussion": "焦點集中在 AI 基礎設施與 Agent 工具鏈新創的估值是否過熱，以及大型科技投資人（a16z、Nvidia、GV）持續加碼下的泡沫疑慮。",
+      "url": "https://techcrunch.com/2026/07/05/almost-40-new-unicorns-have-been-minted-so-far-this-year-here-they-are/"
     }
   ],
-  "_updated_at": "2026-07-03T18:16:57.686826+08:00"
+  "_updated_at": "2026-07-06T19:28:00.810964+08:00"
 }

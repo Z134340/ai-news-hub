@@ -1,14 +1,13 @@
 {
-  "last_run": "2026-07-03T18:17:51.632670+08:00",
-  "last_success": "2026-07-03T18:17:51.632670+08:00",
-  "last_date": "2026-07-03",
+  "last_run": "2026-07-06T19:32:20.616774+08:00",
+  "last_success": "2026-07-06T19:32:20.616774+08:00",
+  "last_date": "2026-07-06",
   "source": "local",
-  "status": "missed",
+  "status": "partial",
   "categories_ok": 7,
-  "categories_failed": 0,
-  "validation_pass_rate": 98,
-  "consecutive_failures": 2,
-  "last_missed": "2026-07-05",
-  "errors": [],
-  "note": "本機排程未執行，等待電腦上線後自動補跑"
+  "categories_failed": 3,
+  "validation_pass_rate": 100,
+  "consecutive_failures": 0,
+  "last_missed": null,
+  "errors": []
 }

@@ -1,80 +1,20 @@
 {
   "items": [
     {
-      "title": "Meta, like SpaceX, looks to turn excess AI compute into cash",
-      "title_zh": "Meta 效法 SpaceX，將過剩 AI 算力變現",
-      "source": "TechCrunch",
-      "date": "2026-07-01",
-      "domain": "Infrastructure",
-      "model_area": "GPU Cloud / Meta Compute / Llama",
-      "summary": "TechCrunch 報導 Meta 計畫推出名為 Meta Compute 的雲端基礎設施服務，對外出租 GPU 算力與托管模型，正面挑戰 AWS、Azure 與 Google Cloud。業界消息指出 Meta 可能以低於現行雲端 GPU 行情 20-30% 的價格搶市，並提供 NVIDIA 最新晶片與自研 MTIA 加速器。此舉將 Meta 龐大的自用算力轉為營收來源，並可能一併托管其 Llama 系列與新推出的閉源模型 Muse Spark。",
+      "title": "AI explained: Why the world needs to act now",
+      "title_zh": "AI 解析：為何全球必須即刻行動",
+      "source": "UN News",
+      "date": "2026-07-06",
+      "domain": "Policy",
+      "model_area": "AI Governance",
+      "summary": "聯合國「AI 治理全球對話」（Global Dialogue on AI Governance）於 2026 年 7 月 6 日在日內瓦正式登場，各會員國就如何跨國協調管理 AI 展開討論。焦點在於 AI 已能自行撰寫程式碼、分析海量資料、生成擬真影音、協助科學家發現新藥，並在極少人類監督下自主行動。此對話為聯合國建立全球 AI 治理機制的關鍵一步。",
       "highlights": [
-        "Meta Compute 提供 bare-metal 與虛擬化 GPU 叢集，鎖定企業 AI 工作負載",
-        "傳將以低於市場 20-30% 價格切入，衝擊 AWS/Azure/Google 三雲",
-        "可托管 Llama 系列及新閉源模型 Muse Spark"
+        "聯合國首次啟動「AI 治理全球對話」多邊機制，地點於日內瓦",
+        "焦點涵蓋 AI 自主行動、生成式能力與跨國監理協調",
+        "呼應近期 EU AI Act 對基礎模型供應商加嚴義務的全球監理趨勢"
       ],
-      "url": "https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/"
-    },
-    {
-      "title": "Meta Wants to Sell You Its AI Compute. AWS, Azure, and Google Just Got a New Rival",
-      "title_zh": "Meta 要賣你 AI 算力，AWS、Azure、Google 多了新對手",
-      "source": "24/7 Wall St",
-      "date": "2026-07-02",
-      "domain": "Industry",
-      "model_area": "Cloud GPU / AI Infrastructure",
-      "summary": "24/7 Wall St 分析 Meta 進軍雲端算力市場的競爭意涵，認為 Meta 憑藉自建資料中心的成本優勢與大量採購議價能力，有機會成為三大公有雲的實質威脅。報導指出 Meta 可提供 NVIDIA 最新晶片與自研 MTIA 混合叢集，並以價格戰吸引開發者。這反映超大規模業者將 AI 資本支出轉為新營收曲線的產業趨勢。",
-      "highlights": [
-        "Meta 挾自建資料中心成本優勢挑戰公有雲霸主",
-        "算力商業化成為大型科技公司新營收模式",
-        "與 NVIDIA 晶片及自研 MTIA 加速器整合布局"
-      ],
-      "url": "https://247wallst.com/investing/2026/07/02/meta-wants-to-sell-you-its-ai-compute-aws-azure-and-google-just-got-a-new-rival/"
-    },
-    {
-      "title": "10 Agentic AI Frameworks You Should Know in 2026",
-      "title_zh": "2026 年你該認識的 10 大 Agentic AI 框架",
-      "source": "KDnuggets",
-      "date": "2026-07-02",
-      "domain": "Agent",
-      "model_area": "Agent Frameworks / LangGraph / CrewAI / AutoGen / Google ADK",
-      "summary": "KDnuggets 於 7 月 2 日發表 2026 年值得關注的 agentic AI 框架整理，指出這些框架已不再只是 LLM 加工具的薄封裝，而是能管理狀態、記憶、工具使用、評估與部署的完整平台。文章比較 LangGraph、CrewAI、AutoGen、Semantic Kernel、Google ADK 等主流選項，反映產業從單一 agent 轉向多 agent 系統的走向。搭配 MCP 於 2025 年 12 月捐給 Linux Foundation 後成為 agent 連接外部工具的標準，框架生態正快速整合。",
-      "highlights": [
-        "Agentic 框架已涵蓋狀態、記憶、工具、評估與部署全生命週期",
-        "LangGraph 因 graph-based 架構切合稽核與 rollback 需求受企業採用",
-        "MCP 成為跨框架標準，串接 270+ MCP servers"
-      ],
-      "url": "https://www.kdnuggets.com/10-agentic-ai-frameworks-you-should-know-in-2026"
-    },
-    {
-      "title": "AI News Today July 1 2026: 15 Biggest Stories",
-      "title_zh": "2026 年 7 月 1 日 AI 焦點：15 大新聞",
-      "source": "Build Fast with AI",
-      "date": "2026-07-01",
-      "domain": "LLM",
-      "model_area": "Claude Fable 5 / Claude Enterprise / Claude Code",
-      "summary": "報導整理 7 月 1 日 AI 重要動態，其中 Anthropic 的 Claude Fable 5 在美國政府解除 6 月 12 日出口管制令後重新上線，該禁令曾使模型下架近三週。Anthropic 同步為 Claude Enterprise 新增管理分析、模型層級授權與支出警示，讓管理者掌握用量與成本。Claude Code 亦將 Claude in Chrome 正式上線，並擴充背景通知、draft PR 交接與 /dataviz 圖表技能等 agent 工作流。",
-      "highlights": [
-        "Claude Fable 5 因出口管制解除而重新上線",
-        "Claude Enterprise 新增管理分析、模型授權與支出警示",
-        "Claude Code 推出 Claude in Chrome GA 並擴充 agent 工作流"
-      ],
-      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-1-2026"
-    },
-    {
-      "title": "AI-Driven Threats, Global Breaches, and Compliance Shifts Define the Week in Cybersecurity for July 2026",
-      "title_zh": "AI 驅動威脅、全球資料外洩與合規變動定調 2026 年 7 月資安週報",
-      "source": "eSecurity Planet",
-      "date": "2026-07-02",
-      "domain": "Cybersecurity",
-      "model_area": "AI Agent Security / Prompt Injection / Supply Chain",
-      "summary": "eSecurity Planet 週報指出 AI 正加速網路攻擊，Cato AI Labs 發現 AI 程式編輯器 Cursor 的兩個漏洞（合稱 DuneSlide），可讓一則看似普通的 prompt 突破編輯器沙箱、在開發者電腦上執行任意指令。同時 Axios npm 遭供應鏈攻擊，惡意套件數小時內即被發布、下載並執行。Five Eyes 情報聯盟警告 AI 正在加速攻擊節奏，autonomous agent 成為企業最具風險的未受保護資產。",
-      "highlights": [
-        "Cursor 出現 DuneSlide 漏洞，prompt 可突破沙箱執行任意指令",
-        "Axios npm 供應鏈攻擊數小時內擴散，傳統防護難以攔阻",
-        "Five Eyes 警告 AI 加速攻擊，autonomous agent 成企業最大風險資產"
-      ],
-      "url": "https://www.esecurityplanet.com/threats/ai-driven-threats-global-breaches-and-compliance-shifts-define-the-week-in-cybersecurity-for-july-2026/"
+      "url": "https://news.un.org/en/story/2026/07/1167848"
     }
   ],
-  "_updated_at": "2026-07-03T18:11:39.066773+08:00"
+  "_updated_at": "2026-07-06T19:25:46.668761+08:00"
 }

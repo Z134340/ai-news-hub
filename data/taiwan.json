@@ -1,85 +1,135 @@
 {
   "items": [
     {
-      "title": "同樣大舉投資開發 AI，祖克柏員工大會坦承 AI 代理進展不如預期",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-03",
+      "title": "行銷人快看！social CLI 讓 AI agent 幫你經營 LinkedIn 和 X，命令列就能搞定社群發文",
+      "source": "INSIDE",
+      "date": "2026-07-06",
       "topic": "AI Agent",
-      "summary": "Meta 執行長祖克柏在 7 月 2 日員工大會坦承，過去至少四個月「AI 代理（AI agents）的發展速度並未如預期般真正加快」，並承認今年推動的大規模組織重組尚未展現成效、時機判斷失準。他預估三至六個月內可望看到部分效益。Meta 今年 AI 基礎建設支出上看 1,450 億美元，是大型科技公司總計逾 7,000 億美元投入的重要部分。此番表態與超智能負責人 Alexandr Wang 宣稱新模型已在基準測試追平 OpenAI 旗艦形成對比。",
-      "relevance": "直接觸及 AI Agent 技術落地進度與大廠 agentic 投資回報，為台灣媒體本週最受關注的 Agent 議題。",
-      "discussion": "台媒與社群聚焦「大廠燒錢卻進展緩慢」是否代表 agentic AI 泡沫，以及 Meta 內部路線分歧。",
-      "url": "https://finance.technews.tw/2026/07/03/zuckerberg-said-ai-agent-progress-has-been-slower-than-expected"
+      "summary": "INSIDE 介紹開源工具 social CLI，讓 AI agent 直接在命令列操作 LinkedIn 與 X 的社群經營工作，涵蓋發文、互動與成效分析。工具採 JSON-first 架構，方便與既有 agent 工作流整合並程式化控制。文章示範如何把社群營運自動化交由 agent 執行，降低人工重複操作。屬 Agent 工具使用與工作流設計的實務應用範例。⚠️待確認：發佈日期以搜尋結果標示為主。",
+      "relevance": "示範 AI agent 在實際行銷工作流的落地方式，對台灣以 agent 建構自動化的開發者與行銷團隊具參考價值。",
+      "discussion": "INSIDE 讀者社群對 agent 自動化工具討論熱度中等。",
+      "url": "https://www.inside.com.tw/article/41744-social-cli"
     },
     {
-      "title": "離開 Meta 自創 AI 實驗室獲 10 億美元融資，楊立昆直指 LLM 在機器人領域「毫無希望」",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-03",
-      "topic": "LLM / AI 研究",
-      "summary": "圖靈獎得主楊立昆（Yann LeCun）離開任職十年的 Meta 首席 AI 科學家職位，創辦 AMI Labs（Advanced Machine Intelligence Labs），完成逾 10 億美元種子輪融資，為歐洲史上最大規模種子輪之一，投資者包含 Nvidia 與貝佐斯家族基金。楊立昆批評 ChatGPT、Claude、Gemini 等大型語言模型「並不聰明」、「LLM 在機器人領域基本上毫無希望」，主張以「世界模型（World Model）」路線推動 AI 理解真實世界物理與因果。",
-      "relevance": "涉及 LLM 架構路線之爭與下一代 AI 研究方向，對 Agent 與具身智慧發展具指標意義。",
-      "discussion": "台灣工程師社群熱議 World Model 是否會取代 LLM 主流路線，以及楊立昆出走對 Meta AI 的衝擊。",
-      "url": "https://finance.technews.tw/2026/07/03/artificial-intelligence-yann-lecun-works-on-more-flexible-ai/"
+      "title": "建立第二大腦！用 LLM 把你收藏的文章，自動變成一座可查詢的知識庫",
+      "source": "INSIDE",
+      "date": "2026-07-06",
+      "topic": "AI Agent Engineering",
+      "summary": "INSIDE 分享一套以 LLM 為核心的知識管理工作流，能主動讀取、摘要並交叉引用使用者收藏的文章，自動編纂成可持續更新、可查詢的個人知識庫。設計上結合 LLM 摘要與檢索，屬 agent 記憶與情境工程（context engineering）的實作。文章著重把零散資料轉為結構化、可被 agent 反覆調用的知識來源。⚠️待確認：發佈日期以搜尋結果標示為主。",
+      "relevance": "呼應 context engineering 與 agent memory 主題，對台灣建構個人／企業知識庫的工程師有實作參考。",
+      "discussion": "第二大腦、Obsidian 結合 LLM 為台灣社群持續討論題材。",
+      "url": "https://www.inside.com.tw/article/41745-obsidian-vault-pipelin"
     },
     {
-      "title": "Anthropic 自研晶片有譜？傳找三星洽談合作",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-03",
-      "topic": "大廠 / AI 晶片",
-      "summary": "The Information 報導，Anthropic 已與三星電子接洽，商討客製化 AI 晶片代工合作。計畫仍處早期階段，處理器負責的運算工作、效能規格與伺服器整合細節都尚未敲定，距量產仍有時間。Anthropic 向 The Information 表示，亞馬遜 Trainium、Google TPU 與 Nvidia GPU 仍將是其算力策略核心。此舉延續 OpenAI、Google、Meta 等 AI 巨頭自研晶片以降低對 Nvidia 依賴的產業趨勢。",
-      "relevance": "AI 大廠自研晶片賽局再添一員，牽動全球晶圓代工與台廠 ASIC 設計供應鏈布局。",
-      "discussion": "台媒關注三星若接單將如何影響台積電與世芯-KY 等台廠的 AI ASIC 訂單版圖。",
-      "url": "https://technews.tw/2026/07/03/anthropic-and-samsung-discuss-building-a-custom-ai-chip/"
-    },
-    {
-      "title": "亞馬遜全面轉向自研晶片搶攻 AI，郭明錤：世芯-KY 獨攬後段大單",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-03",
-      "topic": "大廠 / 台灣供應鏈",
-      "summary": "分析師郭明錤指出，亞馬遜將進行 20 年來最重大的處理器採購策略轉向，捨棄外購改採 COT（customer-owned tooling）自研模式，由台灣 IC 設計廠世芯-KY 獨家負責後段設計與測試。此舉受 AI 算力擴張壓縮現金流所驅動，亞馬遜截至 2026 年第一季的過去 12 個月自由現金流年減 95%。策略預計 2027 年起推動，全面轉換後年出貨量估約 4,000 萬顆，將顯著挹注世芯-KY 營運。受消息激勵，世芯股價一度攻上漲停。",
-      "relevance": "美系大廠自研晶片直接讓台灣 ASIC 設計龍頭世芯-KY 受惠，屬高關注度台廠題材。",
-      "discussion": "台股投資圈熱議世芯獨吃訂單的營收爆發性，以及聯發科是否因此流失潛在客戶。",
-      "url": "https://technews.tw/2026/07/03/amazon-fully-shifts-to-developing-its-own-chips-to-seize-the-ai-%E2%80%8B%E2%80%8Bmarket/"
-    },
-    {
-      "title": "金融時報：OpenAI籲政府持股5% 官商利益綁定",
+      "title": "中國15日實施AI服務新規 豆包千問智慧體功能下架",
       "source": "中央社 CNA",
-      "date": "2026-07-02",
-      "topic": "大廠 / 政策",
-      "summary": "英國金融時報報導，OpenAI 提議將約 5% 股權讓渡美國政府，藉以將公司與川普政府的財務利益綁定，換取政策支持與監管空間。此舉被視為 OpenAI 在美國加強前沿模型監管、並推動 AI 行政命令的背景下，尋求與政府深度結盟的策略。報導引發外界對 AI 龍頭與政府關係過度緊密、可能形成官商利益共同體的質疑。",
-      "relevance": "涉及全球 AI 龍頭治理結構與政商關係，為 AI 治理與產業監理的重要指標事件。",
-      "discussion": "台灣治理與財經圈討論此舉是否為 AI 監管軟化交換條件，及對開放競爭的影響。",
-      "url": "https://www.cna.com.tw/news/aopl/202607020169.aspx"
+      "date": "2026-07-05",
+      "topic": "AI Agent／治理",
+      "summary": "中央社報導中國將於 7 月 15 日實施 AI 服務新規，字節跳動豆包（Doubao）與阿里千問（Qwen）宣布旗下智慧體（Agent）功能將配合下架。新規對生成式 AI 與代理式功能提出更嚴格的合規要求，直接衝擊中國主要 AI 助理的 Agent 服務供應。此舉反映中國對 AI Agent 監理趨嚴，牽動整體智慧體產業布局。",
+      "relevance": "中國 AI Agent 治理動向為台灣媒體高度關注題材，對評估兩岸 AI 監理差異與供應鏈風險具參考意義。",
+      "discussion": "兩岸 AI 監理落差為台灣科技圈熱議焦點。",
+      "url": "https://www.cna.com.tw/news/acn/202607050080.aspx"
     },
     {
-      "title": "美擬制定 AI 模型發表自願準則，最快下週公布",
+      "title": "夏普攜鴻海衝刺新事業、開賣 AI 伺服器",
       "source": "TechNews 科技新報",
-      "date": "2026-07-02",
-      "topic": "AI 治理 / 安全",
-      "summary": "金融時報引述消息報導，美國政府與 AI 業者深入協商，最快下週公布前沿 AI 模型發表的自願性規範，內容將設定前沿模型的評估基準、發表時程，並釐清哪些國內外實體可存取這些模型。此規範用以落實川普 6 月的 AI 行政命令，要求政府與領先 AI 業者在模型發表前進行測試並建立評估標準，包含檢視 AI 模型資安等級的機密評估程序。強化監管主因在於憂心頂尖模型遭中國、俄羅斯等敏感國家軍事或情報單位濫用。",
-      "relevance": "前沿模型發布標準與資安評估直接關係 AI 安全治理框架，屬科技治理核心議題。",
-      "discussion": "台灣治理圈關注美式自願準則與 EU AI Act 強制監管的路線差異及對台廠合規影響。",
-      "url": "https://technews.tw/2026/07/02/us-ai-model-voluntary-guidelines-announcement-next-week/"
+      "date": "2026-07-06",
+      "topic": "產業應用",
+      "summary": "科技新報報導夏普（Sharp）與母公司鴻海簽署策略合作備忘錄，涵蓋 AI 基礎設施與解決方案，正式跨足 AI 伺服器銷售。夏普目標 2030 年將新事業營收推升至 3,000 億日圓，其中 AI 伺服器占比逾八成。夏普並參與軟銀（SoftBank）主導的日本國產 AI 開發計畫。此案凸顯鴻海集團在 AI 伺服器供應鏈的整合布局。",
+      "relevance": "鴻海集團為台灣 AI 伺服器供應鏈核心，此合作直接關係台廠在全球 AI 基礎設施的市場卡位。",
+      "discussion": "鴻海 AI 伺服器動向為台股與科技圈高關注議題。",
+      "url": "https://technews.tw/2026/07/06/sharp-and-foxconn-launch-ai-servers"
     },
     {
-      "title": "中華電舉辦科技研討會 展示AI智慧製造一站式方案",
+      "title": "AI掀記憶體缺貨潮 三星Q2營業利益有望增18倍",
       "source": "中央社 CNA",
-      "date": "2026-07-03",
-      "topic": "台灣 AI 應用",
-      "summary": "中華電信舉辦「2026 製造業未來科技應用研討會」，透過生成式 AI、AI 運算基礎設施等技術，協助製造業者掌握數位轉型契機。中華電提供從基礎建設到應用落地的一站式解決方案，協助製造業提升營運效率、強化競爭優勢與營運韌性。此為台灣電信與 ICT 業者切入企業 AI 落地市場、鎖定製造業智慧化需求的具體布局。",
-      "relevance": "台灣本土大型電信業者推動製造業 AI 落地，屬在地 AI 產業應用的代表性動態。",
-      "discussion": "業界關注電信商跨足企業 AI 整合服務，與雲端大廠及系統整合商的競合關係。",
-      "url": "https://www.cna.com.tw/news/afe/202607030196.aspx"
+      "date": "2026-07-06",
+      "topic": "半導體／供應鏈",
+      "summary": "中央社報導 AI 伺服器與運算需求帶動記憶體缺貨潮，三星電子第二季營業利益有望較去年同期成長約 18 倍。高頻寬記憶體（HBM）與 DRAM 因 AI 資料中心擴張供不應求，價格與出貨同步走高。記憶體景氣反轉對台灣記憶體與模組廠形成連動效應。此波缺貨潮延續了 AI 帶動的半導體上行循環。",
+      "relevance": "記憶體缺貨與漲價直接牽動台灣記憶體、模組與 IC 通路廠的營運與股價表現。",
+      "discussion": "AI 記憶體缺貨漲價為台股當前最熱門題材之一。",
+      "url": "https://www.cna.com.tw/news/aopl/202607060013.aspx"
     },
     {
-      "title": "日本 Socionext 攜手台積電 A14 製程，開發 AI 資料中心晶片訂 9 月完成設計定案",
+      "title": "AI 高階 MLCC 激勵日韓大廠訂單出貨比創疫情後新高，2H26 缺貨風險提升",
       "source": "TechNews 科技新報",
-      "date": "2026-07-02",
-      "topic": "台灣半導體",
-      "summary": "日本客製化 SoC 供應商 Socionext 宣布採用台積電最先進的 A14 製程，開發面向 AI 資料中心的高效能運算晶片，預計 2026 年 9 月完成設計定案（tape out）。該晶片將作為技術驗證平台，測試 CPU 與 xPU 架構在先進製程上的可擴展性，支援超大規模 AI 資料中心等運算密集應用。Socionext 表示透過與台積電 A14 合作可降低先進產品開發風險、加速差異化高效能客製晶片上市時程。",
-      "relevance": "台積電 A14 先進製程再獲國際客戶採用開發 AI 晶片，鞏固台灣在 AI 半導體製造核心地位。",
-      "discussion": "半導體圈關注 A14 製程客戶動能與台積電在 AI 資料中心晶片代工的領先優勢。",
-      "url": "https://technews.tw/2026/07/02/japans-socionext-partners-with-tsmc-for-a14-process/"
+      "date": "2026-07-06",
+      "topic": "半導體／供應鏈",
+      "summary": "科技新報報導受 AI 伺服器升級與雲端業者自研 ASIC 晶片放量帶動，高階多層陶瓷電容（MLCC）需求激增，日韓大廠 6 月訂單出貨比（book-to-bill）創疫情後新高。Rubin 機架等新平台對高端 MLCC 的需求達數倍衝擊，交貨期已拉長逾 20 週。報導預期 2026 下半年缺貨風險將進一步升高。此趨勢對被動元件供應鏈形成明確拉貨訊號。",
+      "relevance": "台灣國巨、華新科等被動元件廠為 MLCC 供應要角，缺貨漲價題材直接受惠。",
+      "discussion": "被動元件缺貨為台股法人與投資人關注重點。",
+      "url": "https://technews.tw/2026/07/06/ai-high-end-mlccs-boost-japan-korea-book-to-bill-post-pandemic-high-2h26-shortage-risk/"
+    },
+    {
+      "title": "泰媒專訪駐泰代表藍夏禮 談台泰AI、半導體合作契機",
+      "source": "中央社 CNA",
+      "date": "2026-07-06",
+      "topic": "政策／國際合作",
+      "summary": "中央社報導駐泰代表藍夏禮接受泰媒專訪，闡述台泰在 AI 與半導體領域的合作契機。內容聚焦台灣在 AI 硬體製造與半導體供應鏈的優勢，如何延伸至東南亞市場合作。雙方在人才、投資與供應鏈韌性上具互補空間。此為台灣以 AI 與半導體實力推展新南向科技外交的具體案例。",
+      "relevance": "反映台灣運用 AI／半導體優勢深化國際合作的政策方向，關乎產業海外布局。",
+      "discussion": "台灣半導體外交與新南向為政策圈關注議題。",
+      "url": "https://www.cna.com.tw/news/aipl/202607060231.aspx"
+    },
+    {
+      "title": "日本缺工缺出商機：物理 AI 浪潮下，台灣靠感測器整合、代工與融資卡位",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-05",
+      "topic": "產業應用",
+      "summary": "科技新報報導在日本高齡化與缺工壓力下，機器人與自動化需求推升「物理 AI（Physical AI）」浪潮。日本在精密製造與感測器具優勢，九州更啟動 GW 級 AI 基礎設施建置。文章分析台灣可透過感測器整合、代工與融資在此波物理 AI 供應鏈中卡位。凸顯台廠切入實體 AI 與機器人硬體的機會。",
+      "relevance": "指出台灣感測器與代工能力在物理 AI／機器人供應鏈的切入點，具產業策略參考價值。",
+      "discussion": "物理 AI 與人形機器人供應鏈為台灣科技圈熱門題材。",
+      "url": "https://technews.tw/2026/07/05/tokyo-infinity-ventures-summit/"
+    },
+    {
+      "title": "AI眼鏡拓展版圖 宏達電6月營收月增逾71%",
+      "source": "中央社 CNA",
+      "date": "2026-07-06",
+      "topic": "產業應用",
+      "summary": "中央社報導宏達電（HTC）受惠 AI 眼鏡出貨拓展，6 月合併營收約新台幣 2.92 億元，月增逾 71.6%。AI 眼鏡成為宏達電轉型後的成長動能，帶動營收明顯回升。此反映台廠在 AI 穿戴裝置市場的布局逐步展現成效。宏達電持續以 AI 硬體尋求新營收支柱。",
+      "relevance": "台灣品牌廠切入 AI 穿戴裝置的實例，對評估台廠 AI 終端產品進展具參考性。",
+      "discussion": "宏達電 AI 眼鏡轉型受台股投資人關注。",
+      "url": "https://www.cna.com.tw/news/afe/202607060255.aspx"
+    },
+    {
+      "title": "馬來西亞迎AI教育時代 借鏡台灣數位經驗",
+      "source": "中央社 CNA",
+      "date": "2026-07-06",
+      "topic": "產業應用／教育",
+      "summary": "中央社報導馬來西亞積極推動 AI 教育，並借鏡台灣在 AI 教育與數位教學的經驗。台灣的數位學習與 AI 課程推動模式成為區域參考範例。雙方在教育科技與人才培育上具合作潛力。此案例展現台灣 AI 教育軟實力的外溢效果。",
+      "relevance": "凸顯台灣 AI 教育經驗的國際輸出價值，關乎教育科技產業的區域合作機會。",
+      "discussion": "台灣 AI 教育輸出為教育與政策圈中度關注題材。",
+      "url": "https://www.cna.com.tw/news/aopl/202607060056.aspx"
+    },
+    {
+      "title": "為何「黑莓機」股價創新高？手機輸家轉戰車載系統，變身實體 AI 新寵",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-05",
+      "topic": "技術趨勢",
+      "summary": "科技新報分析 BlackBerry 因旗下 QNX 作業系統成為自駕車與機器人等實體 AI 系統的關鍵，股價創新高。QNX 屬確定性（deterministic）作業系統，輸出穩定一致，正好補足生成式 AI 機率性行為的不足。文章指出實體 AI 對可靠即時作業系統的需求提升。反映實體 AI 落地時對底層軟體基礎的重視。",
+      "relevance": "揭示實體 AI 對確定性作業系統的需求，對台灣車電與機器人軟硬體供應鏈具啟示。",
+      "discussion": "實體 AI 底層軟體題材為科技圈新興討論方向。",
+      "url": "https://technews.tw/2026/07/05/forget-the-cellphones-blackberry-stock-jumps-23-as-an-ai-play/"
+    },
+    {
+      "title": "芝加哥大學首創「柔性 AI 貼片」，能毫秒內警告心律異常",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-05",
+      "topic": "技術趨勢／醫療",
+      "summary": "科技新報報導芝加哥大學與阿貢國家實驗室開發出可直接貼於皮膚的柔性 AI 運算貼片，能即時分析健康數據，並在毫秒內警示心律異常。此裝置將 AI 運算下放至邊緣穿戴端，實現低延遲的健康監測。屬邊緣 AI 與醫療感測結合的前沿研究。展示 AI 在穿戴醫療裝置的落地潛力。",
+      "relevance": "邊緣 AI 醫療穿戴裝置為台灣醫材與感測供應鏈可切入的新興領域。",
+      "discussion": "AI 醫療穿戴為科技與醫材圈關注題材。",
+      "url": "https://technews.tw/2026/07/05/wearable-ai-computing-patch/"
+    },
+    {
+      "title": "從洗髮精到巧克力 消費品巨頭靠AI加速產品創新",
+      "source": "中央社 CNA",
+      "date": "2026-07-06",
+      "topic": "產業應用",
+      "summary": "中央社報導 L'Oréal、Nestlé、Mondelez 等消費品巨頭運用 AI 加速產品創新，部分企業新品開發速度提升達四倍。AI 應用於配方研發、消費者洞察與產品設計等環節。顯示 AI 落地已從科技業延伸至傳統消費品產業。反映 AI 在企業流程創新的廣泛滲透。",
+      "relevance": "呈現 AI 於非科技業的實務應用，對台灣消費品與傳產導入 AI 具參照價值。",
+      "discussion": "傳產 AI 導入為企業數位轉型的普遍關注題材。",
+      "url": "https://www.cna.com.tw/news/aopl/202607060168.aspx"
     }
   ],
-  "_updated_at": "2026-07-03T18:09:16.547615+08:00"
+  "_updated_at": "2026-07-06T19:24:02.587720+08:00"
 }
