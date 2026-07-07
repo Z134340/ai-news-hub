@@ -585,6 +585,7 @@ fi
 log "清理 7 天前的 log..."
 find "$LOG_DIR" -name "*.log" -mtime +7 -delete 2>/dev/null || true
 find "$LOG_DIR" -name "validate-*.json" -mtime +7 -delete 2>/dev/null || true
+find "$LOG_DIR" -name "failed_*.txt" -mtime +7 -delete 2>/dev/null || true
 
 # ── 判定整體狀態 ──
 if [[ $CATEGORIES_OK -eq ${#CATEGORIES[@]} ]]; then
