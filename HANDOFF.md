@@ -37,6 +37,8 @@ git commit -m "♻️ 正規化：前端拆檔 + Firebase 書籤同步 + 冷封�
 
 ## 2. 待辦（需「人」在 Mac + Firebase console，agent 無法代）
 
+> **2026-07-07 現況更新**：B 已完成（`FIREBASE_CONFIG` 已填真實專案 `ai-news-hub-33c51`）。A 已完成（repo 持續正常 commit）。**仍待人做：D（換 `WRITER_UID`，仍 placeholder）、E（`archiver.env` 不存在）、F（冷封存遷移，阻塞於 D+E）**；C 的 rules 是否已部署未驗證（無 Firebase CLI 存取）。
+
 | # | 待辦 | 為什麼只能人做 |
 |---|------|----------------|
 | A | 清除殘留 `.git/index.lock`（`rm -f .git/index.lock`） | 先前沙箱無法刪；git 寫入被它擋住 |
