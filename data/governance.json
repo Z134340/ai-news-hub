@@ -1,95 +1,131 @@
 {
   "items": [
     {
-      "title": "Artificial Intelligence: Council gives final green light to simplify and streamline rules",
-      "source": "Council of the EU (Consilium)",
-      "date": "2026-06-29",
+      "title": "From AI to 'killer robots': UN chief issues urgent governance call",
+      "source": "UN News",
+      "date": "2026-07-06",
       "category": "AI治理",
-      "summary": "歐盟理事會於 2026 年 6 月 29 日對 EU AI Act 簡化方案（Digital Omnibus）給予最終核准，繼歐洲議會 6 月 16 日表決通過後完成立法程序。此次修法將 Annex III 之高風險 AI 系統義務從原訂 2026 年 8 月 2 日延後至 2027 年 12 月 2 日，內嵌於產品的高風險系統則延至 2028 年 8 月 2 日。同時將中小企業簡化合規範圍擴大至員工 750 人、年營收 1.5 億歐元以下之企業。修法並新增兩項禁止行為，針對未經同意生成親密影像（nudifier）與兒少性剝削材料（CSAM），自 2026 年 12 月 2 日起適用。整體維持以風險為基礎的監理架構，並透過 AI Office 強化治理。",
+      "summary": "聯合國秘書長 António Guterres 於 7 月 6 日在日內瓦召開的首屆「Global Dialogue on AI Governance」開幕式上，呼籲建立涵蓋全球的 AI 監管機制。他特別警告自主武器系統（killer robots）在無人類控制下自行選擇並攻擊目標「道德上令人厭惡、政治上不可接受」，主張應以國際法明令禁止。Guterres 提出四項原則：AI 若要強大就必須被治理、若要被信任建構者就必須負責、若要全球化就必須公平、若要服務未來就不能消耗未來。他強調任何未來協議都須「以安全為先」，尤其保護兒童免於數位生成的操縱與濫用。下一屆對話定於 2027 年 5 月於紐約舉行。",
       "highlights": [
-        "高風險 AI（Annex III）義務延後 16 個月至 2027 年 12 月 2 日",
-        "SME 簡化合規門檻放寬至 750 名員工／1.5 億歐元營收",
-        "新增 nudifier 與 CSAM 兩項禁止行為，2026 年 12 月 2 日生效",
-        "GPAI 與 Article 50 透明度義務未延後，仍於 2026 年 8 月 2 日到期",
-        "法案將於歐盟官方公報公布後第三日正式生效"
+        "秘書長主張以國際法禁止無人類判斷的自主致命武器（killer robots）",
+        "提出治理、問責、公平、永續四大 AI 治理原則",
+        "強調「機器可提供資訊，但決策與負責必須由人類承擔」",
+        "首屆全球對話集結全部 193 個會員國，第二屆將於 2027 年 5 月在紐約召開"
       ],
-      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/"
+      "url": "https://news.un.org/en/story/2026/07/1167873"
+    },
+    {
+      "title": "Secretary-General's remarks to the opening of the first Global Dialogue on Artificial Intelligence Governance [as delivered]",
+      "source": "United Nations",
+      "date": "2026-07-06",
+      "category": "AI治理",
+      "summary": "此為聯合國官方發布的秘書長 Guterres 於 2026 年 7 月 6 日首屆「Global Dialogue on AI Governance」開幕致詞全文（as delivered），屬第一手權威文本。致詞主軸為 AI 能力加速超越各國監理能力，全球需從原則邁向實踐，建立可被全球信任的治理架構。內容涵蓋自主武器管制、問責歸屬、算力集中於少數國家與企業的公平性問題，以及對兒童安全與資訊完整性的保護。此文件為研判聯合國 AI 治理立場的原始依據。",
+      "highlights": [
+        "聯合國官方致詞全文，第一手權威來源",
+        "點名全球算力高度集中造成的治理不平等",
+        "呼籲從 Global Digital Compact 的原則走向具體可執行的國際規則",
+        "與 Independent International Scientific Panel 首份報告同步發布"
+      ],
+      "url": "https://www.un.org/sg/en/content/sg/statements/2026-07-06/secretary-generals-remarks-the-opening-of-the-first-global-dialogue-artificial-intelligence-governance-delivered"
     },
     {
       "title": "Global push for AI governance amid warnings of 'catastrophic harm'",
       "source": "UN News",
-      "date": "2026-07-06",
+      "date": "2026-07-01",
       "category": "AI治理",
-      "summary": "聯合國於 2026 年 7 月 6 至 7 日在日內瓦召開首屆 Global Dialogue on AI Governance，由聯合國大會召集，193 個會員國連同企業、學界與公民社會共同參與，是全球首個政府與各利害關係人同桌討論 AI 監理的國際平台。會議聚焦於如何治理演進速度超越規則制定的技術，並警示 AI 可能造成的災難性危害。由 Yoshua Bengio 與 Maria Ressa 共同主持的獨立國際 AI 科學小組於會中提出首份報告摘要，指出科學界目前無法保證 AI 能力提升不會帶來災難性後果。此次對話被視為國際社會正式承認 AI 已從技術議題轉為地緣政治議題的分水嶺。第二屆會議將於 2027 年 5 月在紐約舉行。",
+      "summary": "配合日內瓦全球對話，聯合國「Independent International Scientific Panel on AI」於 7 月 1 日發布首份報告，警告 AI 能力加速發展速度已超過任何政府理解與監理的能力。報告由 40 位來自全球各地區、以個人身分任職的專家組成，指出目前並無任何技術手段能保證 AI Agent 系統的安全行為，且全球約九成算力集中於兩個國家。報告同時發現各地雖已採用數十種將倫理與人權融入 AI 的治理工具，但彼此割裂、集中於少數企業手中，且極少評估實際成效。",
       "highlights": [
-        "聯合國首屆 AI 治理全球對話，193 個會員國全數與會",
-        "Bengio 警告科學無法保證高能力 AI 不會造成災難性危害",
-        "由 Estonia 與 El Salvador 代表共同主持",
-        "獨立國際 AI 科學小組提出首份評估報告",
-        "第二屆對話定於 2027 年 5 月在紐約舉行"
+        "首份聯合國級 AI 科學評估報告，警告潛在「catastrophic harm」",
+        "明確指出目前無技術保證可確保 AI Agent 安全行為",
+        "全球約 90% 算力集中於兩國，凸顯治理權力不對等",
+        "既有治理工具零散、缺乏成效評估"
       ],
       "url": "https://news.un.org/en/story/2026/07/1167862"
     },
     {
-      "title": "UN Science Panel Warns AI Is Outpacing Regulators and Researchers",
-      "source": "Technology.org",
+      "title": "UN AI Governance Summit Opens Monday: Science Panel Says Control Is Not Guaranteed",
+      "source": "Tech Times",
+      "date": "2026-07-03",
+      "category": "AI治理",
+      "summary": "報導聚焦於 7 月 6 日開幕的聯合國 AI 治理峰會，並整理 Independent International Scientific Panel 首份報告的核心結論：AI 系統的可控性「並無保證」。文章指出 AI 能力演進速度超越監理框架，且對於高度自主的 Agent 系統，目前缺乏可驗證的安全行為技術保證。報導亦點出全球算力集中、治理工具分散等結構性風險，為金融等高度監理產業導入自主 AI 提供了風險警示。",
+      "highlights": [
+        "科學小組結論：AI 可控性無法被技術性保證",
+        "自主 Agent 系統的安全行為缺乏可驗證機制",
+        "算力與治理權力集中形成系統性風險",
+        "為高監理產業導入自主 AI 敲響警鐘"
+      ],
+      "url": "https://www.techtimes.com/articles/319647/20260703/un-ai-governance-summit-opens-monday-science-panel-says-control-not-guaranteed.htm"
+    },
+    {
+      "title": "No child should be 'guinea pig' for unregulated AI - UN",
+      "source": "RTÉ",
+      "date": "2026-07-06",
+      "category": "隱私",
+      "summary": "報導 Guterres 於日內瓦峰會上對兒童 AI 安全的強烈呼籲，主張不應讓任何兒童成為未受監管 AI 的「白老鼠」。焦點在於 AI 生成內容對未成年人的操縱、剝削與數位生成濫用風險，並要求未來的國際 AI 協議須「以安全為先、尤其是兒童安全」。此議題與各國正在推進的兒童線上安全立法（如美國州層級規範）形成呼應，凸顯 AI 治理中的弱勢群體保護面向。",
+      "highlights": [
+        "秘書長主張任何兒童都不應成為未受監管 AI 的實驗對象",
+        "聚焦 AI 生成內容對未成年人的操縱與剝削風險",
+        "要求國際 AI 協議「以兒童安全為先」",
+        "呼應全球兒童線上安全立法趨勢"
+      ],
+      "url": "https://www.rte.ie/news/world/2026/0706/1581942-un-ai-conference-geneva/"
+    },
+    {
+      "title": "Global Dialogue on AI Governance, Geneva, 6–7 July",
+      "source": "UNESCO",
+      "date": "2026-07-06",
+      "category": "AI治理",
+      "summary": "UNESCO 官方頁面說明 7 月 6 至 7 日於日內瓦 Palexpo 舉行的首屆「Global Dialogue on AI Governance」。此對話依《Global Digital Compact》與聯合國大會決議 A/RES/79/325 設立，是《Pact for the Future》從原則走向實踐的具體成果，首次讓全部 193 個會員國都有保證席位。議題分為 AI 機會與影響、彌合 AI 落差（能力建構與近用）、安全可信賴且可互通的 AI，以及尊重與保護人權（透明與問責）等群組，由薩爾瓦多與愛沙尼亞共同主持。",
+      "highlights": [
+        "依 Global Digital Compact 與 GA 決議 A/RES/79/325 設立",
+        "首次確保 193 個會員國皆有席位的政府間 AI 對話",
+        "議程涵蓋安全可信賴、可互通 AI 與人權保護四大群組",
+        "由薩爾瓦多與愛沙尼亞代表共同主持"
+      ],
+      "url": "https://www.unesco.org/en/articles/global-dialogue-ai-governance-geneva-6-7-july"
+    },
+    {
+      "title": "Preliminary Report | Independent International Scientific Panel on AI",
+      "source": "United Nations",
       "date": "2026-07-01",
       "category": "AI治理",
-      "summary": "聯合國獨立國際 AI 科學小組於 2026 年 7 月 1 日發布首份初步報告，作為日內瓦 Global Dialogue on AI Governance 的科學基礎。報告由 40 位專家共同撰寫，警示 AI 發展速度已超越監理機構與研究界的追趕能力。小組指出當前科學方法尚無法確保隨著 AI 能力增強不會出現失控或災難性風險。報告呼籲各國政府在能力評估、風險量測與跨境協作上建立共通方法。此份文件為各會員國後續政策討論提供獨立且跨國的技術評估依據。",
+      "summary": "聯合國「Independent International Scientific Panel on AI」官方發布的首份初步報告（Preliminary Report）頁面，為第一手權威文件。該小組由 40 位全球專家以個人身分組成，任務為向聯合國「Global Dialogue on AI Governance」提供獨立、以科學為基礎的評估。報告梳理 AI 能力現況、風險與治理落差，指出自主 AI 系統安全性缺乏技術保證、算力高度集中等關鍵議題，作為各國政策制定的共同科學參照基準。",
       "highlights": [
-        "40 位專家組成的獨立國際 AI 科學小組發布首份報告",
-        "警示 AI 演進速度已超越監理與研究能力",
-        "科學上尚無法保證高能力 AI 的安全性",
-        "為聯合國日內瓦 AI 治理對話提供技術基礎",
-        "呼籲建立能力評估與風險量測的共通方法"
+        "聯合國官方第一手科學評估文件",
+        "由 40 位獨立專家以個人身分撰寫",
+        "為 Global Dialogue 提供中立科學基準",
+        "涵蓋 AI 能力、風險與治理落差的系統性梳理"
       ],
-      "url": "https://www.technology.org/2026/07/01/un-panel-warns-ai-catastrophic-risks/"
+      "url": "https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report"
     },
     {
-      "title": "Global AI Governance Talks in Geneva Aim to Forge Fair, Inclusive and Sustainable Digital Order",
-      "source": "Qatar News Agency (QNA)",
-      "date": "2026-07-05",
+      "title": "中央网信办深入开展“清朗·整治AI应用乱象”专项行动第一阶段工作",
+      "source": "中新網",
+      "date": "2026-07-06",
       "category": "AI治理",
-      "summary": "隨著聯合國日內瓦 AI 治理全球對話登場，各方於 2026 年 7 月 5 日聚焦如何建構公平、包容且可持續的數位秩序。報導強調此平台的核心目標，是確保 AI 治理反映所有國家（而非僅限技術最先進國家）的優先事項，並讓 AI 效益能為全人類共享。此一框架特別關注 Global South 國家在 AI 治理話語權上的訴求。會議設有高階別會議、主題議程與周邊活動等結構。此舉反映國際社會試圖在監理主導權高度集中於少數強國的現況下，推動更具代表性的多邊治理機制。",
+      "summary": "中央網信辦於 7 月 6 日公布「清朗·整治AI應用亂象」專項行動第一階段成果。行動自 2026 年 4 月啟動，聚焦未依規履行大模型備案登記義務、AI 平台安全與審核過濾能力不足、AI 資料投毒（data poisoning）、生成合成內容標識落實不到位等問題。第一階段累計處置違規網站、應用程式、智能體等 AI 產品逾 1.4 萬款，清理違法違規資訊逾 600 萬條，處置帳號逾 2.6 萬個，並下架違規 AI 商品與開源資料集。第二階段將轉向 AI 造假資訊、假冒仿冒、侵害未成年人權益等問題。",
       "highlights": [
-        "聚焦公平、包容、可持續的全球數位秩序",
-        "強調治理須反映所有國家而非僅先進國家的優先事項",
-        "凸顯 Global South 在 AI 治理的話語權訴求",
-        "會議含高階別會議、主題議程與周邊活動",
-        "推動更具代表性的多邊 AI 治理機制"
+        "中國 AI 內容治理專項執法第一階段成果公布",
+        "鎖定大模型備案、內容標識、資料投毒等合規缺口",
+        "累計處置逾 1.4 萬款違規 AI 產品、清理逾 600 萬條違規資訊",
+        "第二階段聚焦 AI 造假、假冒與未成年人保護"
       ],
-      "url": "https://qna.org.qa/en/News-Area/Special-News/2026-7/5/global-ai-governance-talks-in-geneva-aim-to-forge-fair-inclusive-and-sustainable-digital-order"
+      "url": "https://www.chinanews.com.cn/gn/2026/07-06/10653724.shtml"
     },
     {
-      "title": "AI Legislative Update: July 3, 2026",
-      "source": "Transparency Coalition",
-      "date": "2026-07-03",
+      "title": "World must not let AI 'vibe-code' humanity's future — UN chief",
+      "source": "The Manila Times",
+      "date": "2026-07-06",
       "category": "AI治理",
-      "summary": "Transparency Coalition 於 2026 年 7 月 3 日發布美國各州 AI 立法進度更新。紐約州於 6 月 1 日結束會期時通過多項法案，包括兒少聊天機器人安全法（S 9051）、AI 訓練資料透明法（A 6578）、FAIR News Act、資料中心暫緩令，以及禁止 AI 輔助監控定價，州長 Hochul 須於 12 月 31 日前決定是否簽署。加州州長 Newsom 簽署 AB 2148，要求公立學校員工與承包商須為真人。紐澤西州兩院通過 A 4015（Kids Code Act），為社群平台建立隱私、安全與家長控制要求。賓州因獨立紀念日休會，AI 法案預計下週在 Harrisburg 續行審議。",
+      "summary": "報導 Guterres 於日內瓦峰會警告世界不應讓 AI「vibe-code」（隨性拼湊）人類的未來，主張對強大 AI 建立全球監督。焦點在於原為民用設計的高效能 AI 晶片正流向戰場，以及自主武器與 AI 治理真空的風險。文章整理秘書長的四大治理原則與對問責、公平、安全的訴求，並提及首屆全球對話與 AI for Good 峰會同期在日內瓦舉行。",
       "highlights": [
-        "紐約州通過兒少聊天機器人安全法與 AI 訓練資料透明法",
-        "紐約州長須於 2026 年 12 月 31 日前決定簽署",
-        "加州 AB 2148 要求公校員工與承包商須為真人",
-        "紐澤西兩院通過 Kids Code Act（A 4015）",
-        "多州立法聚焦兒少保護、資料透明與演算法定價"
+        "秘書長主張不能讓 AI 隨性主導人類未來，需全球監督",
+        "警示民用 AI 晶片流向軍事用途的擴散風險",
+        "重申治理、問責、公平、永續四原則",
+        "與 AI for Good 峰會同期於日內瓦召開"
       ],
-      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-july3-2026"
-    },
-    {
-      "title": "AI Governance Weekly - July 3, 2026: AI Governance Regulation & Policy Roundup",
-      "source": "AI Governance Institute",
-      "date": "2026-07-03",
-      "category": "AI治理",
-      "summary": "AI Governance Institute 於 2026 年 7 月 3 日發布每週 AI 治理與政策彙整。內容涵蓋代理式 AI（agentic AI）治理，指出對具備自主性的 AI 系統，監理機構對企業營運者設定了特定的偵測與通報預期。報導點出 SAP、Microsoft、AWS、Oracle 等主要廠商已將 agentic AI 能力納入平台預設層級，速度快於治理框架成形，加上 EU AI Act 8 月大限逼近，形成跨境合規壓力。文中並提及 6 月 30 日紐澤西州通過 FAIR Act 與 Kids Code Act，以及 Databricks 發布企業 AI 治理實務指南，建議組織先依風險等級盤點分類 AI 使用情境再施加控制。整體反映治理缺口主要在量測與控制基礎設施，而非政策本身。",
-      "highlights": [
-        "代理式 AI 治理成焦點，監理對企業設定偵測與通報預期",
-        "主要廠商將 agentic AI 納入平台預設層級快於治理框架",
-        "紐澤西州 6 月 30 日通過 FAIR Act 與 Kids Code Act",
-        "Databricks 發布企業 AI 治理實務指南，主張先分類風險再控制",
-        "治理缺口核心在量測與控制基礎設施而非政策"
-      ],
-      "url": "https://aigovernance.com/news/ai-governance-weekly-july-3-2026"
+      "url": "https://www.manilatimes.net/2026/07/06/world/world-must-not-let-ai-vibe-code-humanitys-future-un-chief/2378857"
     }
   ],
-  "_updated_at": "2026-07-06T19:28:49.342898+08:00"
+  "_updated_at": "2026-07-07T18:11:17.547133+08:00"
 }

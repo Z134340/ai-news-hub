@@ -1,37 +1,101 @@
 {
   "items": [
     {
-      "title": "What is Bending Spoons? The little-known AOL and Vimeo owner that's now public",
-      "title_zh": "Bending Spoons 是什麼？收購 AOL 與 Vimeo 的低調母集團正式上市",
-      "source": "TechCrunch",
-      "date": "2026-07-05",
-      "topic": "IPO",
-      "summary": "收購 AOL、Vimeo 的米蘭科技集團 Bending Spoons 本週於 Nasdaq 掛牌，開盤即跳漲，市值一度突破 250 億美元。該公司以科技與 AI 手段（同時也常以漲價、裁員）提升被收購品牌的財務表現。受 AI 進展助力，其每位全職員工的營收由 2023 年的 112 萬美元升至 2025 年的 257 萬美元。此案被視為 2026 夏季 AI 帶動科技公司上市潮的一環。",
+      "title": "Katalyze AI raises $10.5M to bring agentic AI to pharma manufacturing and life sciences",
+      "title_zh": "Katalyze AI 募資 1,050 萬美元，將代理式 AI 導入製藥製造與生命科學",
+      "source": "TechStartups",
+      "date": "2026-07-06",
+      "topic": "AI Agent / 新創募資",
+      "summary": "位於舊金山的 Katalyze AI 完成 1,050 萬美元種子輪募資，由 Bonfire Ventures 領投，Inovia Capital、Ripple Ventures、Alumni Ventures 及多位天使投資人（含 Gokul Rajaram、Farzad Soleimani）跟投。公司專注將代理式 AI（agentic AI）導入製藥製造與生命科學場域，讓 AI Agent 自主監控生產流程、預測製程偏差並提出最佳化建議。其產品鎖定高度受監管的製藥產線，強調在 GMP 環境下的可稽核性與決策輔助。此輪資金將用於擴大工程團隊與加速客戶部署。這是本波「垂直領域 agentic AI」募資潮的代表案例之一。",
       "highlights": [
-        "市值一度突破 250 億美元，開盤即上漲",
-        "營運模式：以 AI／科技優化被收購品牌，輔以漲價與精簡人力",
-        "每位全職員工營收兩年內由 112 萬美元增至 257 萬美元",
-        "被歸入 SpaceX、Anthropic、OpenAI 之後的 2026 科技 IPO 潮"
+        "1,050 萬美元種子輪，Bonfire Ventures 領投",
+        "鎖定製藥製造與生命科學等高度監管垂直場域",
+        "AI Agent 自主監控產線、預測製程偏差",
+        "天使投資人陣容含 Gokul Rajaram、Farzad Soleimani"
       ],
-      "discussion": "社群關注點在於其『買下老牌品牌＋以 AI 提效＋漲價』的獲利模式是否可持續，以及此類非模型型 AI 應用公司在公開市場的估值合理性。",
-      "url": "https://techcrunch.com/2026/07/05/what-is-bending-spoons-everything-to-know-about-aols-acquirer/"
+      "discussion": "產業社群認為，受監管製造業是 agentic AI 少數能立即量化 ROI 的場域，但也質疑在 GMP 稽核要求下，Agent 決策的可解釋性與責任歸屬仍是落地關鍵。",
+      "url": "https://techstartups.com/2026/07/06/katalyze-ai-raises-10-5m-to-bring-agentic-ai-to-pharma-manufacturing-and-life-sciences/"
     },
     {
-      "title": "Almost 90 new unicorns have been minted so far this year — here they are",
-      "title_zh": "⚠️待確認：今年以來已誕生近 90 家新獨角獸——完整名單",
-      "source": "TechCrunch",
-      "date": "2026-07-05",
-      "topic": "Funding",
-      "summary": "TechCrunch 盤點 2026 年迄今晉升獨角獸（估值逾 10 億美元）的創投支持新創，AI 是主要推手。名單包含 Jeff Bezos 共同創辦、估值 410 億美元的 Promethus（自動化通用工程任務，B 輪募 120 億美元）；估值 46.5 億美元的 AI 研究實驗室 Recursive（A 輪 6.5 億美元，GV、Greycroft 領投，Nvidia 參與）；以及為 AI Agent 打造網頁搜尋／爬取引擎、估值 19.5 億美元的 EXA（a16z 領投 C 輪 2.5 億美元）。",
+      "title": "AI post-training startup Bespoke Labs raises $40M in funding",
+      "title_zh": "AI 後訓練新創 Bespoke Labs 募資 4,000 萬美元",
+      "source": "SiliconANGLE",
+      "date": "2026-07-06",
+      "topic": "AI Agent 基礎設施 / 新創募資",
+      "summary": "AI 後訓練（post-training）新創 Bespoke Labs 完成 4,000 萬美元 A 輪募資，由 Wing Venture Capital 領投，Mayfield、The House Fund 及天使投資人（含 dbt Labs 創辦人 Tristan Handy）跟投。公司由 Mahesh Sathiamoorthy 與 Alex Dimakis 於 2024 年創立，專注打造訓練「可靠 AI Agent」所需的環境，涵蓋合成資料生成、Agent 評估（agent eval）與強化學習（RL）流程。其核心主張是：要讓 Agent 在真實任務中穩定運作，關鍵不在更大的基礎模型，而在高品質的訓練環境與評測迴路。此輪資金將用於擴展平台與研究團隊。",
       "highlights": [
-        "AI 熱潮推升新創估值，獨角獸產出速度加快",
-        "Promethus（Bezos 共同創辦）估值 410 億美元，B 輪募 120 億美元",
-        "Recursive AI 研究實驗室估值 46.5 億美元，Nvidia 參與投資",
-        "EXA 為 AI Agent 打造搜尋引擎，估值 19.5 億美元"
+        "4,000 萬美元 A 輪，Wing VC 領投",
+        "專注 AI Agent 後訓練：合成資料、agent eval、強化學習",
+        "創辦人為 Mahesh Sathiamoorthy 與 Alex Dimakis（2024 創立）",
+        "主張 Agent 可靠性取決於訓練環境與評測迴路，而非更大模型"
       ],
-      "discussion": "焦點集中在 AI 基礎設施與 Agent 工具鏈新創的估值是否過熱，以及大型科技投資人（a16z、Nvidia、GV）持續加碼下的泡沫疑慮。",
-      "url": "https://techcrunch.com/2026/07/05/almost-40-new-unicorns-have-been-minted-so-far-this-year-here-they-are/"
+      "discussion": "工程社群普遍認同「Agent 可靠性瓶頸在評測與訓練環境」的論點，並將 Bespoke 視為 agent engineering 基礎設施層的重要玩家；亦有人提醒合成資料品質與過擬合評測仍是隱憂。",
+      "url": "https://siliconangle.com/2026/07/06/ai-post-training-startup-bespoke-labs-raises-40m-funding/"
+    },
+    {
+      "title": "OpenAI GPT-Realtime-2.1 and GPT-Realtime-2.1-mini for Low-Latency Voice Agents in the API",
+      "title_zh": "OpenAI 推出 GPT-Realtime-2.1 與 GPT-Realtime-2.1-mini，主打 API 低延遲語音 Agent",
+      "source": "MarkTechPost",
+      "date": "2026-07-06",
+      "topic": "LLM / 語音模型發布",
+      "summary": "OpenAI 發布 GPT-Realtime-2.1 與 GPT-Realtime-2.1-mini 兩款即時語音模型，透過 Realtime API 提供，鎖定低延遲語音 Agent 應用。官方數據指出 p95 延遲較前代降低至少 25%，讓語音對話更接近自然即時互動。mini 版本額外加入輕量推理（reasoning）能力，讓語音 Agent 在低成本下也能處理多步驟判斷。此次更新延續 OpenAI 將 Realtime API 打造成語音 Agent 基礎設施的路線。開發者可直接透過既有 Realtime API 端點升級使用。",
+      "highlights": [
+        "GPT-Realtime-2.1 與 mini 兩款即時語音模型",
+        "p95 延遲較前代降低 ≥ 25%",
+        "mini 版加入輕量推理能力，兼顧成本與多步判斷",
+        "透過 Realtime API 提供，鎖定語音 Agent 場景"
+      ],
+      "discussion": "開發者社群關注延遲下降對客服與即時語音助理的實用性提升，並討論 mini 版推理能力是否足以取代雲端大模型後端；亦有人比較其與競品在打斷（barge-in）處理上的表現。",
+      "url": "https://www.marktechpost.com/2026/07/06/openai-gpt-realtime-2-1-mini-reasoning-realtime-api/"
+    },
+    {
+      "title": "The token economy: The state of AI mid-2026",
+      "title_zh": "代幣經濟：2026 年中的 AI 現況",
+      "source": "SiliconANGLE",
+      "date": "2026-07-06",
+      "topic": "企業級 AI / Agent 分析",
+      "summary": "SiliconANGLE 發表 2026 年中 AI 產業盤點，主張 2026 是 AI Agent 真正進入生產環境（production）的一年。文章指出「token 消耗」已成為企業採購的核心指標，因為 agentic 工作負載可在數週內吞掉整年預算，成本效率的重要性首度超越 benchmark 分數。報導並觀察到「agent manager（Agent 管理員）」正成為新興職務類別，企業開始需要專人監督與調度 AI Agent 群。整體描繪出一場圍繞單位任務成本的「成本戰」正在各大模型供應商間展開。此文為理解當前企業 agentic AI 落地的宏觀脈絡提供框架。",
+      "highlights": [
+        "2026 定調為 AI Agent 進入生產環境的一年",
+        "token 消耗成為企業採購核心指標，成本效率超越 benchmark",
+        "新興職務「agent manager」出現",
+        "模型供應商間展開單位任務成本的「成本戰」"
+      ],
+      "discussion": "企業技術決策者共鳴「每完成任務成本」取代「context window 大小」成為採購標準的觀點；討論多聚焦於如何量測與治理 Agent 的 token 花費，以及 agent manager 職能該歸屬於誰。",
+      "url": "https://siliconangle.com/2026/07/06/token-economy-state-ai-mid-2026/"
+    },
+    {
+      "title": "AI Infrastructure Week: July 6, 2026",
+      "title_zh": "AI 基礎設施週報：2026 年 7 月 6 日",
+      "source": "StartupHub.ai",
+      "date": "2026-07-06",
+      "topic": "美國 AI 產業 / 募資動態",
+      "summary": "StartupHub.ai 週報指出，本週創投資金約有五分之四流向 AI 基礎設施相關新創，凸顯資本市場對算力、資料與 Agent 底層堆疊的高度集中押注。報導盤點多筆基礎設施層募資與擴張案，反映在應用層競爭激烈之際，投資人更看重「賣鏟子」的底層供給端。內容涵蓋資料中心、推論加速與 Agent 執行環境等主題。此週報為追蹤美國 AI 資本流向提供快照。",
+      "highlights": [
+        "本週約 80% 創投資金流向 AI 基礎設施",
+        "資本集中押注算力、資料與 Agent 底層堆疊",
+        "涵蓋資料中心、推論加速、Agent 執行環境",
+        "反映投資人偏好底層供給端而非應用層"
+      ],
+      "discussion": "投資圈討論基礎設施估值是否過熱，以及在應用層尚未大規模獲利前，底層押注能否持續；亦有人指出 Agent 執行環境正成為新的基礎設施戰場。",
+      "url": "https://www.startuphub.ai/ai-news/ai-news/2026/ai-infrastructure-week-july-6-2026"
+    },
+    {
+      "title": "Venture Capital & Startup Funding Roundup, July 6, 2026",
+      "title_zh": "創投與新創募資彙整：2026 年 7 月 6 日",
+      "source": "TechStartups",
+      "date": "2026-07-06",
+      "topic": "美國 AI 產業 / 募資彙整",
+      "summary": "TechStartups 每日募資彙整整理 7 月 6 日多筆創投與新創交易，其中 AI 相關案件占比顯著，涵蓋 agentic AI、AI 基礎設施與垂直應用等領域。文章逐筆列出投資金額、領投機構與公司定位，便於快速掌握當日資本動向。內容與同日 Katalyze AI、Bespoke Labs 等 AI Agent 募資案相互呼應。此為追蹤美國 AI 新創資金脈動的日更參考來源。",
+      "highlights": [
+        "7 月 6 日多筆創投交易彙整，AI 案件占比高",
+        "涵蓋 agentic AI、AI 基礎設施與垂直應用",
+        "逐筆列出金額、領投方與公司定位",
+        "與當日 Katalyze AI、Bespoke Labs 募資相互呼應"
+      ],
+      "discussion": "讀者用此類日更彙整快速判斷資金熱區，討論多聚焦於 agentic AI 垂直應用募資的密集程度是否代表新一輪泡沫或真實需求。",
+      "url": "https://techstartups.com/2026/07/06/venture-capital-startup-funding-roundup-july-6-2026/"
     }
   ],
-  "_updated_at": "2026-07-06T19:28:00.810964+08:00"
+  "_updated_at": "2026-07-07T18:13:08.289137+08:00"
 }

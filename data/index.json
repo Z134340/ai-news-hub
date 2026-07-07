@@ -1,5 +1,31 @@
 [
   {
+    "date": "2026-07-07",
+    "time": "2026-07-07T18:13:08.338423+08:00",
+    "source": "local",
+    "item_count": 124,
+    "validation_pass_rate": 98.41,
+    "stats": {
+      "papers": 17,
+      "topnews": 3,
+      "taiwan": 17,
+      "china": 9,
+      "usa": 8,
+      "techtrends": 12,
+      "governance": 20,
+      "tutorials": 19,
+      "courses": 4,
+      "models": 15
+    },
+    "validation": {
+      "total": 126,
+      "verified": 124,
+      "warnings": 65,
+      "removed": 3,
+      "pass_rate": 98.41
+    }
+  },
+  {
     "date": "2026-07-06",
     "time": "2026-07-06T19:31:31.334195+08:00",
     "source": "local",
@@ -101,32 +127,6 @@
       "warnings": 60,
       "removed": 1,
       "pass_rate": 99.06
-    }
-  },
-  {
-    "date": "2026-06-29",
-    "time": "2026-06-29T18:02:00.934932+08:00",
-    "source": "local",
-    "item_count": 129,
-    "validation_pass_rate": 100.0,
-    "stats": {
-      "papers": 10,
-      "topnews": 4,
-      "taiwan": 19,
-      "china": 9,
-      "usa": 13,
-      "techtrends": 4,
-      "governance": 12,
-      "tutorials": 37,
-      "courses": 4,
-      "models": 17
-    },
-    "validation": {
-      "total": 129,
-      "verified": 129,
-      "warnings": 134,
-      "removed": 0,
-      "pass_rate": 100.0
     }
   }
 ]

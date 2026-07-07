@@ -2,19 +2,49 @@
   "items": [
     {
       "title": "AI explained: Why the world needs to act now",
-      "title_zh": "AI 解析：為何全球必須即刻行動",
+      "title_zh": "AI 解析：為何世界必須即刻行動",
       "source": "UN News",
       "date": "2026-07-06",
       "domain": "Policy",
       "model_area": "AI Governance",
-      "summary": "聯合國「AI 治理全球對話」（Global Dialogue on AI Governance）於 2026 年 7 月 6 日在日內瓦正式登場，各會員國就如何跨國協調管理 AI 展開討論。焦點在於 AI 已能自行撰寫程式碼、分析海量資料、生成擬真影音、協助科學家發現新藥，並在極少人類監督下自主行動。此對話為聯合國建立全球 AI 治理機制的關鍵一步。",
+      "summary": "聯合國「AI 治理全球對話」(Global Dialogue on AI Governance) 於 2026 年 7 月 6 日在日內瓦揭幕，各會員國就 AI 的國際治理框架展開討論。聯合國 2025 年成立的獨立國際科學小組匯集來自各地區的 40 位專家，負責評估 AI 的機會、風險與影響，作為各國政策制定的科學依據。此次對話聚焦於在缺乏統一國際規範下如何協調全球治理。",
       "highlights": [
-        "聯合國首次啟動「AI 治理全球對話」多邊機制，地點於日內瓦",
-        "焦點涵蓋 AI 自主行動、生成式能力與跨國監理協調",
-        "呼應近期 EU AI Act 對基礎模型供應商加嚴義務的全球監理趨勢"
+        "聯合國 AI 治理全球對話 7/6 於日內瓦開幕",
+        "獨立國際科學小組由 40 位跨區域專家組成",
+        "目標為 AI 風險與機會建立跨國協調機制"
       ],
       "url": "https://news.un.org/en/story/2026/07/1167848"
+    },
+    {
+      "title": "The administration's new AI framework includes something the government hasn't had before",
+      "title_zh": "美國政府新版 AI 框架納入前所未有的機制",
+      "source": "Federal News Network",
+      "date": "2026-07-06",
+      "domain": "Policy",
+      "model_area": "Frontier Model Governance",
+      "summary": "美國政府發布新的 AI 框架與行政命令，首度建立面向前沿 AI 模型評估的「AI 資安清算所」(AI cybersecurity clearinghouse)。命令要求各行政機關評估並持續發展供政府與關鍵基礎設施使用的 AI 能力。此框架亦被視為界定 GPT-5.6 等前沿模型可廣泛釋出條件的白宮自願性標準基礎。",
+      "highlights": [
+        "首創面向前沿模型的 AI 資安清算所",
+        "行政命令要求機關評估政府與關鍵基礎設施 AI 能力",
+        "與 GPT-5.6 廣泛釋出的白宮自願性標準掛鉤"
+      ],
+      "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/07/the-administrations-new-ai-framework-includes-something-the-government-hasnt-had-before/"
+    },
+    {
+      "title": "AI-Driven Threats, Global Breaches, and Compliance Shifts Define the Week in Cybersecurity for July 2026",
+      "title_zh": "AI 驅動威脅、全球資料外洩與法遵變動定義 2026 年 7 月資安週報",
+      "source": "eSecurity Planet",
+      "date": "2026-07-06",
+      "domain": "Cybersecurity",
+      "model_area": "AI-enabled threats",
+      "summary": "Five Eyes 情報聯盟警告 AI 正在加速網路攻擊的速度與規模。同週 Aflac Japan 傳出資料外洩，客戶個資、保單與銀行帳戶資料遭曝光，凸顯保險業對財務動機攻擊者的脆弱性。報告指出 2026 年主要 AI 資安風險包含 prompt injection、自主 AI Agent 遭利用、shadow AI 與模型投毒。",
+      "highlights": [
+        "Five Eyes 警告 AI 正加速網路攻擊",
+        "Aflac Japan 外洩暴露客戶個資與銀行帳戶資料",
+        "prompt injection 與自主 Agent 遭利用列為年度主要風險"
+      ],
+      "url": "https://www.esecurityplanet.com/threats/ai-driven-threats-global-breaches-and-compliance-shifts-define-the-week-in-cybersecurity-for-july-2026/"
     }
   ],
-  "_updated_at": "2026-07-06T19:25:46.668761+08:00"
+  "_updated_at": "2026-07-07T18:07:44.596597+08:00"
 }
