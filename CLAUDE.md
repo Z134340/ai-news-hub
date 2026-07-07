@@ -47,7 +47,7 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 │  17:55  macOS 自動喚醒（pmset）                    │
 │  18:00  launchd 觸發 run-daily.sh                 │
 │    ├→ 偵測 Claude CLI 登入狀態                     │
-│    ├→ 擷取 8/11 類別（每個重試 1 次，10分鐘逾時）   │
+│    ├→ 擷取 7/10 類別（每個重試 1 次，10分鐘逾時）   │
 │    ├→ 合併 latest.json                            │
 │    ├→ validate.py 八步驟驗證（URL + 標題一致性）    │
 │    ├→ git push [verified] / [unverified]          │
@@ -102,7 +102,7 @@ ai-news-hub/
 │   ├── setup-prompts.sh  setup-scheduler.sh  supplement-run.sh
 │   ├── archive-to-firestore.mjs    ← 冷封存上傳（Node 零依賴 REST，scoped writer）
 │   ├── repo-slim.sh                ← 一次性 repo 瘦身（本機跑）
-│   └── prompts/  (11 個 .md，含 courses.md)
+│   └── prompts/  (10 個 .md，含 courses.md)
 ├── data/
 │   ├── latest.json  index.json  health.json
 │   ├── YYYY-MM-DD.json             ← 近 7 天熱層；逾期自動搬 Firestore archives/
@@ -131,7 +131,7 @@ GitHub Pages CDN 更新靜態檔案
 index.html 載入 → fetch("data/latest.json?v=" + Date.now())
        │                   ↑ cache-busting 參數，強制繞過快取
        ▼
-JSON 解析 → 渲染十一大類別卡片 → 你看到最新資料 ✅
+JSON 解析 → 渲染十大類別卡片 → 你看到最新資料 ✅
 ```
 
 ### 關鍵防快取機制
@@ -175,8 +175,8 @@ JSON 解析 → 渲染十一大類別卡片 → 你看到最新資料 ✅
 | 每日 | papers, topnews, taiwan, china, usa, techtrends, governance | 每天擷取 |
 | 每週 | models, tutorials, courses | 僅週一擷取 |
 
-**週一（DOW=1）：** 擷取全部 11 個類別（含每週類別），執行 `merge-stack.py` 累積合併
-**週二至週日（DOW=2-7）：** 僅擷取 8 個每日類別，每週類別保留上次 `latest.json` 中的資料與時間戳
+**週一（DOW=1）：** 擷取全部 10 個類別（含每週類別），執行 `merge-stack.py` 累積合併
+**週二至週日（DOW=2-7）：** 僅擷取 7 個每日類別，每週類別保留上次 `latest.json` 中的資料與時間戳
 
 ### `_updated_at` 每類別時間戳
 
@@ -200,7 +200,7 @@ JSON 解析 → 渲染十一大類別卡片 → 你看到最新資料 ✅
 
 ---
 
-## 十二大分類規範
+## 十大分類規範
 
 ### 1. 📄 AI 論文發表 (`papers`)
 **機構（12）：** Google DeepMind, OpenAI, Google Research/Brain, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Anthropic, Apple
@@ -247,17 +247,17 @@ JSON 解析 → 渲染十一大類別卡片 → 你看到最新資料 ✅
 **語言：** 繁中+英文搜尋
 **欄位：** title, source, date, category, summary(4-6句), highlights, url
 
-### 9. 🛠️ AI 工具教學 Top 20 (`tutorials`)
+### 8. 🛠️ AI 工具教學 Top 20 (`tutorials`)
 **來源：** iThome, AI 郵報 (AI Post Hub), Medium, YouTube, 科技新報, 數位時代, INSIDE, OpenAI Blog, Anthropic Blog, Google AI Blog, Hugging Face Blog, LangChain Blog
 **焦點：** AI 工具實戰教學, Prompt 工程, LLM 應用開發, AI Agent 建構, RAG 實作, 微調指南
 **欄位：** title, source, date, tool_name, difficulty(beginner/intermediate/advanced), category, summary(4-6句), highlights, url
 
-### 10. 🎓 AI 官方課程/證照 (`courses`)
+### 9. 🎓 AI 官方課程/證照 (`courses`)
 **來源：** Coursera, edX, DeepLearning.AI, Google Cloud Skills Boost, Microsoft Learn, AWS Training, NVIDIA DLI, OpenAI, Anthropic, Meta AI, Stanford Online, MIT OCW, iThome, 科技新報
 **焦點：** 免費官方 AI/LLM/Agent 課程, 專業 AI 證照, 大學 AI 課程
 **欄位：** title, source, date, provider, is_free, cert_included, level, duration, topics, summary(4-6句), highlights, url
 
-### 11. 🚀 最近模型發布快訊 (`models`)
+### 10. 🚀 最近模型發布快訊 (`models`)
 **時間範圍：** 近 3 個月內發布的模型（不限於本週/本月）
 **來源：** Papers with Code SOTA, Hugging Face, Latent Space, Import AI, The Gradient, 各大 AI Blog, AI Feed, LMSYS, Open LLM Leaderboard, GitHub Trending, 中國模型(DeepSeek/Qwen/Baichuan/GLM/Yi)
 **筆數上限：** 20 筆
@@ -459,7 +459,7 @@ done
 1. 偵測 `data/latest.json` 變更
 2. 讀取 JSON，產生 Markdown 摘要
 3. 建立 GitHub Issue（標題含日期/早午班/筆數/驗證率）
-4. Issue 內容：十一大類別各自的筆數 + 前 3 筆標題（含連結）+ 網站 CTA
+4. Issue 內容：十大類別各自的筆數 + 前 3 筆標題（含連結）+ 網站 CTA
 5. 自動關閉 7 天前的舊 Issue
 6. GitHub 內建通知系統自動寄 Email 給 repo owner
 
