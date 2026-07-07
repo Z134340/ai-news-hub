@@ -233,7 +233,7 @@ $(cat "$SCRIPTS_DIR/prompts/${CAT}.md")"
         wait "$WD_PID" 2>/dev/null || true
 
         if [[ -s "$TMP_FILE" ]]; then
-            python3 "$SCRIPTS_DIR/extract-json.py" < "$TMP_FILE" > "$DATA_DIR/${CAT}.json" 2>/dev/null || true
+            python3 "$SCRIPTS_DIR/extract-json.py" < "$TMP_FILE" > "$DATA_DIR/${CAT}.json" 2>>"$LOG_FILE" || true
             local COUNT
             COUNT=$(python3 -c "
 import json
@@ -247,8 +247,21 @@ except:
                 log "[$CAT] ✅ $COUNT 筆 (嘗試 ${ATTEMPT}/2)"
                 SUCCESS=1
                 break
+            elif grep -qiE 'session limit|usage limit|rate limit|hit your limit|reached your|quota' "$TMP_FILE" 2>/dev/null; then
+                # 硬性配額耗盡：數小時後才 reset，秒級重試無效 → 記錄原因並跳出改用 fallback
+                REASON=$(grep -iE 'session limit|usage limit|rate limit|hit your limit|reached your|quota' "$TMP_FILE" 2>/dev/null | head -1 | cut -c1-120)
+                log "[$CAT] 🚫 配額耗盡（非解析問題，重試無效）：${REASON}"
+                echo "$REASON" > "$STATUS_DIR/$CAT.reason" 2>/dev/null || true
+                cp "$TMP_FILE" "$LOG_DIR/failed_${CAT}_attempt${ATTEMPT}_${TODAY}.txt" 2>/dev/null || true
+                break
+            elif grep -qiE 'API Error|Connection closed|overloaded' "$TMP_FILE" 2>/dev/null; then
+                # 暫時性連線 / 過載：重試可能成功，保留重試機會（僅末次失敗才記錄原因）
+                REASON=$(grep -iE 'API Error|Connection closed|overloaded' "$TMP_FILE" 2>/dev/null | head -1 | cut -c1-120)
+                log "[$CAT] ⚠️ 嘗試 ${ATTEMPT}：暫時性連線/過載（非解析問題），將重試：${REASON}"
+                [[ $ATTEMPT -ge $MAX_ATTEMPTS ]] && echo "$REASON" > "$STATUS_DIR/$CAT.reason" 2>/dev/null || true
+                cp "$TMP_FILE" "$LOG_DIR/failed_${CAT}_attempt${ATTEMPT}_${TODAY}.txt" 2>/dev/null || true
             else
-                log "[$CAT] ⚠️ 嘗試 ${ATTEMPT}：抽出 0 筆，保留 tmp 供除錯"
+                log "[$CAT] ⚠️ 嘗試 ${ATTEMPT}：抽出 0 筆（解析失敗），保留 tmp 供除錯"
                 cp "$TMP_FILE" "$LOG_DIR/failed_${CAT}_attempt${ATTEMPT}_${TODAY}.txt" 2>/dev/null || true
             fi
         else
@@ -335,24 +348,35 @@ run_batch() {
 
 # ── 批次執行 ──
 if [[ "$DOW" -eq 1 ]]; then
-    run_batch "1/3" papers taiwan china
-    run_batch "2/3" topnews usa techtrends governance
-    run_batch "3/3" models tutorials courses
+    # 週一：最吃 token 的每週累積類別「先跑」，避免配額被日更類別耗盡（見 2026-07-06 事件）。
+    # 每週類別每週僅一次擷取機會，日更新聞失敗尚可隔天補；故優先保護每週類別。
+    run_batch "1/3" models tutorials courses
+    run_batch "2/3" papers taiwan china
+    run_batch "3/3" topnews usa techtrends governance
 else
     run_batch "1/2" papers taiwan china
     run_batch "2/2" topnews usa techtrends governance
 fi
 
 # ── 彙總結果（讀取各類別狀態檔）──
+QUOTA_NOTE=""
 for CAT in "${CATEGORIES[@]}"; do
     VAL=$(cat "$STATUS_DIR/$CAT" 2>/dev/null || echo "MISS")
     if [[ "$VAL" == "OK" ]]; then
         ((CATEGORIES_OK++)) || true
     else
         ((CATEGORIES_FAILED++)) || true
+        if [[ -f "$STATUS_DIR/$CAT.reason" ]]; then
+            QUOTA_NOTE="${QUOTA_NOTE}${QUOTA_NOTE:+, }$CAT"
+        fi
     fi
 done
 rm -rf "$STATUS_DIR"
+
+if [[ -n "$QUOTA_NOTE" ]]; then
+    QUOTA_NOTE="配額/連線耗盡: ${QUOTA_NOTE}（秒級重試無效，已回退舊資料）"
+    log "🚫 $QUOTA_NOTE"
+fi
 
 log "擷取完成: OK=$CATEGORIES_OK, Failed=$CATEGORIES_FAILED"
 
@@ -572,7 +596,7 @@ else
 fi
 
 # ── 更新 health.json（最終版）──
-python3 - "$OVERALL_STATUS" "$CATEGORIES_OK" "$CATEGORIES_FAILED" "$PASS_RATE" "$DATA_DIR/health.json" << 'HEALTH_PYEOF'
+python3 - "$OVERALL_STATUS" "$CATEGORIES_OK" "$CATEGORIES_FAILED" "$PASS_RATE" "$DATA_DIR/health.json" "$QUOTA_NOTE" << 'HEALTH_PYEOF'
 import json, sys, os
 from datetime import datetime, timezone, timedelta
 
@@ -581,6 +605,7 @@ cats_ok = int(sys.argv[2])
 cats_fail = int(sys.argv[3])
 pass_rate = int(sys.argv[4])
 health_path = sys.argv[5]
+quota_note = sys.argv[6] if len(sys.argv) > 6 else ""
 
 now = datetime.now(timezone(timedelta(hours=8)))
 
@@ -603,7 +628,7 @@ health = {
     "validation_pass_rate": pass_rate,
     "consecutive_failures": 0 if status in ("ok", "partial") else old.get("consecutive_failures", 0) + 1,
     "last_missed": None if status in ("ok", "partial") else old.get("last_missed"),
-    "errors": []
+    "errors": [quota_note] if quota_note else []
 }
 
 with open(health_path, "w") as f:
