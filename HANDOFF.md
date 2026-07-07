@@ -47,6 +47,7 @@ git commit -m "♻️ 正規化：前端拆檔 + Firebase 書籤同步 + 冷封�
 | F | 一次性冷封存遷移：`node scripts/archive-to-firestore.mjs --all --prune` | 需 E 的憑證 + 網路 |
 | G | repo 瘦身刪除：`bash scripts/repo-slim.sh`（bundle/failed log/emerging） | 沙箱無刪除權限；Mac 原生 git 可 |
 | H | commit + push | — |
+| I | **pmset 每日喚醒**：`sudo pmset repeat wakeorpoweron MTWRFSU 17:55:00`（現況只有錯誤的 Saturday 8:55PM，無每日喚醒）→ `pmset -g sched` 應顯示 `wake ... every day` | 需 sudo 密碼，agent 非互動無法執行（2026-07-07 待辦） |
 
 ## 3. 勿動 / 勿誤判
 
@@ -80,3 +81,4 @@ git push origin main
 ## 5. 已知小事
 - `data/index.json` 目前僅 1 筆（舊歷史索引近乎空）；改用 Firestore 列表後歷史頁會恢復完整封存，run-daily 也會持續更新它。
 - GitHub Pages 為 project page（base `/ai-news-hub/`）；前端全用相對路徑，勿改絕對路徑。
+- **2026-07-06 事件（已處理）**：週一 models/tutorials/courses 抽 0 筆，根因非解析而是 Claude CLI 配額耗盡 + API Connection closed；當日 18:05 準時啟動但跑 87 分鐘（10 類 × 重試）中途撞 session limit，週類別排最後遭餓死。修正：①週一週類別優先擷取 ②配額/連線 sentinel 分級（硬性配額立即跳出、暫時性中斷保留重試）③extract-json.py 加 infra sentinel 診斷（見 commit `4664b31`）。同時發現並修 launchd plist 缺週末（僅 Weekday 1-5 → 已改每日觸發，解釋 07-04/05 的 missed）；pmset 每日喚醒仍待人設定（見第 2 節待辦 I）。
