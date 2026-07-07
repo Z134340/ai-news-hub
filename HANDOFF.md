@@ -37,19 +37,22 @@ git commit -m "♻️ 正規化：前端拆檔 + Firebase 書籤同步 + 冷封�
 
 ## 2. 待辦（需「人」在 Mac + Firebase console，agent 無法代）
 
-> **2026-07-07 現況更新**：B 已完成（`FIREBASE_CONFIG` 已填真實專案 `ai-news-hub-33c51`）。A 已完成（repo 持續正常 commit）。**仍待人做：D（換 `WRITER_UID`，仍 placeholder）、E（`archiver.env` 不存在）、F（冷封存遷移，阻塞於 D+E）**；C 的 rules 是否已部署未驗證（無 Firebase CLI 存取）。
+> **2026-07-07 現況更新（第三輪，冷封存全鏈打通）**：A/B/C/D/E/F 全部完成。**C 已完成**：`firestore.rules`（綁 uid `pYozGzhoIHchJvONuHvjxkVN4b52`）已於 Console 規則編輯器發布。**D 已完成**：writer 帳號 `archiver@ai-news-hub-33c51.firebaseapp.com`。**E 已完成**：`~/.config/ai-news-hub/archiver.env`（chmod 600，off-repo）。**F 已完成**：`node scripts/archive-to-firestore.mjs --older-than 7 --prune` 一次性遷移 49 檔（2026-04-04…06-29）至 Firestore `archives/{date}`，成功 49、失敗 0，本機冷檔已 prune，只留近 7 天熱層（07-01/02/03/06/07）。此後 `run-daily.sh` 每日自動上傳逾 7 天並 prune。**剩餘可選：G repo 瘦身、孤兒帳號清理。**
+> ⚠️ 遷移指令更正：用 `--older-than 7 --prune`（**非** `--all --prune`）。`--all` 會連近 7 天熱層檔一起 prune，破壞「近 7 天走 static」設計；`--older-than 7` 只搬並刪 < (今日-7) 的冷檔。
+> ⚠️ env 變數名更正：實際為 `FB_API_KEY`/`FB_PROJECT_ID`/`WRITER_EMAIL`/`WRITER_PASSWORD`（`archive-to-firestore.mjs` 讀取），非舊述的 `ARCHIVER_EMAIL/PASSWORD`。
+> 備註：另有孤兒帳號 `writer@ai-news-hub-33c51.firebaseapp.com`（uid `S8x1ULOvWbWiIAeLhNZMsSfFWVo1`，密碼遺失、無規則授權、無害），可於 Console → Authentication → Users 選擇性刪除。
 
 | # | 待辦 | 為什麼只能人做 |
 |---|------|----------------|
 | A | 清除殘留 `.git/index.lock`（`rm -f .git/index.lock`） | 先前沙箱無法刪；git 寫入被它擋住 |
 | B | 建 Firebase 專案 → 填 `assets/js/config.js` 的 `FIREBASE_CONFIG` | 需 Google 帳號登入 console |
-| C | 啟用 Email/Password、建 Firestore、部署 `firestore.rules` | 同上 |
-| D | 建 writer 帳號 → 取 uid → 換掉 `firestore.rules` 的 `WRITER_UID` → 重部署 | 同上 |
-| E | 建 `~/.config/ai-news-hub/archiver.env`（writer 帳密，off-repo） | 機密，不進 repo |
-| F | 一次性冷封存遷移：`node scripts/archive-to-firestore.mjs --all --prune` | 需 E 的憑證 + 網路 |
+| C | ~~啟用 Email/Password、建 Firestore、部署 `firestore.rules`~~ ✅ **2026-07-07 完成**（Console 規則編輯器發布） | 同上 |
+| D | ~~建 writer 帳號 → 取 uid → 換掉 `firestore.rules` 的 `WRITER_UID` → 重部署~~ ✅ **完成** | 同上 |
+| E | ~~建 `~/.config/ai-news-hub/archiver.env`（writer 帳密，off-repo）~~ ✅ **完成** | 機密，不進 repo |
+| F | ~~一次性冷封存遷移：`node scripts/archive-to-firestore.mjs --older-than 7 --prune`~~ ✅ **完成**（49 檔搬 Firestore、本機留近 7 天） | 需 E 的憑證 + 網路 |
 | G | repo 瘦身刪除：`bash scripts/repo-slim.sh`（bundle/failed log/emerging） | 沙箱無刪除權限；Mac 原生 git 可 |
 | H | commit + push | — |
-| I | **pmset 每日喚醒**：`sudo pmset repeat wakeorpoweron MTWRFSU 17:55:00`（現況只有錯誤的 Saturday 8:55PM，無每日喚醒）→ `pmset -g sched` 應顯示 `wake ... every day` | 需 sudo 密碼，agent 非互動無法執行（2026-07-07 待辦） |
+| I | ~~pmset 每日喚醒~~ ✅ **2026-07-07 完成**：經 `osascript ... with administrator privileges` 授權對話框套用 `pmset repeat wakeorpoweron MTWRFSU 17:55:00`；`pmset -g sched` 已顯示 `wakepoweron at 5:55PM every day`（原為錯誤的 Saturday 8:55PM） | — |
 
 ## 3. 勿動 / 勿誤判
 
@@ -67,12 +70,13 @@ git commit -m "♻️ 正規化：前端拆檔 + Firebase 書籤同步 + 冷封�
 # 2) 本機 smoke test
 python3 -m http.server 8799   # 開 http://localhost:8799 點各頁/書籤/搜尋/歷史
 node --check assets/js/*.js
-node scripts/archive-to-firestore.mjs --all --dry-run
+node scripts/archive-to-firestore.mjs --older-than 7 --dry-run
 
 # 3) Firebase 設定（依 FIREBASE-SETUP.md + ARCHIVE-SETUP.md）→ 填 config / WRITER_UID / archiver.env → 部署 rules
 
-# 4) 冷封存遷移 + repo 瘦身
-node scripts/archive-to-firestore.mjs --all --prune
+# 4) 冷封存遷移 + repo 瘦身（先 dry-run 再實跑；--older-than 7 保留熱層 7 天）
+node scripts/archive-to-firestore.mjs --older-than 7 --dry-run
+node scripts/archive-to-firestore.mjs --older-than 7 --prune
 bash scripts/repo-slim.sh
 git add -A && git commit -m "🧹 冷封存遷移 Firestore + repo 瘦身"
 
