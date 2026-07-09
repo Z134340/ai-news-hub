@@ -1,0 +1,67 @@
+{
+  "schema_version": "skill-learning-status-v1",
+  "skill_id": "ai-news-hub.agent-insights",
+  "mode": "shadow",
+  "shared_learning": "ranking_only",
+  "generated_at": "2026-07-08T12:04:00.000Z",
+  "events_count": 5,
+  "event_types": {
+    "output_accepted": 3,
+    "user_correction": 1,
+    "proposal_reviewed": 1
+  },
+  "metrics": {
+    "invocation_precision": 1,
+    "false_trigger_rate": 0,
+    "eval_pass_rate": 1,
+    "reviewer_override_rate": 0
+  },
+  "eval_status": "passed",
+  "proposal_count": 3,
+  "proposals": [
+    {
+      "proposal_id": "skill-prop-ai-news-ranking-guidance",
+      "proposal_type": "skill_patch_proposal",
+      "title": "Promote financial-governance ranking guidance",
+      "status": "proposed",
+      "target_files": [
+        "docs/hermes-ai-news-hub-learning-plane.md"
+      ],
+      "requires_human_review": true,
+      "manual_only": true,
+      "production_applied": false,
+      "rationale": "Sanitized replay shows accepted outputs prefer financial-governance implications and Agent Memory Fabric linkage."
+    },
+    {
+      "proposal_id": "skill-prop-ai-news-trigger-tuning",
+      "proposal_type": "routing_recommendation",
+      "title": "Reduce vendor-blog over-triggering in advisory ranking",
+      "status": "proposed",
+      "target_files": [],
+      "requires_human_review": true,
+      "manual_only": true,
+      "production_applied": false,
+      "rationale": "Sanitized replay lowered vendor_blog source preference while preserving ranking-only boundary."
+    },
+    {
+      "proposal_id": "skill-prop-ai-news-eval-selection",
+      "proposal_type": "eval_recommendation",
+      "title": "Keep strict self-test boundary as default eval",
+      "status": "proposed",
+      "target_files": [
+        "scripts/agent/check-agent-outputs.mjs"
+      ],
+      "requires_human_review": true,
+      "manual_only": true,
+      "production_applied": false,
+      "rationale": "Reference adapter requires strict output validation before any skill-learning recommendation is accepted."
+    }
+  ],
+  "active_boundaries": [
+    "ranking_only",
+    "proposal_only_skill_patch",
+    "no_direct_skill_patch",
+    "no_tool_scope_change",
+    "raw_feedback_off_repo"
+  ]
+}

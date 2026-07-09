@@ -1,0 +1,66 @@
+{
+  "proposal_id": "prop-source-developer-tooling-rag-3c764dd33c",
+  "created_at": "18:09",
+  "proposal_type": "source",
+  "status": "pending_review",
+  "target_files": [
+    "scripts/prompts/tutorials.md",
+    "scripts/prompts/techtrends.md"
+  ],
+  "rationale": "Developer Tooling, RAG, and AI App Stack reached score 0.89 with 84 evidence items. Developer Tooling, RAG, and AI App Stack appears across 10 category/categories with 44 evidence item(s) inside the latest 7-day window. 84 item(s), score 0.89, evidence quality 1.",
+  "evidence": [
+    {
+      "title": "AI 股票：自我改進模型會決定超級智慧競賽勝負嗎？",
+      "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+      "source": "Investor's Business Daily",
+      "date": "2026-07-08",
+      "category": "topnews",
+      "reason": "Matched 開發"
+    },
+    {
+      "title": "AI算力BOO案年底可望簽約 國發會將複製模式擴及能源",
+      "url": "https://www.cna.com.tw/news/afe/202607090102.aspx",
+      "source": "中央社",
+      "date": "2026-07-09",
+      "category": "taiwan",
+      "reason": "Matched 應用"
+    },
+    {
+      "title": "Amazon 文件揭露一項成本高昂的 Alexa AI 新專案",
+      "url": "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+      "source": "Business Insider",
+      "date": "2026-07-08",
+      "category": "usa",
+      "reason": "Matched 開發"
+    },
+    {
+      "title": "An AI chatbot stumbled into working ransomware while trying to please a user's impossible request",
+      "url": "https://www.techradar.com/pro/security/deepseek-accidentally-built-a-working-ransomware-strain-experts-note-what-we-are-witnessing-is-a-fundamental-shift-in-how-novel-cyber-attacks-are-born",
+      "source": "TechRadar",
+      "date": "2026-07-08",
+      "category": "china",
+      "reason": "Matched api"
+    },
+    {
+      "title": "Anthropic 將 Claude Fable 5 免費優惠延長至 7 月 12 日：資格與細節說明",
+      "url": "https://timesofindia.indiatimes.com/technology/tech-news/anthropic-extends-claude-fable-5-free-offer-till-july-12-eligibility-and-other-details-explained/articleshow/132255396.cms",
+      "source": "The Times of India",
+      "date": "2026-07-08",
+      "category": "usa",
+      "reason": "Matched 開發"
+    }
+  ],
+  "expected_effect": "Improve source coverage for Developer Tooling, RAG, and AI App Stack by asking reviewers to evaluate recurring sources before changing production prompts. 觀察框架是否提供權限、審計、資料隔離與評估工具，再判斷是否值得列入 source proposal。",
+  "risk": "若未經人工審查直接套用，可能改變 production 擷取偏好；本 proposal 僅排隊，不自動 patch。 Source tuning may overfit to short-term media concentration.",
+  "rollback": "No production change has been applied. If a future patch is approved, rollback by reverting the reviewed diff for: scripts/prompts/tutorials.md, scripts/prompts/techtrends.md.",
+  "requires_human_review": true,
+  "advisory_only": true,
+  "production_applied": false,
+  "review_guidance": {
+    "suggested_action": "觀察框架是否提供權限、審計、資料隔離與評估工具，再判斷是否值得列入 source proposal。",
+    "review_questions": [
+      "工具是否支援 enterprise permission 與 audit？",
+      "是否會改變既有 RAG 架構建議？"
+    ]
+  }
+}

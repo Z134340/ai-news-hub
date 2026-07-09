@@ -1,0 +1,577 @@
+{
+  "generated_at": "18:09",
+  "source_latest_date": "2026-07-09",
+  "source_latest_generated_at": "18:09",
+  "profile_version": "profile-923ecddd12b9",
+  "mode": "ranking-only",
+  "advisory": true,
+  "production_write": false,
+  "schema_version": "agent-trends-v0.1",
+  "input_summary": {
+    "total_items": 161,
+    "categories": {
+      "papers": 20,
+      "topnews": 8,
+      "taiwan": 20,
+      "china": 20,
+      "usa": 16,
+      "techtrends": 19,
+      "governance": 20,
+      "tutorials": 19,
+      "courses": 4,
+      "models": 15
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "LLM Evaluation, Safety, and Governance",
+      "mode": "ranking-only",
+      "advisory": true,
+      "score": 0.89,
+      "score_breakdown": {
+        "relevance": 1,
+        "recency": 1,
+        "novelty": 1,
+        "financial_relevance": 0.448,
+        "evidence_quality": 1,
+        "topic_weight": 1
+      },
+      "evidence_count": 101,
+      "categories": [
+        "china",
+        "courses",
+        "governance",
+        "models",
+        "papers",
+        "taiwan",
+        "techtrends",
+        "topnews",
+        "tutorials",
+        "usa"
+      ],
+      "sources": [
+        "AI Governance Institute",
+        "Alibaba",
+        "Alibaba Cloud",
+        "Anthropic",
+        "Anthropic Engineering Blog",
+        "Axios",
+        "BuildFastWithAI（引 Fortune）",
+        "Business Insider",
+        "Chaos and Order",
+        "DeepLearning.AI"
+      ],
+      "why_now": "LLM Evaluation, Safety, and Governance appears across 10 category/categories with 68 evidence item(s) inside the latest 7-day window.",
+      "financial_implication": "此趨勢直接影響模型風險管理、第三方模型採用、監理說明與內部驗證證據鏈。",
+      "evidence": [
+        {
+          "title": "AI 風險分類框架",
+          "url": "https://moda.gov.tw/major-policies/ai/governance/19244",
+          "source": "數位發展部 Ministry of Digital Affairs",
+          "date": "2026-07-08",
+          "category": "governance",
+          "reason": "Matched governance, nist, 評估, 治理"
+        },
+        {
+          "title": "AI算力BOO案年底可望簽約 國發會將複製模式擴及能源",
+          "url": "https://www.cna.com.tw/news/afe/202607090102.aspx",
+          "source": "中央社",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 政策"
+        },
+        {
+          "title": "中國腦機介面臨床轉譯：研究者發起試驗、註冊臨床試驗與監管核准的版圖分析",
+          "url": "https://arxiv.org/abs/2607.07185",
+          "source": "arXiv",
+          "date": "2026-07-08",
+          "category": "topnews",
+          "reason": "Matched nist, 監管"
+        },
+        {
+          "title": "獨家：OpenAI 部署部門將收購 Northslope",
+          "url": "https://www.axios.com/2026/07/08/openai-deployment-company-northslope-acquisition",
+          "source": "Axios",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched 治理, 安全, 風險"
+        },
+        {
+          "title": "獨家：Trump 政府解除 OpenAI GPT 5.6 限制",
+          "url": "https://www.axios.com/2026/07/08/openai-gpt-trump-ban-lifted",
+          "source": "Axios",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched governance, 評估, 治理, 安全"
+        },
+        {
+          "title": "科學家創造假眼疾測試熱門 AI 聊天機器人能否識破惡作劇，但實驗意外發展為主流 AI 助理開始把虛構疾病當成真實病症",
+          "url": "https://timesofindia.indiatimes.com/technology/tech-news/scientists-invented-a-fake-eye-disease-to-see-if-ai-chatbots-could-spot-it-but-the-experiment-took-an-unexpected-turn-when-chatgpt-gemini-started-treating-the-fictional-illness-as-a-real-medical-condition/articleshow/132272168.cms",
+          "source": "The Times of India",
+          "date": "2026-07-09",
+          "category": "usa",
+          "reason": "Matched 治理, 風險"
+        }
+      ]
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "Developer Tooling, RAG, and AI App Stack",
+      "mode": "ranking-only",
+      "advisory": true,
+      "score": 0.89,
+      "score_breakdown": {
+        "relevance": 1,
+        "recency": 1,
+        "novelty": 1,
+        "financial_relevance": 0.452,
+        "evidence_quality": 1,
+        "topic_weight": 1
+      },
+      "evidence_count": 84,
+      "categories": [
+        "china",
+        "courses",
+        "governance",
+        "models",
+        "papers",
+        "taiwan",
+        "techtrends",
+        "topnews",
+        "tutorials",
+        "usa"
+      ],
+      "sources": [
+        "36氪 / 智东西",
+        "AI Governance Institute",
+        "Alibaba",
+        "Alibaba (Qwen Team)",
+        "Anthropic Engineering Blog",
+        "Axios",
+        "Business Insider",
+        "Chaos and Order",
+        "DeepLearning.AI",
+        "Dev|Journal"
+      ],
+      "why_now": "Developer Tooling, RAG, and AI App Stack appears across 10 category/categories with 44 evidence item(s) inside the latest 7-day window.",
+      "financial_implication": "工具鏈成熟度會改變 RAG、內部知識庫與權限控管落地成本，需同步檢查資料分級與存取邊界。",
+      "evidence": [
+        {
+          "title": "AI 股票：自我改進模型會決定超級智慧競賽勝負嗎？",
+          "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+          "source": "Investor's Business Daily",
+          "date": "2026-07-08",
+          "category": "topnews",
+          "reason": "Matched 開發"
+        },
+        {
+          "title": "AI算力BOO案年底可望簽約 國發會將複製模式擴及能源",
+          "url": "https://www.cna.com.tw/news/afe/202607090102.aspx",
+          "source": "中央社",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 應用"
+        },
+        {
+          "title": "Amazon 文件揭露一項成本高昂的 Alexa AI 新專案",
+          "url": "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+          "source": "Business Insider",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched 開發"
+        },
+        {
+          "title": "An AI chatbot stumbled into working ransomware while trying to please a user's impossible request",
+          "url": "https://www.techradar.com/pro/security/deepseek-accidentally-built-a-working-ransomware-strain-experts-note-what-we-are-witnessing-is-a-fundamental-shift-in-how-novel-cyber-attacks-are-born",
+          "source": "TechRadar",
+          "date": "2026-07-08",
+          "category": "china",
+          "reason": "Matched api"
+        },
+        {
+          "title": "Anthropic 將 Claude Fable 5 免費優惠延長至 7 月 12 日：資格與細節說明",
+          "url": "https://timesofindia.indiatimes.com/technology/tech-news/anthropic-extends-claude-fable-5-free-offer-till-july-12-eligibility-and-other-details-explained/articleshow/132255396.cms",
+          "source": "The Times of India",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched 開發"
+        },
+        {
+          "title": "ChatGPT Voice導入GPT-Live，AI語音互動邁向同步對話",
+          "url": "https://www.ithome.com.tw/news/177203",
+          "source": "iThome",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 應用"
+        }
+      ]
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "Model Release and Inference Capability",
+      "mode": "ranking-only",
+      "advisory": true,
+      "score": 0.877,
+      "score_breakdown": {
+        "relevance": 1,
+        "recency": 1,
+        "novelty": 1,
+        "financial_relevance": 0.387,
+        "evidence_quality": 1,
+        "topic_weight": 1
+      },
+      "evidence_count": 119,
+      "categories": [
+        "china",
+        "courses",
+        "governance",
+        "models",
+        "papers",
+        "taiwan",
+        "techtrends",
+        "topnews",
+        "tutorials",
+        "usa"
+      ],
+      "sources": [
+        "36氪 / 智东西",
+        "36氪 / 硅谷101",
+        "36氪 / 雷科技",
+        "AI Governance Institute",
+        "Alibaba",
+        "Alibaba (Qwen Team)",
+        "Alibaba Cloud",
+        "Anthropic",
+        "Anthropic Engineering Blog",
+        "Axios"
+      ],
+      "why_now": "Model Release and Inference Capability appears across 10 category/categories with 75 evidence item(s) inside the latest 7-day window.",
+      "financial_implication": "模型能力與推理成本變化會影響私有化部署、資料出境、供應商集中度與推理延遲 SLA。",
+      "evidence": [
+        {
+          "title": "50FPS、成本打掉70%，魔芯MoWorld把世界模型带进产业时代",
+          "url": "https://www.qbitai.com/2026/07/446411.html",
+          "source": "量子位",
+          "date": "2026-07-08",
+          "category": "china",
+          "reason": "Matched 模型, 推理, 發布"
+        },
+        {
+          "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+          "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+          "source": "TechNews 科技新報",
+          "date": "2026-07-08",
+          "category": "taiwan",
+          "reason": "Matched 推理"
+        },
+        {
+          "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+          "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+          "source": "科技新報 TechNews",
+          "date": "2026-07-08",
+          "category": "techtrends",
+          "reason": "Matched 推理"
+        },
+        {
+          "title": "AI 股票：自我改進模型會決定超級智慧競賽勝負嗎？",
+          "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+          "source": "Investor's Business Daily",
+          "date": "2026-07-08",
+          "category": "topnews",
+          "reason": "Matched 模型"
+        },
+        {
+          "title": "Amazon 文件揭露一項成本高昂的 Alexa AI 新專案",
+          "url": "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+          "source": "Business Insider",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched 模型, 推理"
+        },
+        {
+          "title": "Anthropic公布Claude Code Web、手機版App從Max方案開始部署",
+          "url": "https://www.ithome.com.tw/news/177189",
+          "source": "iThome",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched claude"
+        }
+      ]
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent Engineering and Orchestration",
+      "mode": "ranking-only",
+      "advisory": true,
+      "score": 0.875,
+      "score_breakdown": {
+        "relevance": 1,
+        "recency": 1,
+        "novelty": 1,
+        "financial_relevance": 0.375,
+        "evidence_quality": 1,
+        "topic_weight": 1
+      },
+      "evidence_count": 72,
+      "categories": [
+        "china",
+        "courses",
+        "governance",
+        "models",
+        "papers",
+        "taiwan",
+        "techtrends",
+        "topnews",
+        "tutorials",
+        "usa"
+      ],
+      "sources": [
+        "36氪 / 硅谷101",
+        "36氪 / 雷科技",
+        "AI Governance Institute",
+        "Alibaba",
+        "Alibaba (Qwen Team)",
+        "Anthropic",
+        "Anthropic Engineering Blog",
+        "Axios",
+        "BleepingComputer",
+        "Bloomberg"
+      ],
+      "why_now": "Agent Engineering and Orchestration appears across 10 category/categories with 37 evidence item(s) inside the latest 7-day window.",
+      "financial_implication": "金融業應優先關注 Agent 編排、工具權限、記憶與審計紀錄，避免自主流程先上線、控制點後補。",
+      "evidence": [
+        {
+          "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+          "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+          "source": "科技新報 TechNews",
+          "date": "2026-07-08",
+          "category": "techtrends",
+          "reason": "Matched agent, 代理式"
+        },
+        {
+          "title": "Amazon 文件揭露一項成本高昂的 Alexa AI 新專案",
+          "url": "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+          "source": "Business Insider",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched agent, agentic"
+        },
+        {
+          "title": "ChatGPT 升級後的語音模式更懂得少插話",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/962856/chatgpt-upgraded-voice-mode-gpt-live",
+          "source": "The Verge",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched agent"
+        },
+        {
+          "title": "OpenAI 最先進 AI 模型即將解禁，並與 Elon Musk 最新 Grok 發布正面碰撞",
+          "url": "https://www.businessinsider.com/openai-sol-terra-luna-gpt56-grok-elon-musk-sam-altman-2026-7",
+          "source": "Business Insider",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched agent, agentic"
+        },
+        {
+          "title": "Prime Intellect raises $130M Series A to help enterprises build their own AI agents",
+          "url": "https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/",
+          "source": "TechCrunch",
+          "date": "2026-07-08",
+          "category": "techtrends",
+          "reason": "Matched agent, agentic"
+        },
+        {
+          "title": "微軟釋出Agent Skills for .NET支援企業技能封裝與治理",
+          "url": "https://www.ithome.com.tw/news/177187",
+          "source": "iThome",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched agent"
+        }
+      ]
+    },
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "title": "AI Security and Privacy Risk",
+      "mode": "ranking-only",
+      "advisory": true,
+      "score": 0.852,
+      "score_breakdown": {
+        "relevance": 1,
+        "recency": 0.975,
+        "novelty": 1,
+        "financial_relevance": 0.287,
+        "evidence_quality": 1,
+        "topic_weight": 1
+      },
+      "evidence_count": 23,
+      "categories": [
+        "china",
+        "governance",
+        "models",
+        "papers",
+        "taiwan",
+        "techtrends",
+        "topnews",
+        "tutorials",
+        "usa"
+      ],
+      "sources": [
+        "Anthropic",
+        "Axios",
+        "BleepingComputer",
+        "Business Insider",
+        "European Commission",
+        "TechCrunch",
+        "TechRadar",
+        "The Times of India",
+        "Transparency Coalition",
+        "iT 邦幫忙 (iThome)"
+      ],
+      "why_now": "AI Security and Privacy Risk appears across 9 category/categories with 17 evidence item(s) inside the latest 7-day window.",
+      "financial_implication": "AI 資安與隱私風險應納入紅隊測試、提示注入防護、日誌留存與事件通報流程。",
+      "evidence": [
+        {
+          "title": "Meta 正在測試「super sensing」AI 眼鏡，隱私專家警告可能違反資料隱私或生物辨識資料法規",
+          "url": "https://timesofindia.indiatimes.com/technology/tech-news/meta-is-testing-super-sensing-ai-glasses-that-privacy-experts-warn-could-break-data-privacy-or-biometric-data-laws/articleshow/132276019.cms",
+          "source": "The Times of India",
+          "date": "2026-07-09",
+          "category": "usa",
+          "reason": "Matched 隱私"
+        },
+        {
+          "title": "New EU plan to address the risks and opportunities of advanced AI for cybersecurity",
+          "url": "https://commission.europa.eu/news-and-media/news/new-eu-plan-address-risks-and-opportunities-advanced-ai-cybersecurity-2026-07-07_en",
+          "source": "European Commission",
+          "date": "2026-07-07",
+          "category": "governance",
+          "reason": "Matched security, cyber, 資安, 攻擊"
+        },
+        {
+          "title": "An AI chatbot stumbled into working ransomware while trying to please a user's impossible request",
+          "url": "https://www.techradar.com/pro/security/deepseek-accidentally-built-a-working-ransomware-strain-experts-note-what-we-are-witnessing-is-a-fundamental-shift-in-how-novel-cyber-attacks-are-born",
+          "source": "TechRadar",
+          "date": "2026-07-08",
+          "category": "china",
+          "reason": "Matched 資安, 攻擊"
+        },
+        {
+          "title": "CISA據傳使用Mythos掃描政府程式碼庫，找出可能遭濫用的漏洞",
+          "url": "https://www.ithome.com.tw/news/177195",
+          "source": "iThome",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 資安, 攻擊, 漏洞"
+        },
+        {
+          "title": "F5資安公告發布週期將從每季改為每月，理由是頂尖AI模型大幅提高低中風險漏洞串連利用的能力",
+          "url": "https://www.ithome.com.tw/news/177197",
+          "source": "iThome",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 資安, 攻擊, 漏洞"
+        },
+        {
+          "title": "GPT-5.6 即將發布，市場討論升溫",
+          "url": "https://www.axios.com/2026/07/08/gpt-sol-ultra-openai-anthropic-grok",
+          "source": "Axios",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched security, cyber"
+        }
+      ]
+    },
+    {
+      "cluster_id": "ai_learning_and_enablement",
+      "title": "AI Learning, Certification, and Enablement",
+      "mode": "ranking-only",
+      "advisory": true,
+      "score": 0.843,
+      "score_breakdown": {
+        "relevance": 1,
+        "recency": 1,
+        "novelty": 1,
+        "financial_relevance": 0.217,
+        "evidence_quality": 1,
+        "topic_weight": 1
+      },
+      "evidence_count": 46,
+      "categories": [
+        "china",
+        "courses",
+        "governance",
+        "models",
+        "papers",
+        "taiwan",
+        "techtrends",
+        "topnews",
+        "tutorials"
+      ],
+      "sources": [
+        "AI Governance Institute",
+        "Anthropic Engineering Blog",
+        "BuildFastWithAI（引 Fortune）",
+        "Chaos and Order",
+        "DeepLearning.AI",
+        "Dev|Journal",
+        "Google Developers Blog",
+        "Investor's Business Daily",
+        "LangChain Blog",
+        "MarkTechPost"
+      ],
+      "why_now": "AI Learning, Certification, and Enablement appears across 9 category/categories with 19 evidence item(s) inside the latest 7-day window.",
+      "financial_implication": "教育與證照訊號可作為內部 AI 能力盤點、角色訓練與治理宣導素材。",
+      "evidence": [
+        {
+          "title": "AI 股票：自我改進模型會決定超級智慧競賽勝負嗎？",
+          "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+          "source": "Investor's Business Daily",
+          "date": "2026-07-08",
+          "category": "topnews",
+          "reason": "Matched 訓練"
+        },
+        {
+          "title": "Prime Intellect raises $130M Series A to help enterprises build their own AI agents",
+          "url": "https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/",
+          "source": "TechCrunch",
+          "date": "2026-07-08",
+          "category": "techtrends",
+          "reason": "Matched learn, 訓練"
+        },
+        {
+          "title": "Why this CEO thinks video games make better training data than the internet",
+          "url": "https://techcrunch.com/video/why-this-ceo-thinks-video-games-make-better-training-data-than-the-internet/",
+          "source": "TechCrunch",
+          "date": "2026-07-08",
+          "category": "techtrends",
+          "reason": "Matched training, 訓練"
+        },
+        {
+          "title": "刚刚，全球首个具身专属的MoE视频模型，开源了！",
+          "url": "https://www.qbitai.com/2026/07/446568.html",
+          "source": "量子位",
+          "date": "2026-07-09",
+          "category": "china",
+          "reason": "Matched 訓練"
+        },
+        {
+          "title": "工研院科技業主管研習班7/31開跑 聚焦AI致勝之道",
+          "url": "https://www.cna.com.tw/news/afe/202607090178.aspx",
+          "source": "中央社",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 課程"
+        },
+        {
+          "title": "获联合国机构点赞！天立启鸣“AI+教育”方案入选AI for Good",
+          "url": "https://www.qbitai.com/2026/07/446562.html",
+          "source": "量子位",
+          "date": "2026-07-09",
+          "category": "china",
+          "reason": "Matched 學習"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "proposal_id": "prop-prompt-model-release-and-inference-f736a74168",
+  "created_at": "18:09",
+  "proposal_type": "prompt",
+  "status": "pending_review",
+  "target_files": [
+    "scripts/prompts/models.md",
+    "scripts/prompts/usa.md",
+    "scripts/prompts/china.md"
+  ],
+  "rationale": "Model Release and Inference Capability reached score 0.877 with 119 evidence items. Model Release and Inference Capability appears across 10 category/categories with 75 evidence item(s) inside the latest 7-day window. 119 item(s), score 0.877, evidence quality 1.",
+  "evidence": [
+    {
+      "title": "50FPS、成本打掉70%，魔芯MoWorld把世界模型带进产业时代",
+      "url": "https://www.qbitai.com/2026/07/446411.html",
+      "source": "量子位",
+      "date": "2026-07-08",
+      "category": "china",
+      "reason": "Matched 模型, 推理, 發布"
+    },
+    {
+      "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+      "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+      "source": "TechNews 科技新報",
+      "date": "2026-07-08",
+      "category": "taiwan",
+      "reason": "Matched 推理"
+    },
+    {
+      "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+      "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+      "source": "科技新報 TechNews",
+      "date": "2026-07-08",
+      "category": "techtrends",
+      "reason": "Matched 推理"
+    },
+    {
+      "title": "AI 股票：自我改進模型會決定超級智慧競賽勝負嗎？",
+      "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+      "source": "Investor's Business Daily",
+      "date": "2026-07-08",
+      "category": "topnews",
+      "reason": "Matched 模型"
+    },
+    {
+      "title": "Amazon 文件揭露一項成本高昂的 Alexa AI 新專案",
+      "url": "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+      "source": "Business Insider",
+      "date": "2026-07-08",
+      "category": "usa",
+      "reason": "Matched 模型, 推理"
+    }
+  ],
+  "expected_effect": "Improve prompt emphasis for Model Release and Inference Capability while preserving existing schemas and requiring human review before any prompt patch. 追蹤新模型 benchmark、授權、部署型態與成本，避免只看發布新聞。",
+  "risk": "若未經人工審查直接套用，可能改變 production 擷取偏好；本 proposal 僅排隊，不自動 patch。 Prompt tuning may shift precision/recall balance.",
+  "rollback": "No production change has been applied. If a future patch is approved, rollback by reverting the reviewed diff for: scripts/prompts/models.md, scripts/prompts/usa.md, scripts/prompts/china.md.",
+  "requires_human_review": true,
+  "advisory_only": true,
+  "production_applied": false,
+  "review_guidance": {
+    "suggested_action": "追蹤新模型 benchmark、授權、部署型態與成本，避免只看發布新聞。",
+    "review_questions": [
+      "是否有實測 benchmark 而非供應商宣稱？",
+      "部署限制是否影響金融資料治理？"
+    ]
+  }
+}

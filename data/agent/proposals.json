@@ -1,0 +1,142 @@
+{
+  "generated_at": "18:09",
+  "profile_version": "profile-923ecddd12b9",
+  "mode": "ranking-only",
+  "advisory": true,
+  "proposal_count": 3,
+  "proposals": [
+    {
+      "proposal_id": "prop-prompt-llm-evaluation-governance-b88ed61a28",
+      "created_at": "18:09",
+      "proposal_type": "prompt",
+      "status": "pending_review",
+      "target_files": [
+        "scripts/prompts/governance.md",
+        "scripts/prompts/papers.md"
+      ],
+      "rationale": "LLM Evaluation, Safety, and Governance reached score 0.89 with 101 evidence items. LLM Evaluation, Safety, and Governance appears across 10 category/categories with 68 evidence item(s) inside the latest 7-day window. 101 item(s), score 0.89, evidence quality 1.",
+      "expected_effect": "Improve prompt emphasis for LLM Evaluation, Safety, and Governance while preserving existing schemas and requiring human review before any prompt patch. 比對 NIST、OWASP、EU AI Act 與金融業模型風險控制要求，整理可落地檢核項。",
+      "risk": "若未經人工審查直接套用，可能改變 production 擷取偏好；本 proposal 僅排隊，不自動 patch。 Prompt tuning may shift precision/recall balance.",
+      "rollback": "No production change has been applied. If a future patch is approved, rollback by reverting the reviewed diff for: scripts/prompts/governance.md, scripts/prompts/papers.md.",
+      "evidence_count": 5,
+      "evidence": [
+        {
+          "title": "AI 風險分類框架",
+          "url": "https://moda.gov.tw/major-policies/ai/governance/19244",
+          "source": "數位發展部 Ministry of Digital Affairs",
+          "date": "2026-07-08",
+          "category": "governance",
+          "reason": "Matched governance, nist, 評估, 治理"
+        },
+        {
+          "title": "AI算力BOO案年底可望簽約 國發會將複製模式擴及能源",
+          "url": "https://www.cna.com.tw/news/afe/202607090102.aspx",
+          "source": "中央社",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 政策"
+        },
+        {
+          "title": "中國腦機介面臨床轉譯：研究者發起試驗、註冊臨床試驗與監管核准的版圖分析",
+          "url": "https://arxiv.org/abs/2607.07185",
+          "source": "arXiv",
+          "date": "2026-07-08",
+          "category": "topnews",
+          "reason": "Matched nist, 監管"
+        }
+      ],
+      "requires_human_review": true,
+      "advisory_only": true,
+      "production_applied": false
+    },
+    {
+      "proposal_id": "prop-source-developer-tooling-rag-3c764dd33c",
+      "created_at": "18:09",
+      "proposal_type": "source",
+      "status": "pending_review",
+      "target_files": [
+        "scripts/prompts/tutorials.md",
+        "scripts/prompts/techtrends.md"
+      ],
+      "rationale": "Developer Tooling, RAG, and AI App Stack reached score 0.89 with 84 evidence items. Developer Tooling, RAG, and AI App Stack appears across 10 category/categories with 44 evidence item(s) inside the latest 7-day window. 84 item(s), score 0.89, evidence quality 1.",
+      "expected_effect": "Improve source coverage for Developer Tooling, RAG, and AI App Stack by asking reviewers to evaluate recurring sources before changing production prompts. 觀察框架是否提供權限、審計、資料隔離與評估工具，再判斷是否值得列入 source proposal。",
+      "risk": "若未經人工審查直接套用，可能改變 production 擷取偏好；本 proposal 僅排隊，不自動 patch。 Source tuning may overfit to short-term media concentration.",
+      "rollback": "No production change has been applied. If a future patch is approved, rollback by reverting the reviewed diff for: scripts/prompts/tutorials.md, scripts/prompts/techtrends.md.",
+      "evidence_count": 5,
+      "evidence": [
+        {
+          "title": "AI 股票：自我改進模型會決定超級智慧競賽勝負嗎？",
+          "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+          "source": "Investor's Business Daily",
+          "date": "2026-07-08",
+          "category": "topnews",
+          "reason": "Matched 開發"
+        },
+        {
+          "title": "AI算力BOO案年底可望簽約 國發會將複製模式擴及能源",
+          "url": "https://www.cna.com.tw/news/afe/202607090102.aspx",
+          "source": "中央社",
+          "date": "2026-07-09",
+          "category": "taiwan",
+          "reason": "Matched 應用"
+        },
+        {
+          "title": "Amazon 文件揭露一項成本高昂的 Alexa AI 新專案",
+          "url": "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+          "source": "Business Insider",
+          "date": "2026-07-08",
+          "category": "usa",
+          "reason": "Matched 開發"
+        }
+      ],
+      "requires_human_review": true,
+      "advisory_only": true,
+      "production_applied": false
+    },
+    {
+      "proposal_id": "prop-prompt-model-release-and-inference-f736a74168",
+      "created_at": "18:09",
+      "proposal_type": "prompt",
+      "status": "pending_review",
+      "target_files": [
+        "scripts/prompts/models.md",
+        "scripts/prompts/usa.md",
+        "scripts/prompts/china.md"
+      ],
+      "rationale": "Model Release and Inference Capability reached score 0.877 with 119 evidence items. Model Release and Inference Capability appears across 10 category/categories with 75 evidence item(s) inside the latest 7-day window. 119 item(s), score 0.877, evidence quality 1.",
+      "expected_effect": "Improve prompt emphasis for Model Release and Inference Capability while preserving existing schemas and requiring human review before any prompt patch. 追蹤新模型 benchmark、授權、部署型態與成本，避免只看發布新聞。",
+      "risk": "若未經人工審查直接套用，可能改變 production 擷取偏好；本 proposal 僅排隊，不自動 patch。 Prompt tuning may shift precision/recall balance.",
+      "rollback": "No production change has been applied. If a future patch is approved, rollback by reverting the reviewed diff for: scripts/prompts/models.md, scripts/prompts/usa.md, scripts/prompts/china.md.",
+      "evidence_count": 5,
+      "evidence": [
+        {
+          "title": "50FPS、成本打掉70%，魔芯MoWorld把世界模型带进产业时代",
+          "url": "https://www.qbitai.com/2026/07/446411.html",
+          "source": "量子位",
+          "date": "2026-07-08",
+          "category": "china",
+          "reason": "Matched 模型, 推理, 發布"
+        },
+        {
+          "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+          "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+          "source": "TechNews 科技新報",
+          "date": "2026-07-08",
+          "category": "taiwan",
+          "reason": "Matched 推理"
+        },
+        {
+          "title": "AI 代理效率致命傷：GPU 逾半時間空轉，耗電量大破表",
+          "url": "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+          "source": "科技新報 TechNews",
+          "date": "2026-07-08",
+          "category": "techtrends",
+          "reason": "Matched 推理"
+        }
+      ],
+      "requires_human_review": true,
+      "advisory_only": true,
+      "production_applied": false
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "mode": "ranking-only",
+  "last_replay_at": "2026-07-09T10:10:12.022Z",
+  "events_count": 0,
+  "profile_version": "profile-923ecddd12b9",
+  "active_boundaries": [
+    "agent_outputs_advisory_only",
+    "no_write_data_latest_json",
+    "no_direct_prompt_patch",
+    "raw_feedback_off_repo",
+    "human_review_required_for_proposals"
+  ],
+  "proposal_count": 3,
+  "last_error": null,
+  "skipped_events_count": 1,
+  "learning_summary": {
+    "generated_from_events": 0,
+    "summary_limit": 6,
+    "topic_signals": [],
+    "source_signals": [],
+    "lens_signals": [
+      {
+        "id": "developer_tooling",
+        "weight": 1,
+        "direction": "neutral"
+      },
+      {
+        "id": "financial_governance",
+        "weight": 1,
+        "direction": "neutral"
+      },
+      {
+        "id": "novelty",
+        "weight": 1,
+        "direction": "neutral"
+      },
+      {
+        "id": "security",
+        "weight": 1,
+        "direction": "neutral"
+      }
+    ],
+    "style_signals": [],
+    "applied_effect_counts": {}
+  }
+}

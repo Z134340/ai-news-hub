@@ -1,0 +1,127 @@
+{
+  "generated_at": "18:09",
+  "source_latest_date": "2026-07-09",
+  "source_latest_generated_at": "18:09",
+  "profile_version": "profile-923ecddd12b9",
+  "mode": "ranking-only",
+  "advisory": true,
+  "production_write": false,
+  "schema_version": "agent-recommendations-v0.1",
+  "recommendations": [
+    {
+      "recommendation_id": "rec-01-llm_evaluation_governance",
+      "cluster_id": "llm_evaluation_governance",
+      "priority": 1,
+      "mode": "ranking-only",
+      "advisory": true,
+      "title": "追蹤 LLM Evaluation, Safety, and Governance",
+      "rationale": "101 item(s), score 0.89, evidence quality 1.",
+      "suggested_action": "比對 NIST、OWASP、EU AI Act 與金融業模型風險控制要求，整理可落地檢核項。",
+      "review_questions": [
+        "是否能轉成內部模型驗證控制點？",
+        "是否需要產出 prompt/source proposal？"
+      ],
+      "evidence_urls": [
+        "https://moda.gov.tw/major-policies/ai/governance/19244",
+        "https://www.cna.com.tw/news/afe/202607090102.aspx",
+        "https://arxiv.org/abs/2607.07185",
+        "https://www.axios.com/2026/07/08/openai-deployment-company-northslope-acquisition",
+        "https://www.axios.com/2026/07/08/openai-gpt-trump-ban-lifted"
+      ],
+      "source_latest_date": "2026-07-09",
+      "profile_version": "profile-923ecddd12b9"
+    },
+    {
+      "recommendation_id": "rec-02-developer_tooling_rag",
+      "cluster_id": "developer_tooling_rag",
+      "priority": 2,
+      "mode": "ranking-only",
+      "advisory": true,
+      "title": "追蹤 Developer Tooling, RAG, and AI App Stack",
+      "rationale": "84 item(s), score 0.89, evidence quality 1.",
+      "suggested_action": "觀察框架是否提供權限、審計、資料隔離與評估工具，再判斷是否值得列入 source proposal。",
+      "review_questions": [
+        "工具是否支援 enterprise permission 與 audit？",
+        "是否會改變既有 RAG 架構建議？"
+      ],
+      "evidence_urls": [
+        "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+        "https://www.cna.com.tw/news/afe/202607090102.aspx",
+        "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+        "https://www.techradar.com/pro/security/deepseek-accidentally-built-a-working-ransomware-strain-experts-note-what-we-are-witnessing-is-a-fundamental-shift-in-how-novel-cyber-attacks-are-born",
+        "https://timesofindia.indiatimes.com/technology/tech-news/anthropic-extends-claude-fable-5-free-offer-till-july-12-eligibility-and-other-details-explained/articleshow/132255396.cms"
+      ],
+      "source_latest_date": "2026-07-09",
+      "profile_version": "profile-923ecddd12b9"
+    },
+    {
+      "recommendation_id": "rec-03-model_release_and_inference",
+      "cluster_id": "model_release_and_inference",
+      "priority": 3,
+      "mode": "ranking-only",
+      "advisory": true,
+      "title": "追蹤 Model Release and Inference Capability",
+      "rationale": "119 item(s), score 0.877, evidence quality 1.",
+      "suggested_action": "追蹤新模型 benchmark、授權、部署型態與成本，避免只看發布新聞。",
+      "review_questions": [
+        "是否有實測 benchmark 而非供應商宣稱？",
+        "部署限制是否影響金融資料治理？"
+      ],
+      "evidence_urls": [
+        "https://www.qbitai.com/2026/07/446411.html",
+        "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+        "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+        "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+        "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7"
+      ],
+      "source_latest_date": "2026-07-09",
+      "profile_version": "profile-923ecddd12b9"
+    },
+    {
+      "recommendation_id": "rec-04-agent_engineering",
+      "cluster_id": "agent_engineering",
+      "priority": 4,
+      "mode": "ranking-only",
+      "advisory": true,
+      "title": "追蹤 Agent Engineering and Orchestration",
+      "rationale": "72 item(s), score 0.875, evidence quality 1.",
+      "suggested_action": "把 Agent Memory、Context Engineering、tool permission、orchestration 納入下一輪調研 query。",
+      "review_questions": [
+        "是否需要新增 Agent Memory / Context Engineering 子議題？",
+        "是否已有足夠金融控管案例？"
+      ],
+      "evidence_urls": [
+        "https://technews.tw/2026/07/08/ai-agents-energy-crisis/",
+        "https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7",
+        "https://www.theverge.com/ai-artificial-intelligence/962856/chatgpt-upgraded-voice-mode-gpt-live",
+        "https://www.businessinsider.com/openai-sol-terra-luna-gpt56-grok-elon-musk-sam-altman-2026-7",
+        "https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/"
+      ],
+      "source_latest_date": "2026-07-09",
+      "profile_version": "profile-923ecddd12b9"
+    },
+    {
+      "recommendation_id": "rec-05-ai_security_and_privacy",
+      "cluster_id": "ai_security_and_privacy",
+      "priority": 5,
+      "mode": "ranking-only",
+      "advisory": true,
+      "title": "追蹤 AI Security and Privacy Risk",
+      "rationale": "23 item(s), score 0.852, evidence quality 1.",
+      "suggested_action": "把提示注入、資料外洩、agent tool abuse 納入治理類別高優先調研。",
+      "review_questions": [
+        "是否涉及高風險攻擊面？",
+        "是否需要納入治理新聞每日優先 query？"
+      ],
+      "evidence_urls": [
+        "https://timesofindia.indiatimes.com/technology/tech-news/meta-is-testing-super-sensing-ai-glasses-that-privacy-experts-warn-could-break-data-privacy-or-biometric-data-laws/articleshow/132276019.cms",
+        "https://commission.europa.eu/news-and-media/news/new-eu-plan-address-risks-and-opportunities-advanced-ai-cybersecurity-2026-07-07_en",
+        "https://www.techradar.com/pro/security/deepseek-accidentally-built-a-working-ransomware-strain-experts-note-what-we-are-witnessing-is-a-fundamental-shift-in-how-novel-cyber-attacks-are-born",
+        "https://www.ithome.com.tw/news/177195",
+        "https://www.ithome.com.tw/news/177197"
+      ],
+      "source_latest_date": "2026-07-09",
+      "profile_version": "profile-923ecddd12b9"
+    }
+  ]
+}
