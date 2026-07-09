@@ -1,0 +1,69 @@
+schema_version: adapter-contract-v1
+project_id: ai-news-hub
+name: AI News Hub
+role: news-intelligence-workbench
+risk_profile: medium
+
+read_scope:
+  - README.md
+  - SKILL.md
+  - data/agent/
+  - scripts/prompts/
+  - scripts/agent/
+write_scope:
+  - data/agent/
+  - scripts/prompts/
+  - scripts/agent/
+blocked_paths:
+  - .env
+  - .env*
+  - secrets/
+  - firebase.json
+  - firestore.rules
+  - .github/workflows/deploy.yml
+  - data/latest.json
+  - data/index.json
+test_commands:
+  - node scripts/agent/check-agent-outputs.mjs --strict --self-test-boundary
+
+learning:
+  mode: shadow
+  shared_learning: ranking_only
+  shared_ledger: ~/.ai-news-hub/learning/events.jsonl
+
+approval:
+  high_risk: manual_only
+
+agent_outputs:
+  learning_status: data/agent/learning-status.json
+  trends: data/agent/trends.json
+  recommendations: data/agent/recommendations.json
+  candidates: data/agent/candidates.json
+  proposals_index: data/agent/proposals.json
+
+skills:
+  - skill_id: ai-news-hub.agent-insights
+    source: project
+    path: .
+    skill_doc: SKILL.md
+    risk_profile: medium
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+      sanitized_status: data/agent/skills/ai-news-hub.agent-insights/learning-status.json
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: true
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - node scripts/agent/check-agent-outputs.mjs --strict --self-test-boundary
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - dry_run_for_skill_patch
+        - restore_test_for_manual_only
