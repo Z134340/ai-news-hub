@@ -1,0 +1,211 @@
+{
+  "items": [
+    {
+      "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
+      "title_zh": "長篇輸出評估的 LLM-as-a-Judge 基準測試",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-02",
+      "summary": "本文針對「長篇輸出」（long-form output）場景，系統性建立 LLM-as-a-Judge 的評估基準，檢驗以大型語言模型作為評審在長文本情境下的可靠度、一致性與偏誤來源。相較於短答案評分，長文本引入位置偏誤、冗長偏好與事實核對困難等問題，本研究以受控基準量化這些失真並比較不同評審模型的判準穩定度。研究結論對「以模型評模型」的評測管線設計具直接參考價值。",
+      "url": "https://arxiv.org/abs/2606.01629",
+      "field": "LLM-as-a-Judge",
+      "impact": "high — 直接對應 LLM 評估方法論的核心痛點，長文本評審偏誤是評測管線落地的關鍵風險"
+    },
+    {
+      "title": "An Empirical Study of Automating Agent Evaluation",
+      "title_zh": "自動化 Agent 評估的實證研究",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-14",
+      "summary": "本文以實證方式探討如何自動化 AI Agent 的評估流程，檢視自動評估器與人工判準之間的落差。研究涵蓋 Agent 在多步驟任務中的軌跡評分、成功判定與失敗歸因等自動化面向，並分析自動評估在何種任務型態下可信、何種情況下會系統性失準。對建立可規模化的 Agent 評測管線提供實證依據。",
+      "url": "https://arxiv.org/abs/2605.11378",
+      "field": "Agent Evaluation",
+      "impact": "high — Agent 評估自動化是規模化評測的瓶頸，實證結果對評測基礎建設有實務意義"
+    },
+    {
+      "title": "Interactive Evaluation Requires a Design Science",
+      "title_zh": "互動式評估需要一套設計科學",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-21",
+      "summary": "本文主張互動式（interactive）AI 系統的評估需要建立一套「設計科學」方法論，而非沿用靜態基準的評分範式。作者論證互動評估涉及使用者行為、多輪對話動態與情境依賴，需以系統化的設計原則來確保評估的效度與可重現性。文章對評測方法論的框架層面提出批判性反思。",
+      "url": "https://arxiv.org/abs/2605.17829",
+      "field": "LLM Evaluation",
+      "impact": "medium — 方法論層面的立場論文，對評測框架設計具啟發性但偏概念層"
+    },
+    {
+      "title": "From Question Answering to Task Completion: A Survey on Agent System and Harness Design",
+      "title_zh": "從問答到任務完成：Agent 系統與 Harness 設計綜述",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-24",
+      "summary": "本綜述梳理 AI Agent 從單純問答走向端到端任務完成的演進脈絡，聚焦於「harness design」——即包裹模型的外層執行框架、工具環境與流程編排。文章系統整理 Agent 系統的核心構件（規劃、工具呼叫、記憶、控制迴圈）並比較不同 harness 架構的取捨。對 harness engineering 與 context engineering 的實務設計提供結構化地圖。",
+      "url": "https://arxiv.org/abs/2606.20683",
+      "field": "AI Agent",
+      "impact": "high — harness engineering 綜述，直接對應 Agent 工程的架構層知識體系"
+    },
+    {
+      "title": "Memory in the Loop: In-Process Retrieval as Extended Working Memory for Language Agents",
+      "title_zh": "迴圈中的記憶：以流程內檢索作為語言 Agent 的延伸工作記憶",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-07-07",
+      "summary": "本文提出將「流程內檢索」（in-process retrieval）整合進 Agent 的推理迴圈，作為延伸的工作記憶，讓 Agent 在執行過程中動態調用相關脈絡而非僅依賴固定上下文視窗。此設計針對長時程任務中的記憶容量與脈絡衰減問題，將檢索由前置步驟轉為迴圈內的持續機制。屬 agent memory 與 context engineering 的近期成果。",
+      "url": "https://arxiv.org/abs/2607.05690",
+      "field": "AI Agent",
+      "impact": "high — 近 7 日發布，agent memory 與脈絡工程的實作級貢獻"
+    },
+    {
+      "title": "Are We Ready For An Agent-Native Memory System?",
+      "title_zh": "我們準備好迎接 Agent 原生記憶系統了嗎？",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-27",
+      "summary": "本文檢視現行以檢索增強（RAG）與向量資料庫為主的記憶方案，探討是否需要專為 Agent 設計的「原生」記憶系統。作者論證 Agent 的記憶需求（跨任務持久化、可寫入、可遺忘、與決策耦合）與傳統知識檢索有本質差異，並盤點現有方案的缺口。屬 agent memory management 的方向性論文。",
+      "url": "https://arxiv.org/abs/2606.24775",
+      "field": "AI Agent",
+      "impact": "medium — 記憶系統架構的立場與缺口分析，對長期設計方向有參考價值"
+    },
+    {
+      "title": "Decision-Aware Memory Cards: Counterfactual-Inspired Context Selection and Compression for Tool-Using LLM Agents",
+      "title_zh": "決策感知記憶卡：面向工具型 LLM Agent 的反事實式脈絡選擇與壓縮",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-09",
+      "summary": "本文提出「決策感知記憶卡」（Decision-Aware Memory Cards），以反事實（counterfactual）啟發的方法進行上下文選擇與壓縮，專為使用工具的 LLM Agent 設計。核心構想是依據「該脈絡是否會改變 Agent 的下一步決策」來篩選與壓縮記憶內容，降低脈絡雜訊與 token 成本。屬 context engineering 的具體技術貢獻。",
+      "url": "https://arxiv.org/abs/2606.08151",
+      "field": "AI Agent",
+      "impact": "high — context engineering 的具體壓縮/選擇技術，直接對應 Agent 脈絡成本問題"
+    },
+    {
+      "title": "HMARS: A Hierarchical Multi-Agent Memory System for Long-Context Reasoning",
+      "title_zh": "HMARS：面向長上下文推理的階層式多代理記憶系統",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-30",
+      "summary": "本文提出 HMARS，一套階層式的多代理（multi-agent）記憶系統，針對長上下文推理任務設計。透過階層化組織記憶並在多個 Agent 間分工協作，處理單一上下文視窗難以承載的長程推理需求。屬多代理系統與 agent memory 的交會成果。",
+      "url": "https://arxiv.org/abs/2606.28349",
+      "field": "Multi-Agent",
+      "impact": "medium — 多代理記憶架構，對長程推理場景具工程參考價值"
+    },
+    {
+      "title": "Autonomous Event-Driven Multi-Agent Orchestration for Enterprise AI at Scale",
+      "title_zh": "面向企業級規模的自主事件驅動多代理編排",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-23",
+      "summary": "本文提出以事件驅動（event-driven）架構進行自主多代理編排，面向企業級大規模部署。相較於中央控制器式的編排，事件驅動設計讓多個 Agent 以非同步、鬆耦合方式協作，提升可擴展性與韌性。屬 agent orchestration 在企業落地層面的架構貢獻。",
+      "url": "https://arxiv.org/abs/2606.20058",
+      "field": "Multi-Agent",
+      "impact": "medium — 企業級 Agent 編排架構，對大規模多代理系統部署有實務意義"
+    },
+    {
+      "title": "Uno-Orchestra: Parsimonious Agent Routing via Selective Delegation",
+      "title_zh": "Uno-Orchestra：以選擇性委派實現精簡的 Agent 路由",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-07",
+      "summary": "本文提出 Uno-Orchestra，透過「選擇性委派」（selective delegation）機制進行精簡（parsimonious）的 Agent 路由，只在必要時才將任務委派給專門 Agent，以降低多代理系統的協調成本與冗餘呼叫。屬 agent orchestration 的效率導向設計。",
+      "url": "https://arxiv.org/abs/2605.05007",
+      "field": "Multi-Agent",
+      "impact": "medium — Agent 路由效率優化，對降低多代理系統成本有實務參考"
+    },
+    {
+      "title": "What Happens Inside Agent Memory? Circuit Analysis from Emergence to Diagnosis",
+      "title_zh": "Agent 記憶內部發生了什麼？從湧現到診斷的電路分析",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-05",
+      "summary": "本文以機制可解釋性中的「電路分析」（circuit analysis）方法，解構 AI Agent 記憶在模型內部的運作機制，從記憶能力的湧現追蹤到失效的診斷。研究試圖回答 Agent 如何在內部表徵中存取與利用記憶，為記憶系統的可靠度提供白盒層面的理解。屬 agent memory 與可解釋性的交叉研究。",
+      "url": "https://arxiv.org/abs/2605.03354",
+      "field": "AI Agent",
+      "impact": "medium — 以可解釋性視角剖析 agent memory，偏研究深度型貢獻"
+    },
+    {
+      "title": "Agent Data Injection Attacks are Realistic Threats to AI Agents",
+      "title_zh": "資料注入攻擊是 AI Agent 的實際威脅",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-07-07",
+      "summary": "本文論證「資料注入攻擊」（data injection）對 AI Agent 構成實際可行的威脅，攻擊者可透過 Agent 讀取的外部資料植入惡意指令以劫持行為。研究以真實情境展示此類攻擊的可行性，並凸顯 Agent 在存取不可信資料來源時的安全缺口。屬 agent 資安與 prompt injection 的近期成果。",
+      "url": "https://arxiv.org/abs/2607.05120",
+      "field": "AI Agent",
+      "impact": "high — 近 7 日發布，agent 資安核心威脅，對治理與防禦設計有直接意涵"
+    },
+    {
+      "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
+      "title_zh": "PI-Hunter：自動化紅隊以揭露並定位提示注入",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-14",
+      "summary": "本文提出 PI-Hunter，一套自動化紅隊測試框架，用於揭露並「定位」（localize）AI 系統中的提示注入（prompt injection）漏洞。相較於僅判定是否可被攻破，PI-Hunter 進一步指出注入發生的位置與路徑，協助防禦方精準修補。屬 agent red-teaming 與資安的實作型貢獻。",
+      "url": "https://arxiv.org/abs/2606.12737",
+      "field": "AI Agent",
+      "impact": "high — 自動化 red-teaming 工具，對 Agent 資安評測與防禦落地有實務價值"
+    },
+    {
+      "title": "Assessing Automated Prompt Injection Attacks in Agentic Environments",
+      "title_zh": "評估 agentic 環境中的自動化提示注入攻擊",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-06-11",
+      "summary": "本文評估在 agentic 環境（具工具呼叫與自主行動能力的 Agent 系統）中，自動化提示注入攻擊的成效與可行性。研究量化不同攻擊策略在 Agent 工作流各環節的成功率，並分析 agentic 特性如何放大注入風險。對 Agent 安全評測基準的建立有參考意義。",
+      "url": "https://arxiv.org/abs/2606.10525",
+      "field": "AI Agent",
+      "impact": "medium — agentic 環境注入攻擊的系統性評估，對資安基準有貢獻"
+    },
+    {
+      "title": "Proteus: A Self-Evolving Red Team for Agent Skill Ecosystems",
+      "title_zh": "Proteus：面向 Agent 技能生態的自我演化紅隊",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-15",
+      "summary": "本文提出 Proteus，一套針對 Agent 技能（skill）生態系的自我演化（self-evolving）紅隊系統，能持續產生並精進攻擊路徑，以測試 Agent 技能組合的安全性。相較於固定攻擊集，自我演化設計可隨防禦更新持續施壓，逼近真實對抗環境。屬 agent red-teaming 的動態評測方法。",
+      "url": "https://arxiv.org/abs/2605.11891",
+      "field": "AI Agent",
+      "impact": "medium — 自我演化紅隊，對 Agent 技能生態的持續性安全評測有價值"
+    },
+    {
+      "title": "ARGUS: Defending LLM Agents Against Context-Aware Prompt Injection",
+      "title_zh": "ARGUS：防禦 LLM Agent 對抗上下文感知的提示注入",
+      "authors": [],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-05",
+      "summary": "本文提出 ARGUS 防禦框架，抵禦針對 LLM Agent 的「上下文感知」（context-aware）提示注入攻擊——此類攻擊會依 Agent 當前脈絡動態調整注入內容，較靜態攻擊更難防。ARGUS 由防禦側提出偵測與阻斷機制，補強 Agent 在讀取外部脈絡時的安全性。屬 agent 資安防禦型貢獻。",
+      "url": "https://arxiv.org/abs/2605.03378",
+      "field": "AI Agent",
+      "impact": "medium — 提示注入防禦框架，對 Agent 安全落地有實務參考"
+    },
+    {
+      "title": "AI Agents May Always Fall for Prompt Injections",
+      "title_zh": "AI Agent 可能永遠難逃提示注入",
+      "authors": [
+        "Sahar Abdelnabi"
+      ],
+      "institution": "未標示",
+      "venue": "arXiv",
+      "date": "2026-05-21",
+      "summary": "本文探討 AI Agent 對提示注入的根本性脆弱，論證在現行架構下此問題可能無法被完全消除，而只能被緩解。作者從 Agent 讀取不可信輸入的本質出發，說明為何注入風險難以徹底根除，並反思防禦策略的上限。屬 agent 資安的立場與理論性論文。",
+      "url": "https://arxiv.org/abs/2605.17634",
+      "field": "AI Agent",
+      "impact": "medium — 對提示注入根本性風險的立場論文，對治理風險認知有參考價值"
+    }
+  ],
+  "_updated_at": "2026-07-25T20:44:28.814866+08:00"
+}

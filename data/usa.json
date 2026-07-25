@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "title": "Anthropic launches Opus 5",
+      "title_zh": "Anthropic 推出 Claude Opus 5",
+      "source": "TechCrunch",
+      "date": "2026-07-24",
+      "topic": "LLM Release",
+      "summary": "Anthropic 於 7 月 24 日發布新一代旗艦級模型 Claude Opus 5，主打「以一半價格逼近 Fable 5 效能」。官方內部基準顯示，Opus 5 在多項編碼與知識工作測試上勝過 Fable 5，例如 Frontier Bench v0.1 拿下 43.3% 對比 Fable 5 的 33.7%。定價維持與前代 Opus 4.8 相同的每百萬輸入 token 5 美元、輸出 25 美元。該模型即刻上線 Anthropic 全平台，並成為 Claude Max 的預設模型、Claude Pro 的最強選項。Anthropic 強調 Opus 5 是為驅動長時間運行的 Agent 而設計，安全分類器觸發率較 Fable 5 低約 85%。",
+      "highlights": [
+        "定位為 Opus 層級的階躍式升級，專攻長時間運行 Agent、編碼與專業工作",
+        "價格與 Opus 4.8 持平（輸入 $5／輸出 $25 每百萬 token），但效能接近 Fable 5",
+        "Frontier Bench v0.1 得分 43.3%，超越 Fable 5 的 33.7%",
+        "成為 Claude Max 預設模型、Claude Pro 最強可用模型",
+        "安全分類器觸發率較 Fable 5 減少約 85%，主打成本與能力平衡"
+      ],
+      "discussion": "開發者社群普遍聚焦在「以近旗艦效能、卻不漲價」的性價比策略，被視為對 OpenAI GPT-5.6 與自家更貴的 Fable 5 之間的市場卡位；也有人關注其作為 agentic coding 預設模型後對 Claude Code 生態的影響。",
+      "url": "https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/"
+    },
+    {
+      "title": "Nvidia, Microsoft, Meta and 20+ tech giants urge Trump to back open-weight AI, warn against 'premature restrictions' on open-weight models",
+      "title_zh": "Nvidia、Microsoft、Meta 等 20 多家科技巨頭聯名籲川普政府支持開放權重 AI，警告勿「過早設限」",
+      "source": "Tech Startups",
+      "date": "2026-07-24",
+      "topic": "Policy",
+      "summary": "7 月 24 日，由 Nvidia 與 Microsoft 領銜、包含 Meta、Palantir 等超過 20 家橫跨 AI 技術堆疊的公司，共同簽署一封題為《Open Weights and American AI Leadership》的公開信，敦促決策者推動開放權重（open-weight）AI 模型的發展，主張這是維持美國技術領先的關鍵。信中警告，對開放權重模型施加「過早的限制」可能扼殺競爭、將創新趕往海外。此舉被視為對近期中國 Kimi 等開放模型崛起的回應。值得注意的是，Nvidia 執行長黃仁勳（Jensen Huang）為此打破社群媒體沉默，發出他在 X 上的首則貼文，與 Microsoft 的 Satya Nadella 同框造勢。",
+      "highlights": [
+        "25 個橫跨 AI 堆疊的組織於 7 月 24 日聯署，主張開放權重模型是美國 AI 領導地位的核心",
+        "領銜者為 Nvidia 與 Microsoft，簽署方含 Meta、Palantir 等 20 多家公司",
+        "核心訴求：勿對開放權重模型「過早設限」，以免扼殺競爭、驅趕創新至海外",
+        "黃仁勳藉此發出個人 X 首則貼文，與 Nadella 共同發聲",
+        "被解讀為對中國 Kimi 等開放模型競爭態勢的政策回應"
+      ],
+      "discussion": "社群將此視為美國大廠在「開源 vs. 管制」政策辯論上的集體施壓，焦點之一是信中關於模型蒸餾（distillation）條款的措辭，被部分評論者認為才是真正的政策角力點。",
+      "url": "https://techstartups.com/2026/07/24/nvidia-microsoft-meta-and-20-tech-giants-urge-trump-to-back-open-weight-ai-warn-against-premature-restrictions-on-open-weight-models/"
+    },
+    {
+      "title": "AMD takes on Nvidia with its Helios AI rack-scale system",
+      "title_zh": "AMD 以 Helios 機櫃級系統正面挑戰 Nvidia",
+      "source": "TechCrunch",
+      "date": "2026-07-23",
+      "topic": "AI Infrastructure",
+      "summary": "AMD 在舊金山舉行的 Advancing AI 大會上發表機櫃級（rack-scale）系統 Helios，號稱是業界「效能最高的 AI 機櫃」，專為大型 AI 實驗室的大規模模型運算需求打造，直接對標 Nvidia。Helios 整合 72 顆 Instinct MI455X GPU、EPYC Venice 主機處理器與 Pensando 網卡於單一液冷雙寬機櫃，每顆 MI455X 配備 432GB HBM4 記憶體，主打以更少加速器完成大模型推論並降低成本。AMD 宣布將於 2026 下半年開始向包含 Microsoft 在內的客戶出貨。此舉標誌 AMD 在資料中心 AI 硬體戰場對 Nvidia 發起正面競爭。",
+      "highlights": [
+        "Helios 為機櫃級參考設計，整合 72 顆 MI455X GPU + EPYC Venice + Pensando 網卡",
+        "每顆 MI455X 搭載 432GB HBM4，鎖定記憶體密集的大模型推論",
+        "AMD 稱其為業界最高效能 AI 機櫃，直接對標 Nvidia 機櫃方案",
+        "2026 下半年開始向客戶（含 Microsoft）出貨",
+        "採開放 Ethernet 網路架構，作為 Nvidia NVLink 生態的替代路線"
+      ],
+      "discussion": "市場反應正面，AMD 股價一度上揚，投資圈聚焦其能否在 Nvidia 主導的 AI 加速器市場搶下記憶體密集推論這塊利基；技術社群則關注開放 Ethernet 對 Nvidia 封閉互連生態的挑戰。",
+      "url": "https://techcrunch.com/2026/07/23/amd-takes-on-nvidia-with-its-helios-ai-rack-scale-system/"
+    },
+    {
+      "title": "AMD to invest up to $5bn in Anthropic, AI company to deploy up to 2GW of Instinct MI450 GPUs",
+      "title_zh": "AMD 將對 Anthropic 投資至多 50 億美元，Anthropic 將部署至多 2GW 的 Instinct MI450 GPU",
+      "source": "Data Center Dynamics",
+      "date": "2026-07-23",
+      "topic": "Partnership",
+      "summary": "在 Advancing AI 大會上，AMD 同步宣布與 Anthropic 的重磅合作：Anthropic 將在 Helios 機櫃級系統中部署至多 2 吉瓦（GW）的 Instinct MI450 系列 GPU，首個 1GW 部署預計於 2027 上半年啟動。作為合作一環，AMD 承諾對 Anthropic 進行至多 50 億美元的策略性股權投資。雙方並啟動多年期工程協作，運用 Anthropic 的 Claude AI 來優化 AMD Instinct GPU 的工作負載，並加速 AMD ROCm 軟體堆疊的開發。此交易被視為 Anthropic 分散運算供應鏈、AMD 綁定大型 AI 實驗室客戶的雙向布局。",
+      "highlights": [
+        "Anthropic 將部署至多 2GW MI450 GPU，首個 1GW 於 2027 上半年上線",
+        "AMD 承諾對 Anthropic 策略性股權投資至多 50 億美元",
+        "雙方啟動多年期工程協作，以 Claude 優化 Instinct GPU 工作負載",
+        "合作將加速 AMD ROCm 軟體開發，強化其對 Nvidia CUDA 的挑戰",
+        "Anthropic 藉此進一步分散運算供應鏈，降低單一供應商依賴"
+      ],
+      "discussion": "業界關注此為 Anthropic 繼與雲端業者合作後，再度以「投資換算力」綁定硬體供應；也有評論指出，以 Claude 反向優化 AMD 軟體堆疊，是縮小 ROCm 與 CUDA 生態差距的關鍵一步。",
+      "url": "https://www.datacenterdynamics.com/en/news/amd-to-invest-5bn-in-anthropic-with-ai-company-to-deploy-2gw-of-instinct-mi450-gpus/"
+    },
+    {
+      "title": "Anthropic updates Claude voice mode with more capable models",
+      "title_zh": "Anthropic 為 Claude 語音模式導入更強模型",
+      "source": "TechCrunch",
+      "date": "2026-07-23",
+      "topic": "Product",
+      "summary": "Anthropic 於 7 月 23 日大幅升級 Claude 的語音模式，改用能力更強的模型驅動，並新增連接工具動作（connected tool actions）與更多語言支援。升級後，語音模式可運行於 Claude Opus、Claude Sonnet 與 Claude Haiku 三個層級，讓使用者依成本與能力需求選擇。此更新使 Claude 語音互動不再只是問答，而能在對話中觸發工具與外部連接動作，強化其作為 agentic 助理的實用性。此舉呼應近期 OpenAI 將 ChatGPT 語音升級為 GPT-Live 的競爭態勢。",
+      "highlights": [
+        "語音模式改由更強模型驅動，支援 Opus／Sonnet／Haiku 三層級切換",
+        "新增 connected tool actions，可在語音對話中直接觸發工具與外部動作",
+        "擴充多語言支援，提升非英語使用者體驗",
+        "定位為 agentic 語音助理，超越單純語音問答",
+        "與 OpenAI GPT-Live 語音升級形成正面競爭"
+      ],
+      "discussion": "使用者社群關注語音模式能否在對話流暢度上追上 OpenAI 的即時語音體驗，並討論工具動作整合對客服、個人助理等場景的實際落地價值。",
+      "url": "https://techcrunch.com/2026/07/23/anthropic-updates-claude-voice-mode-with-more-capable-models/"
+    },
+    {
+      "title": "One ChatGPT link could smuggle a rogue AI agent into your company",
+      "title_zh": "一條 ChatGPT 連結就能把惡意 AI Agent 偷渡進你的公司",
+      "source": "The Register",
+      "date": "2026-07-23",
+      "topic": "Cybersecurity",
+      "summary": "資安公司 Zenity Labs 揭露 OpenAI ChatGPT Workspace Agents 的一項重大跨站請求偽造（CSRF）漏洞，代號 AgentForger。攻擊者只需一條釣魚連結，即可在受害者組織內悄悄建立、授權並部署一個自主 AI Agent。該漏洞利用 ChatGPT Agent Builder 的兩個 URL 參數（範本選擇器與初始提示欄位），偽造出一個所有權限皆設為「永不詢問」的隱形 Agent，並每 5 分鐘輪詢攻擊者信箱以接收新指令。該 Agent 可繪製組織架構、外洩敏感文件、竊取憑證，並在 Slack、Teams、Email 中冒充受害者。OpenAI 於 6 月 4 日透過 Bugcrowd 收到通報、24 小時內確認，並於 6 月 8 日移除該漏洞參數，目前無證據顯示曾遭實際利用。",
+      "highlights": [
+        "漏洞代號 AgentForger，為 ChatGPT Agent Builder 的跨站請求偽造（CSRF）",
+        "單一釣魚連結即可建立權限全開、繞過核准的隱形自主 Agent",
+        "惡意 Agent 每 5 分鐘輪詢攻擊者信箱取指令，可外洩文件、竊憑證、冒充受害者",
+        "利用 template_name 與 initial_assistant_prompt 兩個 URL 參數發動",
+        "OpenAI 6 月 4 日收到通報、6 月 8 日修補，無在野利用證據"
+      ],
+      "discussion": "資安圈將此列為 agentic AI 時代的指標性威脅案例，凸顯 Agent Builder 這類「一鍵建 Agent」功能若權限預設不當，將成為新型內部威脅入口；也引發對 Agent 授權與人類核准機制（human-in-the-loop）設計的廣泛討論。",
+      "url": "https://www.theregister.com/security/2026/07/23/one-chatgpt-link-could-smuggle-a-rogue-ai-agent-into-your-company/"
+    },
+    {
+      "title": "Venture capital & startup funding roundup, July 23, 2026: Accel, Andreessen Horowitz, Battery Ventures, ICONIQ, Sequoia & more",
+      "title_zh": "創投與新創募資彙整（2026 年 7 月 23 日）：Accel、a16z、Battery Ventures、ICONIQ、Sequoia 等",
+      "source": "Tech Startups",
+      "date": "2026-07-23",
+      "topic": "Funding",
+      "summary": "7 月 23 日的創投募資彙整顯示，AI 仍主導美國創投資金流向。由 Uber 創辦人 Travis Kalanick 創立的實體 AI（physical AI）新創 Atoms 完成由 Andreessen Horowitz 領投的 17 億美元募資；AI 晶片新創 Etched 亦拿下 3 億美元，投資方包含 Sequoia、a16z、Jane Street、SK hynix 等。整體背景是美國 2026 上半年創投總額達 4,127 億美元，其中 AI 公司吸走約 86%，且逾八成資金投入 1 億美元以上的大型輪次。獲資最多的新創多聚焦於降低 AI 部署成本、提升 AI 生產環境可靠性，或將 AI 嵌入高重複性支出的產業。",
+      "highlights": [
+        "實體 AI 新創 Atoms（Travis Kalanick 創立）獲 a16z 領投 17 億美元",
+        "AI 晶片新創 Etched 募得 3 億美元，投資方含 Sequoia、a16z、Jane Street、SK hynix",
+        "美國 2026 上半年創投總額 4,127 億美元，AI 佔約 86%",
+        "逾 80% 資金流向 1 億美元以上的大型輪次，資本高度集中",
+        "獲資主軸：降低部署成本、提升生產可靠性、嵌入高重複支出產業"
+      ],
+      "discussion": "投資圈熱議資金過度集中於少數大型 AI 輪次的泡沫化風險，以及實體 AI／機器人領域是否成為繼基礎模型後的下一個資本焦點；Kalanick 二度創業拿下超大輪也引發關注。",
+      "url": "https://techstartups.com/2026/07/23/venture-capital-startup-funding-roundup-july-23-2026-accel-andreessen-horowitz-battery-ventures-iconiq-jane-street-sequoia-more/"
+    }
+  ],
+  "_updated_at": "2026-07-25T20:50:22.618173+08:00"
+}

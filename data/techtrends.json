@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "title": "VentureBeat Research: Where enterprise AI agent governance hasn't caught up",
+      "source": "VentureBeat",
+      "date": "2026-07-24",
+      "category": "企業AI/Agent治理",
+      "summary": "VentureBeat Research 於 2026 年 7 月 24 日發布綜合報告，整合其 6 月針對 573 位企業領導者、涵蓋 agentic 堆疊五個控制層（編排、可靠性與評估、安全與身分、基礎設施與運算、脈絡層/RAG）的五項平行調查。結果顯示企業明知控管尚未到位，仍搶先部署 AI agent：86% 的自有 GPU 使用率在半載以下，54% 過去一年曾發生 agent 安全事故或險些出事。71% 企業表示其所謂「agent」中僅四分之一或更少是真正的多步驟編排工作流，其餘為單一 prompt 的聊天機器人包裝。此外，五個控制層各有 57%～68% 的企業計畫在 12 個月內更換或新增供應商，約三分之一打算在當季內行動。",
+      "highlights": [
+        "綜合 6 月五項調查、573 位企業領導者，涵蓋 agentic 五大控制層",
+        "86% 自有 GPU 使用率在半載以下",
+        "54% 過去一年發生 agent 安全事故或險些出事",
+        "71% 企業的「agent」僅 ≤25% 為真正多步驟編排工作流",
+        "各控制層 57%～68% 企業計畫 12 個月內更換或新增供應商"
+      ],
+      "url": "https://venturebeat.com/technology/venturebeat-research-where-enterprise-ai-agent-governance-hasnt-caught-up"
+    },
+    {
+      "title": "New WitnessAI Report Reveals the Financial Cost and Risk Factors of Enterprise AI Adoption",
+      "source": "PR Newswire (WitnessAI)",
+      "date": "2026-07-22",
+      "category": "企業AI/風險",
+      "summary": "WitnessAI 於 2026 年 7 月 22 日發布《The Hidden Cost of Enterprise AI》報告，指出企業普遍將 AI 導入速度置於審慎之前，導致財務風險上升。調查顯示 91% 受訪者擔心 AI agent 會擴大其財務風險曝險，但企業仍持續加碼推進；同時有 64% 認為 agentic AI 帶來的價值超過其風險。報告描繪企業在「搶快導入」與「風險控管」之間的張力，指出安全、合規與事故處理等隱性成本正逐漸浮現。核心訊息是導入決策正由樂觀預期主導，而非風險量化。",
+      "highlights": [
+        "91% 受訪者擔心 AI agent 擴大財務風險曝險",
+        "64% 認為 agentic AI 的價值大於風險",
+        "企業將導入速度置於審慎之前，隱性成本（安全/合規/事故）上升",
+        "導入決策由樂觀預期主導，而非風險量化"
+      ],
+      "url": "https://www.prnewswire.com/news-releases/new-witnessai-report-reveals-the-financial-cost-and-risk-factors-of-enterprise-ai-adoption-302831518.html"
+    },
+    {
+      "title": "AI agents are still logging in as humans",
+      "source": "Help Net Security",
+      "date": "2026-07-21",
+      "category": "企業AI/資安趨勢",
+      "summary": "這份企業 AI 身分風險報告指出，多數企業的 AI agent 仍沿用人類使用者或服務帳號的憑證登入系統，而非具備獨立、可稽核的機器身分。當 agent 以「人的身分」行動時，企業難以區分某項操作究竟由員工還是自動化 agent 執行；一旦憑證外洩或 agent 遭入侵，責任歸屬與影響範圍都難以界定。報告呼籲企業為每個 agent 配發受管理的專屬身分（scoped identity），並將 agent 活動納入既有的身分與存取治理框架。核心警訊是：agent 的自主權擴張速度，遠快於企業為其建立的身分與控管機制。",
+      "highlights": [
+        "多數 AI agent 仍以人類或服務帳號憑證登入，欠缺獨立機器身分",
+        "agent 以「人的身分」行動，導致操作稽核與責任歸屬困難",
+        "憑證共用使單一外洩即可能波及整個 agent 群",
+        "建議為每個 agent 配發受管理的專屬 scoped identity"
+      ],
+      "url": "https://www.helpnetsecurity.com/2026/07/21/report-enterprise-ai-identity-risk/"
+    },
+    {
+      "title": "Gartner Forecasts Worldwide AI Platforms and Models Market to Grow 63% in 2026",
+      "source": "HPCwire / AIwire (引述 Gartner)",
+      "date": "2026-07-20",
+      "category": "產業報告",
+      "summary": "Gartner 最新預測，2026 年全球 AI 模型與平台市場的終端用戶支出將達 640 億美元，較 2025 年的 390 億美元成長 63.4%。其中生成式 AI 模型支出預估年增 117%，AI 平台支出成長 36.9%。報告顯示企業對 AI 基礎模型與平台的投資正加速，且支出重心持續向模型層傾斜。此成長率為 Gartner 追蹤的新興技術支出中最陡峭者之一，反映生成式與 agentic 應用帶動的底層需求。",
+      "highlights": [
+        "2026 年 AI 模型與平台市場達 640 億美元，年增 63.4%",
+        "生成式 AI 模型支出年增 117%",
+        "AI 平台支出成長 36.9%",
+        "支出重心持續向模型層傾斜"
+      ],
+      "url": "https://www.hpcwire.com/aiwire/2026/07/20/gartner-forecasts-worldwide-ai-platforms-and-models-market-to-grow-63-in-2026/"
+    },
+    {
+      "title": "China's AI models have Trump's AI world at war with itself",
+      "source": "MIT Technology Review",
+      "date": "2026-07-20",
+      "category": "AI地緣政治/政策",
+      "summary": "MIT Technology Review 於 2026 年 7 月 20 日刊出分析，指中國開源 AI 模型的快速崛起，正在美國 AI 政策圈內部引發路線分裂。文章描述 7 月下旬一個週末，多位現任與前任 Trump 政府 AI 顧問公開抨擊美國領先的 AI 公司，圍繞是否以及如何回應中國開放模型的競爭出現激烈爭論。此爭端凸顯開源與閉源、國家安全與市場開放之間的張力，已從技術層面延燒到美國 AI 治理與產業政策的核心。對關注 AI 供應鏈與模型選型的企業而言，是一項需納入地緣風險評估的訊號。",
+      "highlights": [
+        "中國開源 AI 模型崛起，在美國 AI 政策圈內引發路線分裂",
+        "7 月下旬多位現任/前任 Trump AI 顧問公開抨擊美國領先 AI 公司",
+        "爭議聚焦美國應如何回應中國開放模型的競爭",
+        "凸顯開源 vs 閉源、國安 vs 市場開放的政策張力"
+      ],
+      "url": "https://www.technologyreview.com/2026/07/20/1140675/chinas-ai-models-have-trumps-ai-world-at-war-with-itself/"
+    }
+  ],
+  "_updated_at": "2026-07-25T20:50:24.325646+08:00"
+}

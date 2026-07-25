@@ -1,0 +1,104 @@
+{
+  "items": [
+    {
+      "title": "歐盟執委會發布 AI Act 第 50 條透明度義務指引",
+      "source": "European Commission",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "歐盟執委會於 2026 年 7 月 20 日正式發布關於 AI Act 第 50 條透明度義務的實施指引，距離該義務自 8 月 2 日起生效僅剩不到兩週。指引明確要求業者在使用者與 AI 聊天機器人互動、或觀看 AI 生成內容（合成媒體、深偽）時，必須即時、清楚告知。指引搭配一份行為準則（Code of Conduct）與 FAQ，協助 general-purpose AI 及合成內容提供者落地執行標示與揭露要求。違反第 50 條透明度規範者，最高可處 1,500 萬歐元或全球年營業額 3% 罰鍰（取較高者）。執法由 27 個會員國的市場監督機關在國家層級啟動。",
+      "highlights": [
+        "透明度義務 2026 年 8 月 2 日正式生效，涵蓋 AI 聊天機器人揭露、合成內容標示、深偽標籤",
+        "違規最高罰 1,500 萬歐元或全球年營收 3%",
+        "指引附行為準則與 FAQ 作為合規工具",
+        "執法在各會員國市場監督機關層級啟動"
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems"
+    },
+    {
+      "title": "歐盟執委會通過 AI Act 第 50 條透明度義務最終指引：初步解析",
+      "source": "Bird & Bird",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "國際律師事務所 Bird & Bird 於 2026 年 7 月 20 日發表對歐盟執委會 AI Act 第 50 條透明度義務最終指引的初步法律解析。該文指出，執委會在義務生效前不到兩週才定案指引，讓企業合規準備時間相當緊迫。分析聚焦於「與 AI 系統互動的揭露義務」及「AI 生成／操作內容的標示義務」兩大主軸，並釐清 provider 與 deployer 各自的責任分工。文章也點出機器可讀標示（machine-readable marking）在技術落地上的實務困難。",
+      "highlights": [
+        "針對執委會 7 月 20 日定案的第 50 條指引提供律師事務所觀點",
+        "釐清 provider 與 deployer 的透明度責任分工",
+        "指出合規時程壓縮、企業準備時間不足的風險",
+        "討論機器可讀標示的技術落地挑戰"
+      ],
+      "url": "https://www.twobirds.com/en/insights/2026/european-commission-adopts-final-guidelines-on-ai-act-article-50-transparency-obligations-first-impr"
+    },
+    {
+      "title": "歐盟敲定 AI 揭露規則，浮水印強制規範超前技術現況",
+      "source": "TechTimes",
+      "date": "2026-07-21",
+      "category": "AI治理",
+      "summary": "TechTimes 於 2026 年 7 月 21 日報導，歐盟已敲定 AI 內容揭露規則，但強制性的浮水印（watermarking）與機器可讀標示要求，在技術成熟度上仍落後於法規期待。報導指出，AI Act 第 50 條要求業者對合成媒體加註標示，然而目前浮水印技術在被裁切、改寫或轉檔後容易失效，形成合規落差。針對 8 月 2 日前已上市的既有生成式 AI 系統，歐盟另給予過渡期至 2026 年 12 月 2 日以符合機器可讀標示要求。此一時間差凸顯監管節奏與技術可行性之間的張力。",
+      "highlights": [
+        "AI Act 浮水印／機器可讀標示要求超前現行技術成熟度",
+        "既有生成式 AI 系統獲過渡期至 2026 年 12 月 2 日",
+        "浮水印在裁切、改寫、轉檔後易失效，形成合規落差",
+        "凸顯法規節奏與技術可行性之間的落差"
+      ],
+      "url": "https://www.techtimes.com/articles/321174/20260721/eu-finalizes-ai-disclosure-rules-watermarking-mandate-outpaces-technology.htm"
+    },
+    {
+      "title": "法國 CNIL 與 CIANum 發布代理式 AI 對個資保護風險說明",
+      "source": "Digital Policy Alert",
+      "date": "2026-07-20",
+      "category": "隱私",
+      "summary": "法國資料保護主管機關 CNIL 與人工智慧暨數位科技委員會（CIANum）於 2026 年 7 月 20 日聯合發布說明，檢視代理式 AI（agentic AI）對個資保護法規適用的影響。說明指出，即使 AI Agent 自主行動、無人逐步啟動或監督，只要涉及個資的自動化處理仍受 GDPR 規範，部署該 Agent 的組織仍為資料控管者（data controller）。文件點名持久記憶（persistent memory）與跨服務互動是最容易與 GDPR 產生張力的特徵。CNIL 表示已對商業場景的 AI Agent 部署展開調查，最常見缺失為「未就 Agent 實際執行的處理行為載明合法性基礎」。此舉呼應 EDPB 即將出台的 AI 與個資指引草案（Guidelines 02/2026）中，對「實質影響人類決策」的 AI 系統擴大強制人為監督的方向。",
+      "highlights": [
+        "代理式 AI 自主行動仍受 GDPR 規範，部署組織為 data controller",
+        "持久記憶與跨服務互動被點名為最易牴觸 GDPR 的特徵",
+        "CNIL 已對商業場景 AI Agent 部署展開調查",
+        "最常見缺失為未載明處理行為的合法性基礎",
+        "呼應 EDPB Guidelines 02/2026 擴大人為監督要求"
+      ],
+      "url": "https://digitalpolicyalert.org/event/41932-national-commission-for-information-technology-and-civil-liberties-and-council-for-ai-and-digital-technology-released-a-note-on-the-risks-of-agentic-ai-for-personal-data-protection"
+    },
+    {
+      "title": "AI Regulation: Why the Aviation Approach Is the Best Path Forward",
+      "source": "Bloomberg",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "Bloomberg 意見專欄於 2026 年 7 月 20 日主張，AI 監管應借鏡航空業的安全治理模式，作為最佳路徑。文章指出，航空業透過強制性事故通報、獨立調查、以人為本的安全文化與跨業界共享教訓，建立了高度可信賴的安全紀錄，這套「從失敗中系統性學習」的機制值得 AI 治理仿效。專欄呼應近期 Google DeepMind、OpenAI、Anthropic 三家前沿實驗室負責人皆公開表態支持 AI 前沿需要監管的立場。此觀點也與 DHS-CISA 主張對關鍵基礎設施的代理式 AI 強制導入 prompt injection 防護與人為覆核文件的方向相呼應。",
+      "highlights": [
+        "主張以航空業安全治理模式作為 AI 監管藍本",
+        "強調強制事故通報、獨立調查與跨業界共享教訓",
+        "呼應三大前沿實驗室負責人支持 AI 監管的公開立場",
+        "與關鍵基礎設施代理式 AI 強制防護的政策方向相呼應"
+      ],
+      "url": "https://www.bloomberg.com/opinion/articles/2026-07-20/ai-regulation-why-the-aviation-approach-is-the-best-path-forward"
+    },
+    {
+      "title": "金管會揭保險監理3方向 推AI轉型與全齡金融",
+      "source": "中央社 CNA",
+      "date": "2026-07-22",
+      "category": "金融監管",
+      "summary": "金管會副主委陳彥良於 2026 年 7 月 22 日在東亞太平洋保險論壇（EAIC）表示，我國保險業未來監理將聚焦三大面向。第一是推動保險業 AI 科技轉型，以「負責任、可信賴、以人為本」為核心導入 AI 應用；第二是引導保險資金投入綠色金融與永續投資；第三是建構全齡金融體系並推廣微型保險，因應高齡化與數位落差。此番談話延續金管會將代理 AI（AI Agent）、可程式化 AI 與 AI 風險分類納入金融業 AI 指引的整體監理布局。",
+      "highlights": [
+        "保險監理三方向：AI 科技轉型、綠色金融、全齡金融與微型保險",
+        "AI 轉型以負責任、可信賴、以人為本為核心原則",
+        "延續代理 AI 與 AI 風險分類納入金融業 AI 指引的政策脈絡",
+        "副主委陳彥良於東亞太平洋保險論壇發表"
+      ],
+      "url": "https://www.cna.com.tw/news/afe/202607220318.aspx"
+    },
+    {
+      "title": "AI金融怎麼管？金管會揭四大目標 防歧視、落差與消費者失聲",
+      "source": "聯合新聞網",
+      "date": "2026-07-22",
+      "category": "金融監管",
+      "summary": "金管會銀行局長童政彰於 2026 年 7 月論壇指出，金融業運用 AI 將以「負責任 AI、可信賴 AI、以人為本 AI」為三大監理核心，並揭示四大治理目標。金管會特別示警須防範三項反效果：演算法歧視（algorithmic discrimination）、數位落差（digital divide）與消費者失聲。政策方向是從過去的原則式規範，逐步走向分級治理與動態監控的新架構。此舉與金管會規劃建立「AI 管 AI」制度、以另一套 AI 治理程式自動稽核金融機構 AI 模型合規性的方向一致。",
+      "highlights": [
+        "三大監理核心：負責任 AI、可信賴 AI、以人為本 AI",
+        "示警三項反效果：演算法歧視、數位落差、消費者失聲",
+        "監理從原則式規範走向分級治理與動態監控",
+        "呼應「AI 管 AI」自動稽核制度規劃"
+      ],
+      "url": "https://udn.com/news/story/7239/9644894"
+    }
+  ],
+  "_updated_at": "2026-07-25T20:49:19.142653+08:00"
+}
