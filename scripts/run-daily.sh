@@ -640,6 +640,15 @@ HEALTH_PYEOF
 log "推送到 GitHub..."
 cd "$REPO_DIR"
 
+# HEAD 必須掛在 main 上才推得動。2026-07-15~25 那十天的斷線就是這裡失守：
+# HEAD 處於 detached 狀態時，下面的 commit 落在無名 ref 上，而 `git push
+# origin main` 推的是本地 main 這個凍結不動的分支 → 每次都 non-fast-forward
+# 被拒，日誌卻只印出一句誤導人的「請檢查 Git 認證」。
+if ! git symbolic-ref -q HEAD >/dev/null; then
+    log "⚠️ HEAD 為 detached，重新掛回 main（保留目前 commit）"
+    git checkout -B main >/dev/null 2>&1 || log "⚠️ 掛回 main 失敗，本次推送可能無效"
+fi
+
 # fetch 遠端最新狀態（GitHub Actions 可能在擷取過程中已推新 commit）
 git fetch origin main 2>/dev/null || true
 
@@ -663,12 +672,17 @@ else
     git commit -m "📰 AI News $TODAY $TAG [local]" 2>/dev/null || true
 
     PUSHED=0
+    PUSH_ERR=""
     for i in 1 2 3; do
-        if git push origin main 2>/dev/null; then
+        # 不要把 stderr 丟進 /dev/null。push 失敗的真正原因（non-fast-forward、
+        # 認證失敗、網路不通）只出現在 stderr，吞掉之後日誌就只剩一句猜測，
+        # 這正是這條管線斷了十天沒人看得出原因的直接理由。
+        if PUSH_ERR=$(git push origin main 2>&1); then
             log "✅ 推送成功"
             PUSHED=1
             break
         fi
+        log "⚠️ 推送第 $i 次失敗：$(printf '%s' "$PUSH_ERR" | tr '\n' ' ' | cut -c1-300)"
         # 若推送仍失敗，再次 fetch + reset --soft 後重試
         if [[ $i -lt 3 ]]; then
             git fetch origin main 2>/dev/null || true
@@ -680,7 +694,11 @@ else
     done
 
     if [[ $PUSHED -eq 0 ]]; then
-        log "❌ 推送失敗（3 次），請檢查 Git 認證"
+        log "❌ 推送失敗（3 次）。git push 最後一次的完整輸出如下："
+        printf '%s\n' "$PUSH_ERR" | sed 's/^/      /'
+        log "   本地 HEAD=$(git rev-parse --short HEAD 2>/dev/null) "\
+"branch=$(git symbolic-ref -q --short HEAD 2>/dev/null || echo DETACHED) "\
+"origin/main=$(git rev-parse --short origin/main 2>/dev/null)"
     fi
 fi
 
