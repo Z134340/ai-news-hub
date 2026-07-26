@@ -20,3 +20,7 @@ archiver.env
 
 # 維運手冊：repo 為 public，ops 細節僅留本機（如需備份請存私有知識庫）
 OPS-RUNBOOK.md
+
+# agent 輸出的預覽區：build-insights.mjs 預設產到這裡供人審，核可後才用 --promote
+# 落到 data/agent/。run-daily.sh 每天會 `git add data/`，沒有這條規則預覽檔會直接上線。
+data/agent/.preview/
