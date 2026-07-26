@@ -1,21 +1,6 @@
 {
   "items": [
     {
-      "title": "VentureBeat Research: Where enterprise AI agent governance hasn't caught up",
-      "source": "VentureBeat",
-      "date": "2026-07-24",
-      "category": "企業AI/Agent治理",
-      "summary": "VentureBeat Research 於 2026 年 7 月 24 日發布綜合報告，整合其 6 月針對 573 位企業領導者、涵蓋 agentic 堆疊五個控制層（編排、可靠性與評估、安全與身分、基礎設施與運算、脈絡層/RAG）的五項平行調查。結果顯示企業明知控管尚未到位，仍搶先部署 AI agent：86% 的自有 GPU 使用率在半載以下，54% 過去一年曾發生 agent 安全事故或險些出事。71% 企業表示其所謂「agent」中僅四分之一或更少是真正的多步驟編排工作流，其餘為單一 prompt 的聊天機器人包裝。此外，五個控制層各有 57%～68% 的企業計畫在 12 個月內更換或新增供應商，約三分之一打算在當季內行動。",
-      "highlights": [
-        "綜合 6 月五項調查、573 位企業領導者，涵蓋 agentic 五大控制層",
-        "86% 自有 GPU 使用率在半載以下",
-        "54% 過去一年發生 agent 安全事故或險些出事",
-        "71% 企業的「agent」僅 ≤25% 為真正多步驟編排工作流",
-        "各控制層 57%～68% 企業計畫 12 個月內更換或新增供應商"
-      ],
-      "url": "https://venturebeat.com/technology/venturebeat-research-where-enterprise-ai-agent-governance-hasnt-caught-up"
-    },
-    {
       "title": "New WitnessAI Report Reveals the Financial Cost and Risk Factors of Enterprise AI Adoption",
       "source": "PR Newswire (WitnessAI)",
       "date": "2026-07-22",
@@ -27,7 +12,12 @@
         "企業將導入速度置於審慎之前，隱性成本（安全/合規/事故）上升",
         "導入決策由樂觀預期主導，而非風險量化"
       ],
-      "url": "https://www.prnewswire.com/news-releases/new-witnessai-report-reveals-the-financial-cost-and-risk-factors-of-enterprise-ai-adoption-302831518.html"
+      "url": "https://www.prnewswire.com/news-releases/new-witnessai-report-reveals-the-financial-cost-and-risk-factors-of-enterprise-ai-adoption-302831518.html",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.627495",
+      "complete": true
     },
     {
       "title": "AI agents are still logging in as humans",
@@ -41,7 +31,12 @@
         "憑證共用使單一外洩即可能波及整個 agent 群",
         "建議為每個 agent 配發受管理的專屬 scoped identity"
       ],
-      "url": "https://www.helpnetsecurity.com/2026/07/21/report-enterprise-ai-identity-risk/"
+      "url": "https://www.helpnetsecurity.com/2026/07/21/report-enterprise-ai-identity-risk/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.627546",
+      "complete": true
     },
     {
       "title": "Gartner Forecasts Worldwide AI Platforms and Models Market to Grow 63% in 2026",
@@ -55,7 +50,12 @@
         "AI 平台支出成長 36.9%",
         "支出重心持續向模型層傾斜"
       ],
-      "url": "https://www.hpcwire.com/aiwire/2026/07/20/gartner-forecasts-worldwide-ai-platforms-and-models-market-to-grow-63-in-2026/"
+      "url": "https://www.hpcwire.com/aiwire/2026/07/20/gartner-forecasts-worldwide-ai-platforms-and-models-market-to-grow-63-in-2026/",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.627593",
+      "complete": true
     },
     {
       "title": "China's AI models have Trump's AI world at war with itself",
@@ -69,8 +69,224 @@
         "爭議聚焦美國應如何回應中國開放模型的競爭",
         "凸顯開源 vs 閉源、國安 vs 市場開放的政策張力"
       ],
-      "url": "https://www.technologyreview.com/2026/07/20/1140675/chinas-ai-models-have-trumps-ai-world-at-war-with-itself/"
+      "url": "https://www.technologyreview.com/2026/07/20/1140675/chinas-ai-models-have-trumps-ai-world-at-war-with-itself/",
+      "url_status": "verified",
+      "title_score": 0.97,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.627643",
+      "complete": true
+    },
+    {
+      "title": "Gartner 預測 2026 年全球 AI 平台與模型市場將成長 63%",
+      "source": "Gartner",
+      "date": "2026-07-20",
+      "category": "產業報告",
+      "summary": "Gartner 最新預測指出，2026 年全球終端使用者在 AI 模型與平台的支出將達 640 億美元，較 2025 年的 390 億美元成長 63.4%。其中生成式 AI 模型支出成長 117%，AI 平台支出成長 36.9%。基礎生成式 AI 模型支出由 114 億美元增至 234 億美元（+104.2%），而領域專用語言模型（DSLM）與特化 GenAI 模型由 16 億增至 49 億美元（+210%），為成長最快的區塊。Gartner 強調企業 AI 預算正受更嚴格檢視，重心轉向使用效率、成本控制與可衡量成果，能將評估、成本透明與用量追蹤嵌入客戶工作流的供應商將取得優勢。",
+      "highlights": [
+        "2026 年 AI 平台與模型總支出 640 億美元，年增 63.4%",
+        "GenAI 模型支出成長 117%，AI 平台支出成長 36.9%",
+        "DSLM 與特化模型 +210%，為成長最快區塊",
+        "企業預算檢視趨嚴，重心轉向成本控制與可衡量成果"
+      ],
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-20-gartner-forecasts-worldwide-ai-platforms-and-models-market-to-grow-63-percent-in-2026",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.627694",
+      "complete": true
+    },
+    {
+      "title": "AI 投報未能超越支出：57% 企業困境未改，即便 93% 回報生產力提升",
+      "source": "Domino Data Lab",
+      "date": "2026-07-21",
+      "category": "企業AI",
+      "summary": "Domino Data Lab 發布第五份年度企業 AI 報告，調查 639 位資深企業 AI 領導者。結果顯示 AI 投資報酬無法超越投資額的企業比例自 2025 年以來持平於 57%，顯示規模化與獲利之間的落差尚未收斂。同時，93% 企業回報 2026 年生產能力有所提升，高於 2025 年的 88%。報告點出企業在生產力技術能力上明顯進步，但將其轉化為財務回報仍是核心挑戰。",
+      "highlights": [
+        "57% 企業 AI 投報率仍無法超越投資額，較 2025 年未變",
+        "93% 企業回報生產能力提升（2025 年為 88%）",
+        "調查涵蓋 639 位資深企業 AI 領導者",
+        "技術能力進步，但財務回報轉化仍是主要瓶頸"
+      ],
+      "url": "https://www.prnewswire.com/news-releases/ai-roi-fails-to-outpace-spend-for-57-of-enterprises-unchanged-since-2025-even-as-93-now-report-improved-production-302830222.html",
+      "url_status": "title_low_match",
+      "title_score": 0.15,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.627748",
+      "complete": true
+    },
+    {
+      "title": "全面剖析：2026 年七月 全球 AI 人工智慧五大流行趨勢",
+      "source": "yam 蕃新聞",
+      "date": "2026-07-23",
+      "category": "AI趨勢",
+      "summary": "本文彙整 2026 年七月全球 AI 五大趨勢。一是終端側革命：蘋果與高通新晶片讓 170 億參數模型可在手機流暢運行，催生完全離線的即時翻譯眼鏡、個人健康管家等 AI 原生應用。二是多模態世界模型進化：機器能預測物理世界變化，如預判杯子墜落並接住。三是主權 AI 與監管：歐盟《人工智慧法案》懲罰性條款於本月中旬生效，對高風險系統透明度要求嚴苛。四是科研應用突破：AI 以合成數據模擬預測室溫超導候選材料並找到對抗超級細菌的抗生素。五是資本市場與地緣政治：OpenAI 與 Anthropic 的 IPO 預告資本市場對前沿技術的押注。",
+      "highlights": [
+        "終端側 AI：170 億參數模型可在手機流暢運行，催生離線 AI 原生應用",
+        "多模態世界模型能預測物理世界變化",
+        "歐盟 AI Act 懲罰性條款本月中旬生效",
+        "AI 加速材料與製藥科研（室溫超導、抗超級細菌抗生素）",
+        "OpenAI 與 Anthropic IPO 預告資本市場押注"
+      ],
+      "url": "https://n.yam.com/Article/20260723668166",
+      "url_status": "verified",
+      "title_score": 0.95,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.627806",
+      "complete": true
+    },
+    {
+      "title": "Building Enterprise AI Agents in Regulated Industries",
+      "source": "BCG",
+      "date": "2026-07-20",
+      "category": "Agent應用",
+      "summary": "BCG 指出，在受監管產業擴大導入代理式 AI（agentic AI），需要一個能兼顧創新與治理的共用企業平台。共用平台提供可重用能力、共同標準與集中化控管，讓 agentic AI 能跨企業規模化而不造成架構碎片化。編排（orchestration）、記憶（memory）與治理等核心架構決策，應在 agent 尚未嵌入業務流程前就先確立。結合標準化平台、人工監督與明確運作模式的組織，能更快部署 agent 同時滿足資安與合規要求。在受監管產業，agent 能存取什麼、能執行什麼動作，以及動作如何保持可追溯與可稽核，都需要明確規則與標準。",
+      "highlights": [
+        "受監管產業擴大 agentic AI 需共用企業平台以平衡創新與治理",
+        "orchestration、memory、治理等架構決策須在 agent 嵌入流程前確立",
+        "標準化平台＋人工監督＋明確運作模式可加速部署並符合合規",
+        "agent 的存取權、可執行動作與可稽核性須有明確規則"
+      ],
+      "url": "https://www.bcg.com/publications/2026/building-enterprise-ai-agents-in-regulated-industries",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.627863",
+      "complete": true
+    },
+    {
+      "title": "AI Infrastructure Spending Holds Near $90 Billion in Q1 2026 as ARM Overtakes x86 in Accelerated Servers; 2026 Forecast Raised to $497 Billion",
+      "source": "IDC",
+      "date": "2026-07-22",
+      "category": "產業報告",
+      "summary": "IDC 將 2026 年全年 AI 基礎設施支出預測上修至 4,970 億美元，年增約 56%，較上一季估計的約 53% 進一步加速。2026 年第一季 AI 基礎設施支出達 897 億美元，年增 33%，但環比持平，顯示成長在較大基期上趨於正常化。ARM 架構的機架級 GPU 伺服器首次超越 x86，成為加速運算主流平台。IDC 並預測該市場 2029 年將突破 1 兆美元、達 1.08 兆美元，2030 年進一步攀升至 1.21 兆美元，自 2025 年起五年複合年增率約 30%。",
+      "highlights": [
+        "2026 年 AI 基礎設施支出上修至 4,970 億美元，年增約 56%",
+        "Q1 2026 支出達 897 億美元，年增 33%",
+        "ARM 機架級 GPU 伺服器首度超越 x86 成加速運算主流",
+        "市場 2029 年上看 1.08 兆美元、2030 年 1.21 兆美元"
+      ],
+      "url": "https://www.idc.com/resource-center/blog/ai-infrastructure-spending-holds-near-90-billion-in-q1-2026-as-arm-overtakes-x86-in-accelerated-servers-2026-forecast-raised-to-497-billion/",
+      "url_status": "title_low_match",
+      "title_score": 0.03,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.627923",
+      "complete": true
+    },
+    {
+      "title": "Booz Allen Survey: Federal Agencies Accelerate Agentic AI Adoption Despite Significant Trust and Security Gaps",
+      "source": "Booz Allen (via AIwire)",
+      "date": "2026-07-21",
+      "category": "Agent應用",
+      "summary": "Booz Allen 於 2026 年 7 月 21 日發布的調查顯示，美國聯邦機構正快速導入代理式 AI（agentic AI），但部署速度與信任、資安之間的落差持續擴大。聯邦機構在採用自主 AI 系統的同時，普遍缺乏相應的信任機制與資安防護，形成明顯的治理缺口。調查凸顯公部門在推進 agentic AI 時，必須同步強化監督、風險控管與安全措施，否則自主系統的行為風險將難以管控。",
+      "highlights": [
+        "美國聯邦機構加速導入 agentic AI",
+        "部署速度與信任、資安落差持續擴大",
+        "公部門普遍缺乏對應的治理與安全防護",
+        "凸顯自主 AI 須同步強化監督與風險控管"
+      ],
+      "url": "https://www.hpcwire.com/aiwire/2026/07/21/booz-allen-survey-federal-agencies-accelerate-agentic-ai-adoption-despite-significant-trust-and-security-gaps/",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.627974",
+      "complete": true
+    },
+    {
+      "title": "Avalara Survey: Finance Leaders are Racing to Deploy AI Agents Before Governance is Ready",
+      "source": "Avalara",
+      "date": "2026-07-21",
+      "category": "企業AI",
+      "summary": "Avalara 於 2026 年 7 月 21 日發布名為《Agents of Change: How the Race to Deploy AI Agents is Outrunning Financial Governance》的研究，調查橫跨美國、英國、印度與澳洲逾 1,500 位已部署、試行或積極評估在財務流程導入 AI agent 的財務長（CFO）與資深財務主管。研究指出，財務主管競相部署 AI agent 的速度，已超越財務治理的建置速度，形成治理落後於部署的風險缺口，恐在財務作業中引入未受控管的自主行為。",
+      "highlights": [
+        "調查橫跨美、英、印、澳逾 1,500 位 CFO 與資深財務主管",
+        "財務 AI agent 部署速度超越財務治理建置速度",
+        "治理落後於部署形成財務風險缺口",
+        "凸顯財務流程導入 agent 須先建立治理機制"
+      ],
+      "url": "https://newsroom.avalara.com/2026-07-21-Avalara-Survey-Finance-Leaders-are-Racing-to-Deploy-AI-Agents-Before-Governance-is-Ready",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628026",
+      "complete": true
+    },
+    {
+      "title": "Deloitte CFO Survey Q2 2026: Growing AI optimism",
+      "source": "Deloitte UK",
+      "date": "2026-07-20",
+      "category": "企業AI",
+      "summary": "Deloitte 第 76 次季度英國 CFO 調查（2026 年 7 月 1 至 13 日進行，58 位 CFO 參與，含 10 家 FTSE 100 與 21 家 FTSE 250）顯示，73% 的 CFO 表示過去 12 個月對 AI 的樂觀度提升，高於 2025 年第四季的 59% 與 2024 年第三季的 39%。近乎全數（96%）預期未來五年英國企業對數位科技與資產的投資將增加，93% 預期未來 12 個月即增加。隨著多數企業 AI 部署計畫已推進，半數（50%）受訪者預期未來 12 個月出現生產力提升。逾四分之三（78%）預期未來五年生產力與經營績效改善。整體顯示企業財務長對 AI 商業價值的信心明顯上行。",
+      "highlights": [
+        "73% CFO 對 AI 樂觀（2025 Q4 為 59%、2024 Q3 為 39%）",
+        "96% 預期未來五年數位科技投資增加、93% 預期未來 12 個月即增加",
+        "50% 預期未來 12 個月生產力提升、78% 預期未來五年績效改善",
+        "調查涵蓋 10 家 FTSE 100 與 21 家 FTSE 250 的 CFO"
+      ],
+      "url": "https://www.deloitte.com/uk/en/about/press-room/deloitte-cfo-survey-quater-two-2026-growing-ai-optimism.html",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628077",
+      "complete": true
+    },
+    {
+      "title": "AI Value Will Depend Not Just On Employee Adoption But...: McKinsey",
+      "source": "Republic World（引述 McKinsey）",
+      "date": "2026-07-20",
+      "category": "企業AI",
+      "summary": "引述 McKinsey 最新研究，AI 雖已在撰寫郵件、資料分析等個人任務上提升生產力，卻尚未轉化為全企業層級的轉型。調查顯示 70% 員工感覺個人已為 AI 做好準備，但僅 27% 領導者認為公司已具備所需的結構與文化變革條件。組織就緒度在解釋「能否從 AI 獲取價值」的差異中佔 48%，遠高於個人就緒度的 25%，凸顯瓶頸在組織而非員工。僅 11% 領導者稱組織已達「reinvention（重塑）」階段；在 enablement 階段僅 13% 獲得有意義的企業價值，automation 階段為 24%，reinvention 階段則達 48%。結論是 AI 價值取決於組織能否同步升級，而非僅靠員工採用。",
+      "highlights": [
+        "70% 員工自覺已準備好，但僅 27% 領導者認為公司已準備好",
+        "組織就緒度解釋 AI 價值差異達 48%，個人就緒度僅 25%",
+        "僅 11% 領導者稱組織達 reinvention 階段",
+        "各階段獲有意義價值比例：enablement 13% / automation 24% / reinvention 48%"
+      ],
+      "url": "https://www.republicworld.com/business/ai-value-will-depend-not-just-on-employee-adoption-but-mckinsey-2026-07-20-132876",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628129",
+      "complete": true
+    },
+    {
+      "title": "Gartner Survey Shows 45% of CFOs Say Their AI Investments Lean Toward Productivity, While 20% Say These Investments Lean Toward Decision Quality",
+      "source": "Gartner",
+      "date": "2026-07-20",
+      "category": "企業AI",
+      "summary": "Gartner 針對財務長（CFO）的調查顯示，45% 的 CFO 認為公司 AI 投資偏向提升個人生產力，僅 20% 認為投資偏向改善決策品質。財務部門的 AI 投資組合多集中於增進個人效率或精簡交易性流程等用例。雖然財務主管普遍回報 AI 導入有進展，但董事會端仍看到有限的策略性影響，凸顯「投入 vs. 可衡量商業成效」之間的落差。此調查反映 2026 年企業 AI 治理焦點正從導入速度轉向 ROI 與決策價值的驗證。",
+      "highlights": [
+        "45% CFO 認為 AI 投資偏向生產力，僅 20% 偏向決策品質",
+        "AI 投資多集中於個人效率與交易性流程精簡",
+        "財務端有進展，但董事會看到的策略性影響有限",
+        "焦點轉向可衡量商業成效與 ROI 驗證"
+      ],
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-20-gartner-survey-shows-45-percent-of-cfos-say-their-ai-investments-lean-towwards-productivity-while-20-percent-say-these-investments-lean-towards-decision-quality",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628180",
+      "complete": true
+    },
+    {
+      "title": "AI is more likely than humans to form biases when hiring",
+      "source": "MIT Technology Review",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "MIT Technology Review 報導一項研究發現，大型語言模型（LLM）在招募情境下可能從經驗中發展出自身偏見，且對求職者的刻板印象程度高於人類。隨著 AI 履歷篩選在真人審閱前先行介入，這類偏見可能被系統性放大。研究凸顯企業在導入 AI 招募工具時，模型偏誤與可審計性的治理缺口。對高度受監管的產業而言，此發現直接關聯到反歧視合規與 AI 決策問責的風險。",
+      "highlights": [
+        "LLM 在招募情境會從經驗形成自身偏見",
+        "AI 對求職者的刻板印象程度高於人類",
+        "AI 履歷篩選常在真人審閱前介入，放大偏誤風險",
+        "凸顯 AI 招募工具的偏誤治理與可審計性缺口"
+      ],
+      "url": "https://www.technologyreview.com/2026/07/20/1140655/ai-biases-hiring-humans/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628232",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-07-25T20:50:24.325646+08:00"
+  "_updated_at": "2026-07-25T20:50:24.325646+08:00",
+  "_fallback": true
 }

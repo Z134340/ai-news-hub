@@ -12,21 +12,12 @@
         "指引附行為準則與 FAQ 作為合規工具",
         "執法在各會員國市場監督機關層級啟動"
       ],
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems"
-    },
-    {
-      "title": "歐盟執委會通過 AI Act 第 50 條透明度義務最終指引：初步解析",
-      "source": "Bird & Bird",
-      "date": "2026-07-20",
-      "category": "AI治理",
-      "summary": "國際律師事務所 Bird & Bird 於 2026 年 7 月 20 日發表對歐盟執委會 AI Act 第 50 條透明度義務最終指引的初步法律解析。該文指出，執委會在義務生效前不到兩週才定案指引，讓企業合規準備時間相當緊迫。分析聚焦於「與 AI 系統互動的揭露義務」及「AI 生成／操作內容的標示義務」兩大主軸，並釐清 provider 與 deployer 各自的責任分工。文章也點出機器可讀標示（machine-readable marking）在技術落地上的實務困難。",
-      "highlights": [
-        "針對執委會 7 月 20 日定案的第 50 條指引提供律師事務所觀點",
-        "釐清 provider 與 deployer 的透明度責任分工",
-        "指出合規時程壓縮、企業準備時間不足的風險",
-        "討論機器可讀標示的技術落地挑戰"
-      ],
-      "url": "https://www.twobirds.com/en/insights/2026/european-commission-adopts-final-guidelines-on-ai-act-article-50-transparency-obligations-first-impr"
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+      "url_status": "title_low_match",
+      "title_score": 0.07,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628297",
+      "complete": true
     },
     {
       "title": "歐盟敲定 AI 揭露規則，浮水印強制規範超前技術現況",
@@ -40,7 +31,12 @@
         "浮水印在裁切、改寫、轉檔後易失效，形成合規落差",
         "凸顯法規節奏與技術可行性之間的落差"
       ],
-      "url": "https://www.techtimes.com/articles/321174/20260721/eu-finalizes-ai-disclosure-rules-watermarking-mandate-outpaces-technology.htm"
+      "url": "https://www.techtimes.com/articles/321174/20260721/eu-finalizes-ai-disclosure-rules-watermarking-mandate-outpaces-technology.htm",
+      "url_status": "title_low_match",
+      "title_score": 0.1,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628349",
+      "complete": true
     },
     {
       "title": "法國 CNIL 與 CIANum 發布代理式 AI 對個資保護風險說明",
@@ -55,7 +51,12 @@
         "最常見缺失為未載明處理行為的合法性基礎",
         "呼應 EDPB Guidelines 02/2026 擴大人為監督要求"
       ],
-      "url": "https://digitalpolicyalert.org/event/41932-national-commission-for-information-technology-and-civil-liberties-and-council-for-ai-and-digital-technology-released-a-note-on-the-risks-of-agentic-ai-for-personal-data-protection"
+      "url": "https://digitalpolicyalert.org/event/41932-national-commission-for-information-technology-and-civil-liberties-and-council-for-ai-and-digital-technology-released-a-note-on-the-risks-of-agentic-ai-for-personal-data-protection",
+      "url_status": "title_low_match",
+      "title_score": 0.13,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628401",
+      "complete": true
     },
     {
       "title": "AI Regulation: Why the Aviation Approach Is the Best Path Forward",
@@ -69,7 +70,12 @@
         "呼應三大前沿實驗室負責人支持 AI 監管的公開立場",
         "與關鍵基礎設施代理式 AI 強制防護的政策方向相呼應"
       ],
-      "url": "https://www.bloomberg.com/opinion/articles/2026-07-20/ai-regulation-why-the-aviation-approach-is-the-best-path-forward"
+      "url": "https://www.bloomberg.com/opinion/articles/2026-07-20/ai-regulation-why-the-aviation-approach-is-the-best-path-forward",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628450",
+      "complete": true
     },
     {
       "title": "金管會揭保險監理3方向 推AI轉型與全齡金融",
@@ -83,7 +89,12 @@
         "延續代理 AI 與 AI 風險分類納入金融業 AI 指引的政策脈絡",
         "副主委陳彥良於東亞太平洋保險論壇發表"
       ],
-      "url": "https://www.cna.com.tw/news/afe/202607220318.aspx"
+      "url": "https://www.cna.com.tw/news/afe/202607220318.aspx",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628506",
+      "complete": true
     },
     {
       "title": "AI金融怎麼管？金管會揭四大目標 防歧視、落差與消費者失聲",
@@ -97,8 +108,188 @@
         "監理從原則式規範走向分級治理與動態監控",
         "呼應「AI 管 AI」自動稽核制度規劃"
       ],
-      "url": "https://udn.com/news/story/7239/9644894"
+      "url": "https://udn.com/news/story/7239/9644894",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628555",
+      "complete": true
+    },
+    {
+      "title": "AI Act 透明度義務：歐盟執委會公布 Article 50 最終指引",
+      "source": "European Commission",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "歐盟執委會於 2026 年 7 月 20 日正式通過《AI Act》第 50 條透明度義務的最終實施指引，距離該義務 8 月 2 日生效不到兩週。指引全文共 51 頁，涵蓋互動式 AI 系統的揭露要求，以及 AI 生成內容的標示規範，包括聊天機器人揭露、深偽（deepfake）標籤與合成內容標記。文件明訂與自然人直接互動的 AI 系統，必須在互動開始前或當下告知使用者正在與 AI 溝通。指引本身不具法律約束力（僅歐盟法院 CJEU 可作權威解釋），但各國市場監管機關與 AI Office 預期將據以執法。違反者最高可處 1,500 萬歐元或全球年營業額 3% 罰款。",
+      "highlights": [
+        "7 月 20 日通過最終指引，8 月 2 日 Article 50 透明度義務正式生效，準備時間僅 11 天",
+        "涵蓋聊天機器人揭露、深偽標籤、AI 生成公共利益文本標示三大義務",
+        "採域外效力：任何在歐盟市場提供 AI 系統或其輸出被歐盟使用者使用者皆納入規範",
+        "指引非約束性，但國家監管機關與 AI Office 預期依循",
+        "最高罰款 1,500 萬歐元或全球營業額 3%"
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems",
+      "url_status": "title_low_match",
+      "title_score": 0.09,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628606",
+      "complete": true
+    },
+    {
+      "title": "UNESCO 與 LG AI Research 全球推出「AI 倫理 MOOC 計畫」",
+      "source": "UNESCO",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "UNESCO 與韓國 LG AI Research 於 2026 年 7 月 20 日在首爾舉辦的「Ethics by Design: Industry and Innovation」大會上，全球推出 AI 倫理大規模開放線上課程（MOOC）。課程免費開放，託管於 Coursera，涵蓋公平與包容、隱私與資料治理、透明與問責、安全與資安、環境永續及全球 AI 治理等十大模組。課程以 2021 年 UNESCO 193 個會員國一致通過的《AI 倫理建議書》為基礎，是全球首個 AI 倫理規範性文件。此舉被評為民間主導的國際合作強化全球 AI 治理的重要轉捩點。雙方並規劃於 2026 下半年將計畫延伸為線下實作訓練。",
+      "highlights": [
+        "7 月 20 日於首爾大會全球推出，課程免費且託管於 Coursera",
+        "十大模組涵蓋公平、隱私、透明問責、安全、永續與全球治理",
+        "以 2021 年 UNESCO《AI 倫理建議書》（193 國一致通過）為基礎",
+        "被評為民間主導國際合作強化全球 AI 治理的轉捩點",
+        "2026 下半年將延伸為線下 AI 倫理實作訓練試辦計畫"
+      ],
+      "url": "https://www.unesco.org/en/articles/unesco-and-lg-ai-research-launch-global-mooc-ethics-ai",
+      "url_status": "verified",
+      "title_score": 0.58,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628659",
+      "complete": true
+    },
+    {
+      "title": "金融共好論壇22日登場 永豐銀AI協助 升級銀行服務",
+      "source": "聯合新聞網",
+      "date": "2026-07-22",
+      "category": "金融監管",
+      "summary": "經濟日報與永豐銀行於 2026 年 7 月 22 日在台北國際會議中心共同主辦「2026 金融共好論壇—AI 金融 消費新關係」，邀集產、官、學界剖析金融業落實公平待客、友善創新與防堵詐騙三大議題。論壇涵蓋金管會銀行局局長童政彰的「智慧金融升級友善金融」政策方向、永豐銀行副總經理嚴國瑞分享 AI 智慧金融服務的機會與挑戰。並由內政部警政署刑事警察局局長邱紹洲、金融研訓院院長高一誠及金融評議中心主委羅俊瑋進行高峰對談，探索「公平×信任×創新 永續金融治理」願景。",
+      "highlights": [
+        "經濟日報與永豐銀行 7 月 22 日於台北國際會議中心共同主辦",
+        "聚焦公平待客、友善創新與防堵詐騙三大議題",
+        "金管會、永豐銀、警政署、金融研訓院、金融評議中心跨界對談",
+        "主題為「AI 金融 消費新關係」與永續金融治理",
+        "產官學界共探 AI 時代金融消費新關係"
+      ],
+      "url": "https://udn.com/news/amp/story/7239/9603920",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628712",
+      "complete": true
+    },
+    {
+      "title": "OpenAI and Anthropic unite against open-weight AI risks",
+      "source": "Axios",
+      "date": "2026-07-22",
+      "category": "AI治理",
+      "summary": "OpenAI 與 Anthropic 兩大前沿模型業者罕見地就開放權重（open-weight）AI 模型的風險立場趨於一致，共同對開源模型可能帶來的安全疑慮提出警示。報導指出，兩家公司關注開放權重模型在被濫用時難以撤回或管控的問題，並將此議題連結至美中 AI 競爭與川普政府的政策方向。此一動向凸顯封閉與開放模型陣營在治理理念上的分歧，也可能影響美國未來對前沿模型釋出方式的監管框架。",
+      "highlights": [
+        "OpenAI 與 Anthropic 對開放權重模型風險立場趨一致",
+        "關注開源模型濫用後難以撤回或管控",
+        "議題連結至美中 AI 競爭與川普政府政策",
+        "凸顯封閉與開放模型陣營的治理分歧"
+      ],
+      "url": "https://www.axios.com/2026/07/22/openai-anthropic-open-models-trump-china",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.628761",
+      "complete": true
+    },
+    {
+      "title": "Poll Finds Support for Mass. AI Safety Rules",
+      "source": "Agency Checklists",
+      "date": "2026-07-20",
+      "category": "AI政策",
+      "summary": "報導引述最新民調顯示，麻州（Massachusetts）民眾對於制定 AI 安全規範抱持支持態度，為當地推動前沿 AI 安全立法提供民意基礎。民調結果反映公眾對 AI 風險治理的關切，特別是在缺乏聯邦統一規範的背景下，州層級立法動能上升。文章將此連結至麻州針對前沿 AI 模型安全揭露與問責的法案討論。此類州級民意與立法動向，是觀察美國 AI 治理由下而上推進的重要指標。",
+      "highlights": [
+        "民調顯示麻州民眾支持制定 AI 安全規範",
+        "為州層級前沿 AI 安全立法提供民意基礎",
+        "反映聯邦缺乏統一規範下州級立法動能上升",
+        "關連麻州前沿 AI 模型安全揭露與問責法案"
+      ],
+      "url": "https://www.agencychecklists.com/2026/07/20/massachusetts-ai-safety-poll-2026/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628812",
+      "complete": true
+    },
+    {
+      "title": "Xi calls for equitable global AI governance, unveils new cooperation body",
+      "source": "CPPCC (en.cppcc.gov.cn)",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "中國國家主席習近平於2026年世界人工智慧大會（WAIC）高階會議上呼籲建立公正、公平的全球AI治理體系，並宣布成立「世界人工智慧合作組織（WAICO）」，總部設於上海。共有29國簽署WAICO創始協議。此舉被視為中國在美中AI治理主導權競逐中，向全球南方國家提出替代方案。中國強調AI應開放、普惠，反對技術壟斷與出口管制。",
+      "highlights": [
+        "習近平宣布成立世界人工智慧合作組織（WAICO），總部設於上海",
+        "29國簽署WAICO創始協議，鎖定全球南方（Global South）市場",
+        "主張開放、普惠治理，反對技術壟斷與「小院高牆」",
+        "與美國、EU 的治理路線形成競爭態勢"
+      ],
+      "url": "http://en.cppcc.gov.cn/2026-07/20/c_1198497.htm",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628862",
+      "complete": true
+    },
+    {
+      "title": "WAIC 2026: New coordinates for global AI governance and China's contributions",
+      "source": "CGTN",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "CGTN 評論指出，2026世界人工智慧大會為全球AI治理設下新座標，聚焦能力建設、開源生態與發展中國家參與。文章強調由 ITU 與中國推動的全球AI能力發展網路（AICDN）已進入運作階段，連結19國及國際組織。復旦大學全球AI創新治理中心擔任中方成員機構。內容側重宣傳中國在多邊AI治理中的貢獻與話語權。",
+      "highlights": [
+        "全球AI能力發展網路（AICDN）進入運作，連結19國",
+        "復旦大學全球AI創新治理中心擔任中方成員機構",
+        "強調開源生態與發展中國家的能力建設",
+        "將WAIC定位為全球治理新多邊平台"
+      ],
+      "url": "https://news.cgtn.com/news/2026-07-20/New-coordinates-for-global-AI-governance-and-China-s-contributions-1OW4UqtQrQc/p.html",
+      "url_status": "verified",
+      "title_score": 0.92,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628914",
+      "complete": true
+    },
+    {
+      "title": "The World Artificial Intelligence Conference Opens in Shanghai",
+      "source": "Shanghai Cooperation Organisation (SCO)",
+      "date": "2026-07-19",
+      "category": "AI治理",
+      "summary": "上海合作組織官網報導2026世界人工智慧大會於上海開幕，主題為「AI Partnership for a Brighter Future」。大會結合高階全球AI治理會議同期舉行，聚焦國際合作、前沿研究與公眾參與。報導強調本屆與會規模創紀錄，並凸顯AI治理的跨國協作議題。",
+      "highlights": [
+        "大會主題「AI Partnership for a Brighter Future」",
+        "結合高階全球AI治理會議同期舉行",
+        "與會規模創紀錄",
+        "SCO 框架下強調跨國AI合作"
+      ],
+      "url": "https://eng.sectsco.org/20260719/2462053.html",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.628964",
+      "complete": true
+    },
+    {
+      "title": "WAIC Ends With Two Incompatible AI Governance Orders Locked In for Enterprises",
+      "source": "Tech Times",
+      "date": "2026-07-20",
+      "category": "AI治理",
+      "summary": "Tech Times 分析指出，隨WAIC落幕，全球企業如今面臨兩套互不相容的AI治理秩序：以中國WAICO為核心的開放共享路線，與以美國、EU 監理為核心的合規審計路線。企業須同時滿足雙邊要求，跨國部署AI的合規成本與複雜度大增。文章警告「治理分裂」將成企業AI策略的結構性風險。",
+      "highlights": [
+        "全球形成兩套互不相容的AI治理秩序（中國 vs 美歐）",
+        "跨國企業須雙邊合規，成本與複雜度上升",
+        "「治理分裂」成企業AI部署的結構性風險",
+        "呼籲企業建立可適應多法域的治理框架"
+      ],
+      "url": "https://www.techtimes.com/articles/320997/20260720/waic-ends-two-incompatible-ai-governance-orders-locked-enterprises.htm",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.629014",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-07-25T20:49:19.142653+08:00"
+  "_updated_at": "2026-07-25T20:49:19.142653+08:00",
+  "_fallback": true
 }

@@ -13,7 +13,12 @@
         "OpenAI 主動揭露，顯示前沿模型在紅隊測試下具備串接漏洞與憑證的能力",
         "對應 OWASP Agentic Top 10 的 Excessive Agency 與供應鏈風險類別"
       ],
-      "url": "https://aiweekly.co/ai-news-today"
+      "url": "https://aiweekly.co/ai-news-today",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.624034",
+      "complete": true
     },
     {
       "title": "AI News — Today's Top Stories, Tracked & Ranked",
@@ -28,7 +33,12 @@
         "重新點燃中美 AI 競賽與開源 vs 閉源路線之爭",
         "延續中國實驗室以開源模型衝擊全球前沿的策略"
       ],
-      "url": "https://aiweekly.co/"
+      "url": "https://aiweekly.co/",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.624110",
+      "complete": true
     },
     {
       "title": "AI Updates Today (July 2026) – Latest AI Model Releases",
@@ -43,38 +53,34 @@
         "須向競爭者（含 AI 開發商）分享部分搜尋資料",
         "以 DMA 反壟斷框架直接介入 AI 平台競爭"
       ],
-      "url": "https://llm-stats.com/llm-updates"
+      "url": "https://llm-stats.com/llm-updates",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-07-25T20:51:18.624182",
+      "complete": true
     },
     {
-      "title": "AI News Today, July 24 — Top AI Stories & Live Updates",
-      "title_zh": "AI 設計協作平台 Paper 完成 3,400 萬美元 A 輪，Accel 與 Iconiq 領投",
-      "source": "AI Weekly",
-      "date": "2026-07-24",
-      "domain": "Industry",
-      "model_area": "AI Coding / Design Tooling",
-      "summary": "位於舊金山、專為使用 AI 編碼 agent 出貨軟體的團隊打造設計平台的新創 Paper，完成 3,400 萬美元 A 輪募資，由 Accel 與 Iconiq 領投。多位來自 Anthropic 與 OpenAI 的工程師與設計師以天使投資人身分參與。此輪反映在 agentic coding 工作流興起下，圍繞 agent 協作與交付的工具鏈正吸引資本。",
+      "title": "OpenAI launches enterprise agent platform, unveils data center campus that could exceed $30 billion",
+      "title_zh": "OpenAI 推出企業級 Agent 平台，並公布可能超過 300 億美元的資料中心園區",
+      "source": "BuildFastWithAI",
+      "date": "2026-07-23",
+      "domain": "Agent",
+      "model_area": "Enterprise AI Agent / Infrastructure",
+      "summary": "OpenAI 於 7 月 23 日發表企業級 AI Agent 平台，鎖定企業自動化與工作流程整合。同日公布一座規模可能超過 300 億美元的資料中心園區計畫，顯示其在 Agent 運算基礎設施上的巨額投入。此舉強化 OpenAI 在企業 agentic AI 市場對抗 Microsoft、Google 的競爭態勢。",
       "highlights": [
-        "3,400 萬美元 A 輪，Accel 與 Iconiq 領投",
-        "Anthropic、OpenAI 現任工程師與設計師以天使投資人加入",
-        "瞄準 AI coding agent 出貨軟體的團隊協作缺口"
+        "企業級 Agent 平台聚焦工作流程自動化與整合",
+        "資料中心園區投資可能突破 300 億美元",
+        "反映 Agent 運算需求驅動的基礎設施軍備競賽"
       ],
-      "url": "https://aiweekly.co/ai-news-today"
-    },
-    {
-      "title": "LLM News Today (July 2026) – AI Model Releases",
-      "title_zh": "Google Gemini 影像世代新功能：Video 與 Action 進入早期存取、開放權重 Dev 版年內登場",
-      "source": "LLM Stats",
-      "date": "2026-07-24",
-      "domain": "LLM",
-      "model_area": "Gemini / Multimodal",
-      "summary": "Google 的新一代生成功能中，Video 與 Action 特性已進入早期存取階段，影像生成將於未來數週上線，並規劃於 2026 年稍晚推出開放權重的 Dev 版本。此配置顯示 Google 在多模態生成與 agentic「動作」能力上同步推進，並以開放權重版本爭取開發者生態。",
-      "highlights": [
-        "Video 與 Action 功能進入早期存取",
-        "影像生成數週內上線，開放權重 Dev 版年內推出",
-        "多模態生成與 agent 動作能力同步佈局"
-      ],
-      "url": "https://llm-stats.com/ai-news"
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-23-2026",
+      "url_status": "title_low_match",
+      "title_score": 0.26,
+      "verified": "needs_review",
+      "verified_at": "2026-07-25T20:51:18.624260",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-07-25T20:46:15.455188+08:00"
+  "_updated_at": "2026-07-25T20:46:15.455188+08:00",
+  "_fallback": true
 }
