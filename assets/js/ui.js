@@ -36,6 +36,7 @@ function switchSec(id) {
   document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === 'panel-'+id));
   $('subTabs').classList.toggle('vis', id==='news');
   if(id==='news') switchSub(curSub);
+  if(id==='dashboard') loadDashboard();
   if(id==='history') loadHistoryPanel();
   if(id==='bookmarks') renderBookmarks();
   updateTitle();
@@ -59,6 +60,9 @@ function switchSub(id) {
 function updateTitle() {
   const catId = curSec==='news'?curSub:curSec;
   if(curSec==='history'){$('secTitle').textContent=TITLES.history;$('secCount').textContent='';$('secUpdated').innerHTML='';return;}
+  // 儀表板的資料不在 DATA.data 底下（它自己去抓 index.json 與 data/agent/*.json），
+  // 落到下面的 DATA.data[catId] 只會拿到 undefined 並把筆數印成 0。
+  if(curSec==='dashboard'){$('secTitle').textContent=TITLES.dashboard;$('secCount').textContent='';$('secUpdated').innerHTML='';return;}
   if(curSec==='bookmarks'||curSec==='search') return; // managed by their own render functions
   const items = DATA?.data?.[catId] || [];
   $('secTitle').textContent = TITLES[catId] || '';

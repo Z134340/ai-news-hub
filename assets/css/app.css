@@ -258,3 +258,84 @@ mark{background:rgba(129,140,248,0.3);color:var(--tx);border-radius:2px;padding:
 .auth-actions button:last-child{background:none;border:1px solid var(--bd);color:var(--tx2)}
 .auth-actions button:last-child:hover{border-color:var(--ac);color:var(--ac)}
 @media(max-width:480px){.auth-modal{width:100%;max-width:100%;top:auto;bottom:0;left:0;transform:none;border-radius:16px 16px 0 0}}
+
+/* ===== DASHBOARD（首頁儀表板：KPI／時間軸／主題趨勢／重點整理） ===== */
+.dash-sec{margin-bottom:22px}
+.dash-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
+.dsh-left{display:flex;align-items:center;gap:7px;min-width:0}
+.dsh-title{font-size:14px;font-weight:800;color:var(--tx);letter-spacing:.2px}
+.dsh-sub{font-size:10.5px;color:var(--tx3);white-space:nowrap;flex-shrink:0}
+
+/* KPI 列 */
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.dash-kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:11px 12px;min-width:0}
+.dk-top{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.dk-label{font-size:10.5px;font-weight:700;color:var(--tx3)}
+.dk-value{font-size:19px;font-weight:800;line-height:1.1;letter-spacing:-.3px}
+.dk-sub{font-size:9.5px;color:var(--tx3);margin-top:4px;line-height:1.5;word-break:break-word}
+
+/* 圖表容器 */
+.dash-chart{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 10px 6px}
+.dash-chart svg{display:block;width:100%;height:150px}
+.dash-bar{transition:opacity .15s}
+.dash-bar:hover{opacity:.7}
+.dash-legend{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:8px;padding:0 2px}
+.dl-item{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--tx3)}
+.dl-item i{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* 分類組成堆疊 */
+.dash-sub-title{font-size:11.5px;font-weight:700;color:var(--tx2);margin:16px 0 8px}
+.dash-stack{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px}
+.ds-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.ds-row:last-child{margin-bottom:0}
+.ds-date{font-size:10px;color:var(--tx3);width:38px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.ds-track{flex:1;display:flex;height:12px;border-radius:3px;overflow:hidden;background:rgba(148,163,184,0.06)}
+.ds-seg{height:100%}
+.ds-tot{font-size:10px;color:var(--tx2);width:26px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
+
+/* 主題趨勢卡 */
+.dash-meta{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.dash-trend,.dash-brief-item{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;margin-bottom:8px;transition:border-color .2s,background .2s}
+.dash-trend:hover,.dash-brief-item:hover{background:var(--cardH);border-color:var(--bdH)}
+.dt-title{font-size:13.5px;font-weight:700;color:var(--tx);line-height:1.5;word-break:break-word}
+.dt-score{display:flex;align-items:center;gap:8px;margin-top:7px}
+.dt-track{flex:1;height:6px;border-radius:3px;background:rgba(148,163,184,0.08);overflow:hidden}
+.dt-fill{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#6366f1,#a78bfa)}
+.dt-num{font-size:11px;font-weight:800;color:var(--acl);font-variant-numeric:tabular-nums;flex-shrink:0}
+.dash-breakdown{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:3px 14px}
+.dbd-row{display:flex;align-items:center;gap:6px}
+.dbd-k{font-size:9.5px;color:var(--tx3);width:88px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dbd-track{flex:1;height:4px;border-radius:2px;background:rgba(148,163,184,0.08);overflow:hidden}
+.dbd-fill{display:block;height:100%;border-radius:2px}
+.dbd-v{font-size:9.5px;color:var(--tx3);width:26px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
+
+/* 代理人判讀列（階段判讀／路線預測） */
+.dash-agent-row{margin-top:9px;border:1px solid;border-radius:10px;padding:9px 11px}
+.dar-head{display:flex;align-items:center;flex-wrap:wrap;gap:5px;font-size:11px;font-weight:700}
+.dar-text{font-size:11.5px;line-height:1.75;color:var(--tx2);margin-top:5px;word-break:break-word}
+.dar-text b{color:var(--tx);font-weight:700}
+.dar-dim{color:var(--tx3)}
+.da-metrics{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}
+.da-metric{font-size:9.5px;color:var(--tx3)}
+.da-metric b{color:var(--tx2);font-variant-numeric:tabular-nums}
+
+/* 重點整理 */
+.db-body{font-size:12.5px;line-height:1.85;color:var(--tx2);margin-top:6px;word-break:break-word}
+.dash-note{font-size:10.5px;line-height:1.7;color:var(--tx3);background:rgba(148,163,184,0.04);border:1px solid var(--bd);border-radius:9px;padding:8px 11px;margin-top:8px}
+.dash-note code{font-size:10px;background:rgba(148,163,184,0.10);border-radius:3px;padding:1px 4px}
+.dash-warn{color:var(--amber);border-color:rgba(251,191,36,0.22);background:rgba(251,191,36,0.05)}
+.panel .empty code{font-size:11px;background:rgba(148,163,184,0.10);border-radius:3px;padding:1px 5px}
+
+@media(max-width:768px){
+  .dash-kpis{grid-template-columns:1fr 1fr;gap:6px;margin-bottom:16px}
+  .dash-kpi{padding:9px 10px;border-radius:10px}
+  .dk-value{font-size:17px}
+  .dash-chart{padding:10px 6px 4px;border-radius:10px}
+  .dash-chart svg{height:130px}
+  .dash-trend,.dash-brief-item{padding:12px;border-radius:12px}
+  .dt-title{font-size:12.5px}
+  .dash-breakdown{grid-template-columns:1fr}
+  .dbd-k{width:76px}
+  .ds-date{width:34px}
+  .dsh-title{font-size:13px}
+}

@@ -44,7 +44,7 @@ function svg(name, size=14, color='currentColor') {
 
 /* ======== STATE ======== */
 let DATA = null, HEALTH = null, DATA_LATEST = null, HIST_VIEWING = null;
-let curSec = 'papers', curSub = 'topnews';
+let curSec = 'dashboard', curSub = 'topnews';
 const openCards = {};
 const REGISTRY = {}; // bmId → {cat, catLabel, catColor, item}
 let BOOKMARKS = {};  // bmId → {cat, catLabel, catColor, item, savedAt}
@@ -56,6 +56,7 @@ const esc = s => { if(!s)return''; const d=document.createElement('div'); d.text
 
 /* ======== SECTION / SUB CONFIG ======== */
 const SECS = [
+  { id:'dashboard', label:'儀表板', desc:'趨勢時間軸與重點', ico:'chart', grad:'linear-gradient(135deg,#22d3ee,#818cf8)' },
   { id:'papers', label:'論文研討', desc:'頂尖機構最新研究', ico:'file', grad:'linear-gradient(135deg,#6366f1,#818cf8)' },
   { id:'news', label:'AI 新聞', desc:'全球各區熱議焦點', ico:'news', grad:'linear-gradient(135deg,#f59e0b,#fbbf24)' },
   { id:'models', label:'模型快訊', desc:'最新模型與技術突破', ico:'rocket', grad:'linear-gradient(135deg,#8b5cf6,#a78bfa)' },
@@ -73,7 +74,7 @@ const SUBS = [
   { id:'tutorials', label:'AI工具教學', ico:'file', color:'#fbbf24' },
   { id:'courses', label:'AI官方課程/證照', ico:'check', color:'#34d399' },
 ];
-const TITLES = { papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', models:'🚀 最近模型發布快訊', history:'📅 歷史紀錄' };
+const TITLES = { dashboard:'趨勢儀表板', papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', models:'🚀 最近模型發布快訊', history:'📅 歷史紀錄' };
 
 /* ======== HELPERS ======== */
 function badge(color, inner) { return `<span class="badge" style="background:${color}14;color:${color};border:1px solid ${color}22">${inner}</span>`; }
