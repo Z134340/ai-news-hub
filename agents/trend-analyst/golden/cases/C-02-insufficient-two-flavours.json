@@ -1,0 +1,228 @@
+{
+  "schema": "trend-input-v0.1",
+  "metrics_schema": "trend-metrics-v0.1",
+  "generated_at": "2026-07-27T04:00:00.000Z",
+  "window": {
+    "start": "2026-06-20",
+    "end": "2026-07-26",
+    "observed_days": 16,
+    "calendar_days": 37,
+    "continuity": 0.4324,
+    "missing_dates_count": 21
+  },
+  "clusters": [
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "模型發布與推論",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 412,
+        "unique_items": 190,
+        "unique_titles": 236,
+        "active_days": 13,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 71,
+        "previous_sum": 64,
+        "change": 7,
+        "change_rate": 0.1094,
+        "sufficient": true,
+        "observed_days": 13,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 10.1429,
+          "observed_days": 4,
+          "coverage": 0.5714,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 9.4615,
+          "observed_days": 13,
+          "coverage": 0.4333,
+          "truncated_by_corpus_start": false,
+          "sufficient": false
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": null,
+          "observed_days": 13,
+          "coverage": 0.1444,
+          "truncated_by_corpus_start": true,
+          "sufficient": false
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": 0.112,
+        "r2": 0.1804,
+        "observed_points": 13,
+        "sufficient": false
+      },
+      "source_concentration": {
+        "distinct_sources": 96,
+        "hhi": 0.0446,
+        "effective_sources": 22.4,
+        "top_sources": [
+          {
+            "source": "iThome",
+            "count": 31,
+            "share": 0.0752
+          },
+          {
+            "source": "TechCrunch",
+            "count": 24,
+            "share": 0.0583
+          },
+          {
+            "source": "Medium",
+            "count": 18,
+            "share": 0.0437
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 412,
+        "unique_titles": 236,
+        "duplicate_title_ratio": 0.4272,
+        "repeated_title_groups": 64,
+        "cross_source_repeat_groups": 5,
+        "max_title_repeat": 9,
+        "top_repeats": [
+          {
+            "title": "OpenAI 發表新一代推論模型",
+            "count": 6,
+            "distinct_sources": 2,
+            "sources": [
+              "iThome",
+              "科技新報"
+            ],
+            "dates": [
+              "2026-07-08",
+              "2026-07-09",
+              "2026-07-10",
+              "2026-07-11",
+              "2026-07-12",
+              "2026-07-13"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 388,
+        "unique_items": 171,
+        "unique_titles": 214,
+        "active_days": 16,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 83,
+        "previous_sum": 79,
+        "change": 4,
+        "change_rate": 0.0506,
+        "sufficient": true,
+        "observed_days": 16,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 11.8571,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 11.1875,
+          "observed_days": 16,
+          "coverage": 0.5333,
+          "truncated_by_corpus_start": true,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": null,
+          "observed_days": 16,
+          "coverage": 0.1778,
+          "truncated_by_corpus_start": true,
+          "sufficient": false
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": 0.241,
+        "r2": 0.3312,
+        "observed_points": 16,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 88,
+        "hhi": 0.0505,
+        "effective_sources": 19.8,
+        "top_sources": [
+          {
+            "source": "Medium",
+            "count": 29,
+            "share": 0.0747
+          },
+          {
+            "source": "InfoQ",
+            "count": 21,
+            "share": 0.0541
+          },
+          {
+            "source": "iThome",
+            "count": 17,
+            "share": 0.0438
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 388,
+        "unique_titles": 214,
+        "duplicate_title_ratio": 0.4485,
+        "repeated_title_groups": 58,
+        "cross_source_repeat_groups": 4,
+        "max_title_repeat": 11,
+        "top_repeats": [
+          {
+            "title": "使用 LangChain 建構 AI Agent：2026 初學者完整指南",
+            "count": 11,
+            "distinct_sources": 2,
+            "sources": [
+              "GROWAI",
+              "Medium"
+            ],
+            "dates": [
+              "2026-07-14",
+              "2026-07-15",
+              "2026-07-16",
+              "2026-07-17",
+              "2026-07-18",
+              "2026-07-19",
+              "2026-07-20",
+              "2026-07-21",
+              "2026-07-22",
+              "2026-07-23",
+              "2026-07-24"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

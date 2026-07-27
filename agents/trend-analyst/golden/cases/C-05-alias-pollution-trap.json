@@ -1,0 +1,212 @@
+{
+  "schema": "trend-input-v0.1",
+  "metrics_schema": "trend-metrics-v0.1",
+  "generated_at": "2026-07-27T04:15:00.000Z",
+  "window": {
+    "start": "2026-04-04",
+    "end": "2026-07-26",
+    "observed_days": 68,
+    "calendar_days": 114,
+    "continuity": 0.5965,
+    "missing_dates_count": 46
+  },
+  "clusters": [
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "開發者工具與 RAG",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 3100,
+        "unique_items": 712,
+        "unique_titles": 465,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 228,
+        "previous_sum": 264,
+        "change": -36,
+        "change_rate": -0.1364,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 41.1429,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 44.3,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 52.6182,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": -0.314,
+        "r2": 0.4408,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 604,
+        "hhi": 0.0267,
+        "effective_sources": 37.4,
+        "top_sources": [
+          {
+            "source": "arXiv",
+            "count": 186,
+            "share": 0.06
+          },
+          {
+            "source": "arXiv (preprint)",
+            "count": 151,
+            "share": 0.0487
+          },
+          {
+            "source": "科技新報",
+            "count": 118,
+            "share": 0.0381
+          },
+          {
+            "source": "TechNews 科技新報",
+            "count": 97,
+            "share": 0.0313
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 3100,
+        "unique_titles": 465,
+        "duplicate_title_ratio": 0.85,
+        "repeated_title_groups": 640,
+        "cross_source_repeat_groups": 9,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "自動化 Agent 評估的實證研究",
+            "count": 44,
+            "distinct_sources": 9,
+            "sources": [
+              "arXiv",
+              "arXiv (preprint)",
+              "arXiv preprint",
+              "arXiv (cs.AI)",
+              "AWS AI Labs",
+              "Stanford NLP / arXiv",
+              "未標示",
+              "未標示（arXiv preprint）",
+              ""
+            ],
+            "dates": [
+              "2026-05-20",
+              "2026-05-21",
+              "2026-05-22",
+              "2026-05-23",
+              "2026-05-24",
+              "2026-05-25",
+              "2026-05-26",
+              "2026-05-27",
+              "2026-05-28",
+              "2026-05-29",
+              "2026-05-30",
+              "2026-05-31",
+              "2026-06-01",
+              "2026-06-02",
+              "2026-06-03",
+              "2026-06-04",
+              "2026-06-05",
+              "2026-06-06",
+              "2026-06-07",
+              "2026-06-08",
+              "2026-06-09",
+              "2026-06-10",
+              "2026-06-11",
+              "2026-06-12",
+              "2026-06-13",
+              "2026-06-14",
+              "2026-06-15",
+              "2026-06-16",
+              "2026-06-17",
+              "2026-06-18",
+              "2026-06-19",
+              "2026-06-20",
+              "2026-06-21",
+              "2026-06-22",
+              "2026-06-23",
+              "2026-06-24",
+              "2026-06-25",
+              "2026-06-26",
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-06-30",
+              "2026-07-01",
+              "2026-07-02"
+            ]
+          },
+          {
+            "title": "RAG 檢索品質的四個評估面向",
+            "count": 31,
+            "distinct_sources": 3,
+            "sources": [
+              "科技新報",
+              "TechNews 科技新報",
+              "科技新報 TechNews"
+            ],
+            "dates": [
+              "2026-06-02",
+              "2026-06-03",
+              "2026-06-04",
+              "2026-06-05",
+              "2026-06-06",
+              "2026-06-07",
+              "2026-06-08",
+              "2026-06-09",
+              "2026-06-10",
+              "2026-06-11",
+              "2026-06-12",
+              "2026-06-13",
+              "2026-06-14",
+              "2026-06-15",
+              "2026-06-16",
+              "2026-06-17",
+              "2026-06-18",
+              "2026-06-19",
+              "2026-06-20",
+              "2026-06-21",
+              "2026-06-22",
+              "2026-06-23",
+              "2026-06-24",
+              "2026-06-25",
+              "2026-06-26",
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-06-30",
+              "2026-07-01",
+              "2026-07-02"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
