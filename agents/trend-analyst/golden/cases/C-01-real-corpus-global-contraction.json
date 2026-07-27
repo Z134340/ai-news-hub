@@ -1,0 +1,1233 @@
+{
+  "schema": "trend-input-v0.1",
+  "metrics_schema": "trend-metrics-v0.1",
+  "generated_at": "2026-07-27T03:23:54.331Z",
+  "window": {
+    "start": "2026-04-04",
+    "end": "2026-07-26",
+    "observed_days": 68,
+    "calendar_days": 114,
+    "continuity": 0.5965,
+    "missing_dates_count": 46
+  },
+  "clusters": [
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "LLM Evaluation, Safety, and Governance",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 4145,
+        "unique_items": 1547,
+        "unique_titles": 2016,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 447,
+        "previous_sum": 410,
+        "change": 37,
+        "change_rate": 0.0902,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 63.8571,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 57.65,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 62.6182,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": 0.537,
+        "r2": 0.2296,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 708,
+        "hhi": 0.0132,
+        "effective_sources": 75.7578,
+        "top_sources": [
+          {
+            "source": "iThome",
+            "count": 243,
+            "share": 0.0586
+          },
+          {
+            "source": "Medium",
+            "count": 184,
+            "share": 0.0444
+          },
+          {
+            "source": "TechCrunch",
+            "count": 153,
+            "share": 0.0369
+          },
+          {
+            "source": "TechNews 科技新報",
+            "count": 122,
+            "share": 0.0294
+          },
+          {
+            "source": "Unknown",
+            "count": 109,
+            "share": 0.0263
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 4145,
+        "unique_titles": 2016,
+        "duplicate_title_ratio": 0.5136,
+        "repeated_title_groups": 792,
+        "cross_source_repeat_groups": 58,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "自動化 Agent 評估的實證研究",
+            "count": 12,
+            "distinct_sources": 6,
+            "sources": [
+              "AWS AI Labs",
+              "arXiv",
+              "arXiv (preprint)",
+              "arXiv preprint",
+              "未標示",
+              "未標示（arXiv preprint）"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-16",
+              "2026-07-17",
+              "2026-07-18",
+              "2026-07-19",
+              "2026-07-22",
+              "2026-07-23",
+              "2026-07-25",
+              "2026-07-26"
+            ]
+          },
+          {
+            "title": "Agentic AI's governance challenges under the EU AI Act in 2026",
+            "count": 12,
+            "distinct_sources": 3,
+            "sources": [
+              "AI News",
+              "AI News (artificialintelligence-news.com)",
+              "Artificial Intelligence News"
+            ],
+            "dates": [
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-17",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07",
+              "2026-05-08",
+              "2026-05-11"
+            ]
+          },
+          {
+            "title": "EU AI Act Update: Timeline Relief, Targeted Simplification, and New Prohibitions",
+            "count": 8,
+            "distinct_sources": 3,
+            "sources": [
+              "Global Policy Watch",
+              "Inside Global Tech",
+              "Inside Privacy"
+            ],
+            "dates": [
+              "2026-05-29",
+              "2026-06-01",
+              "2026-06-02",
+              "2026-06-03",
+              "2026-06-04",
+              "2026-06-05",
+              "2026-06-19",
+              "2026-06-22"
+            ]
+          },
+          {
+            "title": "中央网信办深入开展“清朗·整治AI应用乱象”专项行动第一阶段工作",
+            "count": 7,
+            "distinct_sources": 2,
+            "sources": [
+              "中新網",
+              "新浪財經"
+            ],
+            "dates": [
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-09",
+              "2026-07-15"
+            ]
+          },
+          {
+            "title": "我們準備好迎接 Agent 原生記憶系統了嗎？",
+            "count": 6,
+            "distinct_sources": 4,
+            "sources": [
+              "Shanghai Jiao Tong University",
+              "Shanghai Jiao Tong University / Tsinghua University",
+              "arXiv (preprint)",
+              "arXiv preprint"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-07",
+              "2026-07-15",
+              "2026-07-23",
+              "2026-07-24",
+              "2026-07-26"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "Developer Tooling and RAG",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 3640,
+        "unique_items": 934,
+        "unique_titles": 1215,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 229,
+        "previous_sum": 237,
+        "change": -8,
+        "change_rate": -0.0338,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 32.7143,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 35.2,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 56.1273,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": -0.4378,
+        "r2": 0.5137,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 529,
+        "hhi": 0.0361,
+        "effective_sources": 27.6911,
+        "top_sources": [
+          {
+            "source": "Medium",
+            "count": 594,
+            "share": 0.1632
+          },
+          {
+            "source": "iThome",
+            "count": 134,
+            "share": 0.0368
+          },
+          {
+            "source": "DEV Community",
+            "count": 131,
+            "share": 0.036
+          },
+          {
+            "source": "LangChain Blog",
+            "count": 117,
+            "share": 0.0321
+          },
+          {
+            "source": "iT 邦幫忙 (iThome)",
+            "count": 106,
+            "share": 0.0291
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 3640,
+        "unique_titles": 1215,
+        "duplicate_title_ratio": 0.6662,
+        "repeated_title_groups": 466,
+        "cross_source_repeat_groups": 36,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "使用 LangChain 建構 AI Agent：2026 初學者完整指南",
+            "count": 27,
+            "distinct_sources": 2,
+            "sources": [
+              "GROWAI",
+              "Medium"
+            ],
+            "dates": [
+              "2026-04-10",
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-14",
+              "2026-04-15",
+              "2026-04-17",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-04-30",
+              "2026-05-01",
+              "2026-05-04",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07",
+              "2026-05-08",
+              "2026-05-11",
+              "2026-05-12",
+              "2026-05-13",
+              "2026-05-14",
+              "2026-05-15",
+              "2026-05-18",
+              "2026-05-19",
+              "2026-05-20",
+              "2026-05-21",
+              "2026-05-22"
+            ]
+          },
+          {
+            "title": "Agentic AI's governance challenges under the EU AI Act in 2026",
+            "count": 11,
+            "distinct_sources": 3,
+            "sources": [
+              "AI News",
+              "AI News (artificialintelligence-news.com)",
+              "Artificial Intelligence News"
+            ],
+            "dates": [
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07",
+              "2026-05-08",
+              "2026-05-11"
+            ]
+          },
+          {
+            "title": "我們準備好迎接 Agent 原生記憶系統了嗎？",
+            "count": 10,
+            "distinct_sources": 6,
+            "sources": [
+              "Shanghai Jiao Tong University",
+              "Shanghai Jiao Tong University / Tsinghua University",
+              "arXiv",
+              "arXiv (preprint)",
+              "arXiv preprint",
+              "未標示"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-15",
+              "2026-07-16",
+              "2026-07-19",
+              "2026-07-23",
+              "2026-07-24",
+              "2026-07-25",
+              "2026-07-26"
+            ]
+          },
+          {
+            "title": "從問答到任務完成：Agent 系統與 Harness 設計綜述",
+            "count": 7,
+            "distinct_sources": 5,
+            "sources": [
+              "Huawei Noah's Ark Lab / University of Sydney",
+              "arXiv",
+              "arXiv (華為諾亞等)",
+              "arXiv preprint",
+              "未標示"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-19",
+              "2026-07-24",
+              "2026-07-25"
+            ]
+          },
+          {
+            "title": "OWASP Top 10 for Agentic Applications for 2026",
+            "count": 5,
+            "distinct_sources": 3,
+            "sources": [
+              "OWASP",
+              "OWASP Gen AI Security Project",
+              "OWASP GenAI Security Project"
+            ],
+            "dates": [
+              "2026-04-12",
+              "2026-04-15",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "Model Releases and Inference",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 5275,
+        "unique_items": 1751,
+        "unique_titles": 2153,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 433,
+        "previous_sum": 409,
+        "change": 24,
+        "change_rate": 0.0587,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 61.8571,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 57.25,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 77.8909,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": 0.3491,
+        "r2": 0.125,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 744,
+        "hhi": 0.016,
+        "effective_sources": 62.5797,
+        "top_sources": [
+          {
+            "source": "Medium",
+            "count": 351,
+            "share": 0.0665
+          },
+          {
+            "source": "TechNews 科技新報",
+            "count": 249,
+            "share": 0.0472
+          },
+          {
+            "source": "iThome",
+            "count": 246,
+            "share": 0.0466
+          },
+          {
+            "source": "TechCrunch",
+            "count": 237,
+            "share": 0.0449
+          },
+          {
+            "source": "iT 邦幫忙 (iThome)",
+            "count": 106,
+            "share": 0.0201
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 5275,
+        "unique_titles": 2153,
+        "duplicate_title_ratio": 0.5918,
+        "repeated_title_groups": 931,
+        "cross_source_repeat_groups": 40,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "中央网信办深入开展“清朗·整治AI应用乱象”专项行动第一阶段工作",
+            "count": 7,
+            "distinct_sources": 2,
+            "sources": [
+              "中新網",
+              "新浪財經"
+            ],
+            "dates": [
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-09",
+              "2026-07-15"
+            ]
+          },
+          {
+            "title": "Claude 平台推出 Managed Agents 雲端服務，加速 AI 代理開發",
+            "count": 6,
+            "distinct_sources": 3,
+            "sources": [
+              "TechNews 科技新報",
+              "科技新報",
+              "科技新報 TechNews"
+            ],
+            "dates": [
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-17",
+              "2026-05-01",
+              "2026-05-04"
+            ]
+          },
+          {
+            "title": "AI 實驗期宣告終結！NVIDIA 2026 報告：88% 企業迎來營收增長，ROI 為衡量存亡的真理",
+            "count": 6,
+            "distinct_sources": 2,
+            "sources": [
+              "INSIDE",
+              "INSIDE 硬塞的網路趨勢觀察"
+            ],
+            "dates": [
+              "2026-04-15",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-04-30",
+              "2026-05-12"
+            ]
+          },
+          {
+            "title": "阿里千問、DeepSeek齊出手 國產大模型「升級」Agent能力",
+            "count": 6,
+            "distinct_sources": 2,
+            "sources": [
+              "每日經濟新聞",
+              "證券時報"
+            ],
+            "dates": [
+              "2026-04-11",
+              "2026-04-13",
+              "2026-04-17",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29"
+            ]
+          },
+          {
+            "title": "長篇輸出評估的 LLM-as-a-Judge 基準測試",
+            "count": 5,
+            "distinct_sources": 5,
+            "sources": [
+              "arXiv",
+              "arXiv (preprint)",
+              "⚠️待確認",
+              "未標示",
+              "未標示（arXiv preprint）"
+            ],
+            "dates": [
+              "2026-07-01",
+              "2026-07-08",
+              "2026-07-22",
+              "2026-07-23",
+              "2026-07-25"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent Engineering",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 5578,
+        "unique_items": 1649,
+        "unique_titles": 2169,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 493,
+        "previous_sum": 494,
+        "change": -1,
+        "change_rate": -0.002,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 70.4286,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 68.85,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 85.9455,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": 0.1505,
+        "r2": 0.03,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 760,
+        "hhi": 0.0232,
+        "effective_sources": 43.0667,
+        "top_sources": [
+          {
+            "source": "Medium",
+            "count": 653,
+            "share": 0.1171
+          },
+          {
+            "source": "iThome",
+            "count": 243,
+            "share": 0.0436
+          },
+          {
+            "source": "TechNews 科技新報",
+            "count": 201,
+            "share": 0.036
+          },
+          {
+            "source": "TechCrunch",
+            "count": 185,
+            "share": 0.0332
+          },
+          {
+            "source": "iT 邦幫忙 (iThome)",
+            "count": 159,
+            "share": 0.0285
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 5578,
+        "unique_titles": 2169,
+        "duplicate_title_ratio": 0.6112,
+        "repeated_title_groups": 891,
+        "cross_source_repeat_groups": 70,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "使用 LangChain 建構 AI Agent：2026 初學者完整指南",
+            "count": 27,
+            "distinct_sources": 2,
+            "sources": [
+              "GROWAI",
+              "Medium"
+            ],
+            "dates": [
+              "2026-04-10",
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-14",
+              "2026-04-15",
+              "2026-04-17",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-04-30",
+              "2026-05-01",
+              "2026-05-04",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07",
+              "2026-05-08",
+              "2026-05-11",
+              "2026-05-12",
+              "2026-05-13",
+              "2026-05-14",
+              "2026-05-15",
+              "2026-05-18",
+              "2026-05-19",
+              "2026-05-20",
+              "2026-05-21",
+              "2026-05-22"
+            ]
+          },
+          {
+            "title": "從問答到任務完成：Agent 系統與 Harness 設計綜述",
+            "count": 13,
+            "distinct_sources": 9,
+            "sources": [
+              "City University of Hong Kong / University of Sydney / Peking University",
+              "Huawei Noah's Ark Lab / City University of Hong Kong",
+              "Huawei Noah's Ark Lab / University of Sydney",
+              "arXiv",
+              "arXiv (含華為諾亞方舟等)",
+              "arXiv (華為諾亞等)",
+              "arXiv preprint",
+              "未標示",
+              "未標示（arXiv preprint）"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-15",
+              "2026-07-16",
+              "2026-07-17",
+              "2026-07-18",
+              "2026-07-19",
+              "2026-07-22",
+              "2026-07-24",
+              "2026-07-25",
+              "2026-07-26"
+            ]
+          },
+          {
+            "title": "自動化 Agent 評估的實證研究",
+            "count": 12,
+            "distinct_sources": 6,
+            "sources": [
+              "AWS AI Labs",
+              "arXiv",
+              "arXiv (preprint)",
+              "arXiv preprint",
+              "未標示",
+              "未標示（arXiv preprint）"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-16",
+              "2026-07-17",
+              "2026-07-18",
+              "2026-07-19",
+              "2026-07-22",
+              "2026-07-23",
+              "2026-07-25",
+              "2026-07-26"
+            ]
+          },
+          {
+            "title": "Agentic AI's governance challenges under the EU AI Act in 2026",
+            "count": 12,
+            "distinct_sources": 3,
+            "sources": [
+              "AI News",
+              "AI News (artificialintelligence-news.com)",
+              "Artificial Intelligence News"
+            ],
+            "dates": [
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-17",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07",
+              "2026-05-08",
+              "2026-05-11"
+            ]
+          },
+          {
+            "title": "我們準備好迎接 Agent 原生記憶系統了嗎？",
+            "count": 10,
+            "distinct_sources": 6,
+            "sources": [
+              "Shanghai Jiao Tong University",
+              "Shanghai Jiao Tong University / Tsinghua University",
+              "arXiv",
+              "arXiv (preprint)",
+              "arXiv preprint",
+              "未標示"
+            ],
+            "dates": [
+              "2026-07-03",
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-15",
+              "2026-07-16",
+              "2026-07-19",
+              "2026-07-23",
+              "2026-07-24",
+              "2026-07-25",
+              "2026-07-26"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "title": "AI Security and Privacy",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 1459,
+        "unique_items": 558,
+        "unique_titles": 740,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 123,
+        "previous_sum": 95,
+        "change": 28,
+        "change_rate": 0.2947,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 17.5714,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 14.75,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 21.2364,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": 0.1613,
+        "r2": 0.1016,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 283,
+        "hhi": 0.0345,
+        "effective_sources": 28.981,
+        "top_sources": [
+          {
+            "source": "iThome",
+            "count": 224,
+            "share": 0.1535
+          },
+          {
+            "source": "TechCrunch",
+            "count": 69,
+            "share": 0.0473
+          },
+          {
+            "source": "TechNews 科技新報",
+            "count": 60,
+            "share": 0.0411
+          },
+          {
+            "source": "iT 邦幫忙 (iThome)",
+            "count": 53,
+            "share": 0.0363
+          },
+          {
+            "source": "Fortune",
+            "count": 34,
+            "share": 0.0233
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 1459,
+        "unique_titles": 740,
+        "duplicate_title_ratio": 0.4928,
+        "repeated_title_groups": 308,
+        "cross_source_repeat_groups": 18,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "中央网信办深入开展“清朗·整治AI应用乱象”专项行动第一阶段工作",
+            "count": 7,
+            "distinct_sources": 2,
+            "sources": [
+              "中新網",
+              "新浪財經"
+            ],
+            "dates": [
+              "2026-07-06",
+              "2026-07-07",
+              "2026-07-08",
+              "2026-07-09",
+              "2026-07-15"
+            ]
+          },
+          {
+            "title": "OWASP Top 10 for Agentic Applications for 2026",
+            "count": 5,
+            "distinct_sources": 3,
+            "sources": [
+              "OWASP",
+              "OWASP Gen AI Security Project",
+              "OWASP GenAI Security Project"
+            ],
+            "dates": [
+              "2026-04-12",
+              "2026-04-15",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07"
+            ]
+          },
+          {
+            "title": "微軟示警：AI Agent 爆量上線、治理卻跟不上",
+            "count": 5,
+            "distinct_sources": 2,
+            "sources": [
+              "TechNews 科技新報",
+              "科技新報 TechNews"
+            ],
+            "dates": [
+              "2026-04-07",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-04-30"
+            ]
+          },
+          {
+            "title": "立法院三讀通過《人工智慧基本法》 構築我國AI創新與安全治理基石",
+            "count": 5,
+            "distinct_sources": 2,
+            "sources": [
+              "數位發展部",
+              "數位發展部 moda"
+            ],
+            "dates": [
+              "2026-04-15",
+              "2026-04-17",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07"
+            ]
+          },
+          {
+            "title": "2026資安趨勢：AI攻擊加速實戰化，企業防禦進入新戰場",
+            "count": 4,
+            "distinct_sources": 2,
+            "sources": [
+              "iThome",
+              "iThome（贊助商訊息）"
+            ],
+            "dates": [
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-15"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cluster_id": "ai_learning_and_enablement",
+      "title": "AI Learning and Enablement",
+      "present_in_window": true,
+      "totals": {
+        "occurrences": 2169,
+        "unique_items": 288,
+        "unique_titles": 335,
+        "active_days": 68,
+        "active_day_rate": 1
+      },
+      "delta": {
+        "window_days": 7,
+        "recent_sum": 143,
+        "previous_sum": 125,
+        "change": 18,
+        "change_rate": 0.144,
+        "sufficient": true,
+        "observed_days": 68,
+        "required_days": 14
+      },
+      "moving_average": {
+        "ma7": {
+          "window_days": 7,
+          "value": 20.4286,
+          "observed_days": 7,
+          "coverage": 1,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma30": {
+          "window_days": 30,
+          "value": 21.35,
+          "observed_days": 20,
+          "coverage": 0.6667,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        },
+        "ma90": {
+          "window_days": 90,
+          "value": 33.6182,
+          "observed_days": 55,
+          "coverage": 0.6111,
+          "truncated_by_corpus_start": false,
+          "sufficient": true
+        }
+      },
+      "slope": {
+        "window_days": 30,
+        "value_per_day": -0.3684,
+        "r2": 0.3669,
+        "observed_points": 20,
+        "sufficient": true
+      },
+      "source_concentration": {
+        "distinct_sources": 191,
+        "hhi": 0.0748,
+        "effective_sources": 13.3729,
+        "top_sources": [
+          {
+            "source": "Medium",
+            "count": 538,
+            "share": 0.248
+          },
+          {
+            "source": "DEV Community",
+            "count": 114,
+            "share": 0.0526
+          },
+          {
+            "source": "DeepLearning.AI",
+            "count": 98,
+            "share": 0.0452
+          },
+          {
+            "source": "Microsoft Learn",
+            "count": 80,
+            "share": 0.0369
+          },
+          {
+            "source": "LangChain Blog",
+            "count": 57,
+            "share": 0.0263
+          }
+        ]
+      },
+      "syndication_evidence": {
+        "occurrences": 2169,
+        "unique_titles": 335,
+        "duplicate_title_ratio": 0.8456,
+        "repeated_title_groups": 177,
+        "cross_source_repeat_groups": 5,
+        "max_title_repeat": 53,
+        "top_repeats": [
+          {
+            "title": "使用 LangChain 建構 AI Agent：2026 初學者完整指南",
+            "count": 27,
+            "distinct_sources": 2,
+            "sources": [
+              "GROWAI",
+              "Medium"
+            ],
+            "dates": [
+              "2026-04-10",
+              "2026-04-11",
+              "2026-04-12",
+              "2026-04-13",
+              "2026-04-14",
+              "2026-04-15",
+              "2026-04-17",
+              "2026-04-19",
+              "2026-04-28",
+              "2026-04-29",
+              "2026-04-30",
+              "2026-05-01",
+              "2026-05-04",
+              "2026-05-05",
+              "2026-05-06",
+              "2026-05-07",
+              "2026-05-08",
+              "2026-05-11",
+              "2026-05-12",
+              "2026-05-13",
+              "2026-05-14",
+              "2026-05-15",
+              "2026-05-18",
+              "2026-05-19",
+              "2026-05-20",
+              "2026-05-21",
+              "2026-05-22"
+            ]
+          },
+          {
+            "title": "從問答到任務完成：Agent 系統與 Harness 設計綜述",
+            "count": 4,
+            "distinct_sources": 3,
+            "sources": [
+              "City University of Hong Kong / University of Sydney / Peking University",
+              "Huawei Noah's Ark Lab / City University of Hong Kong",
+              "arXiv (含華為諾亞方舟等)"
+            ],
+            "dates": [
+              "2026-07-15",
+              "2026-07-17",
+              "2026-07-18",
+              "2026-07-26"
+            ]
+          },
+          {
+            "title": "自主 LLM Agent 的記憶：機制、評估與新興前沿",
+            "count": 3,
+            "distinct_sources": 2,
+            "sources": [
+              "Hong Kong Research Institute of Technology",
+              "N/A"
+            ],
+            "dates": [
+              "2026-05-15",
+              "2026-05-19",
+              "2026-05-28"
+            ]
+          },
+          {
+            "title": "Agent Psychometrics: Task-Level Performance Prediction in Agentic Coding Benchmarks",
+            "count": 2,
+            "distinct_sources": 2,
+            "sources": [
+              "CMU",
+              "MIT / CMU"
+            ],
+            "dates": [
+              "2026-04-08",
+              "2026-04-11"
+            ]
+          },
+          {
+            "title": "自主 LLM 代理的記憶：機制、評估與新興前沿",
+            "count": 2,
+            "distinct_sources": 2,
+            "sources": [
+              "Hong Kong Research Institute of Technology",
+              "Unknown"
+            ],
+            "dates": [
+              "2026-05-13",
+              "2026-05-27"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

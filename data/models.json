@@ -25,37 +25,12 @@
     "url": "https://www.marktechpost.com/2026/07/19/alibaba-previews-qwen3-8-max-a-2-4-trillion-parameter-multimodal-model-days-after-moonshots-kimi-k3-open-weight-launch/",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
-  },
-  {
-    "model_name": "Kimi K3",
-    "version": "K3 (K3 Max / K3 Swarm Max)",
-    "institution": "Moonshot AI",
-    "release_date": "2026-07-16",
-    "domain": "Multimodal",
-    "summary": "Kimi K3 是 Moonshot AI 於 2026 年 7 月 16 日發表的新世代旗艦模型，採用新架構 Mixture-of-Experts 設計，總參數約 2.8 兆（2.8T），內含 896 個專家、每個 token 啟動 16 個，為當時最大的開源權重模型。基於 Kimi Delta Attention（KDA）混合線性注意力與 Attention Residuals，具備原生視覺理解與 100 萬 token 上下文，鎖定長流程編碼與 agent 工作負載。發表時已在 Artificial Analysis 獨立排名上小幅超越 Claude Opus 4.8。上市即推出 K3 Max（對話與 agent）與 K3 Swarm Max（大規模平行處理）兩個變體，完整開源權重預定 7 月 27 日釋出。",
-    "advantages": [
-      "2.8 兆參數，發表時為史上最大開源權重模型",
-      "Kimi Delta Attention（KDA）混合線性注意力，長上下文推論更省算力",
-      "原生視覺理解 + 100 萬 token 上下文，適合長流程 agent 任務",
-      "定價僅 $3/M 輸入、$15/M 輸出，較同級閉源模型具成本優勢",
-      "承諾完整開源權重（7 月 27 日釋出）"
-    ],
-    "benchmarks": [
-      "GDPval-AA v2: 1,687（第三名，僅次 Fable 5 Max 1,815 與 GPT-5.6 Sol Max 1,747.8，領先 Opus 4.8 的 1,600）",
-      "參數量: ~2.8T MoE（896 專家 / 每 token 啟動 16）",
-      "上下文: 1M tokens"
-    ],
-    "highlights": [
-      "發表時於 Artificial Analysis 獨立排名小幅超越 Claude Opus 4.8",
-      "雙變體：K3 Max（對話/agent）與 K3 Swarm Max（大規模平行）",
-      "GDPval-AA v2 涵蓋 44 種職業、9 大產業的真實任務評測拿下第三",
-      "被 VentureBeat 稱為「史上最大開源模型」"
-    ],
-    "url": "https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems",
-    "is_new": true,
-    "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0.4,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.472339",
+    "complete": true
   },
   {
     "model_name": "Inkling",
@@ -83,7 +58,12 @@
     "url": "https://huggingface.co/blog/thinkingmachines-inkling",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.472364",
+    "complete": true
   },
   {
     "model_name": "GPT-5.6",
@@ -113,7 +93,12 @@
     "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.472394",
+    "complete": true
   },
   {
     "model_name": "Grok 4.5",
@@ -142,7 +127,12 @@
     "url": "https://x.ai/news/grok-4-5",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.472422",
+    "complete": true
   },
   {
     "model_name": "Claude Sonnet 5",
@@ -171,7 +161,12 @@
     "url": "https://www.anthropic.com/news/claude-sonnet-5",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0.75,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.472447",
+    "complete": true
   },
   {
     "model_name": "GLM-5.2",
@@ -202,7 +197,12 @@
     "url": "https://huggingface.co/zai-org/GLM-5.2",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.472471",
+    "complete": true
   },
   {
     "model_name": "Kimi K2.7 Code",
@@ -232,13 +232,13 @@
       "長時程代理編程任務效能全面提升"
     ],
     "url": "https://www.kimi.com/resources/kimi-k2-7-code",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255355",
+    "verified_at": "2026-07-26T18:09:02.472496",
     "complete": true
   },
   {
@@ -267,13 +267,13 @@
       "標誌 Anthropic 以全新 Fable 品牌取代 Opus 旗艦定位"
     ],
     "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255405",
+    "verified_at": "2026-07-26T18:09:02.472521",
     "complete": true
   },
   {
@@ -304,13 +304,13 @@
       "中國 AI 新勢力在開源 SWE-Bench Pro 奪得第一"
     ],
     "url": "https://www.minimax.io/blog/minimax-m3",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255459",
+    "verified_at": "2026-07-26T18:09:02.472545",
     "complete": true
   },
   {
@@ -339,13 +339,13 @@
       "高性價比多模態代理選擇，填補 Max 的成本空白"
     ],
     "url": "https://www.marktechpost.com/2026/06/02/alibabas-qwen-team-launches-qwen3-7-plus-adding-vision-deep-reasoning-tool-invocation-and-autonomous-iteration-on-the-bailian-platform/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "title_low_match",
     "title_score": 0.26,
     "verified": "needs_review",
-    "verified_at": "2026-07-19T18:13:47.255509",
+    "verified_at": "2026-07-26T18:09:02.472571",
     "complete": true
   },
   {
@@ -377,51 +377,13 @@
       "定價凍結，每百萬 token $5/$25 維持不變"
     ],
     "url": "https://www.anthropic.com/news/claude-opus-4-8",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255557",
-    "complete": true
-  },
-  {
-    "model_name": "Qwen3.7-Max",
-    "version": "3.7 Max",
-    "institution": "Alibaba",
-    "release_date": "2026-05-20",
-    "domain": "LLM",
-    "summary": "Qwen3.7-Max 是阿里巴巴於 2026 年 5 月 20 日杭州阿里雲峰會發布的旗艦推理代理模型，具備 100 萬 token 上下文視窗與原生擴展思考模式。在 SWE-Pro（60.6）、Terminal-Bench 2.0（69.7）及 GPQA Diamond（92.4）等代理編程與科學推理基準上超越 DeepSeek V4 Pro 和 Claude Opus 4.6。定價 $2.50/$7.50 每百萬 token，約為 Claude Opus 4.7 的一半。模型為閉源專有架構，已在阿里雲 Model Studio、OpenRouter、Together AI 等平台上線。",
-    "advantages": [
-      "100 萬 token 上下文視窗搭配原生擴展思考模式",
-      "代理編程基準超越 DeepSeek V4 Pro 和 Claude Opus 4.6",
-      "定價約為 Claude Opus 4.7 的一半",
-      "Artificial Analysis Intelligence Index 56.6，頂尖代理能力",
-      "多個知名 API 平台（OpenRouter/Together AI）同步上線"
-    ],
-    "benchmarks": [
-      "SWE-Pro: 60.6",
-      "Terminal-Bench 2.0: 69.7",
-      "GPQA Diamond: 92.4",
-      "Artificial Analysis Intelligence Index: 56.6",
-      "MCP-Atlas: 超越 Claude Opus 4.6"
-    ],
-    "highlights": [
-      "通義千問系列代理任務最強旗艦",
-      "與 Gemini 3.5 Flash 同期在 Google I/O 期間競奪話題",
-      "百萬 token 上下文搭配思考模式，適合複雜長任務推理",
-      "半價於 Claude Opus 4.7 的極具競爭力定價",
-      "阿里雲峰會重磅發布，強化中國 AI 在前沿代理模型的存在感"
-    ],
-    "url": "https://www.marktechpost.com/2026/05/21/qwen-introduces-qwen3-7-max-a-reasoning-agent-model-with-a-1m-token-context-window/",
-    "is_new": false,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
-    "title_score": 0.41,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255608",
+    "verified_at": "2026-07-26T18:09:02.472596",
     "complete": true
   },
   {
@@ -451,13 +413,13 @@
       "Gemini 3.5 Pro 確認次月推出，配備 2M token 上下文"
     ],
     "url": "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255655",
+    "verified_at": "2026-07-26T18:09:02.472621",
     "complete": true
   },
   {
@@ -488,189 +450,13 @@
       "簡潔、實用、職場友好的回應風格全面優化"
     ],
     "url": "https://openai.com/index/gpt-5-5-instant/",
-    "is_new": false,
-    "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
-    "title_score": 0.7,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255702",
-    "complete": true
-  },
-  {
-    "model_name": "DeepSeek V4",
-    "version": "V4-Pro / V4-Flash",
-    "institution": "DeepSeek",
-    "release_date": "2026-04-24",
-    "domain": "LLM",
-    "summary": "DeepSeek V4 於 2026 年 4 月 24 日發表，推出 V4-Pro（1.6T 總參數、49B active）與 V4-Flash（284B 總參數、13B active）兩款，皆以 MIT 授權同時透過 API 與開源權重釋出。兩款預設 100 萬 token 上下文、最大 384K 輸出。以極低價格逼近閉源前沿模型，DeepSeek 宣稱僅落後 SOTA 閉源模型 3 到 6 個月，而每輸出 token 成本較 Claude Opus 4.8 便宜 28.7 倍、較 GPT-5.5 便宜 34.5 倍。V4-Pro-Max 在 SWE-bench Verified 拿下 80.6%，為當時最高的開源權重成績。",
-    "advantages": [
-      "雙款開源（V4-Pro 1.6T / V4-Flash 284B），MIT 授權可商用",
-      "SWE-bench Verified 80.6%，當時最高開源權重成績",
-      "100 萬 token 上下文、最大 384K 輸出",
-      "每輸出 token 較 Opus 4.8 便宜 28.7×、較 GPT-5.5 便宜 34.5×",
-      "宣稱僅落後閉源 SOTA 3–6 個月"
-    ],
-    "benchmarks": [
-      "SWE-bench Verified: 80.6%（V4-Pro-Max，與 Gemini 3.1 Pro 並列開源最高）",
-      "MMLU-Pro: 87.5",
-      "GPQA Diamond: 90.1",
-      "HMMT 2026 February: 95.2",
-      "定價: V4-Pro $0.435/$0.87、V4-Flash $0.14/$0.28"
-    ],
-    "highlights": [
-      "V4-Pro 1.6T、V4-Flash 284B，皆 MIT 開源權重",
-      "極致性價比，成本較頂級閉源模型低一個量級以上",
-      "SWE-bench Verified 與 Gemini 3.1 Pro 並列開源最高"
-    ],
-    "url": "https://winbuzzer.com/2026/04/27/deepseek-v4-open-weights-launch-xcxwbn/",
     "is_new": true,
-    "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
-  },
-  {
-    "model_name": "DeepSeek V4 Pro",
-    "version": "V4 Pro",
-    "institution": "DeepSeek",
-    "release_date": "2026-04-24",
-    "domain": "LLM",
-    "summary": "DeepSeek V4 Pro 是 DeepSeek 於 2026 年 4 月 24 日發布的開源混合專家模型，擁有 1.6 兆總參數（49B 激活），支援 100 萬 token 上下文，採 MIT 許可證。架構創新結合 Compressed Sparse Attention（CSA）與 Heavily Compressed Attention（HCA），在百萬 token 場景下僅需 DeepSeek-V3.2 的 27% 推論 FLOPs 與 10% KV 快取。LiveCodeBench Pass@1 達 93.5、Codeforces 評分 3206、SWE-bench Verified 達 80.6%，以 GPT-5.5 和 Claude Opus 4.7 約十分之一的成本達到可比性能。同時發布 V4-Flash（284B/13B 激活）輕量版。",
-    "advantages": [
-      "1.6T 超大 MoE 架構，MIT 開源授權商業可用",
-      "百萬 token 下推論 FLOPs 僅需 DeepSeek V3.2 的 27%",
-      "API 成本約為 GPT-5.5/Claude Opus 4.7 的 1/10 到 1/13",
-      "CSA + HCA 混合注意力機制大幅提升長上下文效率",
-      "SWE-bench Verified 80.6%，開源模型中最高分之一"
-    ],
-    "benchmarks": [
-      "LiveCodeBench Pass@1: 93.5",
-      "Codeforces Rating: 3206",
-      "SWE-bench Verified: 80.6%",
-      "KV Cache at 1M context vs V3.2: 10%",
-      "Inference FLOPs at 1M context vs V3.2: 27%"
-    ],
-    "highlights": [
-      "MIT 授權完全開源，Hugging Face 模型權重可公開下載",
-      "同時發布 V4-Flash（284B/13B）輕量版",
-      "在多項代理基準與 GPT-5.5 相當，但成本低 10-13 倍",
-      "CSA + HCA 混合注意力是長上下文效率的關鍵架構創新",
-      "強化中國 AI 公司在全球開源前沿模型的競爭力"
-    ],
-    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
-    "is_new": false,
     "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255749",
-    "complete": true
-  },
-  {
-    "model_name": "DeepSeek V4 Flash",
-    "version": "V4 Flash",
-    "institution": "DeepSeek",
-    "release_date": "2026-04-24",
-    "domain": "LLM",
-    "summary": "DeepSeek 與 V4 Pro 同步於 2026 年 4 月 24 日發布 DeepSeek V4 Flash，為 V4 家族的輕量高效版本，擁有 284B 總參數、13B 啟動參數的 MoE 架構，同樣支援 100 萬 token 超長上下文。採用與 V4 Pro 相同的混合注意力架構（CSA + HCA），在長文推理效率上大幅領先前代，但以更低成本與更高速度提供服務，適合高吞吐量生產環境部署。以 MIT 授權開源，模型權重可在 Hugging Face 下載，適合對成本敏感或對推理速度要求較高的場景。",
-    "advantages": [
-      "284B 總參數/13B 啟動參數，比 V4 Pro 更低成本與更高推理速度",
-      "MIT 授權完全開源，Hugging Face 可下載",
-      "1M token 超長上下文支援",
-      "採用 CSA+HCA 混合注意力，長文推理效率領先",
-      "適合高吞吐量生產環境的成本最佳化部署"
-    ],
-    "benchmarks": [
-      "Total Parameters: 284B",
-      "Active Parameters per Token: 13B",
-      "Context Length: 1M tokens"
-    ],
-    "highlights": [
-      "V4 Pro 同日發布的成本最佳化輕量版本",
-      "適合高吞吐量生產環境的推理速度與成本平衡",
-      "MIT 授權，商業部署無任何限制",
-      "Hugging Face 開源可下載",
-      "與 V4 Pro 共享相同長文推理架構優勢"
-    ],
-    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
-    "is_new": false,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255797",
-    "complete": true
-  },
-  {
-    "model_name": "GPT-5.5",
-    "version": "5.5",
-    "institution": "OpenAI",
-    "release_date": "2026-04-23",
-    "domain": "LLM",
-    "summary": "GPT-5.5 是 OpenAI 於 2026 年 4 月 23 日發布的旗艦代理模型，是自 GPT-4.5 以來首個完全重新訓練的基礎模型。設計為單一代理系統，能執行長序列動作、使用工具、瀏覽網頁、撰寫代碼並自我驗證，無需手動切換。Terminal-Bench 2.0 達 82.7%（較 GPT-5.4 提升 7.6 個百分點），GDPval（涵蓋 44 個職業的知識工作基準）84.9%，OSWorld-Verified（自主電腦操作）78.7%，代理指數 77.2 為所有 OpenAI 模型技術面最高。個人陳述準確率較 GPT-5.4 提升 23%。",
-    "advantages": [
-      "首個完全重新訓練的 OpenAI 代理基礎模型，全面超越前代",
-      "單一代理系統無需人工切換，長序列行動執行能力極強",
-      "個人陳述準確率較 GPT-5.4 提升 23%",
-      "Terminal-Bench 2.0 82.7%，較 GPT-5.4 提升 7.6 個百分點",
-      "專為長時程工作流程、代碼生成與科學研究優化"
-    ],
-    "benchmarks": [
-      "Terminal-Bench 2.0: 82.7%",
-      "GDPval (44 occupations): 84.9%",
-      "OSWorld-Verified: 78.7%",
-      "SWE-Bench Pro: 58.6%",
-      "Agentic Index: 77.2"
-    ],
-    "highlights": [
-      "首個完全重新訓練的 OpenAI 前沿代理模型",
-      "發布後因對齊問題（Goblin Problem）啟動 GPT-5.6 修復計畫",
-      "支援工具使用、網頁瀏覽與代碼執行的完整代理能力",
-      "標誌 OpenAI 從單次對話轉向長時程代理為核心策略",
-      "GPT-5.6 預計 2026 年 6 月底推出，修復對齊問題"
-    ],
-    "url": "https://openai.com/index/introducing-gpt-5-5/",
-    "is_new": false,
-    "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255851",
-    "complete": true
-  },
-  {
-    "model_name": "Qwen3.6-27B",
-    "version": "3.6-27B",
-    "institution": "Alibaba Cloud",
-    "release_date": "2026-04-22",
-    "domain": "LLM",
-    "summary": "Qwen3.6-27B 是阿里巴巴雲於 2026 年 4 月 22 日以 Apache 2.0 授權開源的代理編程模型，270 億參數規模卻在多項代理程式碼基準上超越前代 3970 億參數的 Qwen3.5 Max。模型特別針對代理工作流程最佳化，以驚人的參數效率實現超越前代巨型模型的性能。同系列還包含 Qwen3.6-35B-A3B MoE 版本（350 億總參數，僅啟用 30 億）。可在 Hugging Face 和 ModelScope 免費下載，是 Qwen 系列首批在代理能力上與閉源模型比肩的開源版本。",
-    "advantages": [
-      "27B 參數在代理程式碼任務上超越 397B 前代模型",
-      "Apache 2.0 授權，完全免費商業使用",
-      "代理工作流程深度最佳化",
-      "Hugging Face 免費下載，易於部署"
-    ],
-    "benchmarks": [
-      "Outperforms Qwen3.5 Max (397B) on agentic coding",
-      "Total params: 27B",
-      "Apache 2.0 license"
-    ],
-    "highlights": [
-      "27B 超越 397B 前代，參數效率突破歷史記錄",
-      "Apache 2.0 全開源，可自由商業使用",
-      "首批 Qwen 在代理能力對標閉源旗艦的開源模型"
-    ],
-    "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
-    "is_new": false,
-    "first_seen": "2026-05-18T07:54:21.359316+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.255897",
+    "verified_at": "2026-07-26T18:09:02.472645",
     "complete": true
   }
 ]

@@ -16,7 +16,12 @@
     "url": "https://www.langchain.com/blog/deep-agents",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471654",
+    "complete": true
   },
   {
     "title": "初探大型語言模型應用開發-運用 RAG 增強語言模型的應答能力",
@@ -35,7 +40,12 @@
     "url": "https://blog.ite2.com/2026/06/26/introduction-to-llm-application-development-enhancing-language-models-with-rag/",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471690",
+    "complete": true
   },
   {
     "title": "n8n 教學 2026：AI Agent、自動化工作流與實戰案例完整指南",
@@ -54,7 +64,12 @@
     "url": "https://masonailab.com/tools/n8n-ai-agent-workflow-guide-2026/",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471719",
+    "complete": true
   },
   {
     "title": "Tiny Agents in Python: a MCP-powered agent in ~70 lines of code",
@@ -73,7 +88,12 @@
     "url": "https://huggingface.co/blog/python-tiny-agents",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471744",
+    "complete": true
   },
   {
     "title": "Agentic Resource Discovery: Let agents search",
@@ -92,7 +112,12 @@
     "url": "https://huggingface.co/blog/agentic-resource-discovery-launch",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471769",
+    "complete": true
   },
   {
     "title": "Claude Code Guide 2026: 25 Features with Examples + Demo",
@@ -111,7 +136,12 @@
     "url": "https://www.marktechpost.com/2026/06/14/claude-code-guide-2026-25-features-with-examples-demo/",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471796",
+    "complete": true
   },
   {
     "title": "Designing the hf CLI as an agent-optimized way to work with the Hub",
@@ -130,7 +160,12 @@
     "url": "https://huggingface.co/blog/hf-cli-for-agents",
     "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-07-26T18:09:02.471822",
+    "complete": true
   },
   {
     "title": "LangChain 與 LangGraph Agent 框架正式達到 1.0 版本里程碑",
@@ -148,33 +183,14 @@
       "企業級功能包含授權管理、沙箱模式，Sentry 監控整合增強可觀測性"
     ],
     "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.6,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254172",
+    "verified_at": "2026-07-26T18:09:02.471847",
     "complete": true
-  },
-  {
-    "title": "實戰：手把手教你用 7 個 Agent 將 Vibe Coding 升級為專家級開發流程",
-    "source": "動區動趨 BlockTempo",
-    "date": "2026-05-31",
-    "tool_name": "Claude Code",
-    "difficulty": "advanced",
-    "category": "AI Agent 建構 / Vibe Coding",
-    "summary": "本篇實戰教學示範如何以 7 個分工明確的 Agent，將隨性的 Vibe Coding 升級為專家級、可落地的軟體開發流程。文章以 Claude Code 為主軸，帶讀者建立一條由多個代理協作組成的「軟體工廠」流水線，讓每個 Agent 各司其職負責規劃、實作、審查等環節。內容強調從氛圍式寫程式邁向工程化、可控管的開發範式。適合想以多代理協作提升開發品質與可維護性的進階使用者。",
-    "highlights": [
-      "以 7 個分工代理組成協作式「軟體工廠」開發流水線",
-      "將隨性的 Vibe Coding 升級為工程化、可控管的專家流程",
-      "各代理分別負責規劃、實作、審查等不同環節",
-      "以 Claude Code 為核心示範多代理協作的實戰配置"
-    ],
-    "url": "https://www.blocktempo.com/claude-code-software-factory-7-agents/",
-    "is_new": true,
-    "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-20T18:21:04.668198+08:00"
   },
   {
     "title": "使用 LangGraph 模板實現狀態機式 AI 工作流程",
@@ -192,13 +208,13 @@
       "適用於需要可重複執行且可靠的生產級 AI Agent 工作流程"
     ],
     "url": "https://earezki.com/ai-news/2026-05-25-langgraph-v39/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "title_low_match",
     "title_score": 0.29,
     "verified": "needs_review",
-    "verified_at": "2026-07-19T18:13:47.254223",
+    "verified_at": "2026-07-26T18:09:02.471891",
     "complete": true
   },
   {
@@ -217,13 +233,13 @@
       "監控包含效能指標追蹤和 regression 自動偵測"
     ],
     "url": "https://www.langchain.com/blog/the-agent-development-lifecycle",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "title_low_match",
     "title_score": 0.28,
     "verified": "needs_review",
-    "verified_at": "2026-07-19T18:13:47.254271",
+    "verified_at": "2026-07-26T18:09:02.471923",
     "complete": true
   },
   {
@@ -242,13 +258,13 @@
       "安全性建議：採最小權限原則，限制 MCP Server 的資料存取範圍"
     ],
     "url": "https://medium.com/@n913239/mcp-%E5%AF%A6%E6%88%B0-%E8%AE%93-claude-code-%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9C%E8%B3%87%E6%96%99%E5%BA%AB-%E6%89%93-api-%E8%AE%80-figma-d53051afde01",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254319",
+    "verified_at": "2026-07-26T18:09:02.471955",
     "complete": true
   },
   {
@@ -267,13 +283,13 @@
       "Anthropic 自家 Agent 部署案例分享，涵蓋從原型到生產的完整最佳實踐"
     ],
     "url": "https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.38,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254370",
+    "verified_at": "2026-07-26T18:09:02.471989",
     "complete": true
   },
   {
@@ -292,13 +308,13 @@
       "強調 context 管理對 Agent 決策品質和可靠性的決定性影響"
     ],
     "url": "https://medium.com/data-science-collective/context-engineering-for-ai-agents-complete-course-fd509e276a9e",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254417",
+    "verified_at": "2026-07-26T18:09:02.472019",
     "complete": true
   },
   {
@@ -317,13 +333,13 @@
       "結合 LangSmith 可追蹤 HITL 事件和人工介入完整歷程"
     ],
     "url": "https://medium.com/@syeedmdtalha/how-to-build-a-human-in-the-loop-ai-agent-with-langchain-langgraph-26f2f5d2b83e",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254464",
+    "verified_at": "2026-07-26T18:09:02.472043",
     "complete": true
   },
   {
@@ -341,13 +357,13 @@
       "建議在 CLAUDE.md 中明確定義編碼風格、測試指令、禁止行為等規則"
     ],
     "url": "https://medium.com/@n913239/claude-md-%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5-%E8%AE%93-claude-code-%E7%9C%9F%E6%AD%A3%E7%90%86%E8%A7%A3%E4%BD%A0%E7%9A%84%E5%B0%88%E6%A1%88-3a9478865a11",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254512",
+    "verified_at": "2026-07-26T18:09:02.472072",
     "complete": true
   },
   {
@@ -365,38 +381,13 @@
       "Shopify CEO 定義：Context Engineering 是讓 LLM 有機會解決任務的完整資訊設計藝術"
     ],
     "url": "https://medium.com/@codewithrashid/context-engineering-has-eaten-prompt-engineerin-eb3a869c0362",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
+    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "url_status": "needs_review",
     "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254557",
-    "complete": true
-  },
-  {
-    "title": "Hugging Face 發布 ml-intern：自動化 LLM 後訓練工作流的開源 AI Agent",
-    "source": "MarkTechPost",
-    "date": "2026-04-21",
-    "tool_name": "Hugging Face, ml-intern",
-    "difficulty": "advanced",
-    "category": "AI Agent 工具應用",
-    "summary": "Hugging Face 於 2026 年 4 月 21 日開源 ml-intern，這是一款能自主執行機器學習後訓練完整工作流的 AI Agent。ml-intern 可自主完成文獻回顧、資料集搜尋、訓練腳本撰寫與執行、以及反覆評估優化等任務，這些工作傳統上需要資深 ML 研究員投入大量時間。開源架構讓社群能在此基礎上開發更多自動化 ML 工作流工具。ml-intern 深度整合 Hugging Face Hub 生態系統，可直接存取模型庫與資料集。本文分析其核心架構設計，以及如何在實際 ML 研究專案中部署使用。",
-    "highlights": [
-      "可自主完成文獻回顧、資料集搜尋、訓練腳本執行等完整 ML 後訓練工作流",
-      "開源架構允許社群擴展，是首個系統性自動化 LLM 後訓練流程的 Agent",
-      "深度整合 Hugging Face Hub，可直接存取模型庫、資料集與評估框架",
-      "支援反覆評估與自動優化迴圈，能持續改進模型效能",
-      "大幅降低 ML 研究員的手動工作負擔，加速模型開發迭代週期"
-    ],
-    "url": "https://www.marktechpost.com/2026/04/21/hugging-face-releases-ml-intern-an-open-source-ai-agent-that-automates-the-llm-post-training-workflow/",
-    "is_new": false,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-06T19:31:31.306177+08:00",
-    "url_status": "verified",
-    "title_score": 0.61,
-    "verified": true,
-    "verified_at": "2026-07-19T18:13:47.254607",
+    "verified": "needs_review",
+    "verified_at": "2026-07-26T18:09:02.472107",
     "complete": true
   }
 ]

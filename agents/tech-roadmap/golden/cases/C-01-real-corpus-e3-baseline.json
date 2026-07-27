@@ -1,0 +1,550 @@
+{
+  "schema": "roadmap-input-v0.1",
+  "generated_at": "2026-07-27T05:10:00.000Z",
+  "window": {
+    "start": "2026-04-04",
+    "end": "2026-07-26",
+    "observed_days": 68,
+    "calendar_days": 114,
+    "continuity": 0.5965,
+    "missing_dates_count": 46
+  },
+  "join": {
+    "method": "cluster_id + TOPIC_LEXICONS",
+    "matched": 6,
+    "unmatched": 0,
+    "tech_absent": 0
+  },
+  "clusters": [
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "LLM Evaluation, Safety, and Governance",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 4145,
+          "unique_items": 1547,
+          "unique_titles": 2016,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 447,
+          "previous_sum": 410,
+          "change": 37,
+          "change_rate": 0.0902,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 63.8571,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 57.65,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 62.6182,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.537,
+          "r2": 0.2296,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.8,
+        "syndication_call": "mixed",
+        "headline_zh": "評估與治理主題維持高檔但未再加速",
+        "rationale": [
+          "ma7 63.86 略高於 ma30 57.65,與 ma90 62.62 的長期水位相當",
+          "30 天斜率 0.537、r2 僅 0.2296,方向不成形"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S5",
+        "tech_layer_name": "評估與安全",
+        "secondary_layers": [
+          "S4"
+        ],
+        "maturity": "M5",
+        "delta": "D1",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B5",
+          "B2"
+        ],
+        "rationale_zh": [
+          "多為監理進度與標準組織動態的二手報導,未見新方法"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "Developer Tooling and RAG",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 3640,
+          "unique_items": 934,
+          "unique_titles": 1215,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 229,
+          "previous_sum": 237,
+          "change": -8,
+          "change_rate": -0.0338,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 32.7143,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 35.2,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 56.1273,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": -0.4378,
+          "r2": 0.5137,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "declining",
+        "confidence": 0.55,
+        "syndication_call": "organic",
+        "headline_zh": "開發工具與 RAG 聲量退潮",
+        "rationale": [
+          "ma7 32.71 低於 ma30 35.20,30 天斜率 −0.4378、r2 0.5137",
+          "近 7 日總量 229 較前期 237 下降 3.4%"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S4",
+        "tech_layer_name": "代理與工具鏈",
+        "secondary_layers": [],
+        "maturity": "M4",
+        "delta": "D1",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B4",
+          "B1"
+        ],
+        "rationale_zh": [
+          "具名產品的定價與整合報導為主,方法無變化"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "Model Releases and Inference",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 5275,
+          "unique_items": 1751,
+          "unique_titles": 2153,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 433,
+          "previous_sum": 409,
+          "change": 24,
+          "change_rate": 0.0587,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 61.8571,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 57.25,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 77.8909,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.3491,
+          "r2": 0.125,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.78,
+        "syndication_call": "mixed",
+        "headline_zh": "模型釋出節奏回到常態",
+        "rationale": [
+          "ma7 61.86 高於 ma30 57.25,但遠低於 ma90 77.89",
+          "釋出新聞集中在既有廠商的版本更新"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S2",
+        "tech_layer_name": "模型本體",
+        "secondary_layers": [
+          "S3"
+        ],
+        "maturity": "M3",
+        "delta": "D2",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B1",
+          "B4"
+        ],
+        "rationale_zh": [
+          "報導提及正式 API 與定價,長脈絡能力較前一代擴張"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent Engineering",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 5578,
+          "unique_items": 1649,
+          "unique_titles": 2169,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 493,
+          "previous_sum": 494,
+          "change": -1,
+          "change_rate": -0.002,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 70.4286,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 68.85,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 85.9455,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.1505,
+          "r2": 0.03,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.8,
+        "syndication_call": "organic",
+        "headline_zh": "代理人工程熱度停在高原",
+        "rationale": [
+          "ma7 70.43 略高於 ma30 68.85,但 ma90 85.95 更高",
+          "30 天斜率 0.1505、r2 僅 0.03,方向不明確"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S4",
+        "tech_layer_name": "代理與工具鏈",
+        "secondary_layers": [
+          "S5"
+        ],
+        "maturity": "M3",
+        "delta": "D2",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B2",
+          "B5",
+          "B4"
+        ],
+        "rationale_zh": [
+          "編排框架已產品化,評估與護欄成為第二層話題"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    },
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "title": "AI Security and Privacy",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 1459,
+          "unique_items": 558,
+          "unique_titles": 740,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 123,
+          "previous_sum": 95,
+          "change": 28,
+          "change_rate": 0.2947,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 17.5714,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 14.75,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 21.2364,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.1613,
+          "r2": 0.1016,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.75,
+        "syndication_call": "mixed",
+        "headline_zh": "AI 資安與隱私持平",
+        "rationale": [
+          "ma7 17.57 高於 ma30 14.75,但 ma90 21.24 更高",
+          "近 7 日總量 123 較前期 95 上升,但來源分散,無洗版跡象"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S5",
+        "tech_layer_name": "評估與安全",
+        "secondary_layers": [
+          "S4"
+        ],
+        "maturity": "M2",
+        "delta": "D2",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B2",
+          "B6"
+        ],
+        "rationale_zh": [
+          "攻防手法有公開可復現實作,但本輪只讀到二手報導"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    },
+    {
+      "cluster_id": "ai_learning_and_enablement",
+      "title": "AI Learning and Enablement",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 2169,
+          "unique_items": 288,
+          "unique_titles": 335,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 143,
+          "previous_sum": 125,
+          "change": 18,
+          "change_rate": 0.144,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 20.4286,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 21.35,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 33.6182,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": -0.3684,
+          "r2": 0.3669,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "declining",
+        "confidence": 0.6,
+        "syndication_call": "organic",
+        "headline_zh": "學習與導入教學降溫",
+        "rationale": [
+          "ma7 20.43 低於 ma30 21.35,也遠低於 ma90 33.62",
+          "30 天斜率 −0.3684、r2 0.3669"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S6",
+        "tech_layer_name": "應用落地",
+        "secondary_layers": [],
+        "maturity": "M4",
+        "delta": "D0",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B4"
+        ],
+        "rationale_zh": [
+          "導入案例重述既有做法,無新增能力"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    }
+  ]
+}

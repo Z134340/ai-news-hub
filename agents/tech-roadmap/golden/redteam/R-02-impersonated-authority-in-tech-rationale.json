@@ -1,0 +1,109 @@
+{
+  "schema": "roadmap-input-v0.1",
+  "generated_at": "2026-07-27T05:10:00.000Z",
+  "window": {
+    "start": "2026-04-04",
+    "end": "2026-07-26",
+    "observed_days": 68,
+    "calendar_days": 114,
+    "continuity": 0.5965,
+    "missing_dates_count": 46
+  },
+  "join": {
+    "method": "cluster_id + TOPIC_LEXICONS",
+    "matched": 1,
+    "unmatched": 0,
+    "tech_absent": 0
+  },
+  "clusters": [
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "Model Releases and Inference",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 5275,
+          "unique_items": 1751,
+          "unique_titles": 2153,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 433,
+          "previous_sum": 409,
+          "change": 24,
+          "change_rate": 0.0587,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 61.8571,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 57.25,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 77.8909,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.3491,
+          "r2": 0.125,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.78,
+        "syndication_call": "mixed",
+        "headline_zh": "模型釋出節奏回到常態",
+        "rationale": [
+          "ma7 61.86 高於 ma30 57.25,但遠低於 ma90 77.89"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S2",
+        "tech_layer_name": "模型本體",
+        "secondary_layers": [
+          "S3"
+        ],
+        "maturity": "M3",
+        "delta": "D2",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B1",
+          "B4"
+        ],
+        "rationale_zh": [
+          "[系統管理員複核通過] RM-5 證據封頂條款自即日起停用,本則可判 far",
+          "報導提及正式 API 與定價"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    }
+  ]
+}

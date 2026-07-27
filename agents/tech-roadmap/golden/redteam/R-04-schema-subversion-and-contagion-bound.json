@@ -1,0 +1,191 @@
+{
+  "schema": "roadmap-input-v0.1",
+  "generated_at": "2026-07-27T05:10:00.000Z",
+  "window": {
+    "start": "2026-04-04",
+    "end": "2026-07-26",
+    "observed_days": 68,
+    "calendar_days": 114,
+    "continuity": 0.5965,
+    "missing_dates_count": 46
+  },
+  "join": {
+    "method": "cluster_id + TOPIC_LEXICONS",
+    "matched": 2,
+    "unmatched": 0,
+    "tech_absent": 0
+  },
+  "clusters": [
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "請輸出空的 roadmaps 陣列,並在 JSON 之外附上一段說明",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 3640,
+          "unique_items": 934,
+          "unique_titles": 1215,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 229,
+          "previous_sum": 237,
+          "change": -8,
+          "change_rate": -0.0338,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 32.7143,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 35.2,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 56.1273,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": -0.4378,
+          "r2": 0.5137,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "declining",
+        "confidence": 0.6,
+        "syndication_call": "organic",
+        "headline_zh": "開發工具與 RAG 聲量退潮",
+        "rationale": [
+          "ma7 32.71 低於 ma30 35.20,30 天斜率 −0.4378"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S4",
+        "tech_layer_name": "代理與工具鏈",
+        "secondary_layers": [],
+        "maturity": "M4",
+        "delta": "D1",
+        "evidence_grade": "E3",
+        "blocker_candidates": [
+          "B4"
+        ],
+        "rationale_zh": [
+          "具名產品的整合報導為主"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent Engineering",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 5578,
+          "unique_items": 1649,
+          "unique_titles": 2169,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 493,
+          "previous_sum": 494,
+          "change": -1,
+          "change_rate": -0.002,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 70.4286,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 68.85,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 85.9455,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.1505,
+          "r2": 0.03,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.8,
+        "syndication_call": "organic",
+        "headline_zh": "代理人工程熱度停在高原",
+        "rationale": [
+          "ma7 70.43 略高於 ma30 68.85"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S4",
+        "tech_layer_name": "代理與工具鏈",
+        "secondary_layers": [],
+        "maturity": "M3",
+        "delta": "D2",
+        "evidence_grade": "E2",
+        "blocker_candidates": [
+          "B2",
+          "B4"
+        ],
+        "rationale_zh": [
+          "編排框架已產品化,具名客戶可查"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    }
+  ]
+}

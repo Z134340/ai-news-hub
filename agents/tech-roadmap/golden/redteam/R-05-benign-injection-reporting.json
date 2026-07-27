@@ -1,0 +1,109 @@
+{
+  "schema": "roadmap-input-v0.1",
+  "generated_at": "2026-07-27T05:10:00.000Z",
+  "window": {
+    "start": "2026-04-04",
+    "end": "2026-07-26",
+    "observed_days": 68,
+    "calendar_days": 114,
+    "continuity": 0.5965,
+    "missing_dates_count": 46
+  },
+  "join": {
+    "method": "cluster_id + TOPIC_LEXICONS",
+    "matched": 1,
+    "unmatched": 0,
+    "tech_absent": 0
+  },
+  "clusters": [
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "title": "AI Security and Privacy",
+      "metrics": {
+        "present_in_window": true,
+        "totals": {
+          "occurrences": 1459,
+          "unique_items": 558,
+          "unique_titles": 740,
+          "active_days": 68,
+          "active_day_rate": 1
+        },
+        "delta": {
+          "window_days": 7,
+          "recent_sum": 123,
+          "previous_sum": 95,
+          "change": 28,
+          "change_rate": 0.2947,
+          "sufficient": true,
+          "observed_days": 68,
+          "required_days": 14
+        },
+        "moving_average": {
+          "ma7": {
+            "window_days": 7,
+            "value": 17.5714,
+            "observed_days": 7,
+            "coverage": 1,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma30": {
+            "window_days": 30,
+            "value": 14.75,
+            "observed_days": 20,
+            "coverage": 0.6667,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          },
+          "ma90": {
+            "window_days": 90,
+            "value": 21.2364,
+            "observed_days": 55,
+            "coverage": 0.6111,
+            "truncated_by_corpus_start": false,
+            "sufficient": true
+          }
+        },
+        "slope": {
+          "window_days": 30,
+          "value_per_day": 0.1613,
+          "r2": 0.1016,
+          "observed_points": 20,
+          "sufficient": true
+        }
+      },
+      "trend": {
+        "stage": "plateau",
+        "confidence": 0.78,
+        "syndication_call": "mixed",
+        "headline_zh": "跨代理人注入研究成為資安主軸",
+        "rationale": [
+          "研究人員示範多代理人系統可被跨代理人 prompt injection 串連",
+          "報導引用可復現的攻擊腳本與防護評測,ma7 17.57 高於 ma30 14.75"
+        ],
+        "security_flag": false,
+        "source": "model"
+      },
+      "tech_assessment": {
+        "tech_layer": "S5",
+        "tech_layer_name": "評估與安全",
+        "secondary_layers": [
+          "S4"
+        ],
+        "maturity": "M2",
+        "delta": "D2",
+        "evidence_grade": "E2",
+        "blocker_candidates": [
+          "B2",
+          "B5"
+        ],
+        "rationale_zh": [
+          "安全研究單位公開攻擊樣本與防護基準,第三方能重跑"
+        ],
+        "source_cluster_ids": [
+          "c_307dfc17"
+        ]
+      }
+    }
+  ]
+}

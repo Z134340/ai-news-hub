@@ -1,0 +1,142 @@
+# Hermes 控制平面 adapter — techroadmap
+# schema: adapter-contract-v1
+# TechRoadmap 回答「這條技術線接下來會往哪走、多久、卡在哪」，並且必須為每個
+# 里程碑寫出可證偽條件——講不出「什麼情況算沒發生」的預測不准輸出。
+#
+# 它是本 repo 三支代理人裡唯一會產生「對未來的主張」的一支，因此 risk_profile 為 high：
+# 錯誤的階段判讀最多是把現況講歪，錯誤的預測會被人拿去做決策。
+schema_version: adapter-contract-v1
+
+project_id: techroadmap
+display_name: TechRoadmap(技術路線預測代理人)
+role: judgment-agent
+risk_profile: high
+
+read_scope:
+  - AGENTS.md
+  - ROADMAP_RUBRIC.md
+  - skills/
+  - memory/principles.md
+  - memory/MEMORY.md
+  - golden/manifest.json
+  # T 軸五軸判準的唯一真本在 Hermes-Agent，本 repo 只讀不改。
+  # 兩份副本必然漂移，漂移之後沒有人知道哪一份才算數。
+  - ../../../Hermes-Agent/curator/TECH_RUBRIC.md
+
+write_scope:
+  - memory/precedents.jsonl
+
+blocked_paths:
+  - .env
+  - .env*
+  - secrets/
+  - "**/*.key"
+  - "**/credentials*"
+  - ../../data/agent/*.json
+  - ../../data/latest.json
+  - ../../data/index.json
+  # 明列跨 repo 的判準檔為不可寫。read_scope 已經含它，只讀不寫要寫死，
+  # 否則「代理人自己改掉限制自己的那條判準」這條路是通的。
+  - ../../../Hermes-Agent/curator/TECH_RUBRIC.md
+
+# 工作目錄為本 adapter 所在目錄(agents/tech-roadmap/)，故 repo 根在 ../../。
+# 三條都不呼叫模型、$0。--live 會真的呼叫模型(10 則 fixture 約 11 分鐘)，刻意不列入。
+test_commands:
+  - "python3 ../../scripts/newshub_roadmap.py --selftest"        # 0 投影/對帳/封頂的決定論檢查
+  - "python3 ../../scripts/roadmap_golden.py --offline"          # 0 語料結構與判準對齊
+  - "node ../../scripts/agent/build-roadmap-input.mjs --self-test"  # 0 併表與聚合規則的決定論檢查
+
+learning:
+  mode: shadow
+  shared_learning: ranking_only
+  shared_ledger: false
+  decisions_ledger: memory/precedents.jsonl
+  # 這支的解鎖門檻比另外兩支嚴，因為預測的對錯要等時間過了才知道：
+  #   1. 累積 ≥30 輪 data/agent/.preview/roadmap.json
+  #   2. 已有 ≥10 個里程碑走到 horizon 到期日，且可證偽條件真的能機械判定成敗
+  #   3. 那 10 個裡命中率 ≥60%，且沒有任何一則是「條件寫得太模糊所以判不出來」
+  # 第 3 點的後半句才是重點：預測失準是可接受的，寫得無法驗證不可接受。
+
+approval:
+  high_risk: manual_only
+  publish: manual_only
+
+agent_outputs:
+  roadmap: data/agent/.preview/roadmap.json
+  joined_input: data/agent/.preview/roadmap-input.json
+  precedents: memory/precedents.jsonl
+
+skills:
+  - skill_id: techroadmap.layer-migration
+    source: project
+    path: skills/layer-migration/
+    skill_doc: skills/layer-migration/SKILL.md
+    risk_profile: high
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/roadmap_golden.py --offline"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - propose_only_never_apply
+
+  - skill_id: techroadmap.milestone-falsifiability
+    source: project
+    path: skills/milestone-falsifiability/
+    skill_doc: skills/milestone-falsifiability/SKILL.md
+    risk_profile: high
+    # RM-2 是硬邊界：里程碑沒有成對的可證偽條件，整筆退回 unforecastable。
+    # 這支技能失效不會讓輸出變醜，會讓輸出變成無法驗收的預言。
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/newshub_roadmap.py --selftest"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - redteam_suite_must_stay_100_percent
+
+  - skill_id: techroadmap.injection-detection
+    source: project
+    path: skills/injection-detection/
+    skill_doc: skills/injection-detection/SKILL.md
+    risk_profile: high
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/roadmap_golden.py --offline"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - redteam_suite_must_stay_100_percent

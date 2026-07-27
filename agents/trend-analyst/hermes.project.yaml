@@ -1,0 +1,142 @@
+# Hermes 控制平面 adapter — trendanalyst
+# schema: adapter-contract-v1
+# TrendAnalyst 判斷一個主題現在處在什麼階段(萌芽/加速/高原/衰退)，以及量能上升
+# 是真的有更多人在做，還是同一則稿被多家轉載撐出來的假象。
+#
+# 為什麼它自成一個 project 而不是掛在 ai-news-hub 底下：
+# ai-news-hub 那份 manifest 的 write_scope 含 data/agent/ 與 scripts/agent/，
+# 那是「工作台」的權限。判斷型代理人的可寫範圍只有自己的判例庫一份檔案，
+# 兩者混在同一份 manifest 會讓控制平面用工作台的寬鬆邊界去核可判準變更。
+schema_version: adapter-contract-v1
+
+project_id: trendanalyst
+display_name: TrendAnalyst(趨勢階段判讀代理人)
+role: judgment-agent
+risk_profile: medium
+
+# 風險為 medium 而非 high 的理由：它的輸出只進 dashboard 與 TechRoadmap 的輸入，
+# 不直接決定對外發佈什麼(那是 NewsCurator 與 Hermes-LinkedIn 的職責)。
+
+read_scope:
+  - AGENTS.md
+  - TREND_RUBRIC.md
+  - skills/
+  - memory/principles.md
+  - memory/MEMORY.md
+  - golden/manifest.json
+
+write_scope:
+  - memory/precedents.jsonl
+
+blocked_paths:
+  - .env
+  - .env*
+  - secrets/
+  - "**/*.key"
+  - "**/credentials*"
+  # 發布爆炸半徑：run-daily.sh 每天 18:00 會 git add data/ 推上 GitHub Pages。
+  # 代理人一律只能寫 .preview/，晉升到 data/agent/ 是人工動作。
+  - ../../data/agent/*.json
+  - ../../data/latest.json
+  - ../../data/index.json
+
+# 工作目錄為本 adapter 所在目錄(agents/trend-analyst/)，故 repo 根在 ../../。
+# 退出碼：0=通過。--offline 不呼叫模型、$0；全量 golden 會真的呼叫模型，刻意不列入。
+test_commands:
+  - "python3 ../../scripts/newshub_agents.py --selftest"   # 0 投影與對帳的決定論檢查
+  - "python3 ../../scripts/trend_golden.py --offline"      # 0 語料結構與判準對齊(不呼叫模型)
+
+learning:
+  mode: shadow
+  shared_learning: ranking_only
+  shared_ledger: false
+  decisions_ledger: memory/precedents.jsonl
+  # 解鎖門檻與 NewsCurator 同構，但計數基準是「排程輪次的落點檔」而不是判例筆數，
+  # 理由同 curator/hermes.project.yaml：precedents.jsonl 是人工手寫的判例種子，
+  # 程式全程唯讀，拿它當計數器等於把門檻設成一個永遠不會前進的數字。
+  #   1. 累積 ≥30 輪 data/agent/.preview/trend-assessment.json
+  #   2. 隨機抽 20 筆 stage 判定，人工精準率 ≥80%
+  #   3. syndication_call 的誤判(把轉載潮判成 organic)連續兩季為 0
+
+approval:
+  high_risk: manual_only     # 改憲章、改 TREND_RUBRIC、改 golden 期望 → 一律人審
+  publish: manual_only       # 只能寫 .preview/，晉升 data/agent/ 一律人工
+
+agent_outputs:
+  assessment: data/agent/.preview/trend-assessment.json
+  precedents: memory/precedents.jsonl
+
+# skill-contract-v1。三支技能各對應一個失敗模式。
+skills:
+  - skill_id: trendanalyst.trend-staging
+    source: project
+    path: skills/trend-staging/
+    skill_doc: skills/trend-staging/SKILL.md
+    risk_profile: medium
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/trend_golden.py --offline"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - propose_only_never_apply
+
+  - skill_id: trendanalyst.syndication-discrimination
+    source: project
+    path: skills/syndication-discrimination/
+    skill_doc: skills/syndication-discrimination/SKILL.md
+    risk_profile: medium
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/trend_golden.py --offline"
+      required_controls:
+        - named_reviewer_for_instruction_change
+
+  - skill_id: trendanalyst.injection-detection
+    source: project
+    path: skills/injection-detection/
+    skill_doc: skills/injection-detection/SKILL.md
+    risk_profile: high
+    # 這支比另外兩支高一級：上游的 rationale 是自由文字且刻意不消毒
+    # (newshub_agents.py project_cluster 的註解)，注入偵測失效等於整條鏈失守。
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/newshub_agents.py --selftest"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - redteam_suite_must_stay_100_percent
