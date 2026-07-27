@@ -1,0 +1,132 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1,
+    "basis": "collected"
+  },
+  "counts": {
+    "items_total": 6,
+    "verified": 6,
+    "within_window": 2,
+    "by_category": {
+      "topnews": 6
+    },
+    "by_age": {
+      "0-1": 2,
+      "2-7": 0,
+      "8-30": 0,
+      "31+": 4
+    },
+    "by_day": {
+      "2026-07-26": 2,
+      "2026-05-14": 2,
+      "2026-04-22": 2
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程與框架",
+      "stage": "accelerating",
+      "syndication_call": "organic",
+      "headline_zh": "框架端的工具權限模型出現一項預設值變更。",
+      "trajectory": "advancing",
+      "horizon": "near",
+      "next_milestone": "0.9 版正式釋出後,既有專案需在一個版本週期內補齊白名單",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "開發工具與檢索增強",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "檢索端的重排序模型出現一次公開的成本數字。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "模型發布與推論",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "推論端本日出現一項與批次排程有關的變更。",
+      "trajectory": "stalling",
+      "horizon": "near",
+      "next_milestone": "下一季的批次排程 API 進入公開預覽",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "LangChain 將工具權限改為預設拒絕",
+      "source": "LangChain Blog",
+      "date": "2026-04-22",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "age_days": 95,
+      "summary": "自 0.9 版起,未在設定檔中明列的工具一律拒絕呼叫,既有專案需補上白名單才能維持原行為。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "工具權限改為預設拒絕,既有專案需補白名單",
+      "source": "TechCrunch",
+      "date": "2026-04-22",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "age_days": 95,
+      "summary": "報導確認 0.9 版將工具權限改為預設拒絕,並訪問三個團隊說明升級時需要補寫的白名單範圍。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "重排序模型的每千次查詢成本降至 0.42 美元",
+      "source": "Pinecone Blog",
+      "date": "2026-05-14",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag",
+      "age_days": 73,
+      "summary": "官方公布新版重排序模型的計價,每千次查詢自 0.61 美元降至 0.42 美元,延遲維持不變。"
+    },
+    {
+      "item_id": "i0004",
+      "title": "檢索重排序降價,延遲未受影響",
+      "source": "InfoQ",
+      "date": "2026-05-14",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag",
+      "age_days": 73,
+      "summary": "報導確認降價幅度約三成一,並比對兩家競品的同期價格。"
+    },
+    {
+      "item_id": "i0005",
+      "title": "批次推論排程 API 開放候補名單",
+      "source": "Anthropic Newsroom",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "model_release_and_inference",
+      "age_days": 0,
+      "summary": "官方今日開放批次排程 API 的候補名單,說明佇列深度與重試語意,並預告下一季進入公開預覽。"
+    },
+    {
+      "item_id": "i0006",
+      "title": "批次排程 API 候補名單開放,佇列語意首次公開",
+      "source": "The Register",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "model_release_and_inference",
+      "age_days": 0,
+      "summary": "報導確認候補名單已開放,並指出佇列深度與重試語意是首次對外說明。"
+    }
+  ]
+}

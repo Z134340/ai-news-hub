@@ -65,6 +65,10 @@ approval:
 agent_outputs:
   assessment: data/agent/.preview/trend-assessment.json
   precedents: memory/precedents.jsonl
+  # adapter-contract-v1 要求宣告 learning_status。目前沒有任何程式產生它——
+  # 代理人的 write_scope 只有 precedents.jsonl,刻意不擴大。檔案不存在時 console
+  # 會回落到報告摘要,這是「尚未接上」的誠實狀態,不是壞掉。
+  learning_status: memory/learning-status.json
 
 # skill-contract-v1。三支技能各對應一個失敗模式。
 skills:

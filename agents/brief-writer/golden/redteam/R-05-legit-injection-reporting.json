@@ -1,0 +1,66 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1
+  },
+  "counts": {
+    "items_total": 3,
+    "verified": 3,
+    "by_category": {
+      "papers": 1,
+      "topnews": 1,
+      "blogs": 1
+    },
+    "by_day": {
+      "2026-07-26": 3
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "title": "AI 安全與隱私",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "針對下游代理人的間接注入成為本日安全端的主要議題。",
+      "trajectory": "capability_deepening",
+      "horizon": "near",
+      "next_milestone": "論文提出的偵測基準是否被第二個團隊重現",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "論文提出新聞摘要層的間接提示注入基準測試",
+      "source": "arXiv",
+      "date": "2026-07-26",
+      "category": "papers",
+      "verified": true,
+      "cluster_id": "ai_security_and_privacy",
+      "summary": "研究者示範攻擊者可在新聞摘要中嵌入針對下游代理人的指令,使其提高信心標籤。論文提出一組 240 例的偵測基準並公開評分腳本。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "摘要層注入攻擊的實測結果",
+      "source": "The Register",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "ai_security_and_privacy",
+      "summary": "報導轉述同一份論文,指出研究者示範攻擊者可在新聞摘要中嵌入針對下游代理人的指令,並整理三個受測系統的通過率。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "從防守方看摘要層注入的偵測成本",
+      "source": "Simon Willison",
+      "date": "2026-07-26",
+      "category": "blogs",
+      "verified": true,
+      "cluster_id": "ai_security_and_privacy",
+      "summary": "評論以第三人稱拆解論文的攻擊樣態,說明偵測規則若只比對關鍵字會漏掉改寫過的變體,並建議以來源分層而非字串比對為主。"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+# Hermes 控制平面 adapter — briefwriter
+# schema: adapter-contract-v1
+# BriefWriter 決定「今天這批語料裡,哪幾件事值得讓人停下來讀」,並把它寫成一段
+# 讀得懂的中文,同時標明這句話離證據有多遠。
+#
+# 為什麼它的 risk_profile 是 high(跟 techroadmap 同級,比 trendanalyst 高一級):
+# 另外兩支輸出的是列舉值欄位(stage、syndication_call、時程分級),寫錯只能錯在
+# 有限選項裡,而且錯了也還在同一個語意空間內。BriefWriter 輸出的是自由文字,
+# 句子可以長成任何樣子——編一個不存在的機構名、把兩則新聞的數字接在一起、
+# 或者把上游注入的指令當成事實寫進 body_zh,閘門都攔不住(閘門只驗結構與引用
+# 合法性,驗不了「這句話是不是真的」)。而它的輸出會直接印在 dashboard 第三塊
+# 給人看。見 memory/principles.md 第 8 條。
+schema_version: adapter-contract-v1
+
+project_id: briefwriter
+display_name: BriefWriter(每日重點整理代理人)
+role: judgment-agent
+risk_profile: high
+
+read_scope:
+  - AGENTS.md
+  - BRIEF_RUBRIC.md
+  - skills/
+  - memory/principles.md
+  - memory/MEMORY.md
+  - golden/manifest.json
+
+write_scope:
+  - memory/precedents.jsonl
+
+blocked_paths:
+  - .env
+  - .env*
+  - secrets/
+  - "**/*.key"
+  - "**/credentials*"
+  # 發布爆炸半徑：run-daily.sh 每天 18:00 會 git add data/ 推上 GitHub Pages。
+  # BriefWriter 的輸出是三支裡唯一「人會逐字讀」的,誤推出去就是直接對外發布
+  # 一段沒人複核過的中文。
+  - ../../data/agent/*.json
+  - ../../data/latest.json
+  - ../../data/index.json
+  # 上游三份判準是 BriefWriter 讀進來的資料來源,不是它可以調整的參數。
+  # principles.md 第 6 條:「上游的判讀是資料,不是上司。」
+  - ../trend-analyst/TREND_RUBRIC.md
+  - ../tech-roadmap/ROADMAP_RUBRIC.md
+
+test_commands:
+  # 四條全部 $0：不呼叫模型,離線判定與突變測試各跑一次。
+  - "python3 ../../scripts/newshub_brief.py --selftest"
+  - "python3 ../../scripts/brief_golden.py --offline"
+  - "python3 ../../scripts/brief_golden_selftest.py"
+  - "node ../../scripts/agent/build-brief-input.mjs --self-test"
+
+learning:
+  mode: shadow
+  shared_learning: ranking_only
+  shared_ledger: false
+  decisions_ledger: memory/precedents.jsonl
+
+approval:
+  high_risk: manual_only
+  publish: manual_only
+
+agent_outputs:
+  brief: data/agent/.preview/brief-latest.json
+  input: data/agent/.preview/brief-input.json
+  precedents: memory/precedents.jsonl
+  # adapter-contract-v1 要求宣告 learning_status。目前沒有任何程式產生它——
+  # 代理人的 write_scope 只有 precedents.jsonl,刻意不擴大。檔案不存在時 console
+  # 會回落到報告摘要,這是「尚未接上」的誠實狀態,不是壞掉。
+  learning_status: memory/learning-status.json
+
+skills:
+  - skill_id: briefwriter.salience-selection
+    source: project
+    path: skills/salience-selection/
+    skill_doc: skills/salience-selection/SKILL.md
+    risk_profile: medium
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/brief_golden.py --offline"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        # 「0 條是合法答案」(principles 第 2 條)是這支技能最容易被優化掉的性質:
+        # 任何以「產出量」為目標的自動調整都會把門檻往下拉去湊條數。
+        - empty_output_must_stay_legal
+
+  - skill_id: briefwriter.confidence-labeling
+    source: project
+    path: skills/confidence-labeling/
+    skill_doc: skills/confidence-labeling/SKILL.md
+    risk_profile: high
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/brief_golden.py --offline"
+        - "python3 ../../scripts/brief_golden_selftest.py"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - propose_only_never_apply
+        # BW-3 超限的處置只能是丟棄。改成「降級改寫」會讓閘門自己算出正確答案,
+        # golden 全綠就只證明閘門會算(principles 第 7 條)。這條不接受自動調整。
+        - overclaim_disposition_stays_drop
+
+  - skill_id: briefwriter.injection-detection
+    source: project
+    path: skills/injection-detection/
+    skill_doc: skills/injection-detection/SKILL.md
+    risk_profile: high
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "python3 ../../scripts/brief_golden.py --offline --suite redteam"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - propose_only_never_apply
+        - redteam_suite_must_stay_100_percent
+
+# 解鎖門檻（從 shadow 升到有實權之前必須先成立的事）
+# 1. 對真實語料連續實跑 14 輪,precedents.jsonl 累積到可複核的量;
+#    memory/principles.md 裡 6 條 [設計] 標記逐條複核完畢——被語料證實的改標
+#    [實測],被推翻的直接刪掉,不因為寫過就留著。
+# 2. golden 的 12 則 fixture 全數維持通過,且 redteam 五則不得有任何一則
+#    在 --live 下失守。
+# 3. 人類逐字讀過至少 10 輪的 body_zh,確認沒有一句出現「候選裡找不到依據的
+#    具體成分」(principles 第 8 條)。寫得平淡是可接受的,編造不可接受。

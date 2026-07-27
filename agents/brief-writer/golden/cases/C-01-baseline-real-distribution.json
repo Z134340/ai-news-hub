@@ -1,0 +1,249 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 7,
+    "start": "2026-07-20",
+    "end": "2026-07-26",
+    "observed_days": 6
+  },
+  "counts": {
+    "items_total": 17,
+    "verified": 14,
+    "by_category": {
+      "topnews": 11,
+      "blogs": 5,
+      "papers": 1
+    },
+    "by_day": {
+      "2026-07-20": 2,
+      "2026-07-21": 4,
+      "2026-07-22": 3,
+      "2026-07-23": 2,
+      "2026-07-24": 3,
+      "2026-07-25": 3
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程與框架",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "代理人框架的主要供應商本週集中在記憶與狀態持久化上出手。",
+      "trajectory": "stalling",
+      "horizon": "near",
+      "next_milestone": "跨 session 記憶檢查點的互通格式是否被第二家框架採用",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "評測與治理",
+      "stage": "plateau",
+      "syndication_call": "mixed",
+      "headline_zh": "歐盟 AI Act 實施細則進入第二版諮詢,評測基準端仍在等待明確要求。",
+      "trajectory": "consolidating",
+      "horizon": "mid",
+      "next_milestone": "第二版諮詢的回覆期限與具體評測要求條文",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "模型發布與推論",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "本週的更新集中在服務端推論效率,而非新模型本身。",
+      "trajectory": "capability_deepening",
+      "horizon": "near",
+      "next_milestone": "長上下文延遲改善是否在第三方實測中重現",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "開發者工具與 RAG",
+      "stage": "declining",
+      "syndication_call": "mixed",
+      "headline_zh": "檢索評測工具鏈出現整併訊號,新專案數量持續下降。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "title": "AI 安全與隱私",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "多代理人系統的攻擊面研究持續產出,但尚未進入產品端。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "跨代理人注入的防護是否進入主流框架的預設設定",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "ai_learning_and_enablement",
+      "title": "AI 學習與導入",
+      "stage": "declining",
+      "syndication_call": "mixed",
+      "headline_zh": "企業導入教材的更新節奏放緩。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "OpenAI 發布 Agents SDK 1.4,新增跨 session 記憶檢查點",
+      "source": "OpenAI Blog",
+      "date": "2026-07-22",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering"
+    },
+    {
+      "item_id": "i0002",
+      "title": "Agents SDK 1.4 加入記憶檢查點,開發者對格式相容性反應兩極",
+      "source": "TechCrunch",
+      "date": "2026-07-22",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering"
+    },
+    {
+      "item_id": "i0003",
+      "title": "解析 Agents SDK 1.4 檢查點的序列化設計",
+      "source": "InfoQ",
+      "date": "2026-07-23",
+      "category": "blogs",
+      "verified": true,
+      "cluster_id": "agent_engineering"
+    },
+    {
+      "item_id": "i0004",
+      "title": "歐盟 AI Act 實施細則第二版諮詢啟動",
+      "source": "Euractiv",
+      "date": "2026-07-21",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance"
+    },
+    {
+      "item_id": "i0005",
+      "title": "AI Act 實施細則諮詢開跑,產業界關注評測條文",
+      "source": "AI Business",
+      "date": "2026-07-21",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance"
+    },
+    {
+      "item_id": "i0006",
+      "title": "評測基準 HELM-Agent 更新任務集",
+      "source": "Euractiv",
+      "date": "2026-07-24",
+      "category": "topnews",
+      "verified": false,
+      "cluster_id": "llm_evaluation_governance"
+    },
+    {
+      "item_id": "i0007",
+      "title": "Anthropic 釋出服務端更新,長上下文推論延遲降低 31%",
+      "source": "Anthropic News",
+      "date": "2026-07-24",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "model_release_and_inference"
+    },
+    {
+      "item_id": "i0008",
+      "title": "服務端更新讓長上下文延遲降三成",
+      "source": "VentureBeat",
+      "date": "2026-07-24",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "model_release_and_inference"
+    },
+    {
+      "item_id": "i0009",
+      "title": "實測:新版推論堆疊在 128k 上下文的表現",
+      "source": "Simon Willison",
+      "date": "2026-07-25",
+      "category": "blogs",
+      "verified": false,
+      "cluster_id": "model_release_and_inference"
+    },
+    {
+      "item_id": "i0010",
+      "title": "LlamaIndex 與 Weaviate 宣布共用檢索評測套件",
+      "source": "LlamaIndex Blog",
+      "date": "2026-07-20",
+      "category": "blogs",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag"
+    },
+    {
+      "item_id": "i0011",
+      "title": "檢索評測套件走向統一,兩家向量資料庫先行",
+      "source": "The Register",
+      "date": "2026-07-20",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag"
+    },
+    {
+      "item_id": "i0012",
+      "title": "共用檢索評測套件對 RAG 團隊的實際意義",
+      "source": "InfoWorld",
+      "date": "2026-07-21",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag"
+    },
+    {
+      "item_id": "i0013",
+      "title": "Weaviate 說明共用評測套件的取樣方法",
+      "source": "Weaviate Blog",
+      "date": "2026-07-21",
+      "category": "blogs",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag"
+    },
+    {
+      "item_id": "i0014",
+      "title": "研究團隊揭露多代理人系統的跨代理人注入串連手法",
+      "source": "arXiv",
+      "date": "2026-07-23",
+      "category": "papers",
+      "verified": true,
+      "cluster_id": "ai_security_and_privacy"
+    },
+    {
+      "item_id": "i0015",
+      "title": "線上課程平台更新 AI 工程學程內容",
+      "source": "EdSurge",
+      "date": "2026-07-22",
+      "category": "blogs",
+      "verified": false,
+      "cluster_id": "ai_learning_and_enablement"
+    },
+    {
+      "item_id": "i0016",
+      "title": "半導體業者公布針對稀疏注意力的推論加速器規格",
+      "source": "EE Times",
+      "date": "2026-07-25",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": null
+    },
+    {
+      "item_id": "i0017",
+      "title": "稀疏注意力加速器規格細節曝光,記憶體頻寬為設計重點",
+      "source": "AnandTech",
+      "date": "2026-07-25",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": null
+    }
+  ]
+}

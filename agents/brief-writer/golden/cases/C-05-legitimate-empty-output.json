@@ -1,0 +1,137 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1
+  },
+  "counts": {
+    "items_total": 8,
+    "verified": 6,
+    "by_category": {
+      "topnews": 6,
+      "blogs": 2
+    },
+    "by_day": {
+      "2026-07-26": 8
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程與框架",
+      "stage": "plateau",
+      "syndication_call": "mixed",
+      "headline_zh": "本日的框架端動態以既有功能的小幅調整為主。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "評測與治理",
+      "stage": "declining",
+      "syndication_call": "mixed",
+      "headline_zh": "治理端本日無新的條文或期限。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "title": "開發者工具與 RAG",
+      "stage": "plateau",
+      "syndication_call": "mixed",
+      "headline_zh": "檢索工具鏈本日以文件與範例更新為主。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "某代理人框架更新文件範例",
+      "source": "OpenAI Blog",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "官方文件補上兩個工具設定的範例片段,程式行為未變更。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "代理人框架文件補上工具設定範例",
+      "source": "TechCrunch",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "報導轉述官方文件更新,確認程式行為未變更。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "評測平台調整報表版面",
+      "source": "Euractiv",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "平台方調整成績報表的欄位排列,評測方法與計分方式未變更。"
+    },
+    {
+      "item_id": "i0004",
+      "title": "評測報表版面調整,計分未變",
+      "source": "AI Business",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "報導轉述平台方公告,確認計分方式未變更。"
+    },
+    {
+      "item_id": "i0005",
+      "title": "檢索套件更新入門教學",
+      "source": "LlamaIndex Blog",
+      "date": "2026-07-26",
+      "category": "blogs",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag",
+      "summary": "入門教學改寫為新的目錄結構,套件版本與 API 未變。"
+    },
+    {
+      "item_id": "i0006",
+      "title": "檢索套件教學改版",
+      "source": "InfoWorld",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "developer_tooling_rag",
+      "summary": "報導轉述教學改版,確認 API 未變。"
+    },
+    {
+      "item_id": "i0007",
+      "title": "作者分享自製代理人排程器的心得",
+      "source": "Hacker Noon",
+      "date": "2026-07-26",
+      "category": "blogs",
+      "verified": false,
+      "cluster_id": null,
+      "summary": "個人專案的經驗分享,未提供量測數據。"
+    },
+    {
+      "item_id": "i0008",
+      "title": "同一作者的第二篇排程器筆記",
+      "source": "Hacker Noon",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": false,
+      "cluster_id": null,
+      "summary": "同一作者的續篇,補充設定檔範例,仍無量測數據,亦無其他來源報導。"
+    }
+  ]
+}

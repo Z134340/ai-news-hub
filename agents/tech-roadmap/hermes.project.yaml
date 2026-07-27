@@ -65,6 +65,10 @@ agent_outputs:
   roadmap: data/agent/.preview/roadmap.json
   joined_input: data/agent/.preview/roadmap-input.json
   precedents: memory/precedents.jsonl
+  # adapter-contract-v1 要求宣告 learning_status。目前沒有任何程式產生它——
+  # 代理人的 write_scope 只有 precedents.jsonl,刻意不擴大。檔案不存在時 console
+  # 會回落到報告摘要,這是「尚未接上」的誠實狀態,不是壞掉。
+  learning_status: memory/learning-status.json
 
 skills:
   - skill_id: techroadmap.layer-migration

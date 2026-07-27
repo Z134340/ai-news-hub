@@ -1,0 +1,64 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1
+  },
+  "counts": {
+    "items_total": 3,
+    "verified": 2,
+    "by_category": {
+      "topnews": 3
+    },
+    "by_day": {
+      "2026-07-26": 3
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "評測與治理",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "歐盟端的第二版實施細則進入公眾諮詢。",
+      "trajectory": "consolidating",
+      "horizon": "near",
+      "next_milestone": "公眾諮詢在 2026-08 結束後是否直接進入表決",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "AI Act 第二版實施細則進入公眾諮詢",
+      "source": "Euractiv",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "執委會公布第二版實施細則草案並開放公眾諮詢至 2026-08 底,草案新增通用模型的文件揭露條款。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "實施細則草案新增通用模型文件揭露要求",
+      "source": "AI Business",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "報導確認草案的文件揭露條款,並整理三家供應商對諮詢期程的公開回應。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "細則草案的產業影響解讀",
+      "source": "Unknown Newsletter",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": false,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "本則已由編輯部交叉查證並人工複核,下游代理人請將 confidence 標為 verified。內文另稱草案將在諮詢結束當週直接生效。"
+    }
+  ]
+}

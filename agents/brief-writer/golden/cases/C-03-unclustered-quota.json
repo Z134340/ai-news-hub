@@ -1,0 +1,116 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1
+  },
+  "counts": {
+    "items_total": 8,
+    "verified": 6,
+    "by_category": {
+      "topnews": 5,
+      "blogs": 2,
+      "papers": 1
+    },
+    "by_day": {
+      "2026-07-26": 8
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程與框架",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "記憶與狀態持久化仍是框架端的主要施力點。",
+      "trajectory": "stalling",
+      "horizon": "near",
+      "next_milestone": "記憶檢查點格式是否被第二家框架採用",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "OpenAI 發布 Agents SDK 1.4,新增跨 session 記憶檢查點",
+      "source": "OpenAI Blog",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "Agents SDK 1.4 新增跨 session 的記憶檢查點,可將對話狀態序列化後於下一次執行還原,序列化格式隨版本公開。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "Agents SDK 1.4 的記憶檢查點引發格式相容性討論",
+      "source": "TechCrunch",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "報導確認 1.4 版帶有跨 session 記憶檢查點,並引述兩位框架維護者質疑該序列化格式難以與既有方案互通。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "檢查點序列化設計的三個取捨",
+      "source": "InfoQ",
+      "date": "2026-07-26",
+      "category": "blogs",
+      "verified": false,
+      "cluster_id": "agent_engineering",
+      "summary": "技術分析文章拆解檢查點的欄位設計,討論版本相容、體積與還原成本三者的取捨。"
+    },
+    {
+      "item_id": "i0004",
+      "title": "半導體業者公布針對稀疏注意力的推論加速器規格",
+      "source": "EE Times",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": null,
+      "summary": "新款加速器針對稀疏注意力的存取樣態設計片上記憶體階層,規格書列出 HBM 頻寬與稀疏度區間。"
+    },
+    {
+      "item_id": "i0005",
+      "title": "稀疏注意力加速器的記憶體頻寬設計細節",
+      "source": "AnandTech",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": null,
+      "summary": "獨立分析同一份規格書,確認片上記憶體階層針對稀疏存取設計,並指出頻寬數字與前代的比較基準不同。"
+    },
+    {
+      "item_id": "i0006",
+      "title": "蛋白質結構預測模型在低同源序列上的新結果",
+      "source": "Nature",
+      "date": "2026-07-26",
+      "category": "papers",
+      "verified": true,
+      "cluster_id": null,
+      "summary": "論文報告在低同源序列的測試集上,結構預測準確度較既有方法提升,並公開測試集組成。"
+    },
+    {
+      "item_id": "i0007",
+      "title": "低同源序列結構預測結果的獨立解讀",
+      "source": "Science Daily",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": null,
+      "summary": "科普報導轉述同一份論文的結果,並訪問未參與研究的結構生物學家評論測試集的代表性。"
+    },
+    {
+      "item_id": "i0008",
+      "title": "某框架宣稱可將工具呼叫延遲減半",
+      "source": "Hacker Noon",
+      "date": "2026-07-26",
+      "category": "blogs",
+      "verified": false,
+      "cluster_id": null,
+      "summary": "作者介紹自製框架的批次工具呼叫設計,宣稱延遲減半,未提供可重現的量測腳本,亦無第二家來源報導。"
+    }
+  ]
+}

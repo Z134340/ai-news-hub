@@ -1,0 +1,106 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1
+  },
+  "counts": {
+    "items_total": 6,
+    "verified": 5,
+    "by_category": {
+      "topnews": 5,
+      "blogs": 1
+    },
+    "by_day": {
+      "2026-07-26": 6
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程與框架",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "工具連線協定的支援面在本日出現同時擴張。",
+      "trajectory": "stalling",
+      "horizon": "near",
+      "next_milestone": "第四家主要雲端供應商是否跟進同一版協定",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "title": "模型發布與推論",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "供應商釋出服務端推論效率的具體數字。",
+      "trajectory": "capability_deepening",
+      "horizon": "near",
+      "next_milestone": "延遲改善是否在第三方實測中重現",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "Microsoft 在 Copilot Studio 加入 MCP 1.2 連線設定",
+      "source": "Microsoft Dev Blog",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "Copilot Studio 的工具設定頁新增 MCP 1.2 端點欄位,既有連線器不需改寫即可沿用。文中未提及其他供應商的支援狀況。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "Gemini Extensions 支援 MCP 1.2",
+      "source": "Google Developers",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "Gemini Extensions 的設定檔新增 MCP 1.2 宣告區塊,開發者可直接指向既有的 MCP server。公告未比較其他平台。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "Bedrock Agents 開放 MCP 1.2 端點",
+      "source": "AWS News",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "Bedrock Agents 於本日起接受 MCP 1.2 端點註冊,並提供既有 Lambda 工具的轉接層。公告只描述自家服務。"
+    },
+    {
+      "item_id": "i0004",
+      "title": "Anthropic 公布服務端更新,長上下文推論延遲降低 31%",
+      "source": "Anthropic News",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "model_release_and_inference",
+      "summary": "官方公告指出本次服務端更新讓 128k 上下文的首字延遲降低 31%,量測基準為內部標準負載。"
+    },
+    {
+      "item_id": "i0005",
+      "title": "推論延遲降三成的技術說明",
+      "source": "VentureBeat",
+      "date": "2026-07-26",
+      "category": "blogs",
+      "verified": true,
+      "cluster_id": "model_release_and_inference",
+      "summary": "報導轉述官方公告的 31% 數字,並訪問兩位工程師討論分頁快取的可能作法。未提供獨立實測。"
+    },
+    {
+      "item_id": "i0006",
+      "title": "某新創宣稱其排程器可降低代理人成本",
+      "source": "Startup Weekly",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": false,
+      "cluster_id": null,
+      "summary": "新創發布自家排程器的成本比較,未提供量測方法,亦無第二家來源報導同一件事。"
+    }
+  ]
+}

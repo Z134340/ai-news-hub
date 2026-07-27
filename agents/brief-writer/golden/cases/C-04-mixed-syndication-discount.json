@@ -1,0 +1,85 @@
+{
+  "schema": "brief-input-v0.1",
+  "window": {
+    "days": 1,
+    "start": "2026-07-26",
+    "end": "2026-07-26",
+    "observed_days": 1
+  },
+  "counts": {
+    "items_total": 4,
+    "verified": 4,
+    "by_category": {
+      "topnews": 4
+    },
+    "by_day": {
+      "2026-07-26": 4
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "agent_engineering",
+      "title": "Agent 工程與框架",
+      "stage": "plateau",
+      "syndication_call": "organic",
+      "headline_zh": "框架端本日出現一項與工具權限有關的變更。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    },
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "title": "評測與治理",
+      "stage": "plateau",
+      "syndication_call": "mixed",
+      "headline_zh": "治理端本日出現一項與稽核紀錄有關的變更。",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "",
+      "security_flag": false
+    }
+  ],
+  "candidates": [
+    {
+      "item_id": "i0001",
+      "title": "LangChain 將工具權限改為預設拒絕",
+      "source": "LangChain Blog",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "自 0.9 版起,未在設定檔中明列的工具一律拒絕呼叫,既有專案需補上白名單才能維持原行為。"
+    },
+    {
+      "item_id": "i0002",
+      "title": "工具權限改為預設拒絕,既有專案需補白名單",
+      "source": "TechCrunch",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "agent_engineering",
+      "summary": "報導確認 0.9 版將工具權限改為預設拒絕,並訪問三個團隊說明升級時需要補寫的白名單範圍。"
+    },
+    {
+      "item_id": "i0003",
+      "title": "評測平台開始要求保留完整稽核紀錄",
+      "source": "Euractiv",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "平台方公告自下月起要求送測方保留完整的稽核紀錄,保存期間與格式另行公布。"
+    },
+    {
+      "item_id": "i0004",
+      "title": "送測方須保留完整稽核紀錄",
+      "source": "AI Business",
+      "date": "2026-07-26",
+      "category": "topnews",
+      "verified": true,
+      "cluster_id": "llm_evaluation_governance",
+      "summary": "報導確認平台方的稽核紀錄要求,並指出保存期間尚未定案。"
+    }
+  ]
+}
