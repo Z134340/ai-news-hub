@@ -1,15 +1,13 @@
 {
-  "last_run": "2026-07-27T18:14:02.046317+08:00",
-  "last_success": "2026-07-26T18:09:03.920551+08:00",
-  "last_date": "2026-07-27",
+  "last_run": "2026-07-28T18:34:16.724258+08:00",
+  "last_success": "2026-07-28T18:34:16.724258+08:00",
+  "last_date": "2026-07-28",
   "source": "local",
-  "status": "failed",
-  "categories_ok": 0,
-  "categories_failed": 10,
-  "validation_pass_rate": 100,
-  "consecutive_failures": 1,
+  "status": "ok",
+  "categories_ok": 7,
+  "categories_failed": 0,
+  "validation_pass_rate": 91,
+  "consecutive_failures": 0,
   "last_missed": null,
-  "errors": [
-    "配額/連線耗盡: papers, topnews, taiwan, china, usa, techtrends, governance, models, tutorials, courses（秒級重試無效，已回退舊資料）"
-  ]
+  "errors": []
 }
