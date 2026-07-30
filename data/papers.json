@@ -2,186 +2,225 @@
   "items": [
     {
       "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
-      "title_zh": "有信度未必有效度：LLM-as-a-Judge 模型在一致性、穩定性與偏誤上的大規模系統性評估",
+      "title_zh": "有信度卻無效度：跨一致性、穩定性與偏誤的 LLM-as-a-Judge 大規模系統性評估",
       "authors": [
         "Justin D. Norman",
         "Michael U. Rivera",
         "D. Alex Hughes"
       ],
       "institution": "UC Berkeley",
-      "venue": "arXiv",
+      "venue": "ACL 2026 Main Conference",
       "date": "2026-06-17",
-      "summary": "本研究對 21 個評審模型、涵蓋 9 家供應商，在 MT-Bench、JudgeBench、RewardBench 三個資料集上執行 118 次評測run，累計約 541,000 筆評審判斷，是目前規模最大的 LLM-as-a-Judge 系統性稽核。核心發現是「信度不等於效度」：測試再測信度超過 0.95 的評審，仍可同時存在超過 0.10 的位置偏誤（position bias），代表模型判斷穩定但未必正確。在 MT-Bench 上，以 kappa 校正機率一致性後，原始一致率被稀釋 33 至 41 個百分點，顯示未校正的 agreement 數字嚴重高估評審品質。更關鍵的是評審選擇本身會改變結論：更換評審模型會使受測模型的排名最多位移 14 個名次，而 verbosity bias 反而很小（低於 0.011）。此結果直接挑戰「換一個更強的評審就能得到更可信評測」的普遍假設。",
+      "summary": "研究團隊對 21 個評審模型、涵蓋 9 家供應商、執行 118 組實驗、累積約 541,000 次評審判斷，系統性檢驗 LLM-as-a-Judge 的信度與效度落差。結果顯示，若改用 Cohen's kappa 取代常見的完全匹配率（exact-match agreement），一致性數字會下滑 33 至 41 個百分點，代表多數論文引用的高一致性其實被機率巧合灌水。更關鍵的是，同一批模型在不同評分協定下的排名最多會位移 14 個名次，意味著「哪個模型比較好」的結論高度依賴評估設定而非模型本身。研究另發現部分模型 test-retest 可靠度超過 0.95，卻同時帶有大於 0.10 的位置偏誤（position bias），驗證了「穩定不等於正確」；相對地 verbosity bias 偏低（小於 0.011），顯示長度偏好並非主要污染源。作者主張評審模型必須同時報告 kappa、位置偏誤與重測信度，否則單一 agreement 數字不具參考價值。",
       "url": "https://arxiv.org/abs/2606.19544",
       "field": "LLM Evaluation / LLM-as-a-Judge",
-      "impact": "high — 直接衝擊目前業界大量依賴 LLM 評審的評測管線，說明評審選擇是實驗設計變數而非中立工具，金融業導入 AI 評測時須將評審模型版本列入治理紀錄。"
+      "impact": "high — 直接動搖目前業界以 LLM 評審取代人工標註的評估基礎，對建立 AI 模型驗收標準與內部評測治理具立即參考價值"
     },
     {
-      "title": "Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?",
-      "title_zh": "在 Agentic 情境下，LLM-as-a-Judge 能可靠地驗證評分準則嗎？",
+      "title": "LLM Judges Have Dark Current: A Psychometric Datasheet for LLM-as-a-Judge Evaluation",
+      "title_zh": "LLM 評審有暗電流：LLM-as-a-Judge 的心理計量規格表",
       "authors": [
-        "⚠️待確認"
+        "Hiroyasu Usami",
+        "Keisuke Hara",
+        "Ayato Tsuboi",
+        "Naohiko Matsuda"
       ],
-      "institution": "⚠️待確認",
-      "venue": "arXiv",
-      "date": "2026-06-29",
-      "summary": "本文提出 RuVerBench，專門檢驗 LLM 評審在代理式任務中驗證 rubric（評分準則）的可靠度，涵蓋 deep research 與 agentic coding 兩大場景、共 2,458 個評測實例。研究比較兩種粒度：rubric-level（以完整準則為單位判斷）與 checklist-level（拆解成逐條核對），結果顯示 rubric-level 判斷準確度較高，推翻「拆得越細越準」的直覺。另一項關鍵發現是要求評審輸出明確推理過程，不僅提升判斷準確度，也顯著降低不同評審之間的變異度（inter-judge variance），代表推理過程本身具有穩定化效果。此研究把 LLM-as-a-Judge 的可靠度問題，從單輪問答延伸到多步驟代理執行軌跡的驗證。",
-      "url": "https://arxiv.org/abs/2606.29920",
-      "field": "Agent Evaluation / LLM-as-a-Judge",
-      "impact": "high — 為代理式 AI 的驗收標準提供可操作的設計原則（用 rubric-level + 強制推理），對建立 Agent 上線前的評測 SOP 有直接參考價值。"
+      "institution": "AIST / Japanese research consortium",
+      "venue": "arXiv preprint",
+      "date": "2026-06-14",
+      "summary": "本文把 LLM 評審視為量測儀器，借用類比電子學的「暗電流」（dark current）概念，指出評審模型在完全沒有有效訊號輸入時仍會輸出非零分數，形成系統性基線偏移。作者提出 Judge Datasheet 協定，要求每個評審模型比照儀器規格表揭露暗電流、交叉靈敏度（cross-sensitivity）、線性範圍與量測不確定度，並以 Item Response Theory 校準難度與鑑別度參數。實測中 Llama-3.1-8B 顯示出明顯偏高的暗電流，即對空白或無關內容仍給出中高分；Qwen2.5-14B 則接近「真空乾淨」的低基線表現。這代表同一份評測資料在不同評審下的絕對分數不可直接比較，必須先扣除各自基線。此框架把評審模型的品質從模糊的「準不準」轉為可登錄、可稽核的量測規格。",
+      "url": "https://arxiv.org/abs/2606.15610",
+      "field": "LLM Evaluation / Psychometrics",
+      "impact": "high — 為 AI 評估治理提供可落地的儀器化揭露格式，對需要留存驗證軌跡的受監理產業特別實用"
     },
     {
-      "title": "When the Judge Changes, So Does the Measurement: Auditing LLM-as-Judge Reliability",
-      "title_zh": "評審一換，量測就變：LLM-as-Judge 可靠度稽核",
+      "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
+      "title_zh": "長篇輸出評估的 LLM-as-a-Judge 基準測試",
       "authors": [
-        "Zongyou Yang",
-        "Yinghan Hou",
-        "Xiaokun Yang"
+        "Junjie Chen",
+        "Yuxi Dong",
+        "Haitao Li",
+        "Weihang Su",
+        "Yujia Zhou",
+        "Min Zhang",
+        "Yiqun Liu",
+        "Qingyao Ai"
       ],
-      "institution": "⚠️待確認",
-      "venue": "arXiv",
+      "institution": "Tsinghua University",
+      "venue": "arXiv preprint",
+      "date": "2026-06-01",
+      "summary": "現有的 LLM 評審元評測基準幾乎都建立在短篇回答上，本文指出這與實務落差極大，因為長篇輸出的評估需要文件層級的判斷。作者建構 LongJudgeBench，涵蓋 6 個資料集、5 種真實應用情境與多種評分協定，專門檢驗評審模型在長文本上的可靠度。評估維度包含整體結構組織、任務相關的覆蓋度與深度、跨章節一致性，以及情境專屬的品質準則，這些都是短篇基準無法觸及的能力。實驗顯示評審模型在長篇情境下的表現顯著低於短篇，且錯誤模式集中在跨段落一致性檢查與深度判斷上。研究結論是：短篇 benchmark 上的高分不能外推到長篇報告、研究摘要或長流程 agent 輸出的評估場景。",
+      "url": "https://arxiv.org/abs/2606.01629",
+      "field": "LLM Evaluation / Benchmark",
+      "impact": "high — 直接對應以 LLM 自動審核長篇文件（研究報告、盡職調查、稽核底稿）的落地需求，補上關鍵評估缺口"
+    },
+    {
+      "title": "Position: Evaluation Scores Are Perishable Knowledge Claims",
+      "title_zh": "立場論文：評測分數是會過期的知識主張",
+      "authors": [
+        "Sankalp Gilda",
+        "Shlok Gilda"
+      ],
+      "institution": "DeepThought Solutions / Meta",
+      "venue": "GEM Workshop @ ACL 2026 (San Diego)",
+      "date": "2026-07-28",
+      "summary": "這篇立場論文主張評測分數不是永久事實，而是有保存期限的知識主張，會隨模型更新、資料污染與部署情境改變而失效。作者提出「信任膨脹」（trust inflation）現象：一個 benchmark 分數在被反覆引用的過程中，逐漸脫離原始量測條件而被當成模型的固有屬性。為了對抗這點，論文定義三個必須隨分數一併揭露的窗口——formality window（評測形式假設成立的範圍）、scope window（適用任務與資料分布範圍）、validity window（分數在時間上仍可信的期限）。全文僅 7 頁，但明確要求論文與模型卡（model card）在報告分數時附上到期條件，而非只給單一數字。作者認為缺乏這些窗口是當前 benchmark 污染爭議難以收斂的結構性原因。",
+      "url": "https://arxiv.org/abs/2607.26191",
+      "field": "AI Evaluation / Position Paper",
+      "impact": "medium — 概念層貢獻，但對建立內部模型評測的有效期與重測政策提供了可直接引用的治理語彙"
+    },
+    {
+      "title": "Long-Horizon-Terminal-Bench: Testing the Limits of Agents on Long-Horizon Terminal Tasks with Dense Reward-Based Grading",
+      "title_zh": "Long-Horizon-Terminal-Bench：以密集獎勵評分測試 Agent 在長流程終端機任務的能力極限",
+      "authors": [
+        "Zongxia Li",
+        "et al."
+      ],
+      "institution": "University of Maryland",
+      "venue": "arXiv preprint",
       "date": "2026-07-09",
-      "summary": "本研究在 4 個判斷型資料集上，系統性檢驗「評審模型規模擴大是否必然帶來更可靠的量測」。實驗涵蓋 Qwen3 系列 dense 模型從 1.7B 一路擴到 32B，以及 MiniMax M2 至 M2.7 系列 API 模型，形成開源與商用雙軌對照。結果顯示規模擴張的效益極度不均勻：唯一穩健的相鄰級距增益出現在 Qwen3 從 1.7B 升到 4B，之後再擴大參數量並未帶來一致的可靠度改善。此發現意味著在評審用途上，盲目升級到最大模型是成本浪費，存在明顯的邊際效益遞減拐點。研究同時強調更換評審會直接改變量測結果本身，呼應評審選擇必須被視為可稽核的實驗參數。",
-      "url": "https://arxiv.org/abs/2607.08535",
-      "field": "LLM Evaluation / LLM-as-a-Judge",
-      "impact": "medium — 提供評審模型選型的成本效益拐點證據，對預算受限的評測管線設計有實務參考。"
-    },
-    {
-      "title": "AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities",
-      "title_zh": "AgentCompass：Agent 能力的統一評測基礎設施",
-      "authors": [
-        "AgentCompass Team",
-        "Kai Chen",
-        "Songyang Zhang"
-      ],
-      "institution": "Shanghai AI Laboratory",
-      "venue": "arXiv",
-      "date": "2026-07-20",
-      "summary": "上海人工智慧實驗室推出 AgentCompass，將 20 個以上的既有 benchmark 整合成單一評測基礎設施，涵蓋五大能力維度：工具使用、網頁與研究、科學推理、代理式編碼、生產力任務。架構上的核心設計是把評測拆解為 Benchmark、Harness、Environment 三層，讓「模型能力」與「執行框架能力」可以分離歸因，解決過往評測分數混雜 harness 設計優劣的問題。系統實作了容錯的非同步執行時期（fault-tolerant async runtime），使大規模並行評測在單點失敗時不致整批中斷。此外框架內建 reward hacking 診斷，可偵測 Agent 以取巧方式滿足評分條件而非真正完成任務的情況。",
-      "url": "https://arxiv.org/abs/2607.13705",
-      "field": "Agent Evaluation / Benchmark Infrastructure",
-      "impact": "high — Benchmark/Harness/Environment 三層拆解是評測歸因的關鍵方法論，對於要判斷「是模型不行還是框架不行」的企業導入決策特別實用。"
-    },
-    {
-      "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
-      "title_zh": "UniClawBench：真實世界任務中主動式 Agent 的通用評測基準",
-      "authors": [
-        "Zhekai Chen",
-        "Chengqi Duan",
-        "Kaiyue Sun",
-        "Bohao Li",
-        "Yuqing Wang",
-        "Manyuan Zhang",
-        "Xihui Liu"
-      ],
-      "institution": "HKU MMLab, Meituan",
-      "venue": "arXiv",
-      "date": "2026-07-09",
-      "summary": "UniClawBench 針對「主動式 Agent」（proactive agent）設計評測，收錄 400 個中英雙語的真實世界任務，並在實際運行的 Docker 容器中執行，而非模擬環境，避免了沙盒與真實環境行為落差的問題。評測架構採用執行者（executor）、隱藏監督者（hidden supervisor）與使用者 Agent 三方構成的閉環：隱藏監督者對受測 Agent 不可見，用於客觀判定任務完成度，使用者 Agent 則模擬互動中的需求追加與釐清。基準涵蓋五項能力面向，強調 Agent 是否能主動釐清模糊指令、而非被動等待完整規格。雙語設計使其可同時檢驗中文與英文情境下的能力落差。",
-      "url": "https://arxiv.org/abs/2607.08768",
+      "summary": "本基準專門測試 agent 在極長流程終端機任務上的能力，涵蓋 46 項任務、橫跨 9 個類別，並評測 15 個前沿模型。任務規模遠超一般 agent benchmark：單一任務平均消耗約 990 萬 token、約 231 個執行回合、耗時約 85.3 分鐘，接近真實工程專案而非玩具題目。評分採密集獎勵（dense reward）給予部分分數，而非傳統的全對才算過，藉此區分「幾乎完成」與「完全失敗」。結果相當嚴峻：最佳模型在 0.95 完成門檻下的 pass@1 僅 15.2%，若要求完全達標（1.0）則掉到 10.9%，顯示長流程任務仍是 agent 的主要瓶頸。作者指出失敗多集中在長期狀態追蹤與中途錯誤累積，而非單步工具呼叫能力不足。",
+      "url": "https://arxiv.org/abs/2607.08964",
       "field": "Agent Evaluation / Benchmark",
-      "impact": "high — 真實 Docker 環境 + 隱藏監督者的設計，比靜態測資更貼近企業導入 Agent 的實際驗收情境。"
+      "impact": "high — 用可量化數據證明前沿 agent 在長流程自動化仍不到 20% 成功率，是評估 agent 導入可行性的重要現實基準"
     },
     {
-      "title": "ICAE-Bench: Evaluating Coding Agents as Interactive Project Builders",
-      "title_zh": "ICAE-Bench：將編碼 Agent 視為互動式專案建構者的評測基準",
+      "title": "EvoAgentBench: Benchmarking Agent Self-Evolution via Ability Transfer",
+      "title_zh": "EvoAgentBench：以能力遷移評測 Agent 自我演化",
       "authors": [
-        "Zhongyuan Peng",
-        "Dan Huang",
-        "Chuyu Zhang",
-        "Caijun Xu",
-        "Changyi Xiao",
-        "Shibo Hong",
-        "David Lo",
-        "Lin Qiu",
-        "Xuezhi Cao",
-        "Jiyuan He",
-        "Yixin Cao"
+        "Xingze Gao",
+        "et al."
       ],
-      "institution": "⚠️待確認（含 Singapore Management University、復旦大學等）",
-      "venue": "arXiv",
-      "date": "2026-07-23",
-      "summary": "ICAE-Bench 把編碼 Agent 的評測從「修好一個 bug」升級成「從零建構一個互動式專案」，更貼近實務中軟體從需求到可運行成品的完整歷程。與 SWE-bench 這類以既有 repo 補丁為主的基準不同，此基準要求 Agent 在多輪互動中逐步累積專案結構、處理需求變更與跨檔案一致性。評測聚焦互動過程本身，而非單點輸出的正確性，因此能暴露 Agent 在長程專案脈絡維持上的弱點。作者群橫跨學界與工業界，包含軟體工程領域知名學者 David Lo。",
-      "url": "https://arxiv.org/abs/2607.21217",
-      "field": "Agent Evaluation / Coding Agents",
-      "impact": "medium — 填補了「單點修補」與「完整專案交付」之間的評測空缺，對評估 Agent 能否承擔完整開發任務有參考價值。"
+      "institution": "Anhui University / EverMind (Shanda Group) / Southeast University",
+      "venue": "arXiv preprint",
+      "date": "2026-07-06",
+      "summary": "多數 agent benchmark 只量測靜態能力，本文改為量測 agent 能否從經驗中自我演化。EvoAgentBench 涵蓋 4 個領域，建立 1,006 個訓練任務與 367 個測試任務，並以 Ability Graphs（能力圖譜）明確標註每項任務所需的能力節點與前後依賴關係。評測核心是能力遷移（Ability Transfer）：agent 在訓練任務中累積的經驗，是否真能提升測試任務中需要相同能力節點的表現，而非只是記住答案。這種設計讓「自我演化」從模糊宣稱變成可分解、可歸因的量測。實驗顯示現行自我演化方法在跨領域能力遷移上的增益明顯低於同領域，暴露出記憶累積與能力泛化之間的落差。",
+      "url": "https://arxiv.org/abs/2607.05202",
+      "field": "Agent Evaluation / Self-Evolution",
+      "impact": "medium — 為「agent 會愈用愈好」這類廠商宣稱提供了可驗收的量測方法，適合納入導入評選條件"
     },
     {
-      "title": "Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering",
-      "title_zh": "立場論文：現行編碼評測基準與代理式軟體工程並不對齊",
+      "title": "Auditing Agent Harness Safety",
+      "title_zh": "稽核 Agent Harness 安全性",
       "authors": [
-        "Maria I. Gorinova",
-        "Macey Baker",
-        "Amy Heineike",
-        "Maksim Shaposhnikov",
-        "Rob Willoughby",
-        "Dru Knox"
+        "Chengzhi Liu",
+        "et al."
       ],
-      "institution": "⚠️待確認",
-      "venue": "arXiv",
-      "date": "2026-06-16",
-      "summary": "這是一篇立場論文（position paper），主張目前主流的編碼評測基準與代理式軟體工程的真實需求存在系統性錯位。作者指出既有基準多以「單一任務、明確規格、一次性通過測試」為衡量標準，但真實的代理式軟體工程包含需求釐清、跨模組重構、長期維護與人機協作，這些面向在現行分數中幾乎不被反映。因此高 benchmark 分數並不能推論出實際生產環境中的可用性，形成評測與部署決策之間的斷層。論文於 2026 年 7 月 18 日釋出 v2 修訂版。",
-      "url": "https://arxiv.org/abs/2606.17799",
-      "field": "Agent Evaluation / Position Paper",
-      "impact": "medium — 對於把 benchmark 分數當成採購依據的組織是重要警示，適合作為 AI 工具選型治理討論的引用材料。"
+      "institution": "UC Santa Barbara (UCSB AI Group)",
+      "venue": "arXiv preprint",
+      "date": "2026-05-14",
+      "summary": "本文把安全稽核的對象從模型本體移到 harness——也就是包住模型的提示、工具、記憶與控制流程這一層。作者提出 HarnessAudit 框架，從三個維度稽核 agent 執行軌跡：boundary compliance（是否越過被授權的資料與工具邊界）、execution fidelity（實際執行是否忠實於被核准的計畫）、system stability（長時間執行下是否退化或失控）。這個切分的意義在於，即使底層模型通過安全評測，harness 設定不當仍可能讓 agent 取得不該有的權限或偏離原始意圖。研究以軌跡層級的稽核紀錄取代單次輸出檢查，讓事後追查有明確證據可循。作者主張 harness 應與模型分開稽核並各自留存紀錄。",
+      "url": "https://arxiv.org/abs/2605.14271",
+      "field": "AI Agent Engineering / Safety Auditing",
+      "impact": "high — 與金融業內控稽核邏輯高度對應，可直接對映到 agent 導入的三道防線設計"
     },
     {
-      "title": "MAS-PromptBench: When Does Prompt Optimization Improve Multi-Agent LLM Systems?",
-      "title_zh": "MAS-PromptBench：Prompt 優化在什麼情況下真能改善多 Agent LLM 系統？",
+      "title": "From Prompts to Contracts: Harness Engineering for Auditable Enterprise LLM Agents",
+      "title_zh": "從提示到契約：可稽核企業級 LLM Agent 的 Harness 工程",
       "authors": [
-        "Juyang Bai",
-        "Laixi Shi"
+        "Joongho Ahn",
+        "Moonsoo Kim"
       ],
-      "institution": "Johns Hopkins University (ECE)",
-      "venue": "arXiv",
-      "date": "2026-06-22",
-      "summary": "本研究建立 MAS-PromptBench，系統性檢驗 prompt 優化對多 Agent 系統（MAS）的實際效益邊界。實驗直接在四大主流框架上實作多 Agent 系統——LangGraph、CrewAI、AutoGen、OpenAI Agents SDK——並涵蓋 5 種工作流拓撲結構，使結論不侷限於單一框架的實作細節。結果顯示 prompt 優化的效益高度取決於拓撲與任務型態，最佳情況下可帶來高達 24.0% 的效能提升，但並非在所有配置下都有效。此研究的價值在於它把「調 prompt 有沒有用」這個實務問題，從經驗談變成可量化比較的框架層級證據。",
-      "url": "https://arxiv.org/abs/2606.23664",
-      "field": "Agent Frameworks / Prompt Optimization",
-      "impact": "high — 橫跨四大主流 Agent 框架的對照實驗極為罕見，對於已導入 LangGraph 或 CrewAI 的團隊有直接的調校指引價值。"
+      "institution": "AI Leadership Research Center",
+      "venue": "arXiv preprint",
+      "date": "2026-07-09",
+      "summary": "本文主張企業級 agent 的可靠度不應建立在提示詞技巧上，而應建立在明確的契約（contract）之上，並提出完整的 harness engineering 方法論。核心構件包括 answer contracts（輸出必須符合的結構與欄位約定）、source boundaries（可引用的資料來源邊界）、entity routing（實體導向的請求路由）與 reproducible traces（可重現的執行軌跡）。作者論證這些構件把 agent 從「靠提示調教的黑箱」轉為「有規格可驗收的元件」，讓稽核人員能逐筆檢查輸出是否落在契約範圍內。相較於單純加強提示詞，契約化的失效模式是可偵測且可攔截的，而非靜默地給出看似合理的錯答。文中並說明如何把契約違反轉為明確的執行失敗訊號而非降級輸出。",
+      "url": "https://arxiv.org/abs/2607.08028",
+      "field": "AI Agent Engineering / Harness Engineering",
+      "impact": "high — 直接針對受監理企業的 agent 落地缺口，answer contract 與來源邊界的設計可作為內部規範範本"
     },
     {
-      "title": "AI Agents Do Not Fail Alone: The Context Fails First",
-      "title_zh": "AI Agent 不會單獨失敗：先失敗的是 Context",
+      "title": "HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry",
+      "title_zh": "HarnessX：可組合、可自適應、可演化的 Agent Harness 鑄造廠",
       "authors": [
-        "⚠️待確認"
+        "Tingyang Chen",
+        "Shuo Lu",
+        "Kang Zhao",
+        "Weicheng Meng",
+        "Hanlin Teng",
+        "Tianhao Li",
+        "Chao Li",
+        "Xule Liu",
+        "Jian Liang",
+        "Zhizhong Zhang",
+        "Yuan Xie",
+        "Heng Qu",
+        "Kun Shao",
+        "Jian Luan"
       ],
-      "institution": "ProofAI LLC (ProofAgent.ai)",
-      "venue": "arXiv",
-      "date": "2026-07-15",
-      "summary": "本文主張 Agent 的失敗多數不是模型能力問題，而是輸入脈絡（context）品質先崩壞所致，並提出可量測的 context 品質準則來預測行為結果。研究建立四組對應關係：grounding 品質對應抗幻覺能力、guardrails 品質對應抗操縱能力、指令一致性對應指令遵循度、工具 schema 品質對應工具使用正確率。核心論點是這些 context 指標可在 Agent 實際執行前就量測，形成「preflight」（起飛前檢查）式的可靠度訊號，而非等到事後從失敗日誌回推。此觀點把 context engineering 從調校技巧提升為可稽核的品質管制環節。",
-      "url": "https://arxiv.org/abs/2607.14275",
+      "institution": "Xiaomi AI Lab / East China Normal University / CASIA",
+      "venue": "arXiv preprint",
+      "date": "2026-06-12",
+      "summary": "作者指出 agent 表現高度取決於 runtime harness——即提示、工具、記憶與控制流程這組中介層，但現行 harness 幾乎全靠人工手刻且長期靜態，每換一個模型或任務就要重寫一套鷹架。HarnessX 以型別化的 harness 原語（typed harness primitives）搭配替換代數（substitution algebra）進行組裝，讓 harness 元件可像模組一樣拆換。其 AEGIS 引擎則是軌跡驅動的多 agent 演化機制，把執行過程產生的 trajectory 同時回饋成 harness 更新與模型訓練訊號，形成 harness-model 閉環。這個設計的核心洞見是：執行軌跡目前幾乎被浪費掉，而它其實是最直接的改進來源。論文並建立符號式調適與強化學習之間的操作對應關係，讓 harness 演化有可分析的理論基礎。",
+      "url": "https://arxiv.org/abs/2606.14249",
+      "field": "AI Agent Engineering / Harness Engineering",
+      "impact": "high — 把 harness 從手工藝變成可版本控管的工程資產，對需要長期維運多個 agent 的組織影響直接"
+    },
+    {
+      "title": "Self-GC: Self-Governing Context for Long-Horizon LLM Agents",
+      "title_zh": "Self-GC：長流程 LLM Agent 的自治式上下文管理",
+      "authors": [
+        "Xubin Hao",
+        "Hongjin Meng",
+        "Xin Yin",
+        "Jiawei Zhu",
+        "Chenpeng Cao"
+      ],
+      "institution": "Zhejiang University",
+      "venue": "arXiv preprint",
+      "date": "2026-07-01",
+      "summary": "長流程 agent 最現實的瓶頸是上下文不斷膨脹直到觸頂，Self-GC 提出一套上下文生命週期治理機制來處理這件事。方法包含摺疊（fold）、遮蔽（mask）與修剪（prune）三類操作，搭配 sidecar 側車結構把暫時不需要但可能回頭用到的資訊移出主上下文而非直接丟棄。設計上特別考慮 cache-aware commit，即在裁剪上下文時盡量保留前綴以避免 KV cache 全面失效造成成本暴增，這是多數壓縮方法忽略的實務成本。相較於學習型壓縮策略容易丟失關鍵證據，Self-GC 讓 agent 依明確規則自行治理上下文，決策過程可被檢視。作者強調上下文管理應被視為有明確生命週期的資源治理問題，而非單純的壓縮問題。",
+      "url": "https://arxiv.org/abs/2607.00692",
       "field": "AI Agent Engineering / Context Engineering",
-      "impact": "high — 「執行前量測 context 品質」的框架，對建立 Agent 上線前檢核表（類似金融業的部署前風險審查）有高度可操作性。"
+      "impact": "medium — cache-aware 的裁剪設計對控制長流程 agent 的 token 成本有直接效益"
     },
     {
-      "title": "The Harness Effect: How Orchestration Design Sets the Token Economics of Enterprise Agentic AI",
-      "title_zh": "Harness 效應：編排設計如何決定企業代理式 AI 的 Token 經濟學",
+      "title": "LLM Agents Are Latent Context Managers: Eliciting Self-Managed Context via State Proprioception",
+      "title_zh": "LLM Agent 本就是潛在的上下文管理者：以狀態本體感知引導自我管理上下文",
       "authors": [
-        "Waseem AlShikh"
+        "Binyan Xu",
+        "Haitao Li",
+        "Kehuan Zhang"
       ],
-      "institution": "Writer",
-      "venue": "arXiv",
-      "date": "2026-07-08",
-      "summary": "Writer 團隊（32 位作者，含 CTO Waseem AlShikh）以 22 個鎖定的評測任務，交叉測試 6 個模型：Claude Sonnet 4.6、Gemini 3.1、Gemini Flash 3.5、Qwen 3.6、GLM 5.1 與自家 Palmyra X6，量化編排框架（harness）設計對成本的影響。結果顯示良好的 harness 設計可使每項任務的混合成本下降 41%、中位數牆鐘時間（wall-clock time）下降 44%、每任務 token 消耗下降 38%。關鍵結論是這些節省幅度來自編排層而非換模型，代表在企業導入決策中，harness 設計的槓桿效果可能大於模型選型。此研究把長期停留在工程直覺層面的 orchestration 設計，轉換成可對財務報表說明的成本數字。",
-      "url": "https://arxiv.org/abs/2607.06906",
-      "field": "AI Agent Engineering / Harness Design",
-      "impact": "high — 41% 成本、44% 時間、38% token 三項量化數字，是目前少數能直接支撐企業 Agent 導入 ROI 論證的公開實證。"
+      "institution": "The Chinese University of Hong Kong",
+      "venue": "arXiv preprint",
+      "date": "2026-06-29",
+      "summary": "本文提出一個反直覺的主張：前沿模型其實已具備管理自身上下文的能力，缺的不是學習到的策略，而是一個能看見自身狀態的介面。作者指出模型對自己的上下文是「本體感知失明」的——從提示本身看不出每個區塊有多大、多舊、被使用過幾次，而這些正是決定保留或丟棄所需的訊號。解法是建立 proprioceptive dashboard，把上下文各區塊的大小、時效與使用頻率以結構化方式暴露給 agent，讓它自行做保留決策。相較於現行做法要嘛學一個會丟失證據的壓縮策略，要嘛在 agent 看不見的系統層代為管理，此方法讓決策回到 agent 手上且過程可觀察。論文版本歷經 4 次修訂（v1 於 6 月 29 日、最新版 7 月 23 日），顯示方法仍在快速迭代。",
+      "url": "https://arxiv.org/abs/2606.30005",
+      "field": "AI Agent Engineering / Context Engineering",
+      "impact": "medium — 以極低工程成本改善長流程上下文管理，思路對既有 agent 框架容易加掛"
     },
     {
-      "title": "A hierarchical memory architecture overcomes context limits in long-horizon multi-agent computational modeling",
-      "title_zh": "階層式記憶架構突破長程多 Agent 計算建模的脈絡限制",
+      "title": "Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents",
+      "title_zh": "把記憶視為受控流程：LLM Agent 的學習式自適應記憶管理",
       "authors": [
-        "Shivendra G. Tewari",
-        "Holly Kimko"
+        "Eric Hanchen Jiang",
+        "et al.",
+        "Kai-Wei Chang",
+        "Ying Nian Wu"
       ],
-      "institution": "⚠️待確認",
-      "venue": "arXiv",
-      "date": "2026-07-08",
-      "summary": "本研究針對長程（long-horizon）多 Agent 計算建模任務，提出三層階層式記憶架構，以解決任務時程拉長後脈絡視窗必然溢出的結構性問題。核心機制是透過上限設定（capping）與淘汰（eviction）策略，使實際注入模型的脈絡量維持在有界且近乎常數的規模，不隨任務步數線性成長。應用場域為 Ensemble QSP（定量系統藥理學）建模，屬於需要數百步連續推理與狀態維持的高難度任務。此設計證明長程 Agent 不必依賴無限擴張的脈絡視窗，而可用架構層的記憶管理達成。",
-      "url": "https://arxiv.org/abs/2607.07666",
+      "institution": "UCLA / University of Washington / Northwestern University",
+      "venue": "arXiv preprint",
+      "date": "2026-07-15",
+      "summary": "本文提出 MemCon，把 agent 的記憶操作形式化為馬可夫決策過程（MDP），讓寫入、更新、遺忘與檢索都成為可學習的決策而非固定啟發式規則。相較於常見的「全部存下來再靠檢索撈」，MDP 形式讓 agent 學會在什麼狀態下該主動遺忘或改寫記憶，藉此控制記憶庫的雜訊累積。作者論證固定規則的記憶管理在長流程任務中會逐步退化，因為早期寫入的過時資訊會持續污染後續檢索。實驗涵蓋多回合互動任務，顯示學習式記憶管理在長期任務上的穩定度優於啟發式基線。作者群包含 Kai-Wei Chang 與 Ying Nian Wu，方法論扎根於機率建模而非工程 heuristic。",
+      "url": "https://arxiv.org/abs/2607.13591",
       "field": "AI Agent Engineering / Agent Memory",
-      "impact": "medium — 「有界脈絡」的記憶架構對長時間運行的 Agent 成本控制有直接意義，但驗證場域集中於藥理建模，跨域推廣性待觀察。"
+      "impact": "medium — 為 agent 記憶治理提供理論框架，但落地需額外訓練成本，短期偏研究導向"
+    },
+    {
+      "title": "From Memory to Skills: Evidence-Grounded Co-Evolution Governance for Long-Horizon LLM Agents",
+      "title_zh": "從記憶到技能：長流程 LLM Agent 的證據錨定共演化治理",
+      "authors": [
+        "Bo Tang",
+        "et al."
+      ],
+      "institution": "Institute for Advanced Algorithms Research, Shanghai",
+      "venue": "arXiv preprint",
+      "date": "2026-07-18",
+      "summary": "本文提出 MSCE（Memory–Skill Co-Evolution），主張記憶與技能不該分開處理，而應在同一個治理迴圈中共同演化。方法核心是證據錨定：每一條被萃取為技能的經驗都必須連回原始執行證據，避免 agent 把偶然成功歸納成錯誤的通則。搭配 reflection-weighted value backfilling，把後期反思得到的價值判斷回填到早期步驟，讓長流程中的功勞歸屬更準確。整套方法為 training-free，不需微調模型即可套用於現有 agent，這大幅降低導入門檻。作者指出無證據錨定的記憶累積會隨時間放大錯誤假設，是長流程 agent 品質衰退的主因之一。",
+      "url": "https://arxiv.org/abs/2607.16621",
+      "field": "AI Agent Engineering / Agent Memory",
+      "impact": "medium — training-free 特性讓既有系統可直接試用，證據錨定的設計也符合稽核留痕需求"
     },
     {
       "title": "Are We Ready For An Agent-Native Memory System?",
@@ -196,49 +235,33 @@
         "Feiyu Xiong",
         "Fan Wu"
       ],
-      "institution": "Shanghai Jiao Tong University",
-      "venue": "arXiv",
+      "institution": "Shanghai Jiao Tong University / Tsinghua University / MemTensor",
+      "venue": "arXiv preprint",
       "date": "2026-06-23",
-      "summary": "本研究對 12 套 Agent 記憶系統進行橫向評測，跨 5 個 benchmark，並提出四模組分析框架：表徵與儲存（representation/storage）、抽取（extraction）、檢索與路由（retrieval/routing）、維護（maintenance）。最重要的結論是沒有任何單一架構在所有面向勝出——各系統在不同模組上互有優劣，代表目前尚不存在「通用最佳解」的 Agent 記憶設計。研究因此主張記憶系統選型必須依任務特性拆模組評估，而非直接採用單一現成方案。作者群結合上海交大資料庫研究與清華背景，從系統工程角度而非純 NLP 角度切入。",
+      "summary": "本文用資料庫系統的視角重新檢視 agent 記憶，把它拆解為表示與儲存、萃取、檢索路由、維護四個子系統，等同於把記憶當成一套完整的資料管理系統來設計。作者實測 12 套現有記憶系統加上 2 個基線，橫跨 5 種工作負載與 11 個資料集，是目前規模最完整的橫向比較之一。結果顯示現有系統在單一維度表現尚可，但沒有任何一套能在四個子系統上同時勝出，尤其維護（memory maintenance）普遍最弱——多數系統只管寫入與檢索，缺乏過期、去重與一致性維護機制。作者由此論證 agent 記憶還遠未達到「原生系統」的成熟度，仍停留在拼裝階段。這篇的價值在於用資料庫工程的成熟判準，替目前百家爭鳴的記憶方案建立共同比較基礎。",
       "url": "https://arxiv.org/abs/2606.24775",
       "field": "AI Agent Engineering / Agent Memory",
-      "impact": "high — 四模組拆解框架 + 12 套系統實測，是目前 Agent 記憶選型最完整的公開對照資料。"
+      "impact": "high — 提供橫向實測比較與明確評估維度，選型 agent 記憶方案時可直接引用"
     },
     {
-      "title": "A Deterministic Control Plane for LLM Coding Agents",
-      "title_zh": "LLM 編碼 Agent 的確定性控制平面",
+      "title": "Harness-MU: A Safe, Governed, and Effective Harness for Multi-User LLM Agents",
+      "title_zh": "Harness-MU：面向多使用者 LLM Agent 的安全、受治理且有效的 Harness",
       "authors": [
-        "Padmaraj Madatha"
+        "Wangxuan Fan",
+        "Xiaoyu Nie",
+        "Zhongxiang Dai"
       ],
-      "institution": "Happiest Minds Technologies (AIP Centre of Excellence)",
-      "venue": "arXiv",
-      "date": "2026-06-25",
-      "summary": "本研究指出 LLM 編碼 Agent 被賦予廣泛的檔案與 shell 存取權，但真正操控它們的設定層——rules 檔、agent 定義、IDE 專屬 markdown——幾乎處於無治理狀態。作者掃描 10,008 個公開 GitHub repo、擷取 6,145 個 agent 設定檔進行實證分析，發現 10.1% 的追蹤路徑是跨獨立 repo 的完全重複檔案，且 75.5% 的複製配對跨越了組織邊界，顯示設定檔以未經審查的方式在組織間擴散。此外 58% 的設定檔只有單一 commit，代表建立後幾乎未曾修訂，也極少明確宣告權限邊界。論文據此提出 Rel(AI)Build 作為確定性控制平面方案，全文 45 頁、含 9 張圖與 13 張表，資料集與重現腳本已公開於 Zenodo。",
-      "url": "https://arxiv.org/abs/2606.26924",
-      "field": "AI Agent Engineering / Governance",
-      "impact": "high — 設定檔跨組織複製率 75.5%、單 commit 率 58% 的實證數字，是 AI 工具治理與供應鏈風險評估的直接證據。"
-    },
-    {
-      "title": "Graph-Based Agentic AI with LangGraph: Workflow Pathways for Long-Running Stateful Business Processes",
-      "title_zh": "以 LangGraph 建構圖式代理式 AI：長時間運行且具狀態的商業流程工作流路徑",
-      "authors": [
-        "Daniel Pearson",
-        "Sidney Shapiro",
-        "Emiliano Sebastian Gonzalez Venegas",
-        "Sanad Al-Khatib",
-        "Aurora Pinzón Arzola"
-      ],
-      "institution": "University of Lethbridge, Universidad de Guadalajara, Al Hussein Technical University, Universidad de Guanajuato",
-      "venue": "arXiv",
-      "date": "2026-07-21",
-      "summary": "本文以 LangGraph 為基礎，探討如何為長時間運行且需維持狀態的商業流程設計圖式代理工作流，並提供三組可直接執行的實作範例。第一組是帶修復迴圈（repair loop）的 SQL 分析流程，當查詢失敗時自動迭代修正而非直接中止。第二組是加入證據把關（evidence gating）的代理式 RAG，要求檢索結果通過門檻才可進入生成階段，藉此壓低幻覺風險。第三組是人在迴圈中的政策審查流程，運用 LangGraph 的中斷（interrupt）與檢查點（checkpoint）機制，讓流程可在人工介入後從斷點恢復。三組範例共同展示了圖式編排在需要稽核軌跡的企業流程中的適用性。",
-      "url": "https://arxiv.org/abs/2607.19297",
-      "field": "Agent Frameworks / LangGraph",
-      "impact": "high — 人在迴圈 + 中斷/檢查點恢復的模式，正對應金融業合規審查流程的需求，三組範例可直接改寫為內部落地藍本。"
+      "institution": "The Chinese University of Hong Kong, Shenzhen",
+      "venue": "arXiv preprint",
+      "date": "2026-06-20",
+      "summary": "當同一個 agent 同時服務多個使用者時，會出現單一使用者情境不存在的問題：跨使用者的資料外洩、指令衝突與權限混淆。Harness-MU 針對這類多主體（multi-principal）情境設計存取控制與治理機制，讓 agent 在共享環境下仍能區分各使用者的權限邊界。作者同時建構 Muses-Bench 作為評測基準，專門量測多使用者情境下的安全性與可用度。實驗結果顯示 Harness-MU 在效用面提升 0.28 至 0.39，而指令遵循度提升幅度達 48.9 個百分點，證明安全控制未必以犧牲可用度為代價。這對企業共用型 agent 部署特別關鍵，因為多數現行框架預設只有單一使用者。",
+      "url": "https://arxiv.org/abs/2606.21856",
+      "field": "AI Agent Engineering / Multi-User Governance",
+      "impact": "high — 企業內共用 agent 的權限隔離是實際合規痛點，本文提供可量測的解法與基準"
     },
     {
       "title": "Agent Data Injection Attacks are Realistic Threats to AI Agents",
-      "title_zh": "Agent 資料注入攻擊是 AI Agent 面臨的真實威脅",
+      "title_zh": "Agent 資料注入攻擊是 AI Agent 面臨的現實威脅",
       "authors": [
         "Woohyuk Choi",
         "Juhee Kim",
@@ -247,103 +270,68 @@
         "Luyi Xing",
         "Byoungyoung Lee"
       ],
-      "institution": "Seoul National University, Indiana University",
-      "venue": "arXiv",
+      "institution": "Seoul National University / Largosoft / Indiana University Bloomington",
+      "venue": "arXiv preprint",
       "date": "2026-07-06",
-      "summary": "本研究定義了一類新的攻擊面向：Agent Data Injection（ADI，代理資料注入），指攻擊者透過 Agent 在執行過程中必然會讀取的資料通道植入惡意內容，而非傳統的直接 prompt 注入。實證顯示此類攻擊可對網頁 Agent 造成任意點擊（arbitrary click）行為，等同於劫持 Agent 在瀏覽器中的操作權。對編碼 Agent 則可進一步升級為遠端程式碼執行（RCE），因為編碼 Agent 本身即擁有 shell 執行權限。研究強調這些攻擊路徑在現實部署中即可觸發，不需要特殊實驗條件。",
+      "summary": "本文提出 Agent Data Injection（ADI）攻擊面，指出攻擊者可透過 agent 讀取的一般資料通道植入惡意指令，且不需要傳統意義上的提示注入入口。作者在實際產品上驗證可行性：對 Claude in Chrome、Antigravity 與 Nanobrowser 展示了點擊劫持類攻擊；對 Claude Code、Codex 與 Gemini CLI 則展示了遠端程式碼執行（RCE）與供應鏈污染路徑。這些不是理論構想，而是針對已上線工具的實證，顯示 coding agent 的高權限執行環境本身就是攻擊放大器。研究指出根因在於 agent 缺乏對資料來源可信度的區分，把外部內容與使用者指令一視同仁。作者建議在 harness 層建立來源標記與權限降級機制，而非僅靠模型端的拒絕訓練。",
       "url": "https://arxiv.org/abs/2607.05120",
       "field": "AI Agent Security / Prompt Injection",
-      "impact": "high — 網頁 Agent 任意點擊與編碼 Agent RCE 是可直接對應到企業資安風險登錄的具體威脅情境。"
+      "impact": "high — 針對已上線主流 agent 產品的實證攻擊，對評估 coding agent 導入風險有直接警示價值"
     },
     {
-      "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
-      "title_zh": "PI-Hunter：自動化紅隊測試以揭露並定位 Prompt Injection",
+      "title": "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces",
+      "title_zh": "透過編排軌跡對 LLM 多 Agent 系統進行強化學習",
       "authors": [
-        "Pengfei He",
-        "Lesly Miculicich",
-        "Vishesh Sharma",
-        "Ash Fox",
-        "George Lee",
-        "Jiliang Tang",
-        "Tomas Pfister",
-        "Long T. Le"
+        "Chenchen Zhang"
       ],
-      "institution": "Google, Michigan State University",
-      "venue": "arXiv",
-      "date": "2026-06-10",
-      "summary": "Google 團隊提出 PI-Hunter，將 prompt injection 的紅隊測試自動化，並且不只判斷「有沒有被注入」，還能定位注入點位於輸入的哪個部分。此定位能力（localizing）是關鍵差異：傳統偵測只給出二元結果，難以支援後續修補，而定位資訊可直接指向需要加固的輸入通道。系統採自動化生成攻擊樣本的方式進行大規模掃描，降低人工紅隊的成本門檻。作者群結合 Google Cloud AI Research 與密西根州立大學 Jiliang Tang 團隊的對抗式學習研究能量。",
-      "url": "https://arxiv.org/abs/2606.12737",
-      "field": "AI Agent Security / Red-Teaming",
-      "impact": "high — 自動化且可定位的紅隊工具，能直接嵌入 Agent 上線前的資安檢核流程，降低人工紅隊成本。"
+      "institution": "Tencent",
+      "venue": "arXiv preprint",
+      "date": "2026-05-04",
+      "summary": "當 LLM agent 從單一工具使用者演進為協作團隊，強化學習的優化對象也必須從個別動作擴展到「工作如何被派生、委派、溝通、彙整與終止」。本文以編排軌跡（orchestration traces）為核心——即包含子 agent 派生、委派、通訊、工具呼叫、回傳、彙整與停止決策等事件的時序互動圖。在此基礎上，作者設計橫跨 8 個族群的獎勵函數，其中編排獎勵專門衡量平行化加速比、任務拆分正確性與彙整品質，而非只看最終答案對錯。這個切分讓多 agent 系統的低效協作（例如過度串行、拆分錯誤、彙整遺漏）能被明確歸因與優化。論文形同為多 agent 編排提供了一套可訓練的目標函數體系。",
+      "url": "https://arxiv.org/abs/2605.02801",
+      "field": "Multi-Agent Systems / Reinforcement Learning",
+      "impact": "medium — 把多 agent 編排效率轉為可優化目標，對建置大型 agent 團隊架構有方法論價值"
     },
     {
-      "title": "Self-Improvements in Modern Agentic Systems: A Survey",
-      "title_zh": "當代代理式系統的自我改進：綜述",
+      "title": "Distilled Reinforcement Learning for LLM Post-training",
+      "title_zh": "用於 LLM 後訓練的蒸餾式強化學習",
       "authors": [
-        "Zhe Ren",
-        "Yimeng Chen",
-        "Dandan Guo",
-        "Guowei Rong",
-        "Tonghui Li",
-        "R. B. Xiong",
-        "Qingfeng Lan",
-        "Wenyi Wang",
-        "Li Nanbo",
-        "Yibo Yang",
-        "Mingchen Zhuge",
-        "Jürgen Schmidhuber"
+        "Chen Wang",
+        "Zhaochun Li",
+        "Jionghao Bai",
+        "Yining Zhang",
+        "Hexuan Deng",
+        "Ge Lan",
+        "Yue Wang"
       ],
-      "institution": "KAUST",
-      "venue": "arXiv",
-      "date": "2026-07-14",
-      "summary": "這是一篇針對代理式系統「自我改進」機制的綜述論文，由 KAUST 團隊主導，通訊作者群包含 Mingchen Zhuge 與深度學習先驅 Jürgen Schmidhuber。論文系統性梳理當代 Agent 如何在執行過程中透過反思、自我評估、經驗累積與參數/提示更新等途徑提升自身表現，並建立分類體系區分不同層次的自我改進（推論期調整 vs. 權重更新）。綜述同時整理了自我改進的評估難題——當系統會自行改變時，如何確保評測結果的可比性與可重現性。此文可作為理解 Agent 自主演化路線圖的入門地圖。",
-      "url": "https://arxiv.org/abs/2607.13104",
-      "field": "AI Agent Research / Survey",
-      "impact": "medium — 綜述型論文，適合作為技術路線盤點的參考框架，但缺乏新的實證數據。"
+      "institution": "Nankai University / Zhongguancun Academy / Beijing Institute of Technology / Zhejiang University / CASIA / HIT",
+      "venue": "arXiv preprint",
+      "date": "2026-07-19",
+      "summary": "本文比較 LLM 後訓練中的強化學習（RL）與 on-policy distillation（OPD）兩條路線，並提出蒸餾式強化學習來整合兩者優勢。核心技術是 token 層級的 policy gradient 重新分配，讓訓練訊號能精準落在真正影響結果的 token 上，而非平均攤到整段輸出。作者論證純 RL 在稀疏獎勵下訊號效率低，而純蒸餾則受限於教師模型能力上限，兩者的缺點恰好互補。方法在推理任務上驗證，顯示在相同計算預算下比單一路線更快收斂。研究來自六個中國研究單位的跨機構合作，屬於後訓練方法學的基礎研究。",
+      "url": "https://arxiv.org/abs/2607.17247",
+      "field": "LLM Training / Post-training",
+      "impact": "medium — 後訓練方法優化，對自建模型團隊有參考價值，對應用端影響間接"
     },
     {
-      "title": "Agentic Data Environments",
-      "title_zh": "代理式資料環境",
+      "title": "Understanding Reasoning from Pretraining to Post-Training",
+      "title_zh": "理解推理能力：從預訓練到後訓練",
       "authors": [
-        "Elaine Ang",
-        "Chenxi Huang",
-        "Georgios Liargkovas",
-        "Jerry Liu",
-        "Jinhui Liu",
-        "Nikos Pagonas",
-        "Charlie Summers",
-        "Haonan Wang",
-        "Jiakai Xu",
-        "Tianle Zhou",
-        "Yusen Zhang",
-        "Zhou Yu",
-        "Zhuo Zhang",
-        "Tianyi Peng",
-        "Kostis Kaffes",
-        "Eugene Wu"
+        "Jingyan Shen",
+        "Ang Li",
+        "Salman Rahman",
+        "Yifan Sun",
+        "Micah Goldblum",
+        "Matus Telgarsky",
+        "Pavel Izmailov"
       ],
-      "institution": "Columbia University",
-      "venue": "arXiv",
-      "date": "2026-07-08",
-      "summary": "哥倫比亞大學團隊提出「代理式資料環境」（Agentic Data Environments）概念，主張 Agent 與資料系統的介面應當從被動的查詢執行，轉為主動支援 Agent 探索與操作的環境層。核心觀點是現行資料庫與資料工具的設計假設是人類分析師，介面語意與錯誤回饋並不適合 Agent 的迭代式試錯模式。論文整合資料庫系統（Eugene Wu、Kostis Kaffes）與對話式 AI（Zhou Yu）兩方研究能量，橫跨系統與模型層提出設計方向。此文為 Agent 與企業資料基礎設施的整合提供架構性思路。",
-      "url": "https://arxiv.org/abs/2607.07397",
-      "field": "AI Agent Research / Data Systems",
-      "impact": "medium — 對於規劃 Agent 存取企業資料倉儲的架構設計具參考價值，屬方向性論述而非可直接落地的實作。"
-    },
-    {
-      "title": "Reinforcement Learning for Evidence-Seeking Diagnostic Reasoning with Large Language Models",
-      "title_zh": "以強化學習訓練大型語言模型進行尋證式診斷推理",
-      "authors": [
-        "⚠️待確認"
-      ],
-      "institution": "⚠️待確認",
-      "venue": "arXiv",
-      "date": "2026-07-03",
-      "summary": "本研究以強化學習方法訓練大型語言模型執行「尋證式」診斷推理，強調模型應主動蒐集足夠證據後再下結論，而非在資訊不完整時直接給出診斷。這種訓練目標與一般 RLHF 追求回應品質不同，獎勵訊號設計指向資訊獲取行為本身，使模型學會辨識自身知識缺口並主動提問或查詢。此方法屬於 agentic RL 的一支，將工具使用與提問行為納入策略最佳化範圍。診斷推理場景的高風險特性，使得「不確定時先求證」的行為模式具有直接的安全價值。",
-      "url": "https://arxiv.org/abs/2607.02983",
-      "field": "LLM Research / Reinforcement Learning",
-      "impact": "medium — 「不確定時主動求證」的訓練目標對高風險決策場域（醫療、金融授信）有可移植性，但作者與機構資訊未能驗證。"
+      "institution": "Columbia University / New York University",
+      "venue": "arXiv preprint",
+      "date": "2026-07-17",
+      "summary": "本文追問一個基礎但長期未解的問題：模型的推理能力究竟在預訓練階段就已形成，還是由後訓練（尤其是 RLVR 這類可驗證獎勵的強化學習）所賦予。作者跨越預訓練到後訓練的完整流程進行分析，拆解不同階段對推理表現的實際貢獻。研究結論指向後訓練較多是把預訓練中已存在的能力「引導出來」並穩定化，而非從無到有創造新能力，這與近期 RLVR 能大幅提升推理表現的觀察並不矛盾。作者群包含 Micah Goldblum、Matus Telgarsky 與 Pavel Izmailov，屬於理論與實證兼具的分析型研究。這個結論對訓練資源配置有直接意涵：若能力主要來自預訓練，投入後訓練的邊際報酬會受預訓練品質封頂。",
+      "url": "https://arxiv.org/abs/2607.16097",
+      "field": "LLM Research / Reasoning",
+      "impact": "medium — 釐清推理能力來源的基礎研究，對理解模型能力上限與訓練投資決策有參考意義"
     }
   ],
-  "_updated_at": "2026-07-29T18:09:24.337067+08:00"
+  "_updated_at": "2026-07-30T18:11:07.984383+08:00"
 }

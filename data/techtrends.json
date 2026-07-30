@@ -1,132 +1,139 @@
 {
   "items": [
     {
+      "title": "Gartner Predicts Most Privacy Incidents Will Stem from Artificial Intelligence-Generated Inferences by 2029",
+      "source": "Gartner",
+      "date": "2026-07-30",
+      "category": "AI治理",
+      "summary": "Gartner 預測到 2029 年，大多數隱私事件的根源將不再是傳統的資料外洩，而是 AI 系統從既有資料推導出的「推論」（inferences）。研究副總裁 Bart Willemsen 指出，風險重心正從「資料曝露」轉向「洞察曝露」——即使企業從未直接蒐集某項敏感屬性，AI 模型仍可能從行為軌跡、購買紀錄或互動模式推斷出健康狀況、財務壓力或政治傾向。這使得以「蒐集最小化」為核心的既有隱私控制失效，因為問題發生在模型輸出端而非輸入端。Gartner 建議隱私與安全團隊必須將治理範圍延伸至模型推論結果，建立針對推論式攻擊（inference-based attacks）的偵測與問責機制。對金融業而言，這直接衝擊 KYC、信用評分與行銷分群等高度依賴衍生特徵的場景。",
+      "highlights": [
+        "風險定義轉移：從「資料曝露」（data exposure）轉向「洞察曝露」（insight exposure）",
+        "既有以蒐集最小化為核心的隱私控制無法涵蓋模型推論產生的新敏感屬性",
+        "研究副總裁 Bart Willemsen 為主要發言人，點名推論式攻擊為新興威脅類型",
+        "治理範圍需從資料輸入端延伸到模型輸出端，納入推論結果的問責機制"
+      ],
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-30-gartner-predicts-most-privacy-incidents-will-stem-from-artificial-intelligence-generated-inferences-by-2029"
+    },
+    {
+      "title": "Gartner Predicts AI Agents Will Outnumber Sellers 10 to 1 by 2028, Yet Fewer Than 40% of Sellers Will Say Agents Improved Productivity",
+      "source": "Gartner",
+      "date": "2026-07-28",
+      "category": "Agent應用",
+      "summary": "Gartner 預測到 2028 年，企業銷售組織中的 AI Agent 數量將以 10:1 的比例超過真人銷售人員，但屆時仍有超過 60% 的銷售人員不認為 Agent 提升了自身生產力。這個「部署量暴增、體感效益停滯」的落差，主因是多數企業把 Agent 疊加在既有流程之上，而非重新設計工作流。Gartner 同時指出，60% 的銷售長（CSO）認為營收成長的關鍵變數已超出自身掌控範圍，凸顯銷售組織對外部環境的依賴加深。研究另發現，若企業同步改造資料基礎、自動化架構與使用者體驗，取得 Agent 投資報酬的機率高出 5 倍。這對正在導入 Agent 的金融業銷售與理財顧問團隊是明確警示：工具數量不等於產能。",
+      "highlights": [
+        "2028 年 AI Agent 與真人銷售人員比例達 10:1",
+        "但屆時僅不到 40% 的銷售人員會認為 Agent 真的提升了生產力",
+        "60% 的銷售長（CSO）認為營收成長的主要變數已不在自己掌控範圍內",
+        "同步改造資料、自動化與使用者體驗者，取得 ROI 的機率高出 5 倍",
+        "核心失敗模式：把 Agent 疊加在舊流程上，而非重新設計工作流"
+      ],
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-28-gartner-predicts-ai-agents-will-outnumber-sellers-10-to-1-by-2028-yet-fewer-than-40-percent-of-sellers-will-say-agents-improved-productivity"
+    },
+    {
+      "title": "Gartner预测2026年全球AI平台和模型市场增速达63%",
+      "source": "Gartner",
+      "date": "2026-07-28",
+      "category": "產業報告",
+      "summary": "Gartner 最新預測指出，2026 年全球 AI 平台與模型市場規模將達 640 億美元，較 2025 年的 390 億美元成長 63.4%。其中生成式 AI 模型（GenAI models）為最主要動能，年增率高達 117%，幾乎翻倍；AI 平台（AI platforms）則成長 36.9%，成長較為溫和但基期較大。這組數字反映企業支出正從「試辦模型」轉向「以模型為核心的應用平台」，模型本身的採購金額快速膨脹。值得注意的是，模型層的高速成長也代表供應商更替風險升高——企業在模型層的鎖定程度低於平台層。此預測與 Gartner 同期發布的整體 IT 支出預測（2026 年 6.37 兆美元、成長 14.2%）形成對照，顯示 AI 平台與模型雖成長最快，但佔整體 IT 支出比重仍小。",
+      "highlights": [
+        "2026 年 AI 平台與模型市場達 640 億美元，2025 年為 390 億美元",
+        "整體年成長率 63.4%",
+        "生成式 AI 模型（GenAI models）年增 117%，為最快成長區塊",
+        "AI 平台（AI platforms）年增 36.9%",
+        "支出結構顯示企業已從模型試辦轉向以模型為核心的平台建置"
+      ],
+      "url": "https://www.gartner.com/cn/newsroom/press-releases/2026-0728-26-ai-model-platform-forecast"
+    },
+    {
       "title": "Gartner Forecasts Worldwide IT Spending to Grow 14.2% in 2026, Totaling $6.37 Trillion",
       "source": "Gartner",
       "date": "2026-07-27",
       "category": "產業報告",
-      "summary": "Gartner 最新預測指出，2026 年全球 IT 支出將達 6.37 兆美元，較 2025 年成長 14.2%。成長最快的區塊為資料中心系統與 IaaS（基礎設施即服務），反映企業對 AI 基礎建設、雲端平台與智慧型應用的投資正在加速。這份預測與 Gartner 同月稍早發布的 AI 平台與模型市場預測（2026 年達 640 億美元、年增 63.4%）互相呼應，顯示 AI 已成為整體 IT 支出的主要驅動力。對金融業而言，這代表基礎設施採購與雲端合約談判的議價環境將持續偏向賣方。⚠️待確認：內文各細項成長率僅來自搜尋結果摘要，未逐項核對原文。",
+      "summary": "Gartner 預測 2026 年全球 IT 支出將達 6.37 兆美元，較 2025 年成長 14.2%，成長幅度明顯高於過去數年的常態水準。成長主要由 AI 基礎建設推動：資料中心系統（data center systems）與 IaaS 為成長率最高的兩個區塊，反映企業與雲端服務商為承載 AI 工作負載而進行的大規模硬體與運算採購。這代表 AI 支出已從軟體授權層擴散到底層基礎設施資本支出，成為推升整體 IT 預算的結構性因素。對 CIO 而言，關鍵風險在於資料中心與 IaaS 的支出增速遠高於整體預算增速，將壓縮應用與人力等其他項目的空間。此預測與 Gartner 同期的 AI 平台與模型市場預測（成長 63%）並列閱讀，可看出 AI 支出在不同層級的擴散節奏。",
       "highlights": [
-        "2026 年全球 IT 支出預估 6.37 兆美元，年增 14.2%",
-        "資料中心系統與 IaaS 為成長最高的兩大類別",
-        "成長動能來自 AI 基礎建設、雲端平台與智慧應用的投資擴張",
-        "與同月 AI 平台/模型市場預測（640 億美元、+63.4%）形成一致訊號"
+        "2026 年全球 IT 支出預估 6.37 兆美元",
+        "年成長率 14.2%，高於近年常態",
+        "資料中心系統（data center systems）與 IaaS 為成長最快的兩大區塊",
+        "AI 支出已從軟體層擴散至基礎設施資本支出",
+        "底層支出增速高於整體預算增速，將排擠其他 IT 項目"
       ],
       "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-27-gartner-forecasts-worldwide-it-spending-to-grow-14-point-2-percent-in-2026-totaling-6-point-37-trillion"
     },
     {
-      "title": "Building the enterprise environment for agentic AI",
+      "title": "The AI Hype Index: Unsexy AI",
       "source": "MIT Technology Review",
-      "date": "2026-07-27",
-      "category": "Agent應用",
-      "summary": "MIT Technology Review Insights 這篇分析主張，企業導入 agentic AI 的瓶頸不在推論（inference）本身，而是整套系統環境的問題。要讓 agent 能夠規劃、檢索、記憶並可靠地大規模行動，執行平台必須具備足夠的 CPU 容量、具韌性的資料存取、遵循政策的工具呼叫（policy-aware tool use）、可觀測性（observability）、記憶體管理，以及可預測的擴展能力。Intel 執行了數千次 agentic AI 工作負載實驗，據此歸納出五項給企業領導者的實務教訓，核心結論是「agentic AI 是更大的系統問題，而非單純的推論問題」。Intel 並擴充了開源 agent 評測框架 Terminal-Bench，加入 profiling、遙測與 replay 能力。這對治理端的意義是：agent 的可稽核性必須從基礎設施層就設計進去，而非事後加掛。",
-      "highlights": [
-        "核心論點：agentic AI 是系統工程問題，不是推論效能問題",
-        "完整 agent 環境需具備：規劃、檢索、記憶、可靠行動四項能力",
-        "平台六大依賴：CPU 容量、韌性資料存取、政策感知工具呼叫、可觀測性、記憶體管理、可預測擴展",
-        "Intel 執行數千次 agentic 工作負載實驗，歸納五項企業實務教訓",
-        "Intel 擴充開源評測框架 Terminal-Bench，新增 profiling、遙測與 replay"
-      ],
-      "url": "https://www.technologyreview.com/2026/07/27/1140668/building-the-enterprise-environment-for-agentic-ai/"
-    },
-    {
-      "title": "The path to artificial superintelligence",
-      "source": "MIT Technology Review",
-      "date": "2026-07-27",
+      "date": "2026-07-29",
       "category": "AI趨勢",
-      "summary": "這篇分析指出 AI 產業過去數年的擴張是「垂直擴展」——更大的模型、更多資料、更多算力，成果是可作為 AI agent「大腦」的推理能力，讓 agent 能在數位環境中感知、推理與行動。但要讓 agentic 問題解決能力跨越不同系統、公司與平台，下一個擴展軸線必須是「水平的」：新一代 multi-agent 系統需要一種水平架構，讓 agent 之間能共享意圖（intent）、脈絡（context）與推理過程，以解決單一 agent 未曾被訓練過的大規模問題。目前 multi-agent 系統已在軟體工程、藥物探索與科學模擬等領域試行，但表現仍不理想：一項研究評估七個開源 multi-agent 系統，失敗率介於 41% 至約 87%。文章認為結合這些做法才是通往「分散式人工超智慧」的下一步。",
+      "summary": "MIT Technology Review 定期發布的 AI Hype Index 本期主題為「Unsexy AI」，聚焦在缺乏話題性但實際具有影響力的 AI 進展，並對照被過度炒作的項目。本期指出 1X 公司在靈巧機械手（dexterous robot hands）上的進展屬於低調但技術含量高的實質突破，而 Grok 的翻譯功能、Meta 智慧眼鏡等消費端亮點則被歸類為期待值高於實際效益。指數同時追蹤大型科技公司的碳排放問題，顯示 AI 運算擴張的環境成本正逐步進入主流評估視野。這個指數的價值在於提供一套定期、對比式的期待值校準工具，適合用來檢視自家 AI 專案是否押在被高估的題目上。",
       "highlights": [
-        "垂直擴展（更大模型/更多算力）已產生可作為 agent 大腦的推理能力",
-        "下一階段關鍵是水平擴展：agent 間共享 intent、context 與 reasoning",
-        "一項研究評估七個開源 multi-agent 系統，失敗率 41%～約 87%",
-        "multi-agent 已試行於軟體工程、藥物探索、科學模擬，但成效未達預期",
-        "作者提出「分散式人工超智慧（distributed ASI）」作為下一步路徑"
+        "本期主軸「Unsexy AI」：低話題性但高實質影響的 AI 進展",
+        "1X 靈巧機械手（dexterous robot hands）被列為實質技術突破",
+        "Grok 翻譯功能、Meta 智慧眼鏡被歸類為期待值偏高",
+        "追蹤大型科技公司碳排放，AI 運算的環境成本進入主流評估",
+        "可作為定期校準內部 AI 專案期待值的對照工具"
       ],
-      "url": "https://www.technologyreview.com/2026/07/27/1140724/the-path-to-artificial-superintelligence/"
+      "url": "https://www.technologyreview.com/2026/07/29/1140795/the-ai-hype-index-unsexy-ai/"
     },
     {
       "title": "How AI helps scientists design the next generation of medicines",
       "source": "MIT Technology Review",
       "date": "2026-07-23",
       "category": "AI趨勢",
-      "summary": "本文分析 AI 如何加速製藥流程，並指出 AI 已快速成為製藥研發（R&D）基礎設施的核心組成，而非邊緣的輔助工具。AI 輔助設計正逐步成為生物製劑（biologic）候選藥物開發流程中日益重要的一環。這代表 AI 在特定垂直領域的價值已從概念驗證階段進入實際生產流程。⚠️待確認：本文具體統計數字未於搜尋結果中揭露，摘要僅涵蓋可確認之論點，未補充未經核實的數據。",
+      "summary": "MIT Technology Review 這篇分析指出，AI 輔助藥物設計已從實驗性工具轉變為製藥研發的核心基礎設施。文章說明科學家如何運用 AI 模型進行分子結構設計與候選藥物篩選，將傳統上耗時數年的探索階段大幅壓縮。這個轉變的意義不只是加速，而是研發流程的重新配置：AI 從輔助分析位置移動到決定「探索哪些分子」的前端決策位置。文章同時涵蓋此模式在驗證與監管銜接上仍待解的問題——運算預測與濕實驗結果之間的落差仍是關鍵瓶頸。對關注 AI 產業落地深度的讀者而言，製藥是少數已可觀察到結構性流程改造的領域，而非僅止於效率工具。",
       "highlights": [
-        "AI 已成為製藥研發基礎設施的核心組成，而非附屬工具",
-        "AI 輔助設計在生物製劑候選藥物開發中的比重持續上升",
-        "顯示 AI 垂直應用已由 PoC 階段進入實際生產流程"
+        "AI 輔助藥物設計已成為製藥研發的核心基礎設施，非實驗性工具",
+        "AI 從輔助分析角色移至決定探索方向的前端決策位置",
+        "傳統耗時數年的候選分子探索階段被大幅壓縮",
+        "運算預測與濕實驗驗證之間的落差仍是主要瓶頸",
+        "製藥為少數可觀察到 AI 造成結構性流程改造的產業"
       ],
       "url": "https://www.technologyreview.com/2026/07/23/1140346/how-ai-helps-scientists-design-the-next-generation-of-medicines/"
+    },
+    {
+      "title": "MCP just got its biggest update ever — here's what changes for AI agents",
+      "source": "VentureBeat",
+      "date": "2026-07-28",
+      "category": "Agent應用",
+      "summary": "VentureBeat 報導 Model Context Protocol（MCP）發布 20 個月以來規模最大的一次更新，此次修訂為架構層級的調整，目標是支撐企業規模的 Agent 生產環境。MCP 作為 Agent 與外部工具、資料源之間的標準介接協定，其架構變動會直接影響既有 Agent 整合的相容性與擴展路徑。文章分析這次更新對正在建置 Agent 平台的企業意味著什麼：協定成熟度提升有利於降低供應商鎖定，但同時也代表既有實作可能需要遷移成本。對於評估 Agent 基礎設施選型的團隊，MCP 的架構收斂是判斷生態穩定度的重要指標。金融業若採 Agent 對接內部核心系統，協定層的版本治理需納入變更管理範圍。",
+      "highlights": [
+        "MCP 自推出 20 個月以來規模最大的一次更新",
+        "屬架構層級修訂，目標是支撐企業規模的 Agent 生產環境",
+        "協定成熟有利降低供應商鎖定，但既有實作面臨遷移成本",
+        "MCP 架構收斂可作為判斷 Agent 生態穩定度的指標",
+        "採 Agent 對接核心系統者，需將協定版本治理納入變更管理"
+      ],
+      "url": "https://venturebeat.com/infrastructure/mcp-just-got-its-biggest-update-ever-heres-what-changes-for-ai-agents"
     },
     {
       "title": "VentureBeat Research: Where enterprise AI agent governance hasn't caught up",
       "source": "VentureBeat",
       "date": "2026-07-24",
-      "category": "企業AI",
-      "summary": "VentureBeat Research 彙整五份平行問卷、共 573 位企業決策者的調查結果，結論是企業部署 AI agent 的速度已超前於管理這些 agent 所需的控制機制。研究衡量了企業信任 agent 前必須先建立的五道控制層：身分（identity）、評測（evaluation）、成本遙測（cost telemetry）、脈絡層（context layer）與編排（orchestration）。2026 年第一季的調查揭露所謂「治理幻象」（Governance Mirage）：43% 表示由中央團隊負責 AI 治理，23% 內部對「誰負責」無法取得共識，31% 認為供應商不透明是最大障礙。此外 57% 的企業在過去六個月曾追查到 agent 給出「自信但錯誤」的答案，根因是缺失或不一致的業務脈絡。五道控制層中，每一層都有 57%～68% 的企業計畫在 12 個月內更換或新增供應商，約三分之一打算在本季內就動作。",
+      "category": "AI治理",
+      "summary": "VentureBeat 彙整 2026 年 6 月執行的 5 份 VB Pulse 調查（合計 573 位受訪者，樣本分別為 101、157、107、107、101，皆來自 100 人以上規模企業），指出企業 AI Agent 的治理成熟度明顯落後於部署速度。最刺眼的數字是：擁有自有 GPU 的企業中，有 83% 的 GPU 使用率不到 50%，顯示運算資源採購與實際 Agent 工作負載嚴重脫節。同時有 57% 至 68% 的受訪企業計畫在未來 12 個月內更換或增加供應商，反映當前 Agent 工具鏈的黏著度低、選型尚未收斂。研究的核心結論是治理缺口而非技術缺口：企業在權限、稽核與成效衡量上的機制建置速度跟不上 Agent 上線速度。這對金融業 AI 治理規劃是可直接引用的量化基準。",
       "highlights": [
-        "樣本：五份平行問卷、573 位企業決策者",
-        "五道控制層：identity、evaluation、cost telemetry、context layer、orchestration",
-        "治理幻象：43% 稱由中央團隊治理、23% 內部對權責無共識、31% 指供應商不透明為最大障礙",
-        "57% 企業過去六個月曾遇到 agent「自信但錯誤」的回答，根因為業務脈絡缺失",
-        "每一控制層均有 57%～68% 企業打算 12 個月內換供應商，約 1/3 本季內就換"
+        "資料基礎：2026 年 6 月 5 份 VB Pulse 調查、共 573 位受訪者、皆為 100 人以上企業",
+        "83% 擁有自有 GPU 的企業，GPU 使用率不到 50%",
+        "57%–68% 企業計畫在 12 個月內更換或增加 AI 供應商",
+        "核心落差為治理缺口而非技術缺口：權限、稽核、成效衡量機制跟不上部署速度",
+        "Agent 工具鏈黏著度低，市場選型尚未收斂"
       ],
       "url": "https://venturebeat.com/technology/venturebeat-research-where-enterprise-ai-agent-governance-hasnt-caught-up"
     },
     {
-      "title": "Google's AI search is rapidly becoming the default, new data shows",
-      "source": "TechCrunch",
-      "date": "2026-07-27",
-      "category": "AI趨勢",
-      "summary": "新數據顯示 Google 的 AI Overviews 現已出現在 43% 的搜尋結果中，相較一年前的 15% 大幅躍升。這個變化速度說明 AI 生成的答案正快速成為人們探索資訊的預設途徑，而非附加選項。對內容產業與流量分配而言，這是結構性的轉折：使用者愈來愈少點擊原始來源連結。⚠️待確認：43%/15% 兩項數字來自搜尋結果摘要引述，未逐字核對原文。",
-      "highlights": [
-        "Google AI Overviews 出現率達 43%，一年前僅 15%",
-        "AI 生成答案正取代傳統搜尋結果成為預設資訊入口",
-        "對內容產業的流量分配構成結構性衝擊"
-      ],
-      "url": "https://techcrunch.com/2026/07/27/googles-ai-search-is-rapidly-becoming-the-default-new-data-shows/"
-    },
-    {
-      "title": "Monday.com is the latest tech company to blame AI for layoffs — here are 20 others",
-      "source": "TechCrunch",
-      "date": "2026-07-25",
+      "title": "AI Infrastructure Spending Holds Near $90 Billion in Q1 2026 as ARM Overtakes x86 in Accelerated Servers; 2026 Forecast Raised to $497 Billion",
+      "source": "IDC",
+      "date": "2026-07-23",
       "category": "產業報告",
-      "summary": "TechCrunch 持續更新的 2026 年科技業裁員清單指出，以色列職場軟體公司 Monday.com 將裁減約 20% 員工、約 630 個職位，作為轉型為 AI 驅動工作平台的重組措施之一。該清單已累積逾 20 家明確將裁員歸因於 AI 的雇主，顯示「AI 導入」正被企業廣泛用作人力結構調整的公開理由。對治理與人資規劃而言，這是評估 AI 導入外部性成本時必須納入的實證資料。",
+      "summary": "⚠️待確認（發布日期僅由搜尋摘要推得，約 2026-07-23，衍生報導日期為 2026-07-26；URL 與標題已確認）IDC 最新追蹤數據顯示，2026 年第一季全球 AI 基礎建設支出達 897 億美元，年增 33%。最具結構性意義的變化是 ARM 架構首次在加速伺服器領域超越 x86：ARM 為 530 億美元，x86 為 346 億美元，代表 AI 運算的處理器路線出現實質翻轉。IDC 同步將 2026 全年預測上調至 4,970 億美元（約成長 56%），並預估 2029 年達 1.08 兆美元、2030 年達 1.21 兆美元，2026 至 2030 年複合年成長率約 30%。這組數字說明 AI 基礎建設支出尚未見到成長趨緩的訊號，且採購結構正在改變。對評估運算成本曲線的企業而言，ARM 超越 x86 是採購與軟體相容性規劃上需立即納入的變數。",
       "highlights": [
-        "Monday.com 裁減約 20% 人力、約 630 個職位",
-        "裁員理由為轉型 AI 驅動工作平台的組織重組",
-        "TechCrunch 清單已收錄逾 20 家明確以 AI 為裁員理由的科技雇主",
-        "顯示 AI 導入的人力衝擊已從預測進入可統計的實證階段"
+        "2026 Q1 全球 AI 基礎建設支出 897 億美元，年增 33%",
+        "ARM 首度在加速伺服器超越 x86：530 億美元 vs. 346 億美元",
+        "2026 全年預測上調至 4,970 億美元，約成長 56%",
+        "長期預估：2029 年 1.08 兆美元、2030 年 1.21 兆美元，CAGR 約 30%",
+        "⚠️待確認：發布日期為搜尋摘要推論（約 2026-07-23），非原文明載"
       ],
-      "url": "https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/"
-    },
-    {
-      "title": "Sam Altman is ready to decelerate",
-      "source": "TechCrunch",
-      "date": "2026-07-28",
-      "category": "AI趨勢",
-      "summary": "OpenAI 執行長 Sam Altman 表示，現在或許是該「放慢節奏」（pace）AI 發展速度的時候，好讓世界有時間做好準備。他的說法是：「我們可能必須調節 AI 發展的速率，給我們自己足夠的時間，讓社會針對這些新的能力層級強化韌性。」這是長期主張加速的 OpenAI 領導層在公開立場上的明顯轉向，對監管節奏與企業導入時程的預期具有訊號意義。",
-      "highlights": [
-        "Altman 公開表示可能需要調節（pace）AI 發展速率",
-        "理由是給社會足夠時間針對新能力層級「強化韌性」",
-        "代表 OpenAI 領導層公開立場由加速轉向調節",
-        "對監管節奏與企業導入時程預期具訊號意義"
-      ],
-      "url": "https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/"
-    },
-    {
-      "title": "Cognizant Launches EMEA AI Unit as Enterprise Agent Pilots Fail at Scale",
-      "source": "Tech Times",
-      "date": "2026-07-28",
-      "category": "企業AI",
-      "summary": "Cognizant 於 2026 年 7 月 28 日成立專責的 EMEA（歐洲、中東與非洲）AI 部門，背景是企業 AI agent 試點大規模無法擴展至正式生產的現況。報導引用 IDC 研究指出，88% 的 AI agent 概念驗證（PoC）從未進入廣泛生產——換算下來，企業每啟動 33 個試點，僅有 4 個真正進入實際營運。這個 12:1 的落差說明企業 AI 的瓶頸已不在模型能力，而在部署、整合與治理的落地能力，也解釋了顧問服務商為何加碼佈局。⚠️待確認：IDC 數據為報導轉引，未取得 IDC 原始報告核對。",
-      "highlights": [
-        "Cognizant 於 2026-07-28 成立專責 EMEA AI 部門",
-        "IDC：88% 的 AI agent PoC 從未進入廣泛生產（報導轉引）",
-        "每 33 個試點僅約 4 個進入實際營運，落差約 12:1",
-        "瓶頸已由模型能力轉移至部署、整合與治理的落地能力"
-      ],
-      "url": "https://www.techtimes.com/articles/321781/20260728/cognizant-launches-emea-ai-unit-enterprise-agent-pilots-fail-scale.htm"
+      "url": "https://www.idc.com/resource-center/blog/ai-infrastructure-spending-holds-near-90-billion-in-q1-2026-as-arm-overtakes-x86-in-accelerated-servers-2026-forecast-raised-to-497-billion/"
     }
   ],
-  "_updated_at": "2026-07-29T18:15:01.137065+08:00"
+  "_updated_at": "2026-07-30T18:19:39.385427+08:00"
 }
