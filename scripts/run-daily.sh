@@ -581,6 +581,26 @@ else
     log "未設定 archiver.env 或無 node，跳過 Firestore 冷封存"
 fi
 
+# ── L3 判讀層（advisory，不參與主管線成敗）──
+# 為什麼掛在這裡：擷取與驗證都已完成、git push 還沒開始。判讀層讀得到當日的完整
+# 語料，而它的產物全部落在 data/agent/.preview/（.gitignore:26 擋住），下面的
+# `git add data/` 掃不到，所以就算判讀寫出垃圾也不會上線。
+#
+# 為什麼是 `|| true`：模型會逾時、會被 rate limit、會回不合契約的 JSON。這些都不
+# 該讓「今天的新聞沒推上去」。判讀層失敗只降級 health.json 的 agent 區塊，主管線
+# 的成敗完全由上面的擷取與驗證決定。
+AGENT_STATUS_FILE="$DATA_DIR/agent/.preview/agent-run-status.json"
+if [[ "${SKIP_AGENTS:-0}" == "1" ]]; then
+    log "SKIP_AGENTS=1，跳過 L3 判讀層"
+elif [[ -x "$SCRIPTS_DIR/run-agents.sh" ]]; then
+    log "執行 L3 判讀層（advisory，失敗不影響主管線）..."
+    AGENT_T0=$(date +%s)
+    bash "$SCRIPTS_DIR/run-agents.sh" 2>&1 || true
+    log "L3 判讀層耗時 $(( $(date +%s) - AGENT_T0 ))s"
+else
+    log "找不到可執行的 run-agents.sh，跳過 L3 判讀層"
+fi
+
 # ── 清理舊 log ──
 log "清理 7 天前的 log..."
 find "$LOG_DIR" -name "*.log" -mtime +7 -delete 2>/dev/null || true
@@ -597,7 +617,7 @@ else
 fi
 
 # ── 更新 health.json（最終版）──
-python3 - "$OVERALL_STATUS" "$CATEGORIES_OK" "$CATEGORIES_FAILED" "$PASS_RATE" "$DATA_DIR/health.json" "$QUOTA_NOTE" << 'HEALTH_PYEOF'
+python3 - "$OVERALL_STATUS" "$CATEGORIES_OK" "$CATEGORIES_FAILED" "$PASS_RATE" "$DATA_DIR/health.json" "$QUOTA_NOTE" "$AGENT_STATUS_FILE" << 'HEALTH_PYEOF'
 import json, sys, os
 from datetime import datetime, timezone, timedelta
 
@@ -607,8 +627,31 @@ cats_fail = int(sys.argv[3])
 pass_rate = int(sys.argv[4])
 health_path = sys.argv[5]
 quota_note = sys.argv[6] if len(sys.argv) > 6 else ""
+agent_status_path = sys.argv[7] if len(sys.argv) > 7 else ""
 
 now = datetime.now(timezone(timedelta(hours=8)))
+
+# L3 判讀層的狀態摘要。health.json 會隨 data/ 推上公開 repo，所以這裡只收
+# 「跑了沒、幾步成功、花多久」這種營運數字，判讀內容一律不進來。
+def agent_block(path):
+    if not path or not os.path.exists(path):
+        return {"overall": "absent", "note": "本輪未產生判讀層狀態檔"}
+    try:
+        d = json.load(open(path))
+    except Exception:
+        return {"overall": "unreadable", "note": "狀態檔存在但解析失敗"}
+    stale = d.get("finished_at", "")[:10] != now.strftime("%Y-%m-%d")
+    return {
+        "overall": "stale" if stale else d.get("overall", "unknown"),
+        "mode": d.get("mode"),
+        "advisory": True,
+        "production_write": False,
+        "publish": "manual_only",
+        "finished_at": d.get("finished_at"),
+        "duration_sec": d.get("duration_sec"),
+        "counts": d.get("counts", {}),
+        "failed_steps": [s.get("step") for s in d.get("steps", []) if s.get("status") == "failed"],
+    }
 
 # 讀取舊值保留 last_success
 old = {}
@@ -629,7 +672,8 @@ health = {
     "validation_pass_rate": pass_rate,
     "consecutive_failures": 0 if status in ("ok", "partial") else old.get("consecutive_failures", 0) + 1,
     "last_missed": None if status in ("ok", "partial") else old.get("last_missed"),
-    "errors": [quota_note] if quota_note else []
+    "errors": [quota_note] if quota_note else [],
+    "agent": agent_block(agent_status_path),
 }
 
 with open(health_path, "w") as f:
