@@ -1,0 +1,230 @@
+{
+  "schema": "agent-roadmap-v0.1",
+  "rubric_version": "1.0.0",
+  "roadmap_version": "1.0.0",
+  "roadmaps": [
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "trajectory": "capability_deepening",
+      "horizon": "near",
+      "next_milestone": "3 個月內本叢集再出現至少一則 E1 級一手可復現的 agent 自主攻防能力擴張證據",
+      "falsifier": "3 個月到期時,期間新增的 E1 級自主攻防能力擴張證據仍為 0 則",
+      "watch_signals": [
+        {
+          "signal": "E1 網域出現新的 agent 自主攻防可復現實作",
+          "where": "arXiv、HuggingFace 等 E1 一手可復現網域"
+        },
+        {
+          "signal": "跨國協定簽署國數自 29 國再增加",
+          "where": "監理機關與政府間組織的 E2 官方網域"
+        },
+        {
+          "signal": "本叢集 7 日量自 506 件續行上升",
+          "where": "管線的 7 日 occurrences 序列"
+        }
+      ],
+      "adoption_note": "評估與安全證據可直接餵給內部 AI 風險評估文件更新",
+      "blockers_ranked": [
+        "B6",
+        "B5"
+      ],
+      "confidence": 0.78,
+      "rubric_hits": [
+        "RM-1",
+        "RM-2",
+        "RM-3",
+        "RM-4",
+        "RM-6",
+        "RM-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "trajectory": "unforecastable",
+      "horizon": "none",
+      "next_milestone": "",
+      "falsifier": "",
+      "watch_signals": [
+        {
+          "signal": "NewsCurator 是否恢復對本叢集產出 T 軸",
+          "where": "上游 curator 每日產出"
+        },
+        {
+          "signal": "7 日量自 222 件續跌或回升",
+          "where": "管線的 7 日 occurrences 序列"
+        }
+      ],
+      "adoption_note": "本輪不對開發工具與 RAG 給前瞻,維持既有導入節奏",
+      "blockers_ranked": [],
+      "confidence": 0.0,
+      "rubric_hits": [
+        "RM-3",
+        "RM-5"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "trajectory": "stalling",
+      "horizon": "near",
+      "next_milestone": "3 個月內本叢集新發布仍以成本與整合為訴求,未出現 E1 級 D2 能力擴張",
+      "falsifier": "3 個月到期時,期間出現至少一則被判 D2 能力擴張的 E1 級模型發布",
+      "watch_signals": [
+        {
+          "signal": "以極低價格逼近前沿為訴求的新模型發布",
+          "where": "HuggingFace 模型卡等 E1 網域"
+        },
+        {
+          "signal": "長上下文成本的工程改良是否轉為新任務類型",
+          "where": "模型商官方頻道(E2)與 arXiv"
+        },
+        {
+          "signal": "7 日量自 473 件的後續變動",
+          "where": "管線的 7 日 occurrences 序列"
+        }
+      ],
+      "adoption_note": "推論單價續降有利批次場景試算,延遲仍須逐案量測",
+      "blockers_ranked": [
+        "B4",
+        "B3"
+      ],
+      "confidence": 0.76,
+      "rubric_hits": [
+        "RM-1",
+        "RM-2",
+        "RM-3",
+        "RM-4",
+        "RM-6",
+        "RM-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "12 個月內本叢集成熟度仍停在開源可復現,未出現一手可查證的產品化證據",
+      "falsifier": "12 個月到期時,出現至少一則有正式產品或定價、外部可取用的一手證據",
+      "watch_signals": [
+        {
+          "signal": "事件驅動架構與脈絡上界工程是否出現具名客戶部署",
+          "where": "廠商官方頻道(E2)與具名客戶報導"
+        },
+        {
+          "signal": "agent 相關 preprint 是否轉為公開權重或程式碼",
+          "where": "arXiv 與 GitHub 等 E1 網域"
+        },
+        {
+          "signal": "次層 S5 內容偏技術性安全或制度面",
+          "where": "監理機關(E2)對比 arXiv(E1)的來源組成"
+        }
+      ],
+      "adoption_note": "仍屬可復現階段,適合內部沙盒驗證而非核心系統",
+      "blockers_ranked": [
+        "B4",
+        "B1"
+      ],
+      "confidence": 0.7,
+      "rubric_hits": [
+        "RM-1",
+        "RM-2",
+        "RM-3",
+        "RM-4",
+        "RM-6",
+        "RM-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "12 個月內本叢集仍以二手報導為主,未出現 E1 級一手可復現的防護成效證據",
+      "falsifier": "12 個月到期時,出現至少一則權重、程式碼或資料集公開的防護成效證據",
+      "watch_signals": [
+        {
+          "signal": "agent 注入攻擊研究是否附可復現實作",
+          "where": "arXiv、GitHub 等 E1 網域"
+        },
+        {
+          "signal": "主管機關專項行動是否轉為公開文件或規範",
+          "where": "監理機關 E2 官方網域"
+        },
+        {
+          "signal": "7 日量自 152 件是否回到季基準",
+          "where": "管線的 7 日 occurrences 序列"
+        }
+      ],
+      "adoption_note": "身分治理與 RBAC 可先行,防護成效證據不足以支撐驗收",
+      "blockers_ranked": [
+        "B4"
+      ],
+      "confidence": 0.7,
+      "rubric_hits": [
+        "RM-1",
+        "RM-2",
+        "RM-3",
+        "RM-4",
+        "RM-5",
+        "RM-6",
+        "RM-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "ai_learning_and_enablement",
+      "trajectory": "stalling",
+      "horizon": "mid",
+      "next_milestone": "12 個月內本叢集 unique_items 對 occurrences 比值仍不超過現值 0.134",
+      "falsifier": "12 個月到期時,該比值超過 0.134",
+      "watch_signals": [
+        {
+          "signal": "Medium 以外來源佔比是否擴大",
+          "where": "叢集的等效來源數與來源分布"
+        },
+        {
+          "signal": "NewsCurator 是否恢復對本叢集產出 T 軸",
+          "where": "上游 curator 每日產出"
+        }
+      ],
+      "adoption_note": "教材重覆度高,內訓素材宜自建而非採外部彙整",
+      "blockers_ranked": [],
+      "confidence": 0.7,
+      "rubric_hits": [
+        "RM-1",
+        "RM-2",
+        "RM-3",
+        "RM-4",
+        "RM-5",
+        "RM-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    }
+  ],
+  "source": "model",
+  "gate": {
+    "dropped_unknown_cluster_ids": 0,
+    "dropped_duplicates": 0,
+    "unassessed": 0,
+    "contract_violations": 0,
+    "downgraded": 0
+  },
+  "duration_ms": 249203,
+  "attempts": 1,
+  "model": "claude-opus-5",
+  "session_id": "fb7f5f92-5128-4809-bae9-7bb6fe7ffc0f",
+  "tech_rubric_version": "1.0.0"
+}

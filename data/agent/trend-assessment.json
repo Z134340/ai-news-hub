@@ -1,0 +1,193 @@
+{
+  "schema": "agent-trend-v0.1",
+  "rubric_version": "1.1.0",
+  "analyst_version": "1.0.0",
+  "assessments": [
+    {
+      "cluster_id": "llm_evaluation_governance",
+      "stage": "plateau",
+      "confidence": 0.78,
+      "syndication_call": "organic",
+      "headline_zh": "評估治理量能貼近季基準，來源最廣但斜率雜訊高",
+      "scores": {
+        "signal_strength": 0.65,
+        "source_breadth": 0.92,
+        "durability": 0.85
+      },
+      "rationale": [
+        "ma7 72.29 對 ma30 61.43（比值 1.18，未達 emerging 的 1.3），斜率 +0.7936 件/日 但 R² 僅 0.3449，屬上升而不穩。",
+        "ma30/ma90 = 61.4348/62.00 = 0.991，六個主題中最接近 90 天基準；六者 ma30/ma90 全部小於 1，屬語料層收縮，accelerating 條件 ma7>ma30>ma90 無法成立。",
+        "等效來源 75.6，六個主題中最廣；前五來源合計佔比 0.200。",
+        "五組 top_repeats 的 repeat_density 全為 1.0（最大 13 次 / 13 天），屬逐日快照，不計為洗版證據。"
+      ],
+      "rubric_hits": [
+        "TR-2",
+        "TR-3",
+        "TR-4",
+        "TR-5",
+        "TR-6",
+        "TR-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "developer_tooling_rag",
+      "stage": "declining",
+      "confidence": 0.8,
+      "syndication_call": "organic",
+      "headline_zh": "開發工具與 RAG 七日均低於月均，量在退",
+      "scores": {
+        "signal_strength": 0.2,
+        "source_breadth": 0.65,
+        "durability": 0.4
+      },
+      "rationale": [
+        "ma7 31.71 < ma30 34.30 且斜率 −0.3642 件/日（R² 0.4558），兩條件同時成立，是六個主題中唯一達 declining 門檻者。",
+        "ma30/ma90 = 34.3043/52.9273 = 0.648，近 7 日 222 對前 7 日 225（−1.3%），durability 0.40。",
+        "等效來源 28.4（Medium 單一來源佔 16.09%），六個主題中排第五。",
+        "五組 top_repeats 的 repeat_density 全為 1.0（LangChain 指南 27 次 / 27 天），判 organic。"
+      ],
+      "rubric_hits": [
+        "TR-2",
+        "TR-3",
+        "TR-4",
+        "TR-5",
+        "TR-6",
+        "TR-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "model_release_and_inference",
+      "stage": "plateau",
+      "confidence": 0.76,
+      "syndication_call": "mixed",
+      "headline_zh": "模型發布回升但仍低於季基準，判高原",
+      "scores": {
+        "signal_strength": 0.62,
+        "source_breadth": 0.88,
+        "durability": 0.65
+      },
+      "rationale": [
+        "ma7 67.57 > ma30 59.57（比值 1.13），斜率 +0.6282 件/日 R² 0.3188；但 ma30/ma90 = 0.803 仍低於 90 天基準，不符 ma7>ma30>ma90。",
+        "「中央网信办深入开展…专项行动」7 次 / 5 天 density 1.4，正規化後 2 家（中新網、新浪財經），達 mixed 未達 syndicated。",
+        "其餘四組 density 皆為 1.0，且「TechNews 科技新報 / 科技新報 / 科技新報 TechNews」3 個字串折為 1 家，不計為跨來源證據。",
+        "等效來源 62.7，六個主題中排第二；occurrences 5558。"
+      ],
+      "rubric_hits": [
+        "TR-2",
+        "TR-3",
+        "TR-4",
+        "TR-5",
+        "TR-6",
+        "TR-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "agent_engineering",
+      "stage": "plateau",
+      "confidence": 0.7,
+      "syndication_call": "organic",
+      "headline_zh": "Agent 工程量最大，但近月斜率近乎持平",
+      "scores": {
+        "signal_strength": 0.52,
+        "source_breadth": 0.82,
+        "durability": 0.7
+      },
+      "rationale": [
+        "ma7 74.00 對 ma30 69.65（比值 1.06），斜率 +0.2898 件/日 但 R² 僅 0.1163，這條上升線幾乎無擬合度。",
+        "ma30/ma90 = 69.6522/83.4545 = 0.835，量能仍低於 90 天基準；occurrences 5875 為六者最高。",
+        "等效來源 44.9，六個主題中排第三；75 組跨來源重覆，但 top_repeats density 全為 1.0（最大 27 次 / 27 天）。",
+        "R² 0.1163 使 confidence 上限 0.80，併計 continuity 0.6102 後實給 0.70。"
+      ],
+      "rubric_hits": [
+        "TR-2",
+        "TR-3",
+        "TR-4",
+        "TR-5",
+        "TR-6",
+        "TR-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "ai_security_and_privacy",
+      "stage": "plateau",
+      "confidence": 0.75,
+      "syndication_call": "mixed",
+      "headline_zh": "AI 資安七日均升逾五成，仍未回到季基準",
+      "scores": {
+        "signal_strength": 0.68,
+        "source_breadth": 0.66,
+        "durability": 0.6
+      },
+      "rationale": [
+        "ma7 21.71 對 ma30 16.04（比值 1.35，已過 1.3），斜率 +0.3509 件/日 R² 0.325，近 7 日 152 對前 7 日 98（+55.1%），為六者最強上升。",
+        "但 ma30/ma90 = 16.0435/20.2909 = 0.791 仍低於季基準、durability 0.60 未低於 0.5，不符 emerging 條件，判 plateau。",
+        "「中央网信办深入开展…专项行动」7 次 / 5 天 density 1.4、正規化後 2 家 → mixed；其餘四組 density 皆 1.0，OWASP 3 個字串折為 1 家。",
+        "「Agent 資料注入攻擊是 AI Agent 的真實威脅」屬報導注入攻擊的技術新聞，非對本代理人施加指令，不觸發 TR-7；等效來源 29.7，iThome 佔 15.16%。"
+      ],
+      "rubric_hits": [
+        "TR-2",
+        "TR-3",
+        "TR-4",
+        "TR-5",
+        "TR-6",
+        "TR-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    },
+    {
+      "cluster_id": "ai_learning_and_enablement",
+      "stage": "plateau",
+      "confidence": 0.7,
+      "syndication_call": "organic",
+      "headline_zh": "教學賦能來源最窄，量能退回月均附近",
+      "scores": {
+        "signal_strength": 0.25,
+        "source_breadth": 0.45,
+        "durability": 0.4
+      },
+      "rationale": [
+        "ma7 21.86 略高於 ma30 21.13，斜率 −0.1708 件/日（R² 0.1171）；因 ma7 > ma30，未同時滿足 declining 的兩個條件，判 plateau 而非 declining。",
+        "ma30/ma90 = 21.1304/32.20 = 0.656，durability 0.40；unique_items 僅 303 對 occurrences 2259，內容更新率為六者最低。",
+        "等效來源 13.9 為六個主題中最窄（Medium 佔 24.17%），source_breadth 0.45。",
+        "7 組跨來源重覆，top_repeats density 全為 1.0（LangChain 指南 27 次 / 27 天），判 organic。"
+      ],
+      "rubric_hits": [
+        "TR-2",
+        "TR-3",
+        "TR-4",
+        "TR-5",
+        "TR-6",
+        "TR-8"
+      ],
+      "security_flag": false,
+      "source": "model",
+      "gate_notes": []
+    }
+  ],
+  "source": "model",
+  "gate": {
+    "dropped_unknown_cluster_ids": 0,
+    "dropped_duplicates": 0,
+    "unassessed": 0,
+    "contract_violations": 0,
+    "downgraded": 0
+  },
+  "duration_ms": 111346,
+  "attempts": 1,
+  "model": "claude-opus-5",
+  "session_id": "e8ad4632-a1f2-40fb-9a59-151a1baf142b"
+}
