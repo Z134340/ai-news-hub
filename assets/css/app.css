@@ -283,15 +283,85 @@ mark{background:rgba(129,140,248,0.3);color:var(--tx);border-radius:2px;padding:
 .dl-item{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--tx3)}
 .dl-item i{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 
-/* 分類組成堆疊 */
 .dash-sub-title{font-size:11.5px;font-weight:700;color:var(--tx2);margin:16px 0 8px}
-.dash-stack{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px}
-.ds-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
-.ds-row:last-child{margin-bottom:0}
-.ds-date{font-size:10px;color:var(--tx3);width:38px;flex-shrink:0;font-variant-numeric:tabular-nums}
-.ds-track{flex:1;display:flex;height:12px;border-radius:3px;overflow:hidden;background:rgba(148,163,184,0.06)}
-.ds-seg{height:100%}
-.ds-tot{font-size:10px;color:var(--tx2);width:26px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
+
+/* ===== A 名次遷移（bump chart） =====
+   viewBox 是固定的 760 單位；直接縮到 360px 寬的手機上，10px 的 SVG 文字會變成 4.7px。
+   所以只允許這個容器自己橫向捲動，配 min-width 保住可讀字級——頁面本身永遠不橫捲。 */
+.dash-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 8px}
+.dash-svg{display:block;width:100%;min-width:680px;height:auto}
+.dash-toggle{display:inline-flex;gap:0;border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin-bottom:10px}
+.dash-toggle button{background:transparent;border:0;color:var(--tx2);font-size:10.5px;font-weight:700;padding:5px 12px;cursor:pointer;font-family:inherit}
+.dash-toggle button+button{border-left:1px solid var(--bd)}
+.dash-toggle button.on{background:rgba(129,140,248,0.16);color:var(--acl)}
+
+/* ===== B 主題矩陣 ===== */
+.dash-matrix{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dm-row{display:grid;grid-template-columns:minmax(146px,1.3fr) 156px 104px 74px 88px 78px 74px;align-items:center;gap:10px;
+  width:100%;min-width:720px;padding:10px 14px;text-align:left;background:transparent;border:0;border-top:1px solid var(--bd);
+  color:var(--tx);font-family:inherit;font-size:12px}
+.dm-head{border-top:0;font-size:10px;font-weight:700;color:var(--tx2);letter-spacing:.3px;padding:9px 14px;background:rgba(148,163,184,0.04)}
+.dm-click{cursor:pointer;transition:background .15s}
+.dm-click:hover,.dm-click:focus-visible{background:var(--cardH);outline:none}
+.dm-click:focus-visible{box-shadow:inset 0 0 0 2px var(--ac)}
+.dm-name{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0}
+.dm-name b{font-size:12.5px;font-weight:700;color:var(--tx)}
+.dm-name em{font-style:normal;font-size:9px;color:var(--tx2);opacity:.75;word-break:break-all}
+.dm-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.dm-sparkwrap{display:block;min-width:0}
+.dm-spark{display:block;width:100%;height:34px}
+.dm-stage{display:inline-flex;align-items:center;gap:4px;border-style:solid;border-width:2px;border-radius:999px;
+  padding:2px 8px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.dm-r{text-align:right}
+.dm-num{font-variant-numeric:tabular-nums;font-size:12.5px;font-weight:700;color:var(--tx)}
+.dm-num b{font-weight:800}
+.dm-num em{display:block;font-style:normal;font-size:9px;font-weight:400;color:var(--tx2);margin-top:2px;white-space:nowrap}
+.dm-lab{display:none}
+.dm-dim{font-size:10px;color:var(--tx2)}
+
+/* ===== B 抽屜（單一叢集完整判讀）=====
+   沿用既有 .ov 遮罩，index.html 不必動。 */
+.dash-drawer{display:none;position:fixed;top:0;right:0;bottom:0;width:min(560px,94vw);z-index:202;
+  background:var(--sf);border-left:1px solid var(--bd);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.dash-drawer.open{display:block}
+.dw-head{position:sticky;top:0;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+  padding:14px 16px;background:var(--sf);border-bottom:1px solid var(--bd)}
+.dw-title{font-size:15px;font-weight:800;color:var(--tx)}
+.dw-sub{font-size:10px;color:var(--tx2);margin-top:3px;word-break:break-all}
+.dw-sub code{background:rgba(148,163,184,0.10);border-radius:3px;padding:1px 4px}
+.dw-x{background:transparent;border:1px solid var(--bd);border-radius:8px;color:var(--tx2);
+  font-size:12px;padding:4px 9px;cursor:pointer;flex-shrink:0;font-family:inherit}
+.dw-x:hover{background:var(--cardH);color:var(--tx)}
+.dw-body{padding:12px 16px 28px}
+.dw-card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:9px}
+.dw-card-head{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;margin-bottom:9px}
+.dw-badges{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.dw-p{font-size:12px;line-height:1.8;color:var(--tx2);margin:0 0 7px;word-break:break-word}
+.dw-p b{color:var(--tx);font-weight:700}
+.dw-dim{color:var(--tx2);opacity:.85}
+.dw-ul{margin:0 0 4px;padding-left:17px}
+.dw-ul li{font-size:11.5px;line-height:1.8;color:var(--tx2);margin-bottom:5px;word-break:break-word}
+.dw-ul li em{font-style:normal;font-size:10px;color:var(--tx2);opacity:.8}
+.dw-bl li b{color:var(--tx)}
+.dw-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.dw-sub-title{font-size:10.5px;font-weight:700;color:var(--tx2);margin:10px 0 6px}
+.dw-kv{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid var(--bd)}
+.dw-kv:last-child{border-bottom:0}
+.dw-k{font-size:11px;color:var(--tx2);flex-shrink:0}
+.dw-v{font-size:12px;font-weight:700;color:var(--tx);text-align:right;font-variant-numeric:tabular-nums;min-width:0}
+.dw-v em{display:block;font-style:normal;font-size:9.5px;font-weight:400;color:var(--tx2);margin-top:2px;word-break:break-word}
+
+/* ===== E 管線健康度（預設收合）===== */
+.dash-ops{margin-bottom:22px;background:var(--card);border:1px solid var(--bd);border-radius:12px}
+.dash-ops>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 14px;cursor:pointer;list-style:none;font-size:12px;font-weight:700;color:var(--tx2)}
+.dash-ops>summary::-webkit-details-marker{display:none}
+.dash-ops>summary:hover{color:var(--tx)}
+.dop-l{display:inline-flex;align-items:center;gap:6px}
+.dop-r{font-size:10px;font-weight:400;color:var(--tx2);opacity:.8;text-align:right}
+.dop-body{padding:0 14px 14px;border-top:1px solid var(--bd)}
+.dop-body .dash-kpis{margin:14px 0 18px}
+.dop-body .dash-sec:last-child{margin-bottom:0}
 
 /* 主題趨勢卡 */
 .dash-meta{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
@@ -336,6 +406,16 @@ mark{background:rgba(129,140,248,0.3);color:var(--tx);border-radius:2px;padding:
   .dt-title{font-size:12.5px}
   .dash-breakdown{grid-template-columns:1fr}
   .dbd-k{width:76px}
-  .ds-date{width:34px}
   .dsh-title{font-size:13px}
+
+  /* 矩陣在窄螢幕改成堆疊卡：欄名靠 .dm-lab 帶著走，表頭整列隱藏。 */
+  .dash-matrix{overflow-x:visible}
+  .dm-head{display:none}
+  .dm-row{grid-template-columns:1fr 1fr;gap:8px 12px;min-width:0;padding:12px 13px}
+  .dm-name,.dm-sparkwrap,.dm-stagewrap{grid-column:1/-1}
+  .dm-r{text-align:left}
+  .dm-lab{display:block;font-style:normal;font-size:9.5px;font-weight:700;color:var(--tx2);margin-bottom:2px}
+  .dw-body{padding:12px 13px 24px}
+  .dash-drawer{top:auto;left:0;right:0;bottom:0;width:auto;max-height:88vh;
+    border-left:0;border-top:1px solid var(--bd);border-radius:16px 16px 0 0}
 }
