@@ -69,6 +69,36 @@ START_EPOCH=$(date +%s)
 START_ISO=$(date -Iseconds)
 elapsed() { echo $(( $(date +%s) - START_EPOCH )); }
 
+# fail-open 覆蓋判定：比較「這輪剛寫出來的產物」與「開跑前的快照」，決定要不要把舊的
+# 還原回去。整套防護的說明寫在下面 run_model_step 那一段；這支函式故意提前到自我測試
+# 之前定義，S-9 才有辦法拿真檔案把四種判定各跑一次。
+guard_verdict() { # new_file snapshot_file → kept | restored | no_snapshot | missing_new
+    python3 - "$1" "$2" <<'PY'
+import json, os, shutil, sys
+
+new, snap = sys.argv[1], sys.argv[2]
+
+def source_of(p):
+    try:
+        with open(p) as f:
+            return json.load(f).get("source")
+    except Exception:
+        return None
+
+if not os.path.exists(new):
+    print("missing_new"); raise SystemExit
+if source_of(new) != "fail_open":
+    print("kept"); raise SystemExit
+if not os.path.exists(snap):
+    print("no_snapshot"); raise SystemExit
+if source_of(snap) == "fail_open":
+    # 上一輪本來就是空殼，還原回去沒有意義
+    print("kept"); raise SystemExit
+shutil.copy2(snap, new)
+print("restored")
+PY
+}
+
 # ── 決定論自我測試（不碰檔案、不呼叫模型）──
 if [[ $SELF_TEST -eq 1 ]]; then
     FAILS=0
@@ -92,10 +122,13 @@ if [[ $SELF_TEST -eq 1 ]]; then
 
     # S-2 任何一個步驟的呼叫都不得帶晉升旗標：一旦帶了，產物會落到 data/agent/
     #     而被 run-daily.sh 的 `git add data/` 直接推上公開 repo。
-    #     只檢查 run_step 開頭的實際呼叫行，上面註解提到旗標名不算違規。
-    ! grep -E '^run_step ' "$0" | grep -q -- "--promote"
+    #     只檢查 run_step / run_model_step 開頭的實際呼叫行，上面註解提到旗標名不算違規。
+    #     （模型步驟改走 run_model_step 之後，這個 pattern 一定要一起改，否則三支模型
+    #      步驟會從所有發布安全檢查中憑空消失——S-8 就是釘住這件事的。）
+    STEP_CALLS='^run_step |^run_model_step '
+    ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--promote"
     chk "S-2 沒有任何步驟帶 --promote（發布安全）" $?
-    ! grep -E '^run_step ' "$0" | grep -q -- "--out-dir"
+    ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--out-dir"
     chk "S-2b 沒有任何步驟覆寫 --out-dir" $?
 
     # S-3 .gitignore 必須仍然擋住 .preview/，否則所有產物會直接上公開 repo
@@ -110,7 +143,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
 
     # S-6 記憶（agents/*/memory/）只能人工寫入。本支不得有任何步驟碰它。
     #     同樣只檢查實際呼叫行——註解裡提到路徑名不算違規。
-    ! grep -E '^run_step ' "$0" | grep -q "memory/"
+    ! grep -E "$STEP_CALLS" "$0" | grep -q "memory/"
     chk "S-6 沒有任何步驟寫入 agents/*/memory/" $?
 
     # S-6b 真正的護欄不在這裡而在採收器內部（assertInsideOutDir 會在執行期擋掉
@@ -121,6 +154,44 @@ if [[ $SELF_TEST -eq 1 ]]; then
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
 
+    # S-8 三支會寫出 fail_open 空殼的模型步驟，必須全部走 run_model_step（才有快照保護），
+    #     而且保護的檔名要跟它們實際寫出的產物一致。少一個或打錯字，防護等於沒裝，
+    #     但腳本照樣全綠——所以把 DAG 的實際呼叫行抓出來對答案。
+    guarded="$(grep -E '^run_model_step ' "$0" | awk '{print $3}' | tr -d '"' | sort | tr '\n' ' ')"
+    [[ "$guarded" == "brief-latest.json roadmap.json trend-assessment.json " ]]
+    chk "S-8 三支模型產物都有快照保護（實得：${guarded:-無}）" $?
+    ! grep -E '^run_step ' "$0" | grep -qE 'newshub_(agents|roadmap|brief)\.py'
+    chk "S-8b 沒有模型 runner 從沒保護的 run_step 溜過去" $?
+
+    # S-9 guard_verdict 的四種判定各跑一次真檔案。這支函式是整套防護的唯一判準，
+    #     判錯的後果是「空殼被當成好料晉升」或「好料被舊檔蓋掉」，兩邊都很貴。
+    t9="$(mktemp -d -t agent-guard-test)"
+    printf '{"source":"model","x":1}'     > "$t9/good.json"
+    printf '{"source":"fail_open","x":0}' > "$t9/shell.json"
+    v9() { guard_verdict "$1" "$2"; }
+
+    cp "$t9/good.json" "$t9/n1.json";  cp "$t9/good.json"  "$t9/s1.json"
+    [[ "$(v9 "$t9/n1.json" "$t9/s1.json")" == "kept" ]]
+    chk "S-9a 新產物正常 → kept" $?
+
+    cp "$t9/shell.json" "$t9/n2.json"; cp "$t9/good.json"  "$t9/s2.json"
+    [[ "$(v9 "$t9/n2.json" "$t9/s2.json")" == "restored" ]]
+    chk "S-9b 新的是空殼、舊的是好料 → restored" $?
+    grep -q '"source":"model"' "$t9/n2.json"
+    chk "S-9c restored 之後檔案內容真的換成舊的那份" $?
+
+    cp "$t9/shell.json" "$t9/n3.json"
+    [[ "$(v9 "$t9/n3.json" "$t9/nonexistent.json")" == "no_snapshot" ]]
+    chk "S-9d 新的是空殼、沒有快照 → no_snapshot" $?
+
+    cp "$t9/shell.json" "$t9/n4.json"; cp "$t9/shell.json" "$t9/s4.json"
+    [[ "$(v9 "$t9/n4.json" "$t9/s4.json")" == "kept" ]]
+    chk "S-9e 新舊都是空殼 → kept（還原沒有意義）" $?
+
+    [[ "$(v9 "$t9/gone.json" "$t9/s1.json")" == "missing_new" ]]
+    chk "S-9f 步驟中途死掉沒產出 → missing_new（不亂還原）" $?
+    rm -rf "$t9"
+
     echo "[agent] self-test: $TOTAL 項，失敗 $FAILS"
     [[ $FAILS -eq 0 ]] && exit 0 || exit 1
 fi
@@ -128,6 +199,8 @@ fi
 mkdir -p "$PREVIEW_DIR"
 TMP_DIR="$(mktemp -d -t ai-news-hub-agent)"
 STEP_LOG="$TMP_DIR/steps.jsonl"
+SNAP_DIR="$TMP_DIR/snapshot"
+mkdir -p "$SNAP_DIR"
 : > "$STEP_LOG"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
@@ -161,17 +234,20 @@ run_step() { # name cmd...
     local remain=$(( BUDGET_SEC - $(elapsed) ))
 
     if [[ $BUDGET_OUT -eq 1 ]]; then
+        LAST_STEP_STATUS="skipped_budget"
         record_step "$name" "skipped_budget" 0 0 "整段預算已用盡"
         log "－ ${name}：跳過（預算用盡）"
         return 0
     fi
     if [[ -n "$FAILED_STEP" ]]; then
+        LAST_STEP_STATUS="skipped_dep"
         record_step "$name" "skipped_dep" 0 0 "上游 $FAILED_STEP 失敗，本步驟的輸入不存在"
         log "－ ${name}：跳過（上游 ${FAILED_STEP} 失敗）"
         return 0
     fi
     if (( remain < MIN_REMAIN_SEC )); then
         BUDGET_OUT=1
+        LAST_STEP_STATUS="skipped_budget"
         record_step "$name" "skipped_budget" 0 0 "剩餘 ${remain}s < 最低起步門檻 ${MIN_REMAIN_SEC}s"
         log "－ ${name}：跳過（剩餘預算 ${remain}s）"
         return 0
@@ -185,14 +261,59 @@ run_step() { # name cmd...
     local dur=$(( t1 - t0 ))
 
     if [[ $code -eq 0 ]]; then
+        LAST_STEP_STATUS="ok"
         record_step "$name" "ok" 0 "$dur" ""
         log "✅ ${name}（${dur}s）"
     else
+        LAST_STEP_STATUS="failed"
         FAILED_STEP="$name"
         record_step "$name" "failed" "$code" "$dur" "exit $code"
         log "❌ $name 失敗（exit $code, ${dur}s），最後 20 行："
         tail -n 20 "$TMP_DIR/$name.out" | sed 's/^/       /'
     fi
+    return 0
+}
+
+# ── fail-open 覆蓋防護 ───────────────────────────────────────
+# 問題：三支模型 runner 在模型掛掉時會走 fail_open()，寫出一個 source="fail_open"
+#       的空殼檔，直接蓋掉上一輪好好的判讀。隔天人來晉升時，看到的是空殼——而且
+#       檔案的 mtime 是新的，看起來還很新鮮。這比「今天沒更新」糟得多。
+# 作法：模型步驟開跑前先把目標產物複製一份到 TMP_DIR/snapshot/，跑完之後只在
+#       「新的是 fail_open、舊的不是」時把舊的還原回去。
+# 刻意不做的事：
+#   1. 不因為「內容變少 / 叢集數掉到 0」而還原——那可能是真實的當日訊號，不是故障。
+#      只認 source 這個 runner 自己標記的故障旗標，判準單一、不會誤判。
+#   2. 不改 FAILED_STEP 的傳播——還原產物只是保住可讀的舊內容，下游該跳過還是要跳過，
+#      否則會拿舊的判讀去餵新的一層，混出一份沒人說得清是哪天的東西。
+#   3. dry-run 不啟用——那個模式下模型步驟只印 prompt、根本不寫檔。
+GUARDED_ARTIFACTS=""   # 有做快照保護的產物（給自我測試對照 DAG 用）
+RESTORED=""            # 這一輪實際被還原的產物
+LAST_STEP_STATUS=""
+
+run_model_step() { # name artifact cmd...
+    local name="$1" artifact="$2"; shift 2
+    local target="$PREVIEW_DIR/$artifact" snap="$SNAP_DIR/$artifact"
+
+    GUARDED_ARTIFACTS="$GUARDED_ARTIFACTS $artifact"
+    if [[ -f "$target" ]]; then cp -p "$target" "$snap" 2>/dev/null; fi
+
+    run_step "$name" "$@"
+
+    # 只有真的跑過的步驟才需要判定；跳過的步驟根本沒動過檔案
+    [[ "$LAST_STEP_STATUS" == "ok" || "$LAST_STEP_STATUS" == "failed" ]] || return 0
+    [[ $DRY_RUN -eq 1 ]] && return 0
+
+    local verdict
+    verdict="$(guard_verdict "$target" "$snap")"
+    case "$verdict" in
+        restored)
+            RESTORED="$RESTORED $artifact"
+            log "⚠️  ${name}：新產物是 fail_open 空殼，已還原上一輪的 ${artifact}（內容是舊的，晉升前要自己看日期）" ;;
+        no_snapshot)
+            log "⚠️  ${name}：新產物是 fail_open 空殼，且沒有上一輪可還原——${artifact} 這輪等於沒有判讀" ;;
+        missing_new)
+            log "－ ${name}：沒有產出 ${artifact}（步驟中途就死了）" ;;
+    esac
     return 0
 }
 
@@ -223,11 +344,11 @@ cd "$REPO_DIR" || { log "❌ 進不去 $REPO_DIR"; exit 1; }
 # 1-2 是確定性程式（不呼叫模型），3/5/7 是模型判讀，4/6 是把上游判讀組成下一層的輸入。
 run_step "01-insights"      node "$AGENT_SCRIPTS/build-insights.mjs" --window "$INSIGHTS_WINDOW"
 run_step "02-timeline"      node "$AGENT_SCRIPTS/build-timeline.mjs" --window "$TIMELINE_WINDOW"
-run_step "03-trend-assess"  python3 "$SCRIPTS_DIR/newshub_agents.py"  --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
+run_model_step "03-trend-assess" trend-assessment.json python3 "$SCRIPTS_DIR/newshub_agents.py"  --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
 run_step "04-roadmap-input" node "$AGENT_SCRIPTS/build-roadmap-input.mjs"
-run_step "05-roadmap"       python3 "$SCRIPTS_DIR/newshub_roadmap.py" --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
+run_model_step "05-roadmap"      roadmap.json          python3 "$SCRIPTS_DIR/newshub_roadmap.py" --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
 run_step "06-brief-input"   node "$AGENT_SCRIPTS/build-brief-input.mjs"
-run_step "07-brief"         python3 "$SCRIPTS_DIR/newshub_brief.py"   --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
+run_model_step "07-brief"        brief-latest.json     python3 "$SCRIPTS_DIR/newshub_brief.py"   --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
 
 # ── W4：把閘1 的降級紀錄收成「判例候選」（只提案，永不自動寫進 memory）──
 # 這步刻意不受 FAILED_STEP 阻擋：就算 05/07 掛了，03 產出的降級紀錄仍值得收。
@@ -239,11 +360,11 @@ run_step "08-precedents"    node "$AGENT_SCRIPTS/harvest-precedents.mjs"
 TOTAL_DUR=$(elapsed)
 
 # ── 收斂狀態並落檔 ──
-python3 - "$STEP_LOG" "$STATUS_FILE" "$START_ISO" "$TOTAL_DUR" "$MODE" "$PREVIEW_DIR" "$BUDGET_SEC" <<'PY'
+python3 - "$STEP_LOG" "$STATUS_FILE" "$START_ISO" "$TOTAL_DUR" "$MODE" "$PREVIEW_DIR" "$BUDGET_SEC" "$RESTORED" <<'PY'
 import json, os, sys
 from datetime import datetime, timezone, timedelta
 
-step_log, status_path, started_at, total_dur, mode, preview_dir, budget = sys.argv[1:8]
+step_log, status_path, started_at, total_dur, mode, preview_dir, budget, restored = sys.argv[1:9]
 
 steps = []
 with open(step_log) as f:
@@ -260,6 +381,14 @@ if counts.get("failed") or counts.get("skipped_dep") or counts.get("skipped_budg
     overall = "degraded" if counts.get("ok") else "failed"
 else:
     overall = "ok"
+
+# 有東西被還原就一定不是 ok。今天三支 runner 都是 `return 0 if source != "fail_open" else 1`，
+# 所以步驟本來就會記成 failed、overall 本來就會是 degraded——這行現在是冗的。留著是因為
+# 還原後的舊檔 source 是 "model"，promote.sh 那道「產物必須出自模型」的閘攔不住它；
+# 哪天有人把 runner 改成 fail_open 也 exit 0（很合理的改法，畢竟它本來就是刻意不炸），
+# 唯一擋得住「三天前的判讀以今天、全綠的姿態上線」的就只剩這行。
+if restored.split() and overall == "ok":
+    overall = "degraded"
 
 # 新鮮度只能從確定性產物讀——模型輸出（trend-assessment / roadmap / brief）
 # 的 schema 裡沒有 source_latest_date，別假裝有。
@@ -291,6 +420,9 @@ out = {
     "counts": counts,
     "steps": steps,
     "freshness": freshness,
+    # 被 fail-open 防護還原回上一輪的產物。非空代表這幾份判讀「不是今天的」——
+    # promote.sh 會在晉升前把這串秀出來，人要自己決定舊料能不能上線。
+    "restored_artifacts": restored.split(),
 }
 with open(status_path, "w") as f:
     json.dump(out, f, indent=2, ensure_ascii=False)
