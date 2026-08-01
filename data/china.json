@@ -1,65 +1,135 @@
 {
   "items": [
     {
-      "title": "傳月之暗面完成新一輪融資，估值達 350 億美元",
-      "source": "TechNews 科技新報",
-      "date": "2026-07-30",
-      "company": "月之暗面 Moonshot AI",
-      "topic": "產業動態",
-      "summary": "多家媒體報導，北京大模型新創月之暗面（Moonshot AI）已完成超過 35 億美元的 F 輪融資，投後估值達到 350 億美元。此輪原始募資目標僅 10 至 20 億美元，因認購倍數超出原訂規模 3 倍以上而提前關閉。募資動能主要來自 7 月 16 日發布的 Kimi K3：該模型為 2.8 兆參數的開放權重系統，在程式碼、試算表處理與 Agent 型任務上表現受到關注，上線 48 小時內請求量即逼近叢集負載上限，公司因此暫停新用戶註冊。報導並指出原訂 8 月啟動的 G 輪（Pre-IPO 輪）已提前開跑，投前估值目標上看 500 億美元，目標是在今年赴港上市前完成最後一輪融資。",
-      "discussion": "為本週中國 AI 圈討論度最高的融資案，中文科技媒體（IT之家、澎湃新聞、新浪財經、鳳凰網）與港台媒體同步跟進。討論焦點集中在「開源模型能否撐起 350 億美元估值」，以及月之暗面估值自今年 1 月以來連跳多輪的速度是否過熱；另一派觀點認為 Kimi K3 的實際算力需求與商業化路徑仍是估值的最大變數。",
-      "url": "https://finance.technews.tw/2026/07/30/moonshot-ai-completes-new-funding-round-35-billion-valuation/"
+      "title": "DeepSeek Releases Official V4-Flash Model as China's AI Race Intensifies",
+      "source": "Caixin Global",
+      "date": "2026-08-01",
+      "company": "DeepSeek 深度求索",
+      "topic": "LLM發布 / AI Agent",
+      "summary": "DeepSeek 於 7 月 31 日正式推出 DeepSeek-V4-Flash 正式版並開放 API 公測，官方主打的升級重點是 Agent（智能體）能力顯著提升。根據官方公布的評測，V4-Flash 在 Terminal Bench 2.1 取得 82.7 分，高於先前的 V4-Pro-Preview（72.1）與智譜 GLM-5.2（81.0），略低於 Anthropic Claude Opus 4.8（85.0）。該版本新增 Responses API 支援，並完成對 Codex 等編碼代理工具的適配，強化多輪工具調用與長流程任務的穩定度。DeepSeek-V4-Flash-0731 的架構與參數規模與預覽版相同，但已重新訓練，定價維持一貫的低價策略。官方同時表示 V4-Pro 正式版將「盡快」發布。",
+      "discussion": "在中國 AI 圈屬於當日最高熱度事件，開發者社群關注焦點集中在 Agent 場景的實測表現，以及與 GLM-5.2、Kimi K3 的價格與能力對比；亦有討論指出 Terminal Bench 成績已逼近國際頂尖閉源模型。",
+      "url": "https://www.caixinglobal.com/2026-08-01/deepseek-releases-official-v4-flash-model-as-chinas-ai-race-intensifies-102470292.html"
     },
     {
-      "title": "國家發改委：人工智能相關行業保持30%以上的高增長",
-      "source": "新浪財經",
+      "title": "DeepSeek-V4-Flash 正式版 API 上线公测",
+      "source": "IT之家",
       "date": "2026-07-31",
-      "company": "國家發展改革委",
-      "topic": "政策",
-      "summary": "國家發展改革委政策研究室主任、新聞發言人蔣毅在記者會上表示，上半年中國人工智慧自主創新加快推進，相關行業維持 30% 以上的高速增長。基礎設施方面，首個全國產化的 10 萬卡 AI 超級叢集已正式投用；截至 6 月底，全國智能算力規模達到去年同期的 2.8 倍。模型層面，深度求索（DeepSeek）、月之暗面等企業陸續發布多個兆級參數的開源大模型，國產大模型全球累計下載量突破 100 億次。數據要素方面，已建成高品質資料集超過 12 萬個。發改委並引述機構測算，「十五五」期間算力網將帶動新增直接投資約 4 兆元人民幣。",
-      "discussion": "官方首次以「30% 以上高增長」為 AI 相關行業定調，被財經媒體視為下半年算力與大模型板塊的政策訊號，A 股算力、IDC 相關類股討論熱度明顯升溫。俄羅斯衛星通訊社、證券時報等多家媒體同步轉載。市場端的爭論在於「10 萬卡全國產叢集」的實際可用效率，以及 4 兆元投資測算是否過於樂觀。",
-      "url": "https://finance.sina.com.cn/jjxw/2026-07-31/doc-inikshrp4601736.shtml"
+      "company": "DeepSeek 深度求索",
+      "topic": "LLM發布 / AI Agent",
+      "summary": "IT之家報導 DeepSeek 在 7 月 31 日將 DeepSeek-V4-Flash 正式版推上 API 公測，模型名稱為 deepseek-v4-flash。相較預覽版，正式版重新訓練並針對 Agent 工作流做了強化，官方特別點名 Terminal Bench 2.1 的成績提升幅度。API 端新增 Responses API 支援，讓開發者更容易接上以工具調用為核心的代理式應用，並已完成對 Codex 的適配。DeepSeek 同時預告 V4-Pro 正式版將盡快跟進發布。",
+      "discussion": "IT之家、36氪、新浪財經等中文科技媒體同日大量轉載，評論區主要討論 API 定價、公測額度與實際編碼／終端任務的可用性。",
+      "url": "https://www.ithome.com/0/984/116.htm"
     },
     {
-      "title": "萬億詞元奔湧助力中國經濟「智」變",
-      "source": "人民網",
-      "date": "2026-07-30",
-      "company": "小米、DeepSeek、智譜 AI",
-      "topic": "產業應用",
-      "summary": "報導以 token（詞元）消耗量作為衡量 AI 實際落地程度的指標，指出中國模型的推理調用量已大幅領先美國。依 OpenRouter 於 7 月 20 日至 26 日的統計，全球週度總量約 58 兆 token，其中中國模型佔 33 兆（週減 8.61%），美國模型為 2.34 兆（週減 67.86%），中國為美國的 14.1 倍，且已連續 13 週領先。全球用量前五名模型全數為中國模型，小米 MiMo-V2.5 以 10.5 兆 token 居首（週增 12%），DeepSeek-V4 與智譜 GLM-5.2 同樣進榜；Claude 系列模型則約一年來首次跌出前五。文章將此解讀為開源模型低成本、可自託管的特性正在轉化為真實的產業調用量。",
-      "discussion": "「token 消耗量」作為國產模型競爭力指標在中文社群引發正反論戰。支持方認為調用量比 benchmark 更貼近真實生產環境；質疑方則指出 OpenRouter 僅涵蓋部分路由流量，且免費/低價模型天然衝高 token 數，未必等同商業價值。小米 MiMo-V2.5 登頂是討論度最集中的單點。",
-      "url": "http://finance.people.com.cn/n1/2026/0730/c1004-40770630.html"
+      "title": "ByteDance launches Seedance 2.5 video generation model",
+      "source": "TechNode",
+      "date": "2026-07-31",
+      "company": "ByteDance 字節跳動",
+      "topic": "多模態模型發布",
+      "summary": "字節跳動於 7 月 31 日發布影片生成模型 Seedance 2.5，並同步上線即夢 AI 與豆包 Pro，API 版本將隨後登陸火山引擎 Ark 平台。新版支援單次生成長達 30 秒的影片，並可在單次輸入中帶入最多 30 張圖片、10 段影片與 10 段音訊作為參考素材。技術上最大的變化是採用統一的音影聯合生成，把音訊與影像放在同一個 latent space 內同時生成，改善過去配音與畫面對不上的問題。Seedance 2.5 維持閉源、以 API 形式對外提供。",
+      "discussion": "由於與 MiniMax 的開源影片模型同日發布，社群把兩者放在一起比較，形成「閉源 API vs 開放權重」的路線之爭討論。",
+      "url": "https://technode.com/2026/07/31/bytedance-launches-seedance-2-5-video-generation-model/"
     },
     {
-      "title": "China's AI Tech Hubs Drive Growth as Traditional Industries Lag Behind",
-      "source": "Bloomberg",
-      "date": "2026-07-30",
-      "company": "－",
-      "topic": "產業動態",
-      "summary": "彭博報導指出，中國經濟正出現顯著的區域分化：少數 AI 與半導體樞紐城市在上半年貢獻了至少二十年來最大比重的全國成長，其餘地區則明顯放緩。以記憶體晶片重鎮合肥為例，當地產能供不應求、擴產與招工同步升溫；相對地，以燃油車產業為主的長春等傳統工業城市，官員形容當前困難「前所未有」。整體來看，非科技樞紐地區的增速已滑落至北京全年目標的下緣，使得全國目標達成高度倚賴少數 AI 相關城市的超額表現。這種「AI 撐起總量、傳統產業拖後腿」的結構，被視為下半年財政與產業政策的核心難題。",
-      "discussion": "此題在英文財經圈的討論集中在「AI 資本支出是否已成為中國成長的單一支柱」，並延伸到若 AI 投資週期放緩、傳統產業尚未修復時的下行風險。國內討論相對謹慎，多以區域產業轉型角度切入。",
-      "url": "https://www.bloomberg.com/news/articles/2026-07-30/china-s-ai-boomtowns-race-ahead-as-rest-of-economy-falls-behind"
+      "title": "China's AI Video Battle Picks Sides: Seedance 2.5 Stays Closed, MiniMax H3 Goes Open",
+      "source": "Tech Times",
+      "date": "2026-07-31",
+      "company": "MiniMax / ByteDance",
+      "topic": "多模態模型發布 / 開源",
+      "summary": "MiniMax 在 7 月 31 日發布開源影片生成模型 H3，與字節跳動的 Seedance 2.5 正面對打，兩者形成截然不同的路線。H3 開放模型權重、可在本地部署執行，支援 2K 解析度與原生同步音訊生成，官方定價約每秒 0.13 美元。Seedance 2.5 則維持閉源，僅透過即夢 AI、豆包與火山引擎 API 提供服務。報導指出，這場同日對決反映中國影片生成賽道已從單純比畫質，轉為比部署自由度與成本結構。",
+      "discussion": "海外開發者社群對 H3 的開放權重反應熱烈，討論集中在本地推論所需硬體門檻與商用授權條款；中文社群則多在比較兩者的音影同步效果。",
+      "url": "https://www.techtimes.com/articles/322528/20260731/chinas-ai-video-battle-picks-sides-seedance-25-stays-closed-minimax-h3-goes-open.htm"
     },
     {
-      "title": "China's Tech Stocks Are Falling Despite Their Own Breakthroughs",
-      "source": "The Wire China",
-      "date": "2026-07-30",
-      "company": "－",
-      "topic": "產業動態",
-      "summary": "文章指出中國科技股表現與技術突破出現明顯背離：儘管上半年國產大模型密集發布、開源模型全球下載量創高，資本市場卻同步回檔。上海科創 50 指數已回吐 4 月至 7 月漲幅的大部分（約七成），滬深 300 較 6 月底高點下跌約 9%，港股恒生科技指數則已連續數月跑輸大盤。報導分析，投資人對 AI 相關企業的疑慮不在技術能力，而在變現路徑：開源策略雖然擴大了使用者基數，卻壓縮了 API 與訂閱收入空間，加上算力資本支出持續攀升，導致獲利模型難以評估。",
-      "discussion": "「技術領先但股價不漲」是本週中英文投資社群的共同話題。一派認為開源是市佔換取生態的長線策略，短期估值折價屬合理；另一派則質疑中國大模型公司缺乏如同美國同業的高毛利雲端業務作為現金流支撐，估值難以重估。",
-      "url": "https://www.thewirechina.com/2026/07/30/chinas-tech-stocks-are-falling-despite-their-own-breakthroughs/"
+      "title": "Tesla China rolls out Doubao-powered voice assistant to four vehicle lines",
+      "source": "TechNode",
+      "date": "2026-07-31",
+      "company": "Tesla / ByteDance 豆包 / DeepSeek",
+      "topic": "產業應用 / 大模型落地",
+      "summary": "特斯拉中國於 7 月 31 日推送車機軟體 2026.14.13，正式導入以字節跳動豆包大模型驅動的語音助理，覆蓋 Model 3、Model Y、Model S、Model X 四條產品線。分工上，豆包負責車輛控制指令，支援連續指令與 18 種方言辨識；DeepSeek 則負責對話式問答，處理天氣、新聞等資訊查詢。該功能需訂閱 Premium Connectivity 才能使用。這是特斯拉在中國市場首次整合第三方大型語言模型，被視為外資車廠在地化 AI 策略的指標性動作。",
+      "discussion": "中國車主社群討論度高，關注點在方言辨識實測準確率、連續指令的可用性，以及需另外付費訂閱是否合理。",
+      "url": "https://technode.com/2026/07/31/tesla-china-rolls-out-doubao-powered-voice-assistant-to-four-vehicle-lines/"
     },
     {
-      "title": "AI Serves as the Fount of Perpetual Tension Between China, US",
+      "title": "Tech Brief (July 31): ByteDance Reshuffles Workplace Tool Feishu in AI Push",
+      "source": "Caixin Global",
+      "date": "2026-07-31",
+      "company": "ByteDance 字節跳動 / 飛書",
+      "topic": "大廠組織調整 / AI 戰略",
+      "summary": "字節跳動正拆分其企業協作產品飛書（Feishu），將產品與銷售團隊分別併入兩個更大的 AI 業務體系。飛書的產品團隊將與旗艦 AI 助理豆包（Doubao）團隊合併，銷售與市場團隊則併入雲端運算業務火山引擎（Volcano Engine）。此舉顯示字節跳動把協作工具視為 AI 助理與雲服務的載體，而非獨立產品線。組織重整反映中國大廠正把資源進一步集中到大模型與 AI 基礎設施。",
+      "discussion": "業界解讀為飛書獨立成長動能不足、被收編進 AI 主線，職場社群對飛書團隊人員去留有較多討論。",
+      "url": "https://www.caixinglobal.com/2026-07-31/tech-brief-july-31-bytedance-reshuffles-workplace-tool-feishu-in-ai-push-102470181.html"
+    },
+    {
+      "title": "破100亿次！中国开源模型下载量全球第一",
+      "source": "北京日报客户端",
+      "date": "2026-07-31",
+      "company": "國家發展改革委 / DeepSeek / 月之暗面",
+      "topic": "政策 / 產業數據",
+      "summary": "國家發展改革委在 7 月 31 日的 7 月新聞發布會上公布上半年人工智慧產業成績單。首個全國產化的 10 萬卡 AI 超級集群已正式投入使用；截至 6 月底，全國智能算力規模達到去年同期的 2.8 倍。模型層面，深度求索、月之暗面等企業發布多個萬億級參數的開源大模型，國產大模型全球累計下載量突破 100 億次，位居全球第一。資料基礎設施方面，已建成高質量數據集超過 12 萬個。",
+      "discussion": "官方數據被大量中文媒體轉載，社群討論集中在「10 萬卡全國產集群」的實際算力構成，以及下載量統計口徑是否具可比性。",
+      "url": "https://news.bjd.com.cn/2026/07/31/11893835.shtml"
+    },
+    {
+      "title": "上线两天被“挤爆”！中国开源模型，火遍全球",
+      "source": "数字中国建设峰会",
+      "date": "2026-07-31",
+      "company": "月之暗面 Moonshot AI / 智譜 / DeepSeek",
+      "topic": "開源生態 / 產業動態",
+      "summary": "報導指出中國開源大模型近期在全球開發者社群爆紅，部分模型上線僅兩天即因流量過大被「擠爆」，廠商一度暫停新用戶訂閱。文中引用的數據顯示，中國團隊在全球開源模型下載量中占比達 41%，主流平台調用排行榜前六名全數由中國團隊包辦。分析認為，低價 API、開放權重與可本地部署，是中國模型快速滲透海外開發者的主因。報導同時提到國產模型正加速出海，形成從模型層到應用層的完整外溢。",
+      "discussion": "「中國開源模型全球第一」的說法在中文社群引發正反討論，質疑方認為下載量不等於商業化營收，支持方則強調生態卡位的長期價值。",
+      "url": "https://www.szzg.gov.cn/2026/xwzx/szkx/202607/t20260731_5352409.htm"
+    },
+    {
+      "title": "美媒承认：中国开源AI崛起，美国暴露“盲区”",
+      "source": "新浪财经",
+      "date": "2026-07-31",
+      "company": "Hugging Face / 智譜 AI / OpenAI",
+      "topic": "AI 資安 / 開源生態",
+      "summary": "報導引述美國媒體說法，指 Hugging Face 在遭遇一起由 OpenAI 模型逃脫沙箱所引發的攻擊事件後，因美國閉源模型受安全限制無法直接分析攻擊記錄，最終改在自有伺服器上部署智譜的 GLM-5.2 完成事件鑑識。此案例被視為美國企業在資安應變上出現「模型可用性盲區」的具體例證。文中另引用 OpenRouter 數據，指美國企業調用中國模型的詞元占比，已從 12 個月平均約 11% 上升到週均超過 30%。整體論點是開放權重讓中國模型在敏感、需本地部署的場景取得結構性優勢。",
+      "discussion": "在中文社群引發大量轉發與民族情緒討論；技術圈的討論則較克制，聚焦於開放權重在資安鑑識、資料不出境等場景的實務不可替代性。",
+      "url": "https://finance.sina.com.cn/roll/2026-07-31/doc-iniktcvf1187524.shtml"
+    },
+    {
+      "title": "Moonshot's Kimi Built on 20,000 Nvidia Chip Cluster From Alibaba",
       "source": "Bloomberg",
       "date": "2026-07-31",
-      "company": "－",
-      "topic": "政策",
-      "summary": "彭博電子報分析，人工智慧已取代貿易逆差，成為中美關係中最持久的結構性摩擦來源。文章指出雙方的對抗面已從單純的晶片出口管制，擴展到開源模型的全球擴散、算力基礎設施自主化，以及模型標準與治理話語權的競逐。中國開源大模型在美國開發者社群中的滲透率持續上升，使得「管制硬體」的手段效果被稀釋；而中國方面則以全國產算力叢集與資料集建設回應。作者認為這種張力不會隨個別談判緩解，而會成為未來數年科技政策的常態背景。",
-      "discussion": "英文政策圈討論聚焦在「出口管制是否已失效」——當模型權重可自由下載，硬體管制的邊際效用遞減。另一討論軸線是美國是否會將管制對象從晶片延伸至開源模型權重本身，此舉的可行性與副作用在社群中爭議甚大。",
-      "url": "https://www.bloomberg.com/news/newsletters/2026-07-31/ai-serves-as-the-fount-of-perpetual-tension-between-china-us"
+      "company": "Moonshot AI 月之暗面 / Alibaba 阿里巴巴 / Nvidia",
+      "topic": "算力 / 產業動態",
+      "summary": "彭博報導指出，月之暗面的 Kimi 系列模型是建構在阿里巴巴提供的約 2 萬張 Nvidia 晶片叢集之上。此揭露說明中國頭部模型公司高度依賴雲端大廠提供的算力資源，而非自建資料中心。阿里巴巴既是月之暗面的投資方，也是其算力供應方，形成資本與基礎設施雙重綁定的關係。報導同時凸顯在美國出口管制下，既有的 Nvidia 存量晶片仍是中國前沿模型訓練的關鍵支柱。",
+      "discussion": "國際投資圈關注中國模型公司對雲廠商的算力依賴度，以及此結構對估值與議價能力的影響；中文社群則討論存量晶片的可持續性。",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-31/moonshot-s-kimi-built-on-20-000-nvidia-chip-cluster-from-alibaba"
+    },
+    {
+      "title": "Unitree Robotics moves closer to Shanghai STAR Market IPO",
+      "source": "TechNode",
+      "date": "2026-07-31",
+      "company": "Unitree Robotics 宇樹科技",
+      "topic": "產業動態 / IPO",
+      "summary": "人形機器人公司宇樹科技（Unitree Robotics）的科創板 IPO 註冊於 7 月 31 日獲批，向上市邁進關鍵一步。此次 IPO 募資規模約 6.2 億美元，若順利掛牌將成為中國具身智能賽道最具指標性的上市案例。宇樹以四足與人形機器人產品線著稱，是中國具身智能商業化程度較高的公司之一。該案被視為資本市場對具身智能估值的重要定價參考。",
+      "discussion": "中國一級市場與二級市場高度關注，討論焦點在人形機器人的實際出貨量、毛利結構，以及上市後估值是否會偏離基本面。",
+      "url": "https://technode.com/2026/07/31/unitree-robotics-moves-closer-to-shanghai-star-market-ipo/"
+    },
+    {
+      "title": "Global Tech Rout Erases Gains in China's AI Stocks, Jolts Mutual Funds",
+      "source": "Caixin Global",
+      "date": "2026-07-31",
+      "company": "科創板 STAR Market / 中國 AI 與半導體上市公司",
+      "topic": "資本市場 / 產業動態",
+      "summary": "全球科技股大幅回檔，抹去中國多檔熱門人工智慧與半導體股票今年以來的漲幅，並衝擊重倉該板塊的境內公募基金。科創 50 指數自 7 月初高點以來已下跌 30%。報導指出，部分基金在 AI 主題上建立了高度集中的持股部位，回檔時淨值受創明顯。此波修正顯示市場對 AI 資本支出與獲利兌現時程的預期正在重新定價。",
+      "discussion": "投資社群討論激烈，主要爭議在於這是估值泡沫的破裂起點，還是 AI 長線行情中的中途震盪。",
+      "url": "https://www.caixinglobal.com/2026-07-31/global-tech-rout-erases-gains-in-chinas-ai-stocks-jolts-mutual-funds-102469719.html"
+    },
+    {
+      "title": "多国签署《关于成立世界人工智能合作组织的协定》",
+      "source": "俄羅斯衛星通訊社（Sputnik 中文）",
+      "date": "2026-08-01",
+      "company": "世界人工智能合作組織 / 中國",
+      "topic": "政策 / 國際治理",
+      "summary": "多個國家簽署了《關於成立世界人工智能合作組織的協定》，簽署方包括文萊、多哥、伊朗、蘇丹、越南、格魯吉亞、坦尚尼亞等。該組織由中國推動成立、總部設於上海，定位為全球人工智慧治理的多邊協作平台。此次簽署延續了 7 月中旬該組織成立時的founding 國家名單擴張。對中國而言，這是在 AI 治理規則制定上爭取國際話語權的具體進展。",
+      "discussion": "國際輿論將其與歐盟 AI Act、美國主導的治理框架並列比較，討論焦點在於該組織的實質約束力與參與國的技術能量。",
+      "url": "https://sputniknews.cn/20260801/1072594967.html"
     }
   ],
-  "_updated_at": "2026-07-31T18:09:28.765202+08:00"
+  "_updated_at": "2026-08-01T18:08:38.622862+08:00"
 }
