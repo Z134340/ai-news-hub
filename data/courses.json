@@ -1,190 +1,139 @@
 {
   "items": [
     {
-      "title": "Fast LLM Inference with Cerebras：在 Cerebras 晶圓級引擎上打造即時 LLM 推論",
+      "title": "AI 程式碼審查（AI Code Review）— DeepLearning.AI 與 Qodo 合作短課程",
       "source": "DeepLearning.AI",
-      "date": "2026-07-15",
-      "provider": "DeepLearning.AI / Cerebras",
+      "date": "2026-07-29",
+      "provider": "DeepLearning.AI × Qodo",
       "is_free": true,
-      "cert_included": true,
+      "cert_included": false,
       "level": "intermediate",
-      "duration": "1-2 小時",
+      "duration": "短課程（約 1–2 小時）",
       "topics": [
-        "LLM Inference",
-        "Cerebras",
-        "WSE-3",
-        "Real-time AI",
-        "Agentic Workflows"
+        "AI Code Review",
+        "Context Engineering",
+        "Review Agent",
+        "Multi-agent Ensemble",
+        "Python",
+        "Pull Request"
       ],
-      "summary": "本課程與 Cerebras 合作、由 Zhenwei Gao、Sebastian Duerr 與 Sarah Chieng 授課，教你在 Cerebras 晶圓級引擎（WSE-3）上打造能即時回應的 LLM 應用。課程解析 GPU、TPU 與 Cerebras 架構如何處理「記憶體到運算」的資料搬移瓶頸，說明為何將模型權重保留在晶片上可將 token 生成速度提升數倍。實作包含即時個人化網頁範例，以及在單次快速回應內完成多步驟市場訊號分析的 multi-tool workflow。內容鎖定延遲敏感場景，並探討快速推論如何改變與 coding agent 的協作方式。適合想打造更快、更即時 LLM 應用與 agentic 系統的開發者與 AI 工程師。（發布日約為 7 月中旬，⚠️確切日期待確認）",
+      "summary": "DeepLearning.AI 與 Qodo 合作推出短課程「AI Code Review」，由 Nnenna Ndukwe 授課，2026 年 7 月 29 日開放報名。課程主張 AI 程式碼審查的品質取決於審查者拿到多少 context，而非背後用哪個模型；當 AI 寫的程式碼佔團隊比重愈高，context 就是維持審查可靠度的關鍵。實作內容包含先在開 pull request 之前就做審查、把任務與 repo 的完整脈絡餵給審查器、以及依風險分級處理審查發現。學員會親手建一個 context engine 來檢索最相關的程式碼，再擴充成由多個專職 agent 組成的 ensemble 審查系統。課程需要 Python 基礎；測驗與專案等額外學習內容需 DeepLearning.AI Pro 訂閱。",
       "highlights": [
-        "在 Cerebras WSE-3 上執行快速推論，token 生成較典型 GPU 快數倍",
-        "實作即時個人化與 multi-tool workflow 兩大低延遲使用情境",
-        "解析權重留存晶片如何降低記憶體到運算的資料搬移",
-        "探討快速推論如何改變 coding agent 的使用方式",
-        "免費短課程，完成可獲 DeepLearning.AI 結業證書"
+        "核心論點：AI 審查品質取決於 context 而非模型，屬 Context Engineering 的實務落地案例",
+        "實作從 context engine 起步，延伸為多 agent 專職分工的 ensemble 審查架構",
+        "三個可直接套用的實務原則：PR 前先審、給足 repo 與任務脈絡、依風險分級 triage",
+        "課程本身免費觀看，但測驗、專案與證書需 DeepLearning.AI Pro 訂閱",
+        "合作方 Qodo 為程式碼審查工具廠商，講師為 Nnenna Ndukwe"
       ],
-      "url": "https://www.deeplearning.ai/courses/fast-llm-inference-with-cerebras",
-      "url_status": "verified",
-      "title_score": 0.7,
-      "verified": true,
-      "verified_at": "2026-07-26T18:09:02.472168",
-      "complete": true
+      "url": "https://www.deeplearning.ai/courses/ai-code-review"
     },
     {
-      "title": "Voice for AI Agents and Applications（為 AI Agent 與應用加入語音）",
-      "source": "DeepLearning.AI",
-      "date": "2026-06-17",
-      "provider": "DeepLearning.AI / Vocal Bridge",
-      "is_free": true,
+      "title": "Google 在 Coursera 推出 AI Professional Certificate，並提供美國小型企業免費使用",
+      "source": "Coursera Blog",
+      "date": "2026-07-19",
+      "provider": "Google",
+      "is_free": false,
       "cert_included": true,
       "level": "intermediate",
-      "duration": "1-2 小時",
+      "duration": "未公布",
       "topics": [
-        "Voice AI",
-        "AI Agents",
-        "Speech Integration",
-        "LLM Tool Use"
+        "Google AI Pro",
+        "Gemini",
+        "AI Studio",
+        "NotebookLM",
+        "Professional Certificate",
+        "Workplace AI"
       ],
-      "summary": "本課程由 Vocal Bridge 共同創辦人暨執行長 Ashwyn Sharma 授課，教你如何為 AI agent 與應用加入語音能力。課程涵蓋三種實務整合模式：將語音嵌入應用內、在不更動既有 agent 邏輯的前提下疊加語音層、以及把語音當作 LLM 可依判斷呼叫的工具。透過這三種模式，開發者能依情境選擇最合適的語音導入方式。內容聚焦實作導向，協助工程師把語音互動落地到現有系統。適合想擴展 agent 多模態互動的開發者。",
+      "summary": "Coursera 於 2026 年 7 月 19 日發布公告，Google 在該平台推出全新的 AI Professional Certificate。這門專業證書課程定位在「跳脫基礎、把 AI 真正整合進日常工作」，強調可直接上工的實務技能而非概念介紹。每位報名學員可獲得三個月免費的 Google AI Pro 使用權，藉此實際操作 AI Studio、NotebookLM 與 Gemini 等進階工具。Google 同時對美國的小型企業提供免費存取方案，降低中小企業導入 AI 的門檻。⚠️ 課程時數與定價細節未在該篇公告中揭露。",
       "highlights": [
-        "掌握嵌入式語音、疊加語音層、語音作為可呼叫工具三種整合模式",
-        "學會在不改動既有 agent 邏輯下加入語音",
-        "由 Vocal Bridge 執行長 Ashwyn Sharma 親自授課",
-        "免費短課程，完成可獲結業證書"
+        "報名即附三個月 Google AI Pro 免費使用權，可實際操作 AI Studio、NotebookLM、Gemini",
+        "定位為「beyond the basics」，訴求把 AI 併入既有工作流程而非入門教學",
+        "美國小型企業可免費取得課程存取權，屬 Google 的企業端 AI 普及策略",
+        "由 Coursera 官方部落格於 2026-07-19 發布，屬 Google 專業證書系列新成員",
+        "⚠️待確認：課程總時數、模組數與一般學員收費未於公告揭露"
       ],
-      "url": "https://www.deeplearning.ai/courses/voice-for-ai-agents-and-applications",
-      "url_status": "verified",
-      "title_score": 0.78,
-      "verified": true,
-      "verified_at": "2026-07-26T18:09:02.472195",
-      "complete": true
+      "url": "https://blog.coursera.org/google-launches-ai-professional-certificate-on-coursera-and-offers-free-access-to-u-s-small-businesses/"
     },
     {
-      "title": "Microsoft Certified: AI Agent Builder Associate 認證",
-      "source": "Microsoft Learn",
-      "date": "2026-06-01",
+      "title": "Anthropic Claude 認證計畫擴充為四張證照，改由 Pearson VUE 監考",
+      "source": "Pearson VUE",
+      "date": "2026-07-13",
+      "provider": "Anthropic",
+      "is_free": false,
+      "cert_included": true,
+      "level": "intermediate",
+      "duration": "每場考試 120 分鐘",
+      "topics": [
+        "Claude Certification",
+        "Claude Code",
+        "MCP",
+        "Agent SDK",
+        "Pearson VUE",
+        "Claude Partner Network"
+      ],
+      "summary": "Anthropic 將原本單一的架構師考試擴充為三種角色、四張證照，並在 2026 年 7 月初把考試遞送轉到 Pearson VUE（含 OnVUE 線上監考），新的考試場次約自 7 月 13 日開放。四張證照分別為 Claude Certified Associate, Foundations（99 美元）、Claude Certified Developer, Foundations（125 美元）、Claude Certified Architect, Foundations（125 美元）與 Claude Certified Architect, Professional（175 美元）。Associate 針對商業角色使用者，Developer 針對用 API 與 Agent SDK 出貨應用的人，Architect Foundations 針對用 Claude Code、MCP 與 agent 設計生產系統者，Architect Professional 則針對負責端到端交付的資深架構師。所有考試皆為 120 分鐘情境題，滿分 1000 分、720 分通過，效期 12 個月且可免費準時續證。⚠️ 2026 年 7 月起報名須使用隸屬 Claude Partner Network 組織的公司信箱，不接受個人信箱。",
+      "highlights": [
+        "三個角色（Associate / Developer / Architect）共四張證照，價格帶 99–175 美元",
+        "考試由 Pearson VUE 遞送，支援線上監考（OnVUE）或實體考場",
+        "考試 120 分鐘、720/1000 分通過、效期 12 個月，準時續證免費",
+        "Architect Foundations 直接考 Claude Code、MCP 與 agent 的生產系統設計，對 Agent 治理職務參考價值最高",
+        "⚠️待確認：報名須綁定 Claude Partner Network 的公司信箱；7/13 為次級來源回報的場次開放日，官方頁面未標日期"
+      ],
+      "url": "https://www.pearsonvue.com/us/en/anthropic.html"
+    },
+    {
+      "title": "Microsoft 認證彙整 2026 年 6 月號（Microsoft Credentials roundup: June 2026）",
+      "source": "Microsoft Community Hub — Skills Hub Blog",
+      "date": "2026-06-30",
       "provider": "Microsoft",
       "is_free": false,
       "cert_included": true,
       "level": "intermediate",
-      "duration": "考試 120 分鐘",
+      "duration": "依認證而異",
       "topics": [
+        "Microsoft Certification",
+        "AI Agent Builder",
         "Copilot Studio",
-        "AI Agents",
-        "Azure AI Foundry",
-        "Multi-agent",
-        "Workflow Automation"
+        "Applied Skills",
+        "Pro Badges",
+        "GitHub Copilot"
       ],
-      "summary": "Microsoft 推出全新 AI Agent Builder Associate 認證，驗證考生以 Microsoft Copilot Studio 建構企業級 agent、整合 Azure 與 Microsoft Foundry、設計 multi-agent 解決方案模式，以及工作流程自動化與企業系統整合的能力。取得認證須通過 Exam AB-620「Designing and Building Integrated AI Agent Solutions in Copilot Studio」，考試 120 分鐘、及格分數 700、費用 165 美元，採監考制並含互動式作答。對象為將 agent 推進至正式生產環境的開發者、AI 工程師與架構師。beta 階段前 300 名於 5/12 前應試可用代碼享 8 折。認證於 2026 年 6 月正式上線（GA）。（⚠️正式上線確切日期待確認）",
+      "summary": "Microsoft 官方 Skills Hub 部落格發布 2026 年 6 月認證彙整，說明這是近年規模最大的認證擴充之一，橫跨 AI、資料、資安、開發與商業應用。自 2026 年 2 月以來，Microsoft 已新增 17 張認證與考試，目前分別處於 beta 或正式上線狀態。文中同時公布 Pro Badges 新機制：透過名為 Verified Proficiency 的自有工具，以產品遙測資料衡量實際工作表現來認可技能，不需另外考試；首張 Pro Badge 為 GitHub Copilot Verified Proficiencies，已於 2026 年 6 月初的 Microsoft Build 軟啟動，預計 2026 年 10 月底的 GitHub Universe 正式上線。Applied Skills 也新增多項與 agent 直接相關的項目，包含在 Copilot Studio 建 agent、開發整合工具的 agent、建立 agentic workflow 等。舊有認證則隨新認證推出而退場，以對齊當前技術與職務變化。",
       "highlights": [
-        "以 Copilot Studio 建構企業級與 multi-agent 解決方案",
-        "整合 Azure AI Foundry 與企業系統的工作流程自動化",
-        "須通過 Exam AB-620，120 分鐘、及格 700 分、165 美元",
-        "監考制含互動式作答，2026 年 6 月正式 GA",
-        "定位為 Associate 級專業認證，對象為開發者與架構師"
+        "自 2026 年 2 月起新增 17 張認證與考試，為近年最大規模擴充",
+        "Pro Badges 以產品遙測衡量實際工作表現、免考試取得，首張為 GitHub Copilot Verified Proficiencies",
+        "新增 Applied Skills 多項針對 agent：Copilot Studio 建 agent、整合工具 agent、agentic workflow",
+        "AI agent 相關認證線包含 AI Agent Builder Associate（AB-620）、Azure AI Apps and Agents Developer Associate（AI-103）與 Multi-Agent AI Solutions Expert（AI-500）",
+        "⚠️待確認：本則日期依「June 2026」彙整月份推估為月底，官方頁面實際發布日未取得"
       ],
-      "url": "https://learn.microsoft.com/en-us/credentials/certifications/ai-agent-builder-associate/",
-      "url_status": "verified",
-      "title_score": 0.97,
-      "verified": true,
-      "verified_at": "2026-07-26T18:09:02.472220",
-      "complete": true
+      "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/microsoft-credentials-roundup-june-2026/4528350"
     },
     {
-      "title": "Fast & Efficient LLM Inference with vLLM（以 vLLM 進行高速高效 LLM 推論）",
-      "source": "DeepLearning.AI",
-      "date": "2026-06-03",
-      "provider": "DeepLearning.AI / Red Hat / vLLM",
-      "is_free": true,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "1-2 小時",
-      "topics": [
-        "vLLM",
-        "LLM Inference",
-        "Deployment",
-        "Benchmarking",
-        "Red Hat"
-      ],
-      "summary": "本課程由 DeepLearning.AI、Red Hat 與 vLLM 合作推出，帶你走過 LLM 基礎知識，並完整實作「優化、部署、基準測試」的 AI 部署生命週期。學員將以 vLLM 這套高吞吐量推論引擎理解其運作原理與效能優勢。課程強調動手實作，涵蓋從模型部署到效能量測的完整流程。適合想在生產環境高效部署 LLM 的開發者與工程師。",
-      "highlights": [
-        "走過 LLM 基礎與 vLLM 高吞吐量推論引擎原理",
-        "完整實作優化、部署、基準測試的部署生命週期",
-        "由 DeepLearning.AI、Red Hat、vLLM 三方合作打造",
-        "免費短課程，完成可獲結業證書"
-      ],
-      "url": "https://www.deeplearning.ai/courses/fast-and-efficient-llm-inference-with-vllm",
-      "url_status": "verified",
-      "title_score": 0.75,
-      "verified": true,
-      "verified_at": "2026-07-26T18:09:02.472245",
-      "complete": true
-    },
-    {
-      "title": "NVIDIA Agentic AI LLMs Certification（Professional 專業級 Agentic AI 認證）",
-      "source": "NVIDIA",
-      "date": "2026-04-30",
-      "provider": "NVIDIA (Deep Learning Institute)",
+      "title": "AWS Training and Certification 2026 年 5 月新課程與認證更新（含 AI 生成實驗室 Lab Maker）",
+      "source": "AWS Training and Certification Blog",
+      "date": "2026-05-31",
+      "provider": "Amazon Web Services",
       "is_free": false,
-      "cert_included": true,
-      "level": "advanced",
-      "duration": "自訂（含實作 GPU 實驗）",
+      "cert_included": false,
+      "level": "beginner",
+      "duration": "依課程而異",
       "topics": [
-        "Agentic AI",
-        "Multi-agent",
-        "LLM Deployment",
-        "AI Governance",
-        "NVIDIA DLI"
+        "AWS Skill Builder",
+        "Lab Maker",
+        "Hands-on Labs",
+        "Generative AI",
+        "AWS Certification"
       ],
-      "summary": "NVIDIA 於 4 月 30 日全球網路研討會發表 2026 課程組合擴充，新增 physical AI、OpenUSD，以及擴充的 agentic AI 內容。其中 Agentic AI LLMs 專業級（Professional）認證屬 intermediate 至進階級別，驗證考生架構、開發、部署與治理進階 agentic AI 解決方案的能力，聚焦 multi-agent 互動、分散式推理、可擴展性與倫理防護。NVIDIA DLI 課程為自學制，並含在 NVIDIA 硬體上執行的動手 GPU 實驗。此認證為 NVIDIA 生成式 AI／LLM 學習路徑的一環。（⚠️此認證本身之正式上線日期待確認，2026-04-30 為 2026 課程組合擴充公告日）",
+      "summary": "AWS 訓練與認證團隊發布 2026 年 5 月的新課程與認證更新彙整。本期最大亮點是 Lab Maker，一項由 AI 驅動的學習功能，可為熱門 AWS 服務即時生成個人化實驗室。使用者只要用自然語言描述想建置的東西，Lab Maker 就會產出逐步操作指引，並直接疊加在模擬的 AWS Management Console 介面上。這項功能開放給 AWS Skill Builder Team 訂閱的學員使用，適用對象從 AWS 新手到需要即時動手練習的熟練建置者。此更新延續 AWS 2026 年把生成式 AI 內容併入核心認證、並新增 AI 導向考試路徑的整體方向。⚠️ 本則發布日期依「May 2026」彙整月份推估。",
       "highlights": [
-        "驗證架構、開發、部署與治理進階 agentic AI 方案的能力",
-        "聚焦 multi-agent 互動、分散式推理與可擴展性",
-        "DLI 課程自學制，含 NVIDIA 硬體上的動手 GPU 實驗",
-        "屬 NVIDIA 2026 課程組合擴充新增的 agentic AI 內容",
-        "為 NVIDIA 專業級（Professional）認證，需付費應試"
+        "Lab Maker 以自然語言描述需求即時生成個人化實驗室，指引直接疊在模擬 Console 上",
+        "僅開放 AWS Skill Builder Team 訂閱學員使用，非免費資源",
+        "延續 AWS 2026 年把生成式 AI 內容納入核心認證、新增 AI 考試路徑的策略",
+        "同期 AWS AI 認證線包含 AWS Certified Generative AI Developer – Professional（2026-03-17 起正式版開放報名）與 AWS Certified AI Practitioner",
+        "⚠️待確認：本則日期依彙整月份推估為 5 月底，官方頁面實際發布日未取得"
       ],
-      "url": "https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/",
-      "url_status": "verified",
-      "title_score": 0.71,
-      "verified": true,
-      "verified_at": "2026-07-26T18:09:02.472281",
-      "complete": true
-    },
-    {
-      "title": "Build Interactive Agents with Generative UI（以 Generative UI 打造互動式 Agent）",
-      "source": "DeepLearning.AI",
-      "date": "2026-04-21",
-      "provider": "DeepLearning.AI / CopilotKit",
-      "is_free": true,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "1-2 小時",
-      "topics": [
-        "Generative UI",
-        "AI Agents",
-        "CopilotKit",
-        "AG-UI Protocol",
-        "LangChain",
-        "MCP"
-      ],
-      "summary": "本課程由 CopilotKit 共同創辦人 Atai Barkai 授課，教開發者把語言模型 agent 從純文字輸出，升級為能產生表單、圖表、互動元件等結構化 UI 的正式應用。課程介紹 Generative UI 光譜上的三種介面建構取向：Controlled、Declarative 與 Open-Ended Gen UI。實作部分以 CopilotKit 與 AG-UI 協定串接 LangChain agent 與 React 前端，打造能按需渲染圖表、卡片與表單的全端 agent app。並示範以 MCP Apps 連接第三方應用，讓 agent 與使用者在同一份資料上協作。適合想打造生產級互動式 agent 的全端開發者。",
-      "highlights": [
-        "把 agent 從純文字升級為可輸出表單、圖表、互動元件的應用",
-        "掌握 Controlled、Declarative、Open-Ended 三種 Gen UI 取向",
-        "以 CopilotKit 與 AG-UI 協定串接 LangChain agent 與 React 前端",
-        "以 MCP Apps 連接第三方應用、與使用者共用同一份資料",
-        "免費短課程，完成可獲結業證書"
-      ],
-      "url": "https://www.deeplearning.ai/courses/build-interactive-agents-with-generative-ui",
-      "url_status": "verified",
-      "title_score": 0.75,
-      "verified": true,
-      "verified_at": "2026-07-26T18:09:02.472309",
-      "complete": true
+      "url": "https://aws.amazon.com/blogs/training-and-certification/may-2026-new-offerings/"
     }
   ],
-  "_updated_at": "2026-07-20T18:04:33.655545+08:00",
-  "_fallback": true
+  "_updated_at": "2026-08-03T18:15:57.598066+08:00"
 }

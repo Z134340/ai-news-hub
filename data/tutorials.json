@@ -1,5 +1,101 @@
 [
   {
+    "title": "LangSmith LLM Gateway: runtime controls for production agents",
+    "source": "LangChain Blog",
+    "date": "2026-07-30",
+    "tool_name": "LangSmith LLM Gateway",
+    "difficulty": "intermediate",
+    "category": "Agent 可觀測性與治理",
+    "summary": "LangChain 推出 LangSmith LLM Gateway 公開測試版，定位為介於 Agent 與底層模型之間的集中式治理層。文章說明正式環境的 Agent 需要對模型呼叫具備執行期控制能力，否則容易出現成本失控與供應商中斷等問題。功能包含跨模型與跨主機定義 fallback 規則以提升 Agent 可靠度，以及在請求送達模型供應商前偵測、遮蔽並替換 PII 與機密資訊。此設計讓團隊可在單一位置對所有 Agent、模型與供應商套用執行期控管。⚠️待確認：發布日期為搜尋結果推算（相對日期換算），未經原文核對。",
+    "highlights": [
+      "Gateway 作為 Agent 與模型之間的集中治理層，統一套用執行期控管",
+      "支援跨模型／跨主機的 fallback 規則，降低單一供應商中斷風險",
+      "內建 PII 與 secrets 的偵測、遮蔽與替換，於請求離開前處理",
+      "目前為 public beta 階段"
+    ],
+    "url": "https://www.langchain.com/blog/langsmith-llm-gateway-runtime-controls-for-production-agents",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "How Anthropic secures its AI-native software development lifecycle",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-07-21",
+    "tool_name": "Claude Code",
+    "difficulty": "advanced",
+    "category": "AI 原生開發流程與安全實務",
+    "summary": "Anthropic 副資安長 Jason Clinton 說明其資安工程團隊如何在「AI 撰寫 80% 合併程式碼」的環境下維持軟體開發生命週期安全。文中指出 Anthropic 的程式碼量與部署速度呈指數成長，工程師平均每季交付的程式碼量是 2021–2025 年期間的 8 倍。目前約 80% 合併進 codebase 的程式碼由 Claude 撰寫，超過一半由內部版本的 Claude 直接合併，人類工程師則專注於指揮、設定意圖與最終核准。做法上，團隊將規範編碼進 CLAUDE.md 檔案並引用組織層級的 skills，讓程式碼在產生當下就符合最佳實踐；一旦 Agent 發現某類 bug，就更新對應檔案以防止再次發生。",
+    "highlights": [
+      "Claude 撰寫約 80% 合併進 codebase 的程式碼，逾半數由內部 Claude 直接合併",
+      "工程師每季交付程式碼量為 2021–2025 年基準的 8 倍",
+      "以 CLAUDE.md 與組織層級 skills 將安全規範前置到程式碼生成當下",
+      "發現新 bug 類型即回寫規範檔案，形成防止復發的閉環",
+      "人類角色轉為指揮、設定意圖與最終核准"
+    ],
+    "url": "https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "How Datadog built a \"universal machine tool\" for Claude Code",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-07-21",
+    "tool_name": "Claude Code / Temper",
+    "difficulty": "advanced",
+    "category": "Agent 工具與執行環境設計",
+    "summary": "本文說明 Datadog 如何打造名為 Temper 的執行環境，讓 Agent 能在經驗證、政策驅動的 runtime 中自行建立所需工具。Datadog 將 Temper 定位為 agentic 系統的「通用工具機」，即讓 Agent 安全且精確地建構所需能力的最小核心。文中指出過去四個月內，Datadog 有 90% 的工程師將 AI 編碼工具用於正式環境程式碼，其中三分之二的使用量來自 Claude Code。Datadog 工程師以 Claude Code 支撐四類工作流：局部修改、大規模重構、替換大型模組，以及建構完整系統。",
+    "highlights": [
+      "Temper 是經驗證、政策驅動的 runtime，讓 Agent 自行建立所需工具",
+      "設計理念為「最小核心」，在安全前提下給 Agent 建構自由度",
+      "Datadog 90% 工程師將 AI 編碼工具用於正式環境程式碼",
+      "Claude Code 佔其中約三分之二使用量",
+      "涵蓋四類工作流：targeted changes、大型重構、模組替換、完整系統建構"
+    ],
+    "url": "https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "Be Ready Before the Attack: A Practical Guide to Self-Hosting an Open Model for Cyber Defense",
+    "source": "Hugging Face Blog",
+    "date": "2026-07-16",
+    "tool_name": "Hugging Face / Open Models",
+    "difficulty": "intermediate",
+    "category": "開源模型自架與資安防禦實作",
+    "summary": "這是一篇關於「為資安防禦自架開源模型」的實務指南，發表於 Hugging Face 官方 blog（作者 jeffboudier）。文章的撰寫背景與 2026 年 7 月的資安事件相關，主張防禦準備必須在攻擊發生前完成，而非事後補救。內容聚焦在如何在自有環境中部署開放權重模型，以支援事件應變與偵測分析等資安工作。此類自架路線的核心考量是敏感資料不外流至第三方推論服務。⚠️待確認：僅取得標題、URL 與日期，內文細節未經原文逐段核對。",
+    "highlights": [
+      "主題為「攻擊發生前先備妥」的自架開源模型防禦準備",
+      "發表於 Hugging Face 官方 blog，與 2026 年 7 月資安事件揭露同期",
+      "自架路線的關鍵誘因是避免敏感資料送往第三方推論服務"
+    ],
+    "url": "https://huggingface.co/blog/jeffboudier/open-model-cyber-defense",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "別讓 AI 牽著走！掌握三大編輯思維，成為不被淘汰的高價值人才",
+    "source": "TechNews 科技新報",
+    "date": "2026-07-05",
+    "tool_name": "泛用型 AI 工具（LLM）",
+    "difficulty": "beginner",
+    "category": "AI 協作方法論／提示與查核思維",
+    "summary": "本文主張與 AI 協作時的首要之務是確立最終目標，並打破把 AI 當成「輸入指令就自動產出完美答案」的黑箱迷思。作者提出三大編輯思維，強調人類應扮演「編輯」角色而非單純的指令輸入者。文章指出，將 AI 定位為協作工具並由人類負責查核與收斂，不僅能確保最終成果品質，也能反過來鍛鍊使用者自身的綜合能力。整體屬於方法論層級的實務指引，適合非工程背景的知識工作者建立正確的 AI 使用心法。",
+    "highlights": [
+      "先確立最終目標，再談如何下指令，避免被 AI 產出牽著走",
+      "打破「黑箱」迷思：AI 不是輸入即得完美答案的工具",
+      "人類扮演編輯角色，負責事實查核與品質收斂",
+      "把 AI 定位為協作工具，長期可反向強化使用者自身能力"
+    ],
+    "url": "https://technews.tw/2026/07/05/ai-editor-mindset-master-output-fact-checking/",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
     "title": "Deep Agents",
     "source": "LangChain Blog",
     "date": "2026-07-01",
@@ -14,13 +110,13 @@
       "適合套用於 Deep Research 型與 Claude Code 型的複雜工作流"
     ],
     "url": "https://www.langchain.com/blog/deep-agents",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471654",
+    "verified_at": "2026-08-02T18:16:28.574647",
     "complete": true
   },
   {
@@ -38,13 +134,13 @@
       "定位為 LLM 應用開發的入門起點"
     ],
     "url": "https://blog.ite2.com/2026/06/26/introduction-to-llm-application-development-enhancing-language-models-with-rag/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471690",
+    "verified_at": "2026-08-02T18:16:28.574674",
     "complete": true
   },
   {
@@ -62,14 +158,51 @@
       "搭配實戰案例說明企業自動化落地場景"
     ],
     "url": "https://masonailab.com/tools/n8n-ai-agent-workflow-guide-2026/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471719",
+    "verified_at": "2026-08-02T18:16:28.574699",
     "complete": true
+  },
+  {
+    "title": "How enterprises are building AI agents in 2026",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-06-21",
+    "tool_name": "Claude / Enterprise AI Agents",
+    "difficulty": "intermediate",
+    "category": "企業 Agent 導入實務",
+    "summary": "本文整理來自逾 500 位技術主管的問卷調查結果，說明 2026 年企業導入與部署 AI Agent 的實際樣貌。內容涵蓋企業從試點走向正式生產的採用策略與落地模式。對於評估內部 Agent 導入節奏的團隊，可作為對照同業進度的基準資料。⚠️待確認：僅取得標題、URL、日期與調查樣本數，細部數據未經原文逐項核對。",
+    "highlights": [
+      "樣本為 500 位以上技術主管的問卷調查",
+      "聚焦企業 Agent 從試點到正式生產的部署策略",
+      "可作為內部導入節奏與同業比較的基準參考"
+    ],
+    "url": "https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "Eight trends defining how software gets built in 2026",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-06-21",
+    "tool_name": "Claude Code / Agentic Coding",
+    "difficulty": "beginner",
+    "category": "Agentic Coding 趨勢與實務框架",
+    "summary": "本文歸納出八項趨勢，並分為三大類：改變開發方式的基礎趨勢、擴大 Agent 能力邊界的能力趨勢，以及影響商業成果的影響趨勢。文中討論 AI 如何承接完整的實作工作流，包括撰寫測試、除錯失敗案例與在複雜 codebase 中導航。內容取自《2026 Agentic Coding Trends Report》，並收錄 TELUS 與 Zapier 等企業案例，呈現 agentic coding 的實際效益。適合作為團隊內部說明 agentic coding 走向的整體框架。",
+    "highlights": [
+      "八項趨勢分為基礎、能力、影響三類，結構清晰可直接引用",
+      "AI 開始承接完整實作工作流：寫測試、除錯、複雜 codebase 導航",
+      "內容源自《2026 Agentic Coding Trends Report》",
+      "收錄 TELUS、Zapier 等企業實際案例"
+    ],
+    "url": "https://claude.com/blog/eight-trends-defining-how-software-gets-built-in-2026",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
   },
   {
     "title": "Tiny Agents in Python: a MCP-powered agent in ~70 lines of code",
@@ -86,13 +219,13 @@
       "強調 MCP 大幅降低打造工具型代理的門檻"
     ],
     "url": "https://huggingface.co/blog/python-tiny-agents",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471744",
+    "verified_at": "2026-08-02T18:16:28.574724",
     "complete": true
   },
   {
@@ -110,13 +243,13 @@
       "為打造可動態擴充工具的代理提供標準化基礎"
     ],
     "url": "https://huggingface.co/blog/agentic-resource-discovery-launch",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471769",
+    "verified_at": "2026-08-02T18:16:28.574748",
     "complete": true
   },
   {
@@ -134,14 +267,51 @@
       "以真實開發情境呈現各功能實際效果"
     ],
     "url": "https://www.marktechpost.com/2026/06/14/claude-code-guide-2026-25-features-with-examples-demo/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471796",
+    "verified_at": "2026-08-02T18:16:28.574774",
     "complete": true
+  },
+  {
+    "title": "How to Build a Custom Agent Harness",
+    "source": "LangChain Blog",
+    "date": "2026-06-04",
+    "tool_name": "LangChain create_agent / Deep Agents",
+    "difficulty": "advanced",
+    "category": "Agent Harness 與 Middleware 建構",
+    "summary": "本文說明如何建構自訂的 agent harness，並指出最簡便的路徑是使用 LangChain 的 create_agent 搭配 middleware，再依使用情境客製。文中對照 Deep Agents 這套「開箱即用」的通用 agent harness，其設計目標是支撐長時間執行的任務，內建規劃、context 管理與多 Agent 編排能力，適用於研究與程式開發等複雜工作。Deep Agents 的 middleware 可協助 Agent 壓縮對話歷史、將大型工具結果卸載到外部、以 subagent 隔離 context，並使用 prompt caching 降低延遲與成本。對於需要自建 harness 而非直接套用框架預設的團隊，本文提供了組裝層級的設計指引。",
+    "highlights": [
+      "自訂 harness 的最短路徑：create_agent + middleware 組合",
+      "Deep Agents 為長時間任務設計的通用 harness，內建規劃與 context 管理",
+      "middleware 四項核心能力：壓縮歷史、卸載大型工具結果、subagent 隔離 context、prompt caching",
+      "prompt caching 同時降低延遲與 token 成本"
+    ],
+    "url": "https://www.langchain.com/blog/how-to-build-a-custom-agent-harness",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "Fine-tune FLUX.2 [klein] with a LoRA under 60 minutes",
+    "source": "Hugging Face Blog (Black Forest Labs)",
+    "date": "2026-06-04",
+    "tool_name": "FLUX.2 [klein] / LoRA",
+    "difficulty": "intermediate",
+    "category": "模型微調實作（LoRA）",
+    "summary": "這是一篇 60 分鐘內完成 FLUX.2 [klein] LoRA 微調的實作教學，發表於 Hugging Face 官方 blog 的 Black Forest Labs 帳號。文章屬於 Gradio 與 Hugging Face 共同舉辦的 Build Small Hackathon 系列內容。主題聚焦於以 LoRA 這種參數高效微調方式，在有限時間與運算資源下完成影像生成模型的客製化。對想快速驗證微調可行性、而非投入完整 full fine-tuning 的團隊具參考價值。⚠️待確認：僅取得標題、URL 與日期，內文步驟未經原文逐段核對。",
+    "highlights": [
+      "目標明確：60 分鐘內完成 FLUX.2 [klein] 的 LoRA 微調",
+      "屬 Gradio × Hugging Face「Build Small Hackathon」系列產出",
+      "以參數高效微調（LoRA）降低運算門檻，適合快速驗證"
+    ],
+    "url": "https://huggingface.co/blog/black-forest-labs/flux-2-klein-lora",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
   },
   {
     "title": "Designing the hf CLI as an agent-optimized way to work with the Hub",
@@ -158,13 +328,13 @@
       "說明為代理重新設計 CLI 介面的取捨與原則"
     ],
     "url": "https://huggingface.co/blog/hf-cli-for-agents",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471822",
+    "verified_at": "2026-08-02T18:16:28.574881",
     "complete": true
   },
   {
@@ -183,14 +353,51 @@
       "企業級功能包含授權管理、沙箱模式，Sentry 監控整合增強可觀測性"
     ],
     "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-06-22T18:46:04.581666+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "verified",
     "title_score": 0.6,
     "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471847",
+    "verified_at": "2026-08-02T18:16:28.574926",
     "complete": true
+  },
+  {
+    "title": "2026 年 Cursor AI 完整使用教學：從安裝到 Agent 模式，全面掌握最強 AI 程式碼編輯器",
+    "source": "AI 織夢部落格 (weavai.app)",
+    "date": "2026-05-26",
+    "tool_name": "Cursor",
+    "difficulty": "beginner",
+    "category": "AI 程式編輯器操作教學",
+    "summary": "本文為 Cursor 的完整中文使用教學，涵蓋從安裝到 Agent 模式的全流程。內容包含安裝設定、既有 IDE 設定匯入、Tab 智慧補全、Composer，以及讓 Agent 代跑整個任務的操作方式。Cursor 與標準 VS Code + Copilot 組合的關鍵差異在於它把 AI 視為一等公民：不只是自動補全，而是能規劃、執行並反覆迭代的 Agent。適合初次接觸 AI 原生編輯器、需要一份中文入門到進階路徑的開發者。⚠️待確認：內文細節取自搜尋摘要，未經原文逐段核對。",
+    "highlights": [
+      "涵蓋安裝、設定匯入、Tab 補全、Composer 到 Agent 模式的完整路徑",
+      "Cursor 將 AI 視為一等公民，具備規劃、執行、迭代能力",
+      "與 VS Code + Copilot 的差異在於 Agent 可代跑整個任務",
+      "繁體中文教學，對非英文使用者入門門檻較低"
+    ],
+    "url": "https://weavai.app/blog/2026/05/26/2026-%E5%B9%B4-cursor-ai-%E5%AE%8C%E6%95%B4%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8%EF%BC%9A%E5%BE%9E%E5%AE%89%E8%A3%9D%E5%88%B0-agent-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%85%A8%E9%9D%A2%E6%8E%8C%E6%8F%A1/",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+  },
+  {
+    "title": "How we contain Claude across products",
+    "source": "Anthropic Engineering",
+    "date": "2026-05-25",
+    "tool_name": "Claude / Claude Code / Cowork",
+    "difficulty": "advanced",
+    "category": "Agent 圍堵與 blast radius 控制",
+    "summary": "本文分享 Anthropic 在為 claude.ai、Claude Code 與 Cowork 建立圍堵（containment）機制過程中學到的經驗。核心議題是如何限制 Agent 行為的爆炸半徑（blast radius），避免單一失控行為擴散到不該觸及的系統或資料。對於在企業內部署 coding agent 的團隊，這類產品級圍堵設計是必要的控制面參考。⚠️待確認：僅取得標題、URL 與日期，內文控制項細節未經原文逐段核對。",
+    "highlights": [
+      "涵蓋 claude.ai、Claude Code、Cowork 三個產品的圍堵設計經驗",
+      "核心概念為限制 Agent 行為的 blast radius",
+      "屬產品級控制面設計，可對照企業內部 coding agent 的部署控管"
+    ],
+    "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
   },
   {
     "title": "使用 LangGraph 模板實現狀態機式 AI 工作流程",
@@ -208,14 +415,34 @@
       "適用於需要可重複執行且可靠的生產級 AI Agent 工作流程"
     ],
     "url": "https://earezki.com/ai-news/2026-05-25-langgraph-v39/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "title_low_match",
     "title_score": 0.29,
     "verified": "needs_review",
-    "verified_at": "2026-07-26T18:09:02.471891",
+    "verified_at": "2026-08-02T18:16:28.574954",
     "complete": true
+  },
+  {
+    "title": "Build Long-running AI agents that pause, resume, and never lose context with ADK",
+    "source": "Google Developers Blog",
+    "date": "2026-05-12",
+    "tool_name": "Google Agent Development Kit (ADK)",
+    "difficulty": "advanced",
+    "category": "長時間執行 Agent 架構實作",
+    "summary": "本文以「新人到職協調 Agent」為範例，示範如何用 Agent Development Kit (ADK) 建構可穩定執行數週的長時間任務 Agent。範例流程包含寄送歡迎資料、暫停數日等待員工簽署文件、將 IT 設備準備工作委派給專責 subagent、再次等待硬體交付，最後寄出客製化的第一天行程，全程不遺失任何 context。文章歸納出區隔正式環境 Agent 與展示型 chatbot 的三項架構轉變：以持久化的記憶結構（durable memory schema）取代把原始 JSON 直接塞進向量資料庫；以事件驅動的休眠閘門（event-driven dormancy gate）取代主動輪詢或阻塞執行緒；以多 Agent 委派取代單體式的單一 Agent 提示。這三項設計是長週期業務流程 Agent 能否落地的關鍵。",
+    "highlights": [
+      "實例為可跨週執行的新人到職協調 Agent，全程不遺失 context",
+      "架構轉變一：durable memory schema 取代原始 JSON 直塞向量資料庫",
+      "架構轉變二：event-driven dormancy gate 取代主動輪詢或阻塞執行緒",
+      "架構轉變三：多 Agent 委派取代單體式單一 Agent 提示",
+      "適用於需長時間等待外部事件的企業流程自動化情境"
+    ],
+    "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
+    "is_new": true,
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00"
   },
   {
     "title": "Agent 開發生命週期：建構、測試、部署與監控 AI Agent",
@@ -233,161 +460,13 @@
       "監控包含效能指標追蹤和 regression 自動偵測"
     ],
     "url": "https://www.langchain.com/blog/the-agent-development-lifecycle",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-06-01T20:27:05.901051+08:00",
     "last_seen": "2026-07-27T18:13:11.161333+08:00",
     "url_status": "title_low_match",
     "title_score": 0.28,
     "verified": "needs_review",
-    "verified_at": "2026-07-26T18:09:02.471923",
-    "complete": true
-  },
-  {
-    "title": "MCP 實戰 — 讓 Claude Code 直接操作資料庫、打 API、讀 Figma",
-    "source": "Medium",
-    "date": "2026-05-01",
-    "tool_name": "Claude Code, MCP",
-    "difficulty": "intermediate",
-    "category": "MCP 開發教學",
-    "summary": "本文以實戰案例介紹如何透過 Model Context Protocol（MCP）讓 Claude Code 具備操作資料庫、呼叫外部 API 及讀取 Figma 設計檔案的能力。作者說明 MCP Server 的設定流程，包含 .mcp.json 設定檔撰寫、認證配置與通訊模式選擇（stdio 或 HTTP）。透過 MCP 整合，Claude Code 不再僅限於純文字互動，而是能直接接入工程師的日常工具鏈。文章示範如何讓 Claude Code 執行 SQL 查詢、自動化 API 測試流程，以及從 Figma 抽取設計規格進行程式碼生成。同時涵蓋 MCP 的安全性考量，建議採用最小權限原則配置 Server 存取範圍。",
-    "highlights": [
-      "MCP 讓 Claude Code 具備直接操作資料庫的能力，支援 SQL 查詢與資料分析",
-      "整合 Figma MCP Server 後，Claude Code 可讀取設計規格並自動生成對應程式碼",
-      ".mcp.json 設定檔格式解說，含 stdio 與 HTTP 兩種 MCP 通訊模式配置",
-      "實戰示範 Claude Code 呼叫自訂 REST API 並結構化處理回應資料",
-      "安全性建議：採最小權限原則，限制 MCP Server 的資料存取範圍"
-    ],
-    "url": "https://medium.com/@n913239/mcp-%E5%AF%A6%E6%88%B0-%E8%AE%93-claude-code-%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9C%E8%B3%87%E6%96%99%E5%BA%AB-%E6%89%93-api-%E8%AE%80-figma-d53051afde01",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471955",
-    "complete": true
-  },
-  {
-    "title": "使用 Claude Agent SDK 建構 AI Agent：Anthropic 工程部落格實戰指南",
-    "source": "Anthropic Engineering Blog",
-    "date": "2026-05-01",
-    "tool_name": "Claude Agent SDK",
-    "difficulty": "intermediate",
-    "category": "AI Agent 建構",
-    "summary": "Anthropic 工程部落格介紹 Claude Agent SDK（由 Claude Code SDK 更名而來）的設計理念、架構與使用指引。SDK 提供 Agent、Runner、Tools、Handoffs、Guardrails 與 Sessions 六大核心元件，形成完整的 Agent 工程架構體系。文章分享 Anthropic 自家 Agent 部署的最佳實踐，包含 Context Engineering 策略以及 Agent Harness 設計原則。透過 SDK 的多 Agent 協作與 Handoff 機制，開發者可建構處理複雜任務分解的 Agent 系統。文章同時強調安全性設計，說明如何利用 Guardrails 防止 Agent 越權操作。",
-    "highlights": [
-      "Claude Agent SDK 提供 Agent、Runner、Guardrails、Sessions 等生產級核心元件",
-      "多 Agent 協作與 Handoff 機制，讓複雜任務可分解到專門化子 Agent 執行",
-      "Context Engineering 策略詳解：如何設計 Agent 記憶管理與上下文壓縮",
-      "Guardrails 元件設計說明，防止 Agent 執行超出授權範圍的操作",
-      "Anthropic 自家 Agent 部署案例分享，涵蓋從原型到生產的完整最佳實踐"
-    ],
-    "url": "https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
-    "is_new": true,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 0.38,
-    "verified": true,
-    "verified_at": "2026-07-26T18:09:02.471989",
-    "complete": true
-  },
-  {
-    "title": "AI Agent 的 Context Engineering 完整課程",
-    "source": "Medium / Data Science Collective",
-    "date": "2026-05-01",
-    "tool_name": "AI Agents, LLM",
-    "difficulty": "intermediate",
-    "category": "AI Agent 建構",
-    "summary": "本課程由資深應用科學家 Marina Wyss 撰寫，整合數十篇工程部落格、研討會演講及學術論文，深入解析 Context Engineering 的核心概念。課程涵蓋為何 AI Agent 特別需要 Context Engineering，以及四大核心策略：寫入（write）、選取（select）、壓縮（compress）和隔離（isolate）。作者強調 Context Engineering 是「管理整個 AI Agent 的資訊環境」，包括記憶體、工具、檢索和狀態，而不只是撰寫提示詞。課程被認為是 2026 年 AI 開發領域最關鍵技能之一，適合需要建構生產級 AI Agent 的開發者。",
-    "highlights": [
-      "Context Engineering 四大策略：write（持久化上下文）、select（相關內容檢索）、compress（摘要壓縮）、isolate（Agent 間上下文隔離）",
-      "Context Engineering 是 2026 年最廣泛採用的 AI Agent 核心開發技能",
-      "涵蓋記憶管理、工具調用、狀態管理等 Agent 上下文工程關鍵面向",
-      "課程整合實際工程案例，從理論到實作完整覆蓋",
-      "強調 context 管理對 Agent 決策品質和可靠性的決定性影響"
-    ],
-    "url": "https://medium.com/data-science-collective/context-engineering-for-ai-agents-complete-course-fd509e276a9e",
-    "is_new": true,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-26T18:09:02.472019",
-    "complete": true
-  },
-  {
-    "title": "如何使用 LangChain & LangGraph 建構具人工介入機制的 AI Agent",
-    "source": "Medium",
-    "date": "2026-05-01",
-    "tool_name": "LangChain, LangGraph",
-    "difficulty": "intermediate",
-    "category": "AI Agent 建構",
-    "summary": "本教學示範如何為 AI Agent 加入 Human-in-the-Loop（HITL）機制，確保關鍵操作在執行前獲得人工確認。作者使用 LangGraph 的 checkpoint 功能和 LangChain 的 middleware，實現 Agent 在特定節點暫停並等待人工輸入的能力。文章包含完整程式碼示例，展示如何設定 interrupt_before 和 interrupt_after 節點，以及如何在人工確認後恢復 Agent 執行。這種架構特別適用於涉及敏感操作、高風險決策或需要人工審核的企業級應用。",
-    "highlights": [
-      "LangGraph checkpoint 機制讓 Agent 可在指定節點暫停，等待人工確認後繼續",
-      "interrupt_before/interrupt_after 參數精確控制 Agent 暫停時機",
-      "HITL 架構適合高風險操作（資料庫寫入、金融交易、對外 API 呼叫）",
-      "完整示範 Agent 暫停後的狀態恢復和錯誤重試處理",
-      "結合 LangSmith 可追蹤 HITL 事件和人工介入完整歷程"
-    ],
-    "url": "https://medium.com/@syeedmdtalha/how-to-build-a-human-in-the-loop-ai-agent-with-langchain-langgraph-26f2f5d2b83e",
-    "is_new": true,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-26T18:09:02.472043",
-    "complete": true
-  },
-  {
-    "title": "CLAUDE.md 完全攻略 — 讓 Claude Code 真正理解你的專案",
-    "source": "Medium",
-    "date": "2026-05-01",
-    "tool_name": "Claude Code",
-    "difficulty": "intermediate",
-    "category": "AI 程式助手教學",
-    "summary": "本文深入介紹 CLAUDE.md 設定檔的完整用法，這是 Claude Code 每次啟動都會自動讀取的核心設定文件。作者詳解如何在 CLAUDE.md 中撰寫編碼風格、測試方式、專案規範等指令，讓 Claude Code 真正理解專案背景脈絡。文章涵蓋多層次 CLAUDE.md 架構（全域/專案/子目錄），以及如何利用 /memory 指令動態更新設定。掌握 CLAUDE.md 後，開發者可大幅減少每次與 Claude Code 溝通時的重複說明，提升整體開發效率。",
-    "highlights": [
-      "CLAUDE.md 是 Claude Code 的核心設定檔，每次啟動自動讀取，無需重複說明背景",
-      "支援全域（~/.claude/）與專案（./）兩層設定，子目錄可有獨立 CLAUDE.md",
-      "使用 /memory 指令可讓 Claude Code 動態更新記憶設定",
-      "建議在 CLAUDE.md 中明確定義編碼風格、測試指令、禁止行為等規則"
-    ],
-    "url": "https://medium.com/@n913239/claude-md-%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5-%E8%AE%93-claude-code-%E7%9C%9F%E6%AD%A3%E7%90%86%E8%A7%A3%E4%BD%A0%E7%9A%84%E5%B0%88%E6%A1%88-3a9478865a11",
-    "is_new": true,
-    "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-07-26T18:09:02.472072",
-    "complete": true
-  },
-  {
-    "title": "Context Engineering 已吃掉 Prompt Engineering",
-    "source": "Medium",
-    "date": "2026-05-01",
-    "tool_name": "LLM / Context Engineering",
-    "difficulty": "intermediate",
-    "category": "Prompt Engineering / Context Engineering",
-    "summary": "本文探討 Context Engineering 如何在 2026 年取代 Prompt Engineering 成為 AI 開發的核心技能。作者闡釋 LangChain 團隊正式提出的框架，將 Context 操作分為四種模式：scratchpad 暫存、記憶模式、RAG 檢索與上下文壓縮。文章引用 Shopify CEO Tobi Lütke 的定義，說明 Context Engineering 是「為任務提供足夠上下文使 LLM 可解決問題的藝術」。對於生產級 AI 系統開發者而言，理解 Context 的邊界與管理策略是必備能力。",
-    "highlights": [
-      "Context Engineering 已成為比 Prompt Engineering 更關鍵的 2026 年 AI 開發技能",
-      "LangChain 四大 Context 操作：Write（外部持久化）、Select（RAG）、Compress（壓縮）、Isolate（隔離）",
-      "大多數 AI 系統失敗原因不是模型不夠好，而是 Context 設計不當",
-      "Shopify CEO 定義：Context Engineering 是讓 LLM 有機會解決任務的完整資訊設計藝術"
-    ],
-    "url": "https://medium.com/@codewithrashid/context-engineering-has-eaten-prompt-engineerin-eb3a869c0362",
-    "is_new": true,
-    "first_seen": "2026-05-25T08:21:05.776543+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "needs_review",
-    "title_score": 0,
-    "verified": "needs_review",
-    "verified_at": "2026-07-26T18:09:02.472107",
+    "verified_at": "2026-08-02T18:16:28.574980",
     "complete": true
   }
 ]

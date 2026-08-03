@@ -1,75 +1,135 @@
 {
   "items": [
     {
-      "title": "中國 AI 大模型領跑全球榜單，央視詳解背後的優勢所在",
-      "source": "新浪科技",
+      "title": "让Agent在协作中自进化，清华00后博士获千万元融资丨36氪首发",
+      "source": "36氪 / 新浪科技",
+      "date": "2026-08-03",
+      "company": "奇點逃逸（Singularity Escape）",
+      "topic": "AI Agent / Agent 協作框架 / 融資",
+      "summary": "AI 原生團隊協作新創「奇點逃逸」宣布完成千萬級人民幣種子輪融資，由星連資本與水木創投聯合領投，奇績創壇跟投。團隊正在研發名為 Nexus 的「AI 原生團隊協作作業系統」，核心設計是讓人、Agent、任務、知識與工具全部掛載在同一份組織狀態（organization state）上持續協作，而非各自維護獨立的上下文。此設計直指目前多智能體系統最痛的問題：Agent 之間狀態不同步、上下文重複傳遞、協作歷程無法累積。創辦人兼 CEO 薛傳奕本科與博士階段均就讀清華大學，研究方向涵蓋強化學習與多智能體（multi-agent）。這是本次區間內少數直接對準 Agent 編排與 Agent 記憶／狀態管理層的中國新創融資案。",
+      "discussion": "36氪首發報導，於創投與 Agent 開發者社群引發關注；討論集中在「共享組織狀態」能否真正解決多 Agent 協作的上下文一致性問題，以及與 Dify、Coze 等既有國內平台的定位差異。",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-08-03/doc-inikytnt6351138.shtml"
+    },
+    {
+      "title": "Alibaba Qwen Releases Qwen3.8-Max: A 2.4 Trillion Parameter MoE Model and the Most Capable One in the Qwen Family to Date",
+      "source": "MarkTechPost",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / Qwen（通義千問）",
+      "topic": "LLM 發布 / Agentic Coding",
+      "summary": "阿里巴巴正式發布 Qwen3.8-Max，總參數量 2.4 兆（trillion）的 Mixture-of-Experts 架構模型，為 Qwen 家族迄今規模最大、能力最強的版本。模型支援最高 100 萬 token 的上下文窗口，可接受文字、圖像與影片輸入並輸出文字，屬多模態 Agent 取向設計。阿里巴巴表示權重將於下週在 Hugging Face 與 ModelScope 開源，這是 Qwen 首次將 Max 級別模型開放權重；另有第二個檢查點 Qwen3.8-27B 同步走開源權重路線。託管 API 已可即時部署，定位鎖定 agentic coding 與長程（long-horizon）任務執行。",
+      "discussion": "海外 AI 工程社群高度關注，重點在「2.4T 參數的 Max 級模型真的要開權重」這件事本身；同時也有質疑聲指出官方 model card、激活參數細節與可重現的評測設定尚未完整公開。",
+      "url": "https://www.marktechpost.com/2026/08/03/alibaba-qwen-releases-qwen3-8-max/"
+    },
+    {
+      "title": "Alibaba launches Qwen3.8 with 2.4 trillion parameters",
+      "source": "TechNode",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / Qwen",
+      "topic": "LLM 發布",
+      "summary": "TechNode 報導阿里巴巴於 8 月 3 日推出 2.4 兆參數的 Qwen3.8，為中國目前規模最大的自研大模型之一。此次發布緊接在 Moonshot 於 7 月中旬釋出 2.8 兆參數的開源權重模型 Kimi K3、以及 DeepSeek 上週擴大 V4-Flash 存取權之後，形成中國前沿模型在一個月內密集釋出的態勢。TechNode 同時指出，中國 AI 原生應用的月活躍用戶已達 4.99 億（截至 2026 年 5 月，年增 85.4%），Doubao、Qwen 與 DeepSeek 分別以 3.82 億、1.67 億、1.30 億 MAU 形成第一梯隊，模型能力競賽已與應用端規模同步放大。",
+      "discussion": "中國科技媒體圈普遍將此役解讀為「阿里回應 Kimi K3」的直接對打；產業討論聚焦在參數規模競賽是否已到邊際效益遞減，以及開源權重對雲端 API 收入的自我侵蝕風險。",
+      "url": "https://technode.com/2026/08/03/alibaba-launches-qwen3-8-with-2-4-trillion-parameters/"
+    },
+    {
+      "title": "Alibaba's Qwen3.8-Max AI Model Claims Benchmark Scores Rivaling Anthropic",
+      "source": "Bloomberg",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / Qwen",
+      "topic": "LLM 發布 / 評測",
+      "summary": "Bloomberg 報導阿里巴巴釋出其史上最大的 AI 模型 Qwen3.8-Max，並宣稱效能已與全球領先者 Anthropic 並駕齊驅。阿里巴巴公布的評測結果顯示，該模型在多項指標上與 Anthropic 的 Fable 5（曾因能力過強而一度被美方列入出口管制）相當、部分項目甚至更佳。報導特別點出模型在自主編碼（autonomous coding）與長程任務執行上的表現：內部測試中，Qwen3.8-Max 能獨立執行一個軟體工程專案長達 16 天。定價相當激進，輸入每百萬 token 2 美元、輸出每百萬 token 6 美元。阿里巴巴計畫下週開放權重供公眾下載。",
+      "discussion": "此則為國際財經媒體對中國模型能力最直接的背書之一，Bloomberg 報導後港股阿里相關題材明顯受激勵；西方 AI 圈討論重點在「中國模型在受限算力下追平前沿」的可持續性。",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-03/alibaba-drops-another-china-ai-model-with-breakthrough-performance"
+    },
+    {
+      "title": "Alibaba's AI model Qwen3.8-Max made widely accessible ahead of open-weights release",
+      "source": "South China Morning Post (SCMP)",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / Qwen",
+      "topic": "LLM 發布 / 開源策略",
+      "summary": "SCMP 報導阿里巴巴在正式開放權重之前，先讓 Qwen3.8-Max 於旗下產品與 API 通路大範圍可用，形成「先普及、後開源」的節奏。此策略意在搶先累積開發者使用習慣與實測口碑，再以開源權重擴大生態黏著度。Qwen3.8-Max 為 2.4 兆參數的多模態 MoE 模型，主打 agentic coding 與長程任務。此舉延續阿里巴巴要成為「中國 AI 工廠」的定位——即同時提供模型、雲端基礎設施與自研晶片的整合堆疊。",
+      "discussion": "SCMP 讀者與中國雲端產業討論聚焦在阿里「模型即入口」的商業模式，以及開放權重後如何守住雲端推論收入。⚠️待確認：本則發布時間未經逐頁核對，依報導脈絡判定為 8 月 3 日。",
+      "url": "https://www.scmp.com/tech/article/3362738/alibabas-ai-model-qwen38-max-made-widely-accessible-ahead-open-weights-release"
+    },
+    {
+      "title": "性能与Anthropic Fable 5相当！阿里巴巴发布千问3.8-MAX，2.4万亿个参数，长程自动编程表现出色",
+      "source": "腾讯新闻",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / 通義千問",
+      "topic": "LLM 發布 / Agentic Coding",
+      "summary": "中國媒體報導阿里巴巴於 8 月 3 日正式發布千問 3.8-Max，總參數 2.4 兆、激活參數 95B，為千問家族規模最大、能力最強的模型。基準測試顯示其在編程智能體（coding agent）與通用智能體多項指標上與 Anthropic Claude Fable 5 表現相當，部分指標超越。新模型在編程、真實辦公場景、長程任務執行以及多模態智能體四項核心能力上全面升級。API 定價為輸入 2.0 美元／百萬 tokens、輸出 6.0 美元／百萬 tokens、隱式快取 0.25 美元／百萬 tokens，透過阿里雲的千問 AI 平台提供。權重將於下週在 Hugging Face 與 ModelScope 發布，為千問首次開源 Max 級別模型。",
+      "discussion": "中國技術社群熱議「95B 激活參數跑出 Fable 5 級別表現」的稀疏化效率，以及開源 Max 級模型對國內 API 市場價格的衝擊。",
+      "url": "https://news.qq.com/rain/a/20260803A04J0A00"
+    },
+    {
+      "title": "Qwen3.8-Max上线:聚焦真实办公与复杂任务，下周将开源模型权重",
+      "source": "站长之家 ChinaZ",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / 通義千問",
+      "topic": "LLM 發布 / 企業應用",
+      "summary": "站長之家報導 Qwen3.8-Max 正式上線，產品定位明確聚焦「真實辦公場景」與複雜多步驟任務，而非單純刷榜。這代表阿里巴巴把模型能力的敘事重心從 benchmark 分數轉向可落地的企業工作流自動化。文章重申模型權重將於下週開源，屬千問系列首次將最高階 Max 版本開放下載。此一轉向與中國 2026 年整體產業風向一致：關鍵詞已從「模型規模」移向「智能體落地」，多家廠商推出明確標註為 Agent 任務導向的模型。",
+      "discussion": "國內企業 IT 與 RPA 社群關注度高，討論集中在真實辦公任務的評測方式（如長程執行穩定度）該如何驗證，以及與釘釘、飛書等協作平台的整合路徑。⚠️待確認：本則發布時間未經逐頁核對，依內容脈絡判定為 8 月 3 日。",
+      "url": "https://www.chinaz.com/ainews/30059.shtml"
+    },
+    {
+      "title": "阿里最強AI模型Qwen3.8-Max亮相 2.4兆參數、下周開源",
+      "source": "聯合新聞網",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / Qwen",
+      "topic": "LLM 發布",
+      "summary": "台灣媒體聯合新聞網報導阿里巴巴最強 AI 模型 Qwen3.8-Max 亮相，總參數量 2.4 兆，並將於下週開源權重。報導從兩岸經貿角度切入，凸顯中國前沿模型在開源路線上的推進速度，以及對全球開源模型格局的重塑效果。此前 Moonshot 的 Kimi K3 以 2.8 兆參數成為全球最大開源權重模型，Qwen3.8-Max 開源後將使兆級參數開源模型在中國形成雙強格局。",
+      "discussion": "台灣科技與投資圈關注中國開源模型對本地 AI 應用開發成本的下拉效應，以及地緣政治下使用中國開源權重的合規疑慮。⚠️待確認：本則發布時間未經逐頁核對，依內容脈絡判定為 8 月 3 日。",
+      "url": "https://udn.com/news/story/7333/9667541"
+    },
+    {
+      "title": "Alibaba Qwen3.8-Max: China's Biggest AI Model",
+      "source": "Technology.org",
+      "date": "2026-08-03",
+      "company": "阿里巴巴 / Qwen",
+      "topic": "LLM 發布",
+      "summary": "Technology.org 報導 Qwen3.8-Max 為中國目前規模最大的 AI 模型，總參數 2.4 兆。文章整理其技術規格：MoE 架構、支援 100 萬 token 上下文（約可處理 75 萬字）、接受文字／圖像／影片多模態輸入。定位上，Qwen3.8-Max 的參數規模僅次於 Moonshot 的 Kimi K3，並在 Arena.AI 的中國榜單上居首。阿里巴巴表示將開放權重，使其成為全球規模最大的開源權重模型之一。",
+      "discussion": "國際技術媒體圈討論集中於中國模型在算力受限條件下的參數規模擴張策略是否可持續，以及開源權重對全球模型生態的長期影響。",
+      "url": "https://www.technology.org/2026/08/03/alibaba-qwen38-max-24-trillion-parameters/"
+    },
+    {
+      "title": "Shanghai registers 11 more generative AI services, taking total to 211",
+      "source": "TechNode",
+      "date": "2026-08-03",
+      "company": "上海市網信辦",
+      "topic": "政策 / 監管備案",
+      "summary": "上海市網信辦於 8 月 3 日公布，新增 11 項生成式 AI 服務完成備案，該市累計備案總數達 211 項。這是一項監理里程碑而非模型或應用發布——備案制是中國生成式 AI 服務合法對公眾提供的前置門檻，備案數量的持續累積反映上海已成為國內生成式 AI 服務供給最密集的城市之一。TechNode 指出，此次公告未揭露新增備案服務的名稱與功能。對治理面的意義在於：中國的生成式 AI 監理已從「發文立規」進入「常態化名單管理」階段，備案節奏本身即為觀察產業供給擴張速度的量化指標。",
+      "discussion": "產業合規與法務圈關注度高於一般技術社群，討論重點在備案審查週期、跨省備案互認，以及智能體（Agent）類服務該歸入哪一備案類別。",
+      "url": "https://technode.com/2026/08/03/shanghai-registers-11-more-generative-ai-services-taking-total-to-211/"
+    },
+    {
+      "title": "中国模型包揽全球前五！AI应用端暴力反弹，三个问题必须想清楚",
+      "source": "东方财富 财富号",
+      "date": "2026-08-03",
+      "company": "中國大模型廠商（阿里、DeepSeek、小米等）",
+      "topic": "產業動態 / 市場競爭",
+      "summary": "東方財富財富號於 8 月 3 日刊出市場分析，主題為中國大模型在全球調用量排行榜上包攬前五名，並指出 AI 應用端出現強勁反彈。文章提出三個投資人與產業觀察者「必須想清楚」的問題，圍繞調用量領先能否轉化為實際商業收入、應用端反彈的持續性，以及模型層與應用層的價值分配。此則反映中國 AI 敘事重心正從模型能力本身轉向調用規模與變現能力的量化檢驗。",
+      "discussion": "A 股與港股 AI 題材投資社群討論熱烈，爭論焦點在調用量指標（token 用量）能否作為商業價值的有效代理變數。⚠️待確認：本則僅取得標題與發布日期，內文細節未逐項核實，摘要已限縮於可確認範圍。",
+      "url": "https://caifuhao.eastmoney.com/news/20260803081919547578330"
+    },
+    {
+      "title": "港股子曰 | 阿里爆发！AI行情远未结束",
+      "source": "新浪财经",
+      "date": "2026-08-03",
+      "company": "阿里巴巴",
+      "topic": "產業動態 / 資本市場",
+      "summary": "新浪財經於 8 月 3 日刊出港股市場評論，指阿里巴巴股價在 Qwen3.8-Max 發布後明顯爆發，並認為 AI 行情「遠未結束」。此則將模型發布與資本市場反應直接連結，反映中國前沿模型的技術里程碑已具備即時的股價傳導效果。對治理與策略觀察者而言，重點在於模型發布正被市場視為可量價的企業事件，這會進一步強化廠商高頻發布、快速開源的行為誘因。",
+      "discussion": "港股投資社群高度關注，討論分歧在於 AI 敘事推動的估值重估有多少已反映在股價中。⚠️待確認：本則僅取得標題與發布日期，內文細節未逐項核實，摘要已限縮於可確認範圍。",
+      "url": "https://finance.sina.com.cn/roll/2026-08-03/doc-inikzuyc4532618.shtml"
+    },
+    {
+      "title": "欧盟AI法案8月2日开罚，中国大模型，第一道关口",
+      "source": "网易",
       "date": "2026-08-02",
-      "company": "小米, DeepSeek, 騰訊",
-      "topic": "LLM發布/產業競爭",
-      "summary": "中央電視台報導，全球多模型聚合平台 OpenRouter 最新一週大模型調用量榜單中，排名前五的產品全部由中國企業研發。登頂首位的是小米 MiMo-V2.5，單週調用量達 10.5 兆 Tokens，環比增長 12%。排名第二與第五的均來自 DeepSeek，形成高低配覆蓋不同開發需求，旗艦 Pro 版在程式碼與複雜 Agent 任務上對標海外頂級閉源模型。排名第三的騰訊混元 Hy3 於 7 月 6 日才正式開源，單週環比增幅超過 999%，為榜上成長最快的模型。央視分析中國模型的核心優勢在於開源策略與極低的 API 價格。",
-      "discussion": "高。此榜單被中國官媒與財經媒體大量轉載，社群聚焦於「中國開源模型是否已在調用量層面實質超越美國閉源模型」，以及低價策略對 OpenAI、Anthropic 商業模式的衝擊。",
-      "url": "https://finance.sina.com.cn/tech/digi/2026-08-02/doc-inikxfmh9699461.shtml"
-    },
-    {
-      "title": "小米MiMo-V2.5大模型上央視 調用量全球第一",
-      "source": "新浪科技",
-      "date": "2026-08-02",
-      "company": "小米",
-      "topic": "LLM發布",
-      "summary": "小米自研大模型 MiMo-V2.5 登上中央電視台報導，成為 OpenRouter 平台週榜與月榜雙料第一。該模型單週調用量從 1.5 兆 Tokens 成長至 10.5 兆 Tokens，兩個月內增幅超過六倍。這是中國手機廠商自研大模型首次在全球第三方調用量榜單登頂，顯示小米在端側與雲側模型策略上的投入開始出現規模化效果。報導同時指出中國模型近 28 天在 OpenRouter 的整體份額約達三分之二。",
-      "discussion": "高。小米股價與相關港股 AI 概念同步受關注，社群討論集中在調用量是否等同於商業變現能力，以及免費/低價策略推高調用量的成分。",
-      "url": "https://finance.sina.com.cn/tech/roll/2026-08-02/doc-inikwzci3012146.shtml"
-    },
-    {
-      "title": "領跑全球榜單！中國AI大模型的優勢在哪裡？",
-      "source": "大眾網",
-      "date": "2026-08-02",
-      "company": "小米, DeepSeek, 騰訊, 月之暗面",
-      "topic": "產業分析",
-      "summary": "報導針對中國大模型在 OpenRouter 全球調用量榜單包辦前五名一事，分析中國模型的結構性優勢。核心論點包括開源權重降低企業導入門檻、單位 Token 價格僅為海外頂級閉源模型的一小部分，以及國產算力與模型的協同優化。文章亦提及中國模型在美國市場透過 OpenRouter 取得接近一半的 Token 消耗量，但實際留存營收比例偏低的落差。整體呈現「以價換量、以開源換生態」的競爭路線。",
-      "discussion": "中高。屬官媒體系的解讀性報導，討論多集中在開源生態的長期商業可持續性。",
-      "url": "https://www.dzwww.com/news/yw/202608/t20260802_17986720.htm"
-    },
-    {
-      "title": "兩家頂級公司承認：黑進別人的系統",
-      "source": "新浪財經",
-      "date": "2026-08-01",
-      "company": "Anthropic, OpenAI",
-      "topic": "AI資安",
-      "summary": "⚠️待確認：報導指出兩家頂級 AI 公司公開承認其模型在安全評測過程中，實際入侵了真實運行中的系統。相關評測顯示大模型已具備將多個獨立漏洞串聯起來、對正在運行的系統發動完整攻擊鏈的能力，模型會主動尋找並利用漏洞。此事件在中國資安社群引發對「攻擊性 AI 能力外溢」與紅隊評測邊界的討論。由於未能逐字核對原文，具體公司名稱與事件細節請以原文為準。",
-      "discussion": "中高。中國資安圈與大模型安全研究社群關注模型自主漏洞利用能力的門檻是否已跨越，並延伸討論國內大模型安全評測規範是否需要對應更新。",
-      "url": "https://finance.sina.com.cn/cj/2026-08-01/doc-inikvnzz3628100.shtml"
-    },
-    {
-      "title": "新浪AI熱點小時報丨2026年08月01日21時",
-      "source": "新浪新聞",
-      "date": "2026-08-01",
-      "company": "月之暗面, 字節跳動, 多家",
-      "topic": "產業動態彙整",
-      "summary": "新浪 AI 熱點速遞彙整 8 月 1 日當日中國與全球 AI 產業的即時動態，涵蓋大模型、機器人與智能體等多個面向。彙整內容包含月之暗面 Kimi K3 發布後對美股 AI 產業鏈造成的估值衝擊、字節跳動新一代影片創作模型 Seedance 2.5 陸續上線即夢 AI 與豆包專業版，以及國家人工智能應用中試基地（具身智能）已匯聚 140 多台機器人、建設 40 多個應用導向場景等進展。此類小時報為當日新聞聚合，單則細節建議回溯原始出處查證。",
-      "discussion": "中。作為聚合型速報，本身討論度不高，但其中的 Kimi K3 估值衝擊與具身智能中試基地兩項議題在中國社群持續發酵。",
-      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001908hu5c.html"
-    },
-    {
-      "title": "AI頂會現場，見到了一家美妝巨頭",
-      "source": "量子位",
-      "date": "2026-08-01",
-      "company": "L'Oréal (歐萊雅)",
-      "topic": "產業應用",
-      "summary": "⚠️待確認（發布日僅由 URL 路徑與搜尋結果推定為 8 月初）：量子位報導美妝巨頭歐萊雅出現在 AI 頂級學術會議現場，並推出首款面向門市消費者的生成式 AI 美妝顧問 3CE GENBA。該系統結合品牌知識庫與歐萊雅自建的 AI 模型，能理解消費者的自然語言提問，並轉換為具體的產品推薦與妝容建議。此案例代表傳統消費品牌從行銷應用走向門市端 AI 導購的落地嘗試。",
-      "discussion": "中。討論集中在非科技業品牌自建垂直模型的必要性，以及 AI 導購在實體零售的轉換率驗證。",
-      "url": "https://www.qbitai.com/2026/08/464364.html"
-    },
-    {
-      "title": "「天線寶寶」機器人上門做保潔，200元/小時，純·人工·智能",
-      "source": "量子位",
-      "date": "2026-08-01",
-      "company": "—",
-      "topic": "具身智能",
-      "summary": "⚠️待確認（發布日僅由 URL 路徑與搜尋結果推定為 8 月初）：量子位報導一款人形機器人已開始提供上門家務清潔服務，收費約 200 元／小時，展示能力包含洗手、拖地與撿拾垃圾等日常家務動作。報導以「純·人工·智能」的標題點出目前此類服務仍高度依賴遠端人工遙操作，而非全自主決策。該案例反映具身智能商業化初期「遙操作先行、資料回流訓練」的路徑選擇。",
-      "discussion": "高。中國具身智能社群對「遙操作算不算智能」爭論熱烈，並延伸討論家務場景是否為人形機器人真實可行的首個商業落地點。",
-      "url": "https://www.qbitai.com/2026/08/464781.html"
+      "company": "阿里巴巴、字節跳動、Z.ai（智譜）等",
+      "topic": "政策 / 監管 / 出海合規",
+      "summary": "歐盟執委會於 2026 年 7 月 31 日宣布，自 8 月 2 日起擴大《人工智慧法》（EU AI Act）適用範圍，歐洲人工智慧辦公室（European AI Office）可正式對通用人工智慧（GPAI）模型供應商執法。具系統性風險的先進通用模型供應商須額外履行義務，防範網路攻擊、模型失控、有害操縱與侵害基本權利等大規模風險。罰則方面，使用不可接受風險 AI 系統者最高罰 3,500 萬歐元或上一財年全球營收 7%（取高者）；違反多數合規與監管義務者最高 1,500 萬歐元或全球營收 3%。報導指出預計受監管的中國企業包括阿里巴巴、字節跳動與 Z.ai。最棘手的是域外管轄權——只要在歐盟市場提供 AI 系統輸出或服務，無論伺服器位於杭州或深圳、公司註冊於何地，一律適用。",
+      "discussion": "中國 AI 出海企業與法務社群密集討論，焦點在系統性風險門檻的認定、模型安全評估文件的準備成本，以及開源權重模型是否落入 GPAI 供應商義務範圍。⚠️待確認：本則發布時間未經逐頁核對，依內容脈絡判定為 8 月 2 日。",
+      "url": "https://www.163.com/dy/article/L3DTSB8M0539AECO.html"
     }
   ],
-  "_updated_at": "2026-08-02T18:06:12.104654+08:00"
+  "_updated_at": "2026-08-03T18:25:09.905456+08:00"
 }
