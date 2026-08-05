@@ -1,145 +1,185 @@
 {
   "items": [
     {
-      "title": "阿里企业级 Agent 产品\"千问办公\"开启公测，集成最新旗舰模型 Qwen3.8",
-      "source": "新浪科技",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
+      "title": "Tech Brief (Aug. 4): Alibaba Launches New Large Model to Power Enterprise-Facing AI Agent",
+      "source": "Caixin Global",
+      "date": "2026-08-04",
+      "company": "Alibaba",
       "topic": "AI Agent",
-      "summary": "阿里巴巴於 8 月 3 日推出企業級 Agent 產品「千問辦公」並開啟公測，個人與企業用戶可透過官網 qwenwork.cn 使用，目前提供網頁版與 PC 獨立客戶端，釘釘 PC 與行動版入口將陸續開放。該產品是 QoderWork、MuleRun、悟空三條產品線的整合結果，官方稱為業界首個同時支援桌面 Agent、雲端 Agent 與企業協同 Agent 三種形態的產品。內部搭載阿里最新旗艦模型 Qwen3.8，強調 Coding 與 Cowork（專業辦公）兩大能力。此舉正式點燃中國大廠在「AI 辦公智能體入口」的爭奪戰，與字節跳動、騰訊近期的 AI 辦公佈局形成正面對撞。對企業而言，關鍵變化是任務分配權開始從人轉移到 Agent 手上。",
-      "discussion": "討論度高。中國科技媒體普遍以「AI 辦公智能體入口之爭打響」定調，社群焦點集中在三條產品線整合後的定價、資料權限邊界，以及與釘釘既有工作流的整合深度。",
-      "url": "https://finance.sina.com.cn/tech/digi/2026-08-03/doc-inikzeat6106660.shtml"
+      "summary": "阿里巴巴發布新一代基座大模型 Qwen3.8，總參數量達 2.4 兆（2.4 trillion），為 Qwen 系列歷來規模最大、能力最強的模型。同日阿里推出企業級 Agent 產品「千問辦公」（QwenWork）公測版，由 Qwen3.8 驅動，整合三項既有產品線於單一入口。此舉將模型能力直接綁定到企業辦公場景的 Agent 工作流，而非僅提供 API。消息帶動阿里巴巴港股當日收漲約 7%，收在 125.2 港元。市場解讀為中國大廠競爭主軸已從模型參數轉向 Agent 產品化落地。",
+      "discussion": "財經與科技媒體高度關注，股價反應強烈；討論集中在「模型即產品」路線能否轉換為企業付費訂閱。",
+      "url": "https://www.caixinglobal.com/2026-08-04/tech-brief-aug-4-alibaba-launches-new-large-model-to-power-enterprise-facing-ai-agent-102471085.html"
     },
     {
-      "title": "\"两万亿俱乐部\"再添一员，阿里发布新一代基座大模型Qwen3.8",
+      "title": "Alibaba Releases New Qwen Model, Consolidates AI Office Tools",
+      "source": "Caixin Global",
+      "date": "2026-08-04",
+      "company": "Alibaba",
+      "topic": "AI Agent",
+      "summary": "財新報導阿里巴巴在發布 Qwen3.8 的同時，將旗下多個 AI 辦公工具整合進「千問辦公」（QwenWork）單一產品線。整合後同時支援桌面端 Agent、雲端 Agent 與企業協同 Agent 三種形態，網頁版與獨立 PC 客戶端已先行開放，釘釘（DingTalk）內建入口將隨後上線。這是中國大廠首次把「本機執行的桌面代理」與「雲端長時任務代理」放進同一套企業產品。整併動作意在收斂過去分散的 AI 工具入口，降低企業導入的選型成本。",
+      "discussion": "企業 IT 圈討論導入與既有 SaaS 的整合成本；開發者關注桌面 Agent 的權限邊界。",
+      "url": "https://www.caixinglobal.com/2026-08-04/alibaba-releases-new-qwen-model-consolidates-ai-office-tools-102471189.html"
+    },
+    {
+      "title": "Alibaba launches next-gen Qwen3.8 with 2.4 trillion parameters",
+      "source": "TechNode",
+      "date": "2026-08-04",
+      "company": "Alibaba",
+      "topic": "LLM發布",
+      "summary": "TechNode 報導阿里巴巴正式推出次世代基座模型 Qwen3.8，總參數 2.4 兆，主打程式撰寫與專業辦公任務能力的大幅提升。Qwen3.8 的 API 已在千問 AI 平台上線，並同步接入當日推出的 Agent 產品「千問辦公」。官方強調其長程自主執行能力，內部測試中可在無人介入下連續推進跨日的軟體工程專案。模型原生支援視覺理解，單次啟用參數約 95B，上下文長度達 100 萬 tokens。此規格使其在開放權重陣營中直接對標 Kimi K3 與 DeepSeek V4 系列。",
+      "discussion": "開發者社群關注 MoE 啟用參數比與實際推論成本；評測圈聚焦其長程 Agent 任務的穩定度。",
+      "url": "https://technode.com/2026/08/04/alibaba-launches-next-gen-qwen3-8-with-2-4-trillion-parameters/"
+    },
+    {
+      "title": "Tencent rolls out Hy3 in WorkBuddy's international edition with limited-time free access",
+      "source": "TechNode",
+      "date": "2026-08-05",
+      "company": "Tencent（騰訊）",
+      "topic": "AI Agent",
+      "summary": "騰訊將混元 Hy3 大模型接入 WorkBuddy 國際版，這是該模型首次在全球版 AI 工作空間中上線。全球使用者可在 2026 年 8 月 31 日（太平洋時間）前免費使用。Hy3 採 MoE 架構，總參數 295B、啟用參數 21B，上下文長度最高 256K tokens，屬快慢思考混合模型。騰訊表示 Hy3 的 API 調用量較前代成長逾 68 倍，並在發布一週內登上 OpenRouter 全球 LLM 使用量排行首位。在騰訊內部辦公環境評測中，WorkBuddy 搭配 Hy3 的任務成功率超過 90%，平均任務完成時間較前代縮短 34%。",
+      "discussion": "海外開發者社群關注免費期後的定價；Agent 圈討論其與 OpenClaw、Cline、Cherry Studio 等第三方客戶端的相容性。",
+      "url": "https://technode.com/2026/08/05/tencent-rolls-out-hy3-in-workbuddys-international-edition-with-limited-time-free-access/"
+    },
+    {
+      "title": "China's Tencent makes AI model Hy3 available globally through WorkBuddy, cloud, developer platforms",
+      "source": "TNGlobal (TechNode Global)",
+      "date": "2026-08-05",
+      "company": "Tencent（騰訊）",
+      "topic": "AI Agent",
+      "summary": "騰訊宣布 Hy3 模型全面對全球開發者、企業與一般使用者開放，通路涵蓋辦公 Agent 工具 WorkBuddy、創作平台 Tencent Design Miora 與模型平台 TokenHub。模型以 Apache 2.0 授權在 Hugging Face 與 ModelScope 開源，並可透過 Hermes、Kilo、Cline、OpenClaw、OpenCode、Cherry Studio 等第三方開發者平台調用。這是騰訊繼 7 月正式發布 Hy3 後，第一次進行系統性的海外全通路鋪貨。策略上明顯以「開源授權＋免費期＋多客戶端相容」搶佔海外 Agent 開發者生態位。",
+      "discussion": "海外 AI 媒體與開源社群轉載密集，討論中國模型以寬鬆授權換取生態滲透的長期效應。",
+      "url": "https://technode.global/2026/08/05/chinas-tencent-makes-ai-model-hy3-available-globally-through-workbuddy-cloud-developer-platforms/"
+    },
+    {
+      "title": "繼續免費！騰訊WorkBuddy官宣Hy3模型限時免費體驗延期",
       "source": "新浪科技",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
-      "topic": "LLM發布",
-      "summary": "阿里巴巴 8 月 3 日正式發布新一代基座大模型 Qwen3.8，總參數量達 2.4 兆，採稀疏 MoE 架構、每次推理啟動約 95B 參數，支援視覺理解與 100 萬 Token 上下文長度，正式進入「兩兆參數俱樂部」。本次升級主軸為 Coding（編程）與 Cowork（專業辦公）兩大方向。在 Agent 類評測 PaperBench 上，Qwen3.8-Max 較前代大幅提升 28.2 分達到 93.0 分；視覺推理 BabyVision 評測得 82.0 分。API 已上線千問 AI 平台，並同步接入當日推出的 Agent 產品「千問辦公」。阿里表示 Qwen3.8-Max 預計下週開源，同時開源 Qwen3.8-27B。阿里自研真武 M890 超節點已完成適配，在 Agentic 推理場景最高可帶來 1.5 倍效能提升。",
-      "discussion": "極高。中國技術社群關注焦點在「Max 級模型首次開源」的策略轉向，以及 95B 啟動參數的成本結構是否足以支撐大規模 Agent 推理。",
-      "url": "https://finance.sina.com.cn/tech/roll/2026-08-03/doc-inikzeat6121858.shtml"
+      "date": "2026-08-04",
+      "company": "Tencent（騰訊）",
+      "topic": "AI Agent",
+      "summary": "騰訊在 8 月 4 日發布公告，針對 WorkBuddy 與 CodeBuddy 使用者，將混元 Hy3 大模型的免費調用權益再度延期至 2026 年 8 月 31 日。Hy3 為騰訊混元 7 月 6 日正式發布的 MoE 架構模型，總參數 295B、動態啟用 21B，最高支援 256K 長上下文，在複雜推理、Agent 任務與長文件處理上表現突出。接入 WorkBuddy 辦公平台後，整體任務完成成功率提升至 90%，單任務處理耗時縮短 34%，平台內逾六成使用者主動將 Hy3 設為預設模型。持續免費策略使 Hy3 上線後整體調用量較前代 Hy2 暴增 68 倍，長期位居平台模型調用量榜首。",
+      "discussion": "中國開發者社群普遍視為「以免費換調用量」的市佔戰；亦有質疑免費期結束後的留存率。",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-08-04/doc-inimctrr2157025.shtml"
     },
     {
-      "title": "Alibaba shares rally after unveiling Qwen3.8-Max AI model",
-      "source": "CNBC",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
-      "topic": "LLM發布",
-      "summary": "阿里巴巴發布 2.4 兆參數的 Qwen3.8-Max 後，港股股價一度上揚約 6%，美股盤前亦漲約 4%。阿里宣稱該模型效能可與 Anthropic Claude Fable 5 等前沿模型競爭，並將於下週釋出模型權重供公開下載，是 Qwen 系列首個開源的 Max 級模型。此舉被視為阿里在今年多款旗艦模型轉向閉源後，重新回到開源策略的訊號。Counterpoint Research 首席 AI 分析師 Wei Sun 估計，中美模型的整體差距已縮短至 3 到 6 個月，但依任務類型差異顯著。市場同時關注阿里在 AI 資本支出與雲業務營收的連動效應。",
-      "discussion": "國際財經與 AI 圈同步高度關注，主要爭論在於「開源 Max 級模型」對 API 定價與雲端毛利的實際衝擊。",
-      "url": "https://www.cnbc.com/2026/08/03/alibaba-ai-model-qwen-rival-anthropic.html"
+      "title": "DeepSeek V4 Flash tops OpenRouter weekly ranking with 7.22 trillion tokens",
+      "source": "TechNode",
+      "date": "2026-08-05",
+      "company": "DeepSeek",
+      "topic": "LLM評測",
+      "summary": "DeepSeek-V4-Flash 在 OpenRouter 週榜以 7.22 兆 tokens 的調用量登上全球第一。該模型於 7 月 31 日開放 API 公測，一週內即衝上榜首。V4-Flash-0731 架構與參數規模與預覽版一致，僅重新訓練，改進重點集中在程式碼編輯、工具調用（tool calling）與多步驟任務執行等 Agent 核心能力。模型為 MoE 架構，總參數 284B、啟用 13B，支援最高 100 萬 tokens 上下文，並可切換思考／非思考模式。此結果延續中國模型在 OpenRouter 調用量榜單包攬前五的格局。",
+      "discussion": "開發者關注其低價高調用量對 API 市場的擠壓效應；評測圈討論 tokens 調用量是否等同於實際生產採用。",
+      "url": "https://technode.com/2026/08/05/deepseek-v4-flash-tops-openrouter-weekly-ranking-with-7-22-trillion-tokens/"
     },
     {
-      "title": "Alibaba Unveils Its Largest AI Model Yet As China Closes The Gap",
-      "source": "Forbes",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
-      "topic": "LLM發布",
-      "summary": "Forbes 報導阿里巴巴發布史上規模最大的 Qwen3.8-Max，總參數 2.4 兆、支援最高 100 萬 Token 上下文，可一次處理數千頁資訊。文章將此次發布與 DeepSeek、字節跳動近期的模型更新並列，認為中美 AI 能力差距正在快速收斂。分析師觀點指出，差距已從過去的一年以上壓縮到 3 至 6 個月區間。報導亦點出阿里同時面臨 Moonshot AI、DeepSeek、Z.ai 與字節跳動的國內競爭壓力，模型發布節奏已從年度改為季度甚至月度。對治理面而言，模型能力快速趨同意味著採購與風險評估週期必須同步縮短。",
-      "discussion": "西方媒體與投資圈討論熱烈，焦點在中國開源模型對美國閉源商業模式的價格擠壓。",
-      "url": "https://www.forbes.com/sites/gabrielalinzainescu/2026/08/03/alibaba-unveils-its-largest-ai-model-yet-as-china-closes-the-gap/"
-    },
-    {
-      "title": "Alibaba shares jump 6% after launch of Qwen3.8-Max, its biggest AI model yet",
-      "source": "Invezz",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
-      "topic": "產業動態",
-      "summary": "阿里巴巴港股在 Qwen3.8-Max 發布當日上漲約 6%，反映市場對其開源策略回歸的正面評價。報導整理，該模型為 2.4 兆參數規模，官方宣稱效能可比肩 OpenAI 與 Anthropic 的領先模型，並將於下週釋出權重。分析指出，阿里此舉一方面鞏固其在中國開源生態的號召力，另一方面也是對 DeepSeek 以極低價格搶佔 API 市場的反制。文章同時提醒，阿里將於 8 月 17 日公布財報，市場將檢視 AI 資本支出與雲端營收成長的實際對應關係。對金融業採購方而言，模型權重開放意味著私有化部署選項增加。",
-      "discussion": "投資社群討論集中在 AI 資本支出回收週期，以及開源是否會反噬自身 API 營收。",
-      "url": "https://invezz.com/news/2026/08/03/alibaba-shares-jump-6-after-launch-of-qwen3-8-max-its-biggest-ai-model-yet/"
-    },
-    {
-      "title": "Alibaba Unveils Open-source Qwen3.8-Max AI Model",
-      "source": "Dataconomy",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
-      "topic": "LLM發布",
-      "summary": "Dataconomy 報導阿里巴巴發布開源的 Qwen3.8-Max，為該公司迄今規模最大的開源人工智慧模型。模型採 2.4 兆總參數的稀疏 MoE 架構，支援長上下文與多模態視覺理解，官方將於下週釋出可下載權重。這是 Qwen 家族中首個開源的 Max 等級模型，代表阿里在閉源與開源之間的策略再平衡。報導指出，此類超大規模開源權重的釋出，會直接改變企業自建推理叢集的成本試算基礎。同時也牽動下游 Agent 框架與微調生態的選型。對受監管產業而言，權重可下載代表資料不出境的部署路徑變得可行。",
-      "discussion": "開發者社群關注權重授權條款細節，以及 2.4 兆參數規模在實務上的部署門檻。",
-      "url": "https://dataconomy.com/2026/08/03/qwen3-8-max-ai-model/"
-    },
-    {
-      "title": "智谱GLM-5.3\"闪现\"一小时，官方SDK已更新模型名",
-      "source": "腾讯新闻",
-      "date": "2026-08-03",
-      "company": "智譜 AI (Zhipu / Z.ai)",
-      "topic": "LLM發布",
-      "summary": "智譜 AI 的下一代模型 GLM-5.3 於 8 月 3 日意外提前曝光——官方說明文件頁面短暫對外開放約一小時，期間不少人直接存取到相關頁面，微軟 Bing 搜尋亦已收錄該頁快照。智譜開發者在官方 Java SDK 範例程式碼中同步更新，提交說明寫著「新功能：新增 glm-5.3 模型，支援 JSON Schema」。從已曝光的文件內容看，GLM-5.3 補齊了原生多模態視覺的短板，並在超長文件處理、科研推理與企業 Agent 能力上有大幅優化。智譜工作人員事後表示技術人員已排查問題，並希望相關資訊刪除。此次「閃現」使外界提前掌握了智譜在 GLM-5.2 之後的迭代方向。",
-      "discussion": "中國 AI 社群討論度高，被視為國產旗艦模型發布節奏加速的訊號；亦有人批評廠商在發布流程上的資安控管不足。",
-      "url": "https://news.qq.com/rain/a/20260803A0AQ0K00"
-    },
-    {
-      "title": "DeepSeek's new AI model is by far the cheapest of well-known models to run, research firm says",
-      "source": "Reuters (via KFGO)",
-      "date": "2026-08-03",
+      "title": "DeepSeek-V4-Flash API launches on China's National Supercomputing Internet",
+      "source": "TechNode",
+      "date": "2026-08-04",
       "company": "DeepSeek",
       "topic": "LLM發布",
-      "summary": "第三方評測機構 Artificial Analysis 指出，DeepSeek 於 8 月 1 日正式發布的 V4-Flash 是全球知名模型中執行成本最低者，跑完一次基準測試的平均成本約 3 美分，相較之下 Moonshot AI 的 Kimi K3 為 86 美分、OpenAI GPT-5.6 Sol 為 1.86 美元、Anthropic Claude Fable 5 為 3.15 美元，換算差距超過 100 倍。V4-Flash 定價為每百萬輸入 Token 0.14 美元、輸出 0.28 美元。模型規模為 2,840 億總參數、約 130 億啟動參數，主打低成本與高吞吐的應用場景。DeepSeek 據傳正在籌備 IPO，此次以極致性價比切入被視為重奪市場動能的關鍵一步。對成本敏感的大規模 Agent 部署而言，這個價格帶會直接改變架構選型。",
-      "discussion": "全球開發者社群反應強烈，主要討論在「超低價 + 開放權重」對美國閉源 API 商業模式的長期侵蝕。",
-      "url": "https://kfgo.com/2026/08/03/deepseeks-new-ai-model-is-by-far-the-cheapest-of-well-known-models-to-run-research-firm-says/"
+      "summary": "DeepSeek-V4-Flash 進入公測後，中國「國家超算互聯網」平台在首日同步上線 API 存取與模型下載服務。此舉將國產旗艦開源模型直接掛載到國家級算力調度基礎設施上，降低企業與研究單位取得推論算力的門檻。V4-Flash 的重點升級在 Agent 相關能力，包括程式碼編輯、工具調用與多步驟任務執行。國家超算互聯網的加入，等同於在商業雲之外提供第二條國產模型分發通道。對受出口管制影響的機構而言，這是算力與模型綁定的一條可控路徑。",
+      "discussion": "產業界討論國家算力平台與商業雲的定位分工；亦有觀點認為此為國產算力—模型垂直整合的訊號。",
+      "url": "https://technode.com/2026/08/04/deepseek-v4-flash-api-launches-on-chinas-national-supercomputing-internet/"
     },
     {
-      "title": "Alibaba unveils its largest, most capable AI model yet as DeepSeek launches ultra-low-cost rival",
-      "source": "American Bazaar",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / DeepSeek",
-      "topic": "LLM發布",
-      "summary": "報導將同一週內的兩起中國模型發布並置分析：阿里巴巴推出 2.4 兆參數的 Qwen3.8-Max 主打頂規能力，DeepSeek 則以 V4-Flash 主打極低推理成本，形成「高端」與「極致性價比」的雙線夾擊。文章認為，兩者合計對美國模型廠商造成的壓力來自不同方向——一個削弱能力領先的敘事，一個直接壓縮定價空間。DeepSeek V4-Flash 為 2,840 億參數、約 130 億啟動參數的 MoE 架構。阿里則承諾下週釋出 Qwen3.8-Max 權重。中美模型差距被業界估算已縮短至 3 至 6 個月。對企業採購而言，這代表選型窗口從「能不能用」轉向「單位成本多少」。",
-      "discussion": "國際媒體與產業分析社群關注中國廠商「雙線包夾」策略的可持續性與毛利壓力。",
-      "url": "https://americanbazaaronline.com/2026/08/03/alibaba-unveils-its-largest-most-capable-ai-model-485698/"
+      "title": "一個月9款旗艦，大模型進入「月拋」時代？",
+      "source": "新浪財經",
+      "date": "2026-08-05",
+      "company": "阿里巴巴、DeepSeek、騰訊、月之暗面等",
+      "topic": "產業趨勢",
+      "summary": "新浪財經檢視近一個月中國大模型發布節奏，指出單月內出現 9 款旗艦級模型，發布間隔壓縮到以週計。文章以「月拋」形容模型迭代速度，反映廠商在 Agent 能力上的軍備競賽已進入短週期對標階段。密集發布的代價是單一模型的市場注意力窗口大幅縮短，開發者遷移成本上升。同時，評測榜單的更新速度已跟不上模型發布速度，使得能力比較日益困難。文章質疑此節奏是否可持續，以及是否會擠壓實際落地驗證的時間。",
+      "discussion": "中文科技社群共鳴度高，討論「發布速度 vs 生產可用性」的落差與企業選型困境。",
+      "url": "https://finance.sina.com.cn/jjxw/2026-08-05/doc-inimffsv4836249.shtml"
     },
     {
-      "title": "前五全是中国产品！中国AI大模型调用量连续十四周领跑：DeepSeek-V4-Flash登顶",
-      "source": "东方财富网",
-      "date": "2026-08-03",
-      "company": "DeepSeek / 小米 / 阿里巴巴",
-      "topic": "產業動態",
-      "summary": "最新一週全球大模型調用量榜單顯示，前五名全數為中國模型。DeepSeek-V4-Flash 升至第一，週調用量達 7.22 兆 Token、環比成長 13%；小米 MiMo-V2.5 以 6.3 兆 Token 位居第二。中國大模型週調用量已連續十四週超過美國，穩居全球首位。此一數據反映中國模型在「開源 + 低價 + 高可得性」策略下，實際使用量而非僅是評測分數上的領先。值得注意的是，DeepSeek-V4-Flash 才剛於 8 月 1 日發布即登頂，顯示價格對調用量的槓桿效應極為直接。對治理面而言，調用量集中於少數幾個中國模型，也意味著供應鏈與模型依賴的集中度風險上升。",
-      "discussion": "中國財經與科技社群廣泛轉載，討論焦點在調用量統計口徑（多以 OpenRouter 等聚合平台為基礎）是否足以代表真實產業使用。",
-      "url": "https://emwap.eastmoney.com/a/202608033829571627.html"
+      "title": "Moonshot AI reportedly opens pre-IPO round at $50 billion valuation as Kimi K3 drives demand",
+      "source": "TechNode",
+      "date": "2026-08-05",
+      "company": "Moonshot AI（月之暗面）",
+      "topic": "融資",
+      "summary": "月之暗面（Moonshot AI）據報已啟動 G 輪 Pre-IPO 融資，估值目標達 500 億美元。此輪緊接在上一輪約 350 億美元估值的融資之後，估值在短時間內大幅跳升。推動力來自 7 月中發布的旗艦模型 Kimi K3——總參數 2.8 兆的開放權重模型，主打長程程式撰寫與知識工作場景。公司同時在拆除離岸架構，為最快年底前的香港 IPO 鋪路。若成局，這將是其上市前最後一輪私募。",
+      "discussion": "一級市場與港股投資圈高度關注；爭論點在於估值跳升速度是否已脫離營收基本面。",
+      "url": "https://technode.com/2026/08/05/moonshot-ai-reportedly-opens-pre-ipo-round-at-50-billion-valuation-as-kimi-k3-drives-demand/"
     },
     {
-      "title": "中国大模型调用量连续十四周领跑全球，人工智能主题指数强势涨超4%",
-      "source": "新浪财经",
+      "title": "DeepSeek reportedly reopens talks on a RMB50 billion second funding round",
+      "source": "TechNode",
+      "date": "2026-08-05",
+      "company": "DeepSeek",
+      "topic": "融資",
+      "summary": "多名交易人士透露，DeepSeek 已重啟第二輪融資，計畫募資人民幣 500 億元，投前估值約人民幣 5,000 億元。該輪原於 7 月中啟動，7 月底一度暫停，如今重新推進，預計 8 月下旬完成簽約。第一輪融資於今年 4 月啟動、6 月完成，同樣募資 500 億元，估值逾 3,500 億元，本輪投前估值較前輪上升約 43%。首輪表達投資意向的資金規模逾 1,000 億元，最終僅接納 500 億元，顯示仍有大量資金在場外等待。",
+      "discussion": "中國創投圈熱議估值躍升幅度與可承接資金規模；亦關注創辦人梁文鋒對外部訊息外流的態度。",
+      "url": "https://technode.com/2026/08/05/deepseek-reportedly-reopens-talks-on-a-rmb50-billion-second-funding-round/"
+    },
+    {
+      "title": "消息稱DeepSeek重啟第二輪融資，投前估值5000億元",
+      "source": "新浪科技",
+      "date": "2026-08-05",
+      "company": "DeepSeek",
+      "topic": "融資",
+      "summary": "新浪科技報導 DeepSeek 重啟第二輪融資，本輪計畫募資人民幣 500 億元，投前估值約人民幣 5,000 億元，並計畫於 8 月下旬完成簽約。此輪為該公司今年第二次大規模私募，距首輪完成僅約兩個月。報導引述交易人士說法，指前次暫停與外部流傳的所謂「投資人會議紀要」爭議有關。以現行估值計算，DeepSeek 已成為中國估值最高的基礎模型公司之一。融資節奏與其 V4 系列模型的調用量爆發同步，資本市場明顯將模型使用量視為估值錨點。",
+      "discussion": "中文財經社群討論度極高，多家媒體同日跟進；焦點在估值合理性與 IPO 時程。",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-08-05/doc-inimfsht1512576.shtml"
+    },
+    {
+      "title": "Shanghai-based AI-chip startup reportedly completes A1 round at valuation above RMB10 billion",
+      "source": "TechNode",
       "date": "2026-08-04",
-      "company": "中國 AI 產業",
-      "topic": "產業動態",
-      "summary": "截至 2026 年 8 月 4 日，中國 AI 大模型週調用量達 28.13 兆 Token，環比下滑 14.76%；同期美國 AI 大模型週調用量為 4.38 兆 Token，環比成長 87.18%。中國大模型週調用量已連續十四週超越美國，穩居全球首位，但雙方環比走勢出現反向，值得後續觀察。資本市場同步反應，8 月 4 日午盤中證人工智慧主題指數（930713）大漲 4.65%，成分股中協昌數據漲 15.23%、新易盛漲 11.88%、艾可藍漲 10.78%。此輪上漲與阿里 Qwen3.8、DeepSeek V4-Flash 的密集發布高度相關。整體顯示中國 AI 敘事已從模型能力轉向實際調用規模與商業化落地。",
-      "discussion": "中國投資社群討論度高，關注點在中國調用量環比下滑與美國大幅回升是否代表趨勢反轉。",
-      "url": "https://finance.sina.com.cn/stock/t/2026-08-04/doc-inimcpii4136552.shtml"
+      "company": "方晴科技（Fangqing Technology）",
+      "topic": "融資",
+      "summary": "一家位於上海的 AI 晶片新創據報完成 A1 輪融資，投後估值超過人民幣 100 億元。在成立相對早期階段即達到百億元人民幣估值，反映中國資本對國產 AI 算力供應鏈的追捧程度。此輪融資發生在美國對高階 AI 晶片出口管制持續收緊的背景下，國產替代邏輯是主要驅動。同期 DeepSeek 亦被報導啟動自研 AI 晶片以降低對 NVIDIA 的依賴。晶片與模型兩端同時吸金，顯示中國 AI 投資重心正從應用層往底層基礎設施回流。",
+      "discussion": "半導體投資圈關注早期估值泡沫風險；產業界討論國產算力何時能真正承接大模型訓練負載。",
+      "url": "https://technode.com/2026/08/04/shanghai-based-ai-chip-startup-reportedly-completes-a1-round-at-valuation-above-rmb10-billion/"
     },
     {
-      "title": "中国大模型周调用量稳居全球首位，国产AI包揽前五，科创AIETF博时(588790)盘中最高涨超3%",
-      "source": "新浪财经",
+      "title": "Embodied-AI startup PaXini raises RMB1 billion to scale tactile-sensing technology",
+      "source": "TechNode",
       "date": "2026-08-04",
-      "company": "中國 AI 產業",
-      "topic": "產業動態",
-      "summary": "8 月 4 日盤中，科創 AI ETF 博時（588790）最高上漲逾 3%，市場情緒與中國大模型調用量數據及近期密集的模型發布高度連動。最新統計顯示中國大模型週調用量穩居全球首位，全球調用量前五名由國產模型全數包攬。此一結構性領先來自中國廠商在開源權重與低價 API 兩條路徑上的同步推進，使得開發者遷移成本持續下降。對照面，美國模型週調用量雖絕對值較低，但環比成長幅度顯著。市場解讀認為，中國 AI 產業鏈的投資邏輯正從「算力硬體」逐步擴散至「模型調用與應用層」。",
-      "discussion": "中國股市投資者討論熱絡，主要圍繞 AI 主題 ETF 的持續性與調用量能否轉化為實際營收。",
-      "url": "https://finance.sina.com.cn/jjxw/2026-08-04/doc-inimchzt5468113.shtml"
+      "company": "PaXini（帕西尼感知）",
+      "topic": "產業應用",
+      "summary": "具身智慧新創 PaXini 完成人民幣 10 億元戰略融資，累計融資額達人民幣 35 億元。本輪由一家未具名的全球消費電子暨半導體集團、中銀國際投資、鯤鵬基金與合芯方策聯合領投。公司表示其觸覺感測晶片過去一年出貨量接近 100 萬顆，新資金將投入研發、產能擴張與海外市場拓展。觸覺感測是人形機器人從「能動」走向「能操作」的關鍵瓶頸元件。此輪融資規模顯示資本正從機器人本體轉向上游感測與資料層。",
+      "discussion": "機器人產業圈關注觸覺晶片量產良率；投資圈討論具身智慧供應鏈的卡位窗口。",
+      "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/"
     },
     {
-      "title": "中国信通院：2025年中国人工智能产业规模超1.2万亿元 同比增40%",
-      "source": "新浪财经",
-      "date": "2026-08-03",
-      "company": "中國信息通信研究院 (CAICT)",
-      "topic": "政策",
-      "summary": "中國信息通信研究院於 8 月 3 日披露，經測算 2025 年中國人工智慧產業規模超過 1.2 兆元人民幣，年增 40%。產業鏈結構上，基礎層規模年增 59%、占比 38%；模型框架層年增 189%、占比 7%；應用層年增 22%、占比 55%。其中模型框架層近三倍的成長速度，直接反映了 Agent 框架與模型服務中介層在過去一年的爆發。截至 2026 年 6 月，中國人工智慧企業數量超過 6,600 家，全球占比達 15%，已形成涵蓋基礎底座、模型框架、行業應用的完整產業體系。這組官方數據是後續政策制定與地方產業補貼的重要基準。對比之下，應用層占比過半但成長最慢，顯示商業化落地仍是瓶頸。",
-      "discussion": "中國產業界與政策研究圈廣泛引用，討論集中在模型框架層 189% 高成長的統計口徑，以及應用層成長趨緩背後的落地困境。",
-      "url": "https://finance.sina.com.cn/roll/2026-08-03/doc-inikzzhc6151279.shtml"
+      "title": "Embodied-AI data infrastructure startup Kaiwang Data raises more than RMB100 million",
+      "source": "TechNode",
+      "date": "2026-08-05",
+      "company": "開網資料（Kaiwang Data）",
+      "topic": "融資",
+      "summary": "具身智慧資料基礎設施商開網資料完成逾人民幣 1 億元戰略融資。公司為自動駕駛、世界模型（world models）與人形機器人蒐集、標註並管理多模態資料，涵蓋第一人稱裸手影片、觸覺手套資料、夾爪操作與全景影像。官方表示每月可用資料產出已穩定在約 10 萬小時，並已與多家大型企業簽訂批量資料採購協議。這類「賣資料而非賣機器人」的模式，正成為中國具身智慧賽道中變現路徑最清晰的一環。資料供給的規模化，是機器人基座模型訓練能否擺脫模擬資料依賴的關鍵。",
+      "discussion": "具身智慧社群討論真實操作資料的採集成本與版權界定；投資圈視資料層為「賣鏟子」機會。",
+      "url": "https://technode.com/2026/08/05/embodied-ai-data-infrastructure-startup-kaiwang-data-raises-more-than-rmb100-million/"
     },
     {
-      "title": "阿里Qwen3.8正式发布，编程与办公再进化，推理更快更稳定",
-      "source": "腾讯新闻 / 品玩",
-      "date": "2026-08-03",
-      "company": "阿里巴巴 / Qwen",
-      "topic": "LLM發布",
-      "summary": "阿里巴巴 8 月 3 日正式發布 Qwen3.8 系列模型，升級重點鎖定編程（Coding）與專業辦公（Cowork）兩大場景，並強調推理速度與穩定性的改善。模型採稀疏 MoE 架構，總參數 2.4 兆、每次啟動約 95B 參數，支援視覺理解與百萬 Token 上下文。API 已上線千問 AI 平台，並同步接入新推出的 Agent 產品「千問辦公」。阿里表示 Qwen3.8-Max 將於下週開源，並同步開源 Qwen3.8-27B 小尺寸版本，形成大小模型搭配的部署選項。自研真武 M890 超節點已完成適配，在 Agentic 推理場景可帶來最高 1.5 倍效能提升。整體發布顯示阿里已把「模型－硬體－Agent 產品」三層打包成一條完整供應鏈。",
-      "discussion": "中國開發者社群關注 27B 小尺寸版本的實際表現，以及自研超節點適配對國產算力生態的示範效應。",
-      "url": "https://news.qq.com/rain/a/20260803A06BTK00"
+      "title": "AI大模型競速上車：汽車開啟「大腦」突圍戰",
+      "source": "新浪科技",
+      "date": "2026-08-04",
+      "company": "智己汽車、吉利、階躍星辰、千里科技",
+      "topic": "產業應用",
+      "summary": "新浪科技報導車企密集落地車載大模型，競爭從概念試水進入量產落地階段。今年 3 月智己汽車推出「超級智能體」IM Ultra Agent；7 月吉利聯合階躍星辰、千里科技推出升級版量產級艙駕融合智能體「超級 Eva」，目前已搭載於極氪 8X 量產落地。報導同時指出智能體在實際使用中仍不成熟，多數產品的短板在任務調度能力——關鍵在於能否判斷哪些任務值得分析、哪些步驟可省略。這正是 Agent 編排（orchestration）與上下文管理在車載受限算力環境下的具體體現。業界共識是智能體為當前最值得關注的方向，但距真正成熟仍有距離。",
+      "discussion": "汽車與 AI 交叉社群討論熱烈；焦點在座艙 Agent 的實用性與使用者是否真的會用。",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-08-04/doc-inimeeez4046711.shtml"
+    },
+    {
+      "title": "Autonomous-driving company WeRide enters Nordic market through Denmark partnership",
+      "source": "TechNode",
+      "date": "2026-08-04",
+      "company": "WeRide（文遠知行）、GreenMobility",
+      "topic": "產業應用",
+      "summary": "文遠知行（WeRide）與丹麥共享出行業者 GreenMobility 建立策略合作，進軍北歐市場，計畫推出 L4 級自動駕駛共享出行服務。WeRide 提供自動駕駛技術，GreenMobility 貢獻車隊營運與丹麥本地共享出行經驗。雙方目標在 2027 年上半年啟動公共服務，車輛採用 WeRide 最新一代、符合歐盟法規的全自駕車型 GXR。WeRide 目前在 12 個國家、逾 40 個城市部署自動駕駛產品，持有 8 國自駕許可，全球 L4 車隊規模逾 3,000 輛。這是首家中國 Robotaxi 業者進入北歐市場。",
+      "discussion": "自駕圈關注歐盟法規適配進度；產業討論中國自駕業者海外擴張的地緣政治風險。",
+      "url": "https://technode.com/2026/08/04/autonomous-driving-company-weride-enters-nordic-market-through-denmark-partnership/"
+    },
+    {
+      "title": "人工智能技術產業迎來爆發式增長",
+      "source": "新浪財經",
+      "date": "2026-08-04",
+      "company": "中國 AI 產業整體",
+      "topic": "產業趨勢",
+      "summary": "報導盤點中國 AI 產業規模數據：截至 2026 年 6 月，中國人工智慧企業數量超過 6,600 家，佔全球比重約 15%，已形成涵蓋基礎底座、模型框架到行業應用的完整產業體系。2025 年中國人工智慧核心產業規模突破人民幣 1.2 兆元，進入 2026 年後，國內大模型發展重心顯著轉向智能體（Agent）賽道。國產開源大模型全球累計下載量突破 100 億次，中國自研大模型在 Hugging Face 平台新增下載流量中的占比達 41%。這組數字說明中國模型的全球滲透主要透過開源權重而非商業 API 通路。",
+      "discussion": "官方與產業媒體大量轉載；分析圈討論下載量與實際商業變現之間的落差。",
+      "url": "https://finance.sina.com.cn/roll/2026-08-04/doc-inimawmz2359348.shtml"
     }
   ],
-  "_updated_at": "2026-08-04T18:10:45.445154+08:00"
+  "_updated_at": "2026-08-05T18:07:43.075240+08:00"
 }
