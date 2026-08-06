@@ -1,12 +1,12 @@
 {
-  "last_run": "2026-08-05T18:30:10.122233+08:00",
-  "last_success": "2026-08-05T18:30:10.122233+08:00",
-  "last_date": "2026-08-05",
+  "last_run": "2026-08-06T18:28:09.402428+08:00",
+  "last_success": "2026-08-06T18:28:09.402428+08:00",
+  "last_date": "2026-08-06",
   "source": "local",
   "status": "ok",
   "categories_ok": 7,
   "categories_failed": 0,
-  "validation_pass_rate": 99,
+  "validation_pass_rate": 98,
   "consecutive_failures": 0,
   "last_missed": null,
   "errors": [],
@@ -16,8 +16,8 @@
     "advisory": true,
     "production_write": false,
     "publish": "manual_only",
-    "finished_at": "2026-08-05T18:30:10.059898+08:00",
-    "duration_sec": 685,
+    "finished_at": "2026-08-06T18:28:09.333303+08:00",
+    "duration_sec": 614,
     "counts": {
       "ok": 8
     },
