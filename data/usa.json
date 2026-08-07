@@ -1,181 +1,117 @@
 {
   "items": [
     {
-      "title": "Meta launches Muse Code, an AI agent for large code bases",
-      "title_zh": "Meta 推出 Muse Code，專攻大型程式庫的 AI 編碼 Agent",
+      "title": "Improving GPT‑5.6 Sol in ChatGPT—and expanding access to GPT-5.6 Luna for free users",
+      "title_zh": "改進 ChatGPT 中的 GPT-5.6 Sol，並向免費使用者擴大開放 GPT-5.6 Luna",
+      "source": "OpenAI",
+      "date": "2026-08-06",
+      "topic": "LLM Release",
+      "summary": "OpenAI 於 8 月 6 日發布 ChatGPT 模型層級的重大調整：付費的 Plus 與 Pro 使用者取得更新版 GPT-5.6 Sol，官方宣稱事實正確性提升、回答更聚焦、減少不必要的冗贅資訊。同時導入一個「推理力度滑桿」（effort slider），使用者可在 web、行動與桌面版自行決定模型投入多少思考量：日常問題維持快速回應，規劃、研究、寫作、編碼或需要審慎決策時則調高。免費與 Go 方案的預設模型改為輕量的 GPT-5.6 Luna，並新增 Think 按鈕，讓免費使用者針對較難的問題也能取得較深度的推理（受濫用防護機制限制）。這是 OpenAI 首次把「使用者自選推理預算」做成產品層級的顯性控制項，而非藏在 API 參數裡。",
+      "highlights": [
+        "Plus/Pro 取得更新版 GPT-5.6 Sol，事實錯誤率下降、回答更聚焦",
+        "新增推理力度滑桿，使用者可自行決定模型思考量，等同把 reasoning effort 產品化",
+        "免費與 Go 方案預設模型改為 GPT-5.6 Luna，屬速度導向的輕量模型",
+        "免費使用者新增 Think 按鈕，可對困難問題觸發較深度推理，但有濫用防護限制"
+      ],
+      "discussion": "開發者社群關注的重點在於「推理力度滑桿」實質上把過去只有 API 使用者能調的 reasoning effort 參數下放到一般消費端，代表 OpenAI 認為推理成本的分配應由使用者決定；另一派聲音則質疑免費層改用較小的 Luna 模型是變相降級，換取無限額度的取捨。",
+      "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/"
+    },
+    {
+      "title": "ChatGPT brings unlimited text chats to free users",
+      "title_zh": "ChatGPT 為免費使用者提供無限制文字對話",
       "source": "TechCrunch",
-      "date": "2026-08-05",
-      "topic": "AI Agent / Coding Agent",
-      "summary": "Meta 於 8 月 5 日發布 Muse Code，這是一款在終端機執行的 AI 編碼 Agent，主打處理大型、複雜的程式庫。其核心設計是將任務拆解後分派給多個子 Agent（sub-agents），每個子 Agent 在各自隔離的 git worktree 中平行作業，避免彼此的檔案修改互相衝突。產品目前處於 beta 階段，由 Meta Superintelligence Labs 的 Alexandr Wang 督導。定價採 API 用量計費，另提供一個資料共享的貢獻者方案，願意回饋使用資料的開發者可享超過九成折扣（約每百萬 token 0.30 美元）。這是 Meta 首次正面切入 Anthropic Claude Code 與 OpenAI 主導的編碼 Agent 市場。",
+      "date": "2026-08-06",
+      "topic": "LLM Release",
+      "summary": "TechCrunch 報導 OpenAI 取消免費層 ChatGPT 的文字對話次數上限，改以 GPT-5.6 Luna 作為預設模型承接這批流量。過去免費使用者在達到訊息額度後會被降級或被迫等待，此次調整後純文字對話不再設限。搭配的 Think 按鈕讓免費使用者在需要時仍可取得較深度的推理路徑。此舉被視為 OpenAI 在消費端市場的防守動作，用低成本小模型撐住規模化的免費流量。",
       "highlights": [
-        "多子 Agent 平行架構，各自使用獨立 git worktree 隔離，專為大型程式庫設計",
-        "終端機介面（CLI）形式，目前為 beta",
-        "由 Meta Superintelligence Labs 的 Alexandr Wang 督導",
-        "定價：API 用量計費；資料共享貢獻者方案折扣逾 90%，約每百萬 token 0.30 美元"
+        "免費層文字對話取消次數上限，由輕量模型 GPT-5.6 Luna 承載",
+        "以較低推論成本的小模型換取無限額度，屬明確的成本結構取捨",
+        "Think 按鈕為免費層保留深度推理的逃生門",
+        "被解讀為對 Google Gemini 等競品在消費端的價格防守"
       ],
-      "discussion": "編碼 Agent 已成為大廠模型能力的實戰驗收場。Meta 用「隔離 worktree + 子 Agent 扇出」解決多 Agent 同時改碼的衝突問題，這正是 agent orchestration 的核心工程議題；而超過九成折扣換取使用資料，等於用價格換訓練語料，對受監管產業（金融）而言，貢獻者方案的資料回流條款是導入前必須先釐清的紅線。",
-      "url": "https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/"
+      "discussion": "外界普遍認為這是「以小模型換規模」的典型策略，重點不在模型能力而在單位推論成本已降到可支撐十億級免費用戶；也有評論指出無限額度僅限文字，圖像與語音等高成本模態仍受限，實際體驗差距需觀察。",
+      "url": "https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/"
     },
     {
-      "title": "Meta launches Muse Code AI coding agent for macOS and Linux",
-      "title_zh": "Meta 為 macOS 與 Linux 推出 Muse Code AI 編碼 Agent",
-      "source": "9to5Mac",
-      "date": "2026-08-05",
-      "topic": "AI Agent / Developer Tools",
-      "summary": "9to5Mac 報導 Meta 的 Muse Code 於 8 月 5 日推出，支援 macOS 與 Linux 平台，以終端機工具形式提供。Muse Code 能讀取整個程式庫的脈絡並自行規劃、執行多步驟的程式修改工作，屬於「agentic coding」而非單純的補全工具。該報導聚焦在開發者實際安裝與使用面：目前為 beta，透過 API 金鑰計費使用。此發布使 Meta 與 Anthropic Claude Code、OpenAI Codex 系列在本機終端機 Agent 市場正面交鋒。",
+      "title": "OpenAI makes major upgrades for free and paid ChatGPT users. Here's what they are",
+      "title_zh": "OpenAI 為免費與付費 ChatGPT 使用者推出重大升級，內容一次看",
+      "source": "Axios",
+      "date": "2026-08-06",
+      "topic": "LLM Release",
+      "summary": "Axios 彙整 OpenAI 8 月 6 日的多項 ChatGPT 更新，涵蓋免費層與付費層兩條線。免費與 Go 使用者取得 GPT-5.6 Luna 作為預設模型、無限文字對話與 Think 按鈕；Plus 與 Pro 使用者取得更新後的 GPT-5.6 Sol 與推理力度滑桿。報導強調這批更新的共同主軸是「讓使用者自行控制模型投入多少算力」，而非單純的模型能力躍升。",
       "highlights": [
-        "支援平台：macOS 與 Linux（Windows 未在首波支援之列）",
-        "終端機（CLI）形式的 agentic coding 工具，非 IDE 外掛",
-        "beta 階段，以 API 金鑰計費",
-        "與 Anthropic Claude Code、OpenAI 的終端機編碼 Agent 直接競爭"
+        "同日推出免費層與付費層兩套差異化升級",
+        "核心設計主軸是讓使用者自行分配推理算力",
+        "Free/Go 與 Plus/Pro 的模型分層更為明確（Luna 對 Sol）",
+        "更新同步覆蓋 web、行動與桌面三端"
       ],
-      "discussion": "本機終端機 Agent 的平台支援策略透露目標客群：先攻 macOS/Linux 的專業開發者，而非企業 Windows 大宗環境。對企業導入而言，CLI 形式的 Agent 在權限控管與稽核軌跡上比 IDE 外掛更難納管，需要在 shell 層另建 guardrail。",
-      "url": "https://9to5mac.com/2026/08/05/meta-launches-muse-code-ai-coding-agent-for-macos-and-linux/"
+      "discussion": "評論多聚焦在 OpenAI 的分層策略愈趨清晰：免費層追求觸及率與黏著度、付費層追求可控性與品質；也有意見認為模型命名（Sol / Luna）對一般使用者造成理解負擔。",
+      "url": "https://www.axios.com/2026/08/06/openai-chatgpt-upgrades-luna-free-paid"
     },
     {
-      "title": "Cloudflare launches Cloudflare OS: an open-source AI agentic workspace for the enterprise",
-      "title_zh": "Cloudflare 推出 Cloudflare OS：面向企業的開源 AI Agent 工作空間",
-      "source": "SiliconANGLE",
-      "date": "2026-08-05",
-      "topic": "Agent Platform / Enterprise",
-      "summary": "Cloudflare 於 8 月 5 日發布 Cloudflare OS，這是一套透過瀏覽器存取的開源 AI agentic 工作空間，內含大量可共享的自訂微型應用（micro-applications），供企業員工日常使用。該產品最初是 Cloudflare 為自家員工與團隊從零打造的內部工具，員工每天用它做研究、產生文件、以及建構自己工作所需的應用程式，之後才對外開源釋出。定位上它不是單一 Agent，而是讓非工程背景員工也能組裝、共用 AI 驅動小工具的載體。",
+      "title": "OpenAI upgrades GPT-5.6 Luna, expands Luna access; ChatGPT hits 1B users",
+      "title_zh": "OpenAI 升級 GPT-5.6 Luna 並擴大開放，ChatGPT 使用者突破 10 億",
+      "source": "Seeking Alpha",
+      "date": "2026-08-06",
+      "topic": "Enterprise",
+      "summary": "Seeking Alpha 報導 OpenAI 在 8 月 6 日的更新中同時揭露 ChatGPT 達到 10 億使用者的里程碑。此一數字距離 ChatGPT 於 2022 年底推出約三年八個月，比 Facebook 達到同等規模快上兩年以上。報導把使用者規模與當日的模型分層調整連在一起看：免費層改用低成本的 Luna 模型，正是支撐十億級規模所需的成本結構。對投資端而言，這個數字是評估 OpenAI 上市前估值的關鍵輸入。",
       "highlights": [
-        "開源釋出，透過瀏覽器存取，無需本機安裝",
-        "以「可共享的自訂微型應用」為組成單位，而非單一聊天介面",
-        "源自 Cloudflare 內部自用工具（dogfooding）後對外開放",
-        "訴求對象為企業全體員工，涵蓋研究、文件產出與應用建構"
+        "ChatGPT 使用者達 10 億，耗時約 3 年 8 個月",
+        "達標速度較 Facebook 快超過兩年",
+        "使用者規模擴張與免費層改用低成本小模型互為因果",
+        "此數字為市場評估 OpenAI 估值與 IPO 進程的重要參數"
       ],
-      "discussion": "企業 AI 的下一個戰場正從「單一 Agent 好不好用」轉向「員工自建工具的平台治理」。開源 + 瀏覽器交付降低導入門檻，但也把 shadow AI 風險從個人帳號轉移到內部平台層；金融業導入前必須先設定微型應用的審核與資料存取邊界，否則等於在防火牆內開了一個未受管制的應用商店。",
-      "url": "https://siliconangle.com/2026/08/05/cloudflare-launches-cloudflare-os-open-source-ai-agentic-workspace-enterprise/"
+      "discussion": "金融與科技圈的討論集中在「10 億」的定義口徑（週活躍或累計），以及規模是否能轉化為付費轉換率；亦有分析指出 OpenAI 原訂 2025 年底達標，實際落後內部目標約七個月。",
+      "url": "https://seekingalpha.com/news/4628127-openai-upgrades-gpt-56-luna-expands-luna-access-chatgpt-hits-1b-users"
     },
     {
-      "title": "Introducing Muse Code and Muse Spark 1.2",
-      "title_zh": "Muse Code 與 Muse Spark 1.2 正式發表",
-      "source": "Meta AI Research Blog",
-      "date": "2026-08-05",
-      "topic": "LLM Release / Agent",
-      "summary": "Meta 官方部落格同步發表編碼 Agent Muse Code 與底層模型 Muse Spark 1.2。Muse Spark 1.2 為 7 月 9 日 1.1 版的後繼版本，在 Terminal-Bench 2.1 取得 82.9% 分數、在 DeepSWE 1.1 取得 59.3%；依 Meta 自行公布的對照表，該成績在兩項榜單上均次於 Claude Opus 5。模型支援 100 萬 token 的上下文長度，定價為每百萬 token 輸入 1.25 美元、快取輸入 0.15 美元、輸出 4.25 美元。Muse Code 即建構於此模型之上，以多子 Agent 扇出方式處理大型程式庫任務。",
+      "title": "ChatGPT Tops 1B Weekly Users as OpenAI Rolls Out GPT-5.6 With Smarter Reasoning",
+      "title_zh": "ChatGPT 週活躍使用者突破 10 億，OpenAI 同步推出推理能力更強的 GPT-5.6",
+      "source": "Stocktwits",
+      "date": "2026-08-06",
+      "topic": "Enterprise",
+      "summary": "Stocktwits 報導 OpenAI 正式宣布 ChatGPT 週活躍使用者突破 10 億，同時對 GPT-5.6 系列進行事實正確性升級，並開放免費使用者無限制文字對話。報導把三件事視為同一套動作：用更便宜的模型承接免費流量、用更準確的模型留住付費用戶、再以使用者規模作為對外的競爭訊號。此前 OpenAI 於 2026 年 2 月公布的數字為 9 億週活躍使用者。",
       "highlights": [
-        "Muse Spark 1.2 為 7/9 發布之 1.1 的後繼版，迭代週期不到一個月",
-        "Terminal-Bench 2.1：82.9%；DeepSWE 1.1：59.3%（Meta 自published 對照表中均次於 Claude Opus 5）",
-        "上下文長度 100 萬 token",
-        "定價：輸入 1.25 美元／百萬 token、快取輸入 0.15 美元、輸出 4.25 美元"
+        "週活躍使用者正式突破 10 億，較 2026 年 2 月的 9 億再成長",
+        "GPT-5.6 系列同步強化事實正確性",
+        "免費層無限文字對話為衝高活躍度的直接手段",
+        "使用者規模被當作對競爭對手的市場訊號"
       ],
-      "discussion": "值得注意的是 Meta 在自家發布文中主動承認兩項 benchmark 均輸給 Claude Opus 5——這種「明知次優仍發布」的姿態，反映編碼 Agent 市場的競爭焦點已從單純分數轉向價格與整合度。快取輸入 0.15 美元的定價對 Agent 長流程（反覆讀取同一程式庫脈絡）特別有利，是典型的 context engineering 成本設計。",
-      "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2"
+      "discussion": "市場端關注這波成長是否由免費額度放寬所驅動，若是，則活躍度成長與營收成長之間的落差會擴大；亦有討論指出十億級規模帶來的推論成本壓力，將迫使 OpenAI 持續下沉到更小的模型。",
+      "url": "https://stocktwits.com/news-articles/markets/equity/chat-gpt-tops-1-b-weekly-users/cZoBI0hRJJF"
     },
     {
-      "title": "Meta debuts first AI coding agent to take on Anthropic and OpenAI",
-      "title_zh": "Meta 推出首款 AI 編碼 Agent，正面挑戰 Anthropic 與 OpenAI",
-      "source": "CNBC",
-      "date": "2026-08-05",
-      "topic": "Big Tech / Competition",
-      "summary": "CNBC 從市場競爭角度報導 Meta 發布 Muse Code，強調這是 Meta 首款 AI 編碼 Agent，直接對上目前在該領域領先的 Anthropic 與 OpenAI。報導指出該產品由 Meta Superintelligence Labs 主導，是 Meta 在重組 AI 組織、大舉招募後推出的首批對外開發者產品之一。編碼 Agent 被視為當前企業願意實際付費的少數 AI 應用場景，也是各大模型商證明模型實用性的關鍵戰場。",
+      "title": "Free ChatGPT Users Get Unlimited Text Chats and GPT-5.6 Luna",
+      "title_zh": "免費版 ChatGPT 使用者獲得無限文字對話與 GPT-5.6 Luna",
+      "source": "MacRumors",
+      "date": "2026-08-06",
+      "topic": "LLM Release",
+      "summary": "MacRumors 從終端使用者角度整理此次更新：免費與 Go 使用者的預設模型由前一代 GPT-5.5 Instant 換成 GPT-5.6 Luna，並取得無限制文字對話額度。針對需要較深度思考的問題，免費使用者可點選新增的 Think 按鈕，讓 Luna 花更多時間推理。付費使用者則取得更新版 GPT-5.6 Sol 與推理力度滑桿。更新在 web、iOS、Android 與桌面應用同步推送。",
       "highlights": [
-        "Meta 首款對外發布的 AI 編碼 Agent",
-        "由重組後的 Meta Superintelligence Labs 主導",
-        "直接對標 Anthropic Claude Code 與 OpenAI 的編碼 Agent 產品",
-        "編碼 Agent 被視為企業願意實際付費的主要 AI 應用場景"
+        "免費層預設模型由 GPT-5.5 Instant 換為 GPT-5.6 Luna",
+        "文字對話取消上限，非文字模態仍受限",
+        "Think 按鈕為免費層提供按需深度推理",
+        "更新橫跨 web、行動與桌面應用同步生效"
       ],
-      "discussion": "Meta 過去以開源權重（Llama）取得開發者心佔率，如今改用「託管 API + Agent 產品」直接變現，路線轉折明顯。對採購方而言，這代表編碼 Agent 市場短期內會出現三強價格競爭，議價空間擴大，但也意味著供應商鎖定風險上升——CLI Agent 的工作流一旦嵌入 CI/CD，遷移成本不低。",
-      "url": "https://www.cnbc.com/2026/08/05/meta-debuts-muse-code-to-take-on-anthropic-and-openai-.html"
+      "discussion": "Apple 生態圈使用者的討論集中在桌面版與行動版的滑桿一致性、以及 Think 按鈕的實際延遲；部分使用者反映預設模型換代後回應風格改變，需要重新調整既有提示。",
+      "url": "https://www.macrumors.com/2026/08/06/chatgpt-free-unlimited-text-chats/"
     },
     {
-      "title": "Cloudflare launches Identity-Aware AI Gateway to track who is using AI",
-      "title_zh": "Cloudflare 推出 Identity-Aware AI Gateway，追蹤誰在使用 AI",
-      "source": "SiliconANGLE",
-      "date": "2026-08-05",
-      "topic": "AI Security / Governance",
-      "summary": "Cloudflare 同日發布 Identity-Aware AI Gateway，為每一筆離開企業網路的 AI 請求附加經驗證的身分識別。IT 與資安團隊可據此看出是哪一位員工、或哪一個自動化系統（含 AI Agent）向外部模型供應商送出了特定 prompt，並可設定花費上限、自動標記高風險內容。此舉直指企業目前最大的盲點：AI 流量在網路層上只是一般 HTTPS 呼叫，無法歸因到具體使用者或 Agent。",
+      "title": "Working with the American Psychological Association on youth mental health and AI",
+      "title_zh": "與美國心理學會合作推動青少年心理健康與 AI 議題",
+      "source": "OpenAI",
+      "date": "2026-08-06",
+      "topic": "Policy",
+      "summary": "OpenAI 宣布與美國心理學會（American Psychological Association, APA）建立合作關係，將心理學研究與臨床專業導入面向青少年的 AI 工具設計與部署。合作聚焦三個方向：一是為家長與照顧者開發實用工具，協助判斷何時該由成人介入，並強化「AI 是輔助工具而非人際連結替代品」的認知；二是為臨床工作者與教育者提供指引，辨識過度依賴的徵兆；三是透過結構化的座談會納入青少年、家庭與教師的實際意見。此合作建立在 OpenAI 既有的安全機制之上，包括與逾 260 位心理健康專家協作改善 ChatGPT 在使用者情緒低落時的回應、擴充在地化危機資源、一鍵求助專線、休息提醒，以及針對未成年使用者的家長控制、安全通知、Model Spec 中的未成年原則與年齡預測模型。",
       "highlights": [
-        "為每筆對外 AI 請求綁定經驗證的身分（人員或自動化系統）",
-        "提供 prompt 層級的可視性，可歸因到個別員工或 Agent",
-        "支援花費上限設定，控制 API token 成本失控",
-        "自動標記高風險內容，作為 DLP 前置防線"
+        "OpenAI 與 APA 合作，將臨床心理專業導入青少年 AI 產品設計",
+        "三大方向：家長工具、臨床與教育者指引、青少年意見納入",
+        "延續既有安全基礎：逾 260 位心理健康專家協作、危機資源、家長控制",
+        "已部署年齡預測模型與 Model Spec 未成年原則作為技術性防護"
       ],
-      "discussion": "這正是 Agent 治理的關鍵缺口：當 Agent 自主發出數百次模型呼叫時，傳統以「人」為單位的存取控管完全失效。把身分綁進每一筆推論請求，等同於為 AI 流量建立交易層級的稽核軌跡——對金融業而言，這是滿足內控與事後追查的最低要求，優先度應高於多數 Agent 應用本身。",
-      "url": "https://siliconangle.com/2026/08/05/cloudflare-launches-identity-aware-ai-gateway-track-using-ai/"
-    },
-    {
-      "title": "Vectra AI launches Vectra AI Pro to feed AI agents better attack signals",
-      "title_zh": "Vectra AI 推出 Vectra AI Pro，為資安 AI Agent 提供更可靠的攻擊訊號",
-      "source": "SiliconANGLE",
-      "date": "2026-08-05",
-      "topic": "AI Security / SOC Agent",
-      "summary": "威脅偵測公司 Vectra AI 於 8 月 5 日發布 Vectra AI Pro，目標是讓已進駐資安維運中心（SOC）的 AI Agent 能更準確判讀攻擊者行為。該產品將網路、身分與雲端三方訊號關聯整合成一份對攻擊者行為的單一敘述，再交給 Agent 處理，取代過去 Agent 需自行拼湊零散告警的做法。此發布時點正值 Black Hat USA 2026 期間，該會議今年的 AI Agent 資安議程數量創歷史新高。",
-      "highlights": [
-        "整合網路、身分、雲端訊號為單一攻擊敘述（single account）",
-        "設計目的是餵給 SOC 內既有的 AI Agent，而非取代分析師",
-        "解決 Agent 自行拼湊零散告警導致誤判的問題",
-        "發布時點對應 Black Hat USA 2026，AI Agent 資安為今年主軸"
-      ],
-      "discussion": "這是典型的 context engineering 產品化案例：與其強化 Agent 推理能力，不如先把輸入訊號整理乾淨。Agent 在 SOC 場景的失敗多半不是模型不夠聰明，而是脈絡碎片化導致「自信地答錯」。訊號整合層正在成為 Agent 落地的必要中介層，這個模式同樣適用於金融的反詐與交易監控。",
-      "url": "https://siliconangle.com/2026/08/05/vectra-ai-launches-vectra-ai-pro-feed-ai-agents-better-attack-signals/"
-    },
-    {
-      "title": "Google shakes up AI leadership as DeepMind chief shifts role",
-      "title_zh": "Google 大幅改組 AI 領導層，DeepMind 執行長職務調整",
-      "source": "Reuters (via KFGO)",
-      "date": "2026-08-05",
-      "topic": "Big Tech / Leadership",
-      "summary": "路透社 8 月 5 日報導 Google 進行重大 AI 領導層改組：Demis Hassabis 轉任 Alphabet 首席科學家兼 Google DeepMind 董事長，原技術長 Koray Kavukcuoglu 升任 Google DeepMind 資深副總裁，接手實際營運。改組消息公布後 Alphabet 股價下跌約 4%。市場的疑慮來自 Gemini 旗艦模型原訂 6 月推出卻仍未發布，改組被解讀為對執行進度不如預期的回應。",
-      "highlights": [
-        "Demis Hassabis 轉任 Alphabet 首席科學家兼 Google DeepMind 董事長",
-        "Koray Kavukcuoglu 升任 Google DeepMind SVP，接手營運",
-        "Alphabet 股價當日下跌約 4%",
-        "背景：Gemini 旗艦模型原訂 6 月發布，至今仍未推出"
-      ],
-      "discussion": "把創辦人推向「首席科學家」這種偏研究、去營運的職位，在科技業通常是執行不力的委婉處理。股價 4% 的跌幅顯示市場把這解讀為壞消息而非強化。對依賴 Google Cloud/Vertex AI Agent 生態的企業而言，旗艦模型延宕加上領導層動盪，是採購時該納入的供應商穩定性風險。",
-      "url": "https://kfgo.com/2026/08/05/google-shakes-up-ai-leadership-as-deepmind-chief-shifts-role/"
-    },
-    {
-      "title": "Jeff Dean and other top AI researchers are leaving Google to launch their own startup",
-      "title_zh": "Jeff Dean 等頂尖 AI 研究者離開 Google 自立門戶",
-      "source": "TechCrunch",
-      "date": "2026-08-05",
-      "topic": "Talent / Startup",
-      "summary": "與 Google 領導層改組同日，TechCrunch 報導 Jeff Dean、Sanjay Ghemawat、Oriol Vinyals 與 Quoc Le 等多位 Google 最資深的研究者集體離職，共同創辦名為 Discovery Loop 的新公司。該公司登記為公益公司（public benefit corporation），宗旨是以 AI 加速科學研究。這批人涵蓋了 Google 分散式系統（MapReduce、Bigtable）與深度學習（Seq2Seq、AutoML）兩條技術命脈的核心作者，是 Google 史上最重量級的一次人才流失。",
-      "highlights": [
-        "離職者包含 Jeff Dean、Sanjay Ghemawat、Oriol Vinyals、Quoc Le",
-        "新公司名為 Discovery Loop，登記為公益公司（public benefit corporation）",
-        "定位：以 AI 加速科學發現",
-        "與 Hassabis 職務調整同日發生，時點高度相關"
-      ],
-      "discussion": "公益公司架構是 OpenAI、Anthropic 之後的第三次重演，說明頂尖研究者仍傾向以非純營利結構取得研究自由度與募資能力的平衡。四位核心作者同時出走，對 Google 的衝擊不只是人力，更是內部技術決策權威的斷層——這也回頭解釋了 Gemini 旗艦延宕與領導層改組的因果關聯。",
-      "url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/"
-    },
-    {
-      "title": "Google targets AI startup Mechanize's technology and talent in proposed $1.5B deal",
-      "title_zh": "Google 擬以 15 億美元取得 AI 新創 Mechanize 的技術與人才",
-      "source": "SiliconANGLE",
-      "date": "2026-08-05",
-      "topic": "M&A / Agent Evaluation",
-      "summary": "SiliconANGLE 報導 Google 正洽談一筆逾 15 億美元的「聘僱兼授權」（hire-and-license）交易，目標是 AI 新創 Mechanize 的技術與團隊。Mechanize 專注於編碼 Agent 的強化學習環境與評測（RL environments / evals），也就是訓練與衡量 Agent 實際完成軟體任務能力的基礎設施。此交易與同日的領導層改組、研究人才出走形成對照：Google 一邊流失資深研究者，一邊高價外購 Agent 訓練與評測能力。",
-      "highlights": [
-        "交易形式為 hire-and-license（聘僱兼授權），非傳統併購，規避反壟斷審查",
-        "金額逾 15 億美元",
-        "Mechanize 專長：編碼 Agent 的 RL 訓練環境與評測基準",
-        "與同日 Google 研究人才出走消息形成強烈對比"
-      ],
-      "discussion": "Agent 評測基礎設施能賣到 15 億美元，說明「怎麼衡量 Agent 有沒有做對」已經比「怎麼讓 Agent 動起來」更稀缺、也更值錢。hire-and-license 這種結構在 2024 年後成為大廠規避併購審查的標準做法，監管機關是否比照併購檢視，是後續 AI 治理的觀察重點。",
-      "url": "https://siliconangle.com/2026/08/05/google-targets-ai-startup-mechanizes-technology-talent-proposed-1-5b-deal/"
-    },
-    {
-      "title": "AI makes weather prediction better. Can WindBorne make it lucrative?",
-      "title_zh": "AI 讓天氣預報更準，WindBorne 能否讓它變成好生意？",
-      "source": "TechCrunch",
-      "date": "2026-08-05",
-      "topic": "AI Application / Climate",
-      "summary": "TechCrunch 8 月 5 日報導專注 AI 氣象預測的新創 WindBorne，探討 AI 大幅提升預報準確度之後，商業變現的可行性問題。WindBorne 以自有的長時滯空氣球蒐集傳統氣象觀測網覆蓋不到的區域資料，再用這批獨家資料訓練預測模型，形成資料護城河。報導的核心提問是：即使技術準確度領先，氣象預報的付費客戶（能源交易、航運、保險）市場規模是否足以支撐 AI 新創的估值。",
-      "highlights": [
-        "以自有滯空氣球蒐集傳統觀測網未覆蓋區域的獨家資料",
-        "資料獨家性作為模型護城河，而非模型架構本身",
-        "目標客戶：能源交易、航運、保險等對天氣敏感的產業",
-        "核心爭議：技術準確度領先是否等於足夠大的付費市場"
-      ],
-      "discussion": "這則個案點出垂直領域 AI 的通則：在基礎模型商品化之後，真正的護城河來自別人拿不到的資料，而不是模型本身。對金融業的啟示相同——保險與商品交易的 AI 應用，勝負關鍵在專屬資料的取得管道與合規性，不在模型選型。",
-      "url": "https://techcrunch.com/2026/08/05/ai-makes-weather-prediction-better-can-windborne-make-it-lucrative/"
+      "discussion": "治理圈評價此舉為業界自律的示範案例，但質疑聲音指出合作屬諮詢性質、缺乏可稽核的外部驗證機制；亦有意見認為在多州與聯邦層級的 AI 青少年保護立法推進之際，此類合作帶有先行卡位監管論述的意味。",
+      "url": "https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai/"
     }
   ],
-  "_updated_at": "2026-08-06T18:17:04.098515+08:00"
+  "_updated_at": "2026-08-07T18:14:23.603017+08:00"
 }
