@@ -2,202 +2,193 @@
   "items": [
     {
       "title": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
-      "source": "European Commission (Shaping Europe's digital future)",
+      "source": "European Commission",
       "date": "2026-08-02",
       "category": "AI治理",
-      "summary": "歐盟執委會宣布，自 2026 年 8 月 2 日起，AI Office 連同各會員國主管機關正式開始執行《歐盟人工智慧法案》(EU AI Act)。同日起，新的透明度規範開始適用，要求特定 AI 系統必須告知使用者其正在與 AI 互動，以及內容是否由 AI 生成或竄改。聊天機器人必須自我表明為自動化系統，深偽 (deepfake) 內容必須加上標示，機器生成或編輯的內容必須帶有機器可讀標記以利自動偵測。執委會同時取得對通用人工智慧 (GPAI) 模型供應商的調查與裁罰權限。違反透明度義務者最高可處 1,500 萬歐元或全球年營業額 3% 罰鍰（取高者）。",
+      "summary": "歐盟執委會宣布自 2026 年 8 月 2 日起，正式取得《AI Act》的執法權，由執委會轄下的 AI Office 會同各成員國主管機關共同執行。同日生效的還有第 50 條的透明度義務，要求特定 AI 系統必須主動告知使用者正在與 AI 互動，並揭露內容是否由 AI 生成或竄改。聊天機器人與語音助理等直接與人互動的系統，除非情境已顯而易見，否則提供者須明確揭露 AI 身分。深偽（deepfake）影像、影片與音訊必須加上標示，AI 生成或修改的內容還須攜帶機器可讀標記，以利平台與監管機關偵測。違反者最高可處 1,500 萬歐元或全球年營業額 3% 罰鍰，兩者取其高。這代表歐盟成為全球第一個對 AI 系統施加全面性、具拘束力監理並進入實質執法階段的司法管轄區。",
       "highlights": [
-        "2026-08-02 起 AI Office 與會員國主管機關正式啟動 AI Act 執法",
-        "聊天機器人須揭露自身為 AI；深偽內容須標示；AI 生成內容須帶機器可讀標記",
-        "執委會取得對 GPAI 模型供應商的調查、要求文件、評估與裁罰權",
-        "違反第 50 條透明度義務最高罰 1,500 萬歐元或全球年營收 3%"
+        "AI Office 與各成員國主管機關自 8 月 2 日起共同行使《AI Act》執法權",
+        "聊天機器人、語音助理須揭露非真人身分；深偽內容須標示",
+        "AI 生成或竄改內容須嵌入機器可讀標記（浮水印、metadata 等）",
+        "違規最高罰 1,500 萬歐元或全球年營收 3%，取其高者",
+        "歐盟成為全球首個進入 AI 全面執法階段的司法管轄區"
       ],
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august"
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714"
     },
     {
-      "title": "Anthropic, OpenAI among firms facing new scrutiny under EU AI Act enforcement powers",
-      "source": "CNBC",
-      "date": "2026-08-03",
+      "title": "Safer and more transparent AI",
+      "source": "European Commission",
+      "date": "2026-08-02",
       "category": "AI治理",
-      "summary": "CNBC 報導，歐盟執委會自 8 月 2 日起取得《AI Act》賦予的執法權限，Anthropic、OpenAI、Google 等通用人工智慧 (GPAI) 模型供應商正式進入受監理範圍。執委會的 AI Office 直接負責 GPAI 模型監管，具備要求技術文件、執行模型評估、要求採取矯正措施及裁罰的權力。此前 GPAI 的實質義務雖自 2025 年 8 月 2 日已生效，但 AI Office 並無執法工具，形成一年的空窗期。2025 年 8 月 2 日前已上市的模型，一般可延至 2027 年 8 月 2 日前完成合規。此舉標誌歐盟 AI 監理從立法期正式進入執法期。",
+      "summary": "歐盟執委會發布官方說明，闡述 8 月 2 日起適用的 AI 透明度新制對一般使用者與企業的實際意義。核心訴求是讓民眾在接觸 AI 時「知道自己正在跟機器互動」，並能辨識哪些內容是機器生成或修改。適用對象涵蓋直接與自然人互動的 AI 系統，以及生成合成音訊、影像、影片與文字的系統。執委會已於 2026 年 7 月 20 日通過透明度義務的執行指引（guidelines），另有超過 180 個組織簽署自願性的 AI 生成內容透明度行為準則（Code of Practice），作為企業展示合規的輔助工具。對金融與零售等大量部署 AI 客服的產業而言，這意味著客服機器人與自動化互動介面必須重新檢視揭露設計。",
       "highlights": [
-        "AI Office 對 GPAI 供應商取得調查、評估、矯正要求與裁罰四項權力",
-        "OpenAI、Anthropic、Google 為首波直接受監理對象",
-        "2025-08-02 前已上市模型可延至 2027-08-02 完成合規",
-        "GPAI 義務自 2025 年生效但執法工具至 2026-08-02 才到位，空窗期結束"
+        "政策目標：使用者有權知道自己正在與 AI 互動、內容是否為 AI 生成",
+        "執委會於 2026-07-20 通過第 50 條透明度義務執行指引",
+        "逾 180 個組織已簽署 AI 生成內容透明度自願性行為準則",
+        "AI 客服、虛擬助理等直接互動介面須重新檢視揭露設計"
       ],
-      "url": "https://www.cnbc.com/2026/08/03/eu-ai-act-enforcement-powers.html"
-    },
-    {
-      "title": "EU begins enforcing AI Act, putting AI models under the microscope",
-      "source": "Help Net Security",
-      "date": "2026-08-04",
-      "category": "AI治理",
-      "summary": "Help Net Security 分析歐盟自 8 月 2 日啟動的 AI Act 執法對 AI 模型供應商的實質衝擊。報導指出，AI Office 可要求供應商提交技術文件、對模型執行獨立評估、要求採取矯正措施，甚至限制模型在歐盟市場的流通。同時上路的第 50 條透明度義務要求互動式 AI 系統自我揭露、深偽內容加標、AI 生成內容嵌入機器可讀標記。《AI Omnibus》修法已將高風險 AI 系統規範延後至 2027 年 12 月 2 日，內嵌於受規管產品的高風險系統則延至 2028 年 8 月 2 日。對資安團隊而言，模型文件化、可稽核性與內容溯源標記成為新的合規工程項目。",
-      "highlights": [
-        "AI Office 可要求文件、執行評估、要求矯正、限制歐盟市場准入",
-        "高風險 AI 系統義務因 AI Omnibus 延後至 2027-12-02",
-        "內嵌於受規管產品的高風險系統再延至 2028-08-02",
-        "內容溯源 (provenance) 與機器可讀標記成為技術合規重點"
-      ],
-      "url": "https://www.helpnetsecurity.com/2026/08/04/eu-ai-act-enforcement-ai-models/"
+      "url": "https://commission.europa.eu/news-and-media/news/safer-and-more-transparent-ai-2026-08-02_en"
     },
     {
       "title": "EU AI Act: Transparency Obligations Take Effect 2 August 2026",
-      "source": "Cooley LLP",
+      "source": "Cooley",
       "date": "2026-08-03",
       "category": "AI治理",
-      "summary": "國際律師事務所 Cooley 發布法規快訊，說明《歐盟 AI 法案》第 50 條透明度義務自 2026 年 8 月 2 日起對 AI 系統的提供者 (provider) 與部署者 (deployer) 同時適用。義務涵蓋四大類：與自然人直接互動的 AI 系統須告知使用者；生成合成內容的系統須以機器可讀格式標記輸出；情緒辨識與生物特徵分類系統須告知受影響者；深偽內容與涉及公共利益議題的 AI 生成文字須對外揭露。該義務具域外效力，非歐盟企業只要服務歐盟使用者即受規範。違規最高罰 1,500 萬歐元或全球年營業額 3%。",
+      "summary": "國際律師事務所 Cooley 發布法律分析，指出《歐盟人工智慧法》（Regulation (EU) 2024/1689）第 50 條的透明度義務自 2026 年 8 月 2 日起對 AI 系統的提供者（provider）與部署者（deployer）同時生效。義務不因系統上市時間而豁免——凡在適用範圍內的系統，自 8 月 2 日起立即適用。分析特別指出提供者與部署者的責任分工：提供者須確保技術上可標記與可偵測，部署者則須在使用情境中對終端使用者揭露。違反可觸發最高 1,500 萬歐元或全球年營業額 3% 的罰鍰。事務所提醒企業，最急迫的合規工作是盤點所有面向客戶的 AI 互動點與生成內容產出管道。",
       "highlights": [
-        "第 50 條同時課予 provider 與 deployer 義務，責任分層",
-        "四類義務：互動揭露、合成內容機器標記、情緒/生物辨識告知、深偽揭露",
-        "具域外效力，非歐盟企業服務歐盟使用者即納管",
-        "最高罰 1,500 萬歐元或全球年營收 3%（取高者）"
+        "法源為 Regulation (EU) 2024/1689 第 50 條，8 月 2 日起適用",
+        "提供者與部署者責任分工不同，須分別建立合規措施",
+        "義務對所有在範圍內的系統立即適用，不論上市時間先後",
+        "罰鍰上限 1,500 萬歐元或全球年營收 3%",
+        "建議企業優先盤點面向客戶的 AI 互動點與生成內容管道"
       ],
       "url": "https://www.cooley.com/news/insight/2026/2026-08-03-eu-ai-act-transparency-obligations-take-effect-2-august-2026"
+    },
+    {
+      "title": "What came into force with the EU's AI Act this week – and what didn't",
+      "source": "Al Jazeera",
+      "date": "2026-08-06",
+      "category": "AI治理",
+      "summary": "半島電視台盤點本週歐盟《AI Act》實際生效與未生效的部分，指出這次上路的是「兩速時程」的前半段。如期生效的是第 50 條透明度義務與執委會的執法權；被延後的則是較重的高風險 AI 系統監理制度。名為 Digital Omnibus on AI 的修法包裹將 Annex III 獨立型高風險系統的義務推遲至 2027 年 12 月 2 日，嵌入受規管產品的 Annex I 高風險系統則延至 2028 年 8 月 2 日。不過，《AI Act》原有的禁止性條款（prohibited practices）已在先前生效並持續適用。報導認為，這種切割讓外界對「歐盟 AI 法案已全面上路」產生誤解，實際上信用評分、保險定價等金融高風險應用的硬性義務尚未到期。",
+      "highlights": [
+        "如期生效：第 50 條透明度義務 + 執委會 AI Office 執法權",
+        "延後：Annex III 獨立型高風險系統義務推遲至 2027-12-02",
+        "延後：Annex I 嵌入型高風險系統義務推遲至 2028-08-02",
+        "禁止性條款（prohibited practices）已先前生效並持續適用",
+        "信用評分、保險定價等金融高風險用例的硬性義務尚未到期"
+      ],
+      "url": "https://www.aljazeera.com/news/2026/8/6/what-came-into-force-with-the-eus-ai-act-this-week-and-what-didnt"
+    },
+    {
+      "title": "New EU rules on AI deepfakes and chatbots",
+      "source": "RTÉ",
+      "date": "2026-08-02",
+      "category": "AI治理",
+      "summary": "愛爾蘭國家廣播公司 RTÉ 報導歐盟 AI 透明度新規正式上路，聚焦對一般民眾與企業的直接衝擊。自 8 月 2 日起，使用 AI 聊天機器人提供客服的企業必須讓使用者知道對話對象不是真人。以 AI 生成或編輯的影像、影片、音訊屬於深偽範疇，必須加上明確標示。報導同時說明，執委會的 AI Office 自同日起與各國主管機關一併取得執法權限，違規最高可罰 1,500 萬歐元或全球營業額 3%。對於在歐盟境內營運的跨國企業而言，這是第一波必須立即落地的 AI 合規義務。",
+      "highlights": [
+        "AI 客服對話須主動揭露非真人身分",
+        "AI 生成或編輯的影像、影片、音訊須標示為深偽內容",
+        "AI Office 與各國主管機關同日取得執法權",
+        "違規罰鍰上限 1,500 萬歐元或全球年營收 3%"
+      ],
+      "url": "https://www.rte.ie/news/ireland/2026/0802/1586132-ai-deepfakes/"
+    },
+    {
+      "title": "EU AI Transparency Rules Take Effect With Deepfake Labeling Mandate",
+      "source": "Dataconomy",
+      "date": "2026-08-04",
+      "category": "AI治理",
+      "summary": "Dataconomy 整理歐盟 AI 透明度規則上路後的實務要點，指出深偽標示義務是本次最具體、最容易被稽核的合規項目。規範要求 AI 生成或修改的音訊、影像、影片與文字，須以浮水印、metadata 或其他技術標記等機器可讀方式呈現，使平台與監管機關能自動偵測。互動式 AI 系統則須在互動起始時告知使用者正在與機器對話。報導指出，執委會已提供執行指引與自願性行為準則，讓企業有可依循的落地方法。整體而言，這使「AI 生成內容可偵測性」從技術倡議變成法定義務。",
+      "highlights": [
+        "深偽標示為本次最具可稽核性的合規項目",
+        "機器可讀標記可採浮水印、metadata 或其他技術標記",
+        "互動式 AI 須於互動起始時揭露機器身分",
+        "AI 生成內容可偵測性由技術倡議升級為法定義務"
+      ],
+      "url": "https://dataconomy.com/2026/08/04/eu-ai-transparency-rules-deepfake-labeling/"
     },
     {
       "title": "歐盟 AI 內容標示規則生效 Deepfake 與公共議題內容須明確申報",
       "source": "unwire.hk",
       "date": "2026-08-01",
       "category": "AI治理",
-      "summary": "報導說明歐盟 AI 內容標示規則正式生效的實務細節。規則要求 AI 系統供應商為合成內容加入機器可讀標記，浮水印與詮釋資料 (metadata) 皆為可行方案；部署端則須對深偽內容及涉及公共利益的 AI 生成文字對外揭露。2026 年 8 月 2 日後投入歐盟市場的生成式 AI 系統即刻適用全部義務，無過渡期；此前已上市的系統依《數位總括法》(Digital Omnibus) 取得至 12 月 2 日的緩衝期，用以滿足機器可讀標記要求。涉及公共利益的 AI 生成文章若已經人工審閱且有自然人或法人承擔編輯責任，可豁免標示義務。",
+      "summary": "unwire.hk 報導歐盟 AI 內容標示規則的適用範圍，特別指出「涉及公共議題的 AI 生成文字」是容易被忽略的一環。依規定，以 AI 生成並向大眾發布、用於報導公共利益事項的文字，必須揭露 AI 的參與程度。不過若內容已經過人工審查或編輯，且由特定人士或組織承擔編輯責任，則不在強制標示範圍內——這對新聞媒體的 AI 輔助產製流程留下明確的豁免路徑。深偽內容則無此豁免，一律須標示。報導提醒內容平台與媒體業者應盡快釐清自身流程落在哪一側。",
       "highlights": [
-        "合成內容機器可讀標記可採浮水印或 metadata 兩種技術路徑",
-        "8/2 後新上市系統無過渡期，既有系統緩衝至 2026-12-02",
-        "深偽與公共利益 AI 生成文字須由部署端對外揭露",
-        "經人工編輯審閱並有明確編輯責任者可豁免標示"
+        "AI 生成且用於報導公共利益事項的文字須揭露 AI 參與",
+        "已經人工審查編輯並有人承擔編輯責任者可豁免標示",
+        "深偽內容無編輯豁免，一律須標示",
+        "媒體與內容平台須釐清 AI 輔助產製流程的責任歸屬"
       ],
       "url": "https://unwire.hk/2026/08/01/eu-ai-act-content-label-rules/ai/"
     },
     {
-      "title": "歐盟 AI 法案正式執法，OpenAI、Anthropic 恐面臨天價罰款",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-06",
-      "category": "AI治理",
-      "summary": "科技新報報導，歐盟委員會於 2026 年 8 月 2 日正式取得《人工智慧法案》賦予的執法權限，可對 Anthropic、OpenAI、Google 等通用人工智慧 (GPAI) 模型供應商展開調查、限制其歐盟市場准入，並處以最高 1,500 萬歐元或全球年營業額 3%（取高者）的罰款。同日生效的還有針對 AI 系統的透明度義務。報導指出，此一轉折使歐盟成為全球首個對前沿模型供應商具備實質執法能力的司法管轄區，對美系模型業者在歐洲的營運模式構成直接壓力。",
-      "highlights": [
-        "歐盟委員會可對 GPAI 供應商調查並限制歐盟市場准入",
-        "罰則上限 1,500 萬歐元或全球年營收 3%",
-        "OpenAI、Anthropic、Google 為主要受影響對象",
-        "歐盟成為首個對前沿模型具實質執法能力的司法管轄區"
-      ],
-      "url": "https://finance.technews.tw/2026/08/06/eu-ai-act-enforcement-officially-takes-effect/"
-    },
-    {
-      "title": "White House to host AI companies Tuesday to review new model-testing framework",
-      "source": "CNBC",
-      "date": "2026-08-03",
-      "category": "AI治理",
-      "summary": "CNBC 報導，白宮將於 8 月 4 日（週二）邀集 OpenAI、Anthropic、Google、Meta 等主要 AI 業者，討論川普政府新完成的前沿模型自願性安全測試框架。框架源自 2026 年 6 月簽署的《促進先進人工智慧創新與安全》行政命令，要求聯邦機構在 60 天內建立針對「受涵蓋前沿模型」的機密基準測試流程，並設計一套自願性框架，讓政府與指定的「受信任合作夥伴」在模型公開發布前取得最長 30 天的早期存取權。政府強調此機制用於評估國安風險（如漏洞挖掘、網路攻擊能力），並非發照或事前核准制度。",
-      "highlights": [
-        "8/4 白宮閉門會議，OpenAI、Anthropic、Google、Meta 出席",
-        "政府可在模型公開發布前取得最長 30 天早期存取權",
-        "源自 2026 年 6 月《促進先進人工智慧創新與安全》行政命令",
-        "官方強調為自願性框架，非發照或事前核准制",
-        "評估重點為國安風險：漏洞挖掘與網路攻擊能力濫用"
-      ],
-      "url": "https://www.cnbc.com/2026/08/03/white-house-ai-companies-voluntary-framework-meeting.html"
-    },
-    {
-      "title": "White House to meet with OpenAI, Anthropic and other top AI companies in first big regulation push",
-      "source": "CNN Business",
-      "date": "2026-08-03",
-      "category": "AI治理",
-      "summary": "CNN 報導白宮召集主要 AI 業者商討自願性模型測試框架，形容此為川普政府在 AI 領域的首次重大監理推動。此舉與該政府先前以行政命令壓制州級 AI 立法、主張最小監理負擔的立場形成對照。報導指出，業界對框架的自願性質、參與誘因與測試結果如何使用仍存疑慮，特別是政府取得未發布模型存取權後的資訊保護與競爭中立問題。",
-      "highlights": [
-        "白宮首次針對前沿模型推動系統性安全測試機制",
-        "與先前壓制州級 AI 立法、主張最小監理的立場形成張力",
-        "業界關切政府取得未發布模型後的資訊保護與競爭中立",
-        "自願性設計使實際參與率與約束力成為關鍵變數"
-      ],
-      "url": "https://edition.cnn.com/2026/08/03/tech/white-house-meet-with-top-ai-companies-big-regulation-push"
-    },
-    {
-      "title": "白宫召四大AI巨头 商讨模型安全测试框架",
-      "source": "大紀元",
+      "title": "歐盟 AI 法案執法權正式生效 美國實驗室面臨巨額罰款風險",
+      "source": "unwire.pro",
       "date": "2026-08-04",
       "category": "AI治理",
-      "summary": "報導指出，白宮於 8 月 4 日邀請 Meta、Anthropic、OpenAI 與 Google 等主要美國 AI 公司，共同討論川普政府新近完成的先進 AI 模型自願性網路安全測試框架。該框架源於 2026 年 6 月 2 日簽署的《促進先進人工智慧創新與安全》行政命令，要求聯邦機構在 60 天內建立「受涵蓋前沿模型」的機密基準測試流程，並設計自願性框架，讓受信任合作夥伴與聯邦政府在最先進模型公開發布前擁有最多 30 天的安全早期存取權。政府表示此提前接觸機制有助評估模型是否可能被用於發現軟體漏洞或實施複雜網路攻擊。",
+      "summary": "unwire.pro 從執法權角度切入，指出歐盟執委會自 2026 年 8 月 2 日起正式取得對通用型 AI 模型（general-purpose AI model）供應商的調查權。這意味著 Anthropic、OpenAI、Google 等美國前沿模型實驗室，將直接面對歐盟主管機關的調查、市場准入限制，以及最高 1,500 萬歐元或全球年營業額 3%（取其高）的罰鍰。報導強調，過去《AI Act》多停留在義務條文階段，這次真正建立的是「可以對誰、以什麼程序開罰」的執行機制。對金融機構而言，若採用這些美系通用模型作為底層，供應商的合規狀態將成為自身第三方風險管理的一部分。",
       "highlights": [
-        "行政命令要求聯邦機構 60 天內完成機密基準測試流程設計",
-        "自願性框架給予政府與受信任夥伴最多 30 天早期模型存取",
-        "評估重點為軟體漏洞挖掘與複雜網路攻擊能力",
-        "Meta、Anthropic、OpenAI、Google 四家為首批參與對象"
+        "執委會取得對通用型 AI 模型供應商的正式調查權",
+        "可對美系前沿模型實驗室限制歐盟市場准入",
+        "罰鍰上限 1,500 萬歐元或全球年營收 3%，取其高",
+        "《AI Act》從義務條文階段進入可執行的開罰機制",
+        "採用美系通用模型的機構須將供應商合規納入第三方風險管理"
       ],
-      "url": "https://www.epochtimes.com/gb/26/8/4/n14822942.htm"
-    },
-    {
-      "title": "消息：白宫不会审查美AI公司开放权重模型",
-      "source": "大紀元",
-      "date": "2026-08-04",
-      "category": "AI治理",
-      "summary": "報導引述消息指出，白宮官員於 8 月 4 日告知美國幾家主要 AI 開發商，川普政府不會將開放權重 (open-weight) AI 模型納入自願性安全測試框架。此一劃分在受管制的專有前沿模型與公開可得的開放權重系統之間形成明顯落差。此決定對 Meta 的 Llama 系列等開放權重模型具直接意義，也引發外界對框架涵蓋範圍是否存在結構性漏洞的討論——最容易被下游改造與濫用的模型類型反而未納入測試。",
-      "highlights": [
-        "開放權重模型明確排除於自願性安全測試框架之外",
-        "專有前沿模型與開放權重系統形成兩套監理待遇",
-        "外界質疑最易被改造濫用的模型類型反而未受測試",
-        "對 Meta Llama 等開放權重模型供應商具直接影響"
-      ],
-      "url": "https://www.epochtimes.com/gb/26/8/4/n14823453.htm"
-    },
-    {
-      "title": "白宮拒測中國開放 AI 模型 業界質疑安全框架選擇性執行",
-      "source": "unwire.hk",
-      "date": "2026-08-05",
-      "category": "AI治理",
-      "summary": "報導指出，白宮不將開放權重模型納入自願性安全測試框架的決定，同時意味著中國開發的開放權重模型（如 DeepSeek、Qwen 系列）亦不在美國政府的測試範圍內。業界因此質疑該框架存在選擇性執行問題：實質受測的僅為配合政府的美國專有模型供應商，而在美國市場廣泛被下載使用的境外開放權重模型完全不受檢視。此爭議凸顯自願性治理框架在涵蓋範圍上的根本限制。",
-      "highlights": [
-        "中國開放權重模型（DeepSeek、Qwen 等）不在美國測試框架內",
-        "業界質疑框架選擇性執行，實質僅約束配合的美國業者",
-        "境外開放權重模型在美國市場廣泛使用卻不受檢視",
-        "凸顯自願性治理框架在管轄範圍上的結構限制"
-      ],
-      "url": "https://unwire.hk/2026/08/05/whitehouse-no-test-china-openweight-ai/ai/"
-    },
-    {
-      "title": "白宫密会美企巨头，确定AI监管框架，仍剑指中国",
-      "source": "觀察者網",
-      "date": "2026-08-05",
-      "category": "AI治理",
-      "summary": "觀察者網報導白宮 8 月 4 日與美國主要 AI 企業閉門會議，確立前沿模型自願性安全測試框架的內容與範圍。報導強調該框架在設計上排除開放權重模型，並將評估重點放在網路安全與國家安全風險，具有明顯的地緣政治導向。文章分析此舉與美國同期在先進運算與機器人領域的產業保護措施相互呼應，反映美國 AI 治理正從單純的安全議題轉向產業與國安綜合政策工具。",
-      "highlights": [
-        "白宮 8/4 閉門會議確立框架內容與適用範圍",
-        "評估重點為網路安全與國家安全風險",
-        "框架設計具地緣政治導向，排除開放權重模型",
-        "與美國同期先進運算、機器人產業保護措施相互呼應"
-      ],
-      "url": "https://www.guancha.cn/internation/2026_08_05_826231.shtml"
-    },
-    {
-      "title": "Trump's AI protectionism has come for robotics",
-      "source": "MIT Technology Review",
-      "date": "2026-08-03",
-      "category": "產業政策",
-      "summary": "MIT Technology Review 報導，美國聯邦通訊委員會 (FCC) 於 2026 年 8 月初對先進機器人（包含人形機器人、四足機器人與輪式機器人）的外國進口發布全面禁令。此舉將尚處早期、體質脆弱的機器人產業正式納入美國 AI 產業政策的一環。文章分析，此一保護主義措施與川普政府先前以行政命令壓制州級 AI 法規、主張最小監理負擔的立場並存，顯示美國 AI 政策在「對內鬆綁、對外設限」之間形成明確分工。對供應鏈而言，具身 AI (embodied AI) 的元件與整機來源將面臨重新盤點。",
-      "highlights": [
-        "FCC 對人形、四足、輪式先進機器人發布外國進口全面禁令",
-        "機器人產業正式納入美國 AI 產業政策工具箱",
-        "與壓制州級 AI 法規的鬆綁立場形成「對內鬆綁、對外設限」格局",
-        "具身 AI 供應鏈面臨元件與整機來源重新盤點"
-      ],
-      "url": "https://www.technologyreview.com/2026/08/03/1141056/trumps-ai-protectionism-has-come-for-robotics/"
+      "url": "https://unwire.pro/2026/08/04/%E6%AD%90%E7%9B%9F-ai-%E6%B3%95%E6%A1%88%E5%9F%B7%E6%B3%95%E6%AC%8A%E6%AD%A3%E5%BC%8F%E7%94%9F%E6%95%88%E3%80%80%E7%BE%8E%E5%9C%8B%E5%AF%A6%E9%A9%97%E5%AE%A4%E9%9D%A2%E8%87%A8%E5%B7%A8%E9%A1%8D/news/"
     },
     {
       "title": "MAS Confirms Agentic AI Inside Binding Bank Rules as US and EU Fall Behind",
-      "source": "Tech Times",
+      "source": "TechTimes",
       "date": "2026-08-06",
       "category": "金融監管",
-      "summary": "報導指出，新加坡金融管理局 (MAS) 於 2026 年 8 月 5 日確認自主 AI Agent 納入其具拘束力的監理指引範圍，成為首個正式將代理式 AI 納入監理框架的主要金融監理機關。MAS 採三層架構：第一層為以原則為基礎的監理期待，透過 FEAT 原則與即將發布的 AIRG 指引落實。報導同時對比，歐盟 AI Act 雖於 8 月 2 日進入執法期、要求金融機構的高風險 AI 系統須具備結構化風險管理、可解釋性與人類監督，但高風險義務已延後至 2027/2028 年；美國則以 SR 26-2 等既有監理函示為主。文中並引述逾七成銀行已導入代理式 AI，但治理框架結構性落後於採用速度。",
+      "summary": "新加坡金融管理局（MAS）於 2026 年 8 月 5 日確認，自主型 AI Agent 明確納入其具拘束力的銀行監理指引適用範圍，成為全球第一個把代理式 AI 正式寫進金融監理規範的主要金融監理機關。報導指出，這一步走在歐盟與英國之前：歐盟《AI Act》並未把自主 AI Agent 列為獨立監理類別，而英國 FCA 目前的立場仍是短期內不打算訂定 AI 專屬規則。MAS 的作法意味著銀行部署 AI Agent 時，必須以既有的技術風險管理與外包監理框架承接，包括授權邊界、稽核軌跡與人為介入設計。對台灣金融業而言，這是一個與金管會研議中「代理 AI 納入金融業 AI 指引」高度可比的區域先行案例。",
       "highlights": [
-        "MAS 於 2026-08-05 確認 AI Agent 納入具拘束力監理指引，為全球首例",
-        "採三層架構，第一層為 FEAT 原則與即將發布的 AIRG 指引",
-        "歐盟高風險 AI 義務已延後至 2027-12 / 2028-08，實質監理落後",
-        "美國以 SR 26-2、歐盟以 EBA 指引為主，均未直接針對 agentic AI",
-        "逾 70% 銀行已導入代理式 AI，治理框架結構性落後採用速度"
+        "MAS 於 2026-08-05 確認自主 AI Agent 納入具拘束力的銀行監理指引",
+        "為全球首個將代理式 AI 正式納入監理範圍的主要金融監理機關",
+        "歐盟《AI Act》未將自主 AI Agent 列為獨立監理類別",
+        "英國 FCA 立場為短期內不訂定 AI 專屬規則",
+        "銀行須以授權邊界、稽核軌跡與人為介入設計承接 Agent 風險"
       ],
       "url": "https://www.techtimes.com/articles/323283/20260806/mas-confirms-agentic-ai-inside-binding-bank-rules-us-eu-fall-behind.htm"
+    },
+    {
+      "title": "State of Agentic AI Security and Governance 2.01",
+      "source": "OWASP Gen AI Security Project",
+      "date": "2026-08-03",
+      "category": "資安標準",
+      "summary": "OWASP Gen AI Security Project 於 2026 年 8 月 3 日發布《State of Agentic AI Security and Governance》2.01 版，是目前少數同時涵蓋「安全」與「治理」兩個面向的代理式 AI 全景報告。報告梳理當前保護與治理自主 AI 系統的實務現況，包括各類治理模型、控制框架，以及全球正在成形的監理標準。內容與 OWASP Top 10 for Agentic Applications 形成互補：後者聚焦技術風險，本報告聚焦組織層級的治理設計。對金融機構而言，這份文件可作為建立 Agent 授權分級、稽核軌跡與責任歸屬的參考基準。",
+      "highlights": [
+        "2026-08-03 發布 2.01 版，涵蓋代理式 AI 的安全與治理雙面向",
+        "梳理現行治理模型、控制框架與全球監理標準走向",
+        "與 OWASP Top 10 for Agentic Applications 形成技術／治理互補",
+        "可作為建立 Agent 授權分級與稽核軌跡的參考基準"
+      ],
+      "url": "https://genai.owasp.org/resource/state-of-agentic-ai-security-and-governance/"
+    },
+    {
+      "title": "OWASP GenAI LLM Top 10 2026",
+      "source": "OWASP Gen AI Security Project",
+      "date": "2026-08-04",
+      "category": "資安標準",
+      "summary": "OWASP Gen AI Security Project 於 2026 年 8 月 4 日發布 LLM Top 10 的 2026 年版，這是該清單的第三版，也是首次把真實事故資料納入排序依據。排序權重採 75% 社群投票加 25% 真實事故資料，事故資料來自公開漏洞資料庫與 AI 危害資料庫。Prompt Injection 與 Sensitive Information Disclosure 續居前兩名，但其下的排序變動幅度較往年更大。2026 年版最重要的結構性改變，是明確劃定範圍邊界：當模型作為應用程式內的「軟體元件」時適用 LLM Top 10，當模型成為「行動者（actor）」時則改用 OWASP Top 10 for Agentic Applications。這個切分讓企業在做風險評鑑時能明確選定適用清單。",
+      "highlights": [
+        "2026-08-04 發布，為 LLM Top 10 第三版",
+        "排序權重：75% 社群投票 + 25% 真實事故資料",
+        "Prompt Injection 與 Sensitive Information Disclosure 續居前二",
+        "首次明確劃分「模型為元件」與「模型為行動者」的適用邊界",
+        "模型作為行動者時改用 OWASP Top 10 for Agentic Applications"
+      ],
+      "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+    },
+    {
+      "title": "OWASP 2026 LLM Top 10: \"The model will be fooled\"",
+      "source": "Help Net Security",
+      "date": "2026-08-06",
+      "category": "資安標準",
+      "summary": "Help Net Security 解讀 OWASP 2026 版 LLM Top 10，標題直指此版的核心假設：「模型一定會被騙」。報導指出，本次排序首度導入真實事故資料，共分析 6,639 筆來自公開漏洞資料庫與 AI 危害資料庫的實際事件，佔 25% 權重。Prompt Injection 連續第三年位居第一，但報導點出一個弔詭現象：實際通報事故數量並不高，排名居高主要反映從業人員投入的緩解成本與其架構性難解程度。此版另一重點是範圍邊界的釐清，將「模型作為元件」與「模型作為行動者」分屬不同清單。對治理團隊而言，這意味著風險評鑑不能再用單一清單套用所有 GenAI 部署情境。",
+      "highlights": [
+        "分析 6,639 筆真實事故資料，佔排序權重 25%",
+        "Prompt Injection 連三年居首，但實際通報事故數量偏低",
+        "高排名反映緩解成本與架構性難解程度，而非事故頻率",
+        "「模型為元件」與「模型為行動者」分屬不同清單",
+        "風險評鑑須依部署型態選用對應清單，不可單一套用"
+      ],
+      "url": "https://www.helpnetsecurity.com/2026/08/06/owasp-2026-llm-top-10-released/"
+    },
+    {
+      "title": "Data protection digest 1 Aug 2026: EU AI Act becomes applicable, with high-risk AI temporarily excluded",
+      "source": "TechGDPR",
+      "date": "2026-08-01",
+      "category": "隱私",
+      "summary": "TechGDPR 的資料保護週報整理 8 月 1 日前後的歐盟法遵動態，重點在《AI Act》生效但高風險 AI 制度暫時被排除的兩速安排。報導同時提醒與 AI 治理相互牽動的其他合規時程，包括荷蘭國會通過的 Cybersecurity Act（Cyberbeveiligingswet），該法轉換 NIS2 指令並於 2026 年 8 月 15 日生效且無緩衝期。從資料保護角度看，AI 透明度義務與 GDPR 的告知義務、自動化決策規範存在明顯重疊，企業不宜分開處理。這份週報適合作為跨法規時程盤點的參考。",
+      "highlights": [
+        "《AI Act》生效但高風險 AI 制度暫時排除，形成兩速時程",
+        "荷蘭 Cybersecurity Act 轉換 NIS2，2026-08-15 生效且無緩衝期",
+        "AI 透明度義務與 GDPR 告知義務、自動化決策規範高度重疊",
+        "建議企業以跨法規時程盤點方式統一處理，避免分頭合規"
+      ],
+      "url": "https://techgdpr.com/blog/data-protection-digest-01082026-eu-ai-act-becomes-applicable-with-high-risk-ai-temporarily-excluded/"
     }
   ],
-  "_updated_at": "2026-08-07T18:14:57.852630+08:00"
+  "_updated_at": "2026-08-08T18:14:12.752184+08:00"
 }
