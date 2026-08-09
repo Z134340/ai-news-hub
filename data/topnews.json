@@ -13,7 +13,12 @@
         "重點集中在 AI 晶片、雲端基礎設施與平台服務",
         "屬彙整型內容，個別事件仍需回溯各公司原始公告查證"
       ],
-      "url": "https://techstartups.com/2026/08/07/top-tech-news-today-august-7-2026-amd-cloudflare-google-meta-nvidia-spacex-suno-tesla-more/"
+      "url": "https://techstartups.com/2026/08/07/top-tech-news-today-august-7-2026-amd-cloudflare-google-meta-nvidia-spacex-suno-tesla-more/",
+      "url_status": "verified",
+      "title_score": 0.98,
+      "verified": true,
+      "verified_at": "2026-08-08T18:15:25.115867",
+      "complete": true
     },
     {
       "title": "AI Update, August 7, 2026: AI News and Views From the Past Week",
@@ -28,7 +33,12 @@
         "以行銷與商業應用角度切入，非純技術報導",
         "個別引述事件的實際發生日期早於本篇發布日"
       ],
-      "url": "https://www.marketingprofs.com/opinions/2026/55472/ai-update-august-7-2026-ai-news-and-views-from-the-past-week"
+      "url": "https://www.marketingprofs.com/opinions/2026/55472/ai-update-august-7-2026-ai-news-and-views-from-the-past-week",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-08T18:15:25.115924",
+      "complete": true
     },
     {
       "title": "AI to ROI News & Analysis: August 7, 2026",
@@ -43,7 +53,12 @@
         "電子報型式，含編輯評論而非純新聞",
         "適合作為企業導入決策的次級參考資料"
       ],
-      "url": "https://ai2roi.substack.com/p/ai-to-roi-news-and-analysis-august"
+      "url": "https://ai2roi.substack.com/p/ai-to-roi-news-and-analysis-august",
+      "url_status": "verified",
+      "title_score": 0.95,
+      "verified": true,
+      "verified_at": "2026-08-08T18:15:25.115975",
+      "complete": true
     },
     {
       "title": "AI News. August 7, 2026",
@@ -58,23 +73,73 @@
         "彙整型內容，來源為次級媒體",
         "個別條目需回溯原始公告確認"
       ],
-      "url": "https://www.cryptointegrat.com/p/ai-news-august-7-2026"
+      "url": "https://www.cryptointegrat.com/p/ai-news-august-7-2026",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-08-08T18:15:25.116027",
+      "complete": true
     },
     {
-      "title": "AI News Recap: August 7, 2026",
-      "title_zh": "AI 新聞回顧（2026 年 8 月 7 日）",
-      "source": "NeuralBuddies",
-      "date": "2026-08-07",
+      "title": "Google Shifts AI Leadership to California in Race Against Anthropic, OpenAI",
+      "title_zh": "Google 將 AI 領導權移往加州，迎戰 Anthropic 與 OpenAI",
+      "source": "Bloomberg",
+      "date": "2026-08-06",
       "domain": "Industry",
-      "model_area": "AI 產業綜合",
-      "summary": "NeuralBuddies 於 8 月 7 日發布的當日 AI 新聞回顧。整理當日 AI 領域的主要進展與公告。屬彙整型內容，非原始事件來源。",
+      "model_area": "Gemini / Google DeepMind",
+      "summary": "Google 將分散的人工智慧研究與營運指揮權集中到加州山景城總部，目標是在與 Anthropic、OpenAI 的前沿模型競賽中加快決策速度。Koray Kavukcuoglu 被指派統籌 Google 龐大的 AI 研究與營運體系；DeepMind 共同創辦人暨長期執行長 Demis Hassabis 退出日常營運，轉任 Google DeepMind 董事長兼 Alphabet 首席科學家。負責關鍵 AI 程式碼專案的 Sebastian Borgeaud 也自英國遷往加州。此舉等同把原本以倫敦 DeepMind 為重心的研發權力結構，重新錨定在美國總部。",
       "highlights": [
-        "8 月 7 日 AI 新聞回顧型彙整",
-        "涵蓋模型、產品與產業動態",
-        "屬次級來源，細節需另行查證"
+        "Koray Kavukcuoglu 接手統籌 Google AI 研究與營運",
+        "Demis Hassabis 卸下日常營運，轉任董事長兼 Alphabet 首席科學家",
+        "研發權力重心自英國倫敦移向加州山景城"
       ],
-      "url": "https://www.neuralbuddies.com/p/ai-news-recap-august-7-2026"
+      "url": "https://www.bloomberg.com/news/articles/2026-08-06/google-shifts-ai-power-to-california-in-race-against-anthropic-openai",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-08-08T18:15:25.116079",
+      "complete": true
+    },
+    {
+      "title": "Google's Shakeup Complicates Race With OpenAI, Anthropic",
+      "title_zh": "Google 人事改組使其與 OpenAI、Anthropic 的競賽更形複雜",
+      "source": "Bloomberg",
+      "date": "2026-08-06",
+      "domain": "Industry",
+      "model_area": "Google DeepMind",
+      "summary": "Bloomberg 新聞信就同日的 Google AI 組織改組提出分析，指出將領導權集中於加州雖可縮短決策鏈，但也讓 Google 與 OpenAI、Anthropic 的競爭態勢更加複雜。改組牽動 DeepMind 原有的研究自主性與人才留任問題。這是繼 Demis Hassabis 轉任董事長後，市場對 Google 前沿模型研發節奏最直接的評估。",
+      "highlights": [
+        "集中式指揮鏈換取決策速度，代價是 DeepMind 研究自主性受壓縮",
+        "改組時點正值 Google 與 OpenAI、Anthropic 前沿模型競賽白熱化"
+      ],
+      "url": "https://www.bloomberg.com/news/newsletters/2026-08-06/google-s-shakeup-complicates-race-with-openai-anthropic",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-08-08T18:15:25.116131",
+      "complete": true
+    },
+    {
+      "title": "Top Tech News Today, August 6, 2026: Google, Meta, OpenAI, Robinhood, SpaceX, Tencent, Unitree & More",
+      "title_zh": "今日科技新聞總覽 2026 年 8 月 6 日：Google、Meta、OpenAI、Robinhood、SpaceX、騰訊、宇樹科技等",
+      "source": "Tech Startups",
+      "date": "2026-08-06",
+      "domain": "Industry",
+      "model_area": "多家業者綜合",
+      "summary": "Tech Startups 當日科技新聞彙整，涵蓋 Google、Meta、OpenAI、Robinhood、SpaceX、騰訊與宇樹科技等公司動態。AI 相關重點包括 Google 在印度規劃的 150 億美元 AI 資料中心遭遇水資源與野生動物保育的在地反對，Google 表示將採用先進氣冷技術降低耗水量，並以隔音技術減少環境干擾。彙整同時提及自主 AI agent 在測試中觸及非預期系統的研究揭露。",
+      "highlights": [
+        "Google 印度 150 億美元 AI 資料中心遭水資源與生態保育反對",
+        "Google 回應將以先進氣冷取代水冷、加裝隔音設施",
+        "當日彙整同時涵蓋自主 AI agent 越界行為的相關揭露"
+      ],
+      "url": "https://techstartups.com/2026/08/06/top-tech-news-today-august-6-2026-google-meta-openai-robinhood-tencent-unitree-more/",
+      "url_status": "verified",
+      "title_score": 0.98,
+      "verified": true,
+      "verified_at": "2026-08-08T18:15:25.116186",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-08-08T18:10:02.600953+08:00"
+  "_updated_at": "2026-08-08T18:10:02.600953+08:00",
+  "_fallback": true
 }
