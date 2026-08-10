@@ -1,5 +1,83 @@
 [
   {
+    "title": "如何打造一個 Agent（How to Build an Agent）",
+    "source": "LangChain Blog",
+    "date": "2026-08-07",
+    "tool_name": "LangChain / LangGraph",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "LangChain 官方部落格由 Victor Moreira 撰寫的 Agent 建構實戰指南，從最基本的「模型加上工具迴圈」出發，逐步拆解一個可用 Agent 的必要組成。文章說明 Agent 的核心其實只是一個持續呼叫 LLM、解析工具呼叫、執行工具並把結果回饋給模型的迴圈，不需要一開始就導入龐大框架。接著討論如何加上狀態管理、錯誤處理與中斷復原，讓 Agent 在長流程任務中不會因單一工具失敗而整個崩潰。文中同時說明何時該從自行手刻迴圈升級到 LangGraph，以取得檢查點、持久化與人機協作審核等能力。對想理解 Agent 底層機制而非只會呼叫 API 的開發者相當實用。",
+    "highlights": [
+      "Agent 本質是「LLM + 工具 + 迴圈」，先手刻理解機制再談框架",
+      "狀態管理與錯誤處理是 Agent 能否撐過長流程任務的關鍵",
+      "說明何時該從自製迴圈升級到 LangGraph 取得持久化與人機審核",
+      "以可執行程式碼逐步示範，適合已有 LLM API 基礎的開發者"
+    ],
+    "url": "https://blog.langchain.com/how-to-build-an-agent/",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+  },
+  {
+    "title": "AI Skills 怎麼寫？grill-me 工作流 5 步拆解，附中文提示詞可複製",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-08-07",
+    "tool_name": "Agent Skills / Claude Skills",
+    "difficulty": "intermediate",
+    "category": "Prompt 工程",
+    "summary": "本文拆解開發者 Matt Pocock 提出的 grill-me 工作流，把「讓 AI 在動手前先問清楚」變成一套可複製的 Skill 寫法。第一步是決策樹建模，要求 AI 把使用者的計畫視為一棵決策樹，系統性走訪每個分支與邊界情況，避免隱藏假設造成盲點。第二步是一次只問一個問題，嚴格禁止一次丟出大量提問清單，每問一題就暫停等待回覆，降低認知負荷。第三步區分事實與決策：事實應由 AI 自行查閱程式碼庫或環境檔取得，只有真正需要人決策的才向使用者提問。第四步要求提問時同時附上 AI 自己的建議答案與理由，讓使用者是在「審核提案」而非面對空白提示。第五步是全部分支確認並取得共識前，絕不寫程式或執行變更。文末附上可直接複製的中文提示詞。",
+    "highlights": [
+      "決策樹建模：先系統性走訪所有分支與邊界情況，杜絕隱藏假設",
+      "一次只問一題，避免一次丟出大量問題造成認知負荷",
+      "事實靠 AI 自行查證、決策才問人，嚴格區分兩者",
+      "提問必附建議答案與理由，讓使用者用「審核提案」方式決策",
+      "取得共識前不動手寫程式，附中文提示詞可直接複製"
+    ],
+    "url": "https://www.bnext.com.tw/article/91643/matt-pocock-ai-skills-workflow",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+  },
+  {
+    "title": "ADK 多代理模式開發者指南（Developer's guide to multi-agent patterns in ADK）",
+    "source": "Google Developers Blog",
+    "date": "2026-08-05",
+    "tool_name": "Google ADK (Agent Development Kit)",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "Google Developers Blog 針對 Agent Development Kit (ADK) 的多代理架構模式撰寫的實作指南。文章整理常見的多代理組成方式，包括階層式的 coordinator/dispatcher 分派、sequential 串接、parallel 並行與 loop 迭代等工作流代理，並說明各自適用的任務型態。內容示範如何以 sub_agents 建立代理階層，讓上層代理依任務性質把工作轉交給專門子代理，同時透過共享 session state 傳遞中介結果。文中也討論代理間交接（transfer）與工具化代理（agent-as-a-tool）兩種不同的委派語意差異。適合已經做出單一 ADK 代理、要擴展成團隊協作架構的開發者。",
+    "highlights": [
+      "整理 coordinator/dispatcher、sequential、parallel、loop 四類代理組成模式",
+      "以 sub_agents 建立階層，讓上層代理把任務分派給專門子代理",
+      "透過共享 session state 在代理之間傳遞中介結果",
+      "釐清「代理交接」與「代理當成工具」兩種委派語意的差異"
+    ],
+    "url": "https://developers.googleblog.com/developers-guide-to-multi-agent-patterns-in-adk/",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+  },
+  {
+    "title": "在 ADK 中用 Skills 打造代理的開發者指南（Developer's Guide to Building ADK Agents with Skills）",
+    "source": "Google Developers Blog",
+    "date": "2026-08-05",
+    "tool_name": "Google ADK / SkillToolset",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "本文說明如何在 Google ADK 中使用 SkillToolset 實作 progressive disclosure（漸進式揭露），讓代理在需要時才載入對應脈絡，而不是把數千 token 全部塞進單一 system prompt。Agent Skills 規格把揭露分成三層：L1 metadata 約每個 skill 100 token，只含名稱與描述，供代理掃描如同菜單；L2 instructions 低於 5,000 token，只有代理明確啟用該 skill 時才載入完整內容；L3 resources 則是風格指南、API 規格等外部參考檔，需要時才讀取。文章以量化說明效益：一個具備 10 個 skill 的代理，每次呼叫起始只需約 1,000 token 的 L1 metadata，而非單體式提示的 10,000 token，基準脈絡用量約可降低 90%。對正在處理 Agent 脈絡膨脹與 token 成本的團隊有直接參考價值。",
+    "highlights": [
+      "SkillToolset 以三層漸進式揭露取代單體式 system prompt",
+      "L1 metadata 每個 skill 約 100 token，僅供代理掃描選用",
+      "L2 instructions 低於 5,000 token，代理明確啟用才載入",
+      "L3 resources 為外部參考檔（風格指南、API 規格），按需讀取",
+      "10 個 skill 的代理基準脈絡從約 10,000 token 降到約 1,000 token，減少約 90%"
+    ],
+    "url": "https://developers.googleblog.com/developers-guide-to-building-adk-agents-with-skills/",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+  },
+  {
     "title": "LangSmith LLM Gateway: runtime controls for production agents",
     "source": "LangChain Blog",
     "date": "2026-07-30",
@@ -14,9 +92,33 @@
       "目前為 public beta 階段"
     ],
     "url": "https://www.langchain.com/blog/langsmith-llm-gateway-runtime-controls-for-production-agents",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.143851",
+    "complete": true
+  },
+  {
+    "title": "Claude 5 Context Engineering 怎麼做？Anthropic 刪掉 80％ System Prompt 的 6 個新原則",
+    "source": "AI 郵報 (AI Post Hub)",
+    "date": "2026-07-24",
+    "tool_name": "Claude 5 / Claude Code / CLAUDE.md",
+    "difficulty": "intermediate",
+    "category": "Context Engineering",
+    "summary": "本文解讀 Anthropic 針對 Claude 5 世代模型發布的脈絡工程新準則。Anthropic 表示，在 Claude Opus 5 與 Claude Fable 5 上，他們刪除了超過 80% 的 Claude Code system prompt，而內部程式編寫評測未出現可量測的效能衰退。文章把脈絡工程定義為「系統性設計模型執行任務時會收到哪些資訊」，涵蓋 system prompt、CLAUDE.md、Skills、記憶、工具描述、參考檔與對話歷史，重點在於如何安排這些內容以及何時載入。Anthropic 把這次轉向歸納成六項核心原則，代表開發者面對新世代模型時該改變的工作方式。文中的關鍵洞察是：新一代模型需要的不是更少管理，而是更少干擾——過度細節的指令反而會壓抑模型自身的判斷能力。",
+    "highlights": [
+      "Claude Opus 5 / Fable 5 上刪掉逾 80% Claude Code system prompt，內部程式評測無可量測衰退",
+      "脈絡工程範圍包含 system prompt、CLAUDE.md、Skills、記憶、工具描述與參考檔",
+      "核心觀點：新世代模型需要的不是更少管理，而是更少干擾",
+      "歸納六項脈絡工程新原則，重點在資訊安排方式與載入時機"
+    ],
+    "url": "https://www.aiposthub.com/claude-5-context-engineering-guide/",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "How Anthropic secures its AI-native software development lifecycle",
@@ -34,9 +136,14 @@
       "人類角色轉為指揮、設定意圖與最終核准"
     ],
     "url": "https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.143878",
+    "complete": true
   },
   {
     "title": "How Datadog built a \"universal machine tool\" for Claude Code",
@@ -54,9 +161,33 @@
       "涵蓋四類工作流：targeted changes、大型重構、模組替換、完整系統建構"
     ],
     "url": "https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 0.97,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.143903",
+    "complete": true
+  },
+  {
+    "title": "如何建立 AI Agent？實戰教學：先「反向拆解工作流」",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-07-17",
+    "tool_name": "AI Agent（不限特定框架）",
+    "difficulty": "beginner",
+    "category": "AI Agent 建構",
+    "summary": "本文提出非工程師也能建立 AI Agent 的方法論，核心是「反向拆解工作流」：不要一開始就想著要用什麼工具或框架，而是先把現有的人工作業流程逐步倒推拆解成可交付的最小單元。文章訪談實務工作者 Wesley，說明如何辨識流程中哪些步驟真正需要判斷、哪些只是資料搬運，前者交給模型、後者交給確定性的工具或腳本。接著說明如何為每個步驟定義明確的輸入、輸出與失敗條件，讓 Agent 的行為可預期、可驗證。對想在業務單位而非工程部門導入 Agent 的人來說，提供了一條不需先學程式的入門路徑。",
+    "highlights": [
+      "先反向拆解既有人工流程，再決定工具與框架，而非反過來",
+      "區分「需要判斷」與「只是資料搬運」的步驟，分別交給模型與腳本",
+      "為每個步驟定義輸入、輸出與失敗條件，讓 Agent 行為可驗證",
+      "適合非工程背景者在業務單位導入 Agent 的入門路徑"
+    ],
+    "url": "https://www.bnext.com.tw/article/91536/how-to-build-ai-agent",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "Be Ready Before the Attack: A Practical Guide to Self-Hosting an Open Model for Cyber Defense",
@@ -72,9 +203,54 @@
       "自架路線的關鍵誘因是避免敏感資料送往第三方推論服務"
     ],
     "url": "https://huggingface.co/blog/jeffboudier/open-model-cyber-defense",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.143928",
+    "complete": true
+  },
+  {
+    "title": "用你自己的資料集微調 Mistral（Fine-tuning Mistral on Your Dataset）",
+    "source": "Hugging Face Blog",
+    "date": "2026-07-12",
+    "tool_name": "Mistral / Hugging Face TRL / PEFT",
+    "difficulty": "advanced",
+    "category": "微調指南",
+    "summary": "Hugging Face 社群部落格由 Noa Roggendorff 撰寫的 Mistral 微調實作教學，從資料集準備一路帶到訓練與推論。文章示範如何把自有資料整理成適合監督式微調（SFT）的格式，包含對話模板套用與 tokenization 的常見陷阱。訓練部分使用 Hugging Face 生態系的 TRL SFTTrainer 搭配 PEFT 的 LoRA 設定，在有限 GPU 記憶體下完成參數高效微調，而非全參數訓練。文中也涵蓋量化載入模型以進一步壓低顯存需求，以及訓練完成後如何合併或掛載 adapter 進行推論。附有可直接執行的程式碼，適合已具備 PyTorch 與 Transformers 基礎的實作者。",
+    "highlights": [
+      "完整走過資料集準備、對話模板套用與 tokenization 陷阱",
+      "使用 TRL SFTTrainer 搭配 PEFT LoRA 做參數高效微調",
+      "以量化載入模型壓低 GPU 顯存需求，一般消費級硬體可行",
+      "說明訓練後 adapter 的合併與掛載推論方式",
+      "附可直接執行的程式碼，需 PyTorch 與 Transformers 基礎"
+    ],
+    "url": "https://huggingface.co/blog/nroggendorff/finetune-mistral",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+  },
+  {
+    "title": "Claude 教學 2026｜從入門到 Projects、Skills、Cowork，新手必懂功能一次看",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-07-06",
+    "tool_name": "Claude / Claude Projects / Claude Skills / Claude Cowork",
+    "difficulty": "beginner",
+    "category": "AI 工具實戰教學",
+    "summary": "數位時代針對 2026 年 Claude 功能全貌整理的新手完整教學，把訂閱方案選擇、模型選用到各項功能一次講清楚。文章依序介紹 Projects（把長期脈絡與檔案綁在一個工作空間）、Skills（把重複的工作方式教給 Claude，不必每次重貼提示詞）與 Cowork（讓 Claude 在本機環境直接操作檔案完成自動化）。內容說明各功能適用的場景差異，避免使用者把 Projects 與 Skills 混用而得不到效果。同時提供實際的操作步驟與介面說明，屬於零基礎可跟著做的入門型教學。",
+    "highlights": [
+      "一次講完訂閱方案、模型選擇與三大功能的適用場景",
+      "Projects：把長期脈絡與檔案綁在同一工作空間",
+      "Skills：把重複工作方式教給 Claude，免去每次重貼提示詞",
+      "Cowork：讓 Claude 在本機直接操作檔案完成自動化",
+      "附實際操作步驟與介面說明，零基礎可跟著做"
+    ],
+    "url": "https://www.bnext.com.tw/article/91403/claude-tutorial-2026",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "別讓 AI 牽著走！掌握三大編輯思維，成為不被淘汰的高價值人才",
@@ -91,9 +267,34 @@
       "把 AI 定位為協作工具，長期可反向強化使用者自身能力"
     ],
     "url": "https://technews.tw/2026/07/05/ai-editor-mindset-master-output-fact-checking/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.143954",
+    "complete": true
+  },
+  {
+    "title": "Claude Code 教學：不用寫程式，做 Chrome AI 摘要外掛",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-07-02",
+    "tool_name": "Claude Code",
+    "difficulty": "beginner",
+    "category": "Claude Code 教學",
+    "summary": "本文以「做出一個真的能用的 Chrome 外掛」為目標，示範非工程師如何用 Claude Code 完成開發。成品功能是在任何網頁上反白文字後按右鍵，就能產生三句話的中文摘要。文章從環境設定開始，逐步帶過專案初始化、讓 Claude Code 理解需求、產生外掛檔案，到在 Chrome 載入未封裝擴充功能進行測試。教學重點不只在指令本身，更強調「先想再做、壞了就修」的 AI 協作工作節奏——先把需求講清楚再讓 AI 動手，出錯時把錯誤訊息餵回去讓它修正，而不是自己硬讀程式碼。適合完全沒有寫程式經驗但想做出自用小工具的讀者。",
+    "highlights": [
+      "以「反白文字產生三句中文摘要」的 Chrome 外掛為完整實作目標",
+      "從環境設定、專案初始化到 Chrome 載入未封裝擴充功能逐步示範",
+      "強調「先想再做、壞了就修」的 AI 協作節奏",
+      "出錯時把錯誤訊息回饋給 Claude Code 修正，不需自己讀程式碼",
+      "完全零程式基礎可跟著完成"
+    ],
+    "url": "https://www.bnext.com.tw/article/91402/claude-code-no-coding-4-steps-build-your-own-tool-guidebook",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "Deep Agents",
@@ -116,7 +317,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574647",
+    "verified_at": "2026-08-09T18:18:26.143979",
     "complete": true
   },
   {
@@ -140,7 +341,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574674",
+    "verified_at": "2026-08-09T18:18:26.144010",
     "complete": true
   },
   {
@@ -164,7 +365,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574699",
+    "verified_at": "2026-08-09T18:18:26.144037",
     "complete": true
   },
   {
@@ -181,9 +382,14 @@
       "可作為內部導入節奏與同業比較的基準參考"
     ],
     "url": "https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144063",
+    "complete": true
   },
   {
     "title": "Eight trends defining how software gets built in 2026",
@@ -200,9 +406,34 @@
       "收錄 TELUS、Zapier 等企業實際案例"
     ],
     "url": "https://claude.com/blog/eight-trends-defining-how-software-gets-built-in-2026",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144090",
+    "complete": true
+  },
+  {
+    "title": "叫 AI 寫文章總是爛大街？5 個 agent「特務分工法」，篇篇都有高品質產出",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-06-17",
+    "tool_name": "Claude / Multi-agent 內容工作流",
+    "difficulty": "beginner",
+    "category": "AI Agent 建構",
+    "summary": "本文提出以多代理分工取代單一提示詞的內容生產方法，把整個流程拆成策略、研究、寫作、編輯、發布五個角色，每個角色都有自己明確的輸入、輸出與禁止事項。關鍵設計在於第一個 agent 完全不動筆，只負責思考切入角度、適合的發布平台、可能的內容亮點，以及要避開的寫作方向，先把方向定錯的風險排除。後續角色各自受限於前一階段的產出，避免模型在單次生成中同時處理策略與文筆而導致內容平庸。文章說明「禁止事項」欄位的重要性——明確告訴每個 agent 不能做什麼，比只講要做什麼更能拉高產出品質。屬於可直接套用的實務工作流設計。",
+    "highlights": [
+      "把內容流程拆成策略、研究、寫作、編輯、發布五個 agent 角色",
+      "每個角色明確定義輸入、輸出與「禁止事項」三欄",
+      "第一個 agent 不動筆，只決定切入角度、平台與要避開的方向",
+      "分階段限制避免模型在單次生成中同時處理策略與文筆",
+      "禁止事項的設定對拉高產出品質的效果大於正面指令"
+    ],
+    "url": "https://www.bnext.com.tw/article/91248/5-agent-ai-content-workflow",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "Tiny Agents in Python: a MCP-powered agent in ~70 lines of code",
@@ -225,7 +456,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574724",
+    "verified_at": "2026-08-09T18:18:26.144116",
     "complete": true
   },
   {
@@ -249,7 +480,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574748",
+    "verified_at": "2026-08-09T18:18:26.144162",
     "complete": true
   },
   {
@@ -273,8 +504,28 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574774",
+    "verified_at": "2026-08-09T18:18:26.144198",
     "complete": true
+  },
+  {
+    "title": "Claude Cowork 是什麼、怎麼用？新手 10 分鐘設定教學，一次學會檔案自動化",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-06-05",
+    "tool_name": "Claude Cowork",
+    "difficulty": "beginner",
+    "category": "AI 工具實戰教學",
+    "summary": "本文說明 Claude Cowork 與一般聊天式使用的根本差異：Cowork 能在本機環境直接讀取與產出檔案，把對話結果落地成實際可用的檔案，而不只是回覆文字。教學從安裝與本機環境設定開始，說明如何指定 Cowork 可存取的工作資料夾，以及權限授予的注意事項。接著示範檔案自動化的實際場景，例如批次整理、格式轉換與資料彙整，讓使用者在約 10 分鐘內完成第一個可運作的自動化流程。文章也提醒本機操作型工具的風險界線——應限縮可存取範圍，避免讓 AI 對整個磁碟有讀寫權限。屬於零基礎新手的入門設定指南。",
+    "highlights": [
+      "釐清 Cowork 與聊天式使用的差異：能直接在本機讀寫檔案",
+      "從安裝、本機環境設定到指定可存取工作資料夾逐步示範",
+      "示範批次整理、格式轉換、資料彙整等檔案自動化場景",
+      "約 10 分鐘可完成第一個可運作的自動化流程",
+      "提醒限縮存取範圍，避免 AI 取得整個磁碟讀寫權限"
+    ],
+    "url": "https://www.bnext.com.tw/article/91158/from-chat-to-cowork-local-claude-workflow-guide",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "How to Build a Custom Agent Harness",
@@ -291,9 +542,14 @@
       "prompt caching 同時降低延遲與 token 成本"
     ],
     "url": "https://www.langchain.com/blog/how-to-build-a-custom-agent-harness",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144227",
+    "complete": true
   },
   {
     "title": "Fine-tune FLUX.2 [klein] with a LoRA under 60 minutes",
@@ -309,9 +565,14 @@
       "以參數高效微調（LoRA）降低運算門檻，適合快速驗證"
     ],
     "url": "https://huggingface.co/blog/black-forest-labs/flux-2-klein-lora",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144252",
+    "complete": true
   },
   {
     "title": "Designing the hf CLI as an agent-optimized way to work with the Hub",
@@ -334,7 +595,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574881",
+    "verified_at": "2026-08-09T18:18:26.144276",
     "complete": true
   },
   {
@@ -359,8 +620,28 @@
     "url_status": "verified",
     "title_score": 0.6,
     "verified": true,
-    "verified_at": "2026-08-02T18:16:28.574926",
+    "verified_at": "2026-08-09T18:18:26.144303",
     "complete": true
+  },
+  {
+    "title": "Claude 是什麼？claude ai 教學：38 篇 Cowork、Skills、省 Token 秘訣全打包",
+    "source": "數位時代 BusinessNext",
+    "date": "2026-06-01",
+    "tool_name": "Claude / Cowork / Skills",
+    "difficulty": "beginner",
+    "category": "AI 工具實戰教學",
+    "summary": "數位時代把旗下 38 篇 Claude 教學整理成一份「Claude 實戰地圖」，作為系統性的學習索引。內容涵蓋方案選擇、模型選擇、下指令方式，一路到如何把 Claude 整合進 Excel、Word 等既有工作流程。地圖依主題分類，包含 Cowork 自動化、Skills 客製化，以及省 Token 的實務技巧，讓使用者依自己的階段挑選對應文章，而不必從頭讀完。對剛開始評估要不要投入 Claude、或不知道從哪篇教學下手的使用者，提供了一個完整的導覽起點。屬於彙整型索引而非單一操作教學。",
+    "highlights": [
+      "彙整 38 篇 Claude 教學成一份主題式「實戰地圖」索引",
+      "涵蓋方案選擇、模型選擇到下指令方式的完整路徑",
+      "包含整合進 Excel、Word 等既有辦公流程的做法",
+      "另闢 Cowork 自動化、Skills 客製化與省 Token 技巧三大主題",
+      "適合作為入門導覽起點，依階段挑選對應文章"
+    ],
+    "url": "https://www.bnext.com.tw/article/91080/claude-cowork-skills",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "2026 年 Cursor AI 完整使用教學：從安裝到 Agent 模式，全面掌握最強 AI 程式碼編輯器",
@@ -377,9 +658,14 @@
       "繁體中文教學，對非英文使用者入門門檻較低"
     ],
     "url": "https://weavai.app/blog/2026/05/26/2026-%E5%B9%B4-cursor-ai-%E5%AE%8C%E6%95%B4%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8%EF%BC%9A%E5%BE%9E%E5%AE%89%E8%A3%9D%E5%88%B0-agent-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%85%A8%E9%9D%A2%E6%8E%8C%E6%8F%A1/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144330",
+    "complete": true
   },
   {
     "title": "How we contain Claude across products",
@@ -395,9 +681,14 @@
       "屬產品級控制面設計，可對照企業內部 coding agent 的部署控管"
     ],
     "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144369",
+    "complete": true
   },
   {
     "title": "使用 LangGraph 模板實現狀態機式 AI 工作流程",
@@ -421,8 +712,28 @@
     "url_status": "title_low_match",
     "title_score": 0.29,
     "verified": "needs_review",
-    "verified_at": "2026-08-02T18:16:28.574954",
+    "verified_at": "2026-08-09T18:18:26.144397",
     "complete": true
+  },
+  {
+    "title": "用 ADK 打造可暫停、可續跑、永不遺失脈絡的長時間執行 AI 代理（Build Long-running AI agents that pause, resume, and never lose context with ADK）",
+    "source": "Google Developers Blog",
+    "date": "2026-05-12",
+    "tool_name": "Google ADK / DatabaseSessionService",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構",
+    "summary": "本文處理 Agent 工程中最實際的難題：如何讓代理在跨越數小時甚至數天的任務中保持狀態，而不會因為程序重啟或人工審核等待而遺失脈絡。文章說明 ADK 的 session 與 state 機制，示範以持久化的 session service（如資料庫後端）取代預設的記憶體內儲存，讓代理的對話歷史與中介狀態寫入外部儲存。接著討論長時間執行工具（long-running tools）的設計模式，讓代理在等待外部事件或人工核可時能夠暫停，事後從中斷點續跑而非重頭開始。內容也涵蓋回呼（callback）機制在狀態檢查與稽核紀錄上的應用。對要把 Agent 從展示原型推進到正式環境的團隊具直接參考價值。",
+    "highlights": [
+      "解決長流程代理跨程序重啟、人工等待時的脈絡遺失問題",
+      "以持久化 session service 取代預設記憶體內儲存",
+      "long-running tools 讓代理在等待外部事件或人工核可時暫停後續跑",
+      "callback 機制可用於狀態檢查與稽核紀錄",
+      "面向要把 Agent 從原型推進到正式環境的工程團隊"
+    ],
+    "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
+    "is_new": true,
+    "first_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "Build Long-running AI agents that pause, resume, and never lose context with ADK",
@@ -440,33 +751,13 @@
       "適用於需長時間等待外部事件的企業流程自動化情境"
     ],
     "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
-    "is_new": true,
-    "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00"
-  },
-  {
-    "title": "Agent 開發生命週期：建構、測試、部署與監控 AI Agent",
-    "source": "LangChain Blog",
-    "date": "2026-05-09",
-    "tool_name": "LangChain, LangGraph, LangSmith",
-    "difficulty": "intermediate",
-    "category": "AI Agent 建構",
-    "summary": "LangChain 官方部落格發布的完整 Agent 開發指南，說明頂尖工程團隊如何可靠地交付 AI Agent。文章將 Agent 開發分為四個階段：Build（建構）、Test（測試）、Deploy（部署）、Monitor（監控），並詳細解析每個階段的最佳實踐。特別強調測試應在 Agent 進入生產環境之前開始，而非之後，以確保可靠性和穩定性。文章還介紹 LangSmith 在整個生命週期中的觀測與評估角色，是 2026 年 Agent 工程的重要參考文件。",
-    "highlights": [
-      "Agent 開發生命週期四階段：Build → Test → Deploy → Monitor，形成完整閉環",
-      "測試策略應在開發階段即開始規劃，包含單元測試、整合測試和端到端評估",
-      "LangSmith 提供 Agent 執行追蹤、效能監控和自動評估功能",
-      "部署階段需考慮 Agent 的冪等性（idempotency）、錯誤恢復和超時處理",
-      "監控包含效能指標追蹤和 regression 自動偵測"
-    ],
-    "url": "https://www.langchain.com/blog/the-agent-development-lifecycle",
     "is_new": false,
-    "first_seen": "2026-06-01T20:27:05.901051+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "title_low_match",
-    "title_score": 0.28,
-    "verified": "needs_review",
-    "verified_at": "2026-08-02T18:16:28.574980",
+    "first_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-09T18:18:26.144423",
     "complete": true
   }
 ]
