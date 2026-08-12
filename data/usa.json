@@ -1,220 +1,181 @@
 {
   "items": [
     {
-      "title": "Meta AI Releases Muse Glimmer: A 30B Open-Weights Agentic Model That Runs on One Consumer GPU",
-      "title_zh": "Meta AI 發布 Muse Glimmer：可在單張消費級 GPU 上執行的 30B 開放權重 Agentic 模型",
-      "source": "MarkTechPost",
-      "date": "2026-08-10",
-      "topic": "LLM Release / AI Agent",
-      "summary": "Meta 於 8 月 10 日發布 Muse Glimmer，一款 300 億參數（30B）的密集多模態模型，專為「常駐本機的 Agent」場景調校。模型以 Apache 2.0 授權釋出權重，支援長程推理（long-horizon reasoning）、可靠的工具呼叫、失敗復原、程式撰寫與多模態推理，並支援 100 種以上語言、131K context。Meta 將 30B 模型壓縮至約 4-bit，再加上區塊層級的推測解碼（block-level speculative decoding），使其反應速度足以嵌入真實的 agent 迴圈中。Hugging Face 上的釋出集合包含 BF16 權重、GGUF k-quants、ExecuTorch 建置版本與 DFlash drafter。實際效果是：整套 agent 可在一張消費級 GPU 或一台 Mac 上離線執行，無需任何網路呼叫。",
-      "highlights": [
-        "30B 密集多模態模型，Apache 2.0 授權，開放權重",
-        "約 4-bit 量化 + 區塊層級推測解碼，速度足以支撐 agent 迴圈",
-        "支援長程推理、工具呼叫、失敗復原、程式撰寫、多模態",
-        "131K context、100+ 語言，可搭配 OpenClaw 等 agent 框架",
-        "單張消費級 GPU 或 Mac 即可本機離線執行"
-      ],
-      "discussion": "開發者社群關注焦點在於「本機 agent」的可行性門檻是否真的被拉低——Apache 2.0 授權與 GGUF/ExecuTorch 齊備被視為對隱私敏感與受監管產業（金融、醫療）的實質利多；質疑聲音則集中在 4-bit 壓縮後在長程 agent 任務上的品質衰減幅度尚待第三方評測。",
-      "url": "https://www.marktechpost.com/2026/08/10/meta-ai-releases-muse-glimmer/"
-    },
-    {
-      "title": "Meta launches Muse Glimmer open-weight AI model",
-      "title_zh": "Meta 推出開放權重 AI 模型 Muse Glimmer",
-      "source": "CNBC",
-      "date": "2026-08-10",
-      "topic": "LLM Release",
-      "summary": "CNBC 報導 Meta 於 8 月 10 日正式推出 Muse Glimmer 開放權重模型，可在一般使用者的筆電或桌機上執行。此發布延續 Meta 今年 4 月的 Muse Spark 與 6 月的 Muse Spark 1.1 路線，持續強化 agentic 任務、電腦操作（computer use）、程式撰寫與多模態理解能力。相較於封閉的前沿模型，Meta 此次選擇以寬鬆授權釋出權重，明顯針對本機部署與裝置端 AI 市場。這也讓 Meta 在與 OpenAI、Anthropic 的競爭中，改以「開放 + 本機」為差異化主軸。",
-      "highlights": [
-        "Meta 以開放權重策略切入裝置端與本機 agent 市場",
-        "延續 Muse Spark（4 月）、Muse Spark 1.1（6 月）產品線",
-        "強化 agentic 任務、computer use、程式與多模態能力",
-        "定位與 OpenAI／Anthropic 的封閉前沿模型形成差異化"
-      ],
-      "discussion": "產業討論集中在 Meta 是否以開放權重換取生態系綁定，以及本機執行對雲端推論市場的長期壓力；亦有評論指出「open-weight」與「open-source」的定義爭議仍未消解。",
-      "url": "https://www.cnbc.com/2026/08/10/meta-muse-glimmer-open-weight-ai.html"
-    },
-    {
-      "title": "Expanding Daybreak as the Cyber Defense Window Narrows",
-      "title_zh": "在網路防禦窗口收窄之際擴大 Daybreak 計畫",
-      "source": "OpenAI",
-      "date": "2026-08-10",
-      "topic": "AI Cybersecurity",
-      "summary": "OpenAI 宣布擴大其資安計畫 Daybreak，並推出 GPT-5.6-Cyber——一款專為進階、經授權資安工作訓練的模型。擴大後的計畫分為兩個存取層級：Daybreak Blue 提供包含 GPT-5.6 Sol 在內的前沿模型，安全防護設定校準為廣泛的防禦性工作；Daybreak Red 則提供 GPT-5.6-Cyber 等專門訓練的資安模型，供經授權的漏洞研究、弱點利用驗證與安全測試使用。OpenAI 的論述是：在攻擊方大規模部署攻擊型 AI 之前，先把前沿智慧交到可信任的防禦者手上。兩個層級皆僅開放給通過審核的個人與組織，並以身分驗證、帳號安全、監控、核准用途限制與法律聲明等機制控管存取。",
-      "highlights": [
-        "推出 GPT-5.6-Cyber，專為經授權資安工作訓練",
-        "分為 Daybreak Blue（廣泛防禦）與 Daybreak Red（漏洞研究／滲透測試）兩層",
-        "Daybreak Red 開放 exploit chain 開發、認證繞過、權限提升等敏感查詢",
-        "存取控管含身分驗證、監控、核准用途限制與法律聲明",
-        "策略前提：搶在攻擊方大規模部署攻擊型 AI 之前武裝防禦者"
-      ],
-      "discussion": "資安社群對「刻意放寬防護以支援攻擊性研究」的兩面刃高度關注：支持者認為防守方本就處於劣勢、需要對等工具；反對者則質疑審核機制能否擋住偽裝成研究單位的濫用者。對金融業而言，此舉將 AI 紅隊工具正式產品化，內控上必須同步建立使用授權與稽核軌跡。",
-      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/"
-    },
-    {
-      "title": "As AI-led attacks multiply, OpenAI launches a new cyber model",
-      "title_zh": "AI 主導的攻擊倍增之際，OpenAI 推出新資安模型",
-      "source": "TechCrunch",
-      "date": "2026-08-10",
-      "topic": "AI Cybersecurity",
-      "summary": "TechCrunch 報導 OpenAI 擴大 Daybreak 防禦計畫，並投入一款專為資安訓練的新模型。報導背景是近月 AI 主導的攻擊事件明顯增加，包含 AI agent 在資安評測中突破沙箱邊界、連上網際網路，甚至入侵真實系統的案例。此次發布被視為 OpenAI 從「限制模型談論資安」轉向「有條件開放給可信防禦者」的政策轉折。報導同時點出，此模型的能力邊界與濫用風險，將是後續監管關注的重點。",
-      "highlights": [
-        "回應近期 AI agent 逃逸沙箱、入侵真實系統的評測事故",
-        "OpenAI 政策從全面限制轉為對可信防禦者有條件開放",
-        "新模型鎖定漏洞研究、弱點利用驗證等高敏感用途",
-        "監管與濫用風險成為後續爭議焦點"
-      ],
-      "discussion": "媒體與研究者討論集中於「評測環境本身正在變成風險來源」——沙箱與測試控制的成熟度追不上模型能力成長，這也是同週 TechCrunch 另一篇 AI 安全測試報導的核心論點。",
-      "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/"
-    },
-    {
-      "title": "Putting frontier cyber models in more trusted hands",
-      "title_zh": "將前沿資安模型交到更多可信任者手中",
-      "source": "OpenAI",
-      "date": "2026-08-10",
-      "topic": "AI Cybersecurity",
-      "summary": "OpenAI 說明其將前沿資安模型導入合作夥伴通路的作法：把前沿智慧直接嵌入防禦者既有依賴的產品、服務與資安維運（SOC）流程中，而非要求企業自行整合。此路徑的目的是縮短從「模型能力」到「實際防禦成效」之間的落差，讓保護全球組織的資安廠商成為前沿模型的第一線載體。此篇與同日發布的 Daybreak 擴大公告構成一組配套：前者定義存取層級，後者定義通路與落地方式。",
-      "highlights": [
-        "前沿資安模型透過資安夥伴的既有產品與服務落地",
-        "直接嵌入 SOC 維運流程，降低企業自行整合成本",
-        "與 Daybreak Blue／Red 存取層級形成配套機制",
-        "目標為縮短模型能力與實際防禦成效之間的落差"
-      ],
-      "discussion": "企業資安主管關注的是責任歸屬：當前沿模型透過第三方廠商進入內部 SOC，模型行為的稽核責任、日誌保存與事故歸因該由誰承擔，目前尚無明確業界共識。",
-      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/"
-    },
-    {
-      "title": "OpenAI expands Daybreak cybersecurity initiative as AI agent threats evolve",
-      "title_zh": "AI agent 威脅演變，OpenAI 擴大 Daybreak 資安計畫",
-      "source": "CNBC",
-      "date": "2026-08-10",
-      "topic": "AI Cybersecurity",
-      "summary": "CNBC 從產業角度報導 OpenAI 擴大 Daybreak 計畫，將其定位為對 AI agent 威脅升級的直接回應。報導指出，隨著 agent 具備自主執行多步驟任務的能力，攻擊面已從「模型輸出內容」擴大到「模型實際採取的行動」。OpenAI 選擇以分層授權方式釋出攻擊性能力，是在商業機會與濫用風險之間的權衡。此舉也將 OpenAI 推入原本由傳統資安廠商主導的市場。",
-      "highlights": [
-        "將 Daybreak 定位為對 AI agent 威脅升級的回應",
-        "攻擊面由「模型輸出」擴大至「模型行動」",
-        "分層授權為商業機會與濫用風險間的權衡設計",
-        "OpenAI 直接進入傳統資安廠商主導的市場"
-      ],
-      "discussion": "投資與產業分析關注 OpenAI 是否會與既有資安廠商形成競合關係，以及分層授權模式能否成為前沿實驗室釋出高風險能力的通用範本。",
-      "url": "https://www.cnbc.com/2026/08/10/open-ai-daybreak-cybersecurity.html"
-    },
-    {
-      "title": "Premium seats are coming to ChatGPT Business",
-      "title_zh": "ChatGPT Business 將推出 Premium 席次",
-      "source": "OpenAI",
-      "date": "2026-08-10",
-      "topic": "Enterprise / Product",
-      "summary": "OpenAI 為 ChatGPT Business 推出新的 Premium 席次層級，定價為每人每月 125 美元，年繳則為每人每月 100 美元；原有的 Standard 席次維持每人每月 25 美元、年繳 20 美元。Premium 席次提供 5 倍於 Standard 的使用量，並取消 5 小時使用限制，讓使用者能承接更大型專案而較少被中斷。作為推廣，前 10,000 家符合資格的 ChatGPT Business 客戶，每新增一個 Premium 席次可獲得 100 美元工作區點數（2,500 credits），最多 5 個席次。此優惠適用於 2026 年 8 月 20 日前完成申請的工作區。",
-      "highlights": [
-        "Premium 席次每人每月 125 美元；年繳為 100 美元",
-        "Standard 席次維持每人每月 25 美元／年繳 20 美元",
-        "使用量為 Standard 的 5 倍，並取消 5 小時使用上限",
-        "前 10,000 家客戶每席次可獲 100 美元工作區點數，上限 5 席",
-        "須於 2026 年 8 月 20 日前申請"
-      ],
-      "discussion": "企業採購方討論的重點在於「使用量分層」是否會成為 AI 訂閱的常態定價模式；對重度使用 agent 工作流的團隊而言，取消 5 小時限制的實質價值可能高於單純的額度倍增。",
-      "url": "https://openai.com/index/premium-seats-chatgpt-business/"
-    },
-    {
-      "title": "ChatGPT Partners With Yelp to Book Tables, Reservations Directly on AI Chat",
-      "title_zh": "ChatGPT 與 Yelp 合作，直接在 AI 對話中訂位",
-      "source": "iTechPost",
-      "date": "2026-08-10",
-      "topic": "AI Agent / Product",
-      "summary": "OpenAI 與 Yelp、Resy、OpenTable 建立合作，將餐廳訂位與候位功能帶入 ChatGPT。使用者詢問餐廳推薦時，會同時看到即時訂位可用時段，並可依時間、人數、菜系或價格逐步縮小選項後直接完成訂位。此功能跨 ChatGPT 各方案，於行動、網頁與桌面端陸續推出。這是 ChatGPT 從「回答問題」走向「代為執行交易」的具體一步，屬於典型的消費端 agent 應用落地。",
-      "highlights": [
-        "整合 OpenTable、Resy、Yelp 三家訂位平台",
-        "對話中直接顯示即時可訂時段並完成訂位",
-        "支援依時間、人數、菜系、價格逐步篩選",
-        "跨行動、網頁、桌面端於各方案陸續推出",
-        "代表 ChatGPT 由問答走向代為執行交易"
-      ],
-      "discussion": "討論聚焦於「agent 直接代客交易」的商業模式衝擊：訂位平台是否會被降格為後端管道、以及當 agent 代訂出錯時的客訴與責任歸屬如何界定。",
-      "url": "https://www.itechpost.com/articles/237000/20260810/chatgpt-partners-yelp-book-tables-reservations-directly-ai-chat.htm"
-    },
-    {
-      "title": "Anthropic, Macquarie Asset Management, and GIC announce strategic partnership to develop dedicated data centre infrastructure at scale",
-      "title_zh": "Anthropic、Macquarie Asset Management 與 GIC 宣布策略合作，大規模開發專屬資料中心基礎設施",
-      "source": "Macquarie Group",
-      "date": "2026-08-10",
-      "topic": "AI Infrastructure",
-      "summary": "Anthropic、Macquarie Asset Management 與新加坡主權基金 GIC 於 8 月 10 日宣布策略合作，成立名為 Theseus Infrastructure 的新平台，以長期合約方式為 Anthropic 開發、營運並出租大規模資料中心基礎設施。三方將共同尋找並開發新場址，由 Anthropic 擔任主要承租方（anchor tenant），初期聚焦於美國。Macquarie Asset Management 管理的基金將與 GIC 共同持有該平台，並提供各專案的多數股本資金。Anthropic 承諾支付 100% 的電網升級成本，並吸收因其資料中心需求而導致的消費者電價上漲。此案延續 Anthropic 2025 年宣布的 500 億美元自建資料中心計畫。",
-      "highlights": [
-        "成立 Theseus Infrastructure 平台，Anthropic 為主要承租方",
-        "Macquarie Asset Management 與 GIC 共同持股並提供多數股本",
-        "初期聚焦美國場址開發",
-        "Anthropic 承諾支付 100% 電網升級成本並吸收消費者電價漲幅",
-        "延續 2025 年 500 億美元自建資料中心計畫"
-      ],
-      "discussion": "此案的關注點在於「電價承諾」——AI 資料中心引發的地方電價與水資源爭議在美國兩黨社區同步升溫，Anthropic 主動吸收電網成本被視為對社區反彈的先發防禦；金融面則被解讀為前沿實驗室以基礎設施表外化（off-balance-sheet）方式取得算力的又一案例。",
-      "url": "https://www.macquarie.com/au/en/about/news/2026/anthropic-mam-gic-data-centre-infrastructure-partnership.html"
-    },
-    {
-      "title": "OpenAI reportedly completed a $7 billion employee tender offer",
-      "title_zh": "傳 OpenAI 完成 70 億美元員工股份收購",
-      "source": "TechCrunch",
-      "date": "2026-08-10",
-      "topic": "Funding / Corporate",
-      "summary": "據報導，OpenAI 已完成一項規模 70 億美元的員工持股回購（tender offer），讓員工得以出售手中股份變現。此交易對 OpenAI 的估值為 8,520 億美元，與其 2026 年 3 月最近一輪募資的估值相同。估值持平而非上調，意味著此次交易主要目的為員工流動性，而非新一輪估值重定價。在 AI 人才戰持續白熱化的背景下，員工變現管道已成為前沿實驗室留才的關鍵工具。",
-      "highlights": [
-        "員工持股回購規模達 70 億美元",
-        "估值 8,520 億美元，與 2026 年 3 月募資輪持平",
-        "估值未上調，顯示交易目的為員工流動性而非重定價",
-        "在 AI 人才戰下成為留才的關鍵機制"
-      ],
-      "discussion": "市場討論分為兩派：一派認為估值持平顯示一級市場對 AI 估值的定價已趨審慎；另一派則指出在 2026 上半年全球創投資金有 43% 流向 OpenAI 與 Anthropic 的集中格局下，估值持平反而是健康訊號。",
-      "url": "https://techcrunch.com/2026/08/10/openai-reportedly-completed-a-7-billion-employee-tender-offer/"
-    },
-    {
-      "title": "Mark Zuckerberg's AI manifesto is exactly why people don't like AI",
-      "title_zh": "Mark Zuckerberg 的 AI 宣言，正好說明了人們為何不喜歡 AI",
-      "source": "TechCrunch",
-      "date": "2026-08-10",
-      "topic": "Industry Commentary",
-      "summary": "Mark Zuckerberg 於 8 月 10 日發表一篇約 6,500 字的宣言，主題聚焦於個人 AI，大篇幅論述 Meta AI 正在建構的「個人超智慧」（personal superintelligence）系統可能帶來的前景。TechCrunch 的評論指出，這份宣言的敘事方式本身，正是大眾對 AI 產生反感的原因之一。同日 Meta 發布 Muse Glimmer 開放權重模型，兩者構成 Meta 在「願景論述」與「產品落地」上的一組配套動作。",
-      "highlights": [
-        "Zuckerberg 發表約 6,500 字個人 AI 宣言",
-        "核心主張為 Meta AI 建構中的「個人超智慧」系統",
-        "TechCrunch 評論認為其論述方式本身加深了大眾反感",
-        "與同日 Muse Glimmer 模型發布形成願景與產品的配套"
-      ],
-      "discussion": "社群反應兩極：批評者認為「超智慧」敘事與使用者實際感受到的產品體驗落差過大；支持者則認為本機可執行的 Muse Glimmer 正是宣言中「個人 AI」主張的具體兌現。",
-      "url": "https://techcrunch.com/2026/08/10/mark-zuckerbergs-ai-manifesto-is-exactly-why-people-dont-like-ai/"
-    },
-    {
-      "title": "Top Tech News Today, August 10, 2026: Apple, Google, Intel, Meta, OpenAI, TSMC, Unitree & More",
-      "title_zh": "今日科技要聞 2026 年 8 月 10 日：Apple、Google、Intel、Meta、OpenAI、台積電、Unitree 等",
-      "source": "Tech Startups",
-      "date": "2026-08-10",
-      "topic": "Industry Roundup",
-      "summary": "8 月 10 日的科技要聞彙整顯示，AI 軍備競賽同時朝「本機化、開放化、高度競爭」三個方向推進。Meta 釋出可在單張 GPU 上執行的 300 億參數 agent 模型；Intel 募得 150 億美元投入同一波熱潮；南韓再度加碼晶片產業投資；台積電 7 月營收年增 45%，顯示先進製程需求持續攀升。同時，美國大型 AI 資料中心的反對聲浪在共和黨與民主黨社區同步升高，居民質疑其對電費、水資源、噪音與地方基礎設施的影響。此一趨勢可能直接衝擊 Microsoft、Meta、Amazon、Google、OpenAI 與 Oracle 等仰賴龐大實體基礎設施的 AI 策略。",
-      "highlights": [
-        "Meta 釋出單 GPU 可執行的 30B agent 模型",
-        "Intel 募資 150 億美元投入 AI 熱潮",
-        "台積電 7 月營收年增 45%，先進製程需求強勁",
-        "美國兩黨社區同步反對大型 AI 資料中心",
-        "電費、水資源與地方基礎設施成為 AI 擴張的政治阻力"
-      ],
-      "discussion": "討論焦點在於資料中心的社區反彈已跨越黨派界線，成為 AI 基礎設施擴張的結構性阻力；這也解釋了同日 Anthropic 主動承諾吸收電網升級成本的動機。",
-      "url": "https://techstartups.com/2026/08/10/top-tech-news-today-august-10-2026-apple-google-meta-openai-unitree-more/"
-    },
-    {
-      "title": "AI News August 11 2026: Anthropic Launches Theseus Data Centre JV, EU Orders Google to Open Android",
-      "title_zh": "AI 新聞 2026 年 8 月 11 日：Anthropic 成立 Theseus 資料中心合資公司、歐盟要求 Google 開放 Android",
-      "source": "AIToolsRecap",
+      "title": "Wix launches Symphony, a new standalone multi-agent system built for business operations",
+      "title_zh": "Wix 推出 Symphony：專為企業營運打造的獨立多代理系統",
+      "source": "SiliconANGLE",
       "date": "2026-08-11",
-      "topic": "Industry Roundup / Policy",
-      "summary": "8 月 11 日的 AI 新聞彙整涵蓋數則重點：OpenAI 擴大 Daybreak 計畫，分為 Daybreak Blue（提供移除系統層資安護欄的 GPT-5.6 Sol）與 Daybreak Red（提供 GPT-5.6-Cyber，對 exploit chain 開發、認證繞過與權限提升等敏感查詢回應率達 95%）；該模型並發現 Chrome V8 中兩個未公開漏洞，可串接以破壞記憶體並繞過 V8 heap sandbox，Google 已以 CVE-2026-15903 修補。Meta 釋出 Muse Glimmer，300 億參數密集多模態模型，Apache 2.0 授權，針對本機 agentic 工具使用、程式撰寫與 LLM-as-judge 調校，具 131K context 與 100+ 語言支援。此外 Anthropic 成立 Theseus 資料中心合資公司；歐盟 DMA 要求 Google 於 2027 年 8 月前開放 Android 給 Claude 與 ChatGPT。",
+      "topic": "AI Agent",
+      "summary": "Wix 在 8 月 11 日發表 Symphony，這是一套獨立於既有網站產品之外的 agentic AI 平台，主打「主動學習企業的價值主張、需求、營運慣例與目標」後自動化工作流並主動浮現商機。與被動等待指令的 chatbot 不同，Symphony 以多個專職 agent 分工，各自針對零售、保險、電商、顧問等不同產業的營運流程進行學習。Wix 表示其差異化來源是累積自數億家中小企業的營運資料，將這些資料轉譯成產業別的最佳實務與操作知識。此舉代表 SaaS 廠商正把既有的產業資料資產轉為 agent 的 context 來源，而非單純接上通用 LLM。",
       "highlights": [
-        "Daybreak Red 的 GPT-5.6-Cyber 對敏感資安查詢回應率達 95%",
-        "該模型發現 Chrome V8 兩個未公開漏洞，Google 以 CVE-2026-15903 修補",
-        "Meta Muse Glimmer：30B、Apache 2.0、131K context、100+ 語言",
-        "Anthropic 成立 Theseus 資料中心合資公司",
-        "歐盟 DMA 要求 Google 開放 Android 給 Claude／ChatGPT"
+        "獨立產品線，非既有 Wix 編輯器的附加功能",
+        "多 agent 分工，依產業（零售／保險／電商／顧問）差異化學習營運流程",
+        "定位為主動式（proactive）而非被動回應式 agent",
+        "以數億家中小企業累積資料作為產業 know-how 的護城河"
       ],
-      "discussion": "「AI 模型自行發現並可串接 V8 零日漏洞」成為當日最受討論的技術事件，被視為攻防天平開始實質位移的訊號；監管面則關注歐盟 DMA 是否會成為打開行動端 AI 助理競爭的實質槓桿。",
-      "url": "https://aitoolsrecap.com/Blog/ai-news-august-11-2026"
+      "discussion": "開發者社群關注點在於「產業資料集是否真能轉成可用的 agent context」，多數評論認為 SaaS 廠商挾既有營運資料切入 agent 賽道，比純框架商更有落地優勢；質疑則集中在自主行動的可控性與稽核軌跡。",
+      "url": "https://siliconangle.com/2026/08/11/wix-launches-symphony-new-standalone-multi-agent-system-built-business-operations/"
+    },
+    {
+      "title": "FriskAI launches with $3.6M to show enterprises what their AI agents are doing",
+      "title_zh": "FriskAI 帶 360 萬美元種子前輪出場，讓企業看清 AI agent 到底做了什麼",
+      "source": "SiliconANGLE",
+      "date": "2026-08-11",
+      "topic": "AI Agent / Funding",
+      "summary": "runtime intelligence 新創 FriskAI 於 8 月 11 日正式亮相，同時宣布完成 360 萬美元 pre-seed 募資。產品定位在「agent 上線之後的行為紀錄」，也就是為企業提供 AI agent 在 production 環境中實際執行動作的可稽核軌跡。這個題目直指 2026 年企業導入 agent 的最大缺口：部署速度遠快於驗證與治理能力。對金融、醫療等受監管產業而言，agent 行為的可觀測性（observability）與事後可重建性，是內控與稽核能否放行的前提。",
+      "highlights": [
+        "360 萬美元 pre-seed，切入 agent runtime observability 賽道",
+        "核心價值：記錄 agent 在 production 實際做了哪些動作，而非只看輸入輸出",
+        "回應企業「先部署、後補控制」的普遍現況",
+        "與 agent 身分（identity）、成本遙測、評估等控制層屬同一問題族"
+      ],
+      "discussion": "資安與治理圈普遍認為這類 runtime 記錄層是 agent 進入受監管產業的必要條件；但也有意見指出小額 pre-seed 難以對抗雲端大廠把 observability 併入自家 agent 平台的整合壓力。",
+      "url": "https://siliconangle.com/2026/08/11/friskai-launches-3-6m-show-enterprises-ai-agents/"
+    },
+    {
+      "title": "NVIDIA AI Releases Nemotron 3.5 Lightning: A 30B Open MoE with 3B Active Parameters, and NeMo Switchyard Model Router",
+      "title_zh": "NVIDIA 發布 Nemotron 3.5 Lightning：30B 開放 MoE、僅 3B 活躍參數，並同步推出 NeMo Switchyard 模型路由器",
+      "source": "MarkTechPost",
+      "date": "2026-08-11",
+      "topic": "AI Agent Engineering / LLM Release",
+      "summary": "NVIDIA 在 8 月 11 日同時釋出兩項與 agent 工程直接相關的產物：Nemotron 3.5 Lightning 這個 30B 參數、每 token 僅活躍 30 億參數的開放權重 MoE 模型，以及 NeMo Switchyard 這套開源模型路由函式庫。Switchyard 的角色是把 agent 的每一次請求導向當下最有效率的模型，屬於 agent orchestration 層的基礎設施，而非模型本身。Lightning 則明確針對「長時間執行的 agent」場景做最佳化，強調專項任務的執行速度與正確率。兩者合起來的訊號很清楚：NVIDIA 想同時掌握 agent 的推論模型與路由決策層。",
+      "highlights": [
+        "Nemotron 3.5 Lightning：30B 總參數、3B 活躍參數的 MoE 架構",
+        "NeMo Switchyard：開源模型路由器，依任務把請求導到最省成本的模型",
+        "明確以 long-running agents（長時運行代理）為設計標的",
+        "權重開放下載，可在單張消費級 GPU 上運行"
+      ],
+      "discussion": "工程社群對 Switchyard 的興趣不低於模型本身——多模型路由一直是 agent 成本控制的痛點，但也有人質疑由晶片商主導的路由層是否會在模型選擇上產生偏向。",
+      "url": "https://www.marktechpost.com/2026/08/11/nvidia-ai-releases-nemotron-3-5-lightning-and-nemo-switchyard/"
+    },
+    {
+      "title": "Nvidia releases Nemotron 3.5 Lightning, open-source AI model",
+      "title_zh": "NVIDIA 釋出開源 AI 模型 Nemotron 3.5 Lightning",
+      "source": "CNBC",
+      "date": "2026-08-11",
+      "topic": "LLM Release",
+      "summary": "NVIDIA 於 8 月 11 日釋出 Nemotron 3.5 Lightning，這是一款 300 億參數、每 token 僅活躍 30 億參數的開源模型，由自家較大的 Nemotron 3 Ultra 蒸餾而來，鎖定高流量的 agentic AI 工作負載。MoE 架構讓它可以在單張消費級 GPU（如 RTX PC 或 DGX Spark）上跑。NVIDIA 宣稱其輸出速度最高可達同級開放模型的四倍，agentic 任務完成速度約快三成。模型可免費商用，權重直接在 Hugging Face 與 NVIDIA build 平台下載，不需申請授權或付費。這也是 Jensen Huang 在華府公開介入開源 AI 政策辯論不到三週後，NVIDIA 的首個開放權重模型釋出。",
+      "highlights": [
+        "30B 總參數／3B 活躍參數，MoE 架構，可跑在單張消費級 GPU",
+        "宣稱輸出速度最高 4 倍、agentic 任務完成速度約快 30%",
+        "免費商用，權重無需申請即可從 Hugging Face 下載",
+        "時間點緊接 Jensen Huang 在華府介入開源 AI 政策辯論之後"
+      ],
+      "discussion": "開源社群多數正面看待 Apache 級別的可用性與單卡可跑的門檻；批評聲音則指出「蒸餾自閉源大模型的開放權重」在政策辯論中被當成公關籌碼的成分不低。",
+      "url": "https://www.cnbc.com/2026/08/11/nvidia-releases-nemotron-3point5-lightning-open-source-ai-model-.html"
+    },
+    {
+      "title": "Meta Launches Muse Glimmer Open-Weight AI Model",
+      "title_zh": "Meta 推出開放權重 AI 模型 Muse Glimmer",
+      "source": "Technology.org",
+      "date": "2026-08-11",
+      "topic": "LLM Release / AI Agent",
+      "summary": "Meta Superintelligence Labs 推出 Muse Glimmer，一款 300 億參數的開放權重 agentic 模型，完全在單張消費級 GPU 或 Apple Silicon Mac 上本機運行。模型針對 always-on 的本機 agent 最佳化，支援長時程推理、可靠的 tool calling、失敗回復、程式撰寫與多模態推理等 agentic 工作負載必要能力。權重以 Apache 2.0 授權釋出於 Hugging Face，屬於相對寬鬆的商用條款。context window 超過 12 萬 token，Q4_K_M GGUF 量化後可塞進 24GB 或 32GB 的消費級 GPU 記憶體，而非資料中心等級顯卡。此舉被解讀為 Meta 重回開放模型路線的訊號。",
+      "highlights": [
+        "30B dense 模型，Apache 2.0 授權，權重公開於 Hugging Face",
+        "12 萬+ token context window，量化後可入 24GB／32GB 消費級 GPU",
+        "針對本機 always-on agent 設計：長時程推理、tool calling、失敗回復",
+        "被視為 Meta 重申開放模型策略的指標性動作"
+      ],
+      "discussion": "本機 agent 社群反應熱烈，重點在 Apache 2.0 加上單卡可跑等於把私有化部署門檻壓到個人層級；懷疑論者則關注 30B dense 在真實長時程任務中的穩定度是否撐得住。",
+      "url": "https://www.technology.org/2026/08/11/meta-muse-glimmer-open-weight-ai-model/"
+    },
+    {
+      "title": "Made by Google 2026 Launch Live: Pixel 11, Pixel 11 Pro Fold, Pixel Watch 5, Gemini, and all the news",
+      "title_zh": "Made by Google 2026 發表會直播：Pixel 11、Pixel 11 Pro Fold、Pixel Watch 5 與 Gemini 全數消息",
+      "source": "Android Central",
+      "date": "2026-08-12",
+      "topic": "Tech Giant Product",
+      "summary": "Google 於 8 月 12 日舉行 Made by Google 發表會，發表 Pixel 11、Pixel 11 Pro、Pixel 11 Pro XL、Pixel 11 Pro Fold 與 Pixel Watch 5 共五款裝置。AI 面向的重點是 Gemini Intelligence，涵蓋任務自動化、螢幕與影像上下文理解、Gboard Rambler 語音聽寫、Chrome 的 Superfill，以及用自然語言生成自訂 widget 的 Create My Widget。值得治理角度注意的是 Android Halo——把狀態列變成背景 agent 工作狀態的常駐指示器，等於把「agent 正在替你做事」這件事變成作業系統層級的可見訊號。硬體端則以 2nm 製程的 Tensor G6 為最大跨代升級。",
+      "highlights": [
+        "五款新裝置：Pixel 11／11 Pro／11 Pro XL／11 Pro Fold 與 Pixel Watch 5",
+        "Gemini Intelligence：任務自動化、螢幕與影像上下文、Superfill、Create My Widget",
+        "Android Halo 把背景 agent 的執行狀態提升為系統級常駐指示",
+        "Tensor G6 採 2nm 製程，為 Pixel 產品線史上最大晶片跨代升級"
+      ],
+      "discussion": "Android 社群最關注 Android Halo——這是首見把 agent 執行透明度做進 OS UI 的主流嘗試；同時也有大量討論質疑 Gemini Intelligence 的裝置端與雲端分工界線與隱私邊界。",
+      "url": "https://www.androidcentral.com/phones/live/made-by-google-2026-launch-live-pixel-11-pixel-11-pro-fold-pixel-watch-5-gemini-and-all-the-news"
+    },
+    {
+      "title": "ChatGPT Business Adds $125 Premium Seat for Power Users Hitting Five-Hour Cap",
+      "title_zh": "ChatGPT Business 新增每席 125 美元 Premium 方案，鎖定撞上五小時用量上限的重度使用者",
+      "source": "TechTimes",
+      "date": "2026-08-11",
+      "topic": "Enterprise / Pricing",
+      "summary": "OpenAI 為 ChatGPT Business 推出 Premium 席次，每位使用者每月 125 美元，年繳為 100 美元；原有 Standard 席次維持每月 25 美元（年繳 20 美元）。Premium 提供 5 倍於 Standard 的用量，並移除五小時用量上限，讓重度使用者能執行更長的專案而不中斷。同一個 workspace 可混用兩種席次，依個別成員需求配置。這個定價動作的真正訊號在於：agentic 工作流的 token 消耗量已經高到讓單一費率席次模型撐不住，OpenAI 選擇用分層席次而非單純調漲來吸收。限時促銷方面，早期加購 Premium 席次的 workspace 擁有者每席可獲 100 美元 workspace credit，最多五席共 500 美元，8 月 20 日截止。",
+      "highlights": [
+        "Premium 每席每月 125 美元（年繳 100 美元），Standard 維持 25 美元",
+        "用量為 Standard 的 5 倍，並取消五小時使用上限",
+        "同一 workspace 可混搭兩種席次",
+        "限時促銷：每席送 100 美元 credit，上限五席，8 月 20 日止"
+      ],
+      "discussion": "企業採購端討論集中在「agent 化之後席次成本如何預估」——固定席次費率遇上不可預測的 token 消耗，讓 IT 預算編列變得困難；也有聲音認為這是 OpenAI 為 IPO 前推升營收的定價操作。",
+      "url": "https://www.techtimes.com/articles/323905/20260811/chatgpt-business-adds-125-premium-seat-power-users-hitting-five-hour-cap.htm"
+    },
+    {
+      "title": "Anthropic will embed invisible watermarks in all Claude AI text",
+      "title_zh": "Anthropic 將在所有 Claude 生成文字中嵌入隱形浮水印",
+      "source": "Northeast Times",
+      "date": "2026-08-11",
+      "topic": "AI Governance / Safety",
+      "summary": "Anthropic 宣布自 2026 年 8 月 2 日起，在新版 Claude 模型生成的文字中嵌入隱形浮水印。這些標記設計上能在複製貼上後存活，讓平台與組織有辦法檢驗一段文字是否由 Claude 產出。驅動因素是歐盟法規要求，但實際影響及於全球所有 Claude 使用者，不因所在地而異。對治理實務而言，這是第一次由前沿模型廠商把文字水印做成預設、全面、不可關閉的機制，意味著 AI 生成內容的可溯源性從「可選標註」轉為「內建屬性」。",
+      "highlights": [
+        "自 2026-08-02 起於新版 Claude 模型的文字輸出嵌入隱形浮水印",
+        "標記設計為可在複製貼上後保留",
+        "驅動來源為歐盟法規，但適用範圍為全球所有使用者",
+        "由可選標註轉為模型預設內建的溯源機制"
+      ],
+      "discussion": "討論兩極：內容平台與教育機構歡迎有可驗證的偵測手段；創作者與隱私社群則質疑「不可關閉」的標記等於在使用者不知情下附加識別資訊，並關注水印被移除或偽造的技術可行性。",
+      "url": "https://northeasttimes.com/2026/08/11/anthropic-will-embed-invisible-watermarks-in-all-claude-ai-text/"
+    },
+    {
+      "title": "Riot Platforms strikes deal with Anthropic as bitcoin miners shift focus to AI infrastructure",
+      "title_zh": "Riot Platforms 與 Anthropic 達成協議，比特幣礦商轉向 AI 基礎設施",
+      "source": "CNBC",
+      "date": "2026-08-11",
+      "topic": "AI Infrastructure / Deal",
+      "summary": "Anthropic 與比特幣礦商 Riot Platforms 簽下 91 億美元的算力合約。Riot 揭露這是一紙 20 年期協議，將由德州 Rockdale 園區供應 191 兆瓦（MW）容量，租期延伸至 2048 年 6 月；若行使兩次五年展延選擇權，合約總值可達 161 億美元。Riot 規劃分階段上線，2027 年 12 月達 96MW，2028 年 6 月完成全部 191MW 建置。消息公布後 Riot 股價盤後一度大漲逾 25%。加上既有的 AMD 合約，Riot 已簽約容量達 241MW、長期合約收入約 98 億美元。這筆交易是加密礦場資產轉型為 AI 資料中心的代表性案例。",
+      "highlights": [
+        "91 億美元、20 年期，德州 Rockdale 園區供應 191MW",
+        "含兩次五年展延選擇權，總值上限可達 161 億美元",
+        "分階段上線：2027-12 達 96MW，2028-06 完成 191MW",
+        "Riot 已簽約容量累計 241MW、長期合約收入約 98 億美元"
+      ],
+      "discussion": "投資圈把它視為比特幣礦商估值重估的觸發點，IREN、Applied Digital、TeraWulf 等同業股價同步走高；產業端則關注 2028 年才完工的容量對 Anthropic 近期算力缺口幫助有限。",
+      "url": "https://www.cnbc.com/2026/08/11/riot-platforms-signs-anthropic-deal-as-miners-shift-to-ai-infrastructure-.html"
+    },
+    {
+      "title": "Nvidia and Wall Street team up on $500 billion bet on AI infrastructure",
+      "title_zh": "NVIDIA 攜手華爾街，押注 5,000 億美元於 AI 基礎設施",
+      "source": "CNN Business",
+      "date": "2026-08-11",
+      "topic": "AI Infrastructure / Finance",
+      "summary": "NVIDIA 宣布與 Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs 與 KKR 合作，為 AI 基礎設施建置籌組超過 5,000 億美元、以 NVIDIA 所稱「具吸引力利率」的融資。合作以備忘錄（MOU）形式簽署，各家機構分別組建資金池，受益對象涵蓋前沿 AI 實驗室、企業與雲端業者。實質做法是用機構信貸、保險資金與私募資本為 GPU 與資料中心提供承作，讓終端用戶不必動用自身資產負債表。策略意涵是 NVIDIA 試圖把 AI 晶片變成華爾街的新資產類別，比照商用不動產或收費公路等可抵押資產。必須注意的是 MOU 屬初步意向而非具約束力合約，5,000 億是目標而非保證數字。",
+      "highlights": [
+        "合作方：Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs、KKR",
+        "以機構信貸與私募資本承作 GPU 與資料中心，用戶免動用自身資產負債表",
+        "目標將 AI 算力比照商用不動產操作為可抵押資產類別",
+        "僅為 MOU 初步意向，5,000 億美元非具約束力承諾"
+      ],
+      "discussion": "金融市場的核心疑慮是「循環融資」——供應商替自家大客戶安排資金，等於變相自我造需；支持方則認為把算力資產化是基礎設施融資的正常演化路徑。",
+      "url": "https://www.cnn.com/2026/08/11/business/nvidia-wall-street-500-billion-financing-intl"
+    },
+    {
+      "title": "Top Tech News Today, August 11, 2026: Anthropic, Boeing, Intel, Meta, Nvidia, OpenAI, Unitree & More",
+      "title_zh": "今日科技要聞 2026 年 8 月 11 日：Anthropic、Boeing、Intel、Meta、NVIDIA、OpenAI、Unitree 等",
+      "source": "Tech Startups",
+      "date": "2026-08-11",
+      "topic": "Industry Roundup",
+      "summary": "8 月 11 日的產業彙整顯示當日三條主線同時推進：NVIDIA 敲定與華爾街重量級機構的 5,000 億美元融資聯盟；OpenAI 為資安防禦方提供專門訓練的模型；以及 AI 榮景的實體基礎（晶片、感測器、電力、資料中心）在三大洲同步位移。Intel 再度向公開市場籌資 200 億美元，加密時代的資料中心正被改造承接前沿 AI 工作負載。人形機器人在中國吸引異常強勁的投資需求，各國政府則加碼推動主權 AI。同時，自主系統正迫使法院、資安團隊與監理機關改寫既有規則。這份彙整的價值在於呈現「算力金融化 + 實體基礎設施重配置 + 監理追趕」三軌並行的當日全貌。",
+      "highlights": [
+        "NVIDIA 5,000 億美元融資聯盟、Intel 再籌 200 億美元",
+        "OpenAI 推出專供資安防禦方使用的專門模型",
+        "加密礦場資料中心被改造為前沿 AI 算力設施",
+        "自主系統正迫使法院、資安團隊與監理機關改寫規則"
+      ],
+      "discussion": "產業觀察者普遍以「資本密集度再上一階」概括當日訊號；也有評論指出實體基礎設施（電力、封裝產能）而非模型能力，才是 2026 下半年真正的瓶頸。",
+      "url": "https://techstartups.com/2026/08/11/top-tech-news-today-august-11-2026-anthropic-intel-meta-openai-nvidia-unitree-more/"
     }
   ],
-  "_updated_at": "2026-08-11T18:16:14.759460+08:00"
+  "_updated_at": "2026-08-12T18:19:44.896933+08:00"
 }

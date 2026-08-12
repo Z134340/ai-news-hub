@@ -1,165 +1,75 @@
 {
   "items": [
     {
-      "title": "Alibaba's Qwen App Introduces Paid Office Assistant Plans Up to RMB1,499 a Year",
-      "source": "TechNode",
+      "title": "智谱宣布 ZCode 全面升级，GLM Coding Plan 全员额度回满",
+      "source": "IT之家",
       "date": "2026-08-11",
-      "company": "Alibaba",
-      "topic": "AI Agent／辦公智能體商業化",
-      "summary": "阿里巴巴旗下 Qwen App（千問）推出付費辦公助理方案，最高年費達人民幣 1,499 元。此舉代表阿里把先前主打免費的通用對話入口，往企業與個人生產力場景的訂閱制商業模式推進。辦公助理屬於典型的 Agent 型產品，需具備文件處理、任務編排與工具調用能力，而非單純問答。定價落在年費千元級距，等同對標海外 Copilot 類產品的個人版價位帶。對阿里而言，這是驗證中國市場對 Agent 產品付費意願的關鍵測試。",
-      "discussion": "討論度高。中文社群焦點集中在「中國用戶是否願意為 AI 辦公訂閱付費」，以及此定價與微軟 Copilot、位元組豆包辦公功能的競爭關係；亦有開發者關注千問辦公 Agent 是否會開放 API 與外掛生態。",
-      "url": "https://technode.com/2026/08/11/alibabas-qwen-app-introduces-paid-office-assistant-plans-up-to-rmb1499-a-year/"
+      "company": "智谱 AI (Zhipu AI)",
+      "topic": "Agent 框架／Coding Agent 升級",
+      "summary": "智谱於 8 月 11 日宣布程式碼智能體產品 ZCode 全面升級，同步將 GLM Coding Plan 全體用戶額度回滿。此次升級一次上線四項與 Agent 工程直接相關的能力：Goal（目標導向任務拆解）、Subagents（子代理分工執行）、Remote Control（遠端控制執行環境）、以及閒時任務（利用低峰時段排程執行長工作流）。官方同時揭露底層推理最佳化成果，快取命中率超過 98%，等效有效 Token 提升約 30%。額度政策方面，至 8 月 31 日止提供 1.5 倍加成，與有效 Token 提升疊加後實際可用量約為原本的 1.8 倍。這是本波中國廠商在 Agent 編排與記憶／子代理架構上少見的產品級落地，而非僅停留在模型能力宣稱。",
+      "discussion": "開發者社群關注度高，討論集中在 Subagents 與 Remote Control 是否足以對標 Claude Code 與 OpenAI Agents SDK 的工作流能力，以及 98% 快取命中率的實際計價方式；亦有使用者質疑「額度回滿」屬促銷性質，長期定價仍待觀察。",
+      "url": "https://www.ithome.com/0/988/276.htm"
     },
     {
-      "title": "Tencent reportedly makes WorkBuddy a top strategic AI priority",
-      "source": "TechNode",
-      "date": "2026-08-10",
-      "company": "Tencent",
-      "topic": "AI Agent／企業協作智能體",
-      "summary": "據報導，騰訊已將 WorkBuddy 列為公司最高層級的 AI 戰略優先項目。WorkBuddy 定位為工作場景的 AI 助理，鎖定企業協作與辦公流程自動化。騰訊在該賽道的既有籌碼是企業微信與騰訊會議的組織關係鏈與工作流資料，這正是 Agent 記憶與上下文工程最需要的原生語料。此一資源傾斜顯示騰訊將 Agent 產品化視為對抗阿里千問辦公、位元組豆包的主要戰場。報導屬於消息來源轉述，騰訊官方尚未正式公告細節。⚠️待確認",
-      "discussion": "討論度中高。社群關注點在於騰訊是否會把 WorkBuddy 深度嵌入企業微信，形成類似 Microsoft 365 Copilot 的分發優勢，以及混元模型與 WorkBuddy 的綁定程度。",
-      "url": "https://technode.com/2026/08/10/tencent-reportedly-makes-workbuddy-a-top-strategic-ai-priority/"
+      "title": "美团王莆中：不开线下药店，坚持做医药商家AI转型小帮手",
+      "source": "网易",
+      "date": "2026-08-12",
+      "company": "美团 (Meituan)",
+      "topic": "Agent 平台產業落地／醫藥垂直大模型",
+      "summary": "美團核心本地商業 CEO 王莆中於 8 月 12 日西普會開幕演講中表態，美團不會自營線下藥店，而是定位為醫藥商家 AI 轉型的工具提供者，並宣布向醫藥產業開放「AI 經營專家」、CatPaw Agent 平台能力與工作流改造方法論。技術底座為美團自研的 LongCat 大模型，並在其上融合千萬條問診數據、15 萬份藥品說明書與千萬級醫學知識圖譜訓練出醫藥垂直模型。首批落地商家包括漱玉平民、科赴、老百姓大药房與急达兔。美團醫藥生態目前涵蓋約 25 萬家藥店與近 500 家藥企，是中國 Agent 平台在單一垂直產業規模化推廣的代表案例。",
+      "discussion": "業界討論聚焦在平台方「不下場開店」的承諾可信度，以及 Agent 工具化是否會反過來加深藥店對平台的依賴；醫藥從業者則關心處方合規與 AI 問診建議的責任歸屬。",
+      "url": "https://www.163.com/dy/article/L4588UK005129QAF.html"
     },
     {
-      "title": "Doubao Introduces a 12% Service Fee for Hotel Bookings Made Through Its Channel",
-      "source": "TechNode",
+      "title": "中国大模型调用量连续十五周领跑全球，AI应用商业化进入快车道",
+      "source": "网易",
       "date": "2026-08-11",
-      "company": "ByteDance",
-      "topic": "AI Agent 交易閉環／商業模式",
-      "summary": "位元組跳動的豆包（Doubao）針對透過其管道完成的飯店訂房收取 12% 服務費。這代表豆包從資訊查詢與推薦，正式延伸到交易環節，形成 Agent 的完整閉環。對 AI 助理而言，能否代使用者完成付款與履約，是從「聊天工具」升級為「交易入口」的分水嶺。12% 的抽成比例與線上旅遊平台的傭金區間相當，意味豆包直接進入 OTA 的收入模型。此舉也預示中國 Agent 產品的變現路徑正從訂閱制轉向交易分潤。",
-      "discussion": "討論度高。中文社群大量討論「AI 助理抽成是否合理」、豆包與攜程等 OTA 的關係是競爭還是分銷，以及 Agent 代訂交易的責任歸屬與退改爭議處理。",
-      "url": "https://technode.com/2026/08/11/doubao-introduces-a-12-service-fee-for-hotel-bookings-made-through-its-channel/"
+      "company": "DeepSeek／腾讯／中国大模型产业",
+      "topic": "中國 LLM 市占與調用量",
+      "summary": "根據 OpenRouter 8 月 3 日至 8 月 9 日統計，中國大模型調用量已連續十五週領先全球。當週全球總調用量約 69 兆 Token，其中中國模型 34.25 兆（週增 21.76%），美國模型 9.17 兆（週增 109.36%）。調用量前四名全數為中國模型，DeepSeek-V4-Flash-0731 居首、腾讯 Hy3 第二、DeepSeek-V4-Flash-0423 第三。報導指出低價開源模型加上 API 成本大幅下探，是海外開發者大量切換底座的主要原因，也意味中國模型的商業化正從「跑分領先」轉向「實際調用量領先」。",
+      "discussion": "討論主要圍繞 OpenRouter 樣本是否足以代表全球真實用量（企業自建部署未被統計），以及美國模型週增超過 100% 是否代表差距即將收斂；亦有觀點認為調用量高與單價低直接相關，不宜直接換算為營收優勢。",
+      "url": "https://www.163.com/dy/article/L4295NFQ0550WHYR.html"
     },
     {
-      "title": "WeChat tests AI-assisted writing and comments in Moments",
-      "source": "TechNode",
-      "date": "2026-08-10",
-      "company": "Tencent",
-      "topic": "大廠 AI 產品／社交場景生成式功能",
-      "summary": "微信正在測試朋友圈（Moments）的 AI 輔助寫作與 AI 留言功能。此功能將生成式能力直接嵌入中國覆蓋率最高的社交場景，潛在觸及使用者規模以十億計。對騰訊而言，這是把混元模型的推理能力推向超大流量入口的壓力測試，同時也牽動推理成本控制。社交內容 AI 化涉及真實性與互動品質的爭議，屬於典型的產品倫理取捨。目前仍屬灰度測試階段，尚未全量開放。",
-      "discussion": "討論度高且評價兩極。支持者認為降低發文門檻，反對者質疑「AI 代寫朋友圈、AI 代按讚留言」會稀釋社交關係的真實性，微博與知乎均有相關熱議串。",
-      "url": "https://technode.com/2026/08/10/wechat-tests-ai-assisted-writing-and-comments-in-moments/"
-    },
-    {
-      "title": "Apple says mainland China has not launched Qwen integration after Mac guide disappears",
-      "source": "TechNode",
-      "date": "2026-08-10",
-      "company": "Apple／Alibaba",
-      "topic": "大廠模型合作／中國 AI 落地",
-      "summary": "蘋果表示中國大陸尚未上線 Qwen 整合，先前出現於 Mac 使用指南中的相關說明隨後消失。Apple Intelligence 在中國需要本地模型夥伴以符合監管要求，阿里 Qwen 一直被視為主要合作對象。指南文件的出現與撤下，顯示整合工作已有進展但正式發布時程仍未確定。此案凸顯外商 AI 功能進入中國市場，必須同時通過模型備案與內容合規審查的實際門檻。蘋果的澄清等同否認外界對「已上線」的解讀。",
-      "discussion": "討論度高。中文社群主要討論監管審批進度、Qwen 與 Apple Intelligence 的分工邊界，以及蘋果在中國 AI 功能落後於本土手機廠的競爭壓力。",
-      "url": "https://technode.com/2026/08/10/apple-says-mainland-china-has-not-launched-qwen-integration-after-mac-guide-disappears/"
-    },
-    {
-      "title": "16个月后Meta杀回开源，小扎力挺蒸馏",
+      "title": "李开复：中国开源大模型让美国人很担忧",
       "source": "新浪科技",
       "date": "2026-08-11",
-      "company": "Meta",
-      "topic": "開源模型／中國社群熱議",
-      "summary": "Meta 發布新開源 AI 模型 Muse Glimmer，開發者可直接下載並自行修改。這是 Meta 自 Llama 4 之後首個開放權重（open-weight）模型，採用 Apache 2.0 授權釋出。報導指出 Zuckerberg 明確支持蒸餾（distillation）路線，意在讓小模型承接大模型能力。對中國開發者社群而言，Apache 2.0 授權意味可商用且限制極低，直接衝擊 Qwen、GLM 等本土開源模型的生態位。此事在中國被視為開源陣營格局的重大變動。⚠️待確認",
-      "discussion": "討論度高。中文社群焦點在於 Muse Glimmer 與 Qwen、DeepSeek 系列的效能對比，以及 Apache 2.0 授權是否會讓中國企業把底座從本土開源模型換回 Meta。",
-      "url": "https://finance.sina.com.cn/tech/roll/2026-08-11/doc-inimxrnp4321432.shtml"
+      "company": "零一万物 (01.AI)／Moonshot AI",
+      "topic": "中美開源模型競爭",
+      "summary": "李開復於 8 月 11 日公開表示，中國開源大模型的進展已讓美國業界感到憂慮。他以最新一輪評測為例指出，GPT-5.6 Sol 與 Anthropic Fable 5 相對於 Kimi K3 僅取得小幅領先，但 Kimi K3 的使用成本約便宜 60%，性價比差距遠大於能力差距。他並引用 Kimi K3 在 Frontend Code Arena 以 1,679 分居首的成績，作為中國模型在特定任務上已達前沿水準的佐證。此番言論延續近期中國開源模型全球下載佔比攀升的產業敘事。",
+      "discussion": "輿論兩極：支持者認為成本結構才是決定生態擴散速度的關鍵；質疑者則指出單一競技場排名易受投票分布影響，且前沿模型的長程推理與 Agent 任務差距未被充分反映在該評測中。",
+      "url": "https://finance.sina.com.cn/tech/digi/2026-08-11/doc-inimyaac0589292.shtml"
     },
     {
-      "title": "China GPU maker Moore Threads plans Hong Kong listing after H1 revenue jumps 147%",
-      "source": "TechNode",
-      "date": "2026-08-10",
-      "company": "Moore Threads 摩爾線程",
-      "topic": "AI 晶片／資本市場",
-      "summary": "中國 GPU 廠商摩爾線程在上半年營收年增 147% 後，計畫赴香港上市。營收高速成長反映中國在算力自主化政策下，本土 GPU 對進口晶片的替代需求持續放大。赴港上市有助其取得國際資本，同時規避部分融資管道限制。對中國 AI 產業而言，本土 GPU 供應鏈的資本化程度，直接決定大模型訓練算力的長期可得性。此案是繼寒武紀之後，中國 AI 晶片企業資本化的重要指標。",
-      "discussion": "討論度高。中文財經社群關注 147% 成長中有多少來自國企與政府採購、毛利率結構，以及摩爾線程與華為昇騰在國產算力市場的分食比例。",
-      "url": "https://technode.com/2026/08/10/china-gpu-maker-moore-threads-plans-hong-kong-listing-after-h1-revenue-jumps-147/"
+      "title": "中国长安汽车与华为签署战略合作框架协议",
+      "source": "网易",
+      "date": "2026-08-12",
+      "company": "华为 (Huawei)／长安汽车",
+      "topic": "大廠合作／汽車垂直大模型",
+      "summary": "中國長安汽車與華為於 8 月 12 日簽署戰略合作框架協議，合作範圍涵蓋 AI 產品及應用場景、通用大模型與汽車垂直大模型、數字基礎設施、算力與軟硬體協同、數字能源、國際化布局，以及數智人才培養。相較過往以智選車、鴻蒙座艙為主的合作模式，此次協議明確把「汽車垂直大模型」與算力基礎設施納入，顯示雙方合作重心從單車智能化擴展到整車企業的 AI 基礎設施層。此舉也延續華為以昇騰算力綁定產業龍頭客戶的策略路徑。",
+      "discussion": "汽車與科技圈討論集中在長安與華為既有股權合作（引望）之外，本次框架協議的實質約束力有多強；亦有分析認為車企自研與依賴華為棧之間的主導權平衡仍是長期焦點。",
+      "url": "https://www.163.com/dy/article/L44RVCUJ0511B8LM.html"
     },
     {
-      "title": "Unitree opens A-share IPO subscription",
-      "source": "TechNode",
-      "date": "2026-08-10",
-      "company": "Unitree 宇樹科技",
-      "topic": "具身智慧／資本市場",
-      "summary": "宇樹科技（Unitree）開放 A 股 IPO 認購。作為中國最具代表性的人形與四足機器人廠商，其上市被視為具身智慧（embodied AI）賽道進入公開市場的分水嶺。IPO 募資將主要投入量產能力與機器人本體的 AI 控制系統研發。對整個賽道而言，宇樹的估值將成為後續機器人公司的定價錨點。中國監管近年對硬科技企業開放 A 股上市通道，宇樹是政策紅利的直接受益者。",
-      "discussion": "討論度極高。中文社群大量討論申購中籤率、上市首日表現預期，以及人形機器人商業化落地速度是否撐得起估值。",
-      "url": "https://technode.com/2026/08/10/unitree-opens-a-share-ipo-subscription/"
-    },
-    {
-      "title": "Beyond mobility: Unitree's GD01 signals the next phase of China's robotics battle",
-      "source": "TechNode",
+      "title": "北京数据集团与华为达成战略合作意向 铜牛信息将参与北京算力基础设施建设任务",
+      "source": "网易",
       "date": "2026-08-11",
-      "company": "Unitree 宇樹科技",
-      "topic": "具身智慧／機器人新品",
-      "summary": "宇樹科技發表 GD01，被視為中國機器人競爭進入下一階段的訊號。分析指出競爭焦點正從單純的移動能力（mobility），轉向操作、感知與任務執行等更高階能力。這意味機器人本體的價值重心從機構設計移向 AI 控制與具身模型。中國廠商在硬體成本上的優勢已相對確立，接下來的勝負手在於軟體智慧程度。GD01 的定位與規格細節，將決定其能否切入工業與服務場景的實際訂單。",
-      "discussion": "討論度高。社群關注 GD01 的實際操作能力是否為實機展示或概念演示，以及與特斯拉 Optimus、Figure 等海外對手的能力落差。",
-      "url": "https://technode.com/2026/08/11/beyond-mobility-unitrees-gd01-signals-the-next-phase-of-chinas-robotics-battle/"
+      "company": "华为 (Huawei)／北京数据集团／铜牛信息",
+      "topic": "算力基礎設施／數據要素",
+      "summary": "銅牛信息於 8 月 11 日透過官方微博披露，北京數據集團與華為達成戰略合作意向，銅牛信息將參與北京市算力基礎設施建設任務。合作內容涵蓋自主創新算力集群與城市級算力基礎設施、可信數據基礎設施底座、可信數據空間與數據要素流通、垂直行業數據價值化，以及數據安全與數字信任體系建設。此案體現中國地方政府主導的「數據要素 × 國產算力」模式，把算力供給與數據流通治理綁定在同一套基礎設施內推進。",
+      "discussion": "投資圈關注銅牛信息作為上市公司的訂單落地節奏與實際承接份額；產業側討論則聚焦「可信數據空間」在跨部門數據流通上的實際可執行性，以及國產算力集群的供應與能效問題。",
+      "url": "https://www.163.com/dy/article/L4208VRP053469RG.html"
     },
     {
-      "title": "Chinese Makers Accounted for More Than 97% of Global Humanoid Robot Shipments in H1 2026",
-      "source": "TechNode",
-      "date": "2026-08-11",
-      "company": "產業整體",
-      "topic": "具身智慧／產業數據",
-      "summary": "2026 年上半年，中國廠商佔全球人形機器人出貨量逾 97%。此一比例顯示人形機器人的量產供應鏈幾乎完全集中於中國，與電動車、太陽能的產業集中路徑高度相似。高出貨佔比同時反映中國在整機組裝、減速器與伺服系統等零組件的成本優勢。不過出貨量高不等於商業價值高，實際落地場景與單價仍是關鍵變數。此數據也預示歐美未來可能對人形機器人採取供應鏈安全審查。",
-      "discussion": "討論度高。中文社群質疑統計口徑是否把低價教育／展示型機器人計入，導致比例被放大；財經圈則討論供應鏈集中對海外採購方的地緣風險。",
-      "url": "https://technode.com/2026/08/11/chinese-makers-accounted-for-more-than-97-of-global-humanoid-robot-shipments-in-h1-2026/"
-    },
-    {
-      "title": "Former ByteDance robotics head reportedly joins Xiaomi",
-      "source": "TechNode",
-      "date": "2026-08-10",
-      "company": "Xiaomi／ByteDance",
-      "topic": "AI 人才流動／機器人布局",
-      "summary": "據報導，位元組跳動前機器人業務負責人已加入小米。此一人事變動顯示小米正加碼具身智慧與機器人方向的投入。小米具備手機、IoT 與汽車的硬體製造與供應鏈整合能力，是切入機器人賽道的既有基礎。位元組在機器人業務的人才外流，也引發外界對其該條產品線戰略優先度的猜測。消息目前為媒體轉述，兩家公司均未正式證實。⚠️待確認",
-      "discussion": "討論度中高。社群討論集中在小米是否會推出自有人形機器人產品線，以及大廠間 AI 與機器人核心人才的爭奪態勢。",
-      "url": "https://technode.com/2026/08/10/former-bytedance-robotics-head-reportedly-joins-xiaomi/"
-    },
-    {
-      "title": "荣耀 Robot Phone 超前品鉴会明日起在南京、深圳、成都、太原、福州、昆明六城举办",
-      "source": "新浪科技",
-      "date": "2026-08-11",
-      "company": "Honor 榮耀",
-      "topic": "AI 終端／大廠新品",
-      "summary": "榮耀宣布 Robot Phone 超前品鑑會自明日起於南京、深圳、成都、太原、福州、昆明六個城市舉辦。Robot Phone 是榮耀將機器人形態與智慧手機結合的新品類嘗試，屬於 AI 終端硬體的差異化路線。六城同步舉辦品鑑會，顯示產品已接近正式發表階段。對榮耀而言，在手機市場趨於飽和下，AI 原生硬體是重建品牌溢價的突破口。實際的 AI 能力與 Agent 整合程度，仍待正式發表確認。",
-      "discussion": "討論度中高。中文社群對「Robot Phone」的形態定義好奇，並質疑其為行銷概念或具備實質 AI 代理能力，數位博主已展開規格爆料討論。",
-      "url": "https://finance.sina.com.cn/tech/digi/2026-08-11/doc-inimxvuf0622984.shtml"
-    },
-    {
-      "title": "Li Auto Expects Second-Generation AI Glasses in H2 2027",
-      "source": "TechNode",
-      "date": "2026-08-11",
-      "company": "Li Auto 理想汽車",
-      "topic": "AI 硬體／穿戴裝置",
-      "summary": "理想汽車表示第二代 AI 眼鏡預計於 2027 年下半年推出。車廠跨入 AI 穿戴裝置，反映其意圖把車內語音助理的能力延伸到車外的全時段使用場景。AI 眼鏡的核心價值在於第一人稱視角的多模態感知，可作為 Agent 取得真實世界上下文的入口。時程訂在 2027 下半年，顯示第一代產品的市場驗證與供應鏈成熟度仍需時間。此舉也與小米、位元組等公司的 AI 眼鏡布局形成正面競爭。",
-      "discussion": "討論度中等。社群討論車企做穿戴裝置的必要性、與 Meta Ray-Ban 的差距，以及理想自研大模型能否支撐眼鏡端的即時多模態推理。",
-      "url": "https://technode.com/2026/08/11/li-auto-expects-second-generation-ai-glasses-in-h2-2027/"
-    },
-    {
-      "title": "成果三年两登Nature封面，这支清华团队想让AI换个方式看世界",
-      "source": "新浪科技",
-      "date": "2026-08-11",
-      "company": "清華大學",
-      "topic": "AI 研究／學術突破",
-      "summary": "報導聚焦一支清華大學團隊，其研究成果三年內兩度登上 Nature 封面。團隊的研究方向在於改變 AI 感知與理解世界的方式，屬於視覺與類腦運算的基礎研究範疇。連續登上 Nature 封面代表其成果已獲國際頂尖期刊的高度認可，而非僅止於工程優化。中國在 AI 基礎研究的產出品質提升，是近年與應用層擴張並行的趨勢。此類研究的長期價值在於可能繞開現行深度學習架構的效能瓶頸。⚠️待確認",
-      "discussion": "討論度中等。學術與科技社群討論該路線與主流 Transformer 架構的關係，以及基礎研究成果距離產業落地的實際時程。",
-      "url": "https://finance.sina.com.cn/tech/roll/2026-08-11/doc-inimxvun5778447.shtml"
-    },
-    {
-      "title": "启明周报 | 启明创投投资企业要闻十条 Vol.25, 2026.8.11",
-      "source": "新浪科技",
-      "date": "2026-08-11",
-      "company": "啟明創投",
-      "topic": "AI 投資／創投動態",
-      "summary": "啟明創投發布第 25 期投資企業要聞週報，彙整旗下被投企業的最新動態。其中提及尋明生科正在構建面向生命科學的 AI for Science 基礎設施。該架構結合大規模預訓練、專案定制的後訓練、AI 智能體，以及可規模化運行的實驗體系。此組合代表 AI for Science 已從單點模型走向「模型＋Agent＋自動化實驗」的完整流水線。創投週報是觀察中國 AI 早期資金流向的第一手來源。",
-      "discussion": "討論度中低，屬創投與生技圈的專業內部討論；焦點在 AI 智能體驅動的自動化實驗能否真正縮短藥物與生命科學研究週期。",
-      "url": "https://finance.sina.com.cn/tech/roll/2026-08-11/doc-inimxmep7594953.shtml"
-    },
-    {
-      "title": "让人工智能这匹千里马既跑得快又跑得稳",
-      "source": "新浪財經",
-      "date": "2026-08-10",
-      "company": "政策評論",
-      "topic": "AI 治理／監管政策",
-      "summary": "此為官方媒體性質的評論文章，以「千里馬既要跑得快也要跑得穩」比喻人工智慧發展與安全治理的平衡。文章的基調延續中國「發展與安全並重」的政策主軸，強調在鼓勵創新的同時強化風險管控。這類評論通常是後續具體監管措施的政策風向前導。對企業而言，意味模型備案、內容安全與資料合規的要求不會鬆綁。文章未提出新的具體法規條文，屬於原則性宣示。",
-      "discussion": "討論度中低。產業界主要解讀其對後續 AI 監管細則的訊號意義，特別是生成式 AI 與智能體應用的合規邊界。",
-      "url": "https://finance.sina.com.cn/jjxw/2026-08-10/doc-inimuetx1507728.shtml"
+      "title": "面壁智能启动上市辅导",
+      "source": "经济观察网",
+      "date": "2026-08-12",
+      "company": "面壁智能 (ModelBest)",
+      "topic": "AI 產業融資／IPO",
+      "summary": "端側大模型公司面壁智能（ModelBest）已啟動上市輔導，輔導券商為中信證券。公司註冊資本 154.5833 萬元，目前無控股股東，第一大股東為北京清語啟航科技中心（有限合夥），持股 16.45%。面壁智能成立於 2022 年 8 月，孵化自清華大學自然語言處理實驗室，首席科學家為劉知遠，董事長兼 CEO 為李大海。公司 2026 年上半年累計融資超過 50 億元人民幣，估值突破 200 億元人民幣，並已與三星、吉利等企業達成端側模型合作，是中國規模最大的端側 AI 獨角獸之一。",
+      "discussion": "討論集中在無控股股東結構對 IPO 審核的影響，以及端側小模型路線在雲端大模型持續降價的環境下商業模式是否成立；也有觀點認為與手機、車廠的預裝合作才是其估值支撐的關鍵。",
+      "url": "https://www.eeo.com.cn/2026/0812/994925.shtml"
     }
   ],
-  "_updated_at": "2026-08-11T18:09:10.619477+08:00"
+  "_updated_at": "2026-08-12T18:13:01.355156+08:00"
 }
