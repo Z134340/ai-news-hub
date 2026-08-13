@@ -14,10 +14,12 @@ write_scope:
   - data/agent/
   - scripts/prompts/
   - scripts/agent/
-blocked_paths:
+deny_read_write_paths:
   - .env
   - .env*
   - secrets/
+
+read_only_paths:
   - firebase.json
   - firestore.rules
   - .github/workflows/deploy.yml

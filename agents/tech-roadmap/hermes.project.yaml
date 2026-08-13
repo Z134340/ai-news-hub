@@ -26,7 +26,7 @@ read_scope:
 write_scope:
   - memory/precedents.jsonl
 
-blocked_paths:
+deny_read_write_paths:
   - .env
   - .env*
   - secrets/
@@ -37,6 +37,7 @@ blocked_paths:
   - ../../data/index.json
   # 明列跨 repo 的判準檔為不可寫。read_scope 已經含它，只讀不寫要寫死，
   # 否則「代理人自己改掉限制自己的那條判準」這條路是通的。
+read_only_paths:
   - ../../../Hermes-Agent/curator/TECH_RUBRIC.md
 
 # 工作目錄為本 adapter 所在目錄(agents/tech-roadmap/)，故 repo 根在 ../../。

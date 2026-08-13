@@ -28,7 +28,7 @@ read_scope:
 write_scope:
   - memory/precedents.jsonl
 
-blocked_paths:
+deny_read_write_paths:
   - .env
   - .env*
   - secrets/
@@ -39,6 +39,8 @@ blocked_paths:
   - ../../data/agent/*.json
   - ../../data/latest.json
   - ../../data/index.json
+
+read_only_paths: []
 
 # 工作目錄為本 adapter 所在目錄(agents/trend-analyst/)，故 repo 根在 ../../。
 # 退出碼：0=通過。--offline 不呼叫模型、$0；全量 golden 會真的呼叫模型，刻意不列入。

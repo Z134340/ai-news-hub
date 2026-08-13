@@ -9,6 +9,7 @@
 import copy
 import json
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -29,22 +30,26 @@ RESULTS = []
 
 
 def mutate(label, cid, fn, expect_hint, fixture_fn=None):
-    """fn 改 case;fixture_fn 改 fixture(寫暫存檔並改 case['file'])。"""
+    """fn 改 case;fixture_fn 改 fixture(只在系統暫存目錄寫檔)。"""
     suite, case = find(cid)
-    tmp = None
+    original_golden_dir = bg.GOLDEN_DIR
+    temporary_dir = None
     if fixture_fn:
         payload = json.loads((GOLDEN / case["file"]).read_text(encoding="utf-8"))
         fixture_fn(payload)
-        tmp = GOLDEN / "_mutant_tmp.json"
+        temporary_dir = tempfile.TemporaryDirectory(prefix="brief-golden-mutant-")
+        bg.GOLDEN_DIR = Path(temporary_dir.name)
+        tmp = bg.GOLDEN_DIR / "fixture.json"
         tmp.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-        case["file"] = "_mutant_tmp.json"
+        case["file"] = tmp.name
     if fn:
         fn(case)
     try:
         problems, _notes = bg.check_offline(suite, case, MANIFEST)
     finally:
-        if tmp and tmp.exists():
-            tmp.unlink()
+        bg.GOLDEN_DIR = original_golden_dir
+        if temporary_dir:
+            temporary_dir.cleanup()
     caught = any(expect_hint in p for p in problems)
     RESULTS.append((label, caught, problems))
     mark = "CAUGHT " if caught else "MISSED "

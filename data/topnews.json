@@ -1,50 +1,50 @@
 {
   "items": [
     {
-      "title": "Zuck's Chinese agentic prey escapes, will resume standalone ops",
-      "title_zh": "祖克柏看上的中國 Agent 新創脫身，Manus 將恢復獨立營運",
-      "source": "The Register",
+      "title": "Lovable confirms new $13.3B valuation, raises another $400M",
+      "title_zh": "Lovable 確認 133 億美元估值，再募資 4 億美元",
+      "source": "TechCrunch",
       "date": "2026-08-12",
-      "domain": "Agent",
-      "model_area": "AI Agent / 通用型自主代理平台",
-      "summary": "中國通用型 AI Agent 新創 Manus 發布用戶公告，表示即將恢復為獨立公司營運，終結先前被 Meta 收購的路徑。北京方面此前已對該收購案啟動調查，至今年 4 月中國監管機關決定禁止外資投資 Manus，成為交易破局的關鍵。此案凸顯 Agent 平台已被中國視為具戰略敏感性的技術資產，跨境併購受地緣政治審查程度提高。對 Meta 而言，等於失去一條快速取得成熟 Agent 產品與團隊的捷徑。",
-      "highlights": [
-        "Manus 公告將恢復獨立公司營運，Meta 收購案實質破局",
-        "中國監管機關於 2026 年 4 月決定禁止外資投資 Manus",
-        "Agent 平台被列為戰略敏感技術，跨境併購審查趨嚴"
-      ],
-      "url": "https://www.theregister.com/ai-and-ml/2026/08/12/zucks-chinese-agentic-prey-escapes-will-resume-standalone-ops/5286598"
-    },
-    {
-      "title": "Nvidia taps Wall Street for $500 billion funding commitment",
-      "title_zh": "NVIDIA 聯手華爾街，敲定逾 5,000 億美元 AI 基礎建設融資承諾",
-      "source": "Fortune",
-      "date": "2026-08-11",
       "domain": "Industry",
-      "model_area": "AI 基礎建設 / GPU 資料中心融資",
-      "summary": "NVIDIA 與 Apollo Global Management、Blackstone、BlackRock、Brookfield、Goldman Sachs、KKR 等資產管理與投資銀行機構合組融資平台，可導引超過 5,000 億美元資金投入 AI 基礎建設。資金用途包括協助 NVIDIA 客戶融資興建資料中心、採購晶片、電力系統等部署大型 AI 工作負載所需的實體設施。報導並指出 NVIDIA 正就俄亥俄州一座租予 OpenAI 的 10GW 資料中心洽談類似擔保安排。此舉等同把 GPU 從單純的設備採購，轉化為可被結構化融資的「可投資資產」。",
+      "model_area": "AI 程式生成 / vibe coding 平台",
+      "summary": "瑞典新創 Lovable 完成 4 億美元 Series C，估值來到 133 億美元，較去年 12 月的 66 億美元翻倍，該輪由 Menlo Ventures 與 EQT 管理的 Scaleup Europe Fund 共同領投，Tencent、Balderton Capital 等新投資人參與。Lovable 讓使用者以自然語言描述需求即可生成網站與應用程式，屬於「vibe coding」賽道。公司年度經常性收入自 2 億美元近乎三倍成長，目標在 8 月底前達到 6 億美元的年化收入水準。自 2024 年 11 月推出以來，平台上已建立超過 6,000 萬個專案，Lovable 產出的應用每月造訪量超過 9 億次。",
       "highlights": [
-        "6 家華爾街機構共組平台，導引逾 5,000 億美元投入 AI 基礎建設",
-        "資金用於客戶端資料中心、晶片與電力系統融資",
-        "NVIDIA 另就 OpenAI 承租的俄亥俄州 10GW 資料中心洽談擔保"
+        "估值 66 億 → 133 億美元，8 個月翻倍；本輪 4 億美元由 Menlo Ventures 與 EQT Scaleup Europe Fund 共同領投",
+        "ARR 自 2 億美元近三倍成長，瞄準 8 月底 6 億美元年化收入",
+        "平台累計 6,000 萬個專案、每月 9 億次造訪，顯示自然語言開發已進入規模化使用階段"
       ],
-      "url": "https://fortune.com/2026/08/11/nvidia-500-billion-ai-financing/"
+      "url": "https://techcrunch.com/2026/08/12/lovable-confirms-new-13-3b-valuation-raises-another-400m/"
     },
     {
-      "title": "Top Tech News Today, August 11, 2026: Anthropic, Boeing, Intel, Meta, Nvidia, OpenAI, Unitree & More",
-      "title_zh": "2026 年 8 月 11 日科技要聞：Anthropic、Boeing、Intel、Meta、NVIDIA、OpenAI、Unitree 等",
-      "source": "Tech Startups",
-      "date": "2026-08-11",
-      "domain": "Cybersecurity",
-      "model_area": "GPT-5.6-Cyber / 資安專用模型",
-      "summary": "當日要聞中最具技術意義者為 OpenAI 推出 GPT-5.6-Cyber，這是一款鎖定經授權資安專業人員的專用模型，並同步擴大其 Daybreak 資安計畫。該模型對通過審核的防禦方開放一般模型通常會拒絕的能力，因為同一套漏洞探索與驗證技術也可被攻擊方武器化。測試顯示 GPT-5.6-Cyber 能處理高比例的進階資安請求，包含複雜的 exploit chain 與權限提升任務。同日另有 NVIDIA 敲定 5,000 億美元融資聯盟、Intel 再向公開市場募資 200 億美元、Sony 與台積電合資約 47 億美元開發下世代影像感測器等消息。",
+      "title": "Google’s new AI boss inherits a race to catch OpenAI and Anthropic",
+      "title_zh": "Google 新任 AI 主管接手追趕 OpenAI 與 Anthropic 的競賽",
+      "source": "CNBC",
+      "date": "2026-08-12",
+      "domain": "Industry",
+      "model_area": "Google DeepMind / 前沿 LLM 與 coding 能力",
+      "summary": "Google 宣布 DeepMind 的領導層異動，新任 AI 負責人接手的是一場追趕 OpenAI 與 Anthropic 的競賽。報導指出，程式碼生成（coding）已成為前沿 AI 競爭中愈來愈關鍵的戰場，Google 必須在此領域跟上對手節奏。此一人事變動發生在 Gemini 已深度整合進 Search、Gmail 與 Android 並持續擴張 agentic 能力的時點。",
       "highlights": [
-        "OpenAI 推出 GPT-5.6-Cyber，僅開放經授權資安人員使用，並擴大 Daybreak 計畫",
-        "測試指其可處理複雜 exploit chain 與權限提升任務，為雙面刃能力的受控釋出",
-        "同日並列 NVIDIA 5,000 億美元融資、Intel 募資 200 億美元、Sony 與台積電 47 億美元感測器合資案"
+        "Google DeepMind 領導層異動，新任 AI 主管的首要任務是縮小與 OpenAI、Anthropic 的差距",
+        "coding 能力被點名為前沿 AI 的關鍵戰場",
+        "背景是 Gemini 已橫跨 Search／Gmail／Android 整合並擴張 agent 能力"
       ],
-      "url": "https://techstartups.com/2026/08/11/top-tech-news-today-august-11-2026-anthropic-intel-meta-openai-nvidia-unitree-more/"
+      "url": "https://www.cnbc.com/2026/08/12/google-deepmind-koray-kavukcuoglu.html"
+    },
+    {
+      "title": "Top Tech News Today, August 12, 2026: Anthropic, Google, IBM, Lovable, Nvidia, OpenAI, & More",
+      "title_zh": "今日科技要聞 2026 年 8 月 12 日：Anthropic、Google、IBM、Lovable、Nvidia、OpenAI 等",
+      "source": "Tech Startups",
+      "date": "2026-08-12",
+      "domain": "Industry",
+      "model_area": "AI 基礎設施 / open-weight agent / AI 治理",
+      "summary": "8 月 12 日 AI 堆疊各層同時出現大動作：規模達 5,000 億美元的新基礎設施融資成形、前沿 AI 平台跨越十億使用者門檻、open-weight agent 已能在單張 GPU 上運行、監管機構推動 AI 生成文字的永久浮水印、一起重大供應鏈入侵事件波及超過 2,500 家企業，同時多位高階主管出走。整體訊號是 AI 競賽正從模型本身轉向基礎設施、能源、資安系統、開發者工具、晶片與實體供應鏈。Anthropic 正與潛在投資人接觸、為秋季可能的公開上市鋪路，並與 Macquarie、新加坡主權基金 GIC 合組 Theseus Infrastructure 合資公司，自美國開始開發 AI 運算基地。",
+      "highlights": [
+        "5,000 億美元級 AI 基礎設施融資成形；競爭重心自模型移轉至算力、能源與供應鏈",
+        "Anthropic 接觸投資人為秋季可能 IPO 鋪路，並與 Macquarie、GIC 合組 Theseus Infrastructure 開發 AI 運算site",
+        "監管面推動 AI 生成文字永久浮水印；供應鏈入侵事件波及 2,500 家以上企業"
+      ],
+      "url": "https://techstartups.com/2026/08/12/top-tech-news-today-august-12-2026-anthropic-google-ibm-lovable-nvidia-openai-more/"
     }
   ],
-  "_updated_at": "2026-08-12T18:15:42.268090+08:00"
+  "_updated_at": "2026-08-13T18:09:59.723170+08:00"
 }

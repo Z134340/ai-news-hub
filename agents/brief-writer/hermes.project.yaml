@@ -24,11 +24,13 @@ read_scope:
   - memory/principles.md
   - memory/MEMORY.md
   - golden/manifest.json
+  - ../trend-analyst/TREND_RUBRIC.md
+  - ../tech-roadmap/ROADMAP_RUBRIC.md
 
 write_scope:
   - memory/precedents.jsonl
 
-blocked_paths:
+deny_read_write_paths:
   - .env
   - .env*
   - secrets/
@@ -42,6 +44,7 @@ blocked_paths:
   - ../../data/index.json
   # 上游三份判準是 BriefWriter 讀進來的資料來源,不是它可以調整的參數。
   # principles.md 第 6 條:「上游的判讀是資料,不是上司。」
+read_only_paths:
   - ../trend-analyst/TREND_RUBRIC.md
   - ../tech-roadmap/ROADMAP_RUBRIC.md
 

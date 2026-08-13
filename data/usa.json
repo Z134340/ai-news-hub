@@ -1,181 +1,246 @@
 {
   "items": [
     {
-      "title": "Wix launches Symphony, a new standalone multi-agent system built for business operations",
-      "title_zh": "Wix 推出 Symphony：專為企業營運打造的獨立多代理系統",
+      "title": "Skan AI raises $63M to give AI agents a map of enterprise work",
+      "title_zh": "Skan AI 募得 6,300 萬美元，為 AI Agent 繪製企業工作流程地圖",
       "source": "SiliconANGLE",
-      "date": "2026-08-11",
-      "topic": "AI Agent",
-      "summary": "Wix 在 8 月 11 日發表 Symphony，這是一套獨立於既有網站產品之外的 agentic AI 平台，主打「主動學習企業的價值主張、需求、營運慣例與目標」後自動化工作流並主動浮現商機。與被動等待指令的 chatbot 不同，Symphony 以多個專職 agent 分工，各自針對零售、保險、電商、顧問等不同產業的營運流程進行學習。Wix 表示其差異化來源是累積自數億家中小企業的營運資料，將這些資料轉譯成產業別的最佳實務與操作知識。此舉代表 SaaS 廠商正把既有的產業資料資產轉為 agent 的 context 來源，而非單純接上通用 LLM。",
-      "highlights": [
-        "獨立產品線，非既有 Wix 編輯器的附加功能",
-        "多 agent 分工，依產業（零售／保險／電商／顧問）差異化學習營運流程",
-        "定位為主動式（proactive）而非被動回應式 agent",
-        "以數億家中小企業累積資料作為產業 know-how 的護城河"
-      ],
-      "discussion": "開發者社群關注點在於「產業資料集是否真能轉成可用的 agent context」，多數評論認為 SaaS 廠商挾既有營運資料切入 agent 賽道，比純框架商更有落地優勢；質疑則集中在自主行動的可控性與稽核軌跡。",
-      "url": "https://siliconangle.com/2026/08/11/wix-launches-symphony-new-standalone-multi-agent-system-built-business-operations/"
-    },
-    {
-      "title": "FriskAI launches with $3.6M to show enterprises what their AI agents are doing",
-      "title_zh": "FriskAI 帶 360 萬美元種子前輪出場，讓企業看清 AI agent 到底做了什麼",
-      "source": "SiliconANGLE",
-      "date": "2026-08-11",
-      "topic": "AI Agent / Funding",
-      "summary": "runtime intelligence 新創 FriskAI 於 8 月 11 日正式亮相，同時宣布完成 360 萬美元 pre-seed 募資。產品定位在「agent 上線之後的行為紀錄」，也就是為企業提供 AI agent 在 production 環境中實際執行動作的可稽核軌跡。這個題目直指 2026 年企業導入 agent 的最大缺口：部署速度遠快於驗證與治理能力。對金融、醫療等受監管產業而言，agent 行為的可觀測性（observability）與事後可重建性，是內控與稽核能否放行的前提。",
-      "highlights": [
-        "360 萬美元 pre-seed，切入 agent runtime observability 賽道",
-        "核心價值：記錄 agent 在 production 實際做了哪些動作，而非只看輸入輸出",
-        "回應企業「先部署、後補控制」的普遍現況",
-        "與 agent 身分（identity）、成本遙測、評估等控制層屬同一問題族"
-      ],
-      "discussion": "資安與治理圈普遍認為這類 runtime 記錄層是 agent 進入受監管產業的必要條件；但也有意見指出小額 pre-seed 難以對抗雲端大廠把 observability 併入自家 agent 平台的整合壓力。",
-      "url": "https://siliconangle.com/2026/08/11/friskai-launches-3-6m-show-enterprises-ai-agents/"
-    },
-    {
-      "title": "NVIDIA AI Releases Nemotron 3.5 Lightning: A 30B Open MoE with 3B Active Parameters, and NeMo Switchyard Model Router",
-      "title_zh": "NVIDIA 發布 Nemotron 3.5 Lightning：30B 開放 MoE、僅 3B 活躍參數，並同步推出 NeMo Switchyard 模型路由器",
-      "source": "MarkTechPost",
-      "date": "2026-08-11",
-      "topic": "AI Agent Engineering / LLM Release",
-      "summary": "NVIDIA 在 8 月 11 日同時釋出兩項與 agent 工程直接相關的產物：Nemotron 3.5 Lightning 這個 30B 參數、每 token 僅活躍 30 億參數的開放權重 MoE 模型，以及 NeMo Switchyard 這套開源模型路由函式庫。Switchyard 的角色是把 agent 的每一次請求導向當下最有效率的模型，屬於 agent orchestration 層的基礎設施，而非模型本身。Lightning 則明確針對「長時間執行的 agent」場景做最佳化，強調專項任務的執行速度與正確率。兩者合起來的訊號很清楚：NVIDIA 想同時掌握 agent 的推論模型與路由決策層。",
-      "highlights": [
-        "Nemotron 3.5 Lightning：30B 總參數、3B 活躍參數的 MoE 架構",
-        "NeMo Switchyard：開源模型路由器，依任務把請求導到最省成本的模型",
-        "明確以 long-running agents（長時運行代理）為設計標的",
-        "權重開放下載，可在單張消費級 GPU 上運行"
-      ],
-      "discussion": "工程社群對 Switchyard 的興趣不低於模型本身——多模型路由一直是 agent 成本控制的痛點，但也有人質疑由晶片商主導的路由層是否會在模型選擇上產生偏向。",
-      "url": "https://www.marktechpost.com/2026/08/11/nvidia-ai-releases-nemotron-3-5-lightning-and-nemo-switchyard/"
-    },
-    {
-      "title": "Nvidia releases Nemotron 3.5 Lightning, open-source AI model",
-      "title_zh": "NVIDIA 釋出開源 AI 模型 Nemotron 3.5 Lightning",
-      "source": "CNBC",
-      "date": "2026-08-11",
-      "topic": "LLM Release",
-      "summary": "NVIDIA 於 8 月 11 日釋出 Nemotron 3.5 Lightning，這是一款 300 億參數、每 token 僅活躍 30 億參數的開源模型，由自家較大的 Nemotron 3 Ultra 蒸餾而來，鎖定高流量的 agentic AI 工作負載。MoE 架構讓它可以在單張消費級 GPU（如 RTX PC 或 DGX Spark）上跑。NVIDIA 宣稱其輸出速度最高可達同級開放模型的四倍，agentic 任務完成速度約快三成。模型可免費商用，權重直接在 Hugging Face 與 NVIDIA build 平台下載，不需申請授權或付費。這也是 Jensen Huang 在華府公開介入開源 AI 政策辯論不到三週後，NVIDIA 的首個開放權重模型釋出。",
-      "highlights": [
-        "30B 總參數／3B 活躍參數，MoE 架構，可跑在單張消費級 GPU",
-        "宣稱輸出速度最高 4 倍、agentic 任務完成速度約快 30%",
-        "免費商用，權重無需申請即可從 Hugging Face 下載",
-        "時間點緊接 Jensen Huang 在華府介入開源 AI 政策辯論之後"
-      ],
-      "discussion": "開源社群多數正面看待 Apache 級別的可用性與單卡可跑的門檻；批評聲音則指出「蒸餾自閉源大模型的開放權重」在政策辯論中被當成公關籌碼的成分不低。",
-      "url": "https://www.cnbc.com/2026/08/11/nvidia-releases-nemotron-3point5-lightning-open-source-ai-model-.html"
-    },
-    {
-      "title": "Meta Launches Muse Glimmer Open-Weight AI Model",
-      "title_zh": "Meta 推出開放權重 AI 模型 Muse Glimmer",
-      "source": "Technology.org",
-      "date": "2026-08-11",
-      "topic": "LLM Release / AI Agent",
-      "summary": "Meta Superintelligence Labs 推出 Muse Glimmer，一款 300 億參數的開放權重 agentic 模型，完全在單張消費級 GPU 或 Apple Silicon Mac 上本機運行。模型針對 always-on 的本機 agent 最佳化，支援長時程推理、可靠的 tool calling、失敗回復、程式撰寫與多模態推理等 agentic 工作負載必要能力。權重以 Apache 2.0 授權釋出於 Hugging Face，屬於相對寬鬆的商用條款。context window 超過 12 萬 token，Q4_K_M GGUF 量化後可塞進 24GB 或 32GB 的消費級 GPU 記憶體，而非資料中心等級顯卡。此舉被解讀為 Meta 重回開放模型路線的訊號。",
-      "highlights": [
-        "30B dense 模型，Apache 2.0 授權，權重公開於 Hugging Face",
-        "12 萬+ token context window，量化後可入 24GB／32GB 消費級 GPU",
-        "針對本機 always-on agent 設計：長時程推理、tool calling、失敗回復",
-        "被視為 Meta 重申開放模型策略的指標性動作"
-      ],
-      "discussion": "本機 agent 社群反應熱烈，重點在 Apache 2.0 加上單卡可跑等於把私有化部署門檻壓到個人層級；懷疑論者則關注 30B dense 在真實長時程任務中的穩定度是否撐得住。",
-      "url": "https://www.technology.org/2026/08/11/meta-muse-glimmer-open-weight-ai-model/"
-    },
-    {
-      "title": "Made by Google 2026 Launch Live: Pixel 11, Pixel 11 Pro Fold, Pixel Watch 5, Gemini, and all the news",
-      "title_zh": "Made by Google 2026 發表會直播：Pixel 11、Pixel 11 Pro Fold、Pixel Watch 5 與 Gemini 全數消息",
-      "source": "Android Central",
       "date": "2026-08-12",
-      "topic": "Tech Giant Product",
-      "summary": "Google 於 8 月 12 日舉行 Made by Google 發表會，發表 Pixel 11、Pixel 11 Pro、Pixel 11 Pro XL、Pixel 11 Pro Fold 與 Pixel Watch 5 共五款裝置。AI 面向的重點是 Gemini Intelligence，涵蓋任務自動化、螢幕與影像上下文理解、Gboard Rambler 語音聽寫、Chrome 的 Superfill，以及用自然語言生成自訂 widget 的 Create My Widget。值得治理角度注意的是 Android Halo——把狀態列變成背景 agent 工作狀態的常駐指示器，等於把「agent 正在替你做事」這件事變成作業系統層級的可見訊號。硬體端則以 2nm 製程的 Tensor G6 為最大跨代升級。",
+      "topic": "AI Agent",
+      "summary": "流程智慧（process intelligence）公司 Skan AI 完成 6,300 萬美元 C 輪募資，用於強化其記錄「企業工作實際如何被完成」並將該紀錄餵給 AI Agent 的平台。其軟體常駐於員工桌面端擷取螢幕畫面，並在本機端就地處理，只將去識別化的中繼資料（使用了哪些應用程式、順序為何、決策點落在哪裡）回傳至 Skan AI 的分析平台，因此不會收集實際工作產出內容。這個做法直指目前企業導入 Agent 的核心痛點：企業內部並沒有一份可信、可執行的流程真實紀錄，導致 Agent 缺乏落地所需的上下文。以 Agent 工程的語彙來說，Skan AI 賣的其實是 context engineering 的上游素材層——把隱性流程知識轉成 Agent 可消費的結構化上下文。這類「流程觀測 → Agent 上下文」的資料層，正在成為企業級 Agent 部署的前置基礎建設。",
       "highlights": [
-        "五款新裝置：Pixel 11／11 Pro／11 Pro XL／11 Pro Fold 與 Pixel Watch 5",
-        "Gemini Intelligence：任務自動化、螢幕與影像上下文、Superfill、Create My Widget",
-        "Android Halo 把背景 agent 的執行狀態提升為系統級常駐指示",
-        "Tensor G6 採 2nm 製程，為 Pixel 產品線史上最大晶片跨代升級"
+        "C 輪 6,300 萬美元，定位為 AI Agent 的企業流程上下文供應層",
+        "桌面端擷取螢幕、本機處理，僅回傳去識別化中繼資料，降低資料外洩面",
+        "紀錄應用程式使用順序與決策點，補足 Agent 落地缺乏的流程真實樣貌",
+        "直接對應 context engineering 議題：Agent 效能瓶頸在上下文品質而非模型本身"
       ],
-      "discussion": "Android 社群最關注 Android Halo——這是首見把 agent 執行透明度做進 OS UI 的主流嘗試；同時也有大量討論質疑 Gemini Intelligence 的裝置端與雲端分工界線與隱私邊界。",
-      "url": "https://www.androidcentral.com/phones/live/made-by-google-2026-launch-live-pixel-11-pixel-11-pro-fold-pixel-watch-5-gemini-and-all-the-news"
+      "discussion": "企業 AI 圈普遍認同「Agent 導入失敗多半敗在缺乏流程真實紀錄」的判斷；但桌面端螢幕擷取的做法在隱私與員工監控觀感上仍具爭議，去識別化程度能否通過歐盟與金融業內控稽核是討論焦點。",
+      "url": "https://siliconangle.com/2026/08/12/skan-ai-raises-63m-give-ai-agents-map-enterprise-work/"
     },
     {
-      "title": "ChatGPT Business Adds $125 Premium Seat for Power Users Hitting Five-Hour Cap",
-      "title_zh": "ChatGPT Business 新增每席 125 美元 Premium 方案，鎖定撞上五小時用量上限的重度使用者",
-      "source": "TechTimes",
-      "date": "2026-08-11",
-      "topic": "Enterprise / Pricing",
-      "summary": "OpenAI 為 ChatGPT Business 推出 Premium 席次，每位使用者每月 125 美元，年繳為 100 美元；原有 Standard 席次維持每月 25 美元（年繳 20 美元）。Premium 提供 5 倍於 Standard 的用量，並移除五小時用量上限，讓重度使用者能執行更長的專案而不中斷。同一個 workspace 可混用兩種席次，依個別成員需求配置。這個定價動作的真正訊號在於：agentic 工作流的 token 消耗量已經高到讓單一費率席次模型撐不住，OpenAI 選擇用分層席次而非單純調漲來吸收。限時促銷方面，早期加購 Premium 席次的 workspace 擁有者每席可獲 100 美元 workspace credit，最多五席共 500 美元，8 月 20 日截止。",
+      "title": "Apexon targets stalled AI pilots with three AgentRise additions",
+      "title_zh": "Apexon 以三項 AgentRise 新元件，鎖定停滯不前的 AI 試點專案",
+      "source": "SiliconANGLE",
+      "date": "2026-08-12",
+      "topic": "AI Agent Framework",
+      "summary": "系統整合商 Apexon 為其 AgentRise 代理式 AI 平台新增三個元件：AgentRise Polaris、AgentRise Lodestone 與 AgentRise Harness。產品命名本身即反映當前 Agent 工程的主流架構分工——導航／定錨／執行框架三層拆分，其中 Harness 一詞直接對應近期被熱議的 harness engineering（代理執行框架工程）概念。該公司訴求明確：大量企業 AI 試點卡在 PoC 階段無法進入生產，問題不在模型能力，而在缺乏可重複、可治理的執行骨架。對金融業而言，這類「把 Agent 從 demo 推進到可稽核生產環境」的中介層，正是內控與模型風險管理最需要著力的位置。",
       "highlights": [
-        "Premium 每席每月 125 美元（年繳 100 美元），Standard 維持 25 美元",
-        "用量為 Standard 的 5 倍，並取消五小時使用上限",
-        "同一 workspace 可混搭兩種席次",
-        "限時促銷：每席送 100 美元 credit，上限五席，8 月 20 日止"
+        "新增 Polaris、Lodestone、Harness 三元件，補齊 Agent 導航、定錨與執行框架",
+        "Harness 命名直接呼應 harness engineering 這一 Agent 工程新興領域",
+        "訴求解決企業 AI 試點停滯（pilot purgatory）問題，而非追求模型能力",
+        "系統整合商切入 Agent 平台層，反映導入瓶頸已從技術轉向工程與治理"
       ],
-      "discussion": "企業採購端討論集中在「agent 化之後席次成本如何預估」——固定席次費率遇上不可預測的 token 消耗，讓 IT 預算編列變得困難；也有聲音認為這是 OpenAI 為 IPO 前推升營收的定價操作。",
-      "url": "https://www.techtimes.com/articles/323905/20260811/chatgpt-business-adds-125-premium-seat-power-users-hitting-five-hour-cap.htm"
+      "discussion": "業界對 SI 廠自建 Agent 平台的評價兩極：支持者認為企業需要有人負責端到端整合與治理；質疑者認為此類專有平台會造成新一輪廠商鎖定，且與 LangGraph、CrewAI 等開放框架功能重疊。",
+      "url": "https://siliconangle.com/2026/08/12/apexon-targets-stalled-ai-pilots-three-agentrise-additions/"
     },
     {
-      "title": "Anthropic will embed invisible watermarks in all Claude AI text",
-      "title_zh": "Anthropic 將在所有 Claude 生成文字中嵌入隱形浮水印",
-      "source": "Northeast Times",
-      "date": "2026-08-11",
-      "topic": "AI Governance / Safety",
-      "summary": "Anthropic 宣布自 2026 年 8 月 2 日起，在新版 Claude 模型生成的文字中嵌入隱形浮水印。這些標記設計上能在複製貼上後存活，讓平台與組織有辦法檢驗一段文字是否由 Claude 產出。驅動因素是歐盟法規要求，但實際影響及於全球所有 Claude 使用者，不因所在地而異。對治理實務而言，這是第一次由前沿模型廠商把文字水印做成預設、全面、不可關閉的機制，意味著 AI 生成內容的可溯源性從「可選標註」轉為「內建屬性」。",
+      "title": "CodeRabbit bags $143M to help companies get a grip on the explosion of AI-generated code",
+      "title_zh": "CodeRabbit 募得 1.43 億美元，協助企業掌控 AI 生成程式碼的爆量",
+      "source": "SiliconANGLE",
+      "date": "2026-08-12",
+      "topic": "AI Agent",
+      "summary": "程式碼審查公司 CodeRabbit 完成 1.43 億美元募資，並同步發布名為 Agentic Change Management 的新層級，用於治理、評估與排序由人類與 AI Agent 共同產生的程式碼變更。此舉直指 AI 輔助開發普及後的結構性問題：程式碼產出速度暴增，但審查、驗證與變更控管能量並未同步擴張，形成品質與資安的新瓶頸。該產品將「變更」視為需要治理的一級物件，對每筆變更判斷風險等級與優先序，而非單純做語法或風格檢查。從治理角度看，這是把傳統變更管理（change management）內控流程重新套用到 Agent 產出的嘗試。",
       "highlights": [
-        "自 2026-08-02 起於新版 Claude 模型的文字輸出嵌入隱形浮水印",
-        "標記設計為可在複製貼上後保留",
-        "驅動來源為歐盟法規，但適用範圍為全球所有使用者",
-        "由可選標註轉為模型預設內建的溯源機制"
+        "募資 1.43 億美元，切入 AI 生成程式碼的審查與變更治理",
+        "推出 Agentic Change Management 層，同時治理人類與 Agent 的程式碼變更",
+        "核心命題：程式碼產出速度已遠超審查能量，形成品質與資安缺口",
+        "把變更控管內控概念套用至 Agent 產出，具金融業 SDLC 治理參考價值"
       ],
-      "discussion": "討論兩極：內容平台與教育機構歡迎有可驗證的偵測手段；創作者與隱私社群則質疑「不可關閉」的標記等於在使用者不知情下附加識別資訊，並關注水印被移除或偽造的技術可行性。",
-      "url": "https://northeasttimes.com/2026/08/11/anthropic-will-embed-invisible-watermarks-in-all-claude-ai-text/"
+      "discussion": "開發社群對「AI 寫、AI 審」是否構成有效制衡存在明顯分歧；支持者認為多層獨立審查仍優於人力不足下的放行，反對者則指出同源模型的共同盲點會讓審查形同虛設。",
+      "url": "https://siliconangle.com/2026/08/12/coderabbit-bags-143m-help-companies-get-grip-explosion-ai-generated-code/"
     },
     {
-      "title": "Riot Platforms strikes deal with Anthropic as bitcoin miners shift focus to AI infrastructure",
-      "title_zh": "Riot Platforms 與 Anthropic 達成協議，比特幣礦商轉向 AI 基礎設施",
+      "title": "Red Hat links agentic AI infrastructure to platform control",
+      "title_zh": "Red Hat 將代理式 AI 基礎建設與平台控制權連結",
+      "source": "SiliconANGLE",
+      "date": "2026-08-12",
+      "topic": "AI Agent",
+      "summary": "隨著代理式 AI 基礎建設從實驗走向生產，企業面對的問題已不只是「該用哪個模型」，而是如何控制支撐生產級 AI 應用的成本、資料曝險與基礎設施。報導指出，當 Agent 從單純的問答助理演化為跨業務系統持續行動的常駐應用，組織正在重新評估單靠公有雲 AI 服務的合理性。Red Hat 的論點是：控制權必須回到平台層，才能同時管住成本、資料落地與執行邊界。這對受監管產業特別關鍵——Agent 一旦具備跨系統行動能力，資料流向與權限邊界就不再能靠合約條款管理，必須由基礎架構本身強制執行。",
+      "highlights": [
+        "企業關注焦點從模型選型轉向成本、資料曝險與基礎設施控制權",
+        "Agent 從助理演化為跨系統持續行動的常駐應用，改變風險輪廓",
+        "重新評估單一依賴公有雲 AI 服務的架構合理性",
+        "主張控制權回到平台層，才能強制執行資料落地與權限邊界"
+      ],
+      "discussion": "混合控制平面（provider-native 加外部編排）近期被多份企業調查列為主流預期路線；但自建平台的人力與維運成本，是中型企業普遍反映的落地障礙。",
+      "url": "https://siliconangle.com/2026/08/12/agentic-ai-infrastructure-shifts-enterprise-focus-model-choice-platform-control-cubeconversations/"
+    },
+    {
+      "title": "AI coding startup Cognition reportedly already in talks to raise at $40B valuation",
+      "title_zh": "AI 編碼新創 Cognition 傳已在洽談以 400 億美元估值募資",
+      "source": "TechCrunch",
+      "date": "2026-08-12",
+      "topic": "Funding",
+      "summary": "AI 編碼 Agent Devin 的開發商 Cognition 傳出已在與投資人洽談新一輪募資，估值將大幅跳升。該公司在今年 5 月才以 260 億美元估值募得 10 億美元，此次新輪估值可望達到至少 400 億美元，市場依據是其年化營收執行率（ARR）已達到 10 億美元的水準。若成交，代表估值倍數約為 40 倍 ARR，反映資本市場對編碼 Agent 賽道的高度定價。從 5 月到 8 月僅三個月即再度啟動募資，也顯示該賽道的資金競逐節奏異常緊湊。",
+      "highlights": [
+        "新輪估值傳至少 400 億美元，較 5 月的 260 億美元大幅跳升",
+        "5 月才完成 10 億美元募資，三個月內再啟新輪",
+        "支撐依據為年化營收執行率達 10 億美元，估值倍數約 40 倍 ARR",
+        "編碼 Agent 賽道成為當前 AI 資本競逐最激烈的細分市場之一"
+      ],
+      "discussion": "投資圈對「40 倍 ARR」的定價合理性爭論激烈；支持方引用其營收成長斜率，質疑方則指出編碼 Agent 市場競爭者眾、切換成本低，長期毛利率仍未被驗證。",
+      "url": "https://techcrunch.com/2026/08/12/ai-coding-startup-cognition-reportedly-already-in-talks-to-raise-at-40b-valuation/"
+    },
+    {
+      "title": "Argonne-Led CoLA Approach Makes LLM Pre-Training More Efficient",
+      "title_zh": "Argonne 主導的 CoLA 方法讓大型語言模型預訓練更有效率",
+      "source": "AIwire (HPCwire)",
+      "date": "2026-08-12",
+      "topic": "LLM Research",
+      "summary": "美國能源部 Argonne National Laboratory 的研究團隊主導開發出名為 CoLA 的新方法，用於提升大型語言模型預訓練的效率。此研究切入的是當前 LLM 發展最現實的成本瓶頸——預訓練所需的算力與能耗規模，已使前沿模型訓練成為僅少數機構負擔得起的活動。由國家實驗室而非商業 AI 公司主導此類效率研究，具有政策意涵：美國公部門研究體系正嘗試在算力受限條件下維持模型研發能力。對企業端而言，預訓練效率的改善長期會傳導至模型授權與推論成本。",
+      "highlights": [
+        "由美國能源部 Argonne National Laboratory 主導的 LLM 預訓練效率研究",
+        "切入前沿模型訓練的算力與能耗成本瓶頸",
+        "公部門國家實驗室投入模型效率研究，具備美國 AI 政策意涵",
+        "訓練效率改善長期將傳導至模型授權與推論成本"
+      ],
+      "discussion": "研究社群長期關注訓練效率議題，但普遍提醒此類方法需在更大參數規模上重現才具說服力；小規模驗證的效率增益常在放大後衰減。⚠️待確認：本則技術細節與實測數據需以原文為準。",
+      "url": "https://www.hpcwire.com/aiwire/2026/08/12/argonne-led-cola-approach-makes-llm-pre-training-more-efficient/"
+    },
+    {
+      "title": "Google's new Pixel 11 puts Gemini at center of AI phone battle with Apple",
+      "title_zh": "Google 新款 Pixel 11 將 Gemini 置於與 Apple 的 AI 手機戰核心",
       "source": "CNBC",
-      "date": "2026-08-11",
-      "topic": "AI Infrastructure / Deal",
-      "summary": "Anthropic 與比特幣礦商 Riot Platforms 簽下 91 億美元的算力合約。Riot 揭露這是一紙 20 年期協議，將由德州 Rockdale 園區供應 191 兆瓦（MW）容量，租期延伸至 2048 年 6 月；若行使兩次五年展延選擇權，合約總值可達 161 億美元。Riot 規劃分階段上線，2027 年 12 月達 96MW，2028 年 6 月完成全部 191MW 建置。消息公布後 Riot 股價盤後一度大漲逾 25%。加上既有的 AMD 合約，Riot 已簽約容量達 241MW、長期合約收入約 98 億美元。這筆交易是加密礦場資產轉型為 AI 資料中心的代表性案例。",
+      "date": "2026-08-12",
+      "topic": "Product Launch",
+      "summary": "Google 發表 Pixel 11 系列，搭載名為 Gemini Intelligence 的 AI 功能套件，主打能理解使用者當下在手機上正在做什麼，並跨不同應用程式代為採取行動。這已不是單純的語音助理升級，而是把 Agent 的「觀察狀態、跨應用執行動作」能力下放到終端裝置層。此舉將 Google 與 Apple 的競爭正式推進到裝置端 Agent 的戰場。對治理面而言，裝置端 Agent 具備跨 app 操作權限，等同在個人裝置上建立一個高權限的自動化主體，其權限邊界與稽核機制將是後續監理關注點。",
       "highlights": [
-        "91 億美元、20 年期，德州 Rockdale 園區供應 191MW",
-        "含兩次五年展延選擇權，總值上限可達 161 億美元",
-        "分階段上線：2027-12 達 96MW，2028-06 完成 191MW",
-        "Riot 已簽約容量累計 241MW、長期合約收入約 98 億美元"
+        "Pixel 11 搭載 Gemini Intelligence，理解使用者當前情境並跨應用執行動作",
+        "把 Agent 的跨應用行動能力下放至終端裝置層",
+        "與 Apple 在裝置端 AI 助理的競爭正式白熱化",
+        "裝置端高權限 Agent 的權限邊界與稽核，將成為新的監理議題"
       ],
-      "discussion": "投資圈把它視為比特幣礦商估值重估的觸發點，IREN、Applied Digital、TeraWulf 等同業股價同步走高；產業端則關注 2028 年才完工的容量對 Anthropic 近期算力缺口幫助有限。",
-      "url": "https://www.cnbc.com/2026/08/11/riot-platforms-signs-anthropic-deal-as-miners-shift-to-ai-infrastructure-.html"
+      "discussion": "消費端普遍對「手機 AI 能跨 app 代為操作」抱持期待與疑慮並存的態度；資安社群則點出裝置端 Agent 一旦被提示注入攻擊挾持，影響範圍將直接涵蓋使用者所有已登入的應用程式。",
+      "url": "https://www.cnbc.com/2026/08/12/google-pixel-11-gemini-ai-phone-apple.html"
     },
     {
-      "title": "Nvidia and Wall Street team up on $500 billion bet on AI infrastructure",
-      "title_zh": "NVIDIA 攜手華爾街，押注 5,000 億美元於 AI 基礎設施",
-      "source": "CNN Business",
-      "date": "2026-08-11",
-      "topic": "AI Infrastructure / Finance",
-      "summary": "NVIDIA 宣布與 Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs 與 KKR 合作，為 AI 基礎設施建置籌組超過 5,000 億美元、以 NVIDIA 所稱「具吸引力利率」的融資。合作以備忘錄（MOU）形式簽署，各家機構分別組建資金池，受益對象涵蓋前沿 AI 實驗室、企業與雲端業者。實質做法是用機構信貸、保險資金與私募資本為 GPU 與資料中心提供承作，讓終端用戶不必動用自身資產負債表。策略意涵是 NVIDIA 試圖把 AI 晶片變成華爾街的新資產類別，比照商用不動產或收費公路等可抵押資產。必須注意的是 MOU 屬初步意向而非具約束力合約，5,000 億是目標而非保證數字。",
+      "title": "OpenAI, Anthropic, Google API Flaw Let Weaker AI Models Decode Stronger Models' Reasoning",
+      "title_zh": "OpenAI、Anthropic、Google API 缺陷讓較弱模型能解碼較強模型的推理內容",
+      "source": "The Hacker News",
+      "date": "2026-08-12",
+      "topic": "Cybersecurity",
+      "summary": "研究人員揭露 OpenAI、Anthropic 與 Google 在 API 呼叫之間傳遞隱藏推理內容（reasoning）的機制存在缺陷，使得攻擊者能從 session log 中還原內部推理過程與其中夾帶的機密，包含 API 金鑰與密碼。該弱點影響三家業者 reasoning API 所使用的加密推理物件：在某一 session 產生的推理區塊可被重放（replay）至另一 session，測試中甚至可交給同一模型家族中能力較弱的模型，誘使其吐出隱藏內容。論文《Stealing Reasoning Traces from Proprietary LLM APIs》展示四條濫用路徑：竊取專有推理以進行模型蒸餾、從他人公開的 trace 中擷取私密資料、還原被安全外層答案掩蓋的有害內容，以及將提示注入藏在不透明推理區塊內。報導指出，主要的擷取攻擊路徑截至 2026 年 8 月已無法重現。",
       "highlights": [
-        "合作方：Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs、KKR",
-        "以機構信貸與私募資本承作 GPU 與資料中心，用戶免動用自身資產負債表",
-        "目標將 AI 算力比照商用不動產操作為可抵押資產類別",
-        "僅為 MOU 初步意向，5,000 億美元非具約束力承諾"
+        "三大前沿模型供應商的加密推理物件機制同時受影響",
+        "推理區塊可跨 session 重放，並可交由較弱模型解碼出隱藏內容",
+        "外洩內容包含 session log 中的 API 金鑰與密碼等機密",
+        "四條濫用路徑：模型蒸餾、私密資料擷取、有害內容還原、提示注入藏匿",
+        "主要擷取攻擊路徑截至 2026 年 8 月已無法重現"
       ],
-      "discussion": "金融市場的核心疑慮是「循環融資」——供應商替自家大客戶安排資金，等於變相自我造需；支持方則認為把算力資產化是基礎設施融資的正常演化路徑。",
-      "url": "https://www.cnn.com/2026/08/11/business/nvidia-wall-street-500-billion-financing-intl"
+      "discussion": "資安社群將此案視為「Agent log 即攻擊面」的代表案例：企業普遍把推理 trace 當成除錯資料留存，卻未比照機密等級保護。金融業內控上的直接啟示是，Agent 的推理紀錄必須納入機密資料分級與存取控管範圍。",
+      "url": "https://thehackernews.com/2026/08/openai-anthropic-google-api-flaw-let.html"
     },
     {
-      "title": "Top Tech News Today, August 11, 2026: Anthropic, Boeing, Intel, Meta, Nvidia, OpenAI, Unitree & More",
-      "title_zh": "今日科技要聞 2026 年 8 月 11 日：Anthropic、Boeing、Intel、Meta、NVIDIA、OpenAI、Unitree 等",
-      "source": "Tech Startups",
-      "date": "2026-08-11",
-      "topic": "Industry Roundup",
-      "summary": "8 月 11 日的產業彙整顯示當日三條主線同時推進：NVIDIA 敲定與華爾街重量級機構的 5,000 億美元融資聯盟；OpenAI 為資安防禦方提供專門訓練的模型；以及 AI 榮景的實體基礎（晶片、感測器、電力、資料中心）在三大洲同步位移。Intel 再度向公開市場籌資 200 億美元，加密時代的資料中心正被改造承接前沿 AI 工作負載。人形機器人在中國吸引異常強勁的投資需求，各國政府則加碼推動主權 AI。同時，自主系統正迫使法院、資安團隊與監理機關改寫既有規則。這份彙整的價值在於呈現「算力金融化 + 實體基礎設施重配置 + 監理追趕」三軌並行的當日全貌。",
+      "title": "AI deployments are stretching enterprise security to its limits",
+      "title_zh": "AI 部署正把企業資安推向極限",
+      "source": "Help Net Security",
+      "date": "2026-08-12",
+      "topic": "Cybersecurity",
+      "summary": "一份由 NetFoundry 發布的報告指出，企業 AI 部署的速度與規模，已超出既有資安架構所能承受的範圍。核心問題在於 AI 系統（尤其是具備行動能力的 Agent）建立了大量既有網路與身分控制模型未曾預期的連線與存取路徑。傳統以邊界防護與靜態權限為基礎的架構，難以應對 Agent 動態產生的跨系統存取需求。報告的實務意涵是：AI 部署不能只做模型層治理，網路層與身分層的控制模型必須同步重構。",
       "highlights": [
-        "NVIDIA 5,000 億美元融資聯盟、Intel 再籌 200 億美元",
-        "OpenAI 推出專供資安防禦方使用的專門模型",
-        "加密礦場資料中心被改造為前沿 AI 算力設施",
-        "自主系統正迫使法院、資安團隊與監理機關改寫規則"
+        "AI 部署速度與規模超出既有企業資安架構承受範圍",
+        "Agent 建立大量傳統網路與身分控制模型未預期的存取路徑",
+        "邊界防護與靜態權限模型難以應對動態跨系統存取",
+        "治理需同時涵蓋模型層、網路層與身分層，而非僅模型層"
       ],
-      "discussion": "產業觀察者普遍以「資本密集度再上一階」概括當日訊號；也有評論指出實體基礎設施（電力、封裝產能）而非模型能力，才是 2026 下半年真正的瓶頸。",
-      "url": "https://techstartups.com/2026/08/11/top-tech-news-today-august-11-2026-anthropic-intel-meta-openai-nvidia-unitree-more/"
+      "discussion": "此報告與近期多份企業調查結論一致：多數企業已導入 Agent，但執行期權限強制與高風險 Agent 隔離的落實率明顯偏低，形成「先部署、後補控制」的普遍缺口。⚠️待確認：報告具體統計數字需以原文為準。",
+      "url": "https://www.helpnetsecurity.com/2026/08/12/netfoundry-securing-ai-deployments-report/"
+    },
+    {
+      "title": "OpenAI-backed Thrive Holdings raises $2B to bring AI to the enterprise",
+      "title_zh": "OpenAI 投資的 Thrive Holdings 募得 20 億美元，將 AI 導入傳統企業",
+      "source": "TechCrunch",
+      "date": "2026-08-12",
+      "topic": "Funding",
+      "summary": "Thrive Holdings 以 120 億美元估值募得 20 億美元新資金，投資人包括 SoftBank、D1 Capital Partners 與 Altimeter Capital。該公司的模式類似「AI 版私募股權基金」：直接收購會計師事務所等傳統業務型企業，再將 AI 導入其作業流程以提升利潤率。這代表 AI 投資邏輯的一種轉向——不是投資賣工具的軟體公司，而是買下使用工具的業務本身，直接賺取效率改善帶來的價差。對金融業而言，此模式的可複製性與其對專業服務業定價結構的衝擊值得關注。",
+      "highlights": [
+        "募資 20 億美元，估值 120 億美元，投資人含 SoftBank、D1、Altimeter",
+        "商業模式為收購會計師事務所等傳統企業後導入 AI 改造流程",
+        "投資邏輯從「賣工具」轉向「買下使用工具的業務本身」",
+        "OpenAI 為其投資方之一，形成模型供應商與應用場景的縱向連結"
+      ],
+      "discussion": "私募與科技投資圈對此模式評價分歧：支持者認為 AI 帶來的利潤率提升在專業服務業最容易被捕捉；質疑者指出人力密集業務的組織阻力與客戶關係黏著度，會大幅拖慢 AI 導入的實際回報速度。",
+      "url": "https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/"
+    },
+    {
+      "title": "Vibe coding startup Lovable doubles valuation to $13.3B with $400M raise",
+      "title_zh": "Vibe coding 新創 Lovable 以 4 億美元募資將估值翻倍至 133 億美元",
+      "source": "SiliconANGLE",
+      "date": "2026-08-12",
+      "topic": "Funding",
+      "summary": "Lovable Labs 完成 4 億美元 C 輪募資，估值達 133 億美元，較前一輪翻倍。營收數據是此次定價的核心支撐：年化營收在 6 月達到 5 億美元，預計 8 月底將達 6 億美元，等於兩個月內增加 1 億美元年化營收。此成長速度在 SaaS 歷史上極為罕見，也解釋了估值倍數的壓縮空間有限（約 22 倍 ARR，反而低於同期 Cognition 的水準）。Lovable 所代表的 vibe coding 類別，本質是把應用程式開發從撰寫程式碼轉為以自然語言描述意圖。",
+      "highlights": [
+        "C 輪 4 億美元，估值 133 億美元，較前輪翻倍",
+        "年化營收 6 月達 5 億美元，預計 8 月底達 6 億美元",
+        "兩個月內年化營收增加 1 億美元，成長速度在 SaaS 史上罕見",
+        "估值倍數約 22 倍 ARR，低於同期部分編碼 Agent 同業"
+      ],
+      "discussion": "開發社群對 vibe coding 產出的程式碼在生產環境的可維護性仍有保留；此議題與同日 CodeRabbit 募資所指出的「AI 生成程式碼審查缺口」互為表裡，形成一個完整的因果鏈。",
+      "url": "https://siliconangle.com/2026/08/12/vibe-coding-startup-lovable-doubles-valuation-13-3b-400m-raise/"
+    },
+    {
+      "title": "AI code-testing startup Blacksmith's valuation jumps almost 10x in less than a year",
+      "title_zh": "AI 程式碼測試新創 Blacksmith 估值不到一年跳升近 10 倍",
+      "source": "TechCrunch",
+      "date": "2026-08-12",
+      "topic": "Funding",
+      "summary": "成立於 2024 年的 Blacksmith 完成 4,500 萬美元 B 輪募資，由 Peak XV Partners 領投，估值達 5.5 億美元；不到一年前其 1,000 萬美元 A 輪估值僅 6,000 萬美元，等於估值跳升近 10 倍。既有投資人 GV 與 Y Combinator 亦參與此輪，累計募資金額達 5,850 萬美元。該公司協助企業在程式碼進入生產環境前完成建置、測試與驗證，切入的正是 AI 讓程式碼撰寫速度大幅加快後所暴露的驗證瓶頸。",
+      "highlights": [
+        "B 輪 4,500 萬美元，由 Peak XV Partners 領投，估值 5.5 億美元",
+        "估值不到一年從 6,000 萬美元跳升至 5.5 億美元，約 10 倍",
+        "既有投資人 GV 與 Y Combinator 續投，累計募資 5,850 萬美元",
+        "定位為 AI 加速編碼後的建置、測試與驗證瓶頸解方"
+      ],
+      "discussion": "同一日出現 Blacksmith、CodeRabbit 兩筆針對「AI 生成程式碼驗證」的大額募資，市場解讀為投資人已將驗證層視為獨立於編碼工具之外的必要基礎建設，而非編碼產品的附屬功能。",
+      "url": "https://techcrunch.com/2026/08/12/blacksmiths-valuation-jumps-10x-to-550m-as-ai-coding-fuels-software-validation/"
+    },
+    {
+      "title": "Graph intelligence grounds reliable enterprise AI",
+      "title_zh": "圖譜智慧成為可靠企業 AI 的接地基礎",
+      "source": "SiliconANGLE",
+      "date": "2026-08-12",
+      "topic": "Enterprise AI",
+      "summary": "報導指出，圖譜智慧（graph intelligence）正成為企業缺失的連結組織——這個知識層讓 AI 模型得以從原型走向可靠系統，因為它提供了產生準確答案所需的上下文。核心論點是：企業資料的價值不在單筆記錄，而在記錄之間的關係，而向量檢索難以完整表達這類結構化關聯。這一觀點與當前 context engineering 的主流思路一致——提升 Agent 可靠度的槓桿在於餵給它的上下文結構品質，而非單純擴大模型參數或上下文視窗。對金融業而言，知識圖譜在關聯戶、洗錢防制與風險傳導分析上已有既有基礎，與 Agent 結合具備現成落地路徑。",
+      "highlights": [
+        "圖譜智慧被定位為企業 AI 從原型走向可靠系統的關鍵知識層",
+        "核心論點：企業資料價值在關係結構，而非單筆記錄",
+        "呼應 context engineering 思路——上下文結構品質是可靠度槓桿",
+        "金融業既有知識圖譜資產（關聯戶、AML）具備與 Agent 結合的現成路徑"
+      ],
+      "discussion": "資料架構社群對「圖譜 vs 向量檢索」的路線之爭持續；主流意見已從二選一轉向混合檢索，但知識圖譜建置與維運成本高，仍是企業落地的主要門檻。",
+      "url": "https://siliconangle.com/2026/08/12/graph-intelligence-grounds-reliable-enterprise-ai-neo4jgraphtalk/"
+    },
+    {
+      "title": "AI deployment goes vertical: Supermicro partners weigh in",
+      "title_zh": "AI 部署走向垂直化：Supermicro 合作夥伴的觀點",
+      "source": "SiliconANGLE",
+      "date": "2026-08-12",
+      "topic": "Enterprise AI",
+      "summary": "報導匯集 Supermicro 生態系合作夥伴的觀察，指出 AI 基礎建設的部署模式正朝垂直整合方向發展——從硬體、儲存到軟體堆疊由同一組合供應，而非由企業自行拼裝。此趨勢的驅動力在於 AI 工作負載對儲存吞吐、網路與散熱的要求，已使通用型資料中心設計難以直接套用。對企業而言，這意味著自建 AI 基礎建設的門檻由「買得到 GPU」轉向「整套堆疊的工程整合能力」。",
+      "highlights": [
+        "AI 基礎建設部署朝硬體、儲存、軟體垂直整合方向發展",
+        "AI 工作負載對儲存吞吐、網路與散熱的需求超出通用資料中心設計",
+        "自建門檻從取得 GPU 轉向整套堆疊的工程整合能力",
+        "生態系合作夥伴模式成為企業落地 AI 基礎建設的主要途徑"
+      ],
+      "discussion": "基礎建設社群普遍認同垂直整合可縮短部署時程，但也提醒此模式將加深單一供應商依賴，議價能力與長期維運彈性是採購時的主要權衡點。",
+      "url": "https://siliconangle.com/2026/08/12/ai-deployment-supermicros-partners-vertical-supermicroopenstoragesummit/"
+    },
+    {
+      "title": "As AI safety concerns mount, three pioneers make the case for staying open",
+      "title_zh": "AI 安全疑慮升高之際，三位先驅仍主張維持開放",
+      "source": "TechCrunch",
+      "date": "2026-08-12",
+      "topic": "AI Safety",
+      "summary": "在 AI 安全疑慮持續升高的背景下，三位全球最受敬重的 AI 研究者——諾貝爾獎得主 Geoffrey Hinton、World Labs 執行長暨共同創辦人 Fei-Fei Li，以及 Coursera 共同創辦人 Andrew Ng——於拉斯維加斯舉行的 Ai4 研討會上公開表態，為維持開放（open）路線提出論據。此議題的張力在於：安全風險升高通常被用來支持模型封閉與集中管控，而這三位論者反向主張開放才是可驗證性與風險分散的基礎。值得注意的是，Hinton 過去以警告 AI 風險著稱，其在此議題上的立場具有特殊份量。",
+      "highlights": [
+        "Geoffrey Hinton、Fei-Fei Li、Andrew Ng 於 Ai4 研討會公開主張維持開放",
+        "反向論證：開放而非封閉，才是可驗證性與風險分散的基礎",
+        "與「安全風險升高應導向集中管控」的主流監理直覺形成張力",
+        "Hinton 素以警告 AI 風險著稱，其支持開放的立場尤具份量"
+      ],
+      "discussion": "開放與封閉之爭在 2026 年因監理落地而更趨激烈；支持封閉者以前沿模型濫用風險為據，支持開放者則強調封閉會讓安全研究無法獨立驗證，形成監理只能依賴業者自陳的結構性問題。",
+      "url": "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/"
     }
   ],
-  "_updated_at": "2026-08-12T18:19:44.896933+08:00"
+  "_updated_at": "2026-08-13T18:14:00.342397+08:00"
 }
