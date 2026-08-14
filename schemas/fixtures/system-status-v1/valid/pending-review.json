@@ -1,0 +1,25 @@
+{
+  "schema_version": "system-status-v1",
+  "generated_at": "2026-08-14T18:30:00+08:00",
+  "source_manifest": {
+    "schema_version": "current-state-manifest-v1",
+    "generated_at": "2026-08-14T18:29:59+08:00",
+    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "source_latest_date": "2026-08-14",
+  "preview_generated_at": "2026-08-14T18:20:00+08:00",
+  "public_generated_at": "2026-08-13T18:00:00+08:00",
+  "lag_hours": 24.3333,
+  "freshness_state": "pending",
+  "publish_state": "pending_owner_review",
+  "blocked_reason": null,
+  "artifact_health": {
+    "ingestion": "available",
+    "preview": "available",
+    "public": "available",
+    "agent_run": "ok"
+  },
+  "advisory": true,
+  "production_write": false,
+  "publish_authority": "owner_only"
+}

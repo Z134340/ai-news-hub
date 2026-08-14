@@ -40,6 +40,7 @@ AGENT_SCRIPTS="$REPO_DIR/scripts/agent"
 PREVIEW_DIR="$REPO_DIR/data/agent/.preview"
 PUBLIC_DIR="$REPO_DIR/data/agent"
 STATUS_FILE="$PREVIEW_DIR/agent-run-status.json"
+FRESHNESS_GATE="$AGENT_SCRIPTS/freshness-release-gate.mjs"
 
 # 跟 run-agents.sh 的 DAG 對齊；改那邊要一起改這邊，否則晉升出來的視窗會對不上
 INSIGHTS_WINDOW="${AGENT_INSIGHTS_WINDOW:-7}"
@@ -48,11 +49,12 @@ TIMELINE_WINDOW="${AGENT_TIMELINE_WINDOW:-90}"
 # 可晉升白名單（模型產物，用複製）
 COPY_FILES="trend-assessment.json roadmap.json brief-latest.json"
 # 永不上線的封鎖名單。roadmap-input 含完整理由文字、brief-input* 含原始語料、
-# agent-run-status 是內部排程狀態，三者都不該出現在公開站台。
-NEVER_FILES="roadmap-input.json brief-input.json brief-input-7d.json agent-run-status.json"
-# 不敏感、但前端沒有任何地方讀它，所以不晉升——公開一個沒人看的檔案只是多開一片
-# 攻擊面。哪天儀表板真的要用 7 天版摘要，把它從這裡移到 COPY_FILES 就行。
-SKIP_FILES="brief-latest-7d.json"
+# agent-run-status 與 current-state-manifest 是內部控制證據，永不公開。
+NEVER_FILES="roadmap-input.json brief-input.json brief-input-7d.json agent-run-status.json current-state-manifest.json"
+# brief-latest-7d 前端未讀；system-status 雖已有 public UI consumer，但這支內容晉升
+# 腳本不會自行發布狀態，只把 .preview/system-status 當 freshness gate 輸入。兩者都
+# 不屬於本腳本的 copy/rebuild 集合；狀態發布仍須走 Owner-controlled 流程。
+SKIP_FILES="brief-latest-7d.json system-status.json"
 
 APPLY=0
 ALLOW_DEGRADED=0
@@ -116,6 +118,14 @@ if [[ $SELF_TEST -eq 1 ]]; then
         | cut -d: -f1 | tr '\n' ' ')"
     chk "P-5 沒有 \$var 直接接全形字的寫法${badvar:+（行：${badvar}）}" "$([[ -z "$badvar" ]] && echo 1 || echo 0)"
 
+    # P-6/P-7 ANH-005：release gate 必須存在且紅隊 fixtures 全綠。這道 freshness gate
+    # 沒有 override；--allow-degraded 只能處理 agent-run overall，不能放行 stale candidate。
+    chk "P-6 freshness release gate 存在" "$([[ -f "$FRESHNESS_GATE" ]] && echo 1 || echo 0)"
+    node "$FRESHNESS_GATE" --self-test >/dev/null 2>&1
+    chk "P-7 freshness release gate fixtures 全綠" "$([[ $? -eq 0 ]] && echo 1 || echo 0)"
+    gate_calls="$(grep -c '^if ! GATE_RESULT=.*FRESHNESS_GATE' "$0")"
+    chk "P-8 promote 執行路徑確實呼叫 freshness gate（實得 ${gate_calls} 次）" "$([[ "$gate_calls" == "1" ]] && echo 1 || echo 0)"
+
     echo "[promote] 自我測試：$([[ $fails -eq 0 ]] && echo 全過 || echo "$fails 項失敗")"
     exit $(( fails > 0 ))
 fi
@@ -160,7 +170,15 @@ for f in $COPY_FILES; do
     [[ "$s" == "model" ]] || die "$f 的 source=${s}（不是 model），拒絕晉升"
 done
 
-# 閘 3：timeline 的語料日期必須跟 repo 裡最新的一天對得上，否則是在發布過期資料
+# ANH-005：exact manifest binding + current artifact hash parity + invocation-time freshness。
+# 只讀檢查，無 bypass；通過只代表 candidate 可進 Owner review，不代表已獲批准。
+if ! GATE_RESULT="$(node "$FRESHNESS_GATE" --root "$REPO_DIR" 2>&1)"; then
+    die "freshness release gate 阻擋：${GATE_RESULT}"
+fi
+GATE_SUMMARY="$(printf '%s' "$GATE_RESULT" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("state=%s publish=%s source=%s manifest=%s" % (d.get("freshness_state"), d.get("publish_state"), d.get("source_latest_date"), (d.get("stored_manifest_sha256") or "?")[:12]))' 2>/dev/null || echo "通過（摘要解析失敗）")"
+log "freshness release gate PASS：${GATE_SUMMARY}；仍須 Owner 明確核可"
+
+# 防禦加深：timeline 的語料日期仍須跟 repo 裡最新的一天對得上。
 LATEST_CORPUS="$(ls "$REPO_DIR"/data/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].json 2>/dev/null | tail -1)"
 LATEST_DATE="$(basename "${LATEST_CORPUS:-}" .json)"
 TL_DATE="$(python3 -c "import json;print(json.load(open('$PREVIEW_DIR/timeline.json')).get('source_latest_date','?'))" 2>/dev/null || echo "?")"
@@ -183,7 +201,7 @@ for f in $COPY_FILES; do
     log "  複製：${f}（線上 ${old} → 預覽 $(date -r "$PREVIEW_DIR/$f" '+%m-%d %H:%M')）"
 done
 log "  永不複製（含敏感內容）：${NEVER_FILES}"
-log "  不複製（前端沒讀）：${SKIP_FILES}"
+log "  本腳本不複製（非此內容晉升流程）：${SKIP_FILES}"
 echo
 
 if [[ $APPLY -eq 0 ]]; then

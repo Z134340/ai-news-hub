@@ -1,13 +1,15 @@
 /* AI News Hub — dashboard.js
-   首頁儀表板。版面由上而下＝結論在前、佐證在後、維運墊底：
-     A 名次遷移（近四個月，哪個主題正在爬升）  dashBumpBlock()
-     B 主題矩陣（六叢集 × 90 天走勢 × 判讀）    dashMatrixBlock() → dashDrawer()
-     C 主題趨勢卡（單輪叢集詳情）               dashTrendBlock()
-     D 重點整理                                 dashBriefBlock()
-     E 管線健康度（預設收合，維運才展開）        dashOpsBlock()
+   首頁儀表板。版面由上而下＝資料真相在前、結論與佐證在後、維運墊底：
+     A 系統狀態（public／preview／pending／blocked） dashSystemStatusBlock()
+     B 名次遷移（近四個月，哪個主題正在爬升）    dashBumpBlock()
+     C 主題矩陣（六叢集 × 90 天走勢 × 判讀）      dashMatrixBlock() → dashDrawer()
+     D 主題趨勢卡（單輪叢集詳情）                 dashTrendBlock()
+     E 重點整理                                   dashBriefBlock()
+     F 管線健康度（預設收合，維運才展開）          dashOpsBlock()
 
    資料源與降級策略（全部缺檔即降級，不丟例外、不留空白）：
-     A/B  data/agent/timeline.json（TrendMetrics，118 天日曆軸 × 6 叢集）
+     A    data/agent/system-status.json（ANH-003 的 public status contract）
+     B/C  data/agent/timeline.json（TrendMetrics，118 天日曆軸 × 6 叢集）
           + data/agent/trend-assessment.json（TrendAnalyst，選配）
           + data/agent/roadmap.json（TechRoadmap，選配）
      C    data/agent/trends.json（版控內，NewsCurator 叢集）
@@ -89,10 +91,44 @@ const DASH_CLUSTER_STYLE = [
    產生者，而實際佔多數的 snippet_inference 反而落在值域外被印成英文原字。 */
 const DASH_CONF = { verified:'已驗證', snippet_inference:'snippet 推論', unverified:'未能驗證' };
 const DASH_CONF_COLOR = { verified:'#34d399', snippet_inference:'#fbbf24', unverified:'#f87171' };
+const DASH_STATUS_META = {
+  fresh:   { label:'最新公開',       title:'Public 已對齊',       color:'#34d399', ico:'check' },
+  pending: { label:'等待 Owner 審核', title:'Preview 尚未發布',    color:'#fbbf24', ico:'clock' },
+  stale:   { label:'資料過期',       title:'新鮮度未達門檻',       color:'#f87171', ico:'alert' },
+  blocked: { label:'狀態阻擋',       title:'證據或契約阻擋',       color:'#f87171', ico:'shield' },
+  missing: { label:'狀態尚未發布',    title:'無法判斷公開資料狀態', color:'#64748b', ico:'file' },
+  invalid: { label:'狀態契約無效',    title:'拒絕呈現不可信狀態',   color:'#f87171', ico:'alert' },
+};
+const DASH_PUBLISH_STATE = {
+  published:'已發布', pending_owner_review:'等待 Owner 審核', blocked:'阻擋',
+};
+const DASH_BLOCKED_REASON = {
+  manifest_duplicate_path:'Manifest 內出現重複路徑',
+  ingestion_artifact_invalid:'Ingestion artifact 無效',
+  preview_artifact_invalid:'Preview artifact 無效',
+  public_artifact_invalid:'Public artifact 無效',
+  ingestion_artifact_missing:'Ingestion artifact 缺失',
+  preview_artifact_missing:'Preview artifact 缺失',
+  source_latest_date_missing:'來源資料日期缺失',
+  ingestion_timestamp_missing:'Ingestion 時間戳缺失',
+  preview_source_date_missing:'Preview 來源日期缺失',
+  preview_timestamp_missing:'Preview 時間戳缺失',
+  ingestion_timestamp_in_future:'Ingestion 時間戳超前 manifest',
+  preview_timestamp_in_future:'Preview 時間戳超前 manifest',
+  public_timestamp_in_future:'Public 時間戳超前 manifest',
+  preview_date_ahead_of_source:'Preview 日期超前來源資料',
+  public_date_ahead_of_source:'Public 日期超前來源資料',
+  ingestion_stale:'Ingestion 已超過 26 小時新鮮度門檻',
+  preview_stale:'Preview 落後目前 ingestion',
+};
+const DASH_HEALTH = {
+  available:'可用', degraded:'降級', missing:'缺失', invalid:'無效',
+  ok:'正常', failed:'失敗', unknown:'未回報',
+};
 
 const DASH = {
   loaded:false, days:[], trends:null, assessment:null, roadmap:null, brief:null,
-  timeline:null,
+  timeline:null, systemStatus:null,
   bumpMode:'avg',   // 'avg' 日均 ／ 'sum' 月總。預設日均：四個月的觀測日數是 16/21/12/23，
                     // 直接比月總會把「那個月剛好多跑了幾天」讀成「那個主題在成長」。
 };
@@ -130,6 +166,117 @@ function dashDateRange(first, last) {
 function dashMd(iso) { return iso ? iso.slice(5).replace('-', '/') : ''; }
 function dashPct(n) { return (Math.round(n * 10) / 10).toFixed(1); }
 
+/* ======== A System Status ========
+   只信 data/agent/system-status.json。preview status 即使本機存在也不可當成 public；
+   正式檔缺席時顯示 missing，避免把舊 public 或較新的 preview 冒充「已發布最新」。 */
+function dashValidDate(v) {
+  if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  const d = new Date(v + 'T00:00:00.000Z');
+  return !isNaN(d.getTime()) && d.toISOString().slice(0, 10) === v;
+}
+function dashValidDateTime(v) {
+  return typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(v) && !isNaN(Date.parse(v));
+}
+function dashSystemStatusView(raw) {
+  if (!raw) return { state:'missing', raw:null, reason:'system_status_not_published' };
+  const state = raw.freshness_state;
+  const pair = {
+    fresh:'published', pending:'pending_owner_review', stale:'blocked', blocked:'blocked',
+  };
+  const lagOk = raw.lag_hours === null
+    || (typeof raw.lag_hours === 'number' && isFinite(raw.lag_hours) && raw.lag_hours >= 0);
+  const reasonOk = ['fresh','pending'].includes(state)
+    ? raw.blocked_reason === null
+    : typeof raw.blocked_reason === 'string' && /^[a-z][a-z0-9_]*$/.test(raw.blocked_reason);
+  const coreOk = raw.schema_version === 'system-status-v1'
+    && Object.prototype.hasOwnProperty.call(pair, state)
+    && raw.publish_state === pair[state]
+    && reasonOk && lagOk
+    && raw.advisory === true && raw.production_write === false
+    && raw.publish_authority === 'owner_only'
+    && dashValidDateTime(raw.generated_at)
+    && raw.source_manifest?.schema_version === 'current-state-manifest-v1'
+    && /^[a-f0-9]{64}$/.test(raw.source_manifest?.sha256 || '')
+    && raw.artifact_health && typeof raw.artifact_health === 'object';
+  const datedOk = ['fresh','pending'].includes(state)
+    ? dashValidDate(raw.source_latest_date) && dashValidDateTime(raw.preview_generated_at)
+    : true;
+  const publishedOk = state === 'fresh'
+    ? dashValidDateTime(raw.public_generated_at) && typeof raw.lag_hours === 'number'
+    : true;
+  return (coreOk && datedOk && publishedOk)
+    ? { state, raw, reason:raw.blocked_reason }
+    : { state:'invalid', raw:null, reason:'invalid_system_status_contract' };
+}
+function dashStatusTime(v) {
+  if (!dashValidDateTime(v)) return '尚無';
+  try {
+    return new Date(v).toLocaleString('zh-TW', {
+      timeZone:'Asia/Taipei', year:'numeric', month:'2-digit', day:'2-digit',
+      hour:'2-digit', minute:'2-digit', hour12:false,
+    });
+  } catch { return v; }
+}
+function dashStatusMetric(label, value, note) {
+  return `<div class="dss-metric"><span class="dss-k">${label}</span>
+    <strong class="dss-v">${esc(value)}</strong><span class="dss-note">${esc(note || '')}</span></div>`;
+}
+function dashSystemStatusBlock() {
+  const view = dashSystemStatusView(DASH.systemStatus);
+  const meta = DASH_STATUS_META[view.state];
+  if (view.state === 'missing') {
+    return dashSection('shield', meta.color, '系統狀態', meta.label,
+      `<div class="dss-card dss-missing" data-system-status="missing" role="status">
+        <div class="dss-head"><span class="dss-state" style="color:${meta.color}">${svg(meta.ico, 14, meta.color)}${meta.title}</span>
+          <span class="dss-badge" style="color:${meta.color};border-color:${meta.color}55">${meta.label}</span></div>
+        <p class="dss-summary">找不到 <code>data/agent/system-status.json</code>。狀態檔尚未經正式流程發布，
+          不可假設目前 public 是最新，也不可用本機 <code>.preview</code> 冒充公開狀態。</p>
+      </div>`);
+  }
+  if (view.state === 'invalid') {
+    return dashSection('alert', meta.color, '系統狀態', meta.label,
+      `<div class="dss-card dss-invalid" data-system-status="invalid" role="alert">
+        <div class="dss-head"><span class="dss-state" style="color:${meta.color}">${svg(meta.ico, 14, meta.color)}${meta.title}</span>
+          <span class="dss-badge" style="color:${meta.color};border-color:${meta.color}55">${meta.label}</span></div>
+        <p class="dss-summary">讀到的狀態檔不符合 <code>system-status-v1</code> 關鍵安全契約；已 fail closed，
+          不呈現其日期或發布判定。</p>
+      </div>`);
+  }
+
+  const s = view.raw;
+  const summary = {
+    fresh:'Public 已與 current ingestion／preview 對齊，可明確視為目前正式發布版本。',
+    pending:'Preview 已更新，但 public 尚未對齊或 lag 超過 24 小時。Preview 不代表已發布，需等待 Owner 審核。',
+    stale:'Ingestion 或 preview 已超過新鮮度門檻；目前狀態不得用來宣稱最新。',
+    blocked:'必要證據缺失、無效或互相矛盾；狀態已 fail closed。',
+  }[view.state];
+  const lag = typeof s.lag_hours === 'number' ? `${s.lag_hours.toFixed(1)} 小時` : '無法計算';
+  const health = ['ingestion','preview','public','agent_run'].map(k => {
+    const value = s.artifact_health[k] || 'unknown';
+    const label = { ingestion:'Ingestion', preview:'Preview', public:'Public', agent_run:'Agent run' }[k];
+    return `<span class="dss-health" data-health="${esc(value)}"><b>${label}</b>${esc(DASH_HEALTH[value] || value)}</span>`;
+  }).join('');
+  const reason = view.reason ? `<div class="dss-reason"><b>Blocked reason</b>
+    <span>${esc(DASH_BLOCKED_REASON[view.reason] || view.reason)}</span><code>${esc(view.reason)}</code></div>` : '';
+  const hash = s.source_manifest.sha256.slice(0, 12) + '…';
+
+  return dashSection(meta.ico, meta.color, '系統狀態', meta.label,
+    `<div class="dss-card dss-${view.state}" data-system-status="${view.state}" role="status">
+      <div class="dss-head"><span class="dss-state" style="color:${meta.color}">${svg(meta.ico, 14, meta.color)}${meta.title}</span>
+        <span class="dss-badge" style="color:${meta.color};border-color:${meta.color}55">${meta.label}</span></div>
+      <p class="dss-summary">${summary}</p>
+      <div class="dss-grid">
+        ${dashStatusMetric('來源資料日', s.source_latest_date || '尚無', 'current ingestion')}
+        ${dashStatusMetric('Preview 產出', dashStatusTime(s.preview_generated_at), '尚未等同公開')}
+        ${dashStatusMetric('Public 產出', dashStatusTime(s.public_generated_at), DASH_PUBLISH_STATE[s.publish_state] || s.publish_state)}
+        ${dashStatusMetric('Preview → Public lag', lag, '門檻 24 小時')}
+      </div>
+      <div class="dss-health-row">${health}</div>${reason}
+      <div class="dss-foot">狀態產生 ${esc(dashStatusTime(s.generated_at))}　·　manifest ${esc(hash)}　·　
+        authority <code>owner_only</code>　·　advisory only</div>
+    </div>`);
+}
+
 /* ======== 主載入 ======== */
 async function loadDashboard(force) {
   const el = $('panel-dashboard');
@@ -137,9 +284,10 @@ async function loadDashboard(force) {
   if (DASH.loaded && !force) return;
   el.innerHTML = '<div class="sk"><div class="sk-line h18 w40"></div><div class="sk-line w70"></div><div class="sk-line w40"></div></div>'.repeat(3);
 
-  // 六個取檔互相獨立：任何一個 404 只讓它自己的區塊走空狀態，其餘照常渲染。
-  const [hot, timeline, trends, assessment, roadmap, brief] = await Promise.all([
+  // 七個取檔互相獨立：任何一個 404 只讓它自己的區塊走空狀態，其餘照常渲染。
+  const [hot, systemStatus, timeline, trends, assessment, roadmap, brief] = await Promise.all([
     dashFetch('data/index.json'),
+    dashFetch('data/agent/system-status.json'),
     dashFetch('data/agent/timeline.json'),
     dashFetch('data/agent/trends.json'),
     dashFetch('data/agent/trend-assessment.json'),
@@ -158,6 +306,7 @@ async function loadDashboard(force) {
   (Array.isArray(hot) ? hot : []).forEach(e => { if (e && e.date) byDate[e.date] = { ...e, _cold:false }; });
 
   DASH.days = Object.values(byDate).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  DASH.systemStatus = systemStatus;
   DASH.timeline = timeline;
   DASH.trends = trends;
   DASH.assessment = assessment;
@@ -166,6 +315,7 @@ async function loadDashboard(force) {
   DASH.loaded = true;
 
   el.innerHTML =
+    dashSystemStatusBlock() +
     dashBumpBlock() +
     dashMatrixBlock() +
     dashTrendBlock() +

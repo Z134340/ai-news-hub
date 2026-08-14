@@ -2,7 +2,7 @@
 # ============================================================
 # ai-news-hub — L3 判讀層（agent stage）
 #
-# 為什麼獨立成一支，而不是把七個步驟塞進 run-daily.sh：
+# 為什麼獨立成一支，而不是把判讀與觀測步驟塞進 run-daily.sh：
 #   run-daily.sh 是「擷取 → 驗證 → 歸檔 → 推送」的確定性主管線，711 行已經夠長，
 #   而且它的成敗直接決定當天首頁有沒有新聞。判讀層會呼叫模型、會逾時、會失敗。
 #   把不確定的路徑塞進確定的路徑，等於讓兩者共用同一個結束碼——模型掛掉就沒新聞。
@@ -108,9 +108,15 @@ if [[ $SELF_TEST -eq 1 ]]; then
         if [[ "$2" == "0" ]]; then echo "  ok   $1"; else echo "  FAIL $1"; FAILS=$((FAILS+1)); fi
     }
 
-    # S-1 七個步驟的執行檔全部存在（接線斷掉要在跑模型之前就知道）
+    # S-1 所有步驟的執行檔全部存在（接線斷掉要在跑模型之前就知道）
     for f in "$AGENT_SCRIPTS/build-insights.mjs" \
              "$AGENT_SCRIPTS/build-timeline.mjs" \
+             "$AGENT_SCRIPTS/build-current-state-manifest.mjs" \
+             "$AGENT_SCRIPTS/build-system-status.mjs" \
+             "$AGENT_SCRIPTS/validate-system-status-schema.mjs" \
+             "$AGENT_SCRIPTS/verify-dashboard-system-status.mjs" \
+             "$AGENT_SCRIPTS/freshness-release-gate.mjs" \
+             "$AGENT_SCRIPTS/build-review-packet.mjs" \
              "$AGENT_SCRIPTS/build-roadmap-input.mjs" \
              "$AGENT_SCRIPTS/build-brief-input.mjs" \
              "$AGENT_SCRIPTS/harvest-precedents.mjs" \
@@ -122,10 +128,10 @@ if [[ $SELF_TEST -eq 1 ]]; then
 
     # S-2 任何一個步驟的呼叫都不得帶晉升旗標：一旦帶了，產物會落到 data/agent/
     #     而被 run-daily.sh 的 `git add data/` 直接推上公開 repo。
-    #     只檢查 run_step / run_model_step 開頭的實際呼叫行，上面註解提到旗標名不算違規。
+    #     只檢查 run_*_step 開頭的實際呼叫行，上面註解提到旗標名不算違規。
     #     （模型步驟改走 run_model_step 之後，這個 pattern 一定要一起改，否則三支模型
     #      步驟會從所有發布安全檢查中憑空消失——S-8 就是釘住這件事的。）
-    STEP_CALLS='^run_step |^run_model_step '
+    STEP_CALLS='^run_(step|model_step|observer_step) '
     ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--promote"
     chk "S-2 沒有任何步驟帶 --promote（發布安全）" $?
     ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--out-dir"
@@ -150,6 +156,18 @@ if [[ $SELF_TEST -eq 1 ]]; then
     #      任何落在 .preview/precedent-proposals/ 之外的寫入）。跑它的自測來確認。
     node "$AGENT_SCRIPTS/harvest-precedents.mjs" --self-test >/dev/null 2>&1
     chk "S-6b harvest-precedents 自測全綠（含 memory 寫入攔截）" $?
+    node "$AGENT_SCRIPTS/build-current-state-manifest.mjs" --self-test >/dev/null 2>&1
+    chk "S-6c current-state manifest fixtures 全綠" $?
+    node "$AGENT_SCRIPTS/validate-system-status-schema.mjs" --self-test >/dev/null 2>&1
+    chk "S-6d system-status-v1 schema 正反 fixtures 全綠" $?
+    node "$AGENT_SCRIPTS/build-system-status.mjs" --self-test >/dev/null 2>&1
+    chk "S-6e deterministic system status 狀態矩陣全綠" $?
+    node "$AGENT_SCRIPTS/verify-dashboard-system-status.mjs" >/dev/null 2>&1
+    chk "S-6f Dashboard system status current／pending／stale／missing／blocked 全綠" $?
+    node "$AGENT_SCRIPTS/freshness-release-gate.mjs" --self-test >/dev/null 2>&1
+    chk "S-6g freshness release gate manifest binding／hash parity／stale block 全綠" $?
+    node "$AGENT_SCRIPTS/build-review-packet.mjs" --self-test >/dev/null 2>&1
+    chk "S-6h review packet candidate／diff／report hashes 與 exact decision contract 全綠" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -162,6 +180,10 @@ if [[ $SELF_TEST -eq 1 ]]; then
     chk "S-8 三支模型產物都有快照保護（實得：${guarded:-無}）" $?
     ! grep -E '^run_step ' "$0" | grep -qE 'newshub_(agents|roadmap|brief)\.py'
     chk "S-8b 沒有模型 runner 從沒保護的 run_step 溜過去" $?
+    grep -qE '^run_observer_step "09-current-state-manifest" node "\$AGENT_SCRIPTS/build-current-state-manifest\.mjs"$' "$0"
+    chk "S-8c current-state manifest 已接入不受上游阻擋的 observer step" $?
+    grep -qE '^run_observer_step "10-system-status" node "\$AGENT_SCRIPTS/build-system-status\.mjs"$' "$0"
+    chk "S-8d system status 已接在 manifest 後的 observer step" $?
 
     # S-9 guard_verdict 的四種判定各跑一次真檔案。這支函式是整套防護的唯一判準，
     #     判錯的後果是「空殼被當成好料晉升」或「好料被舊檔蓋掉」，兩邊都很貴。
@@ -317,6 +339,27 @@ run_model_step() { # name artifact cmd...
     return 0
 }
 
+# 觀測步驟不消耗模型預算，也不因上游失敗而跳過：缺檔與壞檔本身就是要留下的事實。
+# 它仍透過同一份 step log 進入 agent-run-status，失敗時不得假裝整輪全綠。
+run_observer_step() { # name cmd...
+    local name="$1"; shift
+    local t0 t1 code dur
+    t0=$(date +%s)
+    "$@" > "$TMP_DIR/$name.out" 2>&1
+    code=$?
+    t1=$(date +%s)
+    dur=$(( t1 - t0 ))
+    if [[ $code -eq 0 ]]; then
+        record_step "$name" "ok" 0 "$dur" ""
+        log "✅ ${name}（${dur}s）"
+    else
+        record_step "$name" "failed" "$code" "$dur" "exit $code"
+        FAILED_STEP="$name"
+        log "❌ $name 失敗（exit $code, ${dur}s），最後 20 行："
+        tail -n 20 "$TMP_DIR/$name.out" | sed 's/^/       /'
+    fi
+}
+
 # 模型步驟的逾時：取「單步上限」與「剩餘預算 − 15s 收尾」的較小者，最低 60s
 model_timeout() {
     local remain=$(( BUDGET_SEC - $(elapsed) ))
@@ -340,7 +383,7 @@ fi
 
 cd "$REPO_DIR" || { log "❌ 進不去 $REPO_DIR"; exit 1; }
 
-# ── DAG：七步嚴格循序，任一步失敗則其下游全部 skipped_dep ──
+# ── DAG：核心七步嚴格循序，任一步失敗則其下游全部 skipped_dep ──
 # 1-2 是確定性程式（不呼叫模型），3/5/7 是模型判讀，4/6 是把上游判讀組成下一層的輸入。
 run_step "01-insights"      node "$AGENT_SCRIPTS/build-insights.mjs" --window "$INSIGHTS_WINDOW"
 run_step "02-timeline"      node "$AGENT_SCRIPTS/build-timeline.mjs" --window "$TIMELINE_WINDOW"
@@ -356,6 +399,11 @@ HARVEST_BLOCKER="$FAILED_STEP"
 FAILED_STEP=""
 run_step "08-precedents"    node "$AGENT_SCRIPTS/harvest-precedents.mjs"
 [[ -z "$FAILED_STEP" ]] && FAILED_STEP="$HARVEST_BLOCKER"
+
+# ── ANH-001：最後盤點 current state。只寫 .preview，不受上游失敗與模型預算阻擋。──
+run_observer_step "09-current-state-manifest" node "$AGENT_SCRIPTS/build-current-state-manifest.mjs"
+# ── ANH-003：只以剛產出的 manifest 決定狀態；不讀牆鐘、不晉升。──
+run_observer_step "10-system-status" node "$AGENT_SCRIPTS/build-system-status.mjs"
 
 TOTAL_DUR=$(elapsed)
 

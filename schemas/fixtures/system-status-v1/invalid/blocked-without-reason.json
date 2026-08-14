@@ -1,0 +1,20 @@
+{
+  "schema_version": "system-status-v1",
+  "generated_at": "2026-08-14T18:30:00+08:00",
+  "source_manifest": {
+    "schema_version": "current-state-manifest-v1",
+    "generated_at": "2026-08-14T18:29:59+08:00",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "source_latest_date": null,
+  "preview_generated_at": null,
+  "public_generated_at": null,
+  "lag_hours": null,
+  "freshness_state": "blocked",
+  "publish_state": "blocked",
+  "blocked_reason": null,
+  "artifact_health": { "ingestion": "missing", "preview": "missing", "public": "missing", "agent_run": "unknown" },
+  "advisory": true,
+  "production_write": false,
+  "publish_authority": "owner_only"
+}
