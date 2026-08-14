@@ -3,12 +3,12 @@
   "last_success": "2026-08-13T18:25:58.502707+08:00",
   "last_date": "2026-08-13",
   "source": "local",
-  "status": "ok",
+  "status": "missed",
   "categories_ok": 7,
   "categories_failed": 0,
   "validation_pass_rate": 97,
-  "consecutive_failures": 0,
-  "last_missed": null,
+  "consecutive_failures": 1,
+  "last_missed": "2026-08-14",
   "errors": [],
   "agent": {
     "overall": "ok",
@@ -22,5 +22,6 @@
       "ok": 8
     },
     "failed_steps": []
-  }
+  },
+  "note": "本機排程未執行，等待電腦上線後自動補跑"
 }
