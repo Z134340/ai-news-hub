@@ -214,6 +214,8 @@ export function buildReviewPacket({
       stored_status_match: gate.stored_status_match,
       freshness_state: gate.freshness_state,
       publish_state: gate.publish_state,
+      operational_health_status: gate.operational_health_status,
+      operational_health_ok: gate.operational_health_ok,
       stored_manifest_sha256: gate.stored_manifest_sha256,
       evaluation_manifest_sha256: gate.evaluation_manifest_sha256,
     },
@@ -295,7 +297,9 @@ function writeJson(path, value) {
 function fixtureRoot() {
   const root = mkdtempSync(join(tmpdir(), "anh-review-packet-"));
   writeJson(join(root, "data/latest.json"), { date: "2026-08-13", time: "2026-08-13T23:00:00.000Z" });
-  writeJson(join(root, "data/health.json"), { last_date: "2026-08-13", last_run: "2026-08-13T23:05:00.000Z" });
+  writeJson(join(root, "data/health.json"), {
+    last_date: "2026-08-13", last_run: "2026-08-13T23:05:00.000Z", status: "ok",
+  });
   const names = [
     "timeline", "trends", "trend-assessment", "roadmap", "brief-latest",
     "candidates", "recommendations", "learning-status",
@@ -339,6 +343,9 @@ function selfTest() {
     check("candidate and diff hashes are explicit", validSha(first.hashes.candidate_hash) && validSha(first.hashes.diff_hash));
     check("source dates and lag are captured", first.source_dates.source_latest_date === "2026-08-13"
       && typeof first.source_dates.lag_hours === "number");
+    check("operational health eligibility is bound into the packet",
+      first.freshness_gate.operational_health_status === "ok"
+      && first.freshness_gate.operational_health_ok === true);
     check("missing public artifact is represented as add", first.diff.entries.some((entry) => entry.change === "add"));
     check("exact approve binds request and all hashes", first.decision_contract.exact_approve.includes(first.request_id)
       && [first.hashes.candidate_hash, first.hashes.diff_hash, first.hashes.report_hash]

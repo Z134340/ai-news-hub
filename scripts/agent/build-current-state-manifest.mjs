@@ -298,6 +298,7 @@ function selfTest() {
     writeFixture(root, "data/health.json", {
       last_date: "2026-08-13",
       last_run: "2026-08-13T18:25:00+08:00",
+      status: "ok",
     });
     writeFixture(root, "data/agent/.preview/timeline.json", {
       schema_version: "timeline-v1",

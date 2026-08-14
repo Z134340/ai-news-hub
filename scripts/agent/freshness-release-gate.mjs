@@ -41,6 +41,8 @@ export const CANDIDATE_PATHS = Object.freeze([
   "data/agent/.preview/recommendations.json",
 ]);
 
+const RELEASE_HEALTH_STATUSES = new Set(["ok", "partial"]);
+
 function sha256(raw) {
   return createHash("sha256").update(raw).digest("hex");
 }
@@ -85,6 +87,28 @@ function validEvaluationTime(value) {
   return typeof value === "string" && !Number.isNaN(Date.parse(value)) && /(?:Z|[+-]\d{2}:\d{2})$/.test(value);
 }
 
+function operationalHealth(root, reasons) {
+  let raw;
+  try {
+    raw = readFileSync(join(root, "data/health.json"));
+  } catch {
+    reasons.push("operational_health_unavailable");
+    return { status: null, eligible: false };
+  }
+  const document = parseJson(raw, "operational_health", reasons);
+  if (!document) return { status: null, eligible: false };
+  const status = typeof document.status === "string" ? document.status : null;
+  if (!status) {
+    reasons.push("operational_health_status_missing");
+    return { status: null, eligible: false };
+  }
+  if (!RELEASE_HEALTH_STATUSES.has(status)) {
+    reasons.push(`operational_health_blocked:${status}`);
+    return { status, eligible: false };
+  }
+  return { status, eligible: true };
+}
+
 export function evaluateFreshnessRelease({
   rootDir,
   manifestRaw,
@@ -104,6 +128,7 @@ export function evaluateFreshnessRelease({
   let storedStatusMatches = false;
   let currentStateMatches = false;
   let candidateArtifacts = [];
+  const health = operationalHealth(root, reasons);
 
   if (manifest) {
     if (manifest.schema_version !== "current-state-manifest-v1"
@@ -195,6 +220,8 @@ export function evaluateFreshnessRelease({
       ? sha256(`${JSON.stringify(currentManifest, null, 2)}\n`)
       : null,
     candidate_artifacts: candidateArtifacts,
+    operational_health_status: health.status,
+    operational_health_ok: health.eligible,
     advisory: true,
     production_write: false,
     publish_authority: "owner_only",
@@ -215,6 +242,7 @@ function fixtureRoot({ withPublic = false } = {}) {
   writeJson(join(root, "data/health.json"), {
     last_date: "2026-08-13",
     last_run: "2026-08-13T23:05:00.000Z",
+    status: "ok",
   });
   const previewNames = [
     "timeline", "trends", "trend-assessment", "roadmap", "brief-latest",
@@ -296,6 +324,30 @@ function selfTest() {
     check("pending current candidate passes for owner review", pending.eligible
       && pending.freshness_state === "pending" && pending.publish_state === "pending_owner_review");
     check("gate is read-only", before === treeDigest(pendingRoot) && pending.production_write === false);
+
+    const failedHealthRoot = fixtureRoot(); roots.push(failedHealthRoot);
+    writeJson(join(failedHealthRoot, "data/health.json"), {
+      last_date: "2026-08-13", last_run: "2026-08-13T23:05:00.000Z",
+      status: "failed", errors: ["Claude auth status failed"],
+    });
+    const failedHealthFixture = captureFixture(failedHealthRoot);
+    const failedHealth = evaluateFreshnessRelease({
+      rootDir: failedHealthRoot, ...failedHealthFixture, schema, evaluationAt: "2026-08-14T00:00:00.000Z",
+    });
+    check("failed operational health blocks release even when artifact parity matches",
+      !failedHealth.eligible && failedHealth.operational_health_status === "failed"
+      && failedHealth.reasons.includes("operational_health_blocked:failed"));
+
+    const partialHealthRoot = fixtureRoot(); roots.push(partialHealthRoot);
+    writeJson(join(partialHealthRoot, "data/health.json"), {
+      last_date: "2026-08-13", last_run: "2026-08-13T23:05:00.000Z", status: "partial",
+    });
+    const partialHealthFixture = captureFixture(partialHealthRoot);
+    const partialHealth = evaluateFreshnessRelease({
+      rootDir: partialHealthRoot, ...partialHealthFixture, schema, evaluationAt: "2026-08-14T00:00:00.000Z",
+    });
+    check("explicit partial operational health remains review-eligible",
+      partialHealth.eligible && partialHealth.operational_health_ok === true);
 
     const stale = evaluateFreshnessRelease({
       rootDir: pendingRoot, ...pendingFixture, schema, evaluationAt: "2026-08-15T02:00:00.000Z",
