@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-news-hub.local/schemas/system-status-v1.schema.json",
+  "title": "AI News Hub system-status-v1",
+  "description": "Deterministic freshness and publication status derived from current-state-manifest-v1. This contract carries no execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "source_manifest",
+    "source_latest_date",
+    "preview_generated_at",
+    "public_generated_at",
+    "lag_hours",
+    "freshness_state",
+    "publish_state",
+    "blocked_reason",
+    "artifact_health",
+    "advisory",
+    "production_write",
+    "publish_authority"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "system-status-v1"
+    },
+    "generated_at": {
+      "description": "Timestamp at which ANH-003 deterministically derives this status document.",
+      "$ref": "#/$defs/dateTime"
+    },
+    "source_manifest": {
+      "description": "Hash-bound ANH-001 manifest used as the only factual input.",
+      "$ref": "#/$defs/sourceManifest"
+    },
+    "source_latest_date": {
+      "description": "Latest ingestion corpus date observed in the source manifest; null only when unavailable or invalid.",
+      "$ref": "#/$defs/nullableDate"
+    },
+    "preview_generated_at": {
+      "description": "Generation timestamp of the current preview artifact set; null when no valid preview exists.",
+      "$ref": "#/$defs/nullableDateTime"
+    },
+    "public_generated_at": {
+      "description": "Generation timestamp of the currently published artifact set; null when no valid public set exists.",
+      "$ref": "#/$defs/nullableDateTime"
+    },
+    "lag_hours": {
+      "description": "Non-negative preview-to-public lag in hours; null when either side is unavailable.",
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "freshness_state": {
+      "description": "Deterministic ANH-003 outcome: fresh, pending owner review, stale by policy, or blocked by invalid/missing evidence.",
+      "enum": ["fresh", "pending", "stale", "blocked"]
+    },
+    "publish_state": {
+      "description": "Observed publication workflow state; this value never grants execution authority.",
+      "enum": ["published", "pending_owner_review", "blocked"]
+    },
+    "blocked_reason": {
+      "description": "Stable machine-readable reason code required for stale/blocked states and null for fresh/pending states.",
+      "$ref": "#/$defs/nullableReason"
+    },
+    "artifact_health": {
+      "description": "Group-level evidence health copied or derived from the source manifest and agent run status.",
+      "$ref": "#/$defs/artifactHealth"
+    },
+    "advisory": {
+      "const": true
+    },
+    "production_write": {
+      "const": false
+    },
+    "publish_authority": {
+      "const": "owner_only"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "freshness_state": { "const": "fresh" },
+        "publish_state": { "const": "published" },
+        "blocked_reason": { "type": "null" },
+        "source_latest_date": { "$ref": "#/$defs/date" },
+        "preview_generated_at": { "$ref": "#/$defs/dateTime" },
+        "public_generated_at": { "$ref": "#/$defs/dateTime" },
+        "lag_hours": { "type": "number", "minimum": 0 }
+      }
+    },
+    {
+      "properties": {
+        "freshness_state": { "const": "pending" },
+        "publish_state": { "const": "pending_owner_review" },
+        "blocked_reason": { "type": "null" },
+        "source_latest_date": { "$ref": "#/$defs/date" },
+        "preview_generated_at": { "$ref": "#/$defs/dateTime" },
+        "public_generated_at": { "$ref": "#/$defs/nullableDateTime" },
+        "lag_hours": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    {
+      "properties": {
+        "freshness_state": { "const": "stale" },
+        "publish_state": { "const": "blocked" },
+        "blocked_reason": { "$ref": "#/$defs/reason" }
+      }
+    },
+    {
+      "properties": {
+        "freshness_state": { "const": "blocked" },
+        "publish_state": { "const": "blocked" },
+        "blocked_reason": { "$ref": "#/$defs/reason" }
+      }
+    }
+  ],
+  "$defs": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "nullableDate": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nullableDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "nullableReason": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "sourceManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "generated_at", "sha256"],
+      "properties": {
+        "schema_version": {
+          "const": "current-state-manifest-v1"
+        },
+        "generated_at": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "artifactHealth": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ingestion", "preview", "public", "agent_run"],
+      "properties": {
+        "ingestion": {
+          "enum": ["available", "degraded", "missing", "invalid"]
+        },
+        "preview": {
+          "enum": ["available", "degraded", "missing", "invalid"]
+        },
+        "public": {
+          "enum": ["available", "degraded", "missing", "invalid"]
+        },
+        "agent_run": {
+          "enum": ["ok", "degraded", "failed", "unknown"]
+        }
+      }
+    }
+  }
+}

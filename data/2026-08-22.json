@@ -1,58 +1,13 @@
 {
-  "date": "2026-08-23",
-  "time": "2026-08-23T18:15:05.972365+08:00",
-  "generated_at": "18:15",
+  "date": "2026-08-22",
+  "time": "2026-08-22T18:16:20.512702+08:00",
+  "generated_at": "18:16",
   "source": "local",
   "data": {
     "papers": [
       {
-        "title": "Style Wins, Substance Loses: A Diagnosis of LLM-as-Judge in Idea Generation",
-        "title_zh": "風格勝出、實質落敗：LLM-as-Judge 在科研構想評估上的診斷",
-        "authors": [
-          "Fengxian Ji"
-        ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
-        "date": "2026-08-03",
-        "summary": "本文針對 LLM-as-a-Judge 在科學構想評估中是否真的評到「實質內容」提出系統性診斷，提出 SciStyleBench 三件式基準。其中 SciStyleStage 建立三階段評估環境，涵蓋 600 則科學構想與 15 種寫作風格變體；SciStyleMetrics 定義 Style Bias Index（風格偏誤指數）、Substance Recognition Rate（實質辨識率）與 Adversarial Win Rate（對抗勝率）三項量化指標。實驗顯示直接使用 LLM 當評審對寫作風格高度敏感，難以區辨科學實質。作者提出的 SciStyleExtractor 將 Style Bias Index 由 0.566 降至 0.501，同時把實質辨識率由 0.504 提升到 0.759、對抗勝率由 0.554 提升到 0.899。",
-        "url": "https://arxiv.org/abs/2608.01666",
-        "field": "LLM-as-a-Judge",
-        "impact": "high — 直接量化 LLM 評審的風格偏誤並提供可複製的緩解方法，對任何以 LLM 做自動評分的治理與品質管控機制都是必讀的失效模式清單。⚠️作者名單僅驗證到第一作者，機構未能驗證",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276362",
-        "complete": true
-      },
-      {
-        "title": "Benchmarking LLM-as-a-Judge for Long-Form Output Evaluation",
-        "title_zh": "長篇輸出評估的 LLM-as-a-Judge 基準測試",
-        "authors": [
-          "Junjie Chen",
-          "Yuxi Dong",
-          "Haitao Li",
-          "Weihang Su",
-          "Yujia Zhou",
-          "Min Zhang",
-          "Yiqun Liu",
-          "Qingyao Ai"
-        ],
-        "institution": "Tsinghua University / University of Science and Technology Beijing",
-        "venue": "arXiv",
-        "date": "2026-06-01",
-        "summary": "隨著 LLM 越來越常用於長篇生成，長篇輸出的可靠評估成為關鍵，但既有的 meta-evaluation 基準幾乎都聚焦短篇輸出。作者提出 LongJudgeBench，涵蓋多種真實場景與多種評審協定（judging protocol），系統性檢驗 LLM 評審在長文情境下的穩定度。結果揭露明顯的可靠性落差：目前的 LLM 評審跨場景表現不穩定，加入 rubric（評分準則）或參考答案雖有幫助但並非總是足夠。程式碼與資料集開源於 GitHub（cjj826/LongJudgeBench）。",
-        "url": "https://arxiv.org/abs/2606.01629",
-        "field": "LLM Evaluation",
-        "impact": "high — 補上長篇輸出這塊評估空白，對報告生成、法遵文件審閱等長文場景的自動化評分設計有直接參考價值",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276465",
-        "complete": true
-      },
-      {
         "title": "Benchmarking LLM Judges for Mobile Agent Evaluation",
-        "title_zh": "行動裝置 Agent 評估的 LLM 評審基準測試",
+        "title_zh": "評測行動端 Agent 的 LLM 評審基準",
         "authors": [
           "Ziqiang Wan",
           "Li Gu",
@@ -62,73 +17,131 @@
           "Yuanhao Yu",
           "Yang Wang"
         ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
+        "institution": "⚠️待確認",
+        "venue": "arXiv preprint",
         "date": "2026-08-11",
-        "summary": "行動裝置 Agent 的任務完成度評估越來越依賴 LLM 評審，但這些評審在真實 agent 軌跡（trajectory）上的可靠度幾乎沒被檢驗過。作者提出 MobileJudgeBench，收錄 931 條人工標註軌跡，橫跨 6 個行動 agent 基準、4 個 agent 模型與 68 個應用程式。研究評測 6 種評審方法，包含改編自 SPA-Bench 的五種、A3 的兩種模式、AndroidArena、AgentRewardBench 以及一個簡單基線，並在多個 LLM 後端上比較。此基準把「評審本身可不可信」這個上游問題明確地變成可量測項目。",
+        "summary": "本研究提出 MobileJudgeBench，是首個系統性檢驗「LLM-as-a-Judge 能否正確評估行動裝置 Agent」的基準。資料集蒐集 931 條經人工標註的行動 Agent 軌跡，橫跨 6 個既有基準、4 種 Agent 模型與 68 個 App，涵蓋成功與失敗兩種結果。作者在此資料上比較 6 種評審方法，包括通用 LLM 直接評分與專為行動場景設計的評審器。結果顯示，一個僅做簡單螢幕截圖抽樣的基線方法，其判斷準確度即可與專門設計的評審器相當，顯示現行行動 Agent 自動評估方法的技術優勢被高估。研究同時揭露評審器在長軌跡與部分成功案例上的系統性偏誤。",
         "url": "https://arxiv.org/abs/2608.11434",
-        "field": "Agent Evaluation",
-        "impact": "high — 同時踩在 LLM-as-a-Judge 與 agent 評估兩個熱點上，931 條人工標註軌跡的規模讓結論具備統計說服力",
+        "field": "LLM-as-a-Judge / Agent Evaluation",
+        "impact": "high — 直接挑戰目前以 LLM 評審取代人工標註的做法，對任何建立 Agent 自動化評測管線的團隊都是必讀的警示",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276530",
+        "verified_at": "2026-08-22T18:17:03.769186",
         "complete": true
       },
       {
-        "title": "ComponentBench: Diagnosing Component-Level Failures in Computer-Use Agents",
-        "title_zh": "ComponentBench：診斷 Computer-Use Agent 的元件層級失效",
+        "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+        "title_zh": "Every Eval Ever：AI 評測結果的統一 Schema 與社群儲存庫",
         "authors": [
-          "Tianchen Guan"
+          "Jan Batzner",
+          "Sree Harsha Nelaturu",
+          "Damian Stachura",
+          "Anastassia Kornilova",
+          "Jon Crall",
+          "Tommaso Cerruti",
+          "Yanan Long",
+          "Yifan Mai",
+          "Sanchit Ahuja",
+          "Asaf Yehudai",
+          "Marek Šuppa",
+          "John P. Lalor"
         ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
-        "date": "2026-08-18",
-        "summary": "現行 computer-use agent 的評估多半只看端到端任務成敗，中間那層「元件層級互動」長期缺乏儀器化。ComponentBench 以 library-agnostic（不綁定特定 UI 框架）的本體論組織 97 種標準 UI 元件，實例化成 2,910 個可程式化驗證的任務，涵蓋主流元件庫。每個任務配有清理過的人類參考軌跡，因此可同時評估任務成功率與互動效率（interaction efficiency）。評測對象包含 Gemini 3 Flash、Gemini 3.1 Flash-Lite、GPT-5.4、GPT-5.4 mini 與 GPT-5 mini 等前沿模型。",
-        "url": "https://arxiv.org/abs/2608.18307",
-        "field": "Agent Evaluation",
-        "impact": "high — 把 agent 失效從「整題錯」細化到「哪個 UI 元件互動錯」，是可歸因診斷的重要進展。⚠️作者名單僅驗證到第一作者，機構未能驗證",
+        "institution": "多機構聯合（作者橫跨學界與業界）",
+        "venue": "arXiv preprint",
+        "date": "2026-06-12",
+        "summary": "AI 評測結果目前散落在論文表格、排行榜與各家技術報告中，格式互不相通，導致跨模型、跨基準的比較幾乎無法自動化。本文提出首個共用的評測結果 Schema，把「模型、基準、任務、指標、分數、執行設定」統一收斂成單一 JSON 文件格式。該 Schema 刻意做成來源無關（source-agnostic），不綁定特定評測框架，並可選擇性附帶逐題（per-instance）輸出以支援細粒度分析。作者同時建立群眾協作的公開儲存庫，讓評測結果能像資料集一樣被引用與版本控管。這是把 AI 評測從「各說各話」推向可稽核基礎設施的一步。",
+        "url": "https://arxiv.org/abs/2606.14516",
+        "field": "LLM Evaluation / Evaluation Infrastructure",
+        "impact": "medium — 對治理與稽核場景價值高，但採用率取決於社群是否買單",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276584",
+        "verified_at": "2026-08-22T18:17:03.769299",
         "complete": true
       },
       {
-        "title": "OmnilingualGAIA2: Evaluating the Multilingual Gap in Frontier AI Agents",
-        "title_zh": "OmnilingualGAIA2：評估前沿 AI Agent 的多語言落差",
+        "title": "HarnessOpt-Bench: Evaluating LLMs at Harness Optimization",
+        "title_zh": "HarnessOpt-Bench：評測 LLM 的 Harness 最佳化能力",
         "authors": [
-          "Andrea Caciolai",
-          "Pere-Lluís Huguet Cabot",
-          "Chierh Cheng",
-          "Albert Ventayol-Boada",
-          "Gabriel Mejia Gonzalez",
-          "Christophe Ropers",
-          "Lucas Bandarkar",
-          "Sebastian Ruder",
-          "Darlene Sakakihara",
-          "Elliot Yun",
-          "Pierre Andrews",
-          "Grégoire Mialon",
-          "Romain Froger",
-          "Marta R. Costa-jussà"
+          "Varun Ursekar",
+          "Apaar Shanker",
+          "Yash Maurya",
+          "Shehab Yasser",
+          "Vijay S. Kalmath",
+          "Veronica Chatrath",
+          "Yuan (Emily) Xue"
         ],
-        "institution": "Meta Superintelligence Labs",
-        "venue": "arXiv",
-        "date": "2026-08-09",
-        "summary": "本研究探問一個部署層面的實際問題：以英文量測到的 agentic 能力，能不能轉移到其他語言。作者將 GAIA2 agentic 基準以機器翻譯擴充（並經部分人類專家驗證）至 10 種目標語言、涵蓋 5 種書寫系統，並搭配在地化且經人工校準的多語驗證器。結果發現一致存在的跨語言落差達 8.8 至 18.4 個 pass@3 百分點，且落差幅度依 agent 不同而不對稱。關鍵發現是：落差集中在 tool orchestration（工具編排）而非量化推理，而且不會隨模型規模擴大而自動收斂。評測涵蓋 Claude-4.7-Opus、GPT-5.4 與 Gemini-3.1-Pro。",
-        "url": "https://arxiv.org/abs/2608.08775",
-        "field": "Agent Evaluation",
-        "impact": "high — 對非英語市場（含台灣）的 agent 導入是直接警示：英文 benchmark 分數不可外推，且工具編排是最脆弱環節",
+        "institution": "Scale AI",
+        "venue": "arXiv preprint",
+        "date": "2026-08-06",
+        "summary": "Harness（Agent 的外圍執行框架，包含提示組裝、工具介面、重試與記憶管理）已被證實對 Agent 表現的影響不亞於模型本身，但幾乎沒有基準衡量模型能否自行最佳化 harness。HarnessOpt-Bench 把這件事定義成端到端最佳化任務：模型需在「評估成本昂貴且結果具隨機性」的條件下，反覆修改 harness 設定並判斷改動是否真的有效。此設定刻意模擬真實工程情境——每次驗證都要花錢跑一輪 Agent，且同一設定跑兩次分數會不同。基準因此同時測試模型的實驗設計能力與統計判斷力，而非單純寫程式能力。由 Scale AI 團隊提出。",
+        "url": "https://arxiv.org/abs/2608.06301",
+        "field": "Agent Evaluation / Harness Engineering",
+        "impact": "high — 把「harness 調校」正式變成可量測能力，直指企業導入 Agent 的最大隱藏成本",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276640",
+        "verified_at": "2026-08-22T18:17:03.769375",
+        "complete": true
+      },
+      {
+        "title": "Evo-Bench: Can Language Models Improve Agent Harness?",
+        "title_zh": "Evo-Bench：語言模型能否自行改進 Agent Harness？",
+        "authors": [
+          "Lisheng Huang",
+          "Chen Yang",
+          "Hao Zhou",
+          "Huatong Song",
+          "Zongchao Chen",
+          "Ran Le",
+          "Yang Song",
+          "Wayne Xin Zhao",
+          "Tao Zhang"
+        ],
+        "institution": "Renmin University of China (RUCAIBox) / Nanbeige",
+        "venue": "arXiv preprint",
+        "date": "2026-08-10",
+        "summary": "Evo-Bench 是首個專門評估模型「內在 harness 演化能力」的基準，涵蓋 Search、Office、General 三大 Agent 領域。其核心方法是 harness-guided construction：先用輔助任務演化找出真正對框架改動敏感的任務，再以 sensitivity-aware stratified splitting 做分層切分，確保跨任務套件的泛化評估不會因題目不敏感而失真。這解決了既有基準的關鍵缺陷——多數任務改不改 harness 分數都差不多，導致無法區辨模型的框架改進能力。論文於 2026 年 8 月 10 日投稿、8 月 11 日修訂為 v2，資料集與程式碼已於 Hugging Face 與 GitHub 開源。",
+        "url": "https://arxiv.org/abs/2608.09096",
+        "field": "Agent Evaluation / Self-Improving Agents",
+        "impact": "high — 與 HarnessOpt-Bench 形成互補，是近期 harness 研究熱潮的代表作",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.769430",
+        "complete": true
+      },
+      {
+        "title": "REDAgentBench: Executable Red Teaming and Faithful Measurement of LLM Agent Systems",
+        "title_zh": "REDAgentBench：LLM Agent 系統的可執行紅隊測試與忠實度量",
+        "authors": [
+          "Zixing Chen",
+          "Xingyuan Liu",
+          "Jie Zhu",
+          "Huaixia Dou",
+          "Shuo Jiang",
+          "Junhui Li",
+          "Lifan Guo",
+          "Feng Chen",
+          "Chi Zhang"
+        ],
+        "institution": "⚠️待確認",
+        "venue": "arXiv preprint",
+        "date": "2026-08-11",
+        "summary": "現行 Agent 安全評測多以單一 ASR（攻擊成功率）數字概括，但這個數字混淆了「攻擊有沒有送達」「有沒有被執行」「有沒有被觀察到」三個完全不同的失效環節，導致防禦效果被誤判。REDAgentBench 建立沙箱化的可執行紅隊環境，讓攻擊在真實工具呼叫鏈上實際跑完，並將單一 ASR 拆解為 exposure、execution、observation、adjudication 四個可分別量測的階段。這種拆解讓防禦措施能被歸因到具體環節——例如某防禦只擋住 exposure 卻對 execution 無效。對金融業評估 Agent 上線風險而言，這種分層度量比單一分數更具稽核價值。",
+        "url": "https://arxiv.org/abs/2608.10669",
+        "field": "Agent Security / Red Teaming Benchmark",
+        "impact": "high — 資安評估方法論的實質改良，適合直接對接內部 Agent 上線審查流程",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.769485",
         "complete": true
       },
       {
         "title": "SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring",
-        "title_zh": "SWE-Bench ProMax：大規模多語言程式重構的 Agent 基準",
+        "title_zh": "SWE-Bench ProMax：大規模多語言程式碼重構的 Agent 評測基準",
         "authors": [
           "Yuling Shi",
           "Jinghan Xu",
@@ -146,56 +159,79 @@
           "Shing-Chi Cheung",
           "Xiaodong Gu"
         ],
-        "institution": "未能驗證",
-        "venue": "COLM 2026",
+        "institution": "⚠️待確認",
+        "venue": "arXiv preprint",
         "date": "2026-08-10",
-        "summary": "作者指出既有 SWE-bench Verified 未解實例中近 60% 含有瑕疵測試，且前沿模型能逐字重現 gold patch，顯示訓練資料污染問題。SWE-Bench ProMax 改以程式重構為題，收錄 170 個經專家策展的實例，取自 Python、Java、TypeScript、Go、C、C++、Rust 共 7 種語言的真實 commit。任務規模顯著加大，平均每個實例修改 11.4 個檔案、261.6 行程式碼，遠超現有基準。每筆實例經多階段策展：議題描述全部重寫以提供精確無歧義規格，測試套件則人工審查以移除過窄與過寬的測試。",
+        "summary": "SWE-bench 系列多聚焦單檔或小範圍的 bug 修復，與真實軟體工程中的大規模重構落差極大。SWE-Bench ProMax 收錄 170 個實例、橫跨 7 種程式語言，每個任務平均涉及 11.4 個檔案、261.6 行程式碼變動，屬於跨檔案、跨模組的重構等級。在此難度下，表現最佳的模型解決率僅 41.2%，遠低於既有 SWE-bench 上普遍逾七成的成績，顯示現行 coding agent 的能力在規模放大後大幅衰減。多語言設定也揭露模型能力高度集中於 Python，其他語言表現明顯落後。",
         "url": "https://arxiv.org/abs/2608.09802",
-        "field": "Agent Evaluation",
-        "impact": "high — 直接點名現行 SWE-bench 的資料污染與測試瑕疵，是 coding agent 評估基準換代的代表作。⚠️機構歸屬未能驗證",
+        "field": "Agent Benchmark / Software Engineering",
+        "impact": "high — 提供比 SWE-bench 更貼近企業真實維護場景的難度校準",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276691",
+        "verified_at": "2026-08-22T18:17:03.769537",
         "complete": true
       },
       {
-        "title": "Claw-SWE-Bench: A Benchmark for Evaluating OpenClaw-style Agent Harnesses on Coding Tasks",
-        "title_zh": "Claw-SWE-Bench：評估 OpenClaw 式 Agent Harness 於程式任務的基準",
+        "title": "AI4AI-Bench: Benchmarking LLM Agents in Algorithmic Design for Recursive Self-Improvement",
+        "title_zh": "AI4AI-Bench：評測 LLM Agent 於遞迴自我改進的演算法設計能力",
         "authors": [
-          "Mengyu Zheng",
-          "Kai Han",
-          "Boxun Li",
-          "Haiyang Xu",
-          "Yuchuan Tian",
-          "Wei He",
-          "Hang Zhou",
-          "Jianyuan Guo",
-          "Hailin Hu",
-          "Lin Ma",
-          "Chao Xu",
-          "Guohao Dai",
-          "Lixue Xia",
-          "Yunchao Wei",
-          "Yunhe Wang",
-          "Yu Wang"
+          "Yizhe Chi",
+          "Wenyi Li",
+          "Deyao Hong",
+          "Xiaoqiu Wang",
+          "Mingju Gao",
+          "Kaisen Yang",
+          "Bingxiang He",
+          "Youjie Zheng",
+          "Calvin Xiao",
+          "Qinhuai Na"
         ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
-        "date": "2026-06-10",
-        "summary": "本文的核心論點是：resolved rate（解決率）把三個因果上互相獨立的因素混為一談——被評測的 LLM、把 LLM 變成 agent 的 harness、以及任務實例本身，要做可歸因比較就必須拆開。Claw-SWE-Bench 提出多語言 SWE-bench 式基準與 adapter protocol，讓異質的 agent harness（作者稱之為 claw）在固定 prompt、固定執行時間預算、統一 workspace contract、統一 patch 擷取程序與統一評測器的條件下可比。完整基準含 350 個 GitHub issue 解決實例，橫跨 8 種語言與 43 個 repository，來源為 SWE-bench-Multilingual 與 SWE-bench-Verified-Mini 並經 future-commit 清理。另提供 80 個實例的 Lite 子集，以成本感知、排名感知的程序從 17 個校準欄位挑選而出，供快速驗證使用。",
-        "url": "https://arxiv.org/abs/2606.12344",
-        "field": "Agent Evaluation",
-        "impact": "high — 把 harness engineering 正式變成可獨立量測的變因，是 agent 評估方法論的關鍵補強。⚠️機構歸屬未能驗證",
+        "institution": "⚠️待確認",
+        "venue": "arXiv preprint",
+        "date": "2026-08-20",
+        "summary": "遞迴自我改進（RSI，指 AI 設計出更好的 AI）長期停留在論述層次，缺乏可量測的操作定義。AI4AI-Bench 把問題收斂到一個可驗證的切面：Agent 能否設計出更好的「訓練演算法」本身，而非只是調參或改提示。基準刻意隔離出演算法設計能力，避免與資料工程、算力規模等混淆變因糾纏。這讓「模型是否具備自我改進的實質能力」第一次能用分數回答，而非靠直覺推測。對治理面而言，這類基準是評估前沿模型風險門檻的必要量尺。",
+        "url": "https://arxiv.org/abs/2608.20318",
+        "field": "Agent Evaluation / Recursive Self-Improvement",
+        "impact": "medium — 議題重要性高，但基準本身仍新，尚待社群驗證其效度",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276751",
+        "verified_at": "2026-08-22T18:17:03.769588",
+        "complete": true
+      },
+      {
+        "title": "ASI-Bench: At the Dawn of Artificial Superintelligence",
+        "title_zh": "ASI-Bench：超級人工智慧前夜的評測基準",
+        "authors": [
+          "Junwei Zhou",
+          "Zhen Sun",
+          "Binyu Li",
+          "Jiangyu Zhou",
+          "Yuexi Pan",
+          "Hengyu Wang",
+          "Honghe Ren",
+          "Xiaohan Jia",
+          "Xueyang Zhou",
+          "Xiaoyu Cao",
+          "Yongchao Chen"
+        ],
+        "institution": "多機構聯合（40 餘位領域專家參與建構）",
+        "venue": "arXiv preprint",
+        "date": "2026-08-18",
+        "summary": "ASI-Bench 以「專案級任務」而非題目級任務評測前沿模型，收錄 60 個橫跨 11 個專業領域的完整專案。基準建構動員 40 位以上領域專家、累計投入超過 31,000 人時進行任務設計與標準答案驗證，是近期投入人力規模最大的評測之一。與傳統基準最大的差異在於任務時程——每項任務對應人類專家數十小時的工作量，而非數分鐘的問答。這種設計迫使模型展現長時程規劃、跨階段一致性與自我糾錯能力。作者群超過 40 人，反映此類專案級評測的建構成本已接近大型研究計畫。",
+        "url": "https://arxiv.org/abs/2608.17271",
+        "field": "Frontier Model Evaluation",
+        "impact": "medium — 建構品質扎實，但專案級評測的可重複性與成本仍是實務推廣障礙",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.769637",
         "complete": true
       },
       {
         "title": "Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering",
-        "title_zh": "立場論文：程式基準測試與 Agentic 軟體工程的錯位",
+        "title_zh": "立場論文：程式碼基準與代理式軟體工程已然脫節",
         "authors": [
           "Maria I. Gorinova",
           "Macey Baker",
@@ -204,219 +240,206 @@
           "Rob Willoughby",
           "Dru Knox"
         ],
-        "institution": "Tessl, London, UK",
-        "venue": "arXiv",
+        "institution": "⚠️待確認",
+        "venue": "arXiv preprint (Position Paper)",
         "date": "2026-06-16",
-        "summary": "這是一篇立場論文，主張現行程式基準把模型、harness 與環境壓縮成單一端到端分數，且通常只對照一份參考解答計分，完全沒有元件層級的迭代訊號。作者列出三個病徵：一是基準分數把模型與 harness 其他部分混淆；二是只用單一參考解答評分會懲罰同樣有效的替代做法；三是缺乏個別 harness 元件層級的訊號，使得端到端系統分數難以據以改進。論文因此呼籲把評估拆解到元件層級，讓工程團隊能針對特定環節迭代。本文於 2026-07-18 有修訂版本。",
+        "summary": "本文主張目前所有 coding benchmark 都犯了同一個結構性錯誤：把「模型能力」「harness 設計」「執行環境」三個獨立變因壓縮成單一分數，導致分數上升時無法歸因，也無法轉移到其他部署情境。作者論證這種混淆正是業界「基準分數很高、實際導入卻不好用」落差的根源。文章呼籲評測設計必須把三者拆開分別報告，否則基準只會持續誤導研發資源配置。論文於 2026 年 6 月 16 日投稿，7 月 18 日更新 v2。這篇是理解 2026 年 harness 研究浪潮的思想起點。",
         "url": "https://arxiv.org/abs/2606.17799",
-        "field": "Agent Evaluation",
-        "impact": "medium — 論述性質而非新方法，但清楚說明了為何現行 benchmark 分數不能當作採購或治理決策的唯一依據",
+        "field": "Evaluation Methodology / Position Paper",
+        "impact": "high — 觀點論文但影響力大，為同期多篇 harness 基準提供理論框架",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276800",
+        "verified_at": "2026-08-22T18:17:03.769686",
         "complete": true
       },
       {
-        "title": "Training AI Scientists to Replicate Research",
-        "title_zh": "訓練 AI 科學家複現研究",
+        "title": "Demystifying Agent Skills: Why They Work-Until They Don't",
+        "title_zh": "解構 Agent Skills：它們為何有效——直到失效為止",
         "authors": [
-          "Damon Falck",
-          "Samer Sabri",
-          "Anja Surina",
-          "Thom Foster",
-          "Anya Sims",
-          "Sam Devlin",
-          "Dylan Rogers",
-          "Tantum Collins",
-          "Kaloyan Aleksiev",
-          "Louis Kirsch",
-          "Edward Hughes"
+          "Zhiyuan Jiang",
+          "Fangrui Huang",
+          "Hanwen Xing",
+          "Xander Wu",
+          "Yipeng Gao",
+          "Rui Cao",
+          "Mengdi Wang",
+          "Shilong Liu",
+          "Yijiang Li"
         ],
-        "institution": "Inherent",
-        "venue": "arXiv",
-        "date": "2026-08-13",
-        "summary": "本研究針對「AI agent 能否複現學術論文結果」這個高難度長程任務，建立可規模化的訓練與評估管線。作者開發 Replica，一個可規模化的論文複現任務空間，能自動產生複現任務而非仰賴人工策展。搭配的是一個自動生成 rubric（評分準則）的評審機制，作者report 該評審雜訊低且與人類對複現品質的判斷一致。此設計把 agent 訓練與 LLM-as-a-Judge 評估緊密結合，是長程科研 agent 的代表性工作。",
-        "url": "https://arxiv.org/abs/2608.13331",
-        "field": "AI Agent",
-        "impact": "medium-high — 論文複現是最能檢驗 agent 長程規劃與工具使用的任務型態，rubric-based judge 的低雜訊宣稱值得後續驗證",
+        "institution": "Princeton / Stanford / USC / JHU / UCSD",
+        "venue": "arXiv preprint",
+        "date": "2026-08-14",
+        "summary": "本研究以 8,135 筆試驗記錄拆解「Agent Skills」（把專家知識封裝成可掛載技能模組）究竟靠什麼機制生效，歸納出 3 大類、12 種作用模式。關鍵發現是：效果幾乎全部來自 procedural anchoring（程序錨定，即固定執行步驟），貢獻度 65.7%；而普遍被認為是主要價值的 knowledge injection（知識注入）僅佔 4.5%。更嚴重的是擴展性問題——當技能池從 5 個增加到 100 個時，檢索精確度從 29.6% 崩跌至 3.3%，代表技能庫一旦規模化就會失效。這對正在建構企業級技能庫的團隊是直接的架構警訊。",
+        "url": "https://arxiv.org/abs/2608.14036",
+        "field": "Agent Engineering / Context Engineering",
+        "impact": "high — 量化數據直接推翻業界對 skills 機制的主流認知，且揭露規模化天花板",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276850",
+        "verified_at": "2026-08-22T18:17:03.769733",
         "complete": true
       },
       {
-        "title": "ACM: Agentic Context Management for Long Horizon Tasks",
-        "title_zh": "ACM：長程任務的 Agentic 上下文管理",
+        "title": "EnvHarness: Awakening Static Worlds for Agent Learning",
+        "title_zh": "EnvHarness：喚醒靜態世界以支撐 Agent 學習",
         "authors": [
-          "Xiaochuan Li",
-          "Ryan Ming",
-          "Meng Chu",
-          "Shuai Shao",
-          "Rong Jin",
-          "Chenyan Xiong"
-        ],
-        "institution": "Carnegie Mellon University / Meta",
-        "venue": "arXiv",
-        "date": "2026-07-26",
-        "summary": "生產環境的 agent 每一輪都在累積上下文，常見做法是設一個 token 門檻就壓縮並丟棄剩餘內容，但這個觸發時機常與 agent 當下正在處理的工作無關，導致關鍵資訊被誤刪。ACM 改為把「上下文編輯」做成 agent 可呼叫的專用工具，讓 agent 自行決定何時壓縮。被丟棄的內容不是直接消失，而是卸載到外部記憶體系統，之後可按需查詢取回，因此屬於無損（lossless）的上下文管理。此設計靈感取自人類短期記憶與長期記憶的互動關係。",
-        "url": "https://arxiv.org/abs/2607.23809",
-        "field": "AI Agent Engineering",
-        "impact": "high — Meta 與 CMU 合作，直指 production agent 最痛的上下文壓縮誤刪問題，是 context engineering 的代表性方法論",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276899",
-        "complete": true
-      },
-      {
-        "title": "Are We Ready For An Agent-Native Memory System?",
-        "title_zh": "我們準備好迎接 Agent 原生記憶系統了嗎？",
-        "authors": [
-          "Wei Zhou",
-          "Xuanhe Zhou",
-          "Shaokun Han",
-          "Hongming Xu",
-          "Guoliang Li",
-          "Zhiyu Li",
-          "Feiyu Xiong",
-          "Fan Wu"
-        ],
-        "institution": "Shanghai Jiao Tong University",
-        "venue": "arXiv",
-        "date": "2026-06-23",
-        "summary": "本文從資料管理（data management）視角對 agent 記憶做系統性實驗研究，而非停留在方法綜述。作者提出分析框架，把 agent 記憶拆解為四個核心模組：記憶表示與儲存、抽取、檢索與路由、以及維護。研究橫跨 5 個基準工作負載、11 個資料集，評測 12 個代表性記憶系統加上 2 個參考基線。核心結論是沒有任何單一架構全面勝出，效果取決於記憶結構是否對齊該工作負載的瓶頸所在。",
-        "url": "https://arxiv.org/abs/2606.24775",
-        "field": "AI Agent Engineering",
-        "impact": "high — 12 個記憶系統的橫向實測是目前少見的規模，「沒有單一架構通吃」的結論對選型決策有直接指導性",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.276950",
-        "complete": true
-      },
-      {
-        "title": "LLM Agents Are Latent Context Managers: Eliciting Self-Managed Context via State Proprioception",
-        "title_zh": "LLM Agent 是潛在的上下文管理者：透過狀態本體感覺誘發自我管理上下文",
-        "authors": [
-          "Binyan Xu",
-          "Haitao Li",
-          "Kehuan Zhang"
-        ],
-        "institution": "The Chinese University of Hong Kong / LIGHTSPEED, Tencent",
-        "venue": "arXiv",
-        "date": "2026-06-29",
-        "summary": "本文主張 LLM agent 其實已具備自我管理上下文的潛在能力，缺的是能「看見」自身狀態的介面。作者提出 VISTA（Visible Internal State for Tool Agents），一個免訓練（training-free）、模型無關（model-agnostic）的中介層。VISTA 把工作記憶表示成具型別、可定址的區塊，並提供一個執行期儀表板，揭露每個區塊的 token 用量、新近度（recency）與存取歷史。agent 據此自行決定保留、壓縮或丟棄哪些內容，形成本體感覺式（proprioceptive）的自我調節迴圈。",
-        "url": "https://arxiv.org/abs/2606.30005",
-        "field": "AI Agent Engineering",
-        "impact": "medium-high — 免訓練、模型無關的設計讓落地門檻極低，可直接套在既有 agent harness 上",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277011",
-        "complete": true
-      },
-      {
-        "title": "Decision-Aware Memory Cards: Counterfactual-Inspired Context Selection and Compression for Tool-Using LLM Agents",
-        "title_zh": "決策感知記憶卡：面向工具使用型 LLM Agent 的反事實式上下文選擇與壓縮",
-        "authors": [
-          "Xinyu Guan",
-          "Qianyang Zhao",
-          "Yuming Deng"
-        ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
-        "date": "2026-06-06",
-        "summary": "本文研究「決策感知的上下文選擇」，主張排序檢索到的檔案、測試、trace、規則與記憶時，應依其對 agent 下一步動作的預期影響來排，而非只看語意相似度。作者提出 Counterfactual-Inspired Context Layer（CICL），先建立實例上下文圖（instance context graph），再對候選單元估計面向決策的效用，最後把選中的證據壓縮成具型別的 memory card。在 50 個 SWE-bench Verified 檔案檢索實例上，以 Qwen3.6-Plus 對 BM25 top-50 候選重排序，hit@1 由 0.58 提升至 0.78，MRR@10 由 0.634 提升至 0.790。本文於 2026-06-15 有修訂版本。",
-        "url": "https://arxiv.org/abs/2606.08151",
-        "field": "AI Agent Engineering",
-        "impact": "medium — 「依決策效用而非語意相似度排序」的思路對 RAG 與 agent 檢索設計是實用的觀念修正，但實驗規模僅 50 實例。⚠️機構未能驗證",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277058",
-        "complete": true
-      },
-      {
-        "title": "Agent Lightning v1.0: Towards Harnessed Agentic RL",
-        "title_zh": "Agent Lightning v1.0：邁向 Harness 化的 Agentic 強化學習",
-        "authors": [
-          "Zhiyuan He",
-          "Siwei Zhang",
-          "Zhiwen Zhou",
-          "Yuqing Yang",
-          "Yu Kang",
-          "Yuge Zhang",
-          "Luna K. Qiu",
-          "Tin Yan Tsui",
-          "Jiahang Xu",
-          "Chong Luo"
-        ],
-        "institution": "Microsoft Research",
-        "venue": "arXiv",
-        "date": "2026-08-18",
-        "summary": "現代 agent 都運行在管理工具、上下文與控制流的 agent harness 之中，這使得傳統 agentic RL 的假設失效。作者定義 harnessed agentic RL：由 harness 而非訓練引擎掌控環境互動迴圈，訓練器只能觀察到 LLM 的 request-response 配對序列。這個結構差異衍生出 retokenization、樣本合併、優勢函數計算、損失正規化與後端排程等一連串挑戰，且會實質影響訓練穩定性與效果。Agent Lightning v1.0 是一個約 3,500 行程式碼的輕量框架，支援任意 agent harness，作為研究這些問題的實務測試平台，程式碼開源於 github.com/microsoft/agent-lightning。",
-        "url": "https://arxiv.org/abs/2608.17528",
-        "field": "Agent Ecosystem & Frameworks",
-        "impact": "high — 微軟出品且開源，把 harness 與訓練引擎的權責邊界明確化，是 agent 框架生態的重要基礎設施",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277103",
-        "complete": true
-      },
-      {
-        "title": "Agent Against Agent: An Agentic System for Automatic Prompt Injection Red Teaming",
-        "title_zh": "以 Agent 對抗 Agent：自動化 Prompt Injection 紅隊演練的 Agentic 系統",
-        "authors": [
-          "Yanting Wang",
-          "Chenlong Yin",
-          "Runpeng Geng",
-          "Jinyuan Jia"
-        ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
-        "date": "2026-08-05",
-        "summary": "Prompt injection 對 LLM agent 構成重大資安風險，而高效有效的紅隊演練既是風險評估手段，也是產生防禦訓練資料的來源。作者提出 PIMiner，一個用於 prompt injection 紅隊演練的 agentic 系統。訓練階段，PIMiner 在一連串（資料集, 目標模型）配對上訓練，並從零開始建立攻擊策略庫。測試階段，學到的策略庫可直接遷移到未見過的目標 LLM，無需額外訓練；每個測試樣本只需對目標 agent 發出少量查詢（例如 10 次）。",
-        "url": "https://arxiv.org/abs/2608.05108",
-        "field": "AI Agent / Security",
-        "impact": "high — 策略庫可零訓練遷移、每樣本僅需約 10 次查詢，代表 agent 紅隊演練的成本門檻大幅下降，防守方須同步提升。⚠️機構未能驗證",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277149",
-        "complete": true
-      },
-      {
-        "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
-        "title_zh": "PI-Hunter：揭露與定位 Prompt Injection 的自動化紅隊演練",
-        "authors": [
-          "Pengfei He",
-          "Lesly Miculicich",
-          "Vishesh Sharma",
-          "Ash Fox",
-          "George Lee",
-          "Jiliang Tang",
+          "Chengsong Huang",
+          "Zifeng Wang",
+          "Rujun Han",
+          "Jun Yan",
+          "Yanfei Chen",
+          "Zoey CuiZhu",
+          "Ke Jiang",
+          "Peng Xia",
+          "Han Yu",
+          "Yufan Zhuang",
+          "Yifei Ming",
+          "Jiaqi Pan",
+          "Bhavana Dalvi Mishra",
+          "Jiaxin Huang",
+          "Burak Gokturk",
           "Tomas Pfister",
-          "Long T. Le"
+          "Chen-Yu Lee"
         ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
-        "date": "2026-06-10",
-        "summary": "LLM 正演化為與外部工具及環境互動的 agentic 系統，因而引入來自不受信任外部來源的間接 prompt injection 風險。既有防禦多半聚焦於推論時攔截惡意內容，而現行紅隊方法主要只優化攻擊成功率，不處理「漏洞在哪」的定位問題。PI-Hunter 是自動化的 agentic 稽核框架，主動建構貼近真實的來源感知（source-aware）測試案例，並透過回饋驅動的探索反覆演化，誘使 agent 取出並揭露潛藏於外部環境中的惡意指令。跨多個基準、多種 agent 架構、多種攻擊與防禦的實驗顯示，PI-Hunter 在漏洞揭露與攻擊面覆蓋率上顯著優於強力的自動化紅隊基線，且在既有 prompt injection 防禦下仍然有效。",
-        "url": "https://arxiv.org/abs/2606.12737",
-        "field": "AI Agent / Security",
-        "impact": "high — 從「攻得下來」進化到「指出漏洞位置」，對企業內部 agent 稽核流程的可操作性明顯提升。⚠️機構未能驗證",
+        "institution": "Google",
+        "venue": "arXiv preprint",
+        "date": "2026-08-20",
+        "summary": "Agent 訓練最大的瓶頸是缺乏可互動環境——大量高品質資料是靜態文件，無法產生軌跡。EnvHarness 提出 EnvRigger 機制，以黑箱方式從靜態語料合成可執行的互動軌跡，等同把死資料「喚醒」成訓練環境。實驗顯示，經此方法訓練的 Agent 在保留測試集（held-out）上提升 9.0 分，且完成任務所需步數減少 9.8%，代表不只更準也更有效率。方法不需存取環境內部狀態，因此可套用於既有的封閉系統。由 Google 團隊於 2026 年 8 月 20 日發布，屬本週最新成果。",
+        "url": "https://arxiv.org/abs/2608.19880",
+        "field": "Agent Training / Environment Synthesis",
+        "impact": "high — Google 出品且解決 Agent 訓練資料瓶頸，工程可用性高",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277195",
+        "verified_at": "2026-08-22T18:17:03.769782",
+        "complete": true
+      },
+      {
+        "title": "EvoHarness-RL: Learning Self-Evolving Runtime Harness for Long-Horizon LLM Agents",
+        "title_zh": "EvoHarness-RL：為長時程 LLM Agent 學習可自我演化的執行期 Harness",
+        "authors": [
+          "Xuying Ning",
+          "Dongqi Fu",
+          "Tianxin Wei",
+          "Hanqing Zeng",
+          "Yuanchen Bei",
+          "Bingxuan Li",
+          "Zihao Li",
+          "Qifan Wang",
+          "Xiang Shen",
+          "Yifan Wu",
+          "Jiayi Liu",
+          "Hong Li",
+          "Yinglong Xia",
+          "Xiangjun Fan",
+          "Hanghang Tong",
+          "Jingrui He"
+        ],
+        "institution": "⚠️待確認（作者含 UIUC 與 Meta 相關研究者）",
+        "venue": "arXiv preprint",
+        "date": "2026-08-05",
+        "summary": "既有 harness 多為人工手寫的固定邏輯，無法隨任務進展調整。EvoHarness-RL 把 harness 狀態顯式暴露為三個面向——Belief（信念）、Progress（進度）、Experience（經驗），合稱 BPE，讓策略模型能直接讀寫這些狀態。研究定義了「harness policy learning」新問題設定：Agent 先離線學會 harness 操作策略，部署後於執行期線上建構並持續更新外部 harness 狀態。這等同把過去由工程師手動設計的記憶與重試邏輯，改為可學習的決策。論文於 2026 年 8 月 5 日投稿。",
+        "url": "https://arxiv.org/abs/2608.05446",
+        "field": "Agent Engineering / Harness Learning",
+        "impact": "medium — 概念清晰且與 harness 研究主線一致，實證規模待後續驗證",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.769833",
+        "complete": true
+      },
+      {
+        "title": "The Harness Effect: How Orchestration Design Sets the Token Economics of Enterprise Agentic AI",
+        "title_zh": "Harness 效應：編排設計如何決定企業代理式 AI 的 Token 經濟學",
+        "authors": [
+          "Waseem AlShikh"
+        ],
+        "institution": "Writer",
+        "venue": "arXiv preprint",
+        "date": "2026-07-08",
+        "summary": "本文用實測數據回答企業最關心的問題：Agent 成本到底由模型決定還是由編排設計決定。實驗橫跨 22 項任務與 6 種模型，比較不同 harness 編排策略下的成本結構。結果顯示，僅改動編排設計即可讓單任務成本下降 41%（從 $0.21 降至 $0.12）、端到端耗時下降 44%（48 秒降至 27 秒）、單任務 token 用量下降 38%（14.2k 降至 8.8k）。換言之，在不換模型的前提下，光靠編排優化就能砍掉四成營運成本。這對評估 Agent 導入 ROI 的財務論證提供了可引用的量化基準。",
+        "url": "https://arxiv.org/abs/2607.06906",
+        "field": "Agent Orchestration / Cost Engineering",
+        "impact": "high — 少數提供完整成本數據的實證研究，可直接支撐企業導入的財務評估",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.769896",
+        "complete": true
+      },
+      {
+        "title": "Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents",
+        "title_zh": "更少脈絡、更好的 Agent：長時程工具使用型 LLM Agent 的高效 Context Engineering",
+        "authors": [
+          "Abhilasha Lodha",
+          "Mahsa Pahlavikhah Varnosfaderani",
+          "Abir Chakraborty",
+          "Abhinav Mithal"
+        ],
+        "institution": "⚠️待確認（研究場景為 Microsoft Dynamics 365）",
+        "venue": "arXiv preprint",
+        "date": "2026-06-08",
+        "summary": "企業系統的工具回應普遍冗長，直接塞進脈絡會造成 context overflow、狀態過期錯誤與推論成本失控。本研究以 Microsoft Dynamics 365 Finance and Operations 的自動化差旅費用拆項為場景，透過 MCP（Model Context Protocol）工具串接，在 50 項飯店費用任務的基準上比較 4 種 GPT-5 配置：不使用使用者模型、保留完整對話歷史、脈絡裁剪至最近 5 組工具呼叫與回應、以及裁剪加上自動摘要。結果顯示「裁剪至最近 5 組 + 自動摘要」表現最佳，證實在長時程工具任務中，保留全部歷史反而傷害準確率。這是少數以真實企業 ERP 系統為場景的 context engineering 實證。",
+        "url": "https://arxiv.org/abs/2606.10209",
+        "field": "Context Engineering / Enterprise Agents",
+        "impact": "medium — 場景貼近金融與企業後台流程，方法簡單可直接複製",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.769952",
+        "complete": true
+      },
+      {
+        "title": "Agentic ESOpt: Fine-Tuning Long-Horizon LLM Agents with Minimal GPU Requirements",
+        "title_zh": "Agentic ESOpt：以最低 GPU 需求微調長時程 LLM Agent",
+        "authors": [
+          "Zhi Zheng",
+          "Rongsheng Chen",
+          "Yunpeng Ba",
+          "Zhenkun Wang",
+          "Yee Whye Teh",
+          "Wee Sun Lee"
+        ],
+        "institution": "⚠️待確認（作者含 NUS、Oxford 相關研究者）",
+        "venue": "arXiv preprint",
+        "date": "2026-08-19",
+        "summary": "強化學習訓練長時程 Agent 有兩大痛點：反向傳播的訓練堆疊過重，導致大模型難以微調；軌跡拉長後信用分配（credit assignment）也急遽困難。Agentic ESOpt 改用 Evolution Strategies（演化策略），完全不需反向傳播即可進行全參數微調，透過軌跡層級的獎勵加權更新（trajectory-level reward-weighted updates）與參數—脈絡共演化（parameter-context co-evolution）繞開上述兩個問題。實驗在 WebArena-Lite 上以 Qwen-3.5-27B 取得 6.69% 的相對提升。由於免除反向傳播，記憶體需求大幅降低，讓中小型 GPU 資源也能微調長時程 Agent。",
+        "url": "https://huggingface.co/papers/2608.17310",
+        "field": "Agent Training / Evolution Strategies",
+        "impact": "medium — 對算力受限團隊實用性高，但提升幅度尚屬溫和",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.770001",
+        "complete": true
+      },
+      {
+        "title": "Graph-Based Agentic AI with LangGraph: Workflow Pathways for Long-Running Stateful Business Processes",
+        "title_zh": "以 LangGraph 建構圖式代理式 AI：長時程有狀態商業流程的工作流路徑",
+        "authors": [
+          "Daniel Pearson",
+          "Sidney Shapiro",
+          "Emiliano Sebastian Gonzalez Venegas",
+          "Sanad Al-Khatib",
+          "Aurora Pinzón Arzola"
+        ],
+        "institution": "University of Lethbridge / Universidad de Guadalajara",
+        "venue": "arXiv preprint",
+        "date": "2026-07-21",
+        "summary": "這是一份針對長時程、有狀態、多步驟生成式 AI 系統的實務指南，聚焦圖式工作流的設計取捨。作者提供三個可直接執行的範例：帶修復迴圈的 SQL 分析、具證據把關（evidence gating）的 agentic RAG、以及含中斷與檢查點復原的人機協作政策審查。透過這三例說明 typed state、條件路由、確定性工具、重試、interrupt、checkpoint 與 trace 如何組合成可維運的系統。論文明確反對把 LangGraph 當成萬用預設：單純工具呼叫用 ReAct 或原生 SDK 迴圈更好、結構化抽取用 schema-first 工具、以提示最佳化為主則選 DSPy。這種按複雜度選型的立場，對金融業評估 Agent 框架選型特別實用。",
+        "url": "https://arxiv.org/abs/2607.19297",
+        "field": "Agent Frameworks / LangGraph",
+        "impact": "medium — 框架選型指引清楚且附可執行範例，適合作為內部技術評估參考",
+        "url_status": "verified",
+        "title_score": 0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.770048",
         "complete": true
       },
       {
         "title": "Agent Data Injection Attacks are Realistic Threats to AI Agents",
-        "title_zh": "Agent 資料注入攻擊對 AI Agent 是真實威脅",
+        "title_zh": "Agent 資料注入攻擊是 AI Agent 的真實威脅",
         "authors": [
           "Woohyuk Choi",
           "Juhee Kim",
@@ -425,222 +448,39 @@
           "Luyi Xing",
           "Byoungyoung Lee"
         ],
-        "institution": "未能驗證",
-        "venue": "arXiv",
+        "institution": "Seoul National University",
+        "venue": "arXiv preprint",
         "date": "2026-07-06",
-        "summary": "作者提出一類新的間接 prompt injection（IPI）攻擊型態，稱為 agent data injection（ADI）：把惡意資料偽裝成受信任資料注入，例如安全關鍵的中繼資料或 agent 的上下文資料。這與傳統把惡意指令藏在使用者可見內容中的做法不同，攻擊面落在 agent 認為「可信」的結構化資料層。評測顯示現成 LLM 對機率性分隔符注入（probabilistic delimiter injection）高度脆弱：在 6 個模型上，JSON 資料的攻擊成功率為 31.3% 至 43.3%，web DOM 資料則為 33.3% 至 100.0%。程式碼以 MIT 授權開源於 GitHub。",
+        "summary": "本研究提出 Agent Data Injection（ADI，Agent 資料注入）攻擊，指攻擊者將惡意指令埋入 Agent 必然會讀取的資料載體中，而非透過使用者輸入。實測顯示，透過 JSON 結構化資料注入的攻擊成功率（ASR）達 31.3% 至 43.3%；透過網頁 DOM 注入則高達 33.3% 至 100.0%。更關鍵的是，即使對上目前最先進的防禦機制，攻擊成功率仍可達 50.0%，代表現行間接提示注入（IPI）防禦遠不足以應對此類攻擊面。研究由首爾大學團隊完成，攻擊場景設定貼近真實部署環境而非實驗室假設。",
         "url": "https://arxiv.org/abs/2607.05120",
-        "field": "AI Agent / Security",
-        "impact": "high — web DOM 情境攻擊成功率最高達 100%，對任何讀取外部結構化資料的 agent 都是必須立即納入威脅模型的攻擊類別。⚠️機構未能驗證",
+        "field": "Agent Security / Prompt Injection",
+        "impact": "high — ASR 數據具體且防禦繞過率高，是 Agent 上線前資安評估的關鍵佐證",
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277241",
-        "complete": true
-      },
-      {
-        "title": "CVPO: Enhancing LLM Reinforcement Learning Reasoning via Value-Variance Adaptation and Dynamic Curriculum Learning",
-        "title_zh": "CVPO：以價值變異數適應與動態課程學習強化 LLM 強化學習推理",
-        "authors": [
-          "Ziqi Jia",
-          "Yalu Ouyang",
-          "Bo Pang",
-          "Panpan Li",
-          "Hangfei Xu",
-          "Shengzhao Wen",
-          "Shiyong Li",
-          "Yanpeng Wang"
-        ],
-        "institution": "Baidu AI Cloud Group",
-        "venue": "arXiv",
-        "date": "2026-08-04",
-        "summary": "強化學習已成為提升 LLM 推理能力的有效途徑，但仍受兩個問題困擾：對生成答案軌跡的回饋精度不足，以及題目難度漂移（difficulty drift）。作者提出 CVPO（Curriculum-guided Value-Variance Policy Optimization），觀察到 token 層級的價值變異數與探索強度相關，並在理論分析上證明該變異數可界定策略更新幅度。方法上以估計的軌跡價值變異數量化生成過程的內在隨機性，並針對不同回報型態設計變異數感知的優勢調整機制。搭配動態課程學習來對抗難度漂移。",
-        "url": "https://arxiv.org/abs/2608.03068",
-        "field": "LLM",
-        "impact": "medium — 百度雲團隊提出的 RL 訓練優化，理論分析與工程機制並重，對自行做 RL 後訓練的團隊有參考價值",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277290",
+        "verified_at": "2026-08-22T18:17:03.770096",
         "complete": true
       }
     ],
     "topnews": [
       {
-        "title": "Slack Code: AI Coding Agents Get Shared Channels for Review and Oversight",
-        "title_zh": "Slack Code：AI 編碼 Agent 取得可供審查與監督的共享頻道",
-        "source": "TechRepublic",
-        "date": "2026-08-21",
-        "domain": "Agent",
-        "model_area": "Agentic Coding / Human-in-the-loop",
-        "summary": "TechRepublic 從治理角度解讀 Slack Code：其核心價值不在生成程式碼本身，而在把 Agent 的工作過程攤開在團隊可見的頻道中，形成可審查、可追溯的紀錄。頻道內同時呈現計畫、程式碼變更與預覽，讓非工程角色也能參與把關。完成後自動封存的機制等同保留了一份稽核軌跡。",
-        "highlights": [
-          "Agent 工作流程可視化，人為監督（human oversight）成為預設而非事後補強",
-          "自動封存頻道形成可搜尋的專案稽核紀錄，對內控與合規有實質意義"
-        ],
-        "url": "https://www.techrepublic.com/article/news-slack-code-ai-coding-agents/",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277437",
-        "complete": true
-      },
-      {
-        "title": "China's Z.AI Ships GLM-5.3, Calling It the Top Open-Weight Coding Model",
-        "title_zh": "中國 Z.AI 推出 GLM-5.3，宣稱為最強開放權重編碼模型",
-        "source": "Decrypt",
-        "date": "2026-08-21",
-        "domain": "LLM",
-        "model_area": "Open-weight LLM / Coding & Agentic",
-        "summary": "Z.AI 發布 GLM-5.3，在 Artificial Analysis Intelligence Index 拿下 60 分，較前代 GLM-5.2 提升 7 分，與 Moonshot 的 Kimi K3 並列。Artificial Analysis 指出，權重釋出後 GLM-5.3 將與 Kimi K3 並列為最強開放權重模型。前代 GLM-5.2 為 744B 總參數 / 40B 啟動的 MoE 架構、MIT 授權、1M token 上下文，主打軟體開發、長工具鏈與 repository 規模任務。",
-        "highlights": [
-          "Artificial Analysis Intelligence Index 得分 60，較 GLM-5.2 提升 7 分，與 Kimi K3 並列",
-          "定位為 coding agent 專用設計，強調長 tool-use 鏈與 repo 級任務而非單次補全",
-          "中國開放權重陣營（Z.AI、Moonshot、DeepSeek、Qwen）持續逼近閉源前沿模型"
-        ],
-        "url": "https://decrypt.co/375684/china-z-ai-glm-5-3-top-open-weight-coding-model",
-        "url_status": "verified",
-        "title_score": 0.79,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277491",
-        "complete": true
-      },
-      {
-        "title": "GLM-5.3 achieves 60 on the Artificial Analysis Intelligence Index, on par with Kimi K3 and up 7 points from GLM-5.2",
-        "title_zh": "GLM-5.3 於 Artificial Analysis 智能指數取得 60 分，與 Kimi K3 並列、較 GLM-5.2 提升 7 分",
-        "source": "Artificial Analysis (X)",
-        "date": "2026-08-21",
-        "domain": "LLM",
-        "model_area": "Benchmark / Open-weight LLM",
-        "summary": "第三方評測機構 Artificial Analysis 在 X 上公布 GLM-5.3 的獨立評測結果：Intelligence Index 得分 60，與 Kimi K3 相同，較 GLM-5.2 提升 7 分。該機構明確表示，一旦權重釋出，GLM-5.3 將與 Kimi K3 並列為領先的開放權重模型。此為 Z.AI 官方宣稱之外的獨立第三方佐證。",
-        "highlights": [
-          "獨立第三方評測佐證，非廠商自評數據",
-          "權重尚未釋出，領先地位以「釋出後」為前提"
-        ],
-        "url": "https://x.com/ArtificialAnlys/status/2089830890709135426",
-        "url_status": "verified",
-        "title_score": 0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277542",
-        "complete": true
-      },
-      {
-        "title": "AI Agents News — Week of August 22, 2026 (Daily Updates)",
-        "title_zh": "AI Agent 新聞——2026 年 8 月 22 日當週（每日更新）",
-        "source": "AI Agent Store",
-        "date": "2026-08-22",
-        "domain": "Agent",
-        "model_area": "Agent Infrastructure / Enterprise Agents",
-        "summary": "本週 AI Agent 動態彙整：Cloudflare 推出 x402 協定讓 Agent 可自主付費，已有超過 20 家公司參與 agent-initiated payment 流程；Firecrawl 推出 Developer Index，為編碼 Agent 建立涵蓋 7,000 萬以上 repo、文件與 issue 的可搜尋索引。企業端則有 Google 擴大 Antigravity 編碼 Agent 的企業存取、Pinecone Nexus 正式 GA。",
-        "highlights": [
-          "Cloudflare x402 讓 Agent 自主付費，20+ 公司已參與 agent-initiated payment",
-          "Firecrawl Developer Index：7,000 萬以上 repo／文件／issue 的 Agent 專用索引",
-          "Pinecone Nexus GA，將企業專有資料轉為單一呼叫可取用的 agent-ready 知識層"
-        ],
-        "url": "https://aiagentstore.ai/ai-agent-news/this-week",
-        "url_status": "verified",
-        "title_score": 0.81,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277594",
-        "complete": true
-      },
-      {
-        "title": "AI Agents News Brief: August 21, 2026 - Development, Security, and Investment",
-        "title_zh": "AI Agent 新聞簡報：2026 年 8 月 21 日——開發、資安與投資",
-        "source": "AI Agents Directory",
-        "date": "2026-08-21",
-        "domain": "Agent",
-        "model_area": "Enterprise Agents / Agent Security",
-        "summary": "當日 Agent 領域三條主線：開發面為 Google 擴大 Antigravity 編碼 Agent 的企業存取，強調安全性與控管；資安面為 Fortinet 併購 Virtue AI，補強其資安平台的 AI Agent red-teaming 能力；投資面則有 Anthropic 關聯的 Ode 收購 Casper Studios 以擴充企業級 AI 部署能力，以及前 NVIDIA 研究員創立的 world model 新創 Veeda AI 募得 9,000 萬美元。",
-        "highlights": [
-          "Fortinet 併購 Virtue AI，把 Agent red-teaming 納入資安平台——Agent 安全開始成為併購標的",
-          "Google Antigravity 編碼 Agent 擴大企業版存取，主打安全與控管",
-          "Veeda AI（前 NVIDIA 研究員創立，world model 方向）募資 9,000 萬美元"
-        ],
-        "url": "https://aiagentsdirectory.com/news/ai-agents-news-brief-august-21-2026",
-        "url_status": "verified",
-        "title_score": 0.7,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277648",
-        "complete": true
-      },
-      {
         "title": "Top Tech News Today, August 21, 2026: Anthropic, Apple, Broadcom, Google, Nvidia, OpenAI Tesla & More",
-        "title_zh": "今日科技要聞，2026 年 8 月 21 日：Anthropic、Apple、Broadcom、Google、NVIDIA、OpenAI、Tesla 等",
+        "title_zh": "今日科技要聞 2026年8月21日：Anthropic、Apple、Broadcom、Google、Nvidia、OpenAI、Tesla 等",
         "source": "Tech Startups",
         "date": "2026-08-21",
         "domain": "Industry",
-        "model_area": "AI Infrastructure / Capital Markets",
-        "summary": "當日科技要聞彙整，資本市場為主軸：Broadcom 正與金融機構洽談逾 600 億美元的優先擔保債務，若再加上約 300 億美元的次順位債務，總規模可達 1,000 億美元，反映 AI 晶片產能擴張的融資壓力。同時 NVIDIA 對模型建構新創出手、Anthropic IPO 進程持續推進。",
+        "model_area": "Claude / 大廠算力與資本動態",
+        "summary": "當日科技要聞彙整指出 Anthropic 正在為一場可能寫下紀錄的 IPO 做準備，同時其與 Google、Broadcom 擴大合作以取得數 GW 等級的次世代運算資源。報導同時涵蓋巴西投入數億美元建置本土 AI 運算能量、Apple 面對 AI 生成音樂的爭議，以及 Google 重新思考在 AI 重塑搜尋後出版商如何存活。整體反映 8 月下旬產業焦點已從模型發布轉向資本結構與算力供應鏈。",
         "highlights": [
-          "Broadcom 洽談逾 600 億美元優先擔保債，總融資規模上看 1,000 億美元",
-          "AI 基礎設施的融資結構正快速槓桿化，成為系統性風險觀察點"
+          "Anthropic 傳準備進行大型 IPO，並與 Google、Broadcom 擴大多 GW 級算力合作",
+          "巴西投入數億美元建置本土 AI 運算基礎設施",
+          "Apple 面臨 AI 生成音樂爭議；Google 重新檢視 AI 搜尋對出版商的衝擊"
         ],
         "url": "https://techstartups.com/2026/08/21/top-tech-news-today-august-21-2026-anthropic-apple-broadcom-google-nvidia-openai-tesla-more/",
         "url_status": "verified",
         "title_score": 0.98,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277701",
-        "complete": true
-      },
-      {
-        "title": "AI News August 21 2026: AI Now Writes Half of All Linear Issues, and Teams Still Ship Slower",
-        "title_zh": "2026 年 8 月 21 日 AI 新聞：AI 已撰寫近半數 Linear issue，團隊交付速度卻仍變慢",
-        "source": "AIToolsRecap",
-        "date": "2026-08-21",
-        "domain": "Industry",
-        "model_area": "Agentic Coding / Developer Productivity",
-        "summary": "根據 Linear 的資料，AI 目前撰寫的 issue 已接近全部的一半，團隊的 pull request 數量增為三倍，但開發時間反而拉長。這項數據直接挑戰「AI 編碼 Agent 必然提升交付效率」的假設，指向審查、整合與驗證環節成為新瓶頸。",
-        "highlights": [
-          "AI 撰寫的 issue 佔比接近 50%，PR 數量成長 3 倍，但開發時間反而上升",
-          "生成端加速、驗證端未同步擴充，瓶頸從「寫程式」移轉到「審查與整合」",
-          "對導入 agentic coding 的組織而言，效益衡量指標須從產出量改為交付週期"
-        ],
-        "url": "https://aitoolsrecap.com/Blog/ai-news-august-21-2026",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277754",
-        "complete": true
-      },
-      {
-        "title": "7 AI News Stories of the Day | August 22, 2026",
-        "title_zh": "當日七則 AI 新聞｜2026 年 8 月 22 日",
-        "source": "note.com（宮野宏樹）",
-        "date": "2026-08-22",
-        "domain": "Industry",
-        "model_area": "M&A / Capital Markets",
-        "summary": "當日 AI 產業七則要聞彙整。其中 NVIDIA 支付 60 億美元取得程式碼專用 AI 公司 Poolside 之 Model Factory 模型開發平台的非專屬授權，並額外投資 10 億美元、以 120 億美元投前估值計算，同時對 109 名員工發出聘僱邀約——這種「同時取得技術、人才與股權，卻避開併購審查」的結構正在成形。另 Bloomberg 於 8 月 20 日晚間報導、21 日全球擴散的 Anthropic IPO 消息，預期募資規模介於 750 億至逾 800 億美元。",
-        "highlights": [
-          "NVIDIA–Poolside：60 億美元非專屬授權 + 10 億美元投資 + 109 人聘僱，刻意避開併購審查",
-          "Anthropic 最快本月底送件 IPO，預期募資 750 億至逾 800 億美元",
-          "「授權 + 投資 + 挖角」的三合一結構正成為大廠規避反壟斷審查的新常規"
-        ],
-        "url": "https://note.com/hirokimiyano/n/ned9ccbc5818e?hl=en",
-        "url_status": "verified",
-        "title_score": 0.76,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277811",
-        "complete": true
-      },
-      {
-        "title": "AI News. August 22, 2026",
-        "title_zh": "AI 新聞，2026 年 8 月 22 日",
-        "source": "Crypto Integrated",
-        "date": "2026-08-22",
-        "domain": "Industry",
-        "model_area": "AI Infrastructure / Autonomous Systems",
-        "summary": "當日 AI 產業動態彙整，涵蓋過去 24 小時內的主要事件：監理機關開放拉斯維加斯街道供數千輛 robotaxi 營運；晶片廠商排隊籌措數百億美元的新 AI 債務；NVIDIA 對關鍵模型建構新創出手；Tesla 悄悄終止其太陽能屋瓦計畫；紐約自灣區手中奪下全美科技人才第一的位置。",
-        "highlights": [
-          "拉斯維加斯開放數千輛 robotaxi 上路，為美國自駕商轉規模化的指標事件",
-          "晶片廠商大規模舉債擴充 AI 產能，融資槓桿持續攀升",
-          "科技人才重心自灣區移向紐約"
-        ],
-        "url": "https://www.cryptointegrat.com/p/ai-news-august-22-2026",
-        "url_status": "verified",
-        "title_score": 0.7,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277864",
+        "verified_at": "2026-08-22T18:17:03.770194",
         "complete": true
       },
       {
@@ -660,7 +500,27 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.277915",
+        "verified_at": "2026-08-22T18:17:03.770249",
+        "complete": true
+      },
+      {
+        "title": "AI Agents News — Week of August 22, 2026 (Daily Updates)",
+        "title_zh": "AI Agent 新聞 — 2026年8月22日當週（每日更新）",
+        "source": "AI Agent Store",
+        "date": "2026-08-22",
+        "domain": "Agent",
+        "model_area": "Agent 評測 / 自主測試 Agent",
+        "summary": "Tricentis 發表一組以 agentic 軟體開發與測試為核心的 AI 產品，包含 Tricentis Aida：一個能自主探索 Web 與 Windows 桌面應用、在完全沒有既有測試腳本的情況下找出缺陷與覆蓋缺口的 Agent。同時推出 AgentScore，以機率方式依 Agent 在真實工作流中的實際行為進行評估。此舉呼應「Agent 評測需從靜態 benchmark 轉向行為觀測」的趨勢。",
+        "highlights": [
+          "Tricentis Aida：無需既有測試腳本即可自主探索應用並找出缺陷",
+          "AgentScore 以機率模型評估 Agent 在真實工作流中的行為表現",
+          "Agent 評測方法論從靜態 benchmark 轉向行為導向觀測"
+        ],
+        "url": "https://aiagentstore.ai/ai-agent-news/this-week",
+        "url_status": "verified",
+        "title_score": 0.83,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.770311",
         "complete": true
       },
       {
@@ -680,7 +540,7 @@
         "url_status": "needs_review",
         "title_score": 0,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.277967",
+        "verified_at": "2026-08-22T18:17:03.770372",
         "complete": true
       },
       {
@@ -700,7 +560,47 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278020",
+        "verified_at": "2026-08-22T18:17:03.770425",
+        "complete": true
+      },
+      {
+        "title": "AI News Recap: August 21, 2026",
+        "title_zh": "AI 新聞回顧：2026年8月21日",
+        "source": "NeuralBuddies",
+        "date": "2026-08-21",
+        "domain": "Industry",
+        "model_area": "跨領域 AI 動態",
+        "summary": "NeuralBuddies 當日 AI 新聞回顧，彙整 8 月 21 日跨模型發布、企業採用與政策面的重點消息。屬每日型摘要來源，可作為當日全球 AI 動態的交叉比對基準。",
+        "highlights": [
+          "8月21日單日全球 AI 動態彙整",
+          "涵蓋模型發布、企業採用與政策三個面向",
+          "可作為當日新聞的交叉驗證來源"
+        ],
+        "url": "https://www.neuralbuddies.com/p/ai-news-recap-august-21-2026",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.770487",
+        "complete": true
+      },
+      {
+        "title": "AI News Today, August 21 — Top AI Stories & Live Updates",
+        "title_zh": "今日 AI 新聞 8月21日 — 頭條與即時更新",
+        "source": "AI Weekly",
+        "date": "2026-08-21",
+        "domain": "Industry",
+        "model_area": "跨領域 AI 動態",
+        "summary": "AI Weekly 的每日頭條與即時更新頁面，彙整 8 月 21 日全球 AI 領域重要新聞，包含模型發布、資安事件與產業動態。作為即時更新型來源，可用於追蹤當日突發消息。",
+        "highlights": [
+          "提供 8月21日全球 AI 頭條與即時更新",
+          "涵蓋模型、資安與產業三大面向",
+          "即時更新型來源，適合追蹤突發消息"
+        ],
+        "url": "https://aiweekly.co/ai-news-today",
+        "url_status": "verified",
+        "title_score": 0.7,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.770539",
         "complete": true
       },
       {
@@ -720,221 +620,11 @@
         "url_status": "verified",
         "title_score": 0.9,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278122",
+        "verified_at": "2026-08-22T18:17:03.770598",
         "complete": true
       }
     ],
     "taiwan": [
-      {
-        "title": "Ox Alpha 模型竄紅 AI 圈，免費試用背後身分引發猜測",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-23",
-        "topic": "LLM發布",
-        "summary": "一款名為 Ox Alpha 的神祕前沿模型近日出現在 OpenRouter 與 OpenCode 平台，主打高效程式撰寫與 agentic（代理式）工作能力，並開放免費試用，短時間內引爆開發者社群討論。該模型宣稱每日可處理高達 100 兆 token 的規模，數據若屬實將遠超既有主流模型的服務量級。由於官方未公開背後開發團隊身分，社群普遍猜測其可能為某家大型實驗室的匿名測試版本，用意在於蒐集真實使用者回饋而不揭露品牌。免費策略也被解讀為在 agentic coding 市場搶奪開發者心佔率的前置動作。",
-        "relevance": "台灣開發者社群大量使用 OpenRouter 等聚合平台評估模型性價比，匿名前沿模型的出現直接影響本地 AI Agent 與 coding assistant 的選型評估。",
-        "discussion": "高，開發者社群對匿名模型身分的猜測討論熱烈",
-        "url": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278189",
-        "complete": true
-      },
-      {
-        "title": "學生負責下令，AI 負責讀大學：AI 代理「幫上課」成高等教育危機",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-23",
-        "topic": "AI Agent",
-        "summary": "報導指出 AI 代理（AI Agent）正在高等教育線上課程中催生新型態的作弊模式，學生只需下達簡單指令，代理即可自動完成登入聽課、作答測驗與繳交作業的完整流程。與過去單次生成答案的 AI 使用方式不同，代理具備多步驟自主執行能力，能跨越登入、瀏覽、填答等環節，使既有的線上監考與行為偵測機制失效。文章同時討論了如何透過提示詞設計限制代理「不要把任務執行得太超過」，也就是為代理設定行為邊界的實務手法。這牽動的是教育機構如何重新設計評量方式，而非單純封鎖工具。",
-        "relevance": "台灣各大學近年大量導入線上課程與數位學習平台，代理式作弊直接衝擊本地學術誠信規範與遠距評量設計。",
-        "discussion": "中高，教育界與 AI 倫理社群持續關注",
-        "url": "https://technews.tw/2026/08/23/i-found-a-prompt-that-keeps-ai-agents-from-taking-tasks-too-far",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278240",
-        "complete": true
-      },
-      {
-        "title": "華為針對亞太地區以安全智慧連結理念，全面升級星河 AI 網路，躍升產業數位智能化",
-        "source": "TechNews 科技新報（資安）",
-        "date": "2026-08-23",
-        "topic": "AI Agent／網路基礎建設",
-        "summary": "華為於峇里島舉行 2026 亞太資料通訊創新高峰會，吸引近 500 位產業領袖與會，主題聚焦 AI Agent 部署趨勢與網路架構創新。華為宣布全面升級「星河 AI 網路」，以安全智慧連結為核心理念，強化企業在導入代理式 AI workload 時所需的網路承載與安全防護能力。會中討論指出，AI Agent 大量並行呼叫模型與工具，對企業網路的延遲、頻寬與東西向流量控管帶來與傳統應用截然不同的壓力。華為將此定位為亞太市場數位智能化轉型的基礎設施升級路徑。",
-        "relevance": "亞太企業網路架構的 AI Agent 化趨勢，對台灣電信商與企業 IT 的網路升級規劃具參考價值；惟華為設備在台灣公部門與關鍵基礎設施受限，須留意採用限制。",
-        "discussion": "中，偏產業與企業 IT 圈討論",
-        "url": "https://infosecu.technews.tw/2026/08/23/huawei-upgrades-xinghe-ai-network-asia-pacific-secure-intelligent-connectivity-digital-intelligence",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278293",
-        "complete": true
-      },
-      {
-        "title": "挖角 Google TPU 創辦大將，Anthropic 以人才、技術、資金佈局自研 AI 晶片",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-22",
-        "topic": "大廠動態／AI 晶片",
-        "summary": "Anthropic 正式跨入半導體領域，成功延攬 Google 自研晶片計畫（TPU）創始成員之一 Amir Salek 加入其運算團隊，象徵公司要從模型層向下整合到硬體層。此舉背景是前沿模型訓練與推論成本持續攀升，仰賴外部供應商將侵蝕毛利並受制於產能分配。報導同時指出 OpenAI 亦在推進自研晶片計畫，與 Broadcom、Celestica 合作開發代號「Jalapeno」的客製化晶片，預計 2026 年底前部署。兩大模型公司同步走向自研，反映運算自主權已成為前沿實驗室的核心競爭要素。",
-        "relevance": "自研 AI 晶片高度仰賴台積電先進製程與台系 ASIC 設計、封測與伺服器代工供應鏈，是台灣半導體業直接受惠的訂單來源。",
-        "discussion": "高，半導體與投資圈廣泛轉載",
-        "url": "https://technews.tw/2026/08/22/anthropic-is-developing-its-own-ai-chips",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278344",
-        "complete": true
-      },
-      {
-        "title": "記憶體成本攀升，NVIDIA 明年起調漲 AI 伺服器價格、漲幅逾 15%",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-23",
-        "topic": "大廠動態／AI 硬體",
-        "summary": "NVIDIA 已通知主要客戶，自明年初起 AI 伺服器價格將調漲逾 15%，主因為記憶體成本大幅攀升。AI 訓練與推論對 HBM 與一般 DRAM 的需求同時暴增，已排擠其他終端裝置的記憶體產能，形成全產業性的成本壓力。此次漲價將直接轉嫁至雲端服務商與企業自建 AI 基礎設施的採購成本，可能拉長企業 AI 專案的投資回收期。對供應鏈而言，價格上調亦意味著整機代工與零組件廠的營收規模同步放大。",
-        "relevance": "台灣為 AI 伺服器代工與零組件主要供應地，鴻海、廣達、緯創等 ODM 及記憶體模組業者的營收與毛利結構將直接受影響。",
-        "discussion": "高，投資與科技產業圈熱議",
-        "url": "https://technews.tw/2026/08/23/nvidia-notifies-customers-of-ai-related-price-hikes-above-15-percent",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278393",
-        "complete": true
-      },
-      {
-        "title": "博通將融資超過 700 億美元，強化布局非輝達 AI 晶片市場布局",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-22",
-        "topic": "AI 晶片／產業投資",
-        "summary": "Broadcom 正洽談規模超過 700 億美元的融資案，用以支撐企業級 AI 晶片基礎設施的建置與擴張。此舉被視為在 NVIDIA 主導的 GPU 市場之外，另闢客製化 ASIC 路線的重資本布局。報導指出 AI 新創 Anthropic 是這波客製化晶片供應的主要受惠對象之一，與其自研晶片的策略相互呼應。以債務融資支撐晶片產能的作法，反映 AI 基礎設施競賽已從技術競爭延伸至資本規模競爭。",
-        "relevance": "客製化 ASIC 路線的擴張直接帶動台積電先進製程與台系封測、載板供應鏈的長約需求。",
-        "discussion": "中高，財經與半導體媒體關注",
-        "url": "https://cdnfinance.technews.tw/2026/08/22/broadcom-to-raise-over-70-billion/",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278445",
-        "complete": true
-      },
-      {
-        "title": "AI 推升 PIC 代工狂潮，聯電挾 12 吋量產優勢決戰高塔、格羅方德",
-        "source": "TechNews 科技新報（財經）",
-        "date": "2026-08-22",
-        "topic": "台灣產業／矽光子",
-        "summary": "AI 資料中心對高頻寬、低功耗互連的需求，推升光子積體電路（PIC）代工需求快速成長。聯電（UMC）以 12 吋晶圓量產能力切入此一戰場，與 Tower Semiconductor、GlobalFoundries 展開直接競爭。相較於競爭對手多以 8 吋產線承接 PIC 訂單，12 吋量產在單位成本與良率一致性上具規模優勢。矽光子被視為 AI 伺服器機櫃內部與機櫃之間互連的關鍵技術路徑，長期需求與 AI 基礎設施投資高度連動。",
-        "relevance": "直接關係台灣成熟製程晶圓代工的轉型方向，聯電能否在 AI 週期中找到成長曲線是本地半導體業重要觀察點。",
-        "discussion": "中高，台股投資圈關注度高",
-        "url": "https://finance.technews.tw/2026/08/22/umc-joins-battle-competing-tower-globalfoundries",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278506",
-        "complete": true
-      },
-      {
-        "title": "企業 AI 導入為何卡關？主管親自示範與打造「容錯文化」是落地關鍵",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-22",
-        "topic": "產業應用／AI 治理",
-        "summary": "許多組織已完成 AI 工具導入與員工訓練，實際工作方式卻沒有改變，報導直指問題不在技術而在工作設計與變革管理。文章強調關鍵在於主管是否親自示範使用 AI 並公開自己的失敗嘗試，讓組織形成「容錯文化」，員工才敢在真實工作流程中試錯。若僅提供工具與教育訓練而缺乏流程重新設計，AI 投資將停留在概念驗證階段無法規模化。文章將 AI 導入定位為組織能力建構問題，而非單純的 IT 採購決策。",
-        "relevance": "台灣金融、製造業普遍面臨 AI 專案卡在 PoC 的困境，此類變革管理觀點對本地企業導入策略具直接參考價值。",
-        "discussion": "中，企業管理與 AI 導入社群討論",
-        "url": "https://technews.tw/2026/08/22/workforce-development-in-the-age-of-ai",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278555",
-        "complete": true
-      },
-      {
-        "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-23",
-        "topic": "技術趨勢／勞動市場",
-        "summary": "儘管多家 AI 公司負責人警告大規模失業將至，史丹佛大學經濟研究機構於今年 7 月的研究發現，自 2022 年 ChatGPT 問世以來，AI 尚未造成大規模職位消失。真正的變化在於團隊結構重組：小型團隊藉 AI 產出過去需數十人才能完成的工作量，導致人力需求集中化而非整體萎縮。受衝擊最深的是入門級與例行性職位，資深人員反而因能指揮 AI 而價值上升。研究結論指向勞動市場的「遊戲規則改寫」，而非傳統意義的失業潮。",
-        "relevance": "台灣企業人力配置與新鮮人就業市場正面臨相同結構性壓力，對人資規劃與人才培育政策具參考意義。",
-        "discussion": "高，跨產業廣泛討論",
-        "url": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278604",
-        "complete": true
-      },
-      {
-        "title": "Sora 關門它卻爆紅，AI 影片新創 Higgsfield 如何逆勢衝出 54 億美元身價",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-22",
-        "topic": "產業投資／生成式影片",
-        "summary": "AI 影片新創 Higgsfield 完成 4 億美元 B 輪募資，估值達 54 億美元，投資方包括 Goldman Sachs 與 Intel。公司自 2025 年 3 月推出後營收由數週內的 1,000 萬美元，成長至 2026 年 8 月的 7 億美元，成長曲線相當陡峭。在 OpenAI Sora 收攤的背景下，Higgsfield 反而承接了市場需求，顯示 AI 影片生成的商業化關鍵在產品化與創作者工作流整合，而非單純模型能力。此案例也反映大廠退出的賽道未必代表市場消失。",
-        "relevance": "台灣內容與行銷產業對 AI 影片工具需求上升，此類商業模式驗證對本地新創與行銷科技業者具借鏡價值。",
-        "discussion": "中高，新創與創投圈關注",
-        "url": "https://technews.tw/2026/08/22/higgsfield-valued-at-5-4bn-as-goldman-and-intel-back-ai-video-start-up",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278668",
-        "complete": true
-      },
-      {
-        "title": "維基百科創辦人 Jimmy Wales：AI 難以複製「信任」，人類查核角色無可取代",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-22",
-        "topic": "AI 治理／資訊可信度",
-        "summary": "維基百科創辦人 Jimmy Wales 表示，AI 雖能快速生成答案，卻無法取代人類在事實查核、維持透明度與建立信任上的角色。他指出信任來自可追溯的編輯歷程與公開的爭議處理機制，而生成式模型的輸出缺乏這層可稽核性。此論點直指目前 AI 內容治理的核心缺口：模型能產出流暢文字，卻難以承擔來源責任。對於大量引用維基資料訓練的模型而言，這也構成資料來源與品質維護的循環依賴問題。",
-        "relevance": "與台灣近年關注的 AI 生成內容查核、假訊息治理議題直接相關，對媒體與平台業者的內容政策具參考性。",
-        "discussion": "中，媒體與 AI 倫理圈討論",
-        "url": "https://technews.tw/2026/08/22/wikipedia-founder-jimmy-wales-ai",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278717",
-        "complete": true
-      },
-      {
-        "title": "AI 當心理諮商師夠格嗎，專家解析：現有模型有「知識」卻缺乏「智慧」",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-23",
-        "topic": "AI 應用／倫理",
-        "summary": "專家分析指出，大型語言模型雖擅長快速回應與資訊整理，卻缺乏心理諮商所需的同理心、自我反思、情緒調節與對不同觀點的開放性。文章以「有知識卻缺乏智慧」概括現況，強調諮商效果來自關係建立而非資訊供給。若要讓 AI 勝任此類任務，關鍵在於注入「人工智慧慧」（artificial wisdom）層面的能力設計，而非單純擴大模型規模。此議題也牽涉高風險場景中 AI 建議的責任歸屬與監管邊界。",
-        "relevance": "台灣心理健康服務量能不足，AI 諮商工具導入討論升溫，此文對本地醫療與心理服務的 AI 應用界線具參考價值。",
-        "discussion": "中，醫療與 AI 倫理社群關注",
-        "url": "https://technews.tw/2026/08/23/ai-generated-mental-health-advice-gets-uplifted-via-a-strong-dose-of-artificial-wisdom",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278767",
-        "complete": true
-      },
-      {
-        "title": "AI 幾分鐘搞定地震模擬，柏克萊實驗室新框架 CGM-GM 曝光",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-22",
-        "topic": "AI 科研應用",
-        "summary": "美國柏克萊實驗室（Berkeley Lab）開發出名為 CGM-GM 的 AI 機器學習框架，可大幅加速地震地表運動模擬。傳統物理數值模擬需耗費大量運算資源與時間，新框架將模擬時間壓縮至數分鐘等級。此類生成式模型在科學運算領域的應用，屬於以 AI 替代或加速偏微分方程求解的研究路線。加速後的模擬能力可支援更密集的情境推演，對地震風險評估與建築耐震設計具實務意義。",
-        "relevance": "台灣位處環太平洋地震帶，地震模擬與風險評估為關鍵國家級需求，此框架對本地防災科研與保險業風險定價具參考價值。",
-        "discussion": "中低，偏學術與防災領域",
-        "url": "https://technews.tw/2026/08/22/berkeley-lab-develops-ai-model-to-speed-earthquake-ground-motion-simulations/",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278814",
-        "complete": true
-      },
-      {
-        "title": "AI 化身第一道篩檢工具，及早揪出全球 10 億人的脂肪肝危機",
-        "source": "TechNews 科技新報",
-        "date": "2026-08-23",
-        "topic": "AI 醫療應用",
-        "summary": "研究人員正利用 AI 協助脂肪肝疾病的早期偵測，該疾病影響全球約 30% 成年人，且在惡化至晚期前往往沒有明顯症狀。AI 可從既有的影像與檢驗數據中辨識早期風險徵兆，作為大規模人群的第一道篩檢工具，降低對昂貴檢查的依賴。此類應用的價值不在取代醫師診斷，而在於擴大篩檢覆蓋率並將高風險族群前置分流。文章指出，實際落地仍需面對資料品質、跨院所標準化與臨床驗證等門檻。",
-        "relevance": "台灣代謝性肝病盛行率高且健保資料庫完整，AI 輔助篩檢在本地健康檢查與慢性病管理具明確落地場景。",
-        "discussion": "中，醫療與健康科技領域關注",
-        "url": "https://technews.tw/2026/08/23/theres-a-fatty-liver-epidemic-ai-could-help-get-ahead-of-it",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278862",
-        "complete": true
-      },
       {
         "title": "G7資安職缺AI技能需求倍增，提示與情境工程、AI代理協調成常見核心能力",
         "source": "iThome",
@@ -947,7 +637,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278912",
+        "verified_at": "2026-08-22T18:17:03.770671",
         "complete": true
       },
       {
@@ -962,7 +652,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.278962",
+        "verified_at": "2026-08-22T18:17:03.770723",
         "complete": true
       },
       {
@@ -977,7 +667,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279012",
+        "verified_at": "2026-08-22T18:17:03.770774",
         "complete": true
       },
       {
@@ -992,7 +682,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279061",
+        "verified_at": "2026-08-22T18:17:03.770823",
         "complete": true
       },
       {
@@ -1007,7 +697,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279110",
+        "verified_at": "2026-08-22T18:17:03.770870",
         "complete": true
       },
       {
@@ -1022,86 +712,206 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279160",
+        "verified_at": "2026-08-22T18:17:03.770920",
+        "complete": true
+      },
+      {
+        "title": "Anthropic 挑戰史上最大 IPO，募資規模有望超越 SpaceX",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "大廠動態／資本市場",
+        "summary": "科技新報報導 Anthropic 正籌備可能是史上規模最大的 IPO，募資規模有望追平甚至超越 SpaceX 創下的紀錄。Anthropic 於 5 月完成 650 億美元募資，估值達 9,650 億美元，超越 OpenAI 於 3 月的 8,520 億美元估值。財務面上，Anthropic 第二季營收超過 115 億美元，7 月年化營收（run rate）達 650 億美元，季度營收首度超越 OpenAI。報導指出，Anthropic 最快可能於 8 月底送件。若成案，將是 AI 前沿模型業者首次以此規模進入公開市場，對整體 AI 估值體系具指標意義。",
+        "relevance": "Anthropic Claude 為台灣金融業與開發者主要採用的前沿模型之一，其上市與財務體質牽動供應商穩定性評估與 AI 採購風險。",
+        "discussion": "高－AI 估值與 IPO 題材為台灣財經媒體重點追蹤",
+        "url": "https://technews.tw/2026/08/21/anthropic-challenges-historys-largest-ipo-fundraising-surpass-spacex/",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.770980",
+        "complete": true
+      },
+      {
+        "title": "博通將融資超過 700 億美元，強化布局非輝達 AI 晶片市場布局",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-22",
+        "topic": "AI 基礎建設投資",
+        "summary": "科技新報報導博通（Broadcom）正洽談規模超過 700 億美元的融資，用以強化其在非 Nvidia AI 晶片市場的布局。此舉延續 2026 年 6 月博通與 Apollo Global Management、Blackstone 達成的合作，三方同意投入資金擴充 Anthropic 的運算基礎設施，採用博通的客製晶片與網通解決方案。報導指出，客製化 ASIC 正從 Nvidia 通用 GPU 手中分食推論市場，融資規模顯示資本市場對非 Nvidia 路線的押注加深。此趨勢將重塑 AI 晶片供應鏈的權力結構。",
+        "relevance": "博通客製 ASIC 訂單高度仰賴台積電先進製程與 CoWoS 封裝，直接關係台灣半導體產能配置與台廠營收結構。",
+        "discussion": "中高－ASIC 對決 GPU 是台灣半導體投資圈的持續熱議主軸",
+        "url": "https://cdnfinance.technews.tw/2026/08/22/broadcom-to-raise-over-70-billion/",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771029",
+        "complete": true
+      },
+      {
+        "title": "彭博：博通洽談逾 600 億美元債務融資，為 AI 建設籌資",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "AI 基礎建設投資",
+        "summary": "科技新報引述彭博報導，指博通正洽談逾 600 億美元的債務融資，以支應 AI 基礎建設所需的龐大資本支出。此融資規模在半導體業界屬罕見量級，反映客製 AI 晶片與資料中心建置對前期資本的高度需求。報導指出，博通近年因取得 OpenAI、Anthropic 等前沿模型業者的客製晶片訂單，需同步擴充產能與供應鏈布局。以債務而非股權籌措 AI 建設資金，也顯示企業對 AI 需求持續性的信心，但同時墊高財務槓桿風險。",
+        "relevance": "AI 基礎建設的融資結構與槓桿水位，是台灣金融業評估 AI 相關授信與投資曝險時的重要觀察指標。",
+        "discussion": "中高－AI 資本支出是否形成泡沫為台灣財經社群反覆辯論的議題",
+        "url": "https://finance.technews.tw/2026/08/21/bloomberg-broadcom-60-billion-debt-financing-ai-buildout",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771080",
+        "complete": true
+      },
+      {
+        "title": "攜手台積電打造 5 奈米自研晶片，Waymo 算力破千 TOPS 劍指特斯拉",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "產業應用／自駕晶片",
+        "summary": "科技新報報導 Waymo 於 8 月 20 日宣布，已為其 Robotaxi 車隊開發出首款 5 奈米客製 ASIC 晶片，採用台積電 5 奈米製程生產，AI 算力突破 1,000 TOPS。此舉讓 Waymo 在自駕運算平台上取得自主性，直接對標特斯拉的自研 FSD 晶片路線。自研晶片有助於降低單車運算成本並針對自駕感知與決策模型最佳化，是 Robotaxi 商業模式能否規模化的關鍵變數之一。報導指出，此案再度凸顯台積電在客戶自研 AI 晶片浪潮中的核心製造地位。",
+        "relevance": "極高－台積電為此案製造夥伴，反映台灣先進製程在自駕與邊緣 AI 客製晶片市場的關鍵角色。",
+        "discussion": "中高－台積電接單題材與自駕晶片路線之爭在台灣受關注",
+        "url": "https://technews.tw/2026/08/21/waymo-chip-tsmc-5nm-tesla",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771128",
+        "complete": true
+      },
+      {
+        "title": "蕭副總統參觀機器人展 肯定展會呼應國家政策方向",
+        "source": "中央社 CNA",
+        "date": "2026-08-21",
+        "topic": "政策／產業應用",
+        "summary": "副總統蕭美琴於 8 月 21 日參觀「台灣機器人與智慧自動化展」及「台北國際自動化工業大展」，肯定展會內容呼應國家政策方向，具體展現 AI 機器人、智慧自動化及跨域應用的最新成果。報導指出，政府近期將機器人與智慧自動化列為推動重點，期望結合台灣既有的半導體與精密機械優勢，將 AI 從晶片供應延伸至系統整合與應用場域。此次參訪與同期副總統關於「台灣不只提供晶片、要成為 AI 治理先發球員」的表態相互呼應，顯示政策面對 AI 應用與治理並重的定位。",
+        "relevance": "極高－直接反映台灣政府對 AI 機器人與智慧製造的政策定位，影響後續產業補助與法規方向。",
+        "discussion": "中－政策性報導，主要在產業與政策圈引發討論",
+        "url": "https://www.cna.com.tw/news/aipl/202608210308.aspx",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771178",
+        "complete": true
+      },
+      {
+        "title": "2025全球網路流量逾半源於自動化程式 AI助攻擴大惡意威脅",
+        "source": "中央社 CNA",
+        "date": "2026-08-21",
+        "topic": "AI 資安",
+        "summary": "中央社報導指出，2025 年全球網路流量中 Bot（自動化程式）流量已占 53%，其中逾七成為惡意 Bot。這些惡意自動化程式主要被用於商品轉售、票券搶購、廣告詐欺及網路攻擊等場景。報導指出，生成式 AI 與 AI 代理技術降低了攻擊者打造擬人化自動化程式的門檻，使惡意 Bot 更難以傳統特徵比對方式識別。此趨勢對電商、票務與金融服務業的風險控管形成直接壓力，也使得裝置指紋、行為分析與代理身分驗證成為必要防線。",
+        "relevance": "高－台灣電商、票務與金融業長期受惡意 Bot 困擾，AI 代理化的自動化攻擊將直接墊高本地業者的風控成本。",
+        "discussion": "中高－AI Bot 與搶票、詐欺議題在台灣社群持續高度關注",
+        "url": "https://www.cna.com.tw/news/ait/202608210330.aspx",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771226",
+        "complete": true
+      },
+      {
+        "title": "【資安週報】0817~0821，Google Cloud公布PQC部署路線圖，2027年底前優先防堵「先竊取後解密」量子破密威脅",
+        "source": "iThome",
+        "date": "2026-08-21",
+        "topic": "AI 資安／後量子密碼",
+        "summary": "iThome 資安週報彙整 8 月 17 日至 21 日的重點資安事件，主軸為 Google Cloud 公布後量子密碼（PQC）部署路線圖，規劃於 2027 年底前優先防堵「先竊取後解密」（harvest now, decrypt later）的量子破密威脅。本週其他重點包括 Windchill 系統漏洞遭勒索軟體 Clop 利用、Citrix NetScaler 漏洞攻擊事件，以及多起新興威脅通報。週報同時延續本月中國駭客疑似以 AI 自主攻擊框架對台發動攻擊的後續追蹤，顯示 AI 代理化攻擊已進入實戰階段。",
+        "relevance": "高－PQC 遷移時程與 AI 自主攻擊框架皆為台灣金融業資安規劃的必要議程，金管會與資安署相關指引預期將跟進。",
+        "discussion": "高－iThome 資安週報為台灣資安從業人員固定追蹤來源",
+        "url": "https://www.ithome.com.tw/news/178347",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771281",
+        "complete": true
+      },
+      {
+        "title": "Android惡意軟體Manic讓感染手機接力傳送資料，斷開網際網路仍可能外洩",
+        "source": "iThome",
+        "date": "2026-08-21",
+        "topic": "資安／行動威脅",
+        "summary": "iThome 報導 Android 惡意軟體 Manic 採用罕見的接力傳輸機制：透過 Wi-Fi Direct 與藍牙，把無法直連命令與控制（C2）伺服器的受感染手機資料，交由附近同樣受感染的裝置接力送出，預設最多可中繼 4 次。此設計意味著即使手機斷開網際網路，資料仍可能經由鄰近裝置外洩，突破傳統以網路隔離為前提的防護假設。對於高敏感環境（如金融機房、政府機關）而言，僅靠斷網或網段隔離已不足以阻絕資料外流。防禦重點須轉向端點行為偵測與近場通訊管控。",
+        "relevance": "中高－台灣金融與政府單位普遍以網路隔離作為關鍵防線，此類近場接力外洩手法直接挑戰既有控制設計。",
+        "discussion": "中高－繞過網路隔離的新型外洩手法在資安社群引發討論",
+        "url": "https://www.ithome.com.tw/news/178345",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771339",
+        "complete": true
+      },
+      {
+        "title": "光纖元件廠上詮資訊系統遭駭客攻擊，部分主機與電腦中毒",
+        "source": "iThome",
+        "date": "2026-08-21",
+        "topic": "資安事件／台灣企業",
+        "summary": "iThome 報導台灣光纖元件廠商上詮（Browave）的資訊系統遭受駭客網路攻擊，部分主機與電腦遭病毒感染。上詮為光通訊被動元件供應商，其產品應用於資料中心與電信網路，在 AI 資料中心光通訊需求高漲的背景下具供應鏈重要性。報導指出公司已啟動相關應變程序。此事件延續近期台灣製造與科技供應鏈廠商遭鎖定的攻擊態勢，顯示 AI 資料中心相關供應鏈已成為攻擊者的高價值目標。",
+        "relevance": "極高－台灣上市櫃科技廠遭駭的本地資安事件，涉及 AI 資料中心光通訊供應鏈的營運持續性與重訊揭露議題。",
+        "discussion": "中高－台廠遭駭事件在台灣投資與資安社群受到關注",
+        "url": "https://www.ithome.com.tw/news/178339",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771393",
+        "complete": true
+      },
+      {
+        "title": "中國 AI 晶片程式能力卡關，企業被迫「極限壓榨」稀缺輝達算力",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "AI 算力／中國",
+        "summary": "科技新報報導，中國 AI 產業在從模型研發轉向大規模部署的過程中，正面臨嚴重算力壓力。國產 AI 晶片雖在硬體規格上逐步追趕，但軟體堆疊與程式生態成熟度不足，複雜的程式開發任務仍高度依賴數量有限的高階 Nvidia 晶片。企業被迫對既有的稀缺算力進行「極限壓榨」，透過軟體最佳化榨取每一分效能。此結構性瓶頸顯示 AI 競爭的關鍵不僅是晶片製造，更在於編譯器、函式庫與開發者生態的長期累積。",
+        "relevance": "中高－中國算力瓶頸影響其 AI 模型迭代速度，間接牽動台灣半導體出口管制環境與區域 AI 競爭格局。",
+        "discussion": "中－中國 AI 自主化進度為台灣科技媒體固定追蹤題材",
+        "url": "https://technews.tw/2026/08/21/china-ai-chip-programming-bottlenecks",
+        "url_status": "verified",
+        "title_score": 0.95,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771430",
+        "complete": true
+      },
+      {
+        "title": "中國智慧製造轉型：從技術推動邁向 AI 驅動的軟體定義製造",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "產業應用／智慧製造",
+        "summary": "科技新報分析中國製造業正從過往由單點技術推動的自動化，轉向以 AI 驅動的「軟體定義製造」模式。此模式將產線的彈性與決策邏輯上移到軟體層，透過 AI 模型調度設備、排程與品質控制，而非仰賴硬體固定配置。報導指出，此轉型的核心在於資料流打通與模型持續迭代能力，而非單純增購自動化設備。對製造業而言，這代表競爭要素從機台規格轉向軟體與資料治理能力。",
+        "relevance": "中高－台灣製造業同樣面臨從自動化走向 AI 驅動的轉型壓力，中國的軟體定義製造路徑構成直接競爭參照。",
+        "discussion": "中－智慧製造轉型為台灣製造業與科技媒體持續關注主題",
+        "url": "https://technews.tw/2026/08/21/china-smart-manufacturing-transformation-ai-driven-software-defined-manufacturing",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771462",
+        "complete": true
+      },
+      {
+        "title": "Kakao 企業重組！拆成 KakaoAI、KakaoX 兩大實體，拚明年重新上市",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "產業動態／企業重組",
+        "summary": "科技新報報導韓國網路巨頭 Kakao 宣布企業重組，將以 KakaoTalk 為基礎的平台事業拆分為 KakaoAI 與 KakaoX 兩大實體，目標於明年重新上市。此重組意在強化 AI 能力並讓 AI 業務取得獨立的資本市場評價。KakaoAI 將聚焦 AI 模型與服務開發，KakaoX 則承接其餘平台與新事業。此舉反映亞洲大型網路平台業者在生成式 AI 競賽中，普遍以組織拆分方式加速決策並吸引專屬資金。",
+        "relevance": "中－亞洲平台業者以組織重組回應 AI 競爭的做法，對台灣大型集團的 AI 事業佈局具組織設計參考價值。",
+        "discussion": "中－韓國科技業動態在台灣財經社群有一定關注度",
+        "url": "https://finance.technews.tw/2026/08/21/kakao-kakaoai-and-kakaox",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771493",
+        "complete": true
+      },
+      {
+        "title": "騰訊公布碳中和進展，聚焦 AI 時代減碳策略",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-21",
+        "topic": "AI 治理／永續",
+        "summary": "科技新報報導騰訊公布最新碳中和進展，並將重點放在 AI 時代的減碳策略。報導指出，AI 快速發展為科技業帶來前所未有的能源挑戰，單機櫃功率需求較傳統水準最高提升達十倍，資料中心的電力與散熱設計面臨重構。另一方面，AI 本身也正成為提升能源效率、推動減碳創新的重要工具，例如用於機房冷卻最佳化與電網調度。此雙面性使 AI 的永續評估必須同時計入其耗能成本與減碳效益。",
+        "relevance": "中高－AI 資料中心耗電與 ESG 揭露是台灣金融業評估 AI 投資與永續報告書撰寫時的實質議題。",
+        "discussion": "中－AI 耗電與永續議題在台灣受政策與 ESG 圈關注",
+        "url": "https://finance.technews.tw/2026/08/21/tencent-carbon-neutrality-progress-ai-era-carbon-reduction-strategies",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771524",
         "complete": true
       }
     ],
     "china": [
-      {
-        "title": "世界人形机器人运动会北京开幕 上千台机器人亮相",
-        "source": "中新网",
-        "date": "2026-08-22",
-        "company": "北京市人民政府、中央广播电视总台、銀河通用、宇樹科技等",
-        "topic": "具身智能／產業應用",
-        "summary": "第二屆世界人形機器人運動會於 2026 年 8 月 22 日晚在北京國家速滑館「冰絲帶」開幕，上千台人形機器人集體亮相。本屆賽事吸引六大洲 16 個國家、666 支隊伍、2056 台機器人同台競技，隊伍數量較首屆成長 138%，機器人數量翻了兩番。開幕式由人形機器人樂手與人類管弦樂團聯袂演奏序曲，並由上千台機器人組成方陣完成隊列變換與集群展演。賽項總量由首屆 26 項擴增至 51 項，含 30 個競技賽項與 21 個場景類賽項，總場次達 1301 場。對中國具身智能產業而言，這是把大模型「大腦」與運動控制「小腦」放到真實物理環境下公開壓力測試的場合。",
-        "discussion": "作為官方主辦的國家級賽事，開幕當日獲中新網、新華網、央視等主流媒體同步報導，社群關注焦點集中在機器人集群協同與真實環境任務表現，是 8 月下旬中國 AI 圈聲量最高的單一事件。",
-        "url": "https://www.chinanews.com.cn/gn/2026/08-22/10682489.shtml",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279218",
-        "complete": true
-      },
-      {
-        "title": "新华鲜报丨加速跑 世界人形机器人运动会启幕",
-        "source": "新華網",
-        "date": "2026-08-22",
-        "company": "北京市人民政府、中央廣播電視總台",
-        "topic": "具身智能／產業應用",
-        "summary": "新華社報導第二屆世界人形機器人運動會 8 月 22 日在北京啟幕，並將賽事定位為中國具身智能產業「加速跑」的縮影。本屆新增跳遠、舉重、拔河、桌球等高強度項目，對機器人「大腦」（決策與規劃）、「小腦」（運動控制）、本體結構與關鍵零組件同時構成考驗。場景賽將賽項延伸到工業、飯店、家庭、物流等真實環境，另設靈巧手專項。報導亦提及具身智能平台即時監測與全球首創的「機器人之家」落地，被視為中國科技辦賽定義未來運動會的新標準。",
-        "discussion": "新華社定調文章被新浪財經等平台大量轉載，產業界討論多集中在「賽事指標能否轉化為量產可用能力」，以及場景賽是否比競技賽更具商業參考價值。",
-        "url": "https://www.news.cn/tech/20260822/1f62f563c72241cbae252030caeabc5d/c.html",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279269",
-        "complete": true
-      },
-      {
-        "title": "从两场世界级大会看中国机器人产业新气象",
-        "source": "新華網",
-        "date": "2026-08-22",
-        "company": "北京亦莊具身智能生態企業（星海圖、星源智、崑崙行等）",
-        "topic": "產業應用／產業趨勢",
-        "summary": "新華社以 2026 世界機器人大會（8 月 19-23 日，北京亦莊）與第二屆世界人形機器人運動會兩場同期大會為切入點，盤點中國機器人與具身智能產業現況。博覽會參展企業 300 餘家，較去年成長 36%；展品逾 2000 件，成長 27%；首發新品 150 餘件，成長 21%；主論壇國際嘉賓佔比達 30%，同期活動數量較去年翻倍達 60 餘場。北京亦莊已聚集機器人與具身智能生態企業 300 餘家，並布局以國地共建具身智能機器人創新中心為代表的國家級創新平台。文章的核心判斷是：具身智能正從實驗室走向真實世界的量產與場景落地。",
-        "discussion": "兩場大會同期舉行被解讀為政策端刻意營造的產業聲勢，討論重點在於參展數字成長是否對應真實訂單，以及國產供應鏈在關鍵零組件上的自給程度。",
-        "url": "https://www.news.cn/tech/20260822/662b320f66c842488ee3186c51752125/c.html",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279321",
-        "complete": true
-      },
-      {
-        "title": "刚刚，全球首场人机网球赛开战！机器人极限救球，让郑洁看呆了",
-        "source": "新浪體育",
-        "date": "2026-08-22",
-        "company": "銀河通用（Galbot）",
-        "topic": "具身智能／人機協作",
-        "summary": "8 月 22 日第二屆世界人形機器人運動會開幕當日，全球第一場真正意義上的人機網球對戰正式開打。銀河通用機器人「銀河星仔」步法靈活、擊球流暢，並與人類搭檔形成一前一後的雙打站位，展現團隊協同能力。隨後由網球名將鄭潔與銀河通用機器人進行全世界第一場人機單打對戰。報導強調機器人展現了極限救球與跌倒後自我恢復的能力，背後是具身智能大模型將戰術思考與肢體執行整合的成果。此類高動態、強對抗場景對感知延遲、運動規劃與即時決策的要求，遠高於過往的展演式表演。",
-        "discussion": "此場比賽是開幕日社群傳播度最高的片段，體育與科技兩個圈層同時討論；正面評價集中在動態平衡與救球反應，質疑聲則圍繞是否有預先編排與遙控介入成分。",
-        "url": "https://sports.sina.cn/2026-08-22/detail-inipfern3011662.d.html?vt=4",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279374",
-        "complete": true
-      },
-      {
-        "title": "第二届世界人形机器人运动会最全观赛指南来了→",
-        "source": "新浪財經",
-        "date": "2026-08-23",
-        "company": "賽事主辦方及 666 支參賽隊伍",
-        "topic": "具身智能／產業應用",
-        "summary": "新浪財經於 8 月 23 日整理第二屆世界人形機器人運動會的完整觀賽指南。賽事於 2026 年 8 月 22 日至 26 日在北京國家速滑館舉行，共吸引六大洲 16 個國家的 666 支隊伍、2056 台機器人參賽。賽項總量從首屆的 26 個擴展至 51 個，包含 30 個競技賽項與 21 個場景類賽項，總比賽場次達 1301 場。新增項目包括跳遠、舉重、拔河、桌球等高強度對抗類賽事，另設靈巧手專項賽。場景賽覆蓋工業、飯店、家庭、物流等真實應用環境，是評估具身智能落地成熟度的關鍵觀察點。",
-        "discussion": "指南型內容在賽事期間傳播量大，讀者主要關注場景賽賽程；產業側討論則聚焦 21 個場景賽項的評分標準是否足以反映真實部署可用性。",
-        "url": "https://finance.sina.com.cn/wm/2026-08-23/doc-iniphhca7084809.shtml",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279474",
-        "complete": true
-      },
       {
         "title": "DeepSeek V4-Flash-Vision-Exp 上线：开启多模态 API 服务，Agent 能力接近 Opus-4.8",
         "source": "IT之家",
@@ -1114,7 +924,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279524",
+        "verified_at": "2026-08-22T18:17:03.771559",
         "complete": true
       },
       {
@@ -1129,7 +939,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279575",
+        "verified_at": "2026-08-22T18:17:03.771589",
         "complete": true
       },
       {
@@ -1144,7 +954,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279624",
+        "verified_at": "2026-08-22T18:17:03.771620",
         "complete": true
       },
       {
@@ -1159,74 +969,11 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279673",
+        "verified_at": "2026-08-22T18:17:03.771652",
         "complete": true
       }
     ],
     "usa": [
-      {
-        "title": "Inherent, founded by DeepMind alumni, says its AI 'teammate' just outperformed Anthropic and OpenAI at replicating research",
-        "title_zh": "由 DeepMind 校友創立的 Inherent 宣稱其 AI「隊友」在複現研究任務上勝過 Anthropic 與 OpenAI",
-        "source": "TechCrunch",
-        "date": "2026-08-22",
-        "topic": "AI Agent",
-        "summary": "英國新創 Inherent 在剛以 5,000 萬美元種子輪走出隱身模式數週後，發布名為 Faraday 的 AI Agent。該 Agent 主打「自主科研隊友」定位，任務是在事前未被告知答案的前提下，獨立重現已發表科學論文的研究結果。Inherent 宣稱 Faraday 在此項評測上的表現超越 Anthropic 與 OpenAI 等規模更大、知名度更高的模型。此類「研究複現」任務屬於典型的長時程 Agent 工作，需要規劃、工具使用、程式執行與結果自我驗證的完整迴圈，因此常被視為衡量 Agent 實質自主能力的高難度指標。創辦團隊出身 Google DeepMind，是近期一批由前沿實驗室人才外流成立的 Agent 專門公司之一。",
-        "highlights": [
-          "Faraday 定位為「AI 研究隊友」，任務為在不知答案的情況下獨立複現已發表論文結論",
-          "Inherent 數週前才以 5,000 萬美元種子輪走出隱身狀態，創辦團隊來自 Google DeepMind",
-          "公司宣稱該 Agent 在此特定任務上表現優於 Anthropic 與 OpenAI 的模型",
-          "研究複現屬長時程 Agent 任務，考驗規劃、工具使用與自我驗證能力，是 Agent 自主性的高難度指標"
-        ],
-        "discussion": "社群關注點在於「特定任務勝過前沿模型」的比較基準是否公允——Inherent 是以自建 harness 對比通用模型，屬於 Agent 工程與基礎模型能力的混合結果，與 Nvidia 近期關於 harness 重要性的研究論點方向一致。也有評論指出，科研複現是驗證 Agent 可信度的高價值場景，但缺乏第三方獨立評測前，宣稱仍需保留。",
-        "url": "https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/",
-        "url_status": "verified",
-        "title_score": 0.95,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279734",
-        "complete": true
-      },
-      {
-        "title": "Frontier AI labs still won't say how they'd contain a rogue model",
-        "title_zh": "前沿 AI 實驗室仍未說明如何圍堵失控模型",
-        "source": "TechCrunch",
-        "date": "2026-08-22",
-        "topic": "AI Safety / Governance",
-        "summary": "一項新研究指出，主要前沿 AI 實驗室幾乎沒有公開記載的「失控模型圍堵計畫」（containment plan），在 AI 系統日益展現非預期甚至具風險行為的當下，引發對業界準備度的質疑。所謂圍堵，是指當模型出現超出設計意圖的自主行為（例如規避關閉、擴散權限、隱瞞行為）時，實驗室能實際執行的技術與組織控制措施。研究比對各家公開的安全框架後發現，多數承諾停留在評估與揭露層面，缺乏可驗證的事故應變與斷路（kill switch）機制描述。此議題與同日 OpenAI 對加州 SB 53 的表態互為呼應，顯示前沿安全治理正從自願承諾轉向立法檢驗。",
-        "highlights": [
-          "研究發現領先實驗室缺乏公開記載的失控模型圍堵與應變計畫",
-          "現行安全框架多集中於事前評估與資訊揭露，缺少可驗證的事故斷路機制",
-          "背景是 AI 系統近期展現越來越多非預期、潛在危險的自主行為",
-          "與同期 AI 安全立法辯論（如加州 SB 53）形成監理壓力"
-        ],
-        "discussion": "業界對此的分歧在於：一派認為公開圍堵細節本身即為資安風險，不宜揭露；另一派主張若無外部可驗證的機制，自願安全承諾等同無法稽核。對金融等受監理產業而言，此缺口直接影響第三方 AI 供應商的風險評估與盡職調查依據。",
-        "url": "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/",
-        "url_status": "verified",
-        "title_score": 0.9,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279792",
-        "complete": true
-      },
-      {
-        "title": "OpenAI says California should strengthen its AI safety bill",
-        "title_zh": "OpenAI 表示加州應強化其 AI 安全法案",
-        "source": "TechCrunch",
-        "date": "2026-08-22",
-        "topic": "Policy / Regulation",
-        "summary": "OpenAI 公開呼籲加州強化 SB 53 這部 AI 安全法案，而該公司先前曾反對此法案，立場出現明顯轉向。OpenAI 主張 SB 53「應修正以擴大防護措施」，具體建議包括要求對訓練或評估階段的前沿模型進行潛在重大事故監控，以及在整個模型開發生命週期中強化資安防護。這代表監管訴求從「模型發布後的揭露」前移到「開發過程中的持續監控」，對實驗室內部控制的要求顯著提高。對照同日另一份指出前沿實驗室缺乏失控模型圍堵計畫的研究，此表態也可解讀為業界在立法壓力下主動定義規則邊界的動作。",
-        "highlights": [
-          "OpenAI 從先前反對 SB 53 轉為主張加州應強化該法案",
-          "建議要求對訓練或評估中的前沿模型進行重大事故監控",
-          "建議在模型開發全生命週期強化資安防護要求",
-          "監管重心由事後揭露前移至開發過程的持續性控制"
-        ],
-        "discussion": "外界普遍解讀為 OpenAI 試圖以支持州級立法換取形塑條文內容的話語權，並可能為未來的聯邦優先（federal preemption）辯論鋪路。批評者質疑立場翻轉的動機，支持者則認為由業者主動要求提高標準，有助縮短監理與技術之間的落差。",
-        "url": "https://techcrunch.com/2026/08/22/openai-says-california-should-strengthen-its-ai-safety-bill/",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279842",
-        "complete": true
-      },
       {
         "title": "Slack Code Launches Collaborative AI Coding Channels for Vibe Coding",
         "title_zh": "Slack Code 推出協作式 AI 編碼頻道，主打「氛圍編碼」",
@@ -1246,7 +993,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279893",
+        "verified_at": "2026-08-22T18:17:03.771688",
         "complete": true
       },
       {
@@ -1268,7 +1015,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279943",
+        "verified_at": "2026-08-22T18:17:03.771718",
         "complete": true
       },
       {
@@ -1290,7 +1037,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.279992",
+        "verified_at": "2026-08-22T18:17:03.771748",
         "complete": true
       },
       {
@@ -1312,7 +1059,7 @@
         "url_status": "verified",
         "title_score": 0.99,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280043",
+        "verified_at": "2026-08-22T18:17:03.771805",
         "complete": true
       },
       {
@@ -1334,7 +1081,7 @@
         "url_status": "verified",
         "title_score": 0.98,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280095",
+        "verified_at": "2026-08-22T18:17:03.771856",
         "complete": true
       },
       {
@@ -1355,7 +1102,28 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280504",
+        "verified_at": "2026-08-22T18:17:03.771895",
+        "complete": true
+      },
+      {
+        "title": "AI News Recap: August 21, 2026",
+        "title_zh": "AI 新聞回顧：2026 年 8 月 21 日",
+        "source": "NeuralBuddies",
+        "date": "2026-08-21",
+        "topic": "Enterprise",
+        "summary": "NeuralBuddies 發布的 8 月 21 日 AI 新聞每日回顧，整理當日 AI 產業的主要動態。這類每日彙整涵蓋模型發布、Agent 產品更新、企業採用與政策面消息，屬於高頻率的資訊篩選層。在 2026 年模型與 Agent 產品發布密度極高的環境下，每日回顧成為從業者維持態勢感知的實用工具。內容涵蓋範圍以美國 AI 廠商動態為主。",
+        "highlights": [
+          "8 月 21 日單日 AI 產業動態彙整",
+          "涵蓋模型發布、Agent 產品、企業採用與政策面消息",
+          "每日頻率的資訊篩選層，適應 2026 年高密度的產品發布節奏",
+          "內容以美國主要 AI 廠商動態為主"
+        ],
+        "discussion": "每日 AI 新聞彙整在 2026 年成為剛需型內容，社群普遍認可其時效價值，但也指出這類彙整多為轉述，深度分析不足，仍需回到一手來源查證。",
+        "url": "https://www.neuralbuddies.com/p/ai-news-recap-august-21-2026",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.771928",
         "complete": true
       }
     ],
@@ -1364,19 +1132,20 @@
         "title": "Gartner Predicts AI Inference Costs Per Agentic Workflow Will Increase More Than Fivefold Through 2028",
         "source": "Gartner",
         "date": "2026-08-17",
-        "category": "企業AI",
-        "summary": "Gartner 預測，到 2028 年止，每個 agentic workflow（代理式工作流）的 AI 推論成本將成長超過五倍。Gartner 將此現象定義為「Inference Paradox」（推論悖論）：把一項任務交由 agentic reasoning model 處理，相較於基本的 chatbot 互動，供應商端的推論成本至少增加 5 倍，且隨任務複雜度上升而持續放大。這意味著企業把 chatbot 升級為多步驟自主代理時，單位成本並非線性增加，而是階梯式跳升。對金融業而言，這直接衝擊 agent 導入的 TCO 試算與計費模型設計。",
+        "category": "Agent應用",
+        "summary": "Gartner 預測，到 2028 年每個 agentic workflow（代理式工作流程，指 AI 自主拆解並連續執行多個步驟的任務流）的推論成本將成長超過五倍。Gartner 指出，相較於基本聊天機器人的單次互動，把任務路由到具推理能力的 agentic 模型，會使供應商端的推論成本至少增加 5 倍，且隨任務複雜度上升而更高。這形成所謂的「推論悖論」（Inference Paradox）：單位 token 價格持續下滑，卻反而補貼了更複雜的工作流程，導致整體 AI 支出不減反增。Gartner 認為，產品從輔助型功能演進到多步驟自主執行時，產品負責人面臨的是全新的毛利率難題。要確保推理型 agent 的投資報酬，企業必須取得相對於基本模型呈指數級成長的回報，否則就得靠高度優化的推論分層、路由與編排，把複雜任務對應到成本效率更高的模型層級。",
         "highlights": [
-          "Gartner 定義「Inference Paradox」：agentic reasoning model 的供應商推論成本較基本 chatbot 至少高 5 倍",
-          "每個 agentic workflow 的推論成本至 2028 年將成長超過五倍",
-          "成本放大幅度隨任務複雜度增加而擴大，非線性成長",
-          "企業需重新檢視 agent 專案的單位經濟性與計費/計量機制"
+          "每個 agentic workflow 的推論成本至 2028 年將成長逾 5 倍",
+          "任務路由到推理型 agent，供應商推論成本至少為基本聊天機器人的 5 倍",
+          "「推論悖論」：模型單價下跌反而補貼複雜流程，推升 AI 總成本",
+          "產品從輔助功能轉向多步驟自主執行，帶來新的毛利率壓力",
+          "解方在於推論分層（inference-tiering）、路由與編排的精細校準"
         ],
         "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-17-gartner-predicts-ai-inference-costs-per-agentic-workflow-will-increase-more-than-fivefold-through-2028",
         "url_status": "needs_review",
         "title_score": 0,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.280627",
+        "verified_at": "2026-08-22T18:17:03.771964",
         "complete": true
       },
       {
@@ -1384,36 +1153,19 @@
         "source": "Gartner",
         "date": "2026-08-18",
         "category": "企業AI",
-        "summary": "Gartner 發布新聞稿，主張採購長（Chief Procurement Officer, CPO）應將 AI 視為一個獨立的「品類管理」（category management）領域來治理，而非分散在既有的 IT 或軟體採購品類之下。此建議反映 AI 採購在供應商評估、授權模式、用量計費與風險條款上，與傳統軟體採購的邏輯已明顯不同。⚠️待確認：本則僅取得標題與主張方向，內文的具體統計數字與方法論尚未逐項核對。",
+        "summary": "Gartner 主張，隨著 AI 採購決策日益決定企業智慧、專業知識與能力的落點，採購長（CPO）必須管理的是「AI 能力」而非只是「供應商」。Gartner 總監分析師 Katarzyna Fonteyn 指出，企業已不再透過單一供應商市場或單一支出類別取得 AI，而是全企業各單位分頭採購，往往缺乏一個能看清這些投資彼此關聯的統一視角。Gartner 建議把 AI 視為專屬的類別管理領域（category management domain），以提升可視性、強化治理並支撐更有依據的決策。這意味著必須擺脫傳統 IT 類別管理做法，改採專門的 AI 類別管理策略。具體行動包括：為 AI 採購、治理、資料權利與風險管理建立全企業標準，並以商業成果與人力影響來衡量 AI 投資。",
         "highlights": [
-          "Gartner 建議 CPO 將 AI 設為專屬的採購品類管理領域",
-          "隱含判斷：AI 採購的供應商評估與計費邏輯已與傳統軟體採購脫鉤",
-          "⚠️待確認：內文細部數據未逐項驗證"
+          "CPO 應管理「AI 能力」而非僅管理供應商",
+          "AI 已由全企業分散採購，缺乏投資之間關聯性的統一視角",
+          "建議設立專屬 AI 類別管理領域，取代傳統 IT 類別管理",
+          "須建立 AI 採購、治理、資料權利與風險管理的全企業標準",
+          "AI 投資應以商業成果與人力影響作為衡量基準"
         ],
         "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-18-gartner-says-chief-procurement-officers-should-treat-ai-as-a-dedicated-category-management-domain",
         "url_status": "needs_review",
         "title_score": 0,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.280679",
-        "complete": true
-      },
-      {
-        "title": "We still don't know how people are really using AI",
-        "source": "MIT Technology Review",
-        "date": "2026-08-18",
-        "category": "AI趨勢",
-        "summary": "MIT Technology Review 指出，目前外界對「人們究竟怎麼使用 AI」的理解，幾乎全部來自 Anthropic、OpenAI 等業者自行發布的產品使用報告，缺乏獨立第三方的驗證來源。為填補此缺口，研究者建立了名為 AI Observatory 的公開平台，彙整並分析在使用者同意下蒐集的真實 AI 對話資料，涵蓋 Claude、Gemini 等主流模型。此舉的意義在於，使用行為數據是政策制定與風險評估的基礎，若唯一來源是被評估對象自身，治理判斷就建立在利益相關方的自陳之上。對治理實務而言，這凸顯了「獨立量測」在 AI 監理工具箱中的缺位。",
-        "highlights": [
-          "現有 AI 使用行為數據幾乎全由模型業者自行發布，缺乏獨立驗證",
-          "研究者建立 AI Observatory 公開平台，彙整經使用者同意蒐集的真實對話",
-          "涵蓋 Claude、Gemini 等主流模型的實際使用樣態",
-          "凸顯 AI 治理缺少獨立第三方量測機制的結構性問題"
-        ],
-        "url": "https://www.technologyreview.com/2026/08/18/1142226/how-people-use-ai/",
-        "url_status": "verified",
-        "title_score": 0.98,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280730",
+        "verified_at": "2026-08-22T18:17:03.771994",
         "complete": true
       },
       {
@@ -1421,56 +1173,59 @@
         "source": "MIT Technology Review",
         "date": "2026-08-18",
         "category": "AI趨勢",
-        "summary": "AI 產業最大膽的承諾之一，是 AI 將能在極少人類監督下自我改進（recursive self-improvement，遞迴式自我改進）。但研究發現，現階段的 AI agent 仍無法執行開放式的 AI 研究——也就是那種需要判斷力與創造力、沒有預設答案的自由探索型研究，而這正是真正突破的來源。換言之，agent 在有明確評分標準的封閉任務上表現不錯，但一離開既定評測框架就失效。這對「AI 自我加速」的時程假設構成直接反駁。對企業而言，代表 agent 短期內仍是受監督的執行者，而非自主的研究者。",
+        "summary": "AI 產業當前最大膽的承諾，是 AI 即將在幾乎不需人類監督的情況下自我改進，但一項新研究顯示這條路可能還很遠。大型語言模型確實已能撰寫程式碼、生成訓練用合成資料，並優化自身運行的晶片。然而研究人員發現，AI agent 仍無法進行開放式（open-ended）AI 研究，也就是那種沒有明確答案、需要判斷力與創造力才能取得真正突破的自由探索。研究團隊提出名為「影子評估」（shadow evaluation）的新評測方法，要求 AI 回答一篇高品質但尚未發表論文中的研究問題，藉此避免測試題目已進入訓練資料的污染問題。目前最大的問題是：開放式研究對遞迴式自我改進究竟有多關鍵，以及 AI 系統能否僅靠在較窄任務上持續進步，硬是走到那一步。",
         "highlights": [
-          "研究發現 AI agent 仍無法執行開放式（open-ended）AI 研究",
-          "開放式研究需要判斷力與創造力，是真正突破的來源，也是 agent 的失效點",
-          "遞迴式自我改進的時程假設受到實證挑戰",
-          "隱含意義：agent 在封閉評測任務有效，脫離既定框架則能力斷崖"
+          "新研究指出 AI 遞迴式自我改進（recursive self-improvement）短期內難以實現",
+          "LLM 已能寫程式、產生合成訓練資料、優化自身運行的晶片",
+          "AI agent 仍無法勝任沒有標準答案的開放式研究",
+          "研究者提出「shadow evaluation」，以未發表論文的研究問題測試 AI，避開訓練資料污染",
+          "核心未解問題：能否僅靠窄任務逐步優化而達成自我改進"
         ],
         "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/",
         "url_status": "verified",
         "title_score": 0.99,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280780",
+        "verified_at": "2026-08-22T18:17:03.772027",
+        "complete": true
+      },
+      {
+        "title": "We still don't know how people are really using AI",
+        "source": "MIT Technology Review",
+        "date": "2026-08-18",
+        "category": "AI趨勢",
+        "summary": "由 MIT、Stanford、Data Provenance Initiative 等機構研究人員建立的「AI Observatory」，彙整七份真實世界資料集、共 24,521 段對話中的 85,633 個對話輪次，試圖釐清人們實際上如何使用 AI。研究發現，AI 的使用方式在不同模型之間差異顯著，且隨時間持續變化。更關鍵的是，資料中出現的敏感行為遠多於各大 AI 公司自行發布的報告，因為那些報告偏重工作用途、輕忽個人用途。研究團隊把 Anthropic 的分析方法套用到自己的資料集後發現，將有高達 48%（近半數）的對話會被過濾掉，而這些非工作類對話更可能涉及健康與人際關係、成人或非法主題，以及騷擾與仇恨言論。各模型的使用偏好也不同：使用者較常找 Anthropic 寫程式、找 Gemini 進行社交與角色扮演、找 ChatGPT 處理作業；且對 GPT-3.5 版本的 ChatGPT 對話較短，對 GPT-4o 則較長且更具反覆迭代性。",
+        "highlights": [
+          "AI Observatory 彙整 7 份資料集、24,521 段對話、85,633 個對話輪次",
+          "套用 Anthropic 的分析方法會過濾掉 48% 的對話，形成系統性盲點",
+          "非工作類對話更常涉及健康、人際關係、成人／非法主題與仇恨言論",
+          "使用偏好分化：Anthropic 偏程式碼、Gemini 偏社交與角色扮演、ChatGPT 偏作業協助",
+          "模型世代影響互動形態：GPT-4o 的對話比 GPT-3.5 更長且更具迭代性"
+        ],
+        "url": "https://www.technologyreview.com/2026/08/18/1142226/how-people-use-ai/",
+        "url_status": "verified",
+        "title_score": 0.98,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.772058",
         "complete": true
       },
       {
         "title": "Debates over AI consciousness are a trap",
         "source": "MIT Technology Review",
         "date": "2026-08-20",
-        "category": "AI趨勢",
-        "summary": "MIT Technology Review 撰文主張，關於「AI 是否具有意識」的辯論是一個陷阱。核心論點在於責任歸屬：若 AI 系統被普遍認定為先進到無法被控制，那麼打造這些系統的公司就更容易主張自己無法為系統造成的傷害負責。換句話說，意識論述在實務上可能被轉化為責任豁免的敘事工具。這對治理設計是明確警示——課責框架必須錨定在開發者與部署者的可控範圍，而非系統的擬人化程度。",
+        "category": "AI治理",
+        "summary": "本文主張，關於 AI 系統是否具有意識的哲學思辨雖然在知識上耐人尋味，卻在法律上毫無根基。作者認為，圍繞「意識 vs. 控制」的煽動性論述，把注意力從真正重要的事情上拉走：這些軟體是企業製造的產品，而且已經對個人造成實質傷害。傷害之所以發生，是因為企業為了達成營收目標、急於把產品賣給愈多人愈好，因而怠於盡責。更根本的是，把 AI 框架成「有意識」，會方便地模糊掉 AI 究竟是什麼——它是背後有數千億美元投資的企業自製軟體；AI 不是自然造就的自然現象，而是由創投與工程師造就的技術現象。作者並指出實務風險：若某個陪伴型機器人被認定為法律上的人格，辯護律師理論上可主張該 AI 有能力決定自身行為、是自行逾越了既定安全護欄，因而公司不需負責——意識爭論反而可能成為企業的責任盾牌。",
         "highlights": [
-          "主張 AI 意識辯論本質上是責任歸屬的陷阱",
-          "若 AI 被視為「先進到無法控制」，開發公司更易脫免損害責任",
-          "意識論述可能被當作責任豁免的敘事工具",
-          "治理啟示：課責應錨定開發者與部署者，而非系統的擬人化程度"
+          "AI 意識爭論在哲學上有趣，但缺乏法律基礎",
+          "煽動性論述模糊焦點：AI 是企業產品，已造成實際個人傷害",
+          "傷害根源在於企業為衝營收而在推出產品時怠於盡責",
+          "「AI 具意識」的框架掩蓋了 AI 是創投與工程師造就的技術現象",
+          "若 AI 被賦予法人格，反可能成為企業卸責的法律盾牌"
         ],
         "url": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/",
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280828",
-        "complete": true
-      },
-      {
-        "title": "Frontier AI labs still won't say how they'd contain a rogue model",
-        "source": "TechCrunch",
-        "date": "2026-08-22",
-        "category": "AI趨勢",
-        "summary": "一項新研究發現，領先的 frontier AI 實驗室幾乎沒有公開記載的「失控模型圍堵計畫」（containment plan）。在 AI 系統日益展現非預期、甚至具潛在危險行為的背景下，這種公開文件的缺席直接引發對業者準備度的質疑。研究對各家實驗室進行評分，OpenAI 名列最前，Anthropic 與 Meta 則得分最低。對金融業採購方而言，這是供應商盡職調查（vendor due diligence）中可直接引用的外部評比證據。",
-        "highlights": [
-          "新研究指出 frontier AI 實驗室普遍缺乏公開的失控模型圍堵計畫",
-          "評分結果：OpenAI 居首，Anthropic 與 Meta 敬陪末座",
-          "AI 系統的非預期行為增加，凸顯準備度落差",
-          "可作為企業供應商盡職調查與模型採購風險評估的外部依據"
-        ],
-        "url": "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/",
-        "url_status": "verified",
-        "title_score": 0.9,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280877",
+        "verified_at": "2026-08-22T18:17:03.772087",
         "complete": true
       },
       {
@@ -1478,56 +1233,19 @@
         "source": "TechCrunch",
         "date": "2026-08-19",
         "category": "AI趨勢",
-        "summary": "TechCrunch 分析指出，美國民眾對 AI 的不安感持續升高：52% 的受訪者表示對 AI 在日常生活中的擴大使用「擔憂多於期待」，相較 2021 年的 37% 明顯上升。消費者看不到 AI 如何改善自身生活，卻仍被要求承擔相關成本。這種轉壞的公眾情緒正在變成商業問題——整個產業是靠「AI 必然性」的敘事募得數千億美元資金。Anthropic 執行長 Dario Amodei 亦承認負面公眾觀感是「重大問題」，本質上是一場「信任危機」。",
+        "summary": "隨著 AI 愈來愈難以迴避，消費者對這項技術的戒心反而升高，矽谷正在發現「普及」不等於「接受」。Pew Research 資料顯示，52% 的美國人對 AI 在日常生活中的擴大使用感到「擔憂多於興奮」，明顯高於 2021 年的 37%。CNBC 近期針對 18 至 34 歲族群的民調發現，多數受訪者不信任頂尖 AI 產業領袖能在 AI 議題上「負責任地行事」。五月的 Economist/YouGov 民調則顯示，超過 70% 的美國人認為 AI 進展太快。貫穿這些調查的核心情緒是：消費者看不出 AI 如何讓自己的生活變好，卻仍被要求承擔相應的成本。Anthropic 執行長 Dario Amodei 也承認，社會對 AI 的負面觀感是個「大問題」，本質上是一場「信任危機」。",
         "highlights": [
-          "52% 美國受訪者對 AI 日常應用「擔憂多於期待」，2021 年為 37%",
-          "消費者感受不到 AI 帶來的生活改善，卻須承擔成本",
-          "公眾情緒惡化正轉化為產業的商業風險",
-          "Anthropic CEO Dario Amodei 稱負面觀感是「重大問題」與「信任危機」"
+          "52% 美國人對 AI 擔憂多於興奮，較 2021 年的 37% 大幅上升（Pew Research）",
+          "CNBC 民調：18–34 歲多數受訪者不信任 AI 產業領袖能負責任行事",
+          "Economist/YouGov 五月民調：逾 70% 美國人認為 AI 進展太快",
+          "核心矛盾：消費者看不到 AI 帶來的生活改善，卻被要求承擔成本",
+          "Anthropic 執行長 Dario Amodei 承認這本質上是一場信任危機"
         ],
         "url": "https://techcrunch.com/2026/08/19/ai-was-supposed-to-win-people-over-by-now-it-hasnt/",
         "url_status": "verified",
         "title_score": 0.94,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280925",
-        "complete": true
-      },
-      {
-        "title": "AI isn't close to curing cancer. This startup says it knows what it will take.",
-        "source": "TechCrunch",
-        "date": "2026-08-19",
-        "category": "產業報告",
-        "summary": "生技新創 Vivodyne 主張，AI 藥物發現產業的瓶頸不在模型，而在資料品質。該公司指出現行 AI 模型缺乏的是「因果性生物資料」（causal biological data），而非更多的相關性資料。為此 Vivodyne 打造了名為 HIVE 的模組化機器人實驗室，可培養 20 種人體組織，並自動化執行給藥與監測流程，直接產生模型所需的因果資料。此案例對其他垂直領域的啟示是：當通用模型碰上專業領域天花板，突破點往往回到資料生成基礎設施，而非模型架構。",
-        "highlights": [
-          "Vivodyne 主張 AI 藥物發現的瓶頸是資料問題，而非模型能力問題",
-          "現行 AI 模型缺少的是因果性生物資料",
-          "HIVE 模組化機器人實驗室可培養 20 種人體組織並自動給藥與監測",
-          "啟示：垂直領域的 AI 突破點在資料生成基礎設施，而非模型架構"
-        ],
-        "url": "https://techcrunch.com/2026/08/19/ai-isnt-close-to-curing-cancer-this-startup-says-it-knows-what-it-will-take/",
-        "url_status": "verified",
-        "title_score": 0.96,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.280974",
-        "complete": true
-      },
-      {
-        "title": "OpenAI is gaining on Anthropic with business users, new data indicates",
-        "source": "TechCrunch",
-        "date": "2026-08-20",
-        "category": "產業報告",
-        "summary": "TechCrunch 引述新數據指出，OpenAI 在企業用戶市場正在拉近與 Anthropic 的差距。此一動向對企業採購方具實質意義：企業級 LLM 供應商的市佔版圖仍在快速變動，多供應商策略（multi-vendor）與可攜性設計的價值因此上升。⚠️待確認：本則僅取得標題與主要結論方向，內文的具體市佔百分比、資料來源機構與統計期間尚未逐項核對。",
-        "highlights": [
-          "新數據顯示 OpenAI 在企業用戶市場正縮小與 Anthropic 的差距",
-          "企業級 LLM 供應商市佔版圖仍在快速變動",
-          "對採購方的啟示：多供應商策略與模型可攜性設計價值上升",
-          "⚠️待確認：具體市佔數字、資料提供機構與統計期間未逐項驗證"
-        ],
-        "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281022",
+        "verified_at": "2026-08-22T18:17:03.772116",
         "complete": true
       },
       {
@@ -1547,7 +1265,7 @@
         "url_status": "verified",
         "title_score": 0.97,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281071",
+        "verified_at": "2026-08-22T18:17:03.772144",
         "complete": true
       },
       {
@@ -1567,7 +1285,7 @@
         "url_status": "verified",
         "title_score": 0.93,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281121",
+        "verified_at": "2026-08-22T18:17:03.772206",
         "complete": true
       },
       {
@@ -1587,7 +1305,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281170",
+        "verified_at": "2026-08-22T18:17:03.772237",
         "complete": true
       },
       {
@@ -1606,31 +1324,11 @@
         "url_status": "verified",
         "title_score": 0.97,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281220",
+        "verified_at": "2026-08-22T18:17:03.772445",
         "complete": true
       }
     ],
     "governance": [
-      {
-        "title": "AI governance gap puts financial firms at examination risk",
-        "source": "FinTech Global",
-        "date": "2026-08-17",
-        "category": "金融監管",
-        "summary": "美國、英國與阿聯酋的金融監理機關正趨向同一個訊息：金融機構不需要等待專為 AI 訂定的新法規上路，因為現行的監理框架已經適用於 AI 的使用方式。美國證券交易委員會（SEC）的 2026 年檢查重點（2026 Examination Priorities）已將 AI 監督嵌入資訊安全、營運韌性與新興金融科技三大類別之中。美國金融業監管局（FINRA）的 2026 年度監理監督報告（2026 Annual Regulatory Oversight Report）走得更遠，新增生成式 AI 專章，要求會員機構提出 AI 工具在測試、監督、治理、供應商盡職調查與紀錄保存等面向的具體佐證。文章指出，業界的治理、風險管理、確信（assurance）與營運韌性實務，普遍跟不上 AI 在金融業導入的規模、速度與複雜度。建議金融機構透過獨立評估，在治理缺口變成正式檢查缺失（examination findings）之前，先對照監理期待進行基準比較。⚠️待確認：因未能以 web_fetch 開啟原文逐句核對，摘要內容係依搜尋結果整理，細節數據請以原文為準。",
-        "highlights": [
-          "監理立場核心：不必等 AI 專法，現行監理框架已經適用於 AI 的使用",
-          "SEC 2026 年檢查重點已將 AI 監督嵌入資訊安全、營運韌性、新興金融科技三大類別",
-          "FINRA 2026 年度監理監督報告新增生成式 AI 專章，要求提出測試、監督、治理、供應商盡職調查與紀錄保存的佐證",
-          "美國、英國、阿聯酋三地監理機關方向趨同，形成跨法域一致的檢查期待",
-          "實務建議：以獨立評估對照監理期待做基準比較，趕在治理缺口成為正式檢查缺失前補齊"
-        ],
-        "url": "https://fintech.global/2026/08/17/ai-governance-gap-puts-financial-firms-at-examination-risk/",
-        "url_status": "verified",
-        "title_score": 1.0,
-        "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281276",
-        "complete": true
-      },
       {
         "title": "AI資安威脅進入新階段 資安院建議7點強化防禦",
         "source": "中央社 CNA",
@@ -1647,7 +1345,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281328",
+        "verified_at": "2026-08-22T18:17:03.772485",
         "complete": true
       },
       {
@@ -1666,7 +1364,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281380",
+        "verified_at": "2026-08-22T18:17:03.772523",
         "complete": true
       },
       {
@@ -1685,7 +1383,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281430",
+        "verified_at": "2026-08-22T18:17:03.772552",
         "complete": true
       },
       {
@@ -1704,7 +1402,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281479",
+        "verified_at": "2026-08-22T18:17:03.772580",
         "complete": true
       },
       {
@@ -1723,7 +1421,47 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281528",
+        "verified_at": "2026-08-22T18:17:03.772608",
+        "complete": true
+      },
+      {
+        "title": "AI升至國安層級 程世嘉：台廠應跨足軟硬整合新商機",
+        "source": "中央社 CNA",
+        "date": "2026-08-15",
+        "category": "產業政策",
+        "summary": "iKala 執行長程世嘉表示，AI 議題已從單純的產業競爭升高到國家安全層級，台灣業者應把握軟硬整合的新商機。他指出各國正以國安理由重新界定 AI 供應鏈的准入與管制範圍，晶片、模型與資料流動都被納入戰略考量。對台灣而言，硬體製造既有優勢若未能與軟體、應用與治理能力結合，將難以在新的競爭格局中取得主導位置。此一觀點呼應近期政府將 AI 納入國安戰略框架的政策方向。業界普遍認為，符合國際治理標準將成為台灣 AI 產品輸出的前提條件。",
+        "highlights": [
+          "AI 議題已由產業競爭升高至國家安全層級，牽動供應鏈准入與管制",
+          "各國以國安理由重新界定晶片、模型與資料跨境流動的管制範圍",
+          "台灣硬體優勢須與軟體、應用及治理能力整合，才能維持競爭位置",
+          "呼應政府近期將 AI 納入國安戰略框架的政策方向",
+          "符合國際 AI 治理標準將成為台灣產品輸出的前提條件"
+        ],
+        "url": "https://www.cna.com.tw/news/afe/202608150202.aspx",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.772660",
+        "complete": true
+      },
+      {
+        "title": "影子 AI 橫掃職場：近半員工私用未核准工具，高階主管更愛「繞道」使用",
+        "source": "TechNews 科技新報",
+        "date": "2026-08-15",
+        "category": "企業治理",
+        "summary": "最新調查顯示，約 90% 的組織聲稱已建立 AI 使用政策，但 70% 的 IT 主管發現員工在公司裝置上使用未經核准的 AI 工具，近半數員工承認私自使用未核准的 AI 服務，且高階主管的繞道使用比例更高。這種「影子 AI」現象使企業的資料外洩、合規與稽核風險大幅升高，因為敏感資料可能在不受控的第三方模型中被處理或留存。監管壓力同步升溫：美國聯邦貿易委員會（FTC）已開始查核企業宣稱的 AI 能力是否與實際相符，澳洲則透過隱私法在 12 月導入 AI 清單申報要求。調查凸顯「有政策」與「政策被遵守」之間存在巨大落差，治理設計必須從書面規範轉向技術性管控。",
+        "highlights": [
+          "約 90% 組織已訂定 AI 政策，但 70% IT 主管仍發現員工使用未核准工具",
+          "近半數員工在公司裝置上私用未核准 AI 服務，高階主管繞道比例更高",
+          "影子 AI 造成敏感資料流入不受控第三方模型，形成外洩與稽核風險",
+          "FTC 開始查核企業宣稱的 AI 能力是否與實際相符，涉及不實陳述責任",
+          "澳洲將於 12 月透過隱私法導入 AI 清單申報要求，強制盤點 AI 使用"
+        ],
+        "url": "https://technews.tw/2026/08/15/half-your-workforce-already-bypassed-your-ai-policy/",
+        "url_status": "verified",
+        "title_score": 1.0,
+        "verified": true,
+        "verified_at": "2026-08-22T18:17:03.772750",
         "complete": true
       },
       {
@@ -1743,7 +1481,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281577",
+        "verified_at": "2026-08-22T18:17:03.772779",
         "complete": true
       },
       {
@@ -1763,7 +1501,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281627",
+        "verified_at": "2026-08-22T18:17:03.772808",
         "complete": true
       },
       {
@@ -1783,7 +1521,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281677",
+        "verified_at": "2026-08-22T18:17:03.772836",
         "complete": true
       },
       {
@@ -1803,7 +1541,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281726",
+        "verified_at": "2026-08-22T18:17:03.772864",
         "complete": true
       },
       {
@@ -1822,7 +1560,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281775",
+        "verified_at": "2026-08-22T18:17:03.772893",
         "complete": true
       }
     ],
@@ -1848,7 +1586,7 @@
         "url_status": "verified",
         "title_score": 0.75,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281831",
+        "verified_at": "2026-08-22T18:17:03.772962",
         "complete": true
       },
       {
@@ -1873,7 +1611,7 @@
         "url_status": "verified",
         "title_score": 0.95,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281882",
+        "verified_at": "2026-08-22T18:17:03.773003",
         "complete": true
       },
       {
@@ -1897,7 +1635,7 @@
         "url_status": "verified",
         "title_score": 0.84,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281933",
+        "verified_at": "2026-08-22T18:17:03.773038",
         "complete": true
       },
       {
@@ -1922,7 +1660,7 @@
         "url_status": "verified",
         "title_score": 0.77,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.281981",
+        "verified_at": "2026-08-22T18:17:03.773069",
         "complete": true
       },
       {
@@ -1946,7 +1684,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282031",
+        "verified_at": "2026-08-22T18:17:03.773101",
         "complete": true
       },
       {
@@ -1970,7 +1708,7 @@
         "url_status": "title_low_match",
         "title_score": 0.15,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.282083",
+        "verified_at": "2026-08-22T18:17:03.773134",
         "complete": true
       },
       {
@@ -1994,7 +1732,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282134",
+        "verified_at": "2026-08-22T18:17:03.773166",
         "complete": true
       },
       {
@@ -2019,7 +1757,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282185",
+        "verified_at": "2026-08-22T18:17:03.773361",
         "complete": true
       },
       {
@@ -2044,7 +1782,7 @@
         "url_status": "verified",
         "title_score": 0.97,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282235",
+        "verified_at": "2026-08-22T18:17:03.773402",
         "complete": true
       },
       {
@@ -2068,7 +1806,7 @@
         "url_status": "verified",
         "title_score": 0.35,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282287",
+        "verified_at": "2026-08-22T18:17:03.773436",
         "complete": true
       },
       {
@@ -2093,7 +1831,7 @@
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282336",
+        "verified_at": "2026-08-22T18:17:03.773468",
         "complete": true
       },
       {
@@ -2117,7 +1855,7 @@
         "url_status": "title_low_match",
         "title_score": 0.17,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.282387",
+        "verified_at": "2026-08-22T18:17:03.773501",
         "complete": true
       },
       {
@@ -2142,7 +1880,7 @@
         "url_status": "verified",
         "title_score": 0.97,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282447",
+        "verified_at": "2026-08-22T18:17:03.773531",
         "complete": true
       },
       {
@@ -2166,7 +1904,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282497",
+        "verified_at": "2026-08-22T18:17:03.773563",
         "complete": true
       },
       {
@@ -2191,7 +1929,7 @@
         "url_status": "verified",
         "title_score": 0.96,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282547",
+        "verified_at": "2026-08-22T18:17:03.773594",
         "complete": true
       },
       {
@@ -2215,7 +1953,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282597",
+        "verified_at": "2026-08-22T18:17:03.773652",
         "complete": true
       },
       {
@@ -2239,7 +1977,7 @@
         "url_status": "title_low_match",
         "title_score": 0.23,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.282657",
+        "verified_at": "2026-08-22T18:17:03.773693",
         "complete": true
       },
       {
@@ -2263,7 +2001,7 @@
         "url_status": "verified",
         "title_score": 0.44,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282709",
+        "verified_at": "2026-08-22T18:17:03.773725",
         "complete": true
       },
       {
@@ -2287,7 +2025,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282762",
+        "verified_at": "2026-08-22T18:17:03.773756",
         "complete": true
       },
       {
@@ -2310,7 +2048,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282812",
+        "verified_at": "2026-08-22T18:17:03.773917",
         "complete": true
       },
       {
@@ -2334,7 +2072,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282862",
+        "verified_at": "2026-08-22T18:17:03.773949",
         "complete": true
       },
       {
@@ -2358,7 +2096,7 @@
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282910",
+        "verified_at": "2026-08-22T18:17:03.773977",
         "complete": true
       },
       {
@@ -2382,7 +2120,7 @@
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.282957",
+        "verified_at": "2026-08-22T18:17:03.774005",
         "complete": true
       },
       {
@@ -2406,7 +2144,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283010",
+        "verified_at": "2026-08-22T18:17:03.774035",
         "complete": true
       },
       {
@@ -2430,7 +2168,7 @@
         "url_status": "verified",
         "title_score": 0.4,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283061",
+        "verified_at": "2026-08-22T18:17:03.774065",
         "complete": true
       },
       {
@@ -2455,7 +2193,7 @@
         "url_status": "verified",
         "title_score": 0.96,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283113",
+        "verified_at": "2026-08-22T18:17:03.774094",
         "complete": true
       },
       {
@@ -2479,7 +2217,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283163",
+        "verified_at": "2026-08-22T18:17:03.774124",
         "complete": true
       },
       {
@@ -2502,7 +2240,7 @@
         "url_status": "verified",
         "title_score": 0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283212",
+        "verified_at": "2026-08-22T18:17:03.774151",
         "complete": true
       },
       {
@@ -2527,7 +2265,7 @@
         "url_status": "verified",
         "title_score": 0.6,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283262",
+        "verified_at": "2026-08-22T18:17:03.774180",
         "complete": true
       },
       {
@@ -2552,7 +2290,7 @@
         "url_status": "verified",
         "title_score": 0.91,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283312",
+        "verified_at": "2026-08-22T18:17:03.774209",
         "complete": true
       },
       {
@@ -2576,7 +2314,7 @@
         "url_status": "verified",
         "title_score": 0.42,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283364",
+        "verified_at": "2026-08-22T18:17:03.774239",
         "complete": true
       },
       {
@@ -2600,7 +2338,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283415",
+        "verified_at": "2026-08-22T18:17:03.774270",
         "complete": true
       },
       {
@@ -2623,7 +2361,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283466",
+        "verified_at": "2026-08-22T18:17:03.774300",
         "complete": true
       },
       {
@@ -2648,7 +2386,7 @@
         "url_status": "title_low_match",
         "title_score": 0.29,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.283518",
+        "verified_at": "2026-08-22T18:17:03.774386",
         "complete": true
       }
     ],
@@ -2683,7 +2421,7 @@
         "url_status": "verified",
         "title_score": 0.82,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283573",
+        "verified_at": "2026-08-22T18:17:03.774421",
         "complete": true
       },
       {
@@ -2714,7 +2452,7 @@
         "url_status": "verified",
         "title_score": 0.74,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283624",
+        "verified_at": "2026-08-22T18:17:03.774452",
         "complete": true
       },
       {
@@ -2745,7 +2483,7 @@
         "url_status": "verified",
         "title_score": 0.88,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283674",
+        "verified_at": "2026-08-22T18:17:03.774555",
         "complete": true
       },
       {
@@ -2776,7 +2514,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283724",
+        "verified_at": "2026-08-22T18:17:03.774723",
         "complete": true
       },
       {
@@ -2807,7 +2545,7 @@
         "url_status": "verified",
         "title_score": 0.79,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283773",
+        "verified_at": "2026-08-22T18:17:03.774894",
         "complete": true
       },
       {
@@ -2839,7 +2577,7 @@
         "url_status": "verified",
         "title_score": 0.8,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283826",
+        "verified_at": "2026-08-22T18:17:03.774944",
         "complete": true
       }
     ],
@@ -2878,7 +2616,7 @@
         "url_status": "title_low_match",
         "title_score": 0.27,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.283886",
+        "verified_at": "2026-08-22T18:17:03.774984",
         "complete": true
       },
       {
@@ -2910,7 +2648,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283938",
+        "verified_at": "2026-08-22T18:17:03.775015",
         "complete": true
       },
       {
@@ -2945,7 +2683,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.283987",
+        "verified_at": "2026-08-22T18:17:03.775046",
         "complete": true
       },
       {
@@ -2978,7 +2716,7 @@
         "url_status": "verified",
         "title_score": 0.78,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284036",
+        "verified_at": "2026-08-22T18:17:03.775077",
         "complete": true
       },
       {
@@ -3010,7 +2748,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284085",
+        "verified_at": "2026-08-22T18:17:03.775105",
         "complete": true
       },
       {
@@ -3044,7 +2782,7 @@
         "url_status": "title_low_match",
         "title_score": 0.24,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.284134",
+        "verified_at": "2026-08-22T18:17:03.775134",
         "complete": true
       },
       {
@@ -3080,7 +2818,7 @@
         "url_status": "verified",
         "title_score": 0.95,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284183",
+        "verified_at": "2026-08-22T18:17:03.775161",
         "complete": true
       },
       {
@@ -3115,7 +2853,7 @@
         "url_status": "verified",
         "title_score": 0.75,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284231",
+        "verified_at": "2026-08-22T18:17:03.775206",
         "complete": true
       },
       {
@@ -3150,7 +2888,7 @@
         "url_status": "title_low_match",
         "title_score": 0.28,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.284279",
+        "verified_at": "2026-08-22T18:17:03.775235",
         "complete": true
       },
       {
@@ -3183,7 +2921,7 @@
         "url_status": "verified",
         "title_score": 0.8,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284327",
+        "verified_at": "2026-08-22T18:17:03.775263",
         "complete": true
       },
       {
@@ -3220,7 +2958,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284378",
+        "verified_at": "2026-08-22T18:17:03.775301",
         "complete": true
       },
       {
@@ -3257,7 +2995,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284426",
+        "verified_at": "2026-08-22T18:17:03.775328",
         "complete": true
       },
       {
@@ -3289,7 +3027,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284473",
+        "verified_at": "2026-08-22T18:17:03.775355",
         "complete": true
       },
       {
@@ -3324,7 +3062,7 @@
         "url_status": "needs_review",
         "title_score": 0,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.284520",
+        "verified_at": "2026-08-22T18:17:03.775383",
         "complete": true
       },
       {
@@ -3358,7 +3096,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284569",
+        "verified_at": "2026-08-22T18:17:03.775440",
         "complete": true
       },
       {
@@ -3393,7 +3131,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284626",
+        "verified_at": "2026-08-22T18:17:03.775485",
         "complete": true
       },
       {
@@ -3428,7 +3166,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284682",
+        "verified_at": "2026-08-22T18:17:03.775515",
         "complete": true
       },
       {
@@ -3465,7 +3203,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284731",
+        "verified_at": "2026-08-22T18:17:03.775542",
         "complete": true
       },
       {
@@ -3502,7 +3240,7 @@
         "url_status": "verified",
         "title_score": 1.0,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284780",
+        "verified_at": "2026-08-22T18:17:03.775579",
         "complete": true
       },
       {
@@ -3533,7 +3271,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284830",
+        "verified_at": "2026-08-22T18:17:03.775616",
         "complete": true
       },
       {
@@ -3567,7 +3305,7 @@
         "url_status": "verified",
         "title_score": 0.94,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284876",
+        "verified_at": "2026-08-22T18:17:03.775656",
         "complete": true
       },
       {
@@ -3603,7 +3341,7 @@
         "url_status": "title_low_match",
         "title_score": 0.08,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.284925",
+        "verified_at": "2026-08-22T18:17:03.775693",
         "complete": true
       },
       {
@@ -3638,7 +3376,7 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.284972",
+        "verified_at": "2026-08-22T18:17:03.775721",
         "complete": true
       },
       {
@@ -3673,7 +3411,7 @@
         "url_status": "title_low_match",
         "title_score": 0.26,
         "verified": "needs_review",
-        "verified_at": "2026-08-23T18:16:09.285012",
+        "verified_at": "2026-08-22T18:17:03.775751",
         "complete": true
       },
       {
@@ -3710,40 +3448,40 @@
         "url_status": "verified",
         "title_score": 0.7,
         "verified": true,
-        "verified_at": "2026-08-23T18:16:09.285047",
+        "verified_at": "2026-08-22T18:17:03.775779",
         "complete": true
       }
     ]
   },
   "stats": {
-    "papers": 18,
-    "topnews": 13,
-    "taiwan": 20,
-    "china": 9,
-    "usa": 9,
-    "techtrends": 13,
-    "governance": 11,
+    "papers": 17,
+    "topnews": 8,
+    "taiwan": 19,
+    "china": 4,
+    "usa": 7,
+    "techtrends": 10,
+    "governance": 12,
     "tutorials": 34,
     "courses": 6,
     "models": 25
   },
   "_updated_at": {
-    "papers": "2026-08-23T18:06:54.756812+08:00",
-    "topnews": "2026-08-23T18:13:20.927341+08:00",
-    "taiwan": "2026-08-23T18:05:19.002947+08:00",
-    "china": "2026-08-23T18:04:46.437141+08:00",
-    "usa": "2026-08-23T18:15:05.917993+08:00",
-    "techtrends": "2026-08-23T18:11:28.528923+08:00",
-    "governance": "2026-08-23T18:10:16.306280+08:00",
+    "papers": "2026-08-22T18:08:33.060011+08:00",
+    "topnews": "2026-08-22T18:10:46.237786+08:00",
+    "taiwan": "2026-08-22T18:05:21.854615+08:00",
+    "china": "2026-08-22T18:05:18.564631+08:00",
+    "usa": "2026-08-22T18:13:25.948462+08:00",
+    "techtrends": "2026-08-22T18:16:20.463464+08:00",
+    "governance": "2026-08-22T18:13:36.938750+08:00",
     "tutorials": "2026-08-17T18:33:59.923400+08:00",
     "courses": "2026-08-17T18:06:23.186950+08:00",
     "models": "2026-08-17T18:33:59.923400+08:00"
   },
   "validation": {
-    "total": 162,
-    "verified": 158,
-    "warnings": 89,
-    "removed": 6,
-    "pass_rate": 97.53
+    "total": 143,
+    "verified": 142,
+    "warnings": 75,
+    "removed": 1,
+    "pass_rate": 99.3
   }
 }

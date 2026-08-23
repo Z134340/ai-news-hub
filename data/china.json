@@ -1,165 +1,75 @@
 {
   "items": [
     {
-      "title": "深夜放大招！DeepSeek V4 Pro 正式版 API 更新上線，多項測試性能接近 Fable 5",
-      "source": "IT之家",
-      "date": "2026-08-13",
-      "company": "DeepSeek",
-      "topic": "LLM發布 / AI Agent",
-      "summary": "DeepSeek 於 2026 年 8 月 13 日凌晨（北京時間約 23:00 前後）低調將 DeepSeek-V4-Pro-0813 正式版推送至 API，調用模型名維持不變，屬於 V4 系列旗艦模型的首個正式版。新版本最大改動在 Agent 能力：官方揭露 DeepSWE 由 12.8 躍升至 62.7（提升約 390%），NL2Repo 由 38.5 升至 61.5，DSBench-Hard 達 67.2，Terminal-Bench 2.1 由 72.1 升至 87.9。模型同時支援思考與非思考雙模式，並新增 Responses API 與 Codex 接入，讓既有 Agent 工具鏈可直接切換。定價維持極低水準：輸入每百萬 Token 3 元人民幣、輸出 6 元，快取命中輸入僅 0.025 元。此次更新被視為中國模型廠商在 agentic coding 賽道上的一次正面對標。",
-      "discussion": "IT之家、掘金、新浪財經與海外 Decrypt 同日大量報導，開發者社群聚焦「同時相容 OpenAI 與 Anthropic 協議」與「價格僅為前沿模型數十分之一」兩點；同時亦有評論指出目前所有 benchmark 均為廠商自報，尚無第三方獨立複測。",
-      "url": "https://www.ithome.com/0/989/000.htm"
+      "title": "世界人形机器人运动会北京开幕 上千台机器人亮相",
+      "source": "中新网",
+      "date": "2026-08-22",
+      "company": "北京市人民政府、中央广播电视总台、銀河通用、宇樹科技等",
+      "topic": "具身智能／產業應用",
+      "summary": "第二屆世界人形機器人運動會於 2026 年 8 月 22 日晚在北京國家速滑館「冰絲帶」開幕，上千台人形機器人集體亮相。本屆賽事吸引六大洲 16 個國家、666 支隊伍、2056 台機器人同台競技，隊伍數量較首屆成長 138%，機器人數量翻了兩番。開幕式由人形機器人樂手與人類管弦樂團聯袂演奏序曲，並由上千台機器人組成方陣完成隊列變換與集群展演。賽項總量由首屆 26 項擴增至 51 項，含 30 個競技賽項與 21 個場景類賽項，總場次達 1301 場。對中國具身智能產業而言，這是把大模型「大腦」與運動控制「小腦」放到真實物理環境下公開壓力測試的場合。",
+      "discussion": "作為官方主辦的國家級賽事，開幕當日獲中新網、新華網、央視等主流媒體同步報導，社群關注焦點集中在機器人集群協同與真實環境任務表現，是 8 月下旬中國 AI 圈聲量最高的單一事件。",
+      "url": "https://www.chinanews.com.cn/gn/2026/08-22/10682489.shtml"
     },
     {
-      "title": "剛剛，DeepSeek V4 Pro正式版發布！",
+      "title": "新华鲜报丨加速跑 世界人形机器人运动会启幕",
+      "source": "新華網",
+      "date": "2026-08-22",
+      "company": "北京市人民政府、中央廣播電視總台",
+      "topic": "具身智能／產業應用",
+      "summary": "新華社報導第二屆世界人形機器人運動會 8 月 22 日在北京啟幕，並將賽事定位為中國具身智能產業「加速跑」的縮影。本屆新增跳遠、舉重、拔河、桌球等高強度項目，對機器人「大腦」（決策與規劃）、「小腦」（運動控制）、本體結構與關鍵零組件同時構成考驗。場景賽將賽項延伸到工業、飯店、家庭、物流等真實環境，另設靈巧手專項。報導亦提及具身智能平台即時監測與全球首創的「機器人之家」落地，被視為中國科技辦賽定義未來運動會的新標準。",
+      "discussion": "新華社定調文章被新浪財經等平台大量轉載，產業界討論多集中在「賽事指標能否轉化為量產可用能力」，以及場景賽是否比競技賽更具商業參考價值。",
+      "url": "https://www.news.cn/tech/20260822/1f62f563c72241cbae252030caeabc5d/c.html"
+    },
+    {
+      "title": "从两场世界级大会看中国机器人产业新气象",
+      "source": "新華網",
+      "date": "2026-08-22",
+      "company": "北京亦莊具身智能生態企業（星海圖、星源智、崑崙行等）",
+      "topic": "產業應用／產業趨勢",
+      "summary": "新華社以 2026 世界機器人大會（8 月 19-23 日，北京亦莊）與第二屆世界人形機器人運動會兩場同期大會為切入點，盤點中國機器人與具身智能產業現況。博覽會參展企業 300 餘家，較去年成長 36%；展品逾 2000 件，成長 27%；首發新品 150 餘件，成長 21%；主論壇國際嘉賓佔比達 30%，同期活動數量較去年翻倍達 60 餘場。北京亦莊已聚集機器人與具身智能生態企業 300 餘家，並布局以國地共建具身智能機器人創新中心為代表的國家級創新平台。文章的核心判斷是：具身智能正從實驗室走向真實世界的量產與場景落地。",
+      "discussion": "兩場大會同期舉行被解讀為政策端刻意營造的產業聲勢，討論重點在於參展數字成長是否對應真實訂單，以及國產供應鏈在關鍵零組件上的自給程度。",
+      "url": "https://www.news.cn/tech/20260822/662b320f66c842488ee3186c51752125/c.html"
+    },
+    {
+      "title": "刚刚，全球首场人机网球赛开战！机器人极限救球，让郑洁看呆了",
+      "source": "新浪體育",
+      "date": "2026-08-22",
+      "company": "銀河通用（Galbot）",
+      "topic": "具身智能／人機協作",
+      "summary": "8 月 22 日第二屆世界人形機器人運動會開幕當日，全球第一場真正意義上的人機網球對戰正式開打。銀河通用機器人「銀河星仔」步法靈活、擊球流暢，並與人類搭檔形成一前一後的雙打站位，展現團隊協同能力。隨後由網球名將鄭潔與銀河通用機器人進行全世界第一場人機單打對戰。報導強調機器人展現了極限救球與跌倒後自我恢復的能力，背後是具身智能大模型將戰術思考與肢體執行整合的成果。此類高動態、強對抗場景對感知延遲、運動規劃與即時決策的要求，遠高於過往的展演式表演。",
+      "discussion": "此場比賽是開幕日社群傳播度最高的片段，體育與科技兩個圈層同時討論；正面評價集中在動態平衡與救球反應，質疑聲則圍繞是否有預先編排與遙控介入成分。",
+      "url": "https://sports.sina.cn/2026-08-22/detail-inipfern3011662.d.html?vt=4"
+    },
+    {
+      "title": "第二届世界人形机器人运动会在京盛大开幕",
+      "source": "新京報",
+      "date": "2026-08-22",
+      "company": "北京市人民政府、參賽機器人企業",
+      "topic": "具身智能／產業應用",
+      "summary": "新京報報導第二屆世界人形機器人運動會 8 月 22 日晚在北京國家速滑館開幕的現場情況。賽事自 8 月 22 日至 26 日舉行，為期五天，涵蓋競技與場景兩大類賽項。相較首屆，本屆在參賽規模、賽項設計與國際參與度上均大幅擴張，並將工業、飯店、家庭、物流等真實場景納入評測範圍。報導亦記錄開幕式中人形機器人與人類樂團、方陣的協同演出安排。對照國內 AI 產業脈絡，此類賽事被官方作為推動具身智能標準化評測與供應鏈整合的抓手。",
+      "discussion": "作為北京在地媒體的現場報導，內容以圖文紀實為主，社群轉發集中在開幕式視覺場面；產業讀者較關注後續五天場景賽的實際完成率數據。",
+      "url": "https://www.bjnews.com.cn/detail/1787406375129559.html"
+    },
+    {
+      "title": "智竞向未来！第二届世界人形机器人运动会在京开幕",
+      "source": "央視網（總台之聲）",
+      "date": "2026-08-23",
+      "company": "中央廣播電視總台、北京市人民政府",
+      "topic": "具身智能／產業應用",
+      "summary": "中央廣播電視總台報導第二屆世界人形機器人運動會開幕，以「智競向未來」為主軸。作為聯合主辦方之一，總台的報導確認本屆賽事由北京市人民政府與中央廣播電視總台等單位共同主辦，落地北京國家速滑館。報導涵蓋開幕式流程、參賽規模與新增賽項設計，並將賽事定位為觀察中國具身智能技術水準的公開窗口。競技賽項考驗機器人的運動控制與本體結構，場景賽項則檢驗其在工業、家庭、物流等實際環境中的任務完成能力。",
+      "discussion": "官媒定調報導，傳播管道以電視與央視網為主；討論多集中在國家級媒體親自入局主辦所反映的政策優先級，而非技術細節本身。",
+      "url": "https://www.cctv.com/2026/08/23/ARTIbwctdWPWLFeF5IOUVdyR260823.shtml"
+    },
+    {
+      "title": "第二届世界人形机器人运动会最全观赛指南来了→",
       "source": "新浪財經",
-      "date": "2026-08-13",
-      "company": "DeepSeek",
-      "topic": "LLM發布",
-      "summary": "新浪財經報導 DeepSeek V4 Pro 正式版（DeepSeek-V4-Pro-0813）上線，為 V4 系列的正式版本，接續 4 月推出的預覽版。報導指出模型參數規模達 1.5T，支援百萬級 Token 上下文視窗。相較預覽版，正式版在多項測試上性能大幅提升並逼近 Anthropic Fable 5 水準。API 定價為輸入 3 元／百萬 Token、輸出 6 元／百萬 Token，快取命中輸入 0.025 元／百萬 Token。發布時間點正值中國大模型競速白熱化階段，此前市場曾傳出 V4 正式版將延至 8 月中旬。",
-      "discussion": "作為財經媒體視角的報導，市場關注點集中在 DeepSeek 對國產算力鏈（寒武紀、華為昇騰）與同業定價策略的連帶影響。",
-      "url": "https://finance.sina.com.cn/roll/2026-08-13/doc-ininavwz3327589.shtml"
-    },
-    {
-      "title": "重磅更新！ DeepSeek V4 Pro 正式版API上線",
-      "source": "新浪財經",
-      "date": "2026-08-13",
-      "company": "DeepSeek",
-      "topic": "AI Agent / API",
-      "summary": "《科創板日報》記者獲悉，DeepSeek V4 Pro 正式版已更新至 API，調用模型名不變。新版本大幅增強 Agent 能力，支援 Responses API 與 Codex 接入，意味著開發者可將既有以 OpenAI Responses 介面或 Codex 為基礎的 agent harness 直接切換至 DeepSeek。API 文件顯示定價為 3 元／百萬 Token 輸入、6 元／百萬 Token 輸出，快取命中輸入僅 0.025 元。此次更新未發布獨立新模型名稱，而是以原模型名靜默升級的方式推送，對已在生產環境使用 DeepSeek 的 agent 應用形成無縫替換。",
-      "discussion": "「調用名不變、能力大改」的靜默升級方式引發開發者討論：一方面遷移零成本，另一方面對已鎖定行為的 agent pipeline 構成回歸測試風險。",
-      "url": "https://finance.sina.com.cn/wm/2026-08-13/doc-ininchpa3517586.shtml"
-    },
-    {
-      "title": "DeepSeek V4 Pro 正式版發布：Agent 能力躍升、雙協議相容，全面拆解 0813 版本",
-      "source": "掘金",
-      "date": "2026-08-13",
-      "company": "DeepSeek",
-      "topic": "AI Agent Engineering",
-      "summary": "技術社群掘金對 DeepSeek-V4-Pro-0813 做了完整拆解，重點放在 Agent 工程層面。文章指出新版本最關鍵的是「雙協議相容」：除原有 OpenAI 相容介面外，只需將 BASE URL 改為 api.deepseek.com/anthropic 即可以 Anthropic API 格式調用，等同讓 Claude Code 一類的 agent harness 可直接換底層模型。能力面上，DeepSWE 從 12.8 提升至 62.7、CyberGym 從 52.7 提升至 83.3、Terminal Bench 2.1 從 72.1 提升至 87.9，顯示長程軟體工程任務與工具調用的穩定度是本次優化主軸。模型同時支援 thinking 與 non-thinking 雙模式切換。",
-      "discussion": "掘金與各技術社群討論集中在「換 BASE URL 就能接管 Claude 生態工具鏈」的實務衝擊，被視為中國模型切入海外 agent 開發者市場的關鍵槓桿。",
-      "url": "https://juejin.cn/post/7673092180174667816"
-    },
-    {
-      "title": "DeepSeek重磅更新 V4Pro正式版上線",
-      "source": "X排行",
-      "date": "2026-08-13",
-      "company": "DeepSeek",
-      "topic": "LLM發布",
-      "summary": "報導 DeepSeek 於 8 月 13 日正式上線 V4 Pro 正式版，接續 7 月 31 日的 V4-Flash 更新，形成 Flash（低成本）＋ Pro（旗艦）的雙線產品結構。V4 Pro 正式版強化 Agent 與程式碼能力，並在多項測試上逼近國際前沿模型。定價策略延續 DeepSeek 一貫的低價路線，輸入 3 元、輸出 6 元／百萬 Token。此次發布使 DeepSeek 在 2026 年 7 至 8 月間連續完成兩次重要模型迭代。",
-      "discussion": "中文科技社群關注 DeepSeek 是否會如 V3 時期再度引發一輪國內外定價重整，以及 Flash 與 Pro 的定位切分。",
-      "url": "https://www.xpaihang.com/articles/tech/2026-08-13-deepseek%E9%87%8D%E7%A3%85%E6%9B%B4%E6%96%B0-v4pro%E6%AD%A3%E5%BC%8F%E7%89%88%E4%B8%8A%E7%BA%BF"
-    },
-    {
-      "title": "China's DeepSeek Upgrades V4 Pro: Claude Fable Is Only 5% Better at 4,500% the Price",
-      "source": "Decrypt",
-      "date": "2026-08-13",
-      "company": "DeepSeek / Anthropic",
-      "topic": "LLM發布 / 評測",
-      "summary": "Decrypt 分析 DeepSeek-V4-Pro-0813 與 Anthropic Claude Fable 5 的對照數據。報導指出，DeepSeek 在 CyberGym 與 AutomationBench 上領先 Fable 5，在 Terminal Bench 2.1 上僅落後 0.1 分（87.9 對 88.0），其餘 benchmark 則落後。將 Fable 5 在各項 benchmark 上的相對領先幅度平均後約為 5.3%，剔除單一差距較大的項目後約為 2.8%。但價格差距達到數十倍量級。Decrypt 同時提醒，這些皆為 DeepSeek 官方自報數據，尚無外部機構獨立複測，而 agent benchmark 對 harness、prompt、effort 設定與工具環境高度敏感。",
-      "discussion": "海外開發者社群對「5% 性能差、45 倍價差」的論述反應兩極：成本敏感的應用方視為換模契機，企業採購方則強調缺乏獨立評測與資料落地合規疑慮。",
-      "url": "https://decrypt.co/375507/china-deepseek-upgrades-v4-pro-claude-fable"
-    },
-    {
-      "title": "DeepSeek V4-Pro 0813: Fable-Level, 57x Cheaper",
-      "source": "explainx.ai",
-      "date": "2026-08-13",
-      "company": "DeepSeek",
-      "topic": "AI Agent / 評測",
-      "summary": "技術部落格分析 DeepSeek-V4-Pro-0813 在 Terminal-Bench 2.1 上取得 87.9 分，僅落後 Fable 5 0.1 分，但單位成本為 $0.435／$0.87（輸入／輸出，每百萬 Token），約為前沿模型的五十分之一。文章聚焦此版本在 Cline 等 agentic coding 工具中的實際可用性，指出 DeepSWE 由 12.8 提升至 62.7 是本次最劇烈的能力躍遷。作者同時強調所有數據來自廠商自報，agent benchmark 高度依賴外部 harness 設定，尚待第三方複測驗證。",
-      "discussion": "在 agentic coding 工具（Cline、Codex 類）使用者圈中討論度高，重點在「同等 harness 下是否真能重現官方分數」。",
-      "url": "https://explainx.ai/blog/deepseek-v4-pro-0813-terminal-bench-cline-august-2026"
-    },
-    {
-      "title": "Tencent's AI Innovation Pace in Question After Earnings",
-      "source": "Bloomberg",
-      "date": "2026-08-12",
-      "company": "騰訊 Tencent",
-      "topic": "科技大廠 / 財報",
-      "summary": "騰訊於 8 月 12 日公布 2026 年第二季財報後，市場對其 AI 創新節奏產生疑慮。Bloomberg 指出投資人原本期待看到騰訊在 AI 領域縮小與領先者差距的證據，但財報顯示的是資本支出大幅擴張而非產品層面的突破。第二季資本支出年增 176% 至人民幣 528 億元，主要投入 AI 基礎設施，導致自由現金流轉為負 138 億元人民幣。騰訊 ADR 當日下跌 5.34%，反映市場對高額資本支出的不安。淨現金部位由 1,469 億元人民幣降至 582 億元人民幣。",
-      "discussion": "華爾街與港股投資圈就「AI 資本支出是護城河還是黑洞」激烈辯論；財報成為中國 AI 板塊當週的情緒指標。",
-      "url": "https://www.bloomberg.com/news/newsletters/2026-08-12/tencent-s-ai-innovation-pace-in-question-after-earnings"
-    },
-    {
-      "title": "Tencent revenue climbs 11% in Q2 as AI capex jumps 176%",
-      "source": "Cryptopolitan",
-      "date": "2026-08-12",
-      "company": "騰訊 Tencent",
-      "topic": "科技大廠 / 財報",
-      "summary": "騰訊 2026 年第二季營收年增 11% 至人民幣 2,048 億元，略高於市場預期的 2,028 億元。國內遊戲業務營收年增 17% 至 473 億元，行銷服務營收年增 22% 至 436 億元，為主要成長引擎。資本支出激增 176% 至 528 億元人民幣，全數投向 AI 基礎設施，使自由現金流轉為負 138 億元。若排除新 AI 產品，non-IFRS 營業利潤年增 19% 至 861 億元；新 AI 產品在第二季造成 105 億元的利潤拖累。混元 3 正式版日均 Token 用量成長 6 倍，在 OpenRouter 上位居全球前三，混元 4 已在開發中並預計 2026 年稍晚推出。",
-      "discussion": "中文財經社群關注「新 AI 產品季度虧損 105 億」的揭露方式，視為中國大廠首度明確量化 AI 投入的損益拖累。",
-      "url": "https://www.cryptopolitan.com/tencent-revenue-climbs-q2-capex-jumps-176/"
-    },
-    {
-      "title": "[TCEHY Q2 2026 Earnings Call] CapEx Surges 190% to RMB 51.8B, Core Profit Ex-AI Up 19% as Tencent Doubles Down on AI",
-      "source": "BigGo Finance",
-      "date": "2026-08-12",
-      "company": "騰訊 Tencent",
-      "topic": "科技大廠 / 財報",
-      "summary": "BigGo 整理騰訊 2026 年第二季法說會重點：資本支出大幅攀升至人民幣 500 億元以上量級，剔除 AI 新產品後的核心利潤年增 19%，顯示本業獲利能力仍穩健，AI 投入為主要拖累項。管理層明確表態將持續加碼 AI，混元 3 正式版的日均 Token 調用量成長 6 倍，並在 OpenRouter 全球模型使用排名進入前三。混元 4 為更大規模模型，預計 2026 年內推出，管理層宣稱其將「擊敗更大尺寸的模型」。財報同時揭露 AI 新產品對季度利潤的具體拖累金額。",
-      "discussion": "投資分析圈聚焦「核心利潤 ex-AI 年增 19%」這一切分方式，認為騰訊試圖引導市場將 AI 投入視為獨立的成長期業務而非本業惡化。",
-      "url": "https://finance.biggo.com/news/US_TCEHY_2026-08-12"
-    },
-    {
-      "title": "Earnings call transcript: Tencent posts solid Q2 2026 growth as AI spending surges",
-      "source": "Investing.com",
-      "date": "2026-08-12",
-      "company": "騰訊 Tencent",
-      "topic": "AI Agent / 企業應用",
-      "summary": "騰訊第二季法說會逐字稿揭露多項 Agent 戰略細節。總裁劉熾平（Martin Lau）將 WorkBuddy 描述為「一個新平台——一個高度彈性的 agentic AI 工作空間」，指出該平台將編排多個模型（包含 DeepSeek）以及超過 70,000 項第三方技能（skills）。劉熾平並將 AI 時代類比為從 QQ 到微信的躍遷，稱「微信生態把 QQ 的價值放大了 10 倍以上……AI 將在可控成本下賦能微信」。微信內部代號「小微」的原型將提供嵌入式、具情境感知能力的 agent，串接社交圖譜、小程式生態與微信支付。總營收年增 11% 至人民幣 2,050 億元，毛利年增 13%，non-IFRS 營業利潤年增 9%。",
-      "discussion": "「編排包含 DeepSeek 在內的多模型 + 7 萬項第三方 skill」是本次法說會技術面最受關注的揭露，被解讀為騰訊放棄單一自研模型路線、轉向 agent orchestration 層卡位。",
-      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-tencent-posts-solid-q2-2026-growth-as-ai-spending-surges-93CH-4855197"
-    },
-    {
-      "title": "Tencent Holdings Ltd (TCEHY) (Q2 2026) Earnings Call Highlights: AI Investments Drive Revenue Growth",
-      "source": "Yahoo Finance",
-      "date": "2026-08-12",
-      "company": "騰訊 Tencent",
-      "topic": "科技大廠 / 財報",
-      "summary": "Yahoo Finance 整理騰訊 2026 年第二季法說會重點，指出 AI 投資已成為營收成長的驅動力之一，特別是在行銷服務業務上，AI 驅動的廣告推薦帶動該分部營收年增 22%。財報同時顯示 AI 基礎設施資本支出的急劇擴張對現金流造成壓力。管理層在會中確認混元 4 正在開發中，並強調微信生態的 AI 化是長期最重要的價值放大槓桿。整體而言，騰訊呈現「本業穩健成長、AI 大幅投入、短期利潤承壓」的財務結構。",
-      "discussion": "美股 ADR 投資人社群對騰訊 AI 支出節奏的討論熱度高，與同期 Alibaba（8 月 17 日）、Baidu 財報形成中國三大科技巨頭 AI 投入的橫向對照。",
-      "url": "https://finance.yahoo.com/technology/ai/articles/tencent-holdings-ltd-tcehy-q2-230539924.html"
-    },
-    {
-      "title": "寒武紀已完成五大國產大模型適配，第六代晶片架構正在研發中",
-      "source": "新浪科技",
-      "date": "2026-08-13",
-      "company": "寒武紀 Cambricon",
-      "topic": "AI 晶片 / 產業應用",
-      "summary": "寒武紀於 8 月 12 日舉行 2026 年半年度業績說明會，董事長暨總經理陳天石揭露公司已完成 GLM、DeepSeek、Qwen、Kimi、MiniMax 五大國產大模型的推理適配，對應智譜、DeepSeek、阿里巴巴、月之暗面、MiniMax 五家模型廠商。訓練側則持續推進 DeepSeek、Qwen 與混元系列模型的適配與優化，並已在千卡、萬卡叢集場景下實現通訊、容錯與長週期穩定性的規模化訓練技術。公司同時揭露第六代晶片架構正在研發中。上半年營收人民幣 59.96 億元、年增 108.13%，歸母淨利 23.11 億元、年增 122.61%。",
-      "discussion": "中文投資與技術社群將「五大國產模型全適配」視為國產算力替代進度的關鍵指標，尤其關注訓練側萬卡叢集穩定性的實際成熟度。",
-      "url": "https://finance.sina.com.cn/tech/digi/2026-08-13/doc-inineiyk4677039.shtml"
-    },
-    {
-      "title": "寒武紀回應「存貨超 82 億」：將持續拓展市場，控制相關風險",
-      "source": "新浪科技",
-      "date": "2026-08-12",
-      "company": "寒武紀 Cambricon",
-      "topic": "AI 晶片 / 財報",
-      "summary": "寒武紀在 8 月 12 日的半年度業績說明會上，針對投資人關切的「存貨超過人民幣 82 億元」問題作出回應，表示將持續拓展市場並控制相關風險。高額存貨在 AI 晶片產業通常反映對後續出貨的樂觀備貨，但也伴隨跌價與呆滯的風險敞口，因此成為法人提問焦點。公司同期公布上半年營收 59.96 億元、歸母淨利 23.11 億元，雙雙翻倍成長。管理層強調將持續聚焦 AI 晶片設計的技術創新，推進智慧晶片產品與基礎系統軟體平台的迭代優化。",
-      "discussion": "A 股投資圈對寒武紀存貨結構與 Q2 環比增速放緩的關聯高度關注，多位投資人在說明會現場追問硬體交付是否延遲。",
-      "url": "https://finance.sina.com.cn/tech/digi/2026-08-12/doc-ininamih5152086.shtml"
-    },
-    {
-      "title": "寒武紀Q2營收環比增速放緩系硬體交付延遲？多名投資者在線發問 陳天石未予正面回應｜直擊業績會",
-      "source": "財聯社",
-      "date": "2026-08-12",
-      "company": "寒武紀 Cambricon",
-      "topic": "AI 晶片 / 財報",
-      "summary": "財聯社直擊寒武紀 8 月 12 日半年度業績說明會現場，報導多名投資人針對第二季營收環比增速放緩是否肇因於硬體交付延遲提出質詢，董事長陳天石未予正面回應。陳天石就「算力過剩」議題回應稱：「在大模型技術創新加速的背景下，智慧算力需求持續上升，公司將繼續聚焦 AI 晶片設計的技術創新，推動智慧晶片產品與基礎系統軟體平台的迭代優化，積極拓展市場份額，加速場景落地。」說明會同時揭露五大國產大模型推理適配完成與第六代晶片架構研發中兩項技術進展。",
-      "discussion": "作為國產算力龍頭，寒武紀業績會的每一句話都被視為判讀中國 AI 算力供需的風向標；管理層對交付節奏避而不答引發較大討論。",
-      "url": "https://www.cls.cn/detail/2452586"
-    },
-    {
-      "title": "公布「炸裂」業績後，寒武紀回應市場關切",
-      "source": "同花順財經",
-      "date": "2026-08-12",
-      "company": "寒武紀 Cambricon",
-      "topic": "AI 晶片 / 財報",
-      "summary": "同花順報導寒武紀在公布上半年營收人民幣 59.96 億元（年增 108.13%）、歸母淨利 23.11 億元（年增 122.61%）的高成長業績後，於 8 月 12 日舉行業績說明會回應市場關切事項，包含存貨規模、Q2 環比增速、國產大模型適配進度與下一代晶片研發時程。公司表示已完成 GLM、DeepSeek、Qwen、Kimi、MiniMax 五大國產大模型的推理適配，並在訓練側推進 DeepSeek、Qwen、混元系列的適配優化，已具備千卡與萬卡叢集規模化訓練能力。第六代晶片架構正在研發中。",
-      "discussion": "業績翻倍與存貨高企形成的對比是散戶與機構討論的核心；「五大模型全適配」則被視為國產 AI 算力生態閉環的實質進展。",
-      "url": "http://stock.10jqka.com.cn/20260812/c678906638.shtml"
+      "date": "2026-08-23",
+      "company": "賽事主辦方及 666 支參賽隊伍",
+      "topic": "具身智能／產業應用",
+      "summary": "新浪財經於 8 月 23 日整理第二屆世界人形機器人運動會的完整觀賽指南。賽事於 2026 年 8 月 22 日至 26 日在北京國家速滑館舉行，共吸引六大洲 16 個國家的 666 支隊伍、2056 台機器人參賽。賽項總量從首屆的 26 個擴展至 51 個，包含 30 個競技賽項與 21 個場景類賽項，總比賽場次達 1301 場。新增項目包括跳遠、舉重、拔河、桌球等高強度對抗類賽事，另設靈巧手專項賽。場景賽覆蓋工業、飯店、家庭、物流等真實應用環境，是評估具身智能落地成熟度的關鍵觀察點。",
+      "discussion": "指南型內容在賽事期間傳播量大，讀者主要關注場景賽賽程；產業側討論則聚焦 21 個場景賽項的評分標準是否足以反映真實部署可用性。",
+      "url": "https://finance.sina.com.cn/wm/2026-08-23/doc-iniphhca7084809.shtml"
     }
   ],
-  "_updated_at": "2026-08-13T18:07:38.373489+08:00"
+  "_updated_at": "2026-08-23T18:04:46.437141+08:00"
 }

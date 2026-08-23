@@ -1,186 +1,164 @@
 {
   "items": [
     {
-      "title": "全新短期課程「AI Code Review」：與 Qodo 合作，教你打造自己的程式碼審查 Agent",
+      "title": "AI Coding Workflows: From Cloud to Local（AI 編碼工作流：從雲端到本地）",
+      "source": "DeepLearning.AI",
+      "date": "2026-08-12",
+      "provider": "DeepLearning.AI × JetBrains",
+      "is_free": true,
+      "cert_included": false,
+      "level": "intermediate",
+      "duration": "短課程（約 1-2 小時）",
+      "topics": [
+        "AI Coding Agents",
+        "Claude Code",
+        "Subagents",
+        "Open-source Coding Agents",
+        "Local LLM Inference",
+        "PyCharm",
+        "Open-weight Models",
+        "Cost Optimization"
+      ],
+      "summary": "DeepLearning.AI 與 JetBrains 合作推出的新短課程，由 JetBrains 開發者關係專家 Paul Everitt 授課，主題是如何建構更快、更便宜、以本地優先為原則的 agentic 開發環境。課程從 Claude Code 的雲端基準流程出發，逐步加入 subagents、把例行工作路由到成本較低的模型，再切換成開源編碼 agent 並串接不同的推論供應商，最後將模型完全在本地端執行。學員會用同一個應用程式分別以雲端、混合、全本地三種工作流重建一次，實際觀察每種選擇對成本、速度與用量指標的影響。這門課直接回應目前 coding agent 推論成本高漲、企業對資料落地與隱私要求提升的實務痛點。JetBrains 官方部落格同步發布課程說明，強調 PyCharm 與 open-weight 模型的整合路徑。",
+      "highlights": [
+        "由 JetBrains Developer Advocate Paul Everitt 授課，與 Andrew Ng 的 DeepLearning.AI 團隊共同設計",
+        "以同一個應用程式重建三種工作流（雲端／混合／全本地），可直接比較成本、速度與用量差異",
+        "涵蓋 subagents 編排、模型路由（把例行任務交給便宜模型）與開源編碼 agent 的替換",
+        "實作將 open-weight 模型部署到本地端推論，適合有資料落地或隱私限制的團隊"
+      ],
+      "url": "https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local"
+    },
+    {
+      "title": "AI Code Review（AI 程式碼審查）",
       "source": "DeepLearning.AI",
       "date": "2026-07-29",
       "provider": "DeepLearning.AI × Qodo",
       "is_free": true,
-      "cert_included": true,
+      "cert_included": false,
       "level": "intermediate",
-      "duration": "約 1-2 小時（short course）",
+      "duration": "短課程（約 1 小時）",
       "topics": [
         "AI Code Review",
-        "Coding Agent",
         "Context Engineering",
+        "Review Agents",
+        "Pull Request Workflow",
         "Qodo",
-        "Software Engineering"
+        "Security Triage"
       ],
-      "summary": "DeepLearning.AI 與 Qodo 合作推出短期課程「AI Code Review」，由 Nnenna Ndukwe 授課。課程切入點是現實痛點：AI 產出程式碼的速度已遠超人工審查能力，而一個 pull request 表面看起來沒問題，卻可能藏著資安漏洞或漏掉需求。課程教三個核心實務：在開 pull request 之前就先審查、給審查器完整的 codebase 脈絡、依風險高低分流處理審查發現。學員最後會自己動手建一個 review agent，從 context 蒐集到findings 產出的完整流程。對金融業導入 AI 輔助開發而言，這是少數直接處理「AI 生成程式碼的品質控管」這一治理缺口的官方課程。",
+      "summary": "DeepLearning.AI 與 Qodo 合作、由 Nnenna Ndukwe 授課的短課程，切入的問題是：AI 產出的程式碼量已遠超過任何團隊人工審查的能力，而一個 pull request 表面看起來正常，卻可能藏著資安漏洞或漏掉需求。課程教授讓 AI 程式碼審查真正有效的三項實務：在開 pull request 之前就先審查、提供審查者關於任務與整個 codebase 的完整脈絡、以及依風險高低分流審查結果。後半段帶學員從零建立自己的審查 agent，包含 context engine 與多個專職 agent 的組合。這是把 context engineering 概念直接落到 code review 場景的實作課程，對導入 AI 輔助開發但苦於審查瓶頸的工程團隊特別適用。",
       "highlights": [
-        "主打「AI 寫得比人審得快」的落差，把 code review 當成 AI 開發流程的控制點",
-        "三大實務原則：pre-PR 審查、完整 codebase context、依風險 triage findings",
-        "實作專案為自建 review agent，涵蓋 context 蒐集到審查結果輸出",
-        "與 Qodo 合作，講師為 Nnenna Ndukwe",
-        "免費註冊，完成後可取得 DeepLearning.AI 結業證書"
+        "核心方法論：review before you open a pull request，把審查左移到提交前",
+        "強調給審查者完整 repository 與任務脈絡，而非只丟 diff 進去",
+        "實作建構自有 review agent，含 context engine 與專職 agent 分工",
+        "依風險分流（triage findings by risk），避免大量低價值告警淹沒開發者"
       ],
       "url": "https://www.deeplearning.ai/courses/ai-code-review"
     },
     {
-      "title": "全新短期課程「Voice for AI Agents and Applications」：三種語音整合模式實作",
+      "title": "Microsoft Certified: Multi-Agent AI Solutions Expert（Exam AI-500，beta）",
+      "source": "Microsoft Learn",
+      "date": "2026-07-17",
+      "provider": "Microsoft",
+      "is_free": false,
+      "cert_included": true,
+      "level": "advanced",
+      "duration": "考試 120 分鐘（自學備考時程視個人而定）",
+      "topics": [
+        "Multi-Agent Systems",
+        "Azure AI Foundry",
+        "Agent Orchestration",
+        "Microsoft Copilot Studio",
+        "Agent Governance",
+        "Enterprise AI"
+      ],
+      "summary": "Microsoft 新推出的專家級認證，聚焦多 agent AI 解決方案的設計、建置、編排與治理，是繼 AI Agent Builder Associate（AB-620）之後往上延伸的專家層級路徑。官方於 2026-07-17 同步釋出 study guide、考試頁面與配套 e-course，2026-07-22 開放報名，正式 GA 排定在 2026 年 10 月。beta 期間提供 80% 折扣代碼 AI500Wabash，限前 300 名於 2026-08-05 前應考者使用。認證定位在能跨 Azure AI Foundry 與 Copilot Studio 建構企業級多 agent 系統的架構師與 AI 工程師，涵蓋 agent 間協作、狀態管理、可觀測性與治理控制。對金融等受監管產業而言，這是目前少數把「多 agent 治理」明確納入考綱的主流廠商認證。",
+      "highlights": [
+        "專家級（Expert）認證，考綱明確涵蓋 multi-agent 編排與治理，而非單一 agent 建置",
+        "2026-07-17 釋出 study guide、考試頁與 e-course；2026-07-22 開放報名；GA 預定 2026 年 10 月",
+        "beta 折扣代碼 AI500Wabash 提供 80% off，限前 300 名於 2026-08-05 前應考",
+        "與 AB-620（AI Agent Builder Associate，2026 年 6 月 GA）形成 Associate → Expert 的認證階梯"
+      ],
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/"
+    },
+    {
+      "title": "Anthropic Claude Certification Program 擴編為四張 Pearson VUE 監考證照",
+      "source": "Pearson VUE",
+      "date": "2026-07-13",
+      "provider": "Anthropic",
+      "is_free": false,
+      "cert_included": true,
+      "level": "intermediate",
+      "duration": "各科考試 60-120 分鐘不等",
+      "topics": [
+        "Claude",
+        "Claude Code",
+        "Agent Architecture",
+        "Prompt Engineering",
+        "MCP",
+        "Enterprise Deployment"
+      ],
+      "summary": "Anthropic 將其 Claude 認證計畫從 2026 年 3 月推出的單一考試，擴充為四張由 Pearson VUE 提供監考（含線上 OnVUE 模式）的正式證照。四張分別為 Claude Certified Associate Foundations（99 美元）、Developer Foundations（125 美元）、Architect Foundations（125 美元）與 Architect Professional（175 美元），形成從基礎使用者到解決方案架構師的完整階梯。考試改由 Pearson VUE 遞送後，具備正式監考與身分驗證流程，通過者透過 Credly 取得數位徽章。目前報名資格限定使用 Claude Partner Network 合作夥伴公司網域的電子郵件，尚未全面開放一般大眾。對正在導入 Claude 與 Claude Code 的企業而言，這是第一次有原廠可驗證的技能基準線。",
+      "highlights": [
+        "由 3 月的 1 張考試擴充為 4 張，涵蓋 Associate、Developer、Architect Foundations 與 Architect Professional",
+        "改由 Pearson VUE 監考（含線上 OnVUE），具正式身分驗證，徽章透過 Credly 發放",
+        "價格區間 99-175 美元，Architect Professional 為目前最高階",
+        "報名資格限 Claude Partner Network 合作夥伴公司網域信箱，尚未對一般大眾開放"
+      ],
+      "url": "https://www.pearsonvue.com/us/en/anthropic.html"
+    },
+    {
+      "title": "Voice for AI Agents and Applications（AI Agent 與應用的語音整合）",
       "source": "DeepLearning.AI",
       "date": "2026-06-17",
       "provider": "DeepLearning.AI × Vocal Bridge",
       "is_free": true,
-      "cert_included": true,
-      "level": "beginner",
-      "duration": "約 1-2 小時（short course）",
+      "cert_included": false,
+      "level": "intermediate",
+      "duration": "短課程（約 1-2 小時）",
       "topics": [
         "Voice AI",
+        "Speech-to-Speech",
         "AI Agents",
-        "Real-time Agent",
-        "Latency",
-        "Python"
+        "Tool Calling",
+        "Latency Optimization",
+        "Telephony Integration"
       ],
-      "summary": "DeepLearning.AI 推出「Voice for AI Agents and Applications」短期課程，由 Vocal Bridge（AI Fund 投資組合公司）共同創辦人暨執行長 Ashwyn Sharma 授課。課程針對語音 AI 長期的取捨困境：純語音對語音模型快但可靠度不足，speech-to-text→LLM→speech 的管線準確但延遲高。解法是 Vocal Bridge 的架構——即時的前景 agent 搭配負責推理的背景 agent，兩者並行。課程涵蓋三種整合模式：語音直接嵌入應用程式、在不動既有 agent 邏輯的前提下疊加語音層、以及把語音當成 LLM 可自行呼叫的 tool。學員會實作三個模式，並學習如何評估與改善語音互動品質。只需基本 Python 基礎，不需語音 API 經驗。",
+      "summary": "DeepLearning.AI 與 Vocal Bridge 合作推出，由共同創辦人暨執行長 Ashwyn Sharma 授課，前 Docker 執行長 Scott Johnston 擔任客座。課程系統性拆解三種把語音接進 AI 系統的整合模式：語音原生內嵌（embedded voice）、在既有 agent 之上疊加語音層、以及把語音當成可被呼叫的工具（例如一個 make_phone_call tool，讓 agent 主動撥出電話完成任務）。內容涵蓋延遲控制、打斷處理與語音品質的取捨，這些正是語音 agent 從 demo 走向生產環境最常卡關的地方。課程上線後 DeepLearning.AI 於 2026-06-23 至 06-30 舉辦為期七天的 Voice AI Builder Challenge，鼓勵學員實際交付作品。",
       "highlights": [
-        "直指語音 AI 的核心取捨：低延遲 vs. 高可靠度，並給出前景／背景雙 agent 架構解法",
-        "三種整合模式：語音嵌入 app、語音層疊加既有 agent、語音作為可呼叫的 tool",
-        "實作含讓 agent 主動撥出電話（outbound call）的情境",
-        "包含語音互動的評估與改善方法，不只是接 API",
-        "門檻低：僅需基本 Python，無需語音 API 經驗"
+        "由 Vocal Bridge 共同創辦人暨 CEO Ashwyn Sharma 授課，前 Docker CEO Scott Johnston 客座",
+        "明確區分三種語音整合架構：embedded voice、語音層疊加、語音作為可呼叫工具",
+        "示範 make_phone_call 這類 tool 設計，讓 agent 能主動撥打電話完成任務",
+        "搭配 2026-06-23 至 06-30 的 7-Day Voice AI Builder Challenge 實作活動"
       ],
       "url": "https://www.deeplearning.ai/courses/voice-for-ai-agents-and-applications"
     },
     {
-      "title": "Google 與 Kaggle 開辦免費五日「AI Agents Intensive」課程，主軸為 Vibe Coding",
-      "source": "The Keyword (blog.google)",
-      "date": "2026-06-15",
-      "provider": "Google × Kaggle",
-      "is_free": true,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "5 天（2026-06-15 至 06-19）",
-      "topics": [
-        "AI Agents",
-        "Vibe Coding",
-        "Kaggle",
-        "Gemini",
-        "Capstone Project"
-      ],
-      "summary": "Google 與 Kaggle 重啟免費五日線上密集課程「AI Agents Intensive」，於 2026 年 6 月 15 日至 19 日舉行，內容全面更新、新增講者並加入實作 capstone 專案，全程免費。課程從 agent 的基礎概念一路推到可上線的 production-ready 系統，本次特別聚焦 vibe coding——也就是以自然語言作為主要程式介面的開發方式。這類短期高強度密集課程是 Google 近年推廣 Gemini 與 agent 生態的主要管道，過往 GenAI Intensive 系列參與人數以十萬計。對想快速補齊 agent 工程實作能力的團隊，這是成本最低的官方路徑。",
-      "highlights": [
-        "完全免費，五天密集形式（2026-06-15 至 06-19），含 capstone 實作專案",
-        "主軸為 vibe coding：以自然語言作為主要程式介面來建構 agent",
-        "內容涵蓋從 agent 基礎概念到 production-ready 系統的完整鏈路",
-        "由 Google 與 Kaggle 共同開辦，內容較前一屆全面更新並增加新講者",
-        "完成 capstone 可取得 Kaggle 平台的認證標記"
-      ],
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
-    },
-    {
-      "title": "OpenAI 推出首批官方認證課程：AI Foundations、Applied AI Foundations 與 Agents and Workflows",
-      "source": "OpenAI",
-      "date": "2026-06-12",
-      "provider": "OpenAI",
-      "is_free": true,
-      "cert_included": true,
-      "level": "beginner",
-      "duration": "約 4 小時起（依課程而異）",
-      "topics": [
-        "OpenAI Certification",
-        "ChatGPT",
-        "AI Literacy",
-        "Agents and Workflows",
-        "Enterprise Adoption"
-      ],
-      "summary": "OpenAI 於 2026 年 6 月 12 日發布首批官方認證課程，共三門：AI Foundations、Applied AI Foundations、以及 Agents and Workflows。三門課的共同設計原則是「在 ChatGPT 裡面直接學」——學員不是看教學影片，而是在 ChatGPT 內完成真實任務、當場取得回饋並反思成果，全程在同一個環境中完成。同期另推出與 Coursera 合作的 ChatGPT Foundations for Teachers，鎖定 K-12 教師的課堂與行政應用場景。OpenAI 明確設定目標：2030 年前為 1,000 萬名美國人取得認證。目前這批課程為免費開放，另有一套受雇主試辦計畫限制的監考型考試尚未全面開放。",
-      "highlights": [
-        "首批三門官方認證課程：AI Foundations、Applied AI Foundations、Agents and Workflows",
-        "學習環境即產品：全程在 ChatGPT 內完成真實任務並取得情境化回饋，非影片教學",
-        "另推出 ChatGPT Foundations for Teachers，已上架 Coursera",
-        "OpenAI 設定 2030 年前認證 1,000 萬名美國人的目標",
-        "免費課程與監考型考試分軌：後者目前仍限雇主試辦計畫"
-      ],
-      "url": "https://openai.com/index/openai-certificate-courses/"
-    },
-    {
-      "title": "Microsoft 推出全新認證「Microsoft Certified: Intelligent Applications Builder Associate」",
-      "source": "Microsoft Community Hub",
-      "date": "2026-05-28",
-      "provider": "Microsoft",
-      "is_free": false,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "認證考試（beta 階段）",
-      "topics": [
-        "Microsoft Certification",
-        "Intelligent Applications",
-        "Azure AI",
-        "AI Engineering"
-      ],
-      "summary": "Microsoft 在 Skills Hub 官方部落格宣布新增「Microsoft Certified: Intelligent Applications Builder Associate」認證，屬於 2026 年這一波 AI 認證大改版的一環。這波改版自 2026 年 4 月起陸續以 beta 形式推出，包含 AI Agent Builder Associate（AB-620）、Azure AI Apps and Agents Developer Associate（AI-103）、以及預計 2026 年 10 月正式上線的 Multi-Agent AI Solutions Expert（AI-500）。Intelligent Applications Builder Associate 針對的是要把 AI 能力嵌入企業應用程式的開發者與架構師。對金融業而言，這條認證線的意義在於：微軟正把「agent 開發」從單一技能拆成 Associate 到 Expert 的分層路徑，可直接對應內部人才盤點的職能分級。",
-      "highlights": [
-        "屬 Microsoft 2026 年 AI 認證大改版的一環，自 4 月起分批以 beta 推出",
-        "定位為 Associate 層級，鎖定將 AI 能力嵌入企業應用的開發者與架構師",
-        "同期認證線包含 AB-620（AI Agent Builder）、AI-103（Azure AI Apps and Agents Developer）",
-        "上層 Expert 級 AI-500（Multi-Agent AI Solutions Expert）預計 2026 年 10 月正式上線",
-        "認證考試需付費，但 Microsoft Learn 上的訓練教材免費"
-      ],
-      "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-intelligent-applications-builder-associate-certification/4494118"
-    },
-    {
-      "title": "全新短期課程「AI Agents for Image and Video Generation」：與 Google 合作",
+      "title": "AI Agents for Image and Video Generation（影像與影片生成的 AI Agents）",
       "source": "DeepLearning.AI",
       "date": "2026-05-20",
       "provider": "DeepLearning.AI × Google",
       "is_free": true,
-      "cert_included": true,
+      "cert_included": false,
       "level": "intermediate",
-      "duration": "約 1-2 小時（short course）",
+      "duration": "短課程（約 1 小時）",
       "topics": [
-        "AI Agents",
+        "Multimodal Agents",
         "Image Generation",
         "Video Generation",
-        "LLM-as-a-Judge",
-        "Evaluation"
+        "Nano Banana",
+        "Veo",
+        "Google Cloud AI",
+        "Agent Evaluation"
       ],
-      "summary": "DeepLearning.AI 與 Google 合作推出「AI Agents for Image and Video Generation」短期課程，由 Google Cloud AI 開發者關係工程師 Katie Nguyen 與 Google 資深生成式 AI 專家 Wafae Bakkali 授課。課程目標是把 agentic workflow 從純文字延伸到視覺媒體：學員要建立能產生圖片與影片、並能自動評估產出品質、在結果不合格時自行迭代的 agent。評估方法涵蓋三種技術——image-text 相似度、LLM-based judge、以及結構化評分 rubric。實作兩個 agent：依品牌規範產出 UI mockup 的 agent，以及多場景影片說明 agent。建議具備 Python 與 LLM API 基本經驗。",
+      "summary": "DeepLearning.AI 與 Google 合作推出的短課程，由 Google Cloud AI 開發者關係工程師 Katie Nguyen 與 Google 首席生成式 AI 專家 Wafae Bakkali 共同授課。課程教學員建構能自主生成視覺媒體的 AI agents，實際操作 Google 的 Nano Banana 影像模型與 Veo 影片模型。除了生成本身，課程特別著重評估（evaluation）技術：如何在大量產出的情況下維持品質一致性，這是視覺生成 agent 規模化時最難處理的環節。內容涵蓋提示設計、多步驟生成流程編排，以及把人工審查納入迴圈的時機判斷。適合需要批次產製行銷或產品視覺素材、又必須確保品質可控的團隊。",
       "highlights": [
-        "把 agentic workflow 從文字擴展到圖像與影片生成領域",
-        "三種評估技術：image-text similarity、LLM-as-a-Judge、結構化 rubric",
-        "兩個實作專案：品牌規範驅動的 UI mockup agent、多場景影片說明 agent",
-        "與 Google 合作，講師來自 Google Cloud AI 團隊",
-        "強調 agent 的自我評估與迭代機制，而非單次生成"
+        "由 Google Cloud AI 的 Katie Nguyen 與 Wafae Bakkali 共同授課",
+        "實作 Google Nano Banana（影像）與 Veo（影片）兩個生成模型",
+        "重點放在 evaluation 技術，解決規模化產出時的品質一致性問題",
+        "涵蓋多步驟生成流程編排與 human-in-the-loop 審查時機"
       ],
       "url": "https://www.deeplearning.ai/courses/ai-agents-for-image-and-video-generation"
-    },
-    {
-      "title": "全新短期課程「Transformers in Practice」：由 Sharon Zhou 授課",
-      "source": "DeepLearning.AI",
-      "date": "2026-05-12",
-      "provider": "DeepLearning.AI",
-      "is_free": true,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "約 1-2 小時（short course）",
-      "topics": [
-        "Transformers",
-        "Attention",
-        "Quantization",
-        "KV Caching",
-        "Model Deployment"
-      ],
-      "summary": "DeepLearning.AI 推出「Transformers in Practice」短期課程，由 Sharon Zhou 授課。課程定位不是重講 Transformer 論文，而是建立對模型行為的直覺——讓學員能推理模型為什麼這樣輸出、能除錯真實問題、能對部署決策做出更好的判斷。內容分三大塊：一是文字生成機制，理解 Transformer 如何逐個 token 產出；二是模型架構與 attention，包含 positional encoding 如何追蹤 token 順序、多層之間如何協同運作；三是擴展與部署的實務技術，涵蓋 quantization、KV caching、flash attention、speculative decoding。對需要自建或自管 LLM 推論服務的團隊，第三部分是直接的成本與延遲槓桿。",
-      "highlights": [
-        "定位為「建立直覺」而非理論推導：目標是能除錯與做部署決策",
-        "三大主軸：文字生成機制、架構與 attention、擴展與部署",
-        "部署實務涵蓋 quantization、KV caching、flash attention、speculative decoding",
-        "解釋 positional encoding 如何追蹤 token 順序、多層如何協同",
-        "講師為 Sharon Zhou，免費短期課程並含結業證書"
-      ],
-      "url": "https://www.deeplearning.ai/courses/transformers-in-practice"
     }
   ],
-  "_updated_at": "2026-08-10T18:05:11.181613+08:00"
+  "_updated_at": "2026-08-17T18:06:23.186950+08:00"
 }

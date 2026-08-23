@@ -14,9 +14,14 @@
       "以可執行程式碼逐步示範，適合已有 LLM API 基礎的開發者"
     ],
     "url": "https://blog.langchain.com/how-to-build-an-agent/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.75,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.485938",
+    "complete": true
   },
   {
     "title": "AI Skills 怎麼寫？grill-me 工作流 5 步拆解，附中文提示詞可複製",
@@ -34,9 +39,14 @@
       "取得共識前不動手寫程式，附中文提示詞可直接複製"
     ],
     "url": "https://www.bnext.com.tw/article/91643/matt-pocock-ai-skills-workflow",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.95,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.486033",
+    "complete": true
   },
   {
     "title": "ADK 多代理模式開發者指南（Developer's guide to multi-agent patterns in ADK）",
@@ -53,9 +63,14 @@
       "釐清「代理交接」與「代理當成工具」兩種委派語意的差異"
     ],
     "url": "https://developers.googleblog.com/developers-guide-to-multi-agent-patterns-in-adk/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.84,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.486063",
+    "complete": true
   },
   {
     "title": "在 ADK 中用 Skills 打造代理的開發者指南（Developer's Guide to Building ADK Agents with Skills）",
@@ -73,9 +88,52 @@
       "10 個 skill 的代理基準脈絡從約 10,000 token 降到約 1,000 token，減少約 90%"
     ],
     "url": "https://developers.googleblog.com/developers-guide-to-building-adk-agents-with-skills/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.77,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.486089",
+    "complete": true
+  },
+  {
+    "title": "Claude Code Subagents 與 Skills：多代理協作設定完整指南",
+    "source": "Amir Teymoori Blog",
+    "date": "2026-08-03",
+    "tool_name": "Claude Code",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "這篇教學說明如何在 Claude Code 中設定 subagents 與 skills，把單一 agent 的工作流拆成多個具備獨立 context 的專職子代理。文章示範 subagent 定義檔的 frontmatter 欄位（名稱、描述、可用工具、模型），並解釋主 agent 如何依描述自動委派任務。作者比較 subagent 與 skill 的分工：subagent 提供獨立 context window 與工具權限邊界，skill 則是按需載入的指令與腳本封裝。教學也涵蓋常見錯誤，例如描述過於模糊導致委派失敗、以及子代理回傳結果未被主 agent 有效整合的問題。整體適合已熟悉 Claude Code 基本操作、想進一步建立多代理工程流程的開發者。",
+    "highlights": [
+      "subagent 以獨立 context window 隔離任務，避免主 agent 的 context 被大量中間輸出污染",
+      "委派準確度取決於 subagent description 的具體程度，描述必須寫清楚「何時該用」",
+      "skills 與 subagents 為互補機制：前者封裝可重用指令與腳本，後者封裝獨立執行環境與工具權限",
+      "可針對不同子代理指定不同模型，把成本集中在真正需要高階推理的環節"
+    ],
+    "url": "https://amirteymoori.com/claude-code-subagents-skills-multi-agent-setup/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
+  },
+  {
+    "title": "以 Omnigent 建構受政策治理的多代理金融研究工作流",
+    "source": "MarkTechPost",
+    "date": "2026-07-30",
+    "tool_name": "Omnigent",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構",
+    "summary": "本教學以 Omnigent 框架實作一套具備政策治理層的多代理金融研究工作流，把資料檢索、分析與報告產出拆成受控的代理角色。文章重點在於「政策先於執行」：每個代理的工具呼叫都必須先通過政策檢查，違反規則的動作會被攔截而非事後補救。教學逐步示範代理註冊、工具白名單、政策規則撰寫與審計記錄輸出，並展示違規情境下工作流如何 fail closed。程式碼可在 Colab 環境完整重現，適合需要在受監管情境下部署 agent 的工程團隊參考。",
+    "highlights": [
+      "政策層置於工具執行前，把治理從事後稽核改為執行時攔截",
+      "每個代理角色僅取得完成任務所需的最小工具集合，降低越權風險",
+      "完整審計軌跡記錄每次工具呼叫與政策判定結果，可供事後追溯",
+      "違規情境下工作流採 fail closed 設計，寧可中止也不輸出未受檢查的結果"
+    ],
+    "url": "https://www.marktechpost.com/2026/07/30/building-a-policy-governed-multi-agent-financial-research-workflow-with-omnigent/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "LangSmith LLM Gateway: runtime controls for production agents",
@@ -98,8 +156,46 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.143851",
+    "verified_at": "2026-08-16T18:17:45.488649",
     "complete": true
+  },
+  {
+    "title": "如何在 Claude 中建立自訂 Skills：逐步實作指南",
+    "source": "Analytics Vidhya",
+    "date": "2026-07-29",
+    "tool_name": "Claude Skills",
+    "difficulty": "beginner",
+    "category": "AI 工具實戰教學",
+    "summary": "這篇入門教學帶讀者從零建立第一個 Claude 自訂 skill，說明 skill 的目錄結構、SKILL.md 的 frontmatter 欄位與撰寫原則。文章強調 skill 的本質是「按需載入的指令」，因此 description 必須精準描述觸發時機，否則模型不會在正確情境呼叫它。教學示範一個實際案例，包含輔助腳本與參考文件的擺放位置，並說明 progressive disclosure 如何避免一次把所有內容塞進 context。作者也整理常見錯誤：指令寫得太抽象、把大量參考資料直接寫進 SKILL.md 主體、以及沒有測試觸發條件。適合剛接觸 Claude Skills 的使用者建立正確心智模型。",
+    "highlights": [
+      "skill 的 description 決定觸發時機，是整份設計中最關鍵的欄位",
+      "採 progressive disclosure：主檔案保持精簡，細節放到參考文件按需讀取",
+      "輔助腳本可讓確定性工作交給程式執行，減少模型自行推導造成的誤差",
+      "建立後必須實測觸發情境，確認模型會在預期時機載入該 skill"
+    ],
+    "url": "https://www.analyticsvidhya.com/blog/2026/07/how-to-create-custom-skills-in-claude/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
+  },
+  {
+    "title": "使用 OpenSpace 建構自我演化 AI Agent：Skills、MCP、Lineage 與低成本重用",
+    "source": "MarkTechPost",
+    "date": "2026-07-25",
+    "tool_name": "OpenSpace",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構",
+    "summary": "本教學示範以 OpenSpace 建立能自我演化的 agent 系統，核心概念是把成功的執行軌跡沉澱成可重用的 skill。文章實作 skill 的產生、版本追蹤（lineage）與重用機制，讓 agent 在遇到相似任務時直接載入既有能力而非重新推導。教學說明 MCP server 如何作為工具接入層，使新增能力不必修改 agent 主體邏輯。作者同時量化重用帶來的 token 成本下降，並示範 lineage 記錄如何讓每個能力的來源可追溯。程式碼在 Colab 可完整執行，適合研究 agent 記憶與能力累積的開發者。",
+    "highlights": [
+      "把驗證過的執行軌跡固化為 skill，形成可累積的能力庫而非一次性推理",
+      "lineage 追蹤每個 skill 的衍生來源，讓自我演化過程保持可稽核",
+      "MCP server 作為工具接入層，新增能力無須改動 agent 核心程式",
+      "能力重用顯著降低重複任務的 token 消耗與延遲"
+    ],
+    "url": "https://www.marktechpost.com/2026/07/25/building-self-evolving-ai-agents-with-openspace-using-skills-mcp-lineage-and-low-cost-reuse/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "Claude 5 Context Engineering 怎麼做？Anthropic 刪掉 80％ System Prompt 的 6 個新原則",
@@ -116,9 +212,14 @@
       "歸納六項脈絡工程新原則，重點在資訊安排方式與載入時機"
     ],
     "url": "https://www.aiposthub.com/claude-5-context-engineering-guide/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.488829",
+    "complete": true
   },
   {
     "title": "How Anthropic secures its AI-native software development lifecycle",
@@ -142,7 +243,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.143878",
+    "verified_at": "2026-08-16T18:17:45.488881",
     "complete": true
   },
   {
@@ -167,7 +268,7 @@
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.143903",
+    "verified_at": "2026-08-16T18:17:45.488915",
     "complete": true
   },
   {
@@ -185,9 +286,14 @@
       "適合非工程背景者在業務單位導入 Agent 的入門路徑"
     ],
     "url": "https://www.bnext.com.tw/article/91536/how-to-build-ai-agent",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.98,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.488947",
+    "complete": true
   },
   {
     "title": "Be Ready Before the Attack: A Practical Guide to Self-Hosting an Open Model for Cyber Defense",
@@ -209,8 +315,27 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.143928",
+    "verified_at": "2026-08-16T18:17:45.488979",
     "complete": true
+  },
+  {
+    "title": "建構 VideoAgent 風格多代理系統：影片編輯任務的意圖解析、圖規劃與工具路由",
+    "source": "MarkTechPost",
+    "date": "2026-07-13",
+    "tool_name": "Python / Multi-Agent",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構",
+    "summary": "這篇教學以影片編輯為情境，實作一套 VideoAgent 風格的多代理系統，把自然語言需求轉為可執行的編輯流程。系統分為三層：意圖解析器將使用者指令結構化、圖規劃器建立有依賴關係的任務 DAG、工具路由器再把每個節點分派給對應的執行工具。文章詳細說明 DAG 規劃如何處理步驟間的順序依賴，避免代理以錯誤順序執行剪輯動作。教學也涵蓋失敗重試與中間結果驗證機制，確保長鏈路任務不會因單一節點失誤而整體崩潰。程式碼可在 Colab 重現，是理解 agent 任務分解與編排的良好範例。",
+    "highlights": [
+      "意圖解析、圖規劃、工具路由三層分離，讓每層責任明確且可獨立測試",
+      "以 DAG 表達任務依賴，正確處理影片編輯中不可交換的步驟順序",
+      "工具路由器將規劃與執行解耦，新增工具不需重寫規劃邏輯",
+      "每個節點輸出都經驗證後才傳遞，降低長鏈路任務的錯誤累積"
+    ],
+    "url": "https://www.marktechpost.com/2026/07/13/building-a-videoagent-style-multi-agent-system-intent-parsing-graph-planning-and-tool-routing-for-video-editing-tasks/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "用你自己的資料集微調 Mistral（Fine-tuning Mistral on Your Dataset）",
@@ -228,9 +353,33 @@
       "附可直接執行的程式碼，需 PyTorch 與 Transformers 基礎"
     ],
     "url": "https://huggingface.co/blog/nroggendorff/finetune-mistral",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.489007",
+    "complete": true
+  },
+  {
+    "title": "如何用 DeepAnalyze-8B 打造適合 T4 的自主資料科學 Agent：沙箱程式執行與迭代分析",
+    "source": "MarkTechPost",
+    "date": "2026-07-10",
+    "tool_name": "DeepAnalyze-8B",
+    "difficulty": "intermediate",
+    "category": "LLM 應用開發",
+    "summary": "本教學示範在單張 T4 GPU 的有限資源下，以 DeepAnalyze-8B 建立能自主完成資料分析的 agent。系統核心是沙箱化的程式執行環境：agent 產生 Python 程式碼、在隔離環境執行、讀取結果後再決定下一步，形成迭代分析迴圈。文章說明如何在 8B 級模型上維持分析品質，包含程式碼錯誤的自動修正與中間結果的摘要壓縮。教學也處理記憶體限制下的量化與批次策略，讓整套流程在免費 Colab T4 環境可完整跑完。適合想在低成本硬體上驗證 agentic 資料分析可行性的工程師。",
+    "highlights": [
+      "沙箱執行讓 agent 產生的程式碼在隔離環境運行，避免污染主機環境",
+      "迭代分析迴圈以執行結果驅動下一步決策，而非一次性生成完整分析腳本",
+      "針對 T4 的 16GB 顯存做量化與批次調整，8B 模型即可完成端到端流程",
+      "中間結果經摘要壓縮後回填 context，避免長分析鏈路撐爆 context window"
+    ],
+    "url": "https://www.marktechpost.com/2026/07/10/how-to-build-a-t4-friendly-autonomous-data-science-agent-with-deepanalyze-8b-sandboxed-code-execution-and-iterative-analysis/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "Claude 教學 2026｜從入門到 Projects、Skills、Cowork，新手必懂功能一次看",
@@ -248,9 +397,14 @@
       "附實際操作步驟與介面說明，零基礎可跟著做"
     ],
     "url": "https://www.bnext.com.tw/article/91403/claude-tutorial-2026",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.97,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.489036",
+    "complete": true
   },
   {
     "title": "別讓 AI 牽著走！掌握三大編輯思維，成為不被淘汰的高價值人才",
@@ -273,8 +427,27 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.143954",
+    "verified_at": "2026-08-16T18:17:45.489088",
     "complete": true
+  },
+  {
+    "title": "RAG-Anything 教學：在 Colab 建立涵蓋文字、表格、方程式與圖像的多模態檢索管線",
+    "source": "MarkTechPost",
+    "date": "2026-07-02",
+    "tool_name": "RAG-Anything",
+    "difficulty": "intermediate",
+    "category": "RAG 實作",
+    "summary": "這篇教學使用 RAG-Anything 建立一條能同時處理文字、表格、數學方程式與圖像的多模態檢索管線。文章從文件解析開始，說明不同模態內容如何各自抽取、嵌入並存入統一索引，使檢索時能跨模態命中相關證據。教學特別處理表格與方程式這兩類傳統 RAG 常失手的內容：表格需保留列與欄的結構語意，方程式則需保留符號完整性而非被切碎。作者也示範檢索結果如何組成 prompt 送入模型，並比較純文字 RAG 與多模態 RAG 在同一組問題上的答題差異。整份程式碼在 Colab 可直接執行。",
+    "highlights": [
+      "文字、表格、方程式、圖像各以對應方式抽取後匯入統一索引，支援跨模態檢索",
+      "表格切分需保留列欄結構語意，直接當純文字處理會破壞對應關係",
+      "方程式以保留符號完整性的方式處理，避免被 chunking 切碎而失去意義",
+      "與純文字 RAG 對照可看出多模態管線在含圖表文件上的答題品質差距"
+    ],
+    "url": "https://www.marktechpost.com/2026/07/02/rag-anything-tutorial-build-a-multimodal-retrieval-pipeline-for-text-tables-equations-and-images-in-colab/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "Claude Code 教學：不用寫程式，做 Chrome AI 摘要外掛",
@@ -292,9 +465,14 @@
       "完全零程式基礎可跟著完成"
     ],
     "url": "https://www.bnext.com.tw/article/91402/claude-code-no-coding-4-steps-build-your-own-tool-guidebook",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.96,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.489122",
+    "complete": true
   },
   {
     "title": "Deep Agents",
@@ -317,8 +495,27 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.143979",
+    "verified_at": "2026-08-16T18:17:45.489152",
     "complete": true
+  },
+  {
+    "title": "在 Google Colab 打造 Nanobot 風格 AI Agent：工具呼叫、Session 記憶、Skills 與 MCP Server",
+    "source": "MarkTechPost",
+    "date": "2026-06-26",
+    "tool_name": "Nanobot / MCP",
+    "difficulty": "beginner",
+    "category": "AI Agent 建構",
+    "summary": "本教學帶讀者從 provider 抽象層開始，一步步在 Colab 中手寫一個輕量的個人 AI agent，理解 agent loop 的每個組成。內容依序加入工具註冊、session 記憶、生命週期 hooks、skills 與 MCP 風格的工具伺服器，讓讀者看清訊息、工具、記憶與模型回應如何組合成完整迴圈。因為刻意不依賴現成框架，讀者能明確看到每個抽象層解決什麼問題，而非把 agent 當黑盒使用。教學最後完成的 agent 具備 provider 無關特性，可切換不同模型後端。適合想真正理解 agent 內部運作的初學者。",
+    "highlights": [
+      "從 provider 抽象層開始手寫，完整暴露 agent loop 的每個環節",
+      "工具註冊、session 記憶、生命週期 hooks 逐層加入，各層職責清楚可辨",
+      "MCP 風格工具伺服器讓工具與 agent 主體解耦，可獨立擴充",
+      "最終 agent 為 provider 無關設計，可自由替換底層模型"
+    ],
+    "url": "https://www.marktechpost.com/2026/06/26/build-a-nanobot-style-ai-agent-in-google-colab-with-tool-calling-session-memory-skills-and-mcp-servers/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "初探大型語言模型應用開發-運用 RAG 增強語言模型的應答能力",
@@ -341,8 +538,27 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144010",
+    "verified_at": "2026-08-16T18:17:45.489183",
     "complete": true
+  },
+  {
+    "title": "如何設計 OpenHarness 風格的 Agent Runtime：工具、記憶、權限、Skills 與多代理協調",
+    "source": "MarkTechPost",
+    "date": "2026-06-24",
+    "tool_name": "OpenHarness",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構",
+    "summary": "這篇教學從零重建一套 OpenHarness 風格的 agent runtime，把 harness engineering 的主要組件全部攤開實作。內容包含工具使用、typed tool schema、權限控制、生命週期 hooks、記憶、skills、context 壓縮、重試邏輯與多代理協調。文章刻意暴露完整控制流程：harness 接收任務、模型決定下一步動作、runtime 驗證並執行工具呼叫、回傳觀察結果，再繼續迴圈直到任務完成。typed tool schema 與權限層說明如何在執行前擋掉不合法的工具呼叫，而 context 壓縮則處理長任務下 context window 耗盡的問題。是目前少見把 agent harness 內部機制講到底的實作教學。",
+    "highlights": [
+      "完整攤開 harness 控制流程：接任務、模型決策、驗證執行、回傳觀察、續行迴圈",
+      "typed tool schema 讓不合法的工具呼叫在執行前就被擋下，而非執行後才報錯",
+      "context 壓縮機制處理長任務的 context window 耗盡問題",
+      "權限層與多代理協調共同構成可控的執行邊界"
+    ],
+    "url": "https://www.marktechpost.com/2026/06/24/how-to-design-an-openharness-style-agent-runtime-with-tools-memory-permissions-skills-and-multi-agent-coordination/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "n8n 教學 2026：AI Agent、自動化工作流與實戰案例完整指南",
@@ -365,7 +581,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144037",
+    "verified_at": "2026-08-16T18:17:45.489227",
     "complete": true
   },
   {
@@ -388,7 +604,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144063",
+    "verified_at": "2026-08-16T18:17:45.489257",
     "complete": true
   },
   {
@@ -412,28 +628,8 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144090",
+    "verified_at": "2026-08-16T18:17:45.489296",
     "complete": true
-  },
-  {
-    "title": "叫 AI 寫文章總是爛大街？5 個 agent「特務分工法」，篇篇都有高品質產出",
-    "source": "數位時代 BusinessNext",
-    "date": "2026-06-17",
-    "tool_name": "Claude / Multi-agent 內容工作流",
-    "difficulty": "beginner",
-    "category": "AI Agent 建構",
-    "summary": "本文提出以多代理分工取代單一提示詞的內容生產方法，把整個流程拆成策略、研究、寫作、編輯、發布五個角色，每個角色都有自己明確的輸入、輸出與禁止事項。關鍵設計在於第一個 agent 完全不動筆，只負責思考切入角度、適合的發布平台、可能的內容亮點，以及要避開的寫作方向，先把方向定錯的風險排除。後續角色各自受限於前一階段的產出，避免模型在單次生成中同時處理策略與文筆而導致內容平庸。文章說明「禁止事項」欄位的重要性——明確告訴每個 agent 不能做什麼，比只講要做什麼更能拉高產出品質。屬於可直接套用的實務工作流設計。",
-    "highlights": [
-      "把內容流程拆成策略、研究、寫作、編輯、發布五個 agent 角色",
-      "每個角色明確定義輸入、輸出與「禁止事項」三欄",
-      "第一個 agent 不動筆，只決定切入角度、平台與要避開的方向",
-      "分階段限制避免模型在單次生成中同時處理策略與文筆",
-      "禁止事項的設定對拉高產出品質的效果大於正面指令"
-    ],
-    "url": "https://www.bnext.com.tw/article/91248/5-agent-ai-content-workflow",
-    "is_new": true,
-    "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
   },
   {
     "title": "Tiny Agents in Python: a MCP-powered agent in ~70 lines of code",
@@ -456,7 +652,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144116",
+    "verified_at": "2026-08-16T18:17:45.489324",
     "complete": true
   },
   {
@@ -480,7 +676,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144162",
+    "verified_at": "2026-08-16T18:17:45.489351",
     "complete": true
   },
   {
@@ -504,8 +700,27 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144198",
+    "verified_at": "2026-08-16T18:17:45.489390",
     "complete": true
+  },
+  {
+    "title": "如何建構 QwenPaw Agent 工作區：自訂 Skills、模型供應商、Console 存取與串流 API 測試",
+    "source": "MarkTechPost",
+    "date": "2026-06-13",
+    "tool_name": "QwenPaw",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "本教學示範建立一個 QwenPaw agent 工作區，涵蓋自訂 skills 撰寫、模型供應商設定、console 操作與串流 API 的測試方法。文章說明如何把多個模型供應商配置在同一工作區，依任務性質切換不同後端以平衡成本與能力。教學逐步帶過 skill 的定義與載入流程，並示範透過 console 觀察 agent 實際的決策與工具呼叫過程。串流 API 測試段落說明如何驗證逐 token 回傳的正確性與中斷處理。整體適合需要自建 agent 開發環境的工程師參考。",
+    "highlights": [
+      "同一工作區可配置多個模型供應商，依任務切換以平衡成本與能力",
+      "console 提供 agent 決策與工具呼叫的即時觀察窗口，便於除錯",
+      "自訂 skills 的定義與載入流程完整示範，可直接套用到自有專案",
+      "串流 API 測試涵蓋逐 token 回傳驗證與中斷情境處理"
+    ],
+    "url": "https://www.marktechpost.com/2026/06/13/how-to-build-a-qwenpaw-agent-workspace-with-custom-skills-model-providers-console-access-and-streaming-api-testing/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "Claude Cowork 是什麼、怎麼用？新手 10 分鐘設定教學，一次學會檔案自動化",
@@ -523,9 +738,14 @@
       "提醒限縮存取範圍，避免 AI 取得整個磁碟讀寫權限"
     ],
     "url": "https://www.bnext.com.tw/article/91158/from-chat-to-cowork-local-claude-workflow-guide",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.96,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.489427",
+    "complete": true
   },
   {
     "title": "How to Build a Custom Agent Harness",
@@ -548,7 +768,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144227",
+    "verified_at": "2026-08-16T18:17:45.489455",
     "complete": true
   },
   {
@@ -571,7 +791,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144252",
+    "verified_at": "2026-08-16T18:17:45.489483",
     "complete": true
   },
   {
@@ -595,7 +815,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144276",
+    "verified_at": "2026-08-16T18:17:45.489511",
     "complete": true
   },
   {
@@ -620,7 +840,7 @@
     "url_status": "verified",
     "title_score": 0.6,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144303",
+    "verified_at": "2026-08-16T18:17:45.489539",
     "complete": true
   },
   {
@@ -639,9 +859,33 @@
       "適合作為入門導覽起點，依階段挑選對應文章"
     ],
     "url": "https://www.bnext.com.tw/article/91080/claude-cowork-skills",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
+    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "url_status": "verified",
+    "title_score": 0.94,
+    "verified": true,
+    "verified_at": "2026-08-16T18:17:45.489582",
+    "complete": true
+  },
+  {
+    "title": "Microsoft Agent Governance Toolkit 實作：以政策、審批、審計記錄與風險控制確保 AI Agent 安全用工具",
+    "source": "MarkTechPost",
+    "date": "2026-05-31",
+    "tool_name": "Microsoft Agent Governance Toolkit",
+    "difficulty": "advanced",
+    "category": "AI 治理實作",
+    "summary": "這篇教學實作 Microsoft Agent Governance Toolkit，處理 agent 工具使用的治理問題。系統由四個機制組成：政策定義工具呼叫的允許範圍、審批流程攔截高風險動作等待人工放行、審計記錄保留完整執行軌跡、風險控制則對動作進行分級。文章示範如何把政策規則寫成可執行的檢查，並展示 agent 觸碰高風險工具時審批流程如何介入。審計段落說明記錄應包含哪些欄位才足以事後追溯責任。對金融、醫療等受監管情境部署 agent 的團隊而言，這是把治理要求落到程式碼層的具體範例。",
+    "highlights": [
+      "政策、審批、審計、風險分級四項機制構成完整的 agent 治理層",
+      "高風險動作觸發人工審批攔截，而非允許 agent 自行決定是否執行",
+      "審計記錄需包含足以事後追溯責任的完整欄位，而非僅記錄成功與失敗",
+      "風險分級讓治理成本集中在真正高風險的工具呼叫，避免低風險動作被過度阻擋"
+    ],
+    "url": "https://www.marktechpost.com/2026/05/31/an-implementation-of-the-microsoft-agent-governance-toolkit-for-safe-ai-agent-tool-use-with-policies-approvals-audit-logs-and-risk-controls/",
+    "is_new": true,
+    "first_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-08-17T18:33:59.894718+08:00"
   },
   {
     "title": "2026 年 Cursor AI 完整使用教學：從安裝到 Agent 模式，全面掌握最強 AI 程式碼編輯器",
@@ -664,7 +908,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144330",
+    "verified_at": "2026-08-16T18:17:45.489639",
     "complete": true
   },
   {
@@ -687,7 +931,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144369",
+    "verified_at": "2026-08-16T18:17:45.489683",
     "complete": true
   },
   {
@@ -712,52 +956,7 @@
     "url_status": "title_low_match",
     "title_score": 0.29,
     "verified": "needs_review",
-    "verified_at": "2026-08-09T18:18:26.144397",
-    "complete": true
-  },
-  {
-    "title": "用 ADK 打造可暫停、可續跑、永不遺失脈絡的長時間執行 AI 代理（Build Long-running AI agents that pause, resume, and never lose context with ADK）",
-    "source": "Google Developers Blog",
-    "date": "2026-05-12",
-    "tool_name": "Google ADK / DatabaseSessionService",
-    "difficulty": "advanced",
-    "category": "AI Agent 建構",
-    "summary": "本文處理 Agent 工程中最實際的難題：如何讓代理在跨越數小時甚至數天的任務中保持狀態，而不會因為程序重啟或人工審核等待而遺失脈絡。文章說明 ADK 的 session 與 state 機制，示範以持久化的 session service（如資料庫後端）取代預設的記憶體內儲存，讓代理的對話歷史與中介狀態寫入外部儲存。接著討論長時間執行工具（long-running tools）的設計模式，讓代理在等待外部事件或人工核可時能夠暫停，事後從中斷點續跑而非重頭開始。內容也涵蓋回呼（callback）機制在狀態檢查與稽核紀錄上的應用。對要把 Agent 從展示原型推進到正式環境的團隊具直接參考價值。",
-    "highlights": [
-      "解決長流程代理跨程序重啟、人工等待時的脈絡遺失問題",
-      "以持久化 session service 取代預設記憶體內儲存",
-      "long-running tools 讓代理在等待外部事件或人工核可時暫停後續跑",
-      "callback 機制可用於狀態檢查與稽核紀錄",
-      "面向要把 Agent 從原型推進到正式環境的工程團隊"
-    ],
-    "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
-    "is_new": true,
-    "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00"
-  },
-  {
-    "title": "Build Long-running AI agents that pause, resume, and never lose context with ADK",
-    "source": "Google Developers Blog",
-    "date": "2026-05-12",
-    "tool_name": "Google Agent Development Kit (ADK)",
-    "difficulty": "advanced",
-    "category": "長時間執行 Agent 架構實作",
-    "summary": "本文以「新人到職協調 Agent」為範例，示範如何用 Agent Development Kit (ADK) 建構可穩定執行數週的長時間任務 Agent。範例流程包含寄送歡迎資料、暫停數日等待員工簽署文件、將 IT 設備準備工作委派給專責 subagent、再次等待硬體交付，最後寄出客製化的第一天行程，全程不遺失任何 context。文章歸納出區隔正式環境 Agent 與展示型 chatbot 的三項架構轉變：以持久化的記憶結構（durable memory schema）取代把原始 JSON 直接塞進向量資料庫；以事件驅動的休眠閘門（event-driven dormancy gate）取代主動輪詢或阻塞執行緒；以多 Agent 委派取代單體式的單一 Agent 提示。這三項設計是長週期業務流程 Agent 能否落地的關鍵。",
-    "highlights": [
-      "實例為可跨週執行的新人到職協調 Agent，全程不遺失 context",
-      "架構轉變一：durable memory schema 取代原始 JSON 直塞向量資料庫",
-      "架構轉變二：event-driven dormancy gate 取代主動輪詢或阻塞執行緒",
-      "架構轉變三：多 Agent 委派取代單體式單一 Agent 提示",
-      "適用於需長時間等待外部事件的企業流程自動化情境"
-    ],
-    "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
-    "is_new": false,
-    "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-08-09T18:18:26.144423",
+    "verified_at": "2026-08-16T18:17:45.489713",
     "complete": true
   }
 ]

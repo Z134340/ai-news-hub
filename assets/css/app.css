@@ -266,6 +266,27 @@ mark{background:rgba(129,140,248,0.3);color:var(--tx);border-radius:2px;padding:
 .dsh-title{font-size:14px;font-weight:800;color:var(--tx);letter-spacing:.2px}
 .dsh-sub{font-size:10.5px;color:var(--tx3);white-space:nowrap;flex-shrink:0}
 
+/* System Status：資料真相置頂，顏色之外同時保留文字、圖示與邊線。 */
+.dss-card{background:var(--card);border:1px solid var(--bd);border-left-width:4px;border-radius:12px;padding:13px 15px;margin-bottom:22px}
+.dss-fresh{border-left-color:#34d399}.dss-pending{border-left-color:#fbbf24}
+.dss-stale,.dss-blocked,.dss-invalid{border-left-color:#f87171}.dss-missing{border-left-color:#64748b}
+.dss-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dss-state{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800}
+.dss-badge{border:1px solid;border-radius:999px;padding:3px 9px;font-size:10px;font-weight:800;white-space:nowrap}
+.dss-summary{font-size:11.5px;line-height:1.75;color:var(--tx2);margin:8px 0 11px;word-break:break-word}
+.dss-summary code,.dss-foot code,.dss-reason code{font-size:10px;background:rgba(148,163,184,0.10);border-radius:3px;padding:1px 4px}
+.dss-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.dss-metric{background:rgba(148,163,184,0.04);border:1px solid var(--bd);border-radius:9px;padding:8px 10px;min-width:0}
+.dss-k,.dss-note{display:block;font-size:9px;color:var(--tx3)}
+.dss-v{display:block;margin:3px 0;font-size:12px;line-height:1.35;color:var(--tx);font-variant-numeric:tabular-nums;word-break:break-word}
+.dss-health-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.dss-health{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--bd);border-radius:999px;padding:3px 8px;font-size:9.5px;color:var(--tx2)}
+.dss-health b{color:var(--tx);font-weight:700}.dss-health[data-health="available"],.dss-health[data-health="ok"]{border-color:rgba(52,211,153,.25)}
+.dss-health[data-health="degraded"],.dss-health[data-health="unknown"]{border-color:rgba(251,191,36,.25)}
+.dss-health[data-health="missing"],.dss-health[data-health="invalid"],.dss-health[data-health="failed"]{border-color:rgba(248,113,113,.3)}
+.dss-reason{display:flex;flex-wrap:wrap;align-items:center;gap:5px 9px;margin-top:9px;padding:8px 10px;border:1px solid rgba(248,113,113,.25);border-radius:9px;background:rgba(248,113,113,.05);font-size:10px;color:var(--red)}
+.dss-foot{font-size:9px;line-height:1.6;color:var(--tx3);margin-top:9px;word-break:break-word}
+
 /* KPI 列 */
 .dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
 .dash-kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:11px 12px;min-width:0}
@@ -397,6 +418,8 @@ mark{background:rgba(129,140,248,0.3);color:var(--tx);border-radius:2px;padding:
 .panel .empty code{font-size:11px;background:rgba(148,163,184,0.10);border-radius:3px;padding:1px 5px}
 
 @media(max-width:768px){
+  .dss-grid{grid-template-columns:1fr 1fr}
+  .dss-card{padding:12px;margin-bottom:16px}
   .dash-kpis{grid-template-columns:1fr 1fr;gap:6px;margin-bottom:16px}
   .dash-kpi{padding:9px 10px;border-radius:10px}
   .dk-value{font-size:17px}

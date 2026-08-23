@@ -1,80 +1,20 @@
 {
   "items": [
     {
-      "title": "What came into force with the EU's AI Act this week – and what didn't",
-      "source": "Al Jazeera",
-      "date": "2026-08-06",
-      "category": "AI治理",
-      "summary": "歐盟《AI Act》自 2026 年 8 月 2 日起由執委會 AI Office 會同各國主管機關正式進入執法階段，同日第 50 條透明度義務開始適用。聊天機器人等直接與人互動的 AI 系統必須明確告知使用者正在與機器對話，深偽（deepfake）影音圖像須標示為 AI 生成或竄改，AI 生成內容並須附帶機器可讀標記以利偵測。情緒辨識與生物特徵分類系統亦須告知受影響者。違反者最高可處 1,500 萬歐元或全球年營業額 3%（取高者）罰鍰。本文同時指出「沒有」在本週生效的部分：Annex III 所列獨立高風險系統（招募、信用評分、教育、執法、邊境管制、關鍵基礎設施）的完整合規期限已延後至 2027 年 12 月 2 日，而 8 月 2 日前已上市系統的機器可讀標記義務可延至 2026 年 12 月 2 日。",
+      "title": "AI governance gap puts financial firms at examination risk",
+      "source": "FinTech Global",
+      "date": "2026-08-17",
+      "category": "金融監管",
+      "summary": "美國、英國與阿聯酋的金融監理機關正趨向同一個訊息：金融機構不需要等待專為 AI 訂定的新法規上路，因為現行的監理框架已經適用於 AI 的使用方式。美國證券交易委員會（SEC）的 2026 年檢查重點（2026 Examination Priorities）已將 AI 監督嵌入資訊安全、營運韌性與新興金融科技三大類別之中。美國金融業監管局（FINRA）的 2026 年度監理監督報告（2026 Annual Regulatory Oversight Report）走得更遠，新增生成式 AI 專章，要求會員機構提出 AI 工具在測試、監督、治理、供應商盡職調查與紀錄保存等面向的具體佐證。文章指出，業界的治理、風險管理、確信（assurance）與營運韌性實務，普遍跟不上 AI 在金融業導入的規模、速度與複雜度。建議金融機構透過獨立評估，在治理缺口變成正式檢查缺失（examination findings）之前，先對照監理期待進行基準比較。⚠️待確認：因未能以 web_fetch 開啟原文逐句核對，摘要內容係依搜尋結果整理，細節數據請以原文為準。",
       "highlights": [
-        "歐盟 AI Office 與各國市場監督機關自 2026-08-02 起取得實質執法權，包括調閱文件、執行技術評估與開罰",
-        "第 50 條透明度義務上路：聊天機器人須自我揭露、深偽須標示、AI 生成內容須帶機器可讀標記",
-        "最高罰鍰 1,500 萬歐元或全球年營收 3%，取高者",
-        "Annex III 獨立高風險系統（含信用評分）完整合規期限延至 2027-12-02，非本次生效範圍",
-        "既有上市系統的機器可讀標記義務有過渡期，可延至 2026-12-02"
+        "監理立場核心：不必等 AI 專法，現行監理框架已經適用於 AI 的使用",
+        "SEC 2026 年檢查重點已將 AI 監督嵌入資訊安全、營運韌性、新興金融科技三大類別",
+        "FINRA 2026 年度監理監督報告新增生成式 AI 專章，要求提出測試、監督、治理、供應商盡職調查與紀錄保存的佐證",
+        "美國、英國、阿聯酋三地監理機關方向趨同，形成跨法域一致的檢查期待",
+        "實務建議：以獨立評估對照監理期待做基準比較，趕在治理缺口成為正式檢查缺失前補齊"
       ],
-      "url": "https://www.aljazeera.com/news/2026/8/6/what-came-into-force-with-the-eus-ai-act-this-week-and-what-didnt"
-    },
-    {
-      "title": "歐盟 AI 法案正式執法，OpenAI、Anthropic 恐面臨天價罰款",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-06",
-      "category": "AI治理",
-      "summary": "歐盟《AI Act》自 8 月 2 日起正式進入執法階段，通用人工智慧（GPAI）模型提供者與特定 AI 系統的透明度義務同步生效，OpenAI、Anthropic 等前沿模型業者成為首波監理焦點。過去執委會對 GPAI 提供者僅具監督與觀察角色，如今 AI Office 取得要求提交技術文件、進行模型評估與開罰的實質權力。違反規定最高可處 1,500 萬歐元或全球年營業額 3%（取高者）罰鍰。由於 AI Act 具域外效力，只要將 AI 系統或服務投入歐盟市場，公司註冊地不影響義務歸屬，非歐盟業者只要在歐洲有營收同樣受拘束。此舉使歐盟成為全球第一個對 AI 系統實施全面性、具拘束力監理的司法管轄區。",
-      "highlights": [
-        "8 月 2 日起 AI Office 對 GPAI 模型提供者取得實質執法權，非僅監督",
-        "OpenAI、Anthropic 等前沿模型業者為首波監理焦點",
-        "最高罰鍰 1,500 萬歐元或全球年營收 3%",
-        "AI Act 具域外效力：只要 AI 服務投入歐盟市場即受規範，與註冊地無關",
-        "歐盟成為全球首個對 AI 實施全面性具拘束力監理的司法管轄區"
-      ],
-      "url": "https://finance.technews.tw/2026/08/06/eu-ai-act-enforcement-officially-takes-effect/"
-    },
-    {
-      "title": "AI: The Washington Report — August 2026 Edition",
-      "source": "Mintz",
-      "date": "2026-08-07",
-      "category": "AI治理",
-      "summary": "Mintz 法律事務所發布 2026 年 8 月號《華盛頓 AI 報告》，盤點美國聯邦與州層級 AI 立法與監理動態。美國目前仍缺乏統一的聯邦 AI 法律，形成聯邦行政命令與各州法規並行的分裂格局，企業須同時因應多套州級 AI 監理框架。國會層面，眾議員 Jay Obernolte 與 Lori Trahan 於 2026 年 6 月 4 日提出的《Great American Artificial Intelligence Act》（GAAIA）跨黨派討論稿，為國會首份綜合性聯邦 AI 治理框架提案。同時，白宮 2025 年 12 月簽署的行政命令試圖排除各州與聯邦去管制政策不一致的 AI 法規，聯邦與州之間的權限衝突成為 2026 年美國 AI 監理的核心張力。⚠️待確認：本期各項條目細節未經原文逐項核對。",
-      "highlights": [
-        "美國仍無統一聯邦 AI 法律，企業須因應多套州級監理框架",
-        "GAAIA 為國會首份綜合性聯邦 AI 治理框架討論稿（2026-06-04 提出）",
-        "白宮行政命令試圖預先排除（preempt）與聯邦去管制政策不一致的州法",
-        "聯邦 vs. 州權限衝突為 2026 年美國 AI 監理主軸",
-        "法律事務所定期月報形式，供企業追蹤華府 AI 政策動態"
-      ],
-      "url": "https://www.mintz.com/insights-center/viewpoints/54941/2026-08-07-ai-washington-report-august-2026-edition"
-    },
-    {
-      "title": "AI Legislative Update: August 7, 2026",
-      "source": "Transparency Coalition",
-      "date": "2026-08-07",
-      "category": "AI治理",
-      "summary": "Transparency Coalition 發布 2026 年 8 月 7 日的 AI 立法更新，追蹤美國各州 AI 法案進展。報告指出美國州級 AI 立法正朝向「更窄、更聚焦特定使用情境」的方向發展，而非全面性的橫向監理。伊利諾州已成為第一個強制要求前沿 AI 模型接受獨立第三方安全稽核的州，合規門檻高於加州與紐約僅要求揭露的制度。科羅拉多州則成為首個專門針對 AI 聊天機器人保護未成年人立法的州。在聯邦立法僵局下，州級規範持續成為美國 AI 治理的實質戰場。⚠️待確認：各州法案細節未經原文逐項核對。",
-      "highlights": [
-        "伊利諾州為首個強制前沿 AI 模型接受獨立第三方安全稽核的州",
-        "伊州合規門檻高於加州、紐約的「僅揭露」制度",
-        "科羅拉多州首創針對 AI 聊天機器人保護未成年人的專法",
-        "州級 AI 立法趨勢：從橫向全面監理轉向窄範圍、特定使用情境規範",
-        "聯邦立法僵局下，州法持續主導美國 AI 治理實務"
-      ],
-      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-august7-2026"
-    },
-    {
-      "title": "Anthropic為生成內容嵌標記 秒測是否AI手筆",
-      "source": "中央社 CNA",
-      "date": "2026-08-13",
-      "category": "AI治理",
-      "summary": "Anthropic 宣布為其模型生成內容嵌入標記機制，使 AI 生成文字可被快速偵測辨識。此舉正值歐盟《AI Act》第 50 條透明度義務於 8 月 2 日生效之際——該條文要求 AI 生成或竄改的內容須攜帶機器可讀標記（machine-readable marking），以利下游偵測工具識別。內容來源驗證（content provenance）與浮水印技術因此從自願性最佳實踐轉為具法律強制力的合規要求，前沿模型業者須在產品層面完成技術部署。⚠️待確認：本則細節僅以搜尋結果標題與歐盟法規時序推論，未經原文逐句核對。",
-      "highlights": [
-        "Anthropic 為生成內容嵌入標記，可快速偵測是否為 AI 產出",
-        "呼應歐盟 AI Act 第 50 條機器可讀標記義務（2026-08-02 生效）",
-        "內容來源驗證與浮水印從自願性最佳實踐轉為法遵要求",
-        "既有上市系統的標記義務過渡期至 2026-12-02",
-        "前沿模型業者須在產品層面完成 provenance 技術部署"
-      ],
-      "url": "https://www.cna.com.tw/news/aopl/202608130100.aspx"
+      "url": "https://fintech.global/2026/08/17/ai-governance-gap-puts-financial-firms-at-examination-risk/"
     }
   ],
-  "_updated_at": "2026-08-13T18:12:17.261522+08:00"
+  "_updated_at": "2026-08-23T18:10:16.306280+08:00"
 }
