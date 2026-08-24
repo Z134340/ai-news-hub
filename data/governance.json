@@ -1,20 +1,79 @@
 {
   "items": [
     {
-      "title": "AI governance gap puts financial firms at examination risk",
-      "source": "FinTech Global",
-      "date": "2026-08-17",
-      "category": "金融監管",
-      "summary": "美國、英國與阿聯酋的金融監理機關正趨向同一個訊息：金融機構不需要等待專為 AI 訂定的新法規上路，因為現行的監理框架已經適用於 AI 的使用方式。美國證券交易委員會（SEC）的 2026 年檢查重點（2026 Examination Priorities）已將 AI 監督嵌入資訊安全、營運韌性與新興金融科技三大類別之中。美國金融業監管局（FINRA）的 2026 年度監理監督報告（2026 Annual Regulatory Oversight Report）走得更遠，新增生成式 AI 專章，要求會員機構提出 AI 工具在測試、監督、治理、供應商盡職調查與紀錄保存等面向的具體佐證。文章指出，業界的治理、風險管理、確信（assurance）與營運韌性實務，普遍跟不上 AI 在金融業導入的規模、速度與複雜度。建議金融機構透過獨立評估，在治理缺口變成正式檢查缺失（examination findings）之前，先對照監理期待進行基準比較。⚠️待確認：因未能以 web_fetch 開啟原文逐句核對，摘要內容係依搜尋結果整理，細節數據請以原文為準。",
+      "title": "AI Legislative Update: August 21, 2026",
+      "source": "Transparency Coalition",
+      "date": "2026-08-21",
+      "category": "AI治理",
+      "summary": "Transparency Coalition 發布美國州級 AI 立法週報，盤點截至 8 月 21 日仍在審議中的各州法案進度。目前仍有 7 個州（California、Michigan、Pennsylvania、Massachusetts、Ohio、New Jersey、North Carolina）持續推動 AI 相關法案，其餘多數州議會已休會。Michigan 州議員將於 8 月 25 日（週二）返回 Lansing 復會，屆時 AI 法案審議將重啟。該週報同時引述《2026 Mid-Year State AI Legislation Report》，指出 2026 年上半年已有 27 個州通過共 85 項 AI 新法。立法主軸集中於聊天機器人安全、兒童數位生活與教育、醫療授權與心理健康應用、消費者權益，以及前沿模型（frontier model）監督五大領域。這反映在聯邦層級尚未有統一 AI 法的情況下，美國治理實質由州級立法主導。",
       "highlights": [
-        "監理立場核心：不必等 AI 專法，現行監理框架已經適用於 AI 的使用",
-        "SEC 2026 年檢查重點已將 AI 監督嵌入資訊安全、營運韌性、新興金融科技三大類別",
-        "FINRA 2026 年度監理監督報告新增生成式 AI 專章，要求提出測試、監督、治理、供應商盡職調查與紀錄保存的佐證",
-        "美國、英國、阿聯酋三地監理機關方向趨同，形成跨法域一致的檢查期待",
-        "實務建議：以獨立評估對照監理期待做基準比較，趕在治理缺口成為正式檢查缺失前補齊"
+        "截至 8 月 21 日仍有 7 州（California、Michigan、Pennsylvania、Massachusetts、Ohio、New Jersey、North Carolina）在審 AI 法案",
+        "2026 年上半年已有 27 州通過共 85 項 AI 相關新法",
+        "立法主軸：聊天機器人安全、兒童與教育、醫療授權與心理健康、消費者權益、前沿模型監督",
+        "Michigan 州議會 8 月 25 日復會，AI 法案審議重啟",
+        "顯示美國 AI 治理實質由州級立法主導，形成跨州合規複雜度"
       ],
-      "url": "https://fintech.global/2026/08/17/ai-governance-gap-puts-financial-firms-at-examination-risk/"
+      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-august21-2026"
+    },
+    {
+      "title": "Debates over AI consciousness are a trap",
+      "source": "MIT Technology Review",
+      "date": "2026-08-20",
+      "category": "AI治理",
+      "summary": "MIT Technology Review 專文主張，關於「AI 是否具有意識」的辯論實質上是一個治理陷阱，會把公共注意力從真正需要處理的監管議題上移開。文章指出，Demis Hassabis、Dario Amodei、Sam Altman 等主要 AI 實驗室負責人皆公開呼籲對進階 AI 進行監管，但業界與學界另有一派將討論導向 AI 意識與道德地位。作者認為，意識議題無法在短期內得到科學共識，卻會消耗有限的立法與監理資源。真正該優先處理的是可驗證的風險面向：模型能力評估、部署責任歸屬、對使用者的實際傷害。對金融等受監理產業而言，此觀點的意涵是治理框架應錨定在可稽核的行為與輸出，而非模型的內在狀態。",
+      "highlights": [
+        "主張 AI 意識辯論是治理陷阱，會排擠真正的監管議題",
+        "Demis Hassabis、Dario Amodei、Sam Altman 均公開支持對進階 AI 監管",
+        "意識議題短期內無法取得科學共識，卻消耗立法與監理資源",
+        "建議監理焦點放在能力評估、部署責任歸屬與實際使用者傷害",
+        "對受監理產業的意涵：治理應錨定可稽核的行為與輸出"
+      ],
+      "url": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/"
+    },
+    {
+      "title": "Seeking Public Comment! Using Artificial Intelligence for Cybersecurity Framework 2.0 Analysis and Reporting",
+      "source": "NIST",
+      "date": "2026-08-19",
+      "category": "資安標準",
+      "summary": "NIST 發布 SP 1353 初始公開草案（initial public draft），主題為運用 AI 進行 Cybersecurity Framework 2.0 分析與報告的快速入門指南（Quick-Start Guide），並公開徵求各界意見。該草案示範如何以大型語言模型輔助組織對照 CSF 2.0 的成果（outcomes）進行治理文件審查。文件列出兩個主要示範用例：用例一為 AI 輔助審查資安政策、策略與風險治理文件是否符合 CSF 2.0 成果；用例二為協助草擬組織的 Current State Profile（現況剖繪）。草案並附上範例提示詞（example prompts）與模擬組織檔案，讓使用者可直接複現流程。意見回饋須於 2026 年 10 月 15 日前寄至 csf@nist.gov。⚠️待確認：發布日期依 NIST 官方社群貼文標示為 8 月 19 日，官網頁面僅顯示 2026 年 8 月。",
+      "highlights": [
+        "NIST SP 1353 初始公開草案：以 AI 輔助 CSF 2.0 分析與報告的快速入門指南",
+        "用例一：AI 輔助審查資安政策、策略與風險治理文件是否對應 CSF 2.0 成果",
+        "用例二：協助草擬組織的 Current State Profile（現況剖繪）",
+        "附範例提示詞與模擬組織檔案，可直接複現操作流程",
+        "意見徵求期至 2026 年 10 月 15 日，寄送 csf@nist.gov"
+      ],
+      "url": "https://www.nist.gov/news-events/news/2026/08/seeking-public-comment-using-artificial-intelligence-cybersecurity"
+    },
+    {
+      "title": "Türkiye Artificial Intelligence Action Plan (2026-2030) Published by the Ministry of Industry and Technology",
+      "source": "Pekin Bayar Mizrahi",
+      "date": "2026-08-19",
+      "category": "國家AI政策",
+      "summary": "土耳其以總統府第 2026/9 號通告（Presidential Circular No. 2026/9）在官方公報公布《Türkiye Artificial Intelligence Action Plan (2026-2030)》，由工業與技術部（Ministry of Industry and Technology）主導，接續 2021-2025 年的前一期國家 AI 策略。行動計畫以「認識、運用、生產、管理」（notice, utilize, produce, manage）四階段架構推進。人力目標方面，規劃兩年內在 81 個省推動 500 萬名國民的 AI 素養培訓，並培育 1 萬名高階專家與 10 萬名應用專業人才。算力方面，計畫配置 2,000 萬 GPU 小時供研究與產業使用。治理面最具強制力的一項是要求公部門機構須將投資預算的至少 2% 投入 AI 相關項目，把政策目標直接綁進預算執行。",
+      "highlights": [
+        "以總統府第 2026/9 號通告在官方公報公布，工業與技術部主導",
+        "四階段架構：認識（notice）、運用（utilize）、生產（produce）、管理（manage）",
+        "兩年內於 81 省培訓 500 萬國民 AI 素養，並育成 1 萬名高階專家、10 萬名應用人才",
+        "配置 2,000 萬 GPU 小時供研究與產業運用",
+        "強制要求公部門機構投資預算至少 2% 投入 AI，政策綁定預算執行"
+      ],
+      "url": "https://pekin.com.tr/2026/08/19/turkiye-artificial-intelligence-action-plan-2026-2030-published-by-the-ministry-of-industry-and-technology/"
+    },
+    {
+      "title": "Ctrl+AI+Reg - 24 August 2026",
+      "source": "Ctrl+AI+Reg (Substack)",
+      "date": "2026-08-24",
+      "category": "AI治理",
+      "summary": "AI 監管週報 Ctrl+AI+Reg 的 8 月 24 日期，彙整當週全球 AI 治理動態。重點之一是英國 NCSC（National Cyber Security Centre）技術長對前沿 AI 的公開示警，指出模型可能出現未經授權的行動（unsanctioned actions）與欺瞞行為（deceptive behaviour），呼籲部署方建立相應控制。其二是澳洲 eSafety Commissioner 針對 AI 造成的線上傷害提出警告。其三是土耳其總統府第 2026/9 號通告所公布的國家 AI 行動計畫。整體訊號顯示，本週各國監理焦點正從「模型能力風險」轉向「Agent 自主行為的可控性」與「終端使用者傷害」兩條軸線。",
+      "highlights": [
+        "英國 NCSC 技術長示警前沿 AI 可能出現未經授權行動與欺瞞行為",
+        "澳洲 eSafety Commissioner 就 AI 造成的線上傷害提出警告",
+        "土耳其以總統府第 2026/9 號通告公布國家 AI 行動計畫",
+        "本週監理焦點轉向 Agent 自主行為可控性與終端使用者傷害兩條軸線"
+      ],
+      "url": "https://techieray.substack.com/p/ctrlaireg-24-august-2026"
     }
   ],
-  "_updated_at": "2026-08-23T18:10:16.306280+08:00"
+  "_updated_at": "2026-08-24T18:26:23.805035+08:00"
 }

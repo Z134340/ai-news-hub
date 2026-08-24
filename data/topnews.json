@@ -1,152 +1,20 @@
 {
   "items": [
     {
-      "title": "Slack wants to drag AI coding out of the terminal and into the group chat",
-      "title_zh": "Slack 要把 AI 編碼從終端機拉進群組聊天室",
+      "title": "Enterprises winning with AI agents are limiting how much the agents can do alone",
+      "title_zh": "在 AI Agent 上做出成效的企業，反而正在限制 Agent 能單獨完成的事",
       "source": "VentureBeat",
-      "date": "2026-08-21",
+      "date": "2026-08-23",
       "domain": "Agent",
-      "model_area": "Agentic Coding / Multi-agent Collaboration",
-      "summary": "Salesforce 推出 Slack Code，把 AI 編碼 Agent 放進共享頻道，讓工程師、PM、設計師在同一個工作區內共同規劃、審查與交付軟體。使用者可在 Slack 中 @ 提及 Agent，由其針對特定任務自動建立 code channel 並拉入相關同事，頻道內可顯示程式碼變更、規劃資訊與即時 HTML 預覽。支援 Anthropic Claude、Cognition Devin、GitHub Copilot 與 Vercel 的 Agent。任務完成後頻道自動封存，保留可搜尋的專案紀錄。",
+      "model_area": "Enterprise Agentic AI / Agent Orchestration",
+      "summary": "VentureBeat 於 8 月 23 日刊出的分析指出，過去兩年企業 AI 圈普遍相信「自主性越高、效能越好」，但這個假設在真實production 環境大規模驗證後正在失敗。文章主張真正從 agentic AI 獲益的公司，並非給 Agent 最大彈性的那一群，而是替每個 Agent 界定明確職責、並確保其在清楚規則內運作的組織。這等同把 Agent 設計從「通用自主代理」轉向「有邊界的受限代理」，與金融業慣用的職責分離與權限最小化原則一致。",
       "highlights": [
-        "Slack Code 在所有 Slack 方案皆可使用，但需自備各家 partner agent 的存取權限",
-        "把 agentic coding 從個別開發者的終端機 session 搬到多角色共享環境，強化人為監督",
-        "支援四家外部編碼 Agent：Claude、Devin、Copilot、Vercel Agent"
+        "企業實務推翻「自主性越高越好」的預設，受限範圍的 Agent 在 production 表現較佳",
+        "設計重點轉為明確職責界定與規則約束，而非最大化彈性",
+        "對治理面的意涵：Agent 權限最小化與行為邊界應在部署前先定義"
       ],
-      "url": "https://venturebeat.com/orchestration/slack-wants-to-drag-ai-coding-out-of-the-terminal-and-into-the-group-chat"
-    },
-    {
-      "title": "Slack Code: AI Coding Agents Get Shared Channels for Review and Oversight",
-      "title_zh": "Slack Code：AI 編碼 Agent 取得可供審查與監督的共享頻道",
-      "source": "TechRepublic",
-      "date": "2026-08-21",
-      "domain": "Agent",
-      "model_area": "Agentic Coding / Human-in-the-loop",
-      "summary": "TechRepublic 從治理角度解讀 Slack Code：其核心價值不在生成程式碼本身，而在把 Agent 的工作過程攤開在團隊可見的頻道中，形成可審查、可追溯的紀錄。頻道內同時呈現計畫、程式碼變更與預覽，讓非工程角色也能參與把關。完成後自動封存的機制等同保留了一份稽核軌跡。",
-      "highlights": [
-        "Agent 工作流程可視化，人為監督（human oversight）成為預設而非事後補強",
-        "自動封存頻道形成可搜尋的專案稽核紀錄，對內控與合規有實質意義"
-      ],
-      "url": "https://www.techrepublic.com/article/news-slack-code-ai-coding-agents/"
-    },
-    {
-      "title": "China's Z.AI Ships GLM-5.3, Calling It the Top Open-Weight Coding Model",
-      "title_zh": "中國 Z.AI 推出 GLM-5.3，宣稱為最強開放權重編碼模型",
-      "source": "Decrypt",
-      "date": "2026-08-21",
-      "domain": "LLM",
-      "model_area": "Open-weight LLM / Coding & Agentic",
-      "summary": "Z.AI 發布 GLM-5.3，在 Artificial Analysis Intelligence Index 拿下 60 分，較前代 GLM-5.2 提升 7 分，與 Moonshot 的 Kimi K3 並列。Artificial Analysis 指出，權重釋出後 GLM-5.3 將與 Kimi K3 並列為最強開放權重模型。前代 GLM-5.2 為 744B 總參數 / 40B 啟動的 MoE 架構、MIT 授權、1M token 上下文，主打軟體開發、長工具鏈與 repository 規模任務。",
-      "highlights": [
-        "Artificial Analysis Intelligence Index 得分 60，較 GLM-5.2 提升 7 分，與 Kimi K3 並列",
-        "定位為 coding agent 專用設計，強調長 tool-use 鏈與 repo 級任務而非單次補全",
-        "中國開放權重陣營（Z.AI、Moonshot、DeepSeek、Qwen）持續逼近閉源前沿模型"
-      ],
-      "url": "https://decrypt.co/375684/china-z-ai-glm-5-3-top-open-weight-coding-model"
-    },
-    {
-      "title": "GLM-5.3 achieves 60 on the Artificial Analysis Intelligence Index, on par with Kimi K3 and up 7 points from GLM-5.2",
-      "title_zh": "GLM-5.3 於 Artificial Analysis 智能指數取得 60 分，與 Kimi K3 並列、較 GLM-5.2 提升 7 分",
-      "source": "Artificial Analysis (X)",
-      "date": "2026-08-21",
-      "domain": "LLM",
-      "model_area": "Benchmark / Open-weight LLM",
-      "summary": "第三方評測機構 Artificial Analysis 在 X 上公布 GLM-5.3 的獨立評測結果：Intelligence Index 得分 60，與 Kimi K3 相同，較 GLM-5.2 提升 7 分。該機構明確表示，一旦權重釋出，GLM-5.3 將與 Kimi K3 並列為領先的開放權重模型。此為 Z.AI 官方宣稱之外的獨立第三方佐證。",
-      "highlights": [
-        "獨立第三方評測佐證，非廠商自評數據",
-        "權重尚未釋出，領先地位以「釋出後」為前提"
-      ],
-      "url": "https://x.com/ArtificialAnlys/status/2089830890709135426"
-    },
-    {
-      "title": "AI Agents News — Week of August 22, 2026 (Daily Updates)",
-      "title_zh": "AI Agent 新聞——2026 年 8 月 22 日當週（每日更新）",
-      "source": "AI Agent Store",
-      "date": "2026-08-22",
-      "domain": "Agent",
-      "model_area": "Agent Infrastructure / Enterprise Agents",
-      "summary": "本週 AI Agent 動態彙整：Cloudflare 推出 x402 協定讓 Agent 可自主付費，已有超過 20 家公司參與 agent-initiated payment 流程；Firecrawl 推出 Developer Index，為編碼 Agent 建立涵蓋 7,000 萬以上 repo、文件與 issue 的可搜尋索引。企業端則有 Google 擴大 Antigravity 編碼 Agent 的企業存取、Pinecone Nexus 正式 GA。",
-      "highlights": [
-        "Cloudflare x402 讓 Agent 自主付費，20+ 公司已參與 agent-initiated payment",
-        "Firecrawl Developer Index：7,000 萬以上 repo／文件／issue 的 Agent 專用索引",
-        "Pinecone Nexus GA，將企業專有資料轉為單一呼叫可取用的 agent-ready 知識層"
-      ],
-      "url": "https://aiagentstore.ai/ai-agent-news/this-week"
-    },
-    {
-      "title": "AI Agents News Brief: August 21, 2026 - Development, Security, and Investment",
-      "title_zh": "AI Agent 新聞簡報：2026 年 8 月 21 日——開發、資安與投資",
-      "source": "AI Agents Directory",
-      "date": "2026-08-21",
-      "domain": "Agent",
-      "model_area": "Enterprise Agents / Agent Security",
-      "summary": "當日 Agent 領域三條主線：開發面為 Google 擴大 Antigravity 編碼 Agent 的企業存取，強調安全性與控管；資安面為 Fortinet 併購 Virtue AI，補強其資安平台的 AI Agent red-teaming 能力；投資面則有 Anthropic 關聯的 Ode 收購 Casper Studios 以擴充企業級 AI 部署能力，以及前 NVIDIA 研究員創立的 world model 新創 Veeda AI 募得 9,000 萬美元。",
-      "highlights": [
-        "Fortinet 併購 Virtue AI，把 Agent red-teaming 納入資安平台——Agent 安全開始成為併購標的",
-        "Google Antigravity 編碼 Agent 擴大企業版存取，主打安全與控管",
-        "Veeda AI（前 NVIDIA 研究員創立，world model 方向）募資 9,000 萬美元"
-      ],
-      "url": "https://aiagentsdirectory.com/news/ai-agents-news-brief-august-21-2026"
-    },
-    {
-      "title": "Top Tech News Today, August 21, 2026: Anthropic, Apple, Broadcom, Google, Nvidia, OpenAI Tesla & More",
-      "title_zh": "今日科技要聞，2026 年 8 月 21 日：Anthropic、Apple、Broadcom、Google、NVIDIA、OpenAI、Tesla 等",
-      "source": "Tech Startups",
-      "date": "2026-08-21",
-      "domain": "Industry",
-      "model_area": "AI Infrastructure / Capital Markets",
-      "summary": "當日科技要聞彙整，資本市場為主軸：Broadcom 正與金融機構洽談逾 600 億美元的優先擔保債務，若再加上約 300 億美元的次順位債務，總規模可達 1,000 億美元，反映 AI 晶片產能擴張的融資壓力。同時 NVIDIA 對模型建構新創出手、Anthropic IPO 進程持續推進。",
-      "highlights": [
-        "Broadcom 洽談逾 600 億美元優先擔保債，總融資規模上看 1,000 億美元",
-        "AI 基礎設施的融資結構正快速槓桿化，成為系統性風險觀察點"
-      ],
-      "url": "https://techstartups.com/2026/08/21/top-tech-news-today-august-21-2026-anthropic-apple-broadcom-google-nvidia-openai-tesla-more/"
-    },
-    {
-      "title": "AI News August 21 2026: AI Now Writes Half of All Linear Issues, and Teams Still Ship Slower",
-      "title_zh": "2026 年 8 月 21 日 AI 新聞：AI 已撰寫近半數 Linear issue，團隊交付速度卻仍變慢",
-      "source": "AIToolsRecap",
-      "date": "2026-08-21",
-      "domain": "Industry",
-      "model_area": "Agentic Coding / Developer Productivity",
-      "summary": "根據 Linear 的資料，AI 目前撰寫的 issue 已接近全部的一半，團隊的 pull request 數量增為三倍，但開發時間反而拉長。這項數據直接挑戰「AI 編碼 Agent 必然提升交付效率」的假設，指向審查、整合與驗證環節成為新瓶頸。",
-      "highlights": [
-        "AI 撰寫的 issue 佔比接近 50%，PR 數量成長 3 倍，但開發時間反而上升",
-        "生成端加速、驗證端未同步擴充，瓶頸從「寫程式」移轉到「審查與整合」",
-        "對導入 agentic coding 的組織而言，效益衡量指標須從產出量改為交付週期"
-      ],
-      "url": "https://aitoolsrecap.com/Blog/ai-news-august-21-2026"
-    },
-    {
-      "title": "7 AI News Stories of the Day | August 22, 2026",
-      "title_zh": "當日七則 AI 新聞｜2026 年 8 月 22 日",
-      "source": "note.com（宮野宏樹）",
-      "date": "2026-08-22",
-      "domain": "Industry",
-      "model_area": "M&A / Capital Markets",
-      "summary": "當日 AI 產業七則要聞彙整。其中 NVIDIA 支付 60 億美元取得程式碼專用 AI 公司 Poolside 之 Model Factory 模型開發平台的非專屬授權，並額外投資 10 億美元、以 120 億美元投前估值計算，同時對 109 名員工發出聘僱邀約——這種「同時取得技術、人才與股權，卻避開併購審查」的結構正在成形。另 Bloomberg 於 8 月 20 日晚間報導、21 日全球擴散的 Anthropic IPO 消息，預期募資規模介於 750 億至逾 800 億美元。",
-      "highlights": [
-        "NVIDIA–Poolside：60 億美元非專屬授權 + 10 億美元投資 + 109 人聘僱，刻意避開併購審查",
-        "Anthropic 最快本月底送件 IPO，預期募資 750 億至逾 800 億美元",
-        "「授權 + 投資 + 挖角」的三合一結構正成為大廠規避反壟斷審查的新常規"
-      ],
-      "url": "https://note.com/hirokimiyano/n/ned9ccbc5818e?hl=en"
-    },
-    {
-      "title": "AI News. August 22, 2026",
-      "title_zh": "AI 新聞，2026 年 8 月 22 日",
-      "source": "Crypto Integrated",
-      "date": "2026-08-22",
-      "domain": "Industry",
-      "model_area": "AI Infrastructure / Autonomous Systems",
-      "summary": "當日 AI 產業動態彙整，涵蓋過去 24 小時內的主要事件：監理機關開放拉斯維加斯街道供數千輛 robotaxi 營運；晶片廠商排隊籌措數百億美元的新 AI 債務；NVIDIA 對關鍵模型建構新創出手；Tesla 悄悄終止其太陽能屋瓦計畫；紐約自灣區手中奪下全美科技人才第一的位置。",
-      "highlights": [
-        "拉斯維加斯開放數千輛 robotaxi 上路，為美國自駕商轉規模化的指標事件",
-        "晶片廠商大規模舉債擴充 AI 產能，融資槓桿持續攀升",
-        "科技人才重心自灣區移向紐約"
-      ],
-      "url": "https://www.cryptointegrat.com/p/ai-news-august-22-2026"
+      "url": "https://venturebeat.com/orchestration/enterprises-winning-with-ai-agents-are-limiting-how-much-the-agents-can-do-alone"
     }
   ],
-  "_updated_at": "2026-08-23T18:13:20.927341+08:00"
+  "_updated_at": "2026-08-24T18:23:39.268566+08:00"
 }

@@ -1,145 +1,125 @@
 {
   "items": [
     {
+      "title": "ChatGPT 外掛程式存取 Mac 訊息，專家示警隱私風險高",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-24",
+      "topic": "AI Agent",
+      "summary": "OpenAI 推出 Apple Messages 外掛程式，讓具備 Agent 能力的 ChatGPT Work 與 Codex 在使用者授權後，能直接處理 Mac 電腦上的訊息內容，包括搜尋訊息、查看對話、草擬與發送回覆，涵蓋 iMessage、SMS 以及透過 Apple Messages 管理的 RCS 訊息。OpenAI 舉出的應用情境包括查看行事曆後在訊息中回覆，以及從訊息中主動建議需要追蹤的待辦事項。OpenAI 強調外掛程式唯有使用者選擇啟用時才會運作，處理全在電腦端完成，且不會為使用者的訊息建立索引。不過資安與隱私專家 Paul Walsh 撰文警告，這等於是拿 Apple Messages 原本的隱私與安全性，去交換 Agent 快速搜尋與草擬訊息的便利性。這是 Agent 從瀏覽器、程式碼環境進一步侵入個人通訊層的指標性事件。",
+      "relevance": "台灣企業與開發者大量使用 macOS 與 iMessage，Agent 直接讀寫個人通訊涉及個資與內部資料外洩風險，是企業 AI 治理與 BYOD 政策需要立即評估的新攻擊面。",
+      "discussion": "高：台灣開發者社群與資安圈對「Agent 取得通訊軟體權限」的界線討論熱烈。",
+      "url": "https://technews.tw/2026/08/24/chatgpt-for-mac-can-search-messages-catch-up-on-conversations-and-send-replies/"
+    },
+    {
       "title": "Ox Alpha 模型竄紅 AI 圈，免費試用背後身分引發猜測",
       "source": "TechNews 科技新報",
       "date": "2026-08-23",
       "topic": "LLM發布",
-      "summary": "一款名為 Ox Alpha 的神祕前沿模型近日出現在 OpenRouter 與 OpenCode 平台，主打高效程式撰寫與 agentic（代理式）工作能力，並開放免費試用，短時間內引爆開發者社群討論。該模型宣稱每日可處理高達 100 兆 token 的規模，數據若屬實將遠超既有主流模型的服務量級。由於官方未公開背後開發團隊身分，社群普遍猜測其可能為某家大型實驗室的匿名測試版本，用意在於蒐集真實使用者回饋而不揭露品牌。免費策略也被解讀為在 agentic coding 市場搶奪開發者心佔率的前置動作。",
-      "relevance": "台灣開發者社群大量使用 OpenRouter 等聚合平台評估模型性價比，匿名前沿模型的出現直接影響本地 AI Agent 與 coding assistant 的選型評估。",
-      "discussion": "高，開發者社群對匿名模型身分的猜測討論熱烈",
-      "url": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work"
+      "summary": "一款名為 Ox Alpha 的神祕模型被放上 OpenRouter、OpenCode 等平台，近日在開發者社群引發熱烈討論。引發關注的原因不只是該模型自稱具備每日處理多達 100 兆 token 的能力，更因為它完全免費開放試用，且至今沒有任何 AI 實驗室出面承認其真實身分。根據流傳的推測，Ox Alpha 採用 cl100k_base 標記器，這是一款由 OpenAI 開發的 BPE tokenizer，因此有人推論其可能來自微軟。Stripe 執行長 Patrick Collison 實際使用後在 X 貼文表示「這非常令人印象深刻」。該模型主打高效程式撰寫與 agentic 工作負載，是近期匿名前沿模型公測的又一案例。",
+      "relevance": "匿名前沿模型以免費試用蒐集回饋，對台灣開發團隊而言是低成本試用高階 agentic coding 能力的機會，但來源不明也帶來資料流向與合規疑慮。",
+      "discussion": "高：OpenRouter 與台灣開發者社群大量實測與身分猜測。",
+      "url": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work/"
     },
     {
-      "title": "學生負責下令，AI 負責讀大學：AI 代理「幫上課」成高等教育危機",
+      "title": "不讓中國專美於前，輝達砸 1,911 億打造開放權重模型",
       "source": "TechNews 科技新報",
-      "date": "2026-08-23",
-      "topic": "AI Agent",
-      "summary": "報導指出 AI 代理（AI Agent）正在高等教育線上課程中催生新型態的作弊模式，學生只需下達簡單指令，代理即可自動完成登入聽課、作答測驗與繳交作業的完整流程。與過去單次生成答案的 AI 使用方式不同，代理具備多步驟自主執行能力，能跨越登入、瀏覽、填答等環節，使既有的線上監考與行為偵測機制失效。文章同時討論了如何透過提示詞設計限制代理「不要把任務執行得太超過」，也就是為代理設定行為邊界的實務手法。這牽動的是教育機構如何重新設計評量方式，而非單純封鎖工具。",
-      "relevance": "台灣各大學近年大量導入線上課程與數位學習平台，代理式作弊直接衝擊本地學術誠信規範與遠距評量設計。",
-      "discussion": "中高，教育界與 AI 倫理社群持續關注",
-      "url": "https://technews.tw/2026/08/23/i-found-a-prompt-that-keeps-ai-agents-from-taking-tasks-too-far"
+      "date": "2026-08-24",
+      "topic": "LLM發布",
+      "summary": "輝達（NVIDIA）敲定一筆約 60 億美元（約新台幣 1,911 億元）的協議，目標是打造全球最強大的開放權重（open-weight）AI 模型之一，用以對抗中國的 DeepSeek 與 Kimi K3。這項授權協議的對象是 AI 新創 Poolside，同時也將直接挑戰 OpenAI、Anthropic 等美國封閉模型陣營。開放權重模型的營運成本通常低於封閉模型，且更容易客製化，被視為壓低推論成本的關鍵路徑。執行長黃仁勳近期持續倡議建立「美國開放 AI 生態系」，以反制中國開源模型快速崛起的態勢。此舉顯示晶片供應商正往模型層垂直整合，改變 AI 產業競爭格局。",
+      "relevance": "輝達是台灣供應鏈最重要的客戶，其往模型層布局將牽動台廠伺服器與晶片訂單結構；開放權重模型普及也降低台灣企業自建 LLM 的成本門檻。",
+      "discussion": "高：台灣科技與投資社群同步關注。",
+      "url": "https://technews.tw/2026/08/24/nvidia-invests-191-1-billion-open-weight-models-challenge-china-dominance"
     },
     {
-      "title": "華為針對亞太地區以安全智慧連結理念，全面升級星河 AI 網路，躍升產業數位智能化",
-      "source": "TechNews 科技新報（資安）",
-      "date": "2026-08-23",
-      "topic": "AI Agent／網路基礎建設",
-      "summary": "華為於峇里島舉行 2026 亞太資料通訊創新高峰會，吸引近 500 位產業領袖與會，主題聚焦 AI Agent 部署趨勢與網路架構創新。華為宣布全面升級「星河 AI 網路」，以安全智慧連結為核心理念，強化企業在導入代理式 AI workload 時所需的網路承載與安全防護能力。會中討論指出，AI Agent 大量並行呼叫模型與工具，對企業網路的延遲、頻寬與東西向流量控管帶來與傳統應用截然不同的壓力。華為將此定位為亞太市場數位智能化轉型的基礎設施升級路徑。",
-      "relevance": "亞太企業網路架構的 AI Agent 化趨勢，對台灣電信商與企業 IT 的網路升級規劃具參考價值；惟華為設備在台灣公部門與關鍵基礎設施受限，須留意採用限制。",
-      "discussion": "中，偏產業與企業 IT 圈討論",
-      "url": "https://infosecu.technews.tw/2026/08/23/huawei-upgrades-xinghe-ai-network-asia-pacific-secure-intelligent-connectivity-digital-intelligence"
+      "title": "不讓中國專美於前 輝達砸1911億打造開放權重模型",
+      "source": "中央社 CNA",
+      "date": "2026-08-24",
+      "topic": "LLM發布",
+      "summary": "中央社報導輝達（NVIDIA）同意投入約新台幣 1,911 億元，打造全球最強大的開放權重 AI 模型之一。此舉意在對抗中國 DeepSeek、Kimi K3 等開源模型在全球開發者社群快速擴散的影響力。開放權重模型因營運成本較低、可自行客製化，正在改變企業採用 AI 的成本結構，也直接衝擊 OpenAI 與 Anthropic 的封閉模型商業模式。輝達透過資本而非僅靠晶片建構產業護城河的策略轉向，是本次交易的核心觀察點。中央社的報導使此議題進入台灣主流媒體視野。",
+      "relevance": "主流媒體報導提高台灣產業界對開放權重模型路線的認知，對評估自建與採購策略的本地企業具參考價值。",
+      "discussion": "中高：主流媒體轉載帶動一般讀者討論。",
+      "url": "https://www.cna.com.tw/news/afe/202608240031.aspx"
     },
     {
-      "title": "挖角 Google TPU 創辦大將，Anthropic 以人才、技術、資金佈局自研 AI 晶片",
+      "title": "Anthropic 最強 AI 企業不買單 輝達砸錢拚開放模型",
       "source": "TechNews 科技新報",
-      "date": "2026-08-22",
-      "topic": "大廠動態／AI 晶片",
-      "summary": "Anthropic 正式跨入半導體領域，成功延攬 Google 自研晶片計畫（TPU）創始成員之一 Amir Salek 加入其運算團隊，象徵公司要從模型層向下整合到硬體層。此舉背景是前沿模型訓練與推論成本持續攀升，仰賴外部供應商將侵蝕毛利並受制於產能分配。報導同時指出 OpenAI 亦在推進自研晶片計畫，與 Broadcom、Celestica 合作開發代號「Jalapeno」的客製化晶片，預計 2026 年底前部署。兩大模型公司同步走向自研，反映運算自主權已成為前沿實驗室的核心競爭要素。",
-      "relevance": "自研 AI 晶片高度仰賴台積電先進製程與台系 ASIC 設計、封測與伺服器代工供應鏈，是台灣半導體業直接受惠的訂單來源。",
-      "discussion": "高，半導體與投資圈廣泛轉載",
-      "url": "https://technews.tw/2026/08/22/anthropic-is-developing-its-own-ai-chips"
+      "date": "2026-08-24",
+      "topic": "技術趨勢",
+      "summary": "報導指出企業客戶開始從最頂級的封閉 AI 服務轉向，Anthropic 等業者主打的最強模型並未獲得企業一面倒買單。主因在於開放權重模型的營運成本明顯低於 OpenAI、Anthropic 等封閉模型，且更容易依企業需求客製化調整。輝達正是看準此一趨勢，才大舉投入資源推動開放權重模型陣營。黃仁勳持續倡議美國開放 AI 生態系，以抗衡中國快速崛起的開源模型勢力。這反映企業 AI 採用正從「追求最強模型」轉向「追求成本與可控性平衡」。",
+      "relevance": "台灣企業導入 AI 時同樣面臨 token 成本與資料落地的雙重壓力，開放權重模型的成本優勢對本地金融、製造業的 AI 落地策略有直接影響。",
+      "discussion": "中高：企業 IT 與 CIO 圈關注模型採購路線轉向。",
+      "url": "https://technews.tw/2026/08/24/businesses-begin-moving-away-from-top-tier-ai-services"
     },
     {
-      "title": "記憶體成本攀升，NVIDIA 明年起調漲 AI 伺服器價格、漲幅逾 15%",
+      "title": "輝達傳洽談投資 Perplexity，估值逾 9,583 億元",
       "source": "TechNews 科技新報",
-      "date": "2026-08-23",
-      "topic": "大廠動態／AI 硬體",
-      "summary": "NVIDIA 已通知主要客戶，自明年初起 AI 伺服器價格將調漲逾 15%，主因為記憶體成本大幅攀升。AI 訓練與推論對 HBM 與一般 DRAM 的需求同時暴增，已排擠其他終端裝置的記憶體產能，形成全產業性的成本壓力。此次漲價將直接轉嫁至雲端服務商與企業自建 AI 基礎設施的採購成本，可能拉長企業 AI 專案的投資回收期。對供應鏈而言，價格上調亦意味著整機代工與零組件廠的營收規模同步放大。",
-      "relevance": "台灣為 AI 伺服器代工與零組件主要供應地，鴻海、廣達、緯創等 ODM 及記憶體模組業者的營收與毛利結構將直接受影響。",
-      "discussion": "高，投資與科技產業圈熱議",
-      "url": "https://technews.tw/2026/08/23/nvidia-notifies-customers-of-ai-related-price-hikes-above-15-percent"
+      "date": "2026-08-24",
+      "topic": "產業投資",
+      "summary": "輝達（NVIDIA）傳出正與 AI 搜尋新創 Perplexity 洽談投資案，該筆投資預計將使 Perplexity 估值推升至逾新台幣 9,583 億元（約 300 億美元以上）。這是輝達近期一連串生態系投資布局的一環，延續其以資本綁定下游 AI 應用需求的策略。分析指出，輝達的護城河已從單純的晶片效能，轉為透過資本投資鎖定整條 AI 產業鏈。此類投資同時保障了未來 GPU 算力的長期需求來源。Perplexity 若獲注資，將在 AI 搜尋領域對 Google 形成更強的挑戰。",
+      "relevance": "輝達的資本布局決定未來 AI 算力訂單流向，直接影響台灣伺服器代工與晶片供應鏈的產能規劃。",
+      "discussion": "中高：台灣投資與科技媒體同步追蹤。",
+      "url": "https://technews.tw/2026/08/24/nvidia-perplexity-investment-valuation-over-958-3-billion-yuan/"
     },
     {
-      "title": "博通將融資超過 700 億美元，強化布局非輝達 AI 晶片市場布局",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-22",
-      "topic": "AI 晶片／產業投資",
-      "summary": "Broadcom 正洽談規模超過 700 億美元的融資案，用以支撐企業級 AI 晶片基礎設施的建置與擴張。此舉被視為在 NVIDIA 主導的 GPU 市場之外，另闢客製化 ASIC 路線的重資本布局。報導指出 AI 新創 Anthropic 是這波客製化晶片供應的主要受惠對象之一，與其自研晶片的策略相互呼應。以債務融資支撐晶片產能的作法，反映 AI 基礎設施競賽已從技術競爭延伸至資本規模競爭。",
-      "relevance": "客製化 ASIC 路線的擴張直接帶動台積電先進製程與台系封測、載板供應鏈的長約需求。",
-      "discussion": "中高，財經與半導體媒體關注",
-      "url": "https://cdnfinance.technews.tw/2026/08/22/broadcom-to-raise-over-70-billion/"
-    },
-    {
-      "title": "AI 推升 PIC 代工狂潮，聯電挾 12 吋量產優勢決戰高塔、格羅方德",
+      "title": "攸關美股命脈，輝達 8/26 財報估季收 920 億美元創新高",
       "source": "TechNews 科技新報（財經）",
-      "date": "2026-08-22",
-      "topic": "台灣產業／矽光子",
-      "summary": "AI 資料中心對高頻寬、低功耗互連的需求，推升光子積體電路（PIC）代工需求快速成長。聯電（UMC）以 12 吋晶圓量產能力切入此一戰場，與 Tower Semiconductor、GlobalFoundries 展開直接競爭。相較於競爭對手多以 8 吋產線承接 PIC 訂單，12 吋量產在單位成本與良率一致性上具規模優勢。矽光子被視為 AI 伺服器機櫃內部與機櫃之間互連的關鍵技術路徑，長期需求與 AI 基礎設施投資高度連動。",
-      "relevance": "直接關係台灣成熟製程晶圓代工的轉型方向，聯電能否在 AI 週期中找到成長曲線是本地半導體業重要觀察點。",
-      "discussion": "中高，台股投資圈關注度高",
-      "url": "https://finance.technews.tw/2026/08/22/umc-joins-battle-competing-tower-globalfoundries"
+      "date": "2026-08-24",
+      "topic": "產業動態",
+      "summary": "輝達將於 8 月 26 日公布財報，市場預估單季營收可達 920 億美元、再創歷史新高。執行長黃仁勳在法說會上對輝達現況的分析，不僅預示 AI 未來趨勢，也將牽動整體美股與科技股的走向。這場財報被視為檢驗當前 AI 資本支出熱潮是否持續的關鍵指標。市場同時關注新一代 Vera Rubin 平台的量產出貨進度與客戶下單狀況。財報結果將直接影響台灣 AI 供應鏈個股的評價。",
+      "relevance": "輝達財報是台股 AI 供應鏈（台積電、鴻海、廣達、緯創等）的重要領先指標，法說會展望將牽動台廠下半年產能與訂單能見度。",
+      "discussion": "高：台灣投資社群密集討論財報預期。",
+      "url": "https://finance.technews.tw/2026/08/24/nvidia-august-26-earnings-us-stock-market-crucial-record-92b-revenue"
     },
     {
-      "title": "企業 AI 導入為何卡關？主管親自示範與打造「容錯文化」是落地關鍵",
+      "title": "台積電全球用電再攀高：2025 年近 288 億度，約台灣全年用電一成",
       "source": "TechNews 科技新報",
-      "date": "2026-08-22",
-      "topic": "產業應用／AI 治理",
-      "summary": "許多組織已完成 AI 工具導入與員工訓練，實際工作方式卻沒有改變，報導直指問題不在技術而在工作設計與變革管理。文章強調關鍵在於主管是否親自示範使用 AI 並公開自己的失敗嘗試，讓組織形成「容錯文化」，員工才敢在真實工作流程中試錯。若僅提供工具與教育訓練而缺乏流程重新設計，AI 投資將停留在概念驗證階段無法規模化。文章將 AI 導入定位為組織能力建構問題，而非單純的 IT 採購決策。",
-      "relevance": "台灣金融、製造業普遍面臨 AI 專案卡在 PoC 的困境，此類變革管理觀點對本地企業導入策略具直接參考價值。",
-      "discussion": "中，企業管理與 AI 導入社群討論",
-      "url": "https://technews.tw/2026/08/22/workforce-development-in-the-age-of-ai"
+      "date": "2026-08-24",
+      "topic": "台灣產業",
+      "summary": "根據台積電永續報告書，其 2025 年全球用電量達約 287.7 億度，約相當於台灣全年用電量的十分之一。隨著 AI 與先進製程需求快速成長，台積電的用電量與再生能源採購規模持續擴大。這使得台積電成為台灣能源政策與淨零轉型討論中無法迴避的核心變數。報導點出 AI 算力擴張與電力供應之間的結構性緊張關係。用電成長曲線也成為評估台積電未來擴產可行性的關鍵限制條件。",
+      "relevance": "極高：直接關係台灣電力供需、能源政策與半導體擴產能否落地，是台灣 AI 產業最根本的基礎設施瓶頸。",
+      "discussion": "高：台灣能源政策與科技產業雙重議題交叉討論。",
+      "url": "https://technews.tw/2026/08/24/tsmc-global-power-consumption-climbs-2025-28-8-billion-kwh-10-percent-taiwan-annual-total"
     },
     {
-      "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-23",
-      "topic": "技術趨勢／勞動市場",
-      "summary": "儘管多家 AI 公司負責人警告大規模失業將至，史丹佛大學經濟研究機構於今年 7 月的研究發現，自 2022 年 ChatGPT 問世以來，AI 尚未造成大規模職位消失。真正的變化在於團隊結構重組：小型團隊藉 AI 產出過去需數十人才能完成的工作量，導致人力需求集中化而非整體萎縮。受衝擊最深的是入門級與例行性職位，資深人員反而因能指揮 AI 而價值上升。研究結論指向勞動市場的「遊戲規則改寫」，而非傳統意義的失業潮。",
-      "relevance": "台灣企業人力配置與新鮮人就業市場正面臨相同結構性壓力，對人資規劃與人才培育政策具參考意義。",
-      "discussion": "高，跨產業廣泛討論",
-      "url": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions"
+      "title": "AI、無人機需求齊發 PCB產業鏈啟動高階升級戰",
+      "source": "中央社 CNA",
+      "date": "2026-08-24",
+      "topic": "台灣產業",
+      "summary": "AI 伺服器、低軌衛星、無人機等新興應用快速發展，帶動 PCB（印刷電路板）市場需求全面轉向高階規格，觸發新一輪產業鏈升級競賽。高層數、高頻高速、低損耗材料成為台廠競逐的技術重點。台灣 PCB 產業在全球供應鏈中占有關鍵地位，此波升級將重新洗牌廠商間的技術位階。報導指出，能否跟上 AI 伺服器所需的高階板材與製程，將決定台廠未來數年的獲利結構。相關資本支出與產能布局正加速展開。",
+      "relevance": "極高：PCB 是台灣電子業重要支柱，AI 需求牽動的高階升級直接關係台廠營收結構與投資評價。",
+      "discussion": "中高：台灣產經與投資媒體持續追蹤。",
+      "url": "https://www.cna.com.tw/news/afe/202608240177.aspx"
     },
     {
-      "title": "Sora 關門它卻爆紅，AI 影片新創 Higgsfield 如何逆勢衝出 54 億美元身價",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-22",
-      "topic": "產業投資／生成式影片",
-      "summary": "AI 影片新創 Higgsfield 完成 4 億美元 B 輪募資，估值達 54 億美元，投資方包括 Goldman Sachs 與 Intel。公司自 2025 年 3 月推出後營收由數週內的 1,000 萬美元，成長至 2026 年 8 月的 7 億美元，成長曲線相當陡峭。在 OpenAI Sora 收攤的背景下，Higgsfield 反而承接了市場需求，顯示 AI 影片生成的商業化關鍵在產品化與創作者工作流整合，而非單純模型能力。此案例也反映大廠退出的賽道未必代表市場消失。",
-      "relevance": "台灣內容與行銷產業對 AI 影片工具需求上升，此類商業模式驗證對本地新創與行銷科技業者具借鏡價值。",
-      "discussion": "中高，新創與創投圈關注",
-      "url": "https://technews.tw/2026/08/22/higgsfield-valued-at-5-4bn-as-goldman-and-intel-back-ai-video-start-up"
+      "title": "AI投資熱潮拉大美歐差距 美國企業投資增幅遠超歐洲",
+      "source": "中央社 CNA",
+      "date": "2026-08-24",
+      "topic": "技術趨勢",
+      "summary": "報導引述預測指出，疫情後的 6 年間，美國企業投資增幅將是歐洲的 3 倍以上，AI 熱潮正持續擴大兩大經濟體之間的差距。美國企業在資料中心、算力與 AI 應用上的資本支出遠超歐洲同業。歐洲則受限於能源成本、法規環境與資本市場深度，投資動能明顯落後。此一分歧將長期影響全球 AI 產業版圖與人才流向。報導反映 AI 已從技術議題升級為總體經濟競爭力議題。",
+      "relevance": "中：台灣供應鏈高度依賴美國 AI 資本支出，美歐投資落差意味台廠訂單將更集中於美系客戶，需留意單一市場集中風險。",
+      "discussion": "中：財經與總經分析圈討論。",
+      "url": "https://www.cna.com.tw/news/aopl/202608240181.aspx"
     },
     {
-      "title": "維基百科創辦人 Jimmy Wales：AI 難以複製「信任」，人類查核角色無可取代",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-22",
-      "topic": "AI 治理／資訊可信度",
-      "summary": "維基百科創辦人 Jimmy Wales 表示，AI 雖能快速生成答案，卻無法取代人類在事實查核、維持透明度與建立信任上的角色。他指出信任來自可追溯的編輯歷程與公開的爭議處理機制，而生成式模型的輸出缺乏這層可稽核性。此論點直指目前 AI 內容治理的核心缺口：模型能產出流暢文字，卻難以承擔來源責任。對於大量引用維基資料訓練的模型而言，這也構成資料來源與品質維護的循環依賴問題。",
-      "relevance": "與台灣近年關注的 AI 生成內容查核、假訊息治理議題直接相關，對媒體與平台業者的內容政策具參考性。",
-      "discussion": "中，媒體與 AI 倫理圈討論",
-      "url": "https://technews.tw/2026/08/22/wikipedia-founder-jimmy-wales-ai"
+      "title": "中國24家文學刊物聯合反AI 一經查獲永不採用",
+      "source": "中央社 CNA",
+      "date": "2026-08-24",
+      "topic": "AI治理",
+      "summary": "中國 24 家文學刊物聯合發表「捍衛原創、拒絕 AI」聲明，宣告投稿作品將經過人工審查與技術檢測的雙重把關。一旦查獲使用 AI 生成的稿件，該作者將被列入黑名單、作品永不採用。這是內容產業對生成式 AI 最強硬的集體抵制行動之一。事件凸顯 AI 生成內容偵測技術的可靠性與誤判風險，將成為出版與媒體業的治理難題。相關措施也引發對創作自由與檢測標準透明度的討論。",
+      "relevance": "中：台灣出版、媒體與教育界同樣面臨 AI 生成內容的稽核難題，此案例提供具體的治理措施參考與爭議點。",
+      "discussion": "中：內容創作與 AI 倫理圈討論。",
+      "url": "https://www.cna.com.tw/news/acn/202608240172.aspx"
     },
     {
-      "title": "AI 當心理諮商師夠格嗎，專家解析：現有模型有「知識」卻缺乏「智慧」",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-23",
-      "topic": "AI 應用／倫理",
-      "summary": "專家分析指出，大型語言模型雖擅長快速回應與資訊整理，卻缺乏心理諮商所需的同理心、自我反思、情緒調節與對不同觀點的開放性。文章以「有知識卻缺乏智慧」概括現況，強調諮商效果來自關係建立而非資訊供給。若要讓 AI 勝任此類任務，關鍵在於注入「人工智慧慧」（artificial wisdom）層面的能力設計，而非單純擴大模型規模。此議題也牽涉高風險場景中 AI 建議的責任歸屬與監管邊界。",
-      "relevance": "台灣心理健康服務量能不足，AI 諮商工具導入討論升溫，此文對本地醫療與心理服務的 AI 應用界線具參考價值。",
-      "discussion": "中，醫療與 AI 倫理社群關注",
-      "url": "https://technews.tw/2026/08/23/ai-generated-mental-health-advice-gets-uplifted-via-a-strong-dose-of-artificial-wisdom"
-    },
-    {
-      "title": "AI 幾分鐘搞定地震模擬，柏克萊實驗室新框架 CGM-GM 曝光",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-22",
-      "topic": "AI 科研應用",
-      "summary": "美國柏克萊實驗室（Berkeley Lab）開發出名為 CGM-GM 的 AI 機器學習框架，可大幅加速地震地表運動模擬。傳統物理數值模擬需耗費大量運算資源與時間，新框架將模擬時間壓縮至數分鐘等級。此類生成式模型在科學運算領域的應用，屬於以 AI 替代或加速偏微分方程求解的研究路線。加速後的模擬能力可支援更密集的情境推演，對地震風險評估與建築耐震設計具實務意義。",
-      "relevance": "台灣位處環太平洋地震帶，地震模擬與風險評估為關鍵國家級需求，此框架對本地防災科研與保險業風險定價具參考價值。",
-      "discussion": "中低，偏學術與防災領域",
-      "url": "https://technews.tw/2026/08/22/berkeley-lab-develops-ai-model-to-speed-earthquake-ground-motion-simulations/"
-    },
-    {
-      "title": "AI 化身第一道篩檢工具，及早揪出全球 10 億人的脂肪肝危機",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-23",
-      "topic": "AI 醫療應用",
-      "summary": "研究人員正利用 AI 協助脂肪肝疾病的早期偵測，該疾病影響全球約 30% 成年人，且在惡化至晚期前往往沒有明顯症狀。AI 可從既有的影像與檢驗數據中辨識早期風險徵兆，作為大規模人群的第一道篩檢工具，降低對昂貴檢查的依賴。此類應用的價值不在取代醫師診斷，而在於擴大篩檢覆蓋率並將高風險族群前置分流。文章指出，實際落地仍需面對資料品質、跨院所標準化與臨床驗證等門檻。",
-      "relevance": "台灣代謝性肝病盛行率高且健保資料庫完整，AI 輔助篩檢在本地健康檢查與慢性病管理具明確落地場景。",
-      "discussion": "中，醫療與健康科技領域關注",
-      "url": "https://technews.tw/2026/08/23/theres-a-fatty-liver-epidemic-ai-could-help-get-ahead-of-it"
+      "title": "東海合作英國里茲商學院 打造傳播危機管理課程",
+      "source": "中央社 CNA",
+      "date": "2026-08-24",
+      "topic": "AI教育",
+      "summary": "東海大學宣布與英國里茲商學院簽署合作協議，共同開發生成式 AI 時代的傳播危機管理新課程。課程設計聚焦於 AI 生成內容普及後，組織面對假訊息、聲譽風險與快速輿論擴散時的應對能力。此合作是台灣高教因應生成式 AI 衝擊、調整傳播與管理學程內容的具體案例。雙方將導入國際案例與跨國師資進行教學。相關課程規劃反映 AI 素養正從技術訓練延伸至危機管理與治理層面。",
+      "relevance": "中：反映台灣高等教育對生成式 AI 衝擊的課程調整方向，對企業培訓與人才需求規劃具參考性。",
+      "discussion": "低：教育與傳播領域小範圍討論。",
+      "url": "https://www.cna.com.tw/news/ahel/202608243003.aspx"
     }
   ],
-  "_updated_at": "2026-08-23T18:05:19.002947+08:00"
+  "_updated_at": "2026-08-24T18:15:49.196857+08:00"
 }
