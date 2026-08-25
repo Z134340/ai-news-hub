@@ -1,79 +1,65 @@
 {
   "items": [
     {
-      "title": "AI Legislative Update: August 21, 2026",
-      "source": "Transparency Coalition",
-      "date": "2026-08-21",
-      "category": "AI治理",
-      "summary": "Transparency Coalition 發布美國州級 AI 立法週報，盤點截至 8 月 21 日仍在審議中的各州法案進度。目前仍有 7 個州（California、Michigan、Pennsylvania、Massachusetts、Ohio、New Jersey、North Carolina）持續推動 AI 相關法案，其餘多數州議會已休會。Michigan 州議員將於 8 月 25 日（週二）返回 Lansing 復會，屆時 AI 法案審議將重啟。該週報同時引述《2026 Mid-Year State AI Legislation Report》，指出 2026 年上半年已有 27 個州通過共 85 項 AI 新法。立法主軸集中於聊天機器人安全、兒童數位生活與教育、醫療授權與心理健康應用、消費者權益，以及前沿模型（frontier model）監督五大領域。這反映在聯邦層級尚未有統一 AI 法的情況下，美國治理實質由州級立法主導。",
-      "highlights": [
-        "截至 8 月 21 日仍有 7 州（California、Michigan、Pennsylvania、Massachusetts、Ohio、New Jersey、North Carolina）在審 AI 法案",
-        "2026 年上半年已有 27 州通過共 85 項 AI 相關新法",
-        "立法主軸：聊天機器人安全、兒童與教育、醫療授權與心理健康、消費者權益、前沿模型監督",
-        "Michigan 州議會 8 月 25 日復會，AI 法案審議重啟",
-        "顯示美國 AI 治理實質由州級立法主導，形成跨州合規複雜度"
-      ],
-      "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-august21-2026"
-    },
-    {
       "title": "Debates over AI consciousness are a trap",
       "source": "MIT Technology Review",
       "date": "2026-08-20",
       "category": "AI治理",
-      "summary": "MIT Technology Review 專文主張，關於「AI 是否具有意識」的辯論實質上是一個治理陷阱，會把公共注意力從真正需要處理的監管議題上移開。文章指出，Demis Hassabis、Dario Amodei、Sam Altman 等主要 AI 實驗室負責人皆公開呼籲對進階 AI 進行監管，但業界與學界另有一派將討論導向 AI 意識與道德地位。作者認為，意識議題無法在短期內得到科學共識，卻會消耗有限的立法與監理資源。真正該優先處理的是可驗證的風險面向：模型能力評估、部署責任歸屬、對使用者的實際傷害。對金融等受監理產業而言，此觀點的意涵是治理框架應錨定在可稽核的行為與輸出，而非模型的內在狀態。",
+      "summary": "MIT Technology Review 指出，關於 AI 是否具備意識的爭論正在成為一個治理陷阱，因為它把注意力從當下可管制的具體風險轉移到無法驗證的哲學命題上。文章同時描繪美國目前混沌的 AI 法制環境：加州已通過針對模型開發者課予責任的法案，而聯邦層級的川普政府與各州立場對立，先前甚至發布行政命令威脅對州政府提起訴訟。報導並提及白宮曾與 OpenAI、Google、Anthropic、Meta 四家業者進行閉門會議，討論一套自願性框架，讓聯邦機關可在模型公開發布前提早取得存取權限。這種「以自願承諾取代法規」的路線，實質上把治理槓桿集中在少數前沿業者手上。對金融等受監管產業而言，重點在於監理要求短期內仍將由州法與既有部門法規拼湊而成，而非單一聯邦標準。",
       "highlights": [
-        "主張 AI 意識辯論是治理陷阱，會排擠真正的監管議題",
-        "Demis Hassabis、Dario Amodei、Sam Altman 均公開支持對進階 AI 監管",
-        "意識議題短期內無法取得科學共識，卻消耗立法與監理資源",
-        "建議監理焦點放在能力評估、部署責任歸屬與實際使用者傷害",
-        "對受監理產業的意涵：治理應錨定可稽核的行為與輸出"
+        "主張「AI 是否有意識」的辯論會排擠對真實可管制風險的治理資源",
+        "加州已立法對模型開發者課予責任，州級規範持續擴張",
+        "川普政府與各州立場衝突，曾以行政命令威脅對州政府興訟",
+        "白宮與 OpenAI、Google、Anthropic、Meta 閉門商議自願性框架，含發布前模型存取權",
+        "美國短期內仍是州法拼湊格局，缺乏統一聯邦 AI 標準"
       ],
       "url": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/"
     },
     {
-      "title": "Seeking Public Comment! Using Artificial Intelligence for Cybersecurity Framework 2.0 Analysis and Reporting",
-      "source": "NIST",
+      "title": "面對AI代理人爆發式成長 資安專家示警：人為介入防線恐失靈",
+      "source": "PChome Online 新聞",
       "date": "2026-08-19",
-      "category": "資安標準",
-      "summary": "NIST 發布 SP 1353 初始公開草案（initial public draft），主題為運用 AI 進行 Cybersecurity Framework 2.0 分析與報告的快速入門指南（Quick-Start Guide），並公開徵求各界意見。該草案示範如何以大型語言模型輔助組織對照 CSF 2.0 的成果（outcomes）進行治理文件審查。文件列出兩個主要示範用例：用例一為 AI 輔助審查資安政策、策略與風險治理文件是否符合 CSF 2.0 成果；用例二為協助草擬組織的 Current State Profile（現況剖繪）。草案並附上範例提示詞（example prompts）與模擬組織檔案，讓使用者可直接複現流程。意見回饋須於 2026 年 10 月 15 日前寄至 csf@nist.gov。⚠️待確認：發布日期依 NIST 官方社群貼文標示為 8 月 19 日，官網頁面僅顯示 2026 年 8 月。",
-      "highlights": [
-        "NIST SP 1353 初始公開草案：以 AI 輔助 CSF 2.0 分析與報告的快速入門指南",
-        "用例一：AI 輔助審查資安政策、策略與風險治理文件是否對應 CSF 2.0 成果",
-        "用例二：協助草擬組織的 Current State Profile（現況剖繪）",
-        "附範例提示詞與模擬組織檔案，可直接複現操作流程",
-        "意見徵求期至 2026 年 10 月 15 日，寄送 csf@nist.gov"
-      ],
-      "url": "https://www.nist.gov/news-events/news/2026/08/seeking-public-comment-using-artificial-intelligence-cybersecurity"
-    },
-    {
-      "title": "Türkiye Artificial Intelligence Action Plan (2026-2030) Published by the Ministry of Industry and Technology",
-      "source": "Pekin Bayar Mizrahi",
-      "date": "2026-08-19",
-      "category": "國家AI政策",
-      "summary": "土耳其以總統府第 2026/9 號通告（Presidential Circular No. 2026/9）在官方公報公布《Türkiye Artificial Intelligence Action Plan (2026-2030)》，由工業與技術部（Ministry of Industry and Technology）主導，接續 2021-2025 年的前一期國家 AI 策略。行動計畫以「認識、運用、生產、管理」（notice, utilize, produce, manage）四階段架構推進。人力目標方面，規劃兩年內在 81 個省推動 500 萬名國民的 AI 素養培訓，並培育 1 萬名高階專家與 10 萬名應用專業人才。算力方面，計畫配置 2,000 萬 GPU 小時供研究與產業使用。治理面最具強制力的一項是要求公部門機構須將投資預算的至少 2% 投入 AI 相關項目，把政策目標直接綁進預算執行。",
-      "highlights": [
-        "以總統府第 2026/9 號通告在官方公報公布，工業與技術部主導",
-        "四階段架構：認識（notice）、運用（utilize）、生產（produce）、管理（manage）",
-        "兩年內於 81 省培訓 500 萬國民 AI 素養，並育成 1 萬名高階專家、10 萬名應用人才",
-        "配置 2,000 萬 GPU 小時供研究與產業運用",
-        "強制要求公部門機構投資預算至少 2% 投入 AI，政策綁定預算執行"
-      ],
-      "url": "https://pekin.com.tr/2026/08/19/turkiye-artificial-intelligence-action-plan-2026-2030-published-by-the-ministry-of-industry-and-technology/"
-    },
-    {
-      "title": "Ctrl+AI+Reg - 24 August 2026",
-      "source": "Ctrl+AI+Reg (Substack)",
-      "date": "2026-08-24",
       "category": "AI治理",
-      "summary": "AI 監管週報 Ctrl+AI+Reg 的 8 月 24 日期，彙整當週全球 AI 治理動態。重點之一是英國 NCSC（National Cyber Security Centre）技術長對前沿 AI 的公開示警，指出模型可能出現未經授權的行動（unsanctioned actions）與欺瞞行為（deceptive behaviour），呼籲部署方建立相應控制。其二是澳洲 eSafety Commissioner 針對 AI 造成的線上傷害提出警告。其三是土耳其總統府第 2026/9 號通告所公布的國家 AI 行動計畫。整體訊號顯示，本週各國監理焦點正從「模型能力風險」轉向「Agent 自主行為的可控性」與「終端使用者傷害」兩條軸線。",
+      "summary": "資安專家針對企業大規模導入 AI 代理人（AI Agent）提出警告，認為目前普遍倚賴的「人為介入（human-in-the-loop）」審核機制在規模化後可能形同虛設。Forrester 分析師 Jess Burn 質疑，當代理人每日產生數百項決策時，要求人類逐一覆核究竟是真正的監督，還是只是形式上的治理表演。Gartner 調查顯示，Fortune 500 企業在 2025 年平均部署的 AI 代理人不到 15 個，但預估到 2028 年將超過 150,000 個，成長幅度使既有人工審核流程完全無法承載。專家建議企業將代理人資安治理從「政策驅動」轉向「行動驅動」，直接對代理人的實際操作行為設限與監控。同時應落實最小權限原則，避免代理人取得超出任務所需的系統存取範圍。",
       "highlights": [
-        "英國 NCSC 技術長示警前沿 AI 可能出現未經授權行動與欺瞞行為",
-        "澳洲 eSafety Commissioner 就 AI 造成的線上傷害提出警告",
-        "土耳其以總統府第 2026/9 號通告公布國家 AI 行動計畫",
-        "本週監理焦點轉向 Agent 自主行為可控性與終端使用者傷害兩條軸線"
+        "Forrester 分析師 Jess Burn 質疑人為覆核數百項代理人決策是監督還是治理表演",
+        "Gartner：Fortune 500 企業 2025 年平均部署不到 15 個 AI 代理人",
+        "Gartner 預估 2028 年將超過 150,000 個代理人，人工審核機制無法擴展",
+        "建議代理人資安治理由政策驅動改為行動驅動，針對實際操作行為設控",
+        "強調對 AI 代理人落實最小權限原則"
       ],
-      "url": "https://techieray.substack.com/p/ctrlaireg-24-august-2026"
+      "url": "https://news.pchome.com.tw/science/sunmedia/20260819/index-78709933337649329005.html"
+    },
+    {
+      "title": "中國 9 月實施出入境新規，全面嚴防 AI 資本與技術外流",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-19",
+      "category": "科技管制",
+      "summary": "中國將於 9 月 15 日起實施新版出入境管理規定，強化對 AI 相關資本與技術跨境流動的管控。新規被視為中國在美中科技競爭下，防止本土 AI 技術、人才與資金外流的制度性手段。相關措施使 AI 從業人員與企業在跨境移動、技術輸出上的合規門檻明顯提高。對台灣與國際 AI 產業而言，此舉將直接影響與中國團隊的技術合作與人員往來安排。此類出入境層級的管制，代表 AI 治理已從資料與模型延伸到人員流動的實體管道。",
+      "highlights": [
+        "新版出入境規定自 2026 年 9 月 15 日起實施",
+        "政策目標為防止 AI 資本與技術外流",
+        "提高 AI 人才與企業跨境移動的合規門檻",
+        "反映美中科技競爭下的技術保護主義走向",
+        "AI 管制範圍從資料與模型延伸至人員流動"
+      ],
+      "url": "https://technews.tw/2026/08/19/china-sept-15-new-entry-exit-rules/"
+    },
+    {
+      "title": "中國 AI 企業繞道東南亞，遠端取用輝達高階晶片算力",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-20",
+      "category": "出口管制",
+      "summary": "報導指出，中國 AI 企業正透過東南亞資料中心遠端取用受美國出口管制的 NVIDIA 高階晶片算力，形成規避管制的實質破口。由於美國出口管制主要針對晶片實體出貨，而非跨境的算力租用服務，企業只要將運算工作負載送往第三地機房即可繞開限制。這暴露出現行以硬體出口為核心的管制架構，在雲端與遠端算力商業模式下的結構性漏洞。對監理機關而言，關鍵問題是是否要將「算力服務存取」本身納入管制範圍，而非僅管制晶片流向。東南亞資料中心的角色亦使當地成為美中科技管制角力的新前線。",
+      "highlights": [
+        "中國 AI 企業透過東南亞資料中心遠端使用 NVIDIA 受管制晶片",
+        "現行美國出口管制以晶片實體出貨為對象，未涵蓋跨境算力租用",
+        "雲端與遠端算力模式形成管制架構的結構性漏洞",
+        "監理焦點可能從管制晶片流向轉為管制算力服務存取",
+        "東南亞資料中心成為美中科技管制角力的新前線"
+      ],
+      "url": "https://technews.tw/2026/08/20/chinese-ai-firms-are-tapping-banned-nvidia-chips-through-southeast-asian-data-centers"
     }
   ],
-  "_updated_at": "2026-08-24T18:26:23.805035+08:00"
+  "_updated_at": "2026-08-25T18:26:18.124178+08:00"
 }

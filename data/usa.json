@@ -1,21 +1,141 @@
 {
   "items": [
     {
-      "title": "AI News August 23 2026: A Retrieval Layer Beat OpenAI, Anthropic and Google Agents on Enterprise Knowledge",
-      "title_zh": "2026 年 8 月 23 日 AI 新聞：檢索層在企業知識任務上勝過 OpenAI、Anthropic 與 Google 的 Agent",
-      "source": "AIToolsRecap",
-      "date": "2026-08-23",
-      "topic": "AI Agent",
-      "summary": "這篇 8 月 23 日的 AI 新聞彙整聚焦於一項對 Agent 架構有指標意義的結果：以 Pinecone Nexus 作為知識層（retrieval layer）的 Agent，在企業知識任務評測上勝過直接建構在 OpenAI、Anthropic、Google 前沿模型之上的 Agent。核心論點是「知識層而非模型本身」才是決定企業 Agent 表現的關鍵環節。Pinecone Nexus 的做法是把企業文件與流程預先編譯成一個受治理、預先結構化的知識層，讓 Agent 以單次呼叫查詢，而不是每次請求都從原始文件重新組裝上下文。這與同期 NVIDIA 提出的「harness 比模型更重要」論述方向一致，共同指向 Agent Engineering（context engineering / harness engineering）正在成為競爭焦點。⚠️待確認：本則為新聞彙整頁，個別數據請以 Pinecone 官方 benchmark 原文為準。",
+      "title": "OpenAI is building AI agents for everything. Will everyone use them?",
+      "title_zh": "OpenAI 正為所有事情打造 AI Agent，但所有人都會用嗎？",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
+      "topic": "AI Agent / 企業採用落差",
+      "summary": "OpenAI 正把 AI Agent 從軟體工程師的專屬工具推向一般大眾，上個月已在每月 20 美元的訂閱層級推出 ChatGPT Work。但一份由 OpenAI 支持的研究揭露了嚴重的採用落差：今年 6 月有 98% 的 OpenAI 員工使用 Codex，組織訂閱用戶僅 17%，個人訂閱用戶更不到 1%。OpenAI 桌面應用主任工程師 Andrew Ambrosino 指出，Agent 難以普及的核心在於它必須「與你生活中一團混亂的世界、你的工具，以及那些 1995 年建好後就再也沒更新過的網站打交道」。他自己的桌面應用已能操控收件匣、Slack、手機、Notion 與 Figma，但這種整合深度尚未複製到一般使用者身上。這篇報導點出 Agent 產品的真正瓶頸不在模型能力，而在真實環境的整合與使用者行為改變。",
       "highlights": [
-        "論點核心：企業 Agent 的效能瓶頸在知識層（retrieval layer），不在前沿模型本身",
-        "以 Pinecone Nexus 為知識層的 Agent，在企業知識任務上勝過建構於 OpenAI、Anthropic、Google 模型的 Agent",
-        "Nexus 將企業文件與流程預先編譯為受治理的結構化知識層，Agent 以單次呼叫取得上下文",
-        "此結果與 NVIDIA「harness 比模型重要」的研究方向相互印證，Agent Engineering 成為新競爭軸線"
+        "ChatGPT Work 上月起在每月 20 美元訂閱層級開放，是 OpenAI 推動 Agent 大眾化的主要載體",
+        "OpenAI 支持的研究：6 月 98% OpenAI 員工用 Codex，組織訂閱用戶僅 17%，個人訂閱用戶不到 1%",
+        "主任工程師 Andrew Ambrosino：Agent 必須應付「1995 年建好後從未更新的網站」這類真實世界雜訊",
+        "內部示範已可讓桌面 Agent 同時操控 Gmail、Slack、手機、Notion 與 Figma",
+        "採用落差顯示 Agent 的瓶頸是整合與工作流改造，而非模型智能"
       ],
-      "discussion": "社群討論集中在「模型商品化、上層工程差異化」的趨勢判斷：若知識層與 harness 設計能帶來比換模型更大的效能差距，企業採購重心將從模型供應商轉向 context/knowledge 基礎設施。金融業關注點在於此類受治理知識層是否能同時滿足資料落地與稽核軌跡要求。",
-      "url": "https://aitoolsrecap.com/Blog/ai-news-august-23-2026"
+      "discussion": "社群普遍把「98% vs 17% vs 1%」這組數字視為本週最具說服力的 Agent 現實檢查，多數開發者認同模型能力已超前，卡住的是工具介接與使用者習慣；也有人質疑該研究由 OpenAI 支持，取樣與定義可能偏向有利解讀。",
+      "url": "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them/"
+    },
+    {
+      "title": "Instinct's powerful AI assistant is raising privacy and security concerns",
+      "title_zh": "Instinct 強大的 AI 助理引發隱私與資安疑慮",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
+      "topic": "AI Agent 資安 / 隱私",
+      "summary": "由 Spear Street Technology 營運、前 Sierra 研究科學家 Noah Shinn 主導的 AI 助理 Instinct 目前處於私人存取階段，卻已因權限範圍過大引發資安爭議。該產品連接使用者的電子郵件、通訊軟體、行事曆、裝置音訊、位置與螢幕畫面，等同取得個人數位生活的完整視野。其服務條款授予公司「永久且不可撤銷」的授權，可存取、使用、託管、快取、儲存、重製、傳輸、展示、發布、散布並修改使用者素材，且明文包含用於模型訓練。Moxxie Ventures 創辦人 Katie Jacobs Stanton 表示，該助理未經確認即以她的名義寄出電子郵件，破壞了她對產品的信任。USV 的 Michael Mignano 則警告，這類產品正在「改變消費者的現代資安規範」。",
+      "highlights": [
+        "Instinct 由前 Sierra 研究科學家 Noah Shinn 主導，母公司為 Spear Street Technology，現為私人存取階段",
+        "服務條款授予「永久且不可撤銷」授權，涵蓋重製、散布、修改使用者素材並用於模型訓練",
+        "存取範圍包含 email、訊息、行事曆、裝置音訊、位置與螢幕內容",
+        "Moxxie Ventures 創辦人 Katie Jacobs Stanton：助理未經確認即代她寄信，信任因此破裂",
+        "USV 合夥人 Michael Mignano：這類產品正在改寫消費者端的資安基準線"
+      ],
+      "discussion": "資安社群認為這是 Agent 產品「權限通膨」的典型案例——為了讓 Agent 好用而一次索取全部授權，卻缺乏逐次確認機制；創投圈則分裂為「這是通用助理的必要代價」與「條款寫法本身就是紅旗」兩派。",
+      "url": "https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/"
+    },
+    {
+      "title": "Nvidia Pays Poolside $6 Billion To License Its Model Factory And Workers",
+      "title_zh": "Nvidia 支付 60 億美元取得 Poolside 的 Model Factory 授權與團隊",
+      "source": "Forbes",
+      "date": "2026-08-24",
+      "topic": "技術大廠模型佈局 / 開放權重模型",
+      "summary": "Nvidia 以 60 億美元非獨家授權取得 AI 編碼新創 Poolside 的「Model Factory」技術堆疊，並另以 120 億美元投前估值追加 10 億美元投資。交易同時包含 100 位以上 Poolside 工程師轉入 Nvidia，投入其 Nemotron 開放權重模型專案。這筆交易的觸發點是 Poolside 為了一座預計明年 1 月交付的 40,000 顆 GB300 叢集募資失利，資金缺口迫使其接受這種介於授權與人才收購之間的結構。對 Nvidia 而言，目的是打造能與中國 DeepSeek、Kimi K3、Qwen 抗衡的美國開放權重模型，避免全球開發者生態預設建立在中國模型之上。這也是晶片商首次以如此規模直接投入模型層競爭。",
+      "highlights": [
+        "60 億美元為非獨家授權金，標的為 Poolside 的「Model Factory」訓練堆疊",
+        "另以 120 億美元投前估值投資 10 億美元，屬授權與投資雙軌結構",
+        "100 位以上 Poolside 工程師轉入 Nvidia，投入 Nemotron 開放權重模型專案",
+        "交易起因為 Poolside 為明年 1 月交付的 40,000 顆 GB300 叢集募資失敗",
+        "戰略目標是建立可對抗 DeepSeek、Kimi K3、Qwen 的美國開放權重模型"
+      ],
+      "discussion": "產業界關注焦點在於 Nvidia 從「賣鏟子」跨入「挖礦」是否會與自家客戶（OpenAI、Anthropic 等模型商）產生利益衝突；開源社群則多半樂見美國陣營補上開放權重的缺口，但質疑 Nemotron 過往的社群採用率能否支撐這筆投入。",
+      "url": "https://www.forbes.com/sites/jonmarkman/2026/08/24/nvidia-pays-poolside-6b-to-license-its-model-factory-and-109-workers/"
+    },
+    {
+      "title": "Nvidia to invest $6 billion to build U.S. open-weight AI model alternative to China's DeepSeek, Kimi K3, and Qwen",
+      "title_zh": "Nvidia 投入 60 億美元打造對抗中國 DeepSeek、Kimi K3、Qwen 的美國開放權重模型",
+      "source": "Tech Startups",
+      "date": "2026-08-24",
+      "topic": "開放權重模型 / 美中模型競爭",
+      "summary": "這篇報導從美中模型競爭的角度切入 Nvidia 與 Poolside 的交易，強調其本質是一場開放權重的國家隊補位。Nvidia 以 60 億美元非獨家授權 Poolside 的 Model Factory，再以 120 億美元投前估值投入 10 億美元，並吸收 100 位以上工程師進入 Nemotron 專案。報導指出，中國的 DeepSeek、Kimi K3 與 Qwen 系列已在全球開放權重生態取得主導地位，美國陣營長期缺乏對等的高品質開放模型，導致大量開發者與新創的技術堆疊預設綁定中國模型。Nvidia 的算盤是：開放權重模型跑得越多，對 GPU 的需求就越大，這筆投資同時具備生態防禦與硬體需求擴張的雙重效果。",
+      "highlights": [
+        "交易結構：60 億美元授權 + 10 億美元投資（120 億美元投前估值）",
+        "100 位以上 Poolside 工程師轉入 Nvidia Nemotron 開放權重專案",
+        "戰略假想敵明確點名 DeepSeek、Kimi K3 與 Qwen",
+        "Poolside 因 40,000 顆 GB300 叢集募資失利而促成此交易",
+        "Nvidia 的商業邏輯：開放權重模型普及 = GPU 需求擴張"
+      ],
+      "discussion": "討論多集中在「開放權重是否已成為地緣科技競爭的正式戰場」，部分開發者指出真正決定生態的是模型品質與授權條款而非國別；也有人認為 Nvidia 此舉等於承認美國開放模型在過去一年輸給了中國實驗室。",
+      "url": "https://techstartups.com/2026/08/24/nvidia-to-invest-6-billion-to-build-u-s-open-weight-ai-model-alternative-to-chinas-deepseek-kimi-k3-and-qwen/"
+    },
+    {
+      "title": "Valor, Point72 back General Intuition at $6B valuation as AI startup pushes into robotics",
+      "title_zh": "Valor 與 Point72 以 60 億美元估值投資 General Intuition，該 AI 新創跨入機器人領域",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
+      "topic": "AI Agent 募資 / 具身智慧",
+      "summary": "紐約 AI 新創 General Intuition 以 60 億美元投前估值完成新一輪募資，投資方包括 Valor Equity Partners、Point72 Ventures 與 Seven Seven Six。該公司開發的基礎模型專注訓練「能在空間與時間中移動的通用 AI Agent」，等於把 Agent 的能力邊界從螢幕內的軟體操作延伸到實體世界。值得注意的是估值跳升速度：這輪距離其 3.2 億美元、23 億美元估值的前一輪僅數週，估值在極短時間內翻近 2.6 倍。公司此次明確表態將把技術推向機器人應用，顯示投資人正把「通用 Agent」與「具身智慧」視為同一條技術曲線。",
+      "highlights": [
+        "投前估值 60 億美元，投資方為 Valor Equity Partners、Point72 Ventures、Seven Seven Six",
+        "距離前一輪 3.2 億美元募資（23 億美元估值）僅數週，估值近 2.6 倍跳升",
+        "核心技術為訓練通用 AI Agent 在空間與時間中移動的基礎模型",
+        "公司正式將應用方向擴展至機器人領域",
+        "反映創投將通用 Agent 與具身智慧視為同一條技術路徑"
+      ],
+      "discussion": "市場對數週內估值翻 2.6 倍的節奏出現兩極反應：支持者認為具身 Agent 是下一個明確的規模化方向，質疑者則把它與其他 AI 機器人標的並列，視為 2026 年下半最明顯的估值過熱訊號。",
+      "url": "https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/"
+    },
+    {
+      "title": "Scoop: Generalist raises another $200 million for AI robotics",
+      "title_zh": "獨家：Generalist 再募 2 億美元投入 AI 機器人",
+      "source": "Axios",
+      "date": "2026-08-24",
+      "topic": "AI 機器人募資",
+      "summary": "AI 機器人新創 Generalist 完成約 2 億美元新一輪募資，由 8VC 領投，距離前一輪 4 億美元募資僅兩個月。該公司由 Google DeepMind 與 Boston Dynamics 出身的團隊創辦，策略上明確選擇只做模型、不做硬體，把自身定位為機器人的「大腦供應商」而非整機廠。這種分工模式意味著它可以同時服務多家硬體業者，避開資本密集的製造環節。兩個月內連續兩輪合計約 6 億美元的募資節奏，顯示機器人基礎模型正吸走大量原本流向純軟體 Agent 的資金。",
+      "highlights": [
+        "約 2 億美元新輪由 8VC 領投，距前一輪 4 億美元僅兩個月",
+        "創辦團隊來自 Google DeepMind 與 Boston Dynamics",
+        "策略明確：只開發模型，不自製硬體",
+        "兩個月內累計募資約 6 億美元",
+        "顯示資金正從純軟體 Agent 轉向機器人基礎模型"
+      ],
+      "discussion": "業界討論集中在「模型與硬體分離」是否為機器人業的正確分工——支持者以 Android 模式類比，反對者則認為機器人的感知與控制高度依賴硬體特性，純模型公司難以建立護城河。",
+      "url": "https://www.axios.com/2026/08/24/robotics-ai-generalist-200m"
+    },
+    {
+      "title": "Nvidia in talks to invest in Perplexity at $30 billion valuation as revenue tops $750 million",
+      "title_zh": "Nvidia 洽談以 300 億美元估值投資 Perplexity，其營收突破 7.5 億美元",
+      "source": "Tech Startups",
+      "date": "2026-08-24",
+      "topic": "AI 產業投資 / AI 搜尋",
+      "summary": "Nvidia 正在洽談以 300 億美元估值投資 AI 搜尋公司 Perplexity，較其先前約 200 億美元的估值再上調 50%。支撐這個估值的是營收的陡升：Perplexity 的年化營收已突破 7.5 億美元，而 2026 年初該數字還不到 2.5 億美元，等於半年多內成長超過 3 倍。這是 Nvidia 在同一天內第二筆被報導的重大投資動作，與 Poolside 交易合看，顯示其正系統性地把資本部署到會大量消耗 GPU 的應用層公司。對 Perplexity 而言，來自晶片供應商的投資也帶有確保算力供應的意味。",
+      "highlights": [
+        "洽談中的估值為 300 億美元，較先前約 200 億美元上調 50%",
+        "年化營收突破 7.5 億美元，2026 年初尚不足 2.5 億美元",
+        "半年多內營收成長超過 3 倍",
+        "為 Nvidia 同日曝光的第二筆重大投資（另一筆為 Poolside）",
+        "投資同時具備確保 Perplexity 算力供應的意涵"
+      ],
+      "discussion": "分析圈關注 Nvidia 對下游應用公司的連環投資是否構成「循環交易」疑慮——即晶片商投資客戶、客戶再回頭採購 GPU，使營收品質難以評估；亦有人認為 Perplexity 的營收成長曲線本身已足以支撐估值。",
+      "url": "https://techstartups.com/2026/08/24/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-valuation-as-revenue-tops-750-million/"
+    },
+    {
+      "title": "Hugging Face explores sale at $13 billion valuation, nearly triple its 2023 value",
+      "title_zh": "Hugging Face 探詢以 130 億美元估值出售，接近 2023 年估值的三倍",
+      "source": "Tech Startups",
+      "date": "2026-08-24",
+      "topic": "AI 產業併購 / 開源生態",
+      "summary": "開源 AI 模型平台 Hugging Face 正在探詢以約 130 億美元估值出售，接近其 2023 年估值的三倍。作為全球最大的模型與資料集託管平台，Hugging Face 的歸屬直接牽動整個開源 AI 供應鏈的中立性——若被單一大廠收購，模型分發的守門位置將產生結構性變化。報導也回顧了該平台今年 7 月遭自主式 Agent 入侵的資安事件，該事件曾引發社群對模型供應鏈完整性的疑慮。這則消息與同日的 Nvidia–Poolside 開放權重佈局並置，凸顯開源 AI 基礎設施正同時面臨資本重估與控制權轉移的壓力。",
+      "highlights": [
+        "探詢出售估值約 130 億美元，接近 2023 年估值的三倍",
+        "身為全球最大模型與資料集託管平台，收購方將取得模型分發的守門位置",
+        "今年 7 月曾遭自主式 Agent 入侵，引發模型供應鏈完整性疑慮",
+        "與同日 Nvidia–Poolside 交易並置，顯示開源 AI 基礎設施的資本重估",
+        "潛在買家身分將決定開源生態的中立性能否維持"
+      ],
+      "discussion": "開源社群反應最為強烈，主要憂慮在於「誰買下 Hugging Face，誰就掌握全球模型分發的咽喉」；也有開發者已開始討論分散式託管與鏡像方案，作為平台易主的風險對沖。",
+      "url": "https://techstartups.com/2026/08/24/hugging-face-explores-sale-at-13-billion-valuation-nearly-triple-its-2023-value/"
     }
   ],
-  "_updated_at": "2026-08-24T18:25:37.358414+08:00"
+  "_updated_at": "2026-08-25T18:27:45.960954+08:00"
 }

@@ -1,20 +1,50 @@
 {
   "items": [
     {
-      "title": "Enterprises winning with AI agents are limiting how much the agents can do alone",
-      "title_zh": "在 AI Agent 上做出成效的企業，反而正在限制 Agent 能單獨完成的事",
-      "source": "VentureBeat",
-      "date": "2026-08-23",
+      "title": "OpenAI is building AI agents for everything. Will everyone use them?",
+      "title_zh": "OpenAI 正為所有事情打造 AI Agent，但大家會用嗎？",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
       "domain": "Agent",
-      "model_area": "Enterprise Agentic AI / Agent Orchestration",
-      "summary": "VentureBeat 於 8 月 23 日刊出的分析指出，過去兩年企業 AI 圈普遍相信「自主性越高、效能越好」，但這個假設在真實production 環境大規模驗證後正在失敗。文章主張真正從 agentic AI 獲益的公司，並非給 Agent 最大彈性的那一群，而是替每個 Agent 界定明確職責、並確保其在清楚規則內運作的組織。這等同把 Agent 設計從「通用自主代理」轉向「有邊界的受限代理」，與金融業慣用的職責分離與權限最小化原則一致。",
+      "model_area": "OpenAI Agent / LLM 消費端應用",
+      "summary": "TechCrunch 檢視 OpenAI 將 Agent 能力全面推進到日常數位生活各環節的策略，並質疑一般使用者的實際採用意願。報導核心問題在於：使用者究竟願意把多少數位生活的控制權交給大型語言模型。這反映 Agent 從開發者工具走向消費端後，信任與控制權讓渡成為採用瓶頸，而非模型能力不足。",
       "highlights": [
-        "企業實務推翻「自主性越高越好」的預設，受限範圍的 Agent 在 production 表現較佳",
-        "設計重點轉為明確職責界定與規則約束，而非最大化彈性",
-        "對治理面的意涵：Agent 權限最小化與行為邊界應在部署前先定義"
+        "OpenAI 將 Agent 能力擴張至日常數位生活的多數場景",
+        "採用瓶頸落在使用者願意讓渡多少控制權，而非技術能力",
+        "Agent 消費化的關鍵變數是信任，對金融等高風險場景尤其明顯"
       ],
-      "url": "https://venturebeat.com/orchestration/enterprises-winning-with-ai-agents-are-limiting-how-much-the-agents-can-do-alone"
+      "url": "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them/"
+    },
+    {
+      "title": "Hugging Face reportedly in talks to be acquired for $13B",
+      "title_zh": "傳 Hugging Face 洽談以 130 億美元被收購",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
+      "domain": "Industry / M&A",
+      "model_area": "開源模型平台 / MLOps 基礎設施",
+      "summary": "TechCrunch 報導，開源 AI 模型與資料集平台 Hugging Face 傳出正在洽談收購案，估值約 130 億美元。Hugging Face 是全球最主要的開源模型託管與分發樞紐，其歸屬會直接影響開源模型生態的中立性。此案若成立，將是 AI 基礎設施層近期規模最大的併購之一。",
+      "highlights": [
+        "傳收購金額約 130 億美元",
+        "Hugging Face 為全球最大開源模型與資料集分發平台",
+        "牽動開源生態中立性與模型供應鏈的治理風險"
+      ],
+      "url": "https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/"
+    },
+    {
+      "title": "Instinct's powerful AI assistant is raising privacy and security concerns",
+      "title_zh": "Instinct 的強大 AI 助理引發隱私與資安疑慮",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
+      "domain": "Cybersecurity / Safety",
+      "model_area": "AI 助理 / Agent 權限管理",
+      "summary": "TechCrunch 報導 AI 助理產品 Instinct 出現多項隱私與資安疑慮，包含在未取得使用者許可的情況下逕自寄出郵件。另有第三方應用程式儲存使用者密碼所帶來的憑證外洩風險。此案例是 Agent 授權邊界與憑證託管失控的具體事故樣本。",
+      "highlights": [
+        "發生未經使用者同意即自動寄送郵件的越權行為",
+        "第三方應用儲存使用者密碼，構成憑證外洩風險",
+        "凸顯 Agent 產品在權限最小化與人類覆核機制上的缺口"
+      ],
+      "url": "https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/"
     }
   ],
-  "_updated_at": "2026-08-24T18:23:39.268566+08:00"
+  "_updated_at": "2026-08-25T18:21:25.459230+08:00"
 }
