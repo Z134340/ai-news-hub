@@ -1,205 +1,195 @@
 {
   "items": [
     {
+      "title": "財部：代理式AI打造通關智慧特助 117年對外開放",
+      "source": "中央社 CNA",
+      "date": "2026-08-25",
+      "topic": "AI Agent／政府應用",
+      "summary": "財政部關務署推動「關務智慧領航計畫」，將代理式 AI（Agentic AI）導入海關通關業務。規劃發展「通關智慧特助」與「貨物分類智慧助理」等服務，讓 AI 代理協助業者查詢稅則、判斷貨物分類與通關流程。依規劃時程，兩項服務將分別於民國 117 年（2028）與 118 年（2029）對外開放使用。這是台灣中央機關少數明確把 Agentic AI 寫進業務系統藍圖並訂出對外開放時程的案例。對金融與貿易業者而言，代表政府端 AI 代理將直接介入報關與稅則判定等具法律效果的流程。",
+      "relevance": "台灣政府機關正式把代理式 AI 納入核心業務系統，是本土 Agent 落地與治理的重要指標案例。",
+      "discussion": "中央社報導後在關務、報關業與 AI 治理社群引發討論，焦點在 AI 判定稅則的責任歸屬。",
+      "url": "https://www.cna.com.tw/news/afe/202608250317.aspx"
+    },
+    {
+      "title": "Perplexity公布可執行於Nvidia桌機的AI代理人Portable Computer",
+      "source": "iThome",
+      "date": "2026-08-26",
+      "topic": "AI Agent",
+      "summary": "AI 新創 Perplexity 公布可完全在本機執行的 AI 代理人 Portable Computer，把原本以雲端為主的 agentic 平台改為地端執行。目前可在 Nvidia DGX Spark 上運行，讓使用者直接以桌上型電腦的運算資源處理 AI 代理任務。訴求是敏感資料不離開使用者裝置，降低企業導入 Agent 時的資料外流疑慮。這代表 Agent 執行環境正從純雲端往「地端 / 混合」發展。對於受監理、不能把資料送上雲的產業具有實質意義。",
+      "relevance": "地端 Agent 執行模式對台灣金融、醫療等資料不得出境的產業提供新的導入選項。",
+      "discussion": "iThome 讀者關注地端算力成本與模型能力是否足以支撐複雜 Agent 工作流。",
+      "url": "https://www.ithome.com.tw/news/178440"
+    },
+    {
+      "title": "Perplexity 攜手輝達推出 Portable Computer，AI 代理全程在地端執行",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-26",
+      "topic": "AI Agent",
+      "summary": "Perplexity 於 25 日推出 Portable Computer，與 NVIDIA 合作將代理式 Computer 平台改造成可在使用者本機直接運行。系統強調隱私保護，敏感資料留在使用者裝置內，不必上傳雲端。此舉被視為 Perplexity 切入地端 AI 戰場的關鍵一步，與雲端 Agent 服務形成差異化。科技新報指出，這反映 AI 代理市場正出現「雲端 vs 地端」的路線分歧。硬體端則由 NVIDIA 的桌上型 AI 工作站提供算力支撐。",
+      "relevance": "NVIDIA 生態鏈與台灣供應鏈高度連動，地端 AI 代理裝置需求將牽動台廠出貨。",
+      "discussion": "台灣 AI 工程師社群討論地端 Agent 的實用性與 DGX Spark 級硬體的價格門檻。",
+      "url": "https://technews.tw/2026/08/26/now-perplexity-is-trying-to-get-into-the-local-ai-action"
+    },
+    {
+      "title": "Google 雲端發表「Gemini Enterprise for Legal」，專屬 AI 代理全面驅動法律界自動化",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-26",
+      "topic": "AI Agent／垂直應用",
+      "summary": "Google Cloud 發表 Gemini Enterprise for Legal，是專為律師事務所與企業法務部門設計的 AI 代理平台。系統以垂直領域 Agent 切入合約審閱、法遵檢核與案件文件處理等重複性高的法律工作。這延續 Google Cloud 先前主打的「代理式企業（Agentic Enterprise）」策略，將通用 Agent 平台往特定產業縱深發展。法律屬於高風險、高稽核要求領域，Agent 導入必須處理可追溯性與責任歸屬問題。此發布也意味大廠 Agent 競爭正從水平平台轉向垂直行業套件。",
+      "relevance": "金融業法遵與合約審閱場景高度相似，此類垂直 Agent 產品可直接對照台灣金融機構的導入評估。",
+      "discussion": "法遵與法務社群關注 AI 代理產出的法律意見責任歸屬與稽核軌跡要求。",
+      "url": "https://technews.tw/2026/08/26/gemini-enterprise-for-legal"
+    },
+    {
       "title": "英特爾闡述代理式 AI 架構布局，三新世代產品搶攻市場",
       "source": "TechNews 科技新報",
       "date": "2026-08-25",
-      "topic": "AI Agent / 晶片架構",
-      "summary": "Intel 在 Hot Chips 2026 上揭露三款針對代理式 AI（Agentic AI）與企業工作負載設計的新世代架構產品。分別是主打高效能協同運算的 Diamond Rapids 處理器、鎖定高效率推論的 Crescent Island GPU，以及支援智慧終端與邊緣運算的 Wildcat Lake SoC。Intel 的定位是把 Agent 工作負載從雲端資料中心一路延伸到邊緣與用戶端裝置，形成完整的運算層級。這代表 Agent 不再只是軟體框架議題，晶片廠已開始針對 Agent 的推論、記憶體存取與多步驟工具呼叫特性設計專屬硬體。",
-      "relevance": "台灣是 Intel 伺服器與客戶端平台的主要代工與零組件供應鏈基地，Diamond Rapids 與 Crescent Island 的量產節奏將直接牽動國內伺服器 ODM 與散熱、電源供應商的訂單能見度。",
-      "discussion": "中高；Hot Chips 議程本身在台灣半導體與伺服器供應鏈社群關注度高。",
+      "topic": "AI Agent／半導體",
+      "summary": "英特爾於 Hot Chips 2026 展示三款針對代理式 AI 與企業級工作負載設計的架構。包含用於高效能協調運算的 Diamond Rapids 處理器、提供高效率推論的 Crescent Island GPU，以及支援智慧型用戶端與邊緣運算的 Wildcat Lake 系統單晶片。三者分別對應 Agent 工作流中的「協調」「推論」「邊緣執行」三層需求。英特爾試圖以完整產品線切入 NVIDIA 主導的 AI 運算市場。此布局顯示晶片廠已開始以 Agent 工作負載特性重新定義產品分工。",
+      "relevance": "英特爾產品線調整牽動台灣伺服器代工與晶片封測供應鏈的訂單結構。",
+      "discussion": "Hot Chips 期間半導體社群熱議英特爾能否在推論市場取得實質市佔。",
       "url": "https://technews.tw/2026/08/25/intel-outlines-its-agent-based-ai-architecture-strategy"
     },
     {
-      "title": "字節推「豆包工作」，加入企業辦公 Agent 戰局",
+      "title": "Claude AI 文字浮水印遭迅速破解，AI 標記難持久引發討論",
       "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "AI Agent / 企業應用",
-      "summary": "字節跳動推出「豆包工作」，正式切入企業辦公場景的 AI Agent 市場。此舉讓字節與微軟 Microsoft 365 Copilot、Google Workspace Gemini，以及中國本地的釘釘、飛書 AI 助理正面競爭。企業辦公 Agent 的競爭焦點已從單純的文件生成，轉向跨應用的任務編排與流程自動化。字節挾豆包模型與飛書既有企業客戶基礎切入，屬於典型的「模型商往上做應用層」策略。",
-      "relevance": "台灣企業在評估辦公型 AI Agent 導入時，中國廠商方案因資安與跨境資料傳輸疑慮通常不在採購清單內，但其功能設計與定價策略會成為國際廠商在台報價的比較基準。",
-      "discussion": "中；主要在中國科技媒體與兩岸企業軟體圈討論。",
-      "url": "https://technews.tw/2026/08/25/bytedance-launches-doubao-work/"
+      "date": "2026-08-26",
+      "topic": "AI 治理／資安",
+      "summary": "Anthropic 為符合歐盟 AI Act 要求，在 Claude 生成的文字中加入浮水印標記，用以辨識 AI 產出內容。然而該機制上線後數小時內即被破解，開發者迅速做出移除浮水印的工具。事件凸顯文字型 AI 浮水印在技術上難以抵抗簡單改寫與後處理攻擊。這對監理機關以「標記義務」作為 AI 內容治理手段的可行性形成直接挑戰。若標記可被輕易剝除，合規義務將淪為形式。",
+      "relevance": "台灣若比照歐盟導入 AI 生成內容標記義務，此案例直接說明技術可行性的落差。",
+      "discussion": "AI 治理與資安社群熱議「標記義務」是否只是形式合規，討論度高。",
+      "url": "https://technews.tw/2026/08/26/ai-watermarks-cracked-sparking-debate"
     },
     {
-      "title": "OWASP 2026年LLM十大風險首納事故資料，AI代理過度授權升至第3名",
+      "title": "蘋果同步改款Mac mini與Mac Studio，打造專為AI而生的桌機陣容",
       "source": "iThome",
-      "date": "2026-08-25",
-      "topic": "AI 資安 / 治理",
-      "summary": "OWASP 旗下 GenAI Security Project 公布 2026 年版大型語言模型應用程式十大安全風險，這是該榜單首次將數千起實際發生的事故資料納入排名依據，而非僅憑專家投票。最重要的變化是「過度代理授權」（Excessive Agency）從 2025 版的第 6 名躍升至第 3 名，反映 AI Agent 大規模落地後，權限範圍過大造成的實際損害已明顯浮現。另一項調整是「系統提示詞洩露」（System Prompt Leakage）更名為「隱藏脈絡暴露」（Hidden Context Exposure），排名下降至第 8 名，顯示風險認知從單一提示詞外洩擴大到整體上下文治理。對導入 Agent 的企業而言，這份榜單直接指向工具授權範圍、行動核准機制與 context 邊界控制三個必須補強的控制點。",
-      "relevance": "台灣金融、製造業導入 AI Agent 時，主管機關與內稽內控通常以 OWASP 榜單作為風險辨識的共同語言，排名變動會直接影響內部控制清單與供應商查核項目的更新。",
-      "discussion": "高；AI 代理權限治理是台灣資安與法遵社群當前最熱門議題之一。⚠️待確認：文章確切發布日期以 iThome 網站標示為準。",
-      "url": "https://www.ithome.com.tw/news/178423"
+      "date": "2026-08-26",
+      "topic": "大廠產品發布",
+      "summary": "蘋果同步更新 Mac mini 與 Mac Studio，升級焦點明確指向 AI 工作負載。Mac mini 導入 M6 與 M5 Pro，主打常駐式 AI 代理（agentic computing）應用；Mac Studio 則搭載 M5 Max 與 M5 Ultra，訴求在本機執行前沿 AI 模型。蘋果此次把「地端跑 Agent 與大模型」明確定位為桌機產品的主要賣點。這與 Perplexity 同期推出地端 AI 代理的方向一致，顯示地端 AI 已成產品競爭主軸。對企業而言，地端推論可回避部分資料出境與雲端成本問題。",
+      "relevance": "M 系列晶片由台積電代工，2 奈米製程量產進度直接關係台灣半導體供應鏈。",
+      "discussion": "iThome 與台灣開發者社群關注地端跑大模型的實際效能與記憶體容量門檻。",
+      "url": "https://www.ithome.com.tw/news/178445"
     },
     {
-      "title": "DeepSeek 推實驗性視覺理解模型 挑戰 Anthropic 高階模型",
+      "title": "Apple 全新晶片 M6 發表！一文了解 Apple 首款 2 奈米晶片",
+      "source": "INSIDE 硬塞的網路趨勢觀察",
+      "date": "2026-08-26",
+      "topic": "半導體／大廠產品",
+      "summary": "蘋果發表 M6，是其首款採用 2 奈米製程的自研晶片，在不改變晶片實體尺寸下提升電晶體密度與能效。M6 首度採用 12 核心 CPU，並首次同時包含三種 CPU 核心架構：2 個超核心、4 個效能核心與 6 個節能核心。相較 M4，整體多執行緒 CPU 效能提升約 40%。蘋果強調此架構適合執行代理式 AI（agentic AI）任務。M6 首波搭載於新款 Mac mini。",
+      "relevance": "2 奈米製程由台積電獨家量產，M6 出貨進度是台積電先進製程營收的重要觀察指標。",
+      "discussion": "台灣半導體與 Apple 用戶社群高度關注 2 奈米良率與效能實測。",
+      "url": "https://www.inside.com.tw/article/42191-apple-m6-2nm-chip"
+    },
+    {
+      "title": "AI 運算力暴增 4.5 倍！Apple 全新 M5 Ultra 發表，一文了解 80 核 GPU 「怪獸級晶片」",
+      "source": "INSIDE 硬塞的網路趨勢觀察",
+      "date": "2026-08-26",
+      "topic": "半導體／大廠產品",
+      "summary": "蘋果發表 M5 Ultra，最高配置 36 核心 CPU（含 12 個超核心與 24 個效能核心），CPU 效能較 M3 Ultra 提升約 30%。GPU 為 80 核心並搭載 32 核心神經加速器，這是 Ultra 等級晶片首度導入神經加速器。整體 AI 運算力較上一代 M3 Ultra 暴增 4.5 倍。M5 Ultra 搭載於新款 Mac Studio，訴求在本機執行前沿 AI 模型。512GB 統一記憶體版本預計 10 月下旬供貨。",
+      "relevance": "高階地端 AI 工作站對台灣 AI 開發團隊與研究單位是雲端算力之外的替代選項。",
+      "discussion": "開發者社群比較 M5 Ultra 與 NVIDIA 工作站在本機跑大模型的性價比。",
+      "url": "https://www.inside.com.tw/article/42192-apple-m5-ultra-chip"
+    },
+    {
+      "title": "買 Mac Ultra 能省下 AI 訂閱費嗎？效能與成本恐難撼動 Claude 與 ChatGPT",
       "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "LLM 模型發布",
-      "summary": "DeepSeek 發表具視覺理解能力的實驗性模型 V4-Flash-Vision-Exp，宣稱效能逼近 Anthropic 的高階模型 Claude Opus 4.8。該模型是旗艦文字模型 V4-Flash 的實驗性多模態版本，能夠分析圖片與螢幕截圖並據以採取行動。DeepSeek 已透過 API 開放使用，並同時支援 Chat Completions、Messages 與 Responses 三種格式，便於直接接上各類 Agent 工具鏈。刻意相容 Anthropic 的 Messages 格式，等於降低既有 Claude 使用者的遷移成本，是價格戰之外的另一種替代策略。",
-      "relevance": "對台灣新創與中小企業而言，能讀螢幕截圖並執行動作的低價多模態模型會直接衝擊 RPA 與客服自動化的成本結構，但資料落地與國安審查限制仍是導入的主要障礙。",
-      "discussion": "高；模型效能對標與 API 相容性設計在開發者社群引發大量比較討論。",
-      "url": "https://technews.tw/2026/08/24/deepseek-v4-flash-vision-exp"
+      "date": "2026-08-26",
+      "topic": "LLM／成本分析",
+      "summary": "科技新報分析新款 Mac Studio（M5 Ultra）是否能取代每月高額的 AI 編碼訂閱費用。文章比較地端執行開源模型與雲端訂閱 Claude、ChatGPT 的實際成本與效能落差。結論指出，即使硬體規格大幅升級，地端模型在編碼任務的能力與速度仍難以撼動前沿雲端模型。高階硬體的一次性投入也需要長時間才能攤平訂閱費。對多數開發者而言，地端方案目前仍偏向隱私與離線需求，而非純成本考量。",
+      "relevance": "台灣企業評估 AI 開發工具導入時，地端 vs 訂閱的成本模型是常見決策點。",
+      "discussion": "開發者社群對「自架能否省錢」的討論長期熱烈，此文引發實測數據辯論。",
+      "url": "https://technews.tw/2026/08/26/can-apples-new-mac-ultra-replace-your-200month-ai-coding-bill/"
     },
     {
-      "title": "阿里巴巴籌資百億美元衝刺 AI 競賽，全新影片生成模型 Wan3.0 亮相",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "LLM 模型發布 / 資本布局",
-      "summary": "阿里巴巴完成香港配售，募得約 102 億美元資金，並同步發表最新 AI 影片生成模型 Wan3.0。這筆募資規模顯示阿里將加速在算力採購與模型研發上的投入，鞏固其在中國雲端與 AI 市場的領先地位。Wan3.0 延續阿里在開源模型（Qwen 系列）與生成式內容工具的雙軌策略。對照同期 Anthropic、OpenAI 的巨額募資，可見全球前段模型廠商的資本門檻已推升到百億美元等級。",
-      "relevance": "阿里的算力採購規模是台灣伺服器 ODM 與 AI 晶片供應鏈的重要需求來源之一，但受美國出口管制影響，實際下單品項與台廠受惠程度需個別檢視。",
-      "discussion": "高；百億美元募資規模在財經與科技圈同步引發討論。",
-      "url": "https://technews.tw/2026/08/25/alibaba-ai-model-wan3-0/"
-    },
-    {
-      "title": "不讓中國專美於前，輝達砸 1,911 億打造開放權重模型",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "LLM 模型發布 / 開源生態",
-      "summary": "NVIDIA 與 AI 新創 Poolside 達成授權協議，投資 10 億美元並另支付 60 億美元取得技術授權，合計投入規模達新台幣 1,911 億元，目標是打造具競爭力的開放權重模型。此舉被視為直接挑戰 OpenAI 與 Anthropic 等閉源前段廠商，同時回應中國開源模型（DeepSeek、Qwen、Kimi）近年在開放權重市場的強勢地位。NVIDIA 的動機在於擴大 CUDA 生態的模型供給，若市場被少數閉源模型壟斷，其硬體議價能力反而受限。開放權重模型的普及也有利於企業自建地端推論，進一步拉抬 GPU 需求。",
-      "relevance": "開放權重模型若成為企業地端部署主流，台灣金融與製造業的自建 AI 基礎設施（含地端 GPU 伺服器）需求將明顯提升，對國內系統整合商是實質商機。",
-      "discussion": "高；NVIDIA 由硬體商跨入模型供給的戰略轉向引發廣泛評論。",
-      "url": "https://technews.tw/2026/08/24/nvidia-invests-191-1-billion-open-weight-models-challenge-china-dominance"
-    },
-    {
-      "title": "訓練快一倍、資料省六成，新型預訓練法 GeoPT 讓 AI 具備「物理直覺」",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "LLM 訓練技術 / 學術研究",
-      "summary": "MIT 與清華大學團隊提出新型預訓練方法 GeoPT，讓模型在訓練階段就建立對物理世界的基本直覺。報導指出該方法可將訓練速度提升約一倍，同時減少約六成的資料需求。在高品質訓練語料日益稀缺、算力成本持續攀升的環境下，資料效率的提升比單純堆疊參數更具實務價值。這類「注入結構化先驗知識」的預訓練路線，也是實體 AI（Physical AI）與機器人模型的關鍵基礎。",
-      "relevance": "資料效率導向的預訓練方法對台灣的研究機構與中型企業特別重要，因為國內團隊在算力與語料規模上難以與國際大廠正面競爭，訓練效率是可行的差異化切入點。",
-      "discussion": "中高；學術社群與模型訓練工程師關注度高。",
-      "url": "https://technews.tw/2026/08/24/mit-tsinghua-geopt"
-    },
-    {
-      "title": "日美合作 AI 實力調查，中國 Kimi K3 排名第六",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "模型評測 / 地緣競爭",
-      "summary": "日本與美國合作進行的 AI 實力調查結果出爐，中國 Moonshot AI 的旗艦模型 Kimi K3 名列全球第六。這份調查反映中國模型在國際評測體系中已站穩前段位置，而非僅在中文任務上具優勢。由官方或半官方機構主導的跨國模型評比，正逐漸成為各國制定 AI 產業政策與出口管制的量化依據。對企業採購而言，這類第三方評比比廠商自行公布的 benchmark 更具參考性。",
-      "relevance": "台灣目前缺乏具國際能見度的模型評比機制，TAIDE 等本土模型在國際榜單上的定位不明，這份調查凸顯建立可信第三方評測能力的政策缺口。",
-      "discussion": "中；主要在 AI 政策與模型評測社群討論。",
-      "url": "https://technews.tw/2026/08/24/japan-us-ai-strength-survey-china-kimi-k3-ranks-sixth"
-    },
-    {
-      "title": "Claude.ai、Claude Code 等故障，Anthropic 確認模型問題著手修復",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "服務中斷 / 大廠動態",
-      "summary": "Anthropic 旗下 Claude.ai 與 Claude Code 等服務於 8 月 24 日下午發生無法正常提供服務的故障，官方確認為模型層問題並著手修復。這已非 Claude 近期首次出現多模型同時受影響的服務中斷。對於已將 Claude Code 納入日常開發流程的團隊而言，單一模型供應商故障會直接中斷 CI/CD 與程式撰寫工作。此類事件正持續推升企業對多模型備援（multi-model fallback）架構的需求。",
-      "relevance": "台灣不少軟體團隊與金融業 AI 專案已高度依賴 Claude 系列模型，單一供應商中斷風險是導入時必須納入的營運持續性（BCP）評估項目。",
-      "discussion": "高；開發者社群對 Claude Code 中斷的反應相當即時且集中。",
-      "url": "https://technews.tw/2026/08/24/claude-outage-hits-multiple-models-again"
-    },
-    {
-      "title": "Anthropic 最強 AI 企業不買單 輝達砸錢拚開放模型",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "產業趨勢 / 模型採購",
-      "summary": "報導指出企業客戶開始拒絕為頂級 AI 模型支付高價，轉而採用效能足以應付多數工作、但價格較低的替代品。Anthropic 兩個多月前推出的最強、也最昂貴的模型 Fable 5，僅佔 Anthropic 模型支出總額約 11%，且成長已趨於停滯。這顯示企業採購邏輯正從「追求最強模型」轉向「依任務分層選模」，把昂貴模型保留給少數高難度工作。同時 NVIDIA 大手筆投資開放權重模型，正好呼應這股尋求低成本替代方案的市場需求。",
-      "relevance": "台灣企業導入 AI 的預算普遍低於歐美同業，「分層選模」與模型路由（model routing）策略對本地成本控制特別關鍵，是導入規劃時的核心設計議題。",
-      "discussion": "高；模型定價與 CP 值是企業 AI 導入社群長期熱議主題。",
-      "url": "https://technews.tw/2026/08/24/businesses-begin-moving-away-from-top-tier-ai-services"
-    },
-    {
-      "title": "自家 AI 基礎建設還不夠用？Meta 每年狂砸數億美元向微軟買算力救援",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "算力布局 / 大廠動態",
-      "summary": "報導揭露 Meta 儘管已投入巨資自建 AI 基礎設施，仍需每年支付數億美元向微軟採購雲端算力補足缺口。這說明即使是自建規模最大的科技巨頭，在模型訓練與推論的尖峰需求下仍無法完全自給。算力短缺已從新創的問題，變成全產業共通的結構性瓶頸。這也解釋了為何各大廠同時進行自研晶片、自建資料中心與外購雲端算力的三軌並行策略。",
-      "relevance": "超大規模業者持續外購算力，代表資料中心相關硬體需求短期內不會放緩，對台灣伺服器代工、散熱與電源供應鏈是正面訊號。",
-      "discussion": "中高；Meta 向競爭對手微軟買算力的情節具話題性。",
-      "url": "https://finance.technews.tw/2026/08/25/meta-self-developed-ai-insufficient"
-    },
-    {
-      "title": "內部數據流出，微軟員工 AI 開銷大解密：單月最高狂燒 2.8 萬美元",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "AI 成本 / 企業應用",
-      "summary": "微軟內部數據流出，揭露員工使用 AI 工具的實際開銷分布，其中單一員工單月最高消耗達 2.8 萬美元。這個數字凸顯 Agent 與 coding assistant 在重度使用情境下的 token 成本可能遠超企業原先的預算假設。多數企業在導入時以「每人每月固定授權費」估算，但按用量計價的 Agent 工作負載完全是另一種成本模型。缺乏用量監控與配額機制的企業，很容易在導入後面臨帳單失控。",
-      "relevance": "台灣企業導入 AI Agent 時普遍尚未建立 token 用量的成本歸屬與配額治理機制，這則案例是財務與 IT 部門在編列預算前必須參考的實證數據。",
-      "discussion": "高；具體金額數字易引發開發者與 IT 主管的廣泛轉發討論。",
-      "url": "https://technews.tw/2026/08/25/microsoft-employee-reveals-ai-spending/"
-    },
-    {
-      "title": "SpaceX 攜輝達 馬斯克：太空 AI 資料中心明年升空",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "AI 基礎設施 / 大廠動態",
-      "summary": "SpaceX 宣布與 NVIDIA 建立新的合作關係，加速推動太空 AI 資料中心計畫，最快將於 2027 年將相關設備送入軌道。馬斯克主張太空環境的太陽能供電與真空散熱條件，可望解決地面資料中心的電力與冷卻瓶頸。地面 AI 資料中心的用電與散熱壓力已成為產業擴張的實質上限，這是尋求突破的極端解法之一。技術可行性與經濟效益仍待驗證，發射成本與軌道維運是主要變數。",
-      "relevance": "若太空資料中心概念推進，台灣在衛星零組件、太空級電子與高效能散熱模組的供應鏈可能出現新的切入機會，但短期內仍屬長線題材。",
-      "discussion": "高；馬斯克相關題材在台灣媒體與投資社群傳播力強。",
-      "url": "https://technews.tw/2026/08/25/musk-space-ai-data-centers-to-launch-next-year"
-    },
-    {
-      "title": "特斯拉 AI 晶片人才持續流失，硬體資深總監轉戰新創 DensityAI",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "人才流動 / AI 晶片",
-      "summary": "特斯拉的關鍵技術人才持續外流，AI 硬體設計前資深總監 Shishuang Sun 已離職，轉往 AI 硬體新創 DensityAI。這是特斯拉 AI 晶片團隊近期一連串人事異動的最新一例。AI 晶片設計人才在市場上極度稀缺，新創以股權與技術自主性吸引大廠核心人員，已成常態。人才流失對特斯拉自研 Dojo 與 FSD 晶片的長期路線圖構成實質風險。",
-      "relevance": "AI 晶片設計人才的全球爭奪同樣衝擊台灣 IC 設計業，本地業者在薪酬結構與技術挑戰性上如何留才，是產業長期競爭力的關鍵。",
-      "discussion": "中；主要在半導體與 IC 設計從業者社群討論。",
-      "url": "https://technews.tw/2026/08/25/tesla-ai-chip-talent-drain"
-    },
-    {
-      "title": "【資安日報】8月25日，安卓車載系統遭惡意軟體攻擊，駭客企圖將其用於非法代理伺服器服務及廣告詐騙",
+      "title": "AI資安業者Alice募資1.4億美元，AI業務兩年成長逾500%",
       "source": "iThome",
+      "date": "2026-08-26",
+      "topic": "AI 資安／融資",
+      "summary": "AI 資安業者 Alice 完成 1.4 億美元募資，其 AI 相關業務在過去兩年成長超過 500%。公司年度經常性收入（ARR）已接近 1 億美元，顯示 AI 驅動的資安產品需求快速放大。此輪募資反映資安市場正從傳統規則式偵測轉向 AI 自動化偵測與回應。在攻擊端也大量使用 AI 的情況下，防守方以 AI 對抗 AI 成為必然選擇。募資規模也顯示資本市場對 AI 資安賽道評價維持高檔。",
+      "relevance": "台灣企業資安預算正往 AI 代理式防禦傾斜，國際廠商動態影響本地採購選項。",
+      "discussion": "iThome 資安讀者關注 AI 資安工具的實際誤報率與導入成本。",
+      "url": "https://www.ithome.com.tw/news/178446"
+    },
+    {
+      "title": "立吉富線上金流導入奧義賽博 AI 資安，打造電子支付主動防禦",
+      "source": "TechNews 科技新報（資安）",
       "date": "2026-08-25",
-      "topic": "資安",
-      "summary": "iThome 8 月 25 日資安日報揭露多起重大事件。美國 CISA 警告 TrueConf 視訊會議系統的 CVE-2026-72529 與 CVE-2026-72530 漏洞遭實際利用，卡巴斯基發現 APT 駭客組織 Head Mare 鎖定未修補的 TrueConf 伺服器，部署多階段惡意軟體以建立長期存取能力。Android 銀行木馬 ToxicPanda 2.0 擴大攻擊範圍，鎖定 349 個金融應用程式。此外 Atlassian 一次修補旗下 Bamboo、Bitbucket、Confluence、Jira 等產品逾 80 個漏洞，其中 7 個為重大等級，最嚴重的 Jira 漏洞 CVE-2026-4800 的 CVSS 達 9.8；MongoDB 也修補 32 個漏洞。",
-      "relevance": "ToxicPanda 2.0 鎖定 349 個金融 App，對台灣銀行與證券業的行動端資安防護是直接警訊；Atlassian 與 MongoDB 為國內企業廣泛使用的開發與資料庫平台，修補優先序需立即評估。",
-      "discussion": "高；iThome 資安日報是台灣企業資安人員的每日必讀來源。",
-      "url": "https://www.ithome.com.tw/news/178421"
+      "topic": "AI 資安／台灣金融應用",
+      "summary": "PayNow 立吉富線上金流自 2024 年起與台灣資安業者奧義智慧（CyCraft）合作，至今已部署 EASM、IASM 與 Endpoint 等 AI 自動化資安防禦體系。系統以 AI 持續盤點對外攻擊面與內部資產風險，取代人工週期性檢視。對電子支付業者而言，主動式防禦是符合金融監理要求的關鍵能力。這是台灣本土 AI 資安產品在受監理金融場景的實際落地案例。案例也顯示中型金融科技業者以 AI 補足資安人力不足的路徑。",
+      "relevance": "電子支付屬金管會監理範圍，本案例可作為台灣金融業 AI 資安導入的參考樣板。",
+      "discussion": "台灣資安與 FinTech 社群關注 AI 自動化防禦在監理稽核上的採認程度。",
+      "url": "https://infosecu.technews.tw/2026/08/25/paynow-cycraft"
     },
     {
-      "title": "【資安日報】8月24日，微軟修補Entra ID滿分漏洞",
-      "source": "iThome",
-      "date": "2026-08-24",
-      "topic": "資安",
-      "summary": "iThome 8 月 24 日資安日報以微軟修補 Entra ID 的 CVSS 滿分（10.0）漏洞為頭條。Entra ID 是微軟的雲端身分識別與存取管理服務，為企業 Microsoft 365 與 Azure 環境的身分驗證核心，滿分漏洞意味著攻擊者可能在未經授權的情況下取得高權限。同日資安日報並整理多起漏洞揭露與攻擊事件。身分識別層一旦被攻破，後續所有以 SSO 串接的應用系統都同時暴露，屬於典型的單點失效風險。",
-      "relevance": "台灣大量企業以 Entra ID 作為 Microsoft 365 與混合雲環境的身分中樞，此漏洞需列為最高優先修補與影響評估項目。",
-      "discussion": "高；Entra ID 滿分漏洞在企業 IT 與資安圈迅速擴散。",
-      "url": "https://www.ithome.com.tw/news/178380"
-    },
-    {
-      "title": "TPU v10 複雜度升高！外資看好創意卡位 Google、Meta、微軟 ASIC 專案",
+      "title": "職場人設靠算力？研究揭 LinkedIn 竟成全網 AI 灌水重災區",
       "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "台灣產業 / AI ASIC",
-      "summary": "外資看好台灣 IC 設計服務業者創意電子（GUC）在 AI ASIC 市場的卡位。報導指出隨著 Google TPU v10 設計複雜度提升，創意逐步取得先進製程產能並擴大 AI ASIC 客戶組合，來自 Meta、微軟、Google 等大客戶的專案可望陸續明朗。券商同步調升創意 2026 至 2028 年每股盈餘預估至 49.97 元、138 元與 210 元。這反映客製化 ASIC 正在分食通用 GPU 的市場，而台灣設計服務業者是這波轉向的直接受惠者。",
-      "relevance": "高度相關；創意電子是台灣 AI ASIC 設計服務的代表性業者，其接單能見度直接反映台灣在超大規模業者自研晶片供應鏈中的位置。",
-      "discussion": "高；台股 AI 供應鏈投資社群密切追蹤。",
-      "url": "https://technews.tw/2026/08/25/guc-google-tpu-v10-asic/"
+      "date": "2026-08-26",
+      "topic": "AI 內容治理",
+      "summary": "AI 內容偵測公司 Pangram 分析 LinkedIn、Medium、Substack、X/Twitter 與 Reddit 上超過 100 萬則貼文。研究發現各平台皆有相當比例的 AI 生成內容，其中 LinkedIn 的 AI 生成貼文比例最高，成為「重災區」。職場社群平台的內容因格式制式、動機明確，特別容易被 AI 大量生產。研究凸顯 AI 生成內容偵測與平台治理的難度正在升高。這也連動到前述 AI 浮水印遭破解的治理困境。",
+      "relevance": "台灣專業人士大量使用 LinkedIn 建立個人品牌，內容可信度下降直接影響招募與商務判斷。",
+      "discussion": "LinkedIn 台灣用戶與 HR 社群對「AI 味貼文」討論度高。",
+      "url": "https://technews.tw/2026/08/26/linkedin-ai-spam-rampan"
     },
     {
-      "title": "台積電再生水用量達 2,353 萬噸，水務商機持續擴大",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "台灣產業 / AI 基礎設施",
-      "summary": "隨著 AI 與先進製程產能持續擴張，水資源已成為支撐半導體製造的重要基礎。台積電 2025 年再生水用量達 2,353 萬噸，再生水替代率達到 18%。AI 晶片需求推升的產能擴張，同步放大了水、電等基礎資源的消耗規模。這也帶動水處理與再生水設備的商機持續擴大。對台灣而言，AI 產業的資源承載力已是實質的產業政策議題，而非單純的環保議題。",
-      "relevance": "高度相關；台灣水電資源能否支撐 AI 帶動的半導體擴產，是國內產業政策與 ESG 揭露的核心爭點，直接影響台積電與供應鏈的擴廠規劃。",
-      "discussion": "中高；水電議題在台灣產業與環境政策討論中長期高溫。",
-      "url": "https://technews.tw/2026/08/25/tsmc-recycled-water-consumption-23-53-million-tons-water-resource-supply-chain-focus/"
+      "title": "中國 AI 雙雄財報前夕遭空頭狙擊，智譜 AI 與 MiniMax 空單雙創歷史新高",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-08-26",
+      "topic": "AI 產業／資本市場",
+      "summary": "投資人對 Z.AI（智譜 AI）與 MiniMax Group 的空頭部位在財報公布前夕飆升至歷史新高。市場焦點集中在兩家中國 AI 公司即將發布的財報表現。中國 AI 模型市場競爭日趨激烈，價格戰壓縮獲利空間是空方主要論點。此現象反映資本市場對中國 AI 公司商業化能力的疑慮正在放大。財報結果將成為檢驗中國前沿模型公司是否具備可持續營收模式的關鍵。",
+      "relevance": "中國 AI 公司的商業化成敗影響開源模型供給節奏，連帶影響台灣企業的模型選型。",
+      "discussion": "台股與 AI 投資社群關注中國 AI 估值修正是否外溢至全球 AI 類股。",
+      "url": "https://finance.technews.tw/2026/08/26/china-ai-zhipu-minimax-short-seller-attack-record-high-pre-earnings"
     },
     {
-      "title": "台積電全球用電再攀高：2025 年近 288 億度，約台灣全年用電一成",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-24",
-      "topic": "台灣產業 / AI 能源",
-      "summary": "台積電 2025 年全球用電量接近 288 億度，約相當於台灣全年總用電量的一成。報導引述工研院估算，使用台積電晶片的產品在 2025 年可在全球節省逾 1,800 億度電、減少近 8,900 萬噸碳排放，形成「自身高耗電、但下游高節能」的對比論述。AI 時代的能源挑戰已成為半導體製造的基礎性課題。單一企業用電佔全國一成的結構，讓電力供應規劃與產業發展高度綁定。",
-      "relevance": "高度相關；台積電用電規模直接牽動台灣的電力配置、電價政策與能源轉型時程，是國內 AI 產業發展最關鍵的實體限制條件。",
-      "discussion": "高；用電佔比數字在台灣能源政策辯論中極具傳播力。",
-      "url": "https://technews.tw/2026/08/24/tsmc-global-power-consumption-climbs-2025-28-8-billion-kwh-10-percent-taiwan-annual-total"
+      "title": "外資看好輝達將公布最強勁單季財報，將帶動台積電 ADR 股價大幅上攻",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-08-26",
+      "topic": "AI 產業／半導體",
+      "summary": "外資分析師預期 NVIDIA 將公布史上最強勁單季財報，並帶動台積電 ADR 股價大幅上攻。市場預估輝達第二季營收上看 910 至 920 億美元，年增率接近 95%。外資同時預估台積電 2026 年每股盈餘（EPS）將成長約 59% 至 16.90 美元。台積電為輝達 AI 晶片的核心代工夥伴，兩者營運高度連動。市場並關注財報中 GB300 出貨進度與 HBM 合約細節。",
+      "relevance": "輝達財報是台積電與整條台灣 AI 供應鏈的最重要單一觀察指標。",
+      "discussion": "台股投資社群在財報前夕討論極為熱烈，為當日最高關注度財經新聞之一。",
+      "url": "https://finance.technews.tw/2026/08/26/nvidias-upcoming-strong-quarterly-earnings-report-drives-tsmc-adr-share-price-up-sharply"
     },
     {
-      "title": "百億預算砸給生成式 AI，一文看懂華爾街六大巨頭的 AI 軍備競賽",
+      "title": "台灣主要 IT 廠營收暴增逾 5 成 續破 2 兆、刷新歷史高",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-08-26",
+      "topic": "台灣 AI 產業",
+      "summary": "台灣主要 IT 廠 7 月營收合計 2 兆 3,706 億元，較去年同月暴增 55.5%，並連續五個月突破 2 兆元大關，刷新歷史新高。其中鴻海 7 月營收暴增 54% 至 9,465 億元，創下單月歷史新高紀錄。成長動能主要來自 AI 伺服器與相關零組件出貨放量。此數據顯示 AI 基礎設施建置需求仍在加速，並未出現放緩跡象。台廠在 AI 硬體供應鏈的份額持續擴大。",
+      "relevance": "直接反映台灣製造業在全球 AI 基礎建設中的實際受惠程度，為本土最核心的 AI 產業數據。",
+      "discussion": "產業與投資社群關注高基期下的成長是否可持續至 2027 年。",
+      "url": "https://finance.technews.tw/2026/08/26/taiwan-major-it-firms-revenue-surges-over-50-exceeds-2-trillion-sets-new-record-high"
+    },
+    {
+      "title": "800 VDC 是開端！台達揭密 AI 資料中心電力革命",
       "source": "TechNews 科技新報",
-      "date": "2026-08-25",
-      "topic": "金融業 AI 應用",
-      "summary": "華爾街主要銀行正投入數百億美元推進 AI 落地，包括摩根大通、高盛、花旗、富國銀行、美國銀行與摩根士丹利六大巨頭，已將生成式 AI 深度整合進日常營運。報導盤點各家的預算規模與導入場景，涵蓋研究報告生成、法遵審查、客服與交易輔助等。金融業是受監理程度最高的產業之一，其導入路徑對治理框架的設計具指標意義。六大行的共通模式是先從內部生產力工具切入，再逐步擴及面客場景。",
-      "relevance": "高度相關；台灣金控在 AI 導入的場景選擇、模型治理與法遵控制設計上，普遍以華爾街同業的做法作為對標基準，這份盤點是規劃內部藍圖的直接參考。",
-      "discussion": "高；金融業 AI 導入是台灣金融科技與法遵社群的核心議題。",
-      "url": "https://finance.technews.tw/2026/08/25/wall-street-ai-race"
+      "date": "2026-08-26",
+      "topic": "AI 基礎設施",
+      "summary": "台達電揭露 AI 資料中心正快速邁向高功率時代，下一代 AI 伺服器機櫃功耗預計將很快突破 1MW。為因應此需求，電力架構將從傳統低壓直流轉向 800 VDC（800 伏直流）供電。高壓直流可降低傳輸損耗與銅材用量，是超高密度機櫃的必要條件。台達定位 800 VDC 為 AI 資料中心電力革命的起點，後續還會有更多架構調整。此轉換將牽動電源供應器、配電與散熱整條供應鏈的規格改版。",
+      "relevance": "台達為全球主要電源供應廠，800 VDC 標準轉換是台灣電源供應鏈的重大商機與技術門檻。",
+      "discussion": "資料中心與電力工程社群關注 800 VDC 標準化時程與安規挑戰。",
+      "url": "https://technews.tw/2026/08/26/vdc-ai-delta-gpu"
+    },
+    {
+      "title": "博大擴大邊緣電源客戶，人形機器人送樣、無人機訂單升溫",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-26",
+      "topic": "台灣 AI 產業／實體 AI",
+      "summary": "台廠博大科技擴大邊緣運算電源客戶布局，並已對人形機器人客戶送樣。同時無人機相關訂單升溫，反映實體 AI（Physical AI）應用需求正在放大。邊緣 AI 裝置對電源效率與體積要求嚴苛，是傳統電源廠的技術升級機會。人形機器人與無人機皆需高功率密度、輕量化的電源模組。此動態顯示台灣供應鏈正從 AI 資料中心往終端 AI 裝置延伸。",
+      "relevance": "台廠切入人形機器人與無人機供應鏈，是台灣 AI 硬體布局從雲端擴散到邊緣的具體訊號。",
+      "discussion": "投資與機器人社群關注人形機器人送樣後的實際量產時程。",
+      "url": "https://technews.tw/2026/08/26/poda-expands-ai-edge-power-customers-humanoid-robot-samples-drone-orders-surge"
+    },
+    {
+      "title": "IMF 總裁示警：全球經濟風險仍偏下行，AI 成重要支撐",
+      "source": "TechNews 科技新報",
+      "date": "2026-08-26",
+      "topic": "AI 總體經濟",
+      "summary": "IMF 總裁示警全球經濟風險仍偏向下行，但同時指出 AI 相關投資是當前重要的成長支撐力量。AI 基礎建設支出成為抵銷其他部門疲弱的關鍵動能。此評估同時隱含風險：若 AI 投資週期反轉，全球成長將缺乏替代支柱。國際機構開始把 AI 資本支出視為總體經濟的系統性變數。這對高度依賴 AI 硬體出口的經濟體尤其重要。",
+      "relevance": "台灣出口高度綁定 AI 資本支出週期，IMF 的判斷直接關係台灣總體經濟展望。",
+      "discussion": "財經與總經社群討論 AI 投資是否已形成過度集中的成長依賴。",
+      "url": "https://technews.tw/2026/08/26/imf-warns-economic-risks-remain-tilted-to-downside-with-ai-as-key-support"
     }
   ],
-  "_updated_at": "2026-08-25T18:05:53.968798+08:00"
+  "_updated_at": "2026-08-26T18:05:36.690930+08:00"
 }

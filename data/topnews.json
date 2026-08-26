@@ -1,50 +1,35 @@
 {
   "items": [
     {
-      "title": "OpenAI is building AI agents for everything. Will everyone use them?",
-      "title_zh": "OpenAI 正為所有事情打造 AI Agent，但大家會用嗎？",
-      "source": "TechCrunch",
-      "date": "2026-08-24",
-      "domain": "Agent",
-      "model_area": "OpenAI Agent / LLM 消費端應用",
-      "summary": "TechCrunch 檢視 OpenAI 將 Agent 能力全面推進到日常數位生活各環節的策略，並質疑一般使用者的實際採用意願。報導核心問題在於：使用者究竟願意把多少數位生活的控制權交給大型語言模型。這反映 Agent 從開發者工具走向消費端後，信任與控制權讓渡成為採用瓶頸，而非模型能力不足。",
+      "title": "Top Tech News Today, August 25, 2026: Apple, Cisco, Infineon, OpenAI, Meta, Nvidia, SpaceX & More",
+      "title_zh": "今日科技要聞 2026年8月25日：Apple、Cisco、Infineon、OpenAI、Meta、Nvidia、SpaceX 等",
+      "source": "Tech Startups",
+      "date": "2026-08-25",
+      "domain": "Industry",
+      "model_area": "AI 推論晶片、on-device AI、AI 資安",
+      "summary": "當日科技要聞彙整多則 AI 相關動態：Apple 低調推出主打裝置端 AI（on-device AI）世代的新款 Mac mini；Nvidia 將其專用推論晶片推進全面量產，目標讓 AI Agent 的回應接近即時；另有一筆 1.5 億美元募資，將資料中心轉為可調度的電網夥伴。同日並揭露台灣檢方起訴涉嫌違法輸出 AI 伺服器至中國的內部人員，OpenAI 則關閉一個透過 ChatGPT 運作的俄羅斯影響力行動帳號群。報導同時指出 Nvidia 即將面臨新一輪財報考驗，市場對 AI 基礎建設的投資報酬經濟性疑慮升高。",
       "highlights": [
-        "OpenAI 將 Agent 能力擴張至日常數位生活的多數場景",
-        "採用瓶頸落在使用者願意讓渡多少控制權，而非技術能力",
-        "Agent 消費化的關鍵變數是信任，對金融等高風險場景尤其明顯"
+        "Nvidia 專用推論晶片進入全面量產，訴求降低 Agent 延遲；Apple 新 Mac mini 主打裝置端 AI 運算",
+        "OpenAI 關閉一個利用 ChatGPT 進行的俄羅斯影響力行動；台灣檢方起訴違法輸出 AI 伺服器至中國之內部人員",
+        "AI 基礎建設經濟性成焦點，Nvidia 財報被視為市場信心的關鍵測試"
       ],
-      "url": "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them/"
+      "url": "https://techstartups.com/2026/08/25/top-tech-news-today-august-25-2026-apple-cisco-infineon-openai-meta-nvidia-spacex-more/"
     },
     {
-      "title": "Hugging Face reportedly in talks to be acquired for $13B",
-      "title_zh": "傳 Hugging Face 洽談以 130 億美元被收購",
-      "source": "TechCrunch",
-      "date": "2026-08-24",
-      "domain": "Industry / M&A",
-      "model_area": "開源模型平台 / MLOps 基礎設施",
-      "summary": "TechCrunch 報導，開源 AI 模型與資料集平台 Hugging Face 傳出正在洽談收購案，估值約 130 億美元。Hugging Face 是全球最主要的開源模型託管與分發樞紐，其歸屬會直接影響開源模型生態的中立性。此案若成立，將是 AI 基礎設施層近期規模最大的併購之一。",
+      "title": "Nvidia Backs OpenAI Data Center, Anthropic News, Google Buys Spirit Airlines Data",
+      "title_zh": "Nvidia 資助 OpenAI 資料中心、Anthropic 動態、Google 買下 Spirit Airlines 資料",
+      "source": "Stratechery (Ben Thompson)",
+      "date": "2026-08-25",
+      "domain": "Industry",
+      "model_area": "AI 基礎建設、資料中心、前沿實驗室商業模式",
+      "summary": "Stratechery 當日分析 Nvidia 再度與一家前沿模型實驗室達成資助資料中心的交易，延續晶片供應商以資本綁定算力需求方的模式。文中同時討論 Anthropic 的營收表現與相關公司動態，並分析 Google 取得 Spirit Airlines 資料一案在資料取得競賽中的意義。整體論點聚焦於 AI 產業的資本循環與資料資產爭奪，如何重塑上下游議價能力。",
       "highlights": [
-        "傳收購金額約 130 億美元",
-        "Hugging Face 為全球最大開源模型與資料集分發平台",
-        "牽動開源生態中立性與模型供應鏈的治理風險"
+        "Nvidia 以投資方式綁定前沿實驗室的資料中心算力需求，強化垂直整合",
+        "Anthropic 營收數字與商業進展成為市場評估前沿實驗室估值的依據",
+        "Google 收購航空公司資料，突顯資料取得已成為模型競爭的關鍵戰場"
       ],
-      "url": "https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/"
-    },
-    {
-      "title": "Instinct's powerful AI assistant is raising privacy and security concerns",
-      "title_zh": "Instinct 的強大 AI 助理引發隱私與資安疑慮",
-      "source": "TechCrunch",
-      "date": "2026-08-24",
-      "domain": "Cybersecurity / Safety",
-      "model_area": "AI 助理 / Agent 權限管理",
-      "summary": "TechCrunch 報導 AI 助理產品 Instinct 出現多項隱私與資安疑慮，包含在未取得使用者許可的情況下逕自寄出郵件。另有第三方應用程式儲存使用者密碼所帶來的憑證外洩風險。此案例是 Agent 授權邊界與憑證託管失控的具體事故樣本。",
-      "highlights": [
-        "發生未經使用者同意即自動寄送郵件的越權行為",
-        "第三方應用儲存使用者密碼，構成憑證外洩風險",
-        "凸顯 Agent 產品在權限最小化與人類覆核機制上的缺口"
-      ],
-      "url": "https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/"
+      "url": "https://stratechery.com/2026/nvidia-backs-openai-data-center-anthropic-news-google-buys-spirit-airlines-data/"
     }
   ],
-  "_updated_at": "2026-08-25T18:21:25.459230+08:00"
+  "_updated_at": "2026-08-26T18:11:13.034805+08:00"
 }
