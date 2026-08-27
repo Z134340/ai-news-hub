@@ -5,42 +5,41 @@
       "source": "Gartner",
       "date": "2026-08-26",
       "category": "產業報告",
-      "summary": "Gartner 最新預測指出，全球「AI 安全防護（securing AI）」市場規模將在 2027 年達到約 48 億美元，較 2026 年成長 68.7%，成長幅度遠高於整體資安支出。此一區隔涵蓋模型執行期防護、AI 代理（AI agent）權限治理、提示注入防禦與 AI 供應鏈稽核等新興控制項。Gartner 觀察到企業在把生成式 AI 與 agent 推進生產環境後，才發現既有資安工具無法涵蓋模型層與 agent 行為層的風險，因而被迫另編預算。此預測與 Gartner 同月另一份「AI 推論成本將於 2028 年前成長逾五倍」的預測形成呼應：agent 化不僅推高運算成本，也推高治理成本。對金融業而言，這代表 AI 專案的總持有成本必須把安全與治理支出列為獨立科目，而非併入既有資安預算。",
+      "summary": "Gartner 最新預測指出，「AI 安全防護（securing AI）」市場規模將於 2027 年達到約 48 億美元，較 2026 年成長 68.7%。Gartner 資深首席分析師 Shailendra Upadhyay 表示，此一激增來自企業必須緊急保護 AI 系統、處理新興漏洞並強化對複雜網路威脅的防禦能力。這代表 AI 安全已從附屬議題升格為獨立且高速成長的採購品類，成長率遠高於整體資安市場。對金融業而言，此數據可作為 AI 治理與資安預算擴編的外部佐證。搭配 Gartner 同期其他預測（2026 年全球 AI 支出年增 47%、AI 平台與模型市場成長 63%），顯示防護支出成長速度高於 AI 本身的採用速度。",
       "highlights": [
-        "2027 年 AI 安全防護市場規模預估達 48 億美元，年增 68.7%",
-        "成長動能來自 AI agent 上線後暴露的模型層與行為層風險",
-        "既有資安工具無法覆蓋提示注入、agent 權限濫用等新攻擊面",
-        "企業需將 AI 安全支出獨立編列，不宜併入傳統資安預算"
+        "AI 安全防護市場 2027 年將達約 48 億美元，年增 68.7%",
+        "成長動能來自企業保護 AI 系統、修補新興漏洞與抵禦進階網攻的迫切需求",
+        "AI 安全正形成獨立採購品類，成長率高於整體資安市場",
+        "可作為企業提高 AI 治理／資安預算的外部量化依據"
       ],
       "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-26-gartner-forecasts-the-market-for-securing-ai-will-reach-almost-5-billion-in-2027"
     },
     {
-      "title": "The State of AI: Global Survey 2026",
-      "source": "McKinsey & Company (QuantumBlack)",
-      "date": "2026-08-25",
-      "category": "企業AI",
-      "summary": "McKinsey 訪查全球 1,719 位專業人士與企業領導者，發布 2026 年度 AI 現況調查。88% 的受訪組織表示已在至少一項業務職能中固定使用 AI，62% 表示至少已在試行 AI agent，但真正把 AI 規模化的仍僅約三分之一。財務成效仍是最大缺口：僅 37% 的受訪者認為 AI 對企業 EBIT 有可衡量的貢獻，與 2025 年調查幾乎持平。年營收超過 10 億美元的大型企業中，40% 表示正在規模化部署 AI agent，高於去年的 27%，顯示規模愈大者推進愈快。McKinsey 將此現象定調為「擴散廣但價值淺」的擴張期，瓶頸不在模型能力而在流程重構與治理。",
+      "title": "Gartner Forecasts Worldwide Semiconductor Revenue to Reach $1.6 Trillion in 2026",
+      "source": "Gartner",
+      "date": "2026-08-24",
+      "category": "產業報告",
+      "summary": "Gartner 預測 2026 年全球半導體營收將達 1.6 兆美元，相較 2025 年的 8,090 億美元大幅擴張。Gartner 指出，產業擴張速度正在加速，主要動能來自 AI 基礎建設的持續投資，以及比預期更強勁的記憶體價格循環。此一預測凸顯 AI 需求已從軟體層傳導至上游硬體供應鏈，並推升整體半導體產值。記憶體漲價同時意味著企業端 AI 基礎設施的採購成本壓力上升。對於評估 AI 專案 TCO（總持有成本）的企業，此趨勢代表硬體成本假設需要重新校準。",
       "highlights": [
-        "88% 組織已在至少一項職能固定使用 AI，62% 已試行 AI agent",
-        "僅 37% 受訪者認為 AI 帶來可衡量的 EBIT 影響，與去年持平",
-        "營收逾 10 億美元企業中 40% 正規模化 agent，去年為 27%",
-        "多數企業仍停留在實驗／試點階段，僅約三分之一進入規模化",
-        "價值缺口的根因是流程重構與治理落後，而非模型能力不足"
+        "2026 年全球半導體營收預測達 1.6 兆美元，2025 年為 8,090 億美元",
+        "成長動能：AI 基礎建設持續投資 + 強於預期的記憶體價格循環",
+        "AI 需求已完整傳導至上游硬體供應鏈",
+        "記憶體漲價推升企業 AI 基礎設施採購成本，TCO 假設須重新校準"
       ],
-      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-24-gartner-forecasts-worldwide-semiconductor-revenue-to-reach-1-trillion-dollars-in-2026"
     },
     {
       "title": "McKinsey says enterprise AI is finally 'on the road to ROI'",
       "source": "The Register",
       "date": "2026-08-25",
-      "category": "產業報告",
-      "summary": "The Register 對 McKinsey 2026 年 AI 現況調查提出批判性解讀，質疑「邁向 ROI」的樂觀敘事與數據落差。報導指出，McKinsey 訪查 1,719 位受訪者後，仍只有 37% 認為 AI 對 EBIT 有實質貢獻，這個比例與 2025 年幾乎相同，意味著兩年高強度投資並未轉化為財務成果。文章強調投資規模與獲利回報之間的剪刀差正在擴大：部署範圍持續擴張，但獲利改善原地踏步。報導同時點出 agent 採用的產業落差，科技業在軟體工程與 IT 職能的規模化程度最高，保險業則在行銷與業務端領先。對治理實務的意涵是：董事會若僅以「採用率」作為 AI KPI，將高估專案成熟度。",
+      "category": "企業AI",
+      "summary": "The Register 報導 McKinsey《State of AI 2026》全球調查，該調查訪問全球各產業 1,719 位專業人士與企業領導者。調查顯示：更多企業正在部署更多 AI，相信投資終將回收，但實際回報 AI 帶來獲利提升的比例仍持平——37% 受訪者表示 AI 對 EBIT（稅前息前淨利）有一定程度影響，與 2025 年調查大致相同。62% 受訪者表示組織至少已在試驗 AI Agent，但任一業務職能中，宣稱已規模化部署 Agent 的比例都不超過 10%。64% 受訪者認為 AI 正在促成創新，但僅 39% 回報企業層級的 EBIT 影響。整體圖像是「採用普及、規模化落後、企業級財務效益尚未兌現」。",
       "highlights": [
-        "McKinsey 訪查 1,719 人，EBIT 有感比例仍停在 37%，兩年未改善",
-        "投資規模擴張與獲利回報之間的落差持續擴大",
-        "科技業在軟體工程／IT 職能的 agent 規模化最領先",
-        "保險業在行銷與業務端的 agent 應用相對成熟",
-        "以採用率作為 AI KPI 會高估專案成熟度"
+        "調查樣本：全球 1,719 位專業人士與企業領導者",
+        "37% 受訪者認為 AI 對 EBIT 有影響，與 2025 年持平——採用擴大但獲利未同步",
+        "62% 組織至少在試驗 AI Agent，但各業務職能規模化比例均不超過 10%",
+        "64% 認為 AI 促成創新，僅 39% 回報企業層級 EBIT 影響",
+        "科技業（軟體工程、IT 職能）是 Agent 規模化最領先的產業"
       ],
       "url": "https://www.theregister.com/ai-and-ml/2026/08/25/mckinsey-says-enterprise-ai-is-finally-on-the-road-to-roi/5292388"
     },
@@ -49,114 +48,99 @@
       "source": "TechCrunch",
       "date": "2026-08-24",
       "category": "Agent應用",
-      "summary": "TechCrunch 分析 OpenAI 全面押注 AI agent 的產品策略，並質疑一般白領使用者的實際接受度。報導指出 OpenAI 的產品方向是讓白領工作者能自行「派遣」AI agent，將大型語言模型直接接上數位工作流程，而非停留在對話式助理。核心問題被歸結為一句話：使用者願意把多少數位生活的控制權交給 LLM。文章認為，agent 產品的採用瓶頸不在能力而在信任與權限邊界，尤其是涉及金流、帳號存取與不可逆操作時。這與同期企業端調查一致：技術供給快速擴張，但控制與稽核機制尚未同步到位。",
+      "summary": "TechCrunch 分析 OpenAI 將 AI Agent 從軟體工程師的專業工具推向大眾市場的策略布局。文章探討前沿實驗室（frontier lab）試圖讓 Agent 進入一般使用者日常工作流的努力，以及此舉面臨的採用障礙。核心問題不在技術能力，而在於一般使用者是否具備將任務委派給自主系統的心智模型與信任基礎。這對企業導入具有直接參考價值：Agent 的瓶頸正從模型能力轉移到使用者接受度與工作流重設計。此趨勢與 McKinsey 調查所示「試驗多、規模化少」的落差互為印證。",
       "highlights": [
-        "OpenAI 產品重心從對話助理轉向可派遣的工作流程 agent",
-        "採用瓶頸是信任與權限邊界，而非模型能力",
-        "涉及金流、帳號存取與不可逆操作時使用者抗拒最強",
-        "agent 供給擴張速度超前控制與稽核機制建置"
+        "OpenAI 正將 AI Agent 從軟體工程專業場景推向一般大眾使用者",
+        "採用瓶頸已從模型能力轉向使用者信任與工作流重設計",
+        "大眾市場 Agent 化是前沿實驗室下一階段的商業重心",
+        "與企業端「試驗多、規模化少」的落差形成呼應"
       ],
       "url": "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them/"
     },
     {
-      "title": "AI was supposed to win people over by now -- it hasn't",
+      "title": "Arga is building a better way to train enterprise AI agents",
       "source": "TechCrunch",
-      "date": "2026-08-19",
-      "category": "AI趨勢",
-      "summary": "TechCrunch 檢視大眾對 AI 的態度變化，指出隨著 AI 愈來愈難以迴避，消費者的戒心不減反增。報導的核心論點是：普及率上升不等於接受度上升，兩者在 2026 年出現明顯脫鉤。文章整理近期民調與使用行為資料，說明使用者在被動接觸（作業系統、搜尋、辦公軟體內建 AI）與主動選用之間存在落差，被動接觸的增加甚至加深反感。這對供應商的意義是，把 AI 功能預設開啟並不會自動累積信任資本。對企業導入而言，內部員工的接受度風險與外部消費者相同，需要獨立管理而非假設會隨時間自然改善。",
+      "date": "2026-08-26",
+      "category": "Agent應用",
+      "summary": "新創 Arga 完成 1,000 萬美元種子輪募資，由 General Catalyst 領投，Box Group、Emergence、Gradient 與 SV Angel 參與。Arga 的產品是為企業軟體建構「訓練環境（training environments）」，涵蓋 Salesforce、Workday 與電子郵件客戶端等系統，讓 AI Agent 能在模擬環境中學習操作真實企業應用。這反映了 Agent 工程的一個關鍵缺口：企業級 Agent 的失敗多半不是推理能力不足，而是缺乏在特定 SaaS 介面上可靠執行的訓練資料與驗證場域。訓練環境（environment）正成為 Agent 基礎設施的新品類。",
       "highlights": [
-        "AI 普及率與大眾接受度在 2026 年明顯脫鉤",
-        "被動接觸（內建、預設開啟）反而加深使用者反感",
-        "預設開啟 AI 功能無法自動累積信任資本",
-        "員工端接受度風險需獨立管理，不會隨時間自然改善"
+        "Arga 種子輪募資 1,000 萬美元，General Catalyst 領投",
+        "產品定位：為 Salesforce、Workday、郵件客戶端等企業軟體建構 Agent 訓練環境",
+        "點出企業 Agent 的核心缺口是可靠執行與驗證場域，而非推理能力",
+        "「訓練環境」正成為 Agent 基礎設施的新興品類"
       ],
-      "url": "https://techcrunch.com/2026/08/19/ai-was-supposed-to-win-people-over-by-now-it-hasnt/"
+      "url": "https://techcrunch.com/2026/08/26/arga-is-building-a-better-way-to-train-enterprise-ai-agents/"
     },
     {
-      "title": "Accel-backed Keenable is indexing the web for AI agents",
+      "title": "Robotics startup Generalist reaches $3B valuation, sources say",
       "source": "TechCrunch",
       "date": "2026-08-25",
-      "category": "Agent應用",
-      "summary": "TechCrunch 報導由 Accel 投資的新創 Keenable，其定位是為 AI agent 而非人類使用者建立網頁搜尋索引。Keenable 已建立超過 1,000 億份文件的索引，API 目前已在多家 AI 實驗室與推論服務商的正式環境中使用。此案例反映 agent 基礎設施層正在分化出獨立市場：agent 需要的是結構化、可程式化存取、低延遲的檢索介面，而非為人類設計的搜尋結果頁。對企業架構的意涵是，RAG 與 agent 工具鏈的「資料取得層」正成為獨立採購項目，並帶來新的供應商依賴與資料來源可稽核性問題。",
+      "category": "AI趨勢",
+      "summary": "機器人新創 Generalist 在 8VC 領投的新一輪募資後，估值達到 30 億美元。該公司開發可跨多種機器人硬體運作的 AI 基礎模型（foundation model）。其新發布的 Gen 1.5 模型宣稱能讓機器人透過僅 3 至 12 秒的影片示範就學會新任務。此一「示範學習」效率若屬實，代表具身 AI（embodied AI）的資料門檻正快速下降。硬體無關的機器人基礎模型是繼語言模型之後，基礎模型典範向實體世界擴張的關鍵指標。",
       "highlights": [
-        "Keenable 已建立逾 1,000 億份文件的網頁索引，專供 AI agent 使用",
-        "API 已在多家 AI 實驗室與推論服務商的正式環境運行",
-        "agent 需要的是可程式化、低延遲檢索介面，非人類導向搜尋頁",
-        "agent 資料取得層正形成獨立採購市場與新的供應商依賴風險"
+        "Generalist 估值達 30 億美元，由 8VC 領投",
+        "開發跨硬體通用的機器人 AI 基礎模型",
+        "Gen 1.5 模型宣稱可從 3 至 12 秒影片示範學會新任務",
+        "具身 AI 的訓練資料門檻正快速下降"
       ],
-      "url": "https://techcrunch.com/2026/08/25/accel-backed-keenable-is-indexing-the-web-for-ai-agents/"
+      "url": "https://techcrunch.com/2026/08/25/robotics-startup-generalist-reaches-3b-valuation-sources-say/"
     },
     {
-      "title": "Debates over AI consciousness are a trap",
-      "source": "MIT Technology Review",
-      "date": "2026-08-20",
-      "category": "AI趨勢",
-      "summary": "MIT Technology Review 提出一個治理角度的批判：關於「AI 是否具有意識」的辯論，實質上是一個責任歸屬的陷阱。文章指出，目前主流論述充斥「失控」AI、「流氓」agent、「自主」行為者等擬人化語彙，而 Demis Hassabis、Dario Amodei、Sam Altman 等業界領袖亦推動針對這類「超人類」系統的監管。作者的論證是：若社會普遍認為 AI 系統先進到無法被控制，建造這些系統的公司就更容易在其造成損害時規避法律責任。此一框架轉移把問題從「產品缺陷與企業義務」偷渡成「新物種的道德地位」。對金融業 AI 治理的直接啟示是，內部風險論述應嚴格使用系統／控制失效的語言，避免採用擬人化描述而稀釋責任歸屬。",
+      "title": "Stability AI, maker of image generator Stable Diffusion, raises $76 million in fresh funding",
+      "source": "TechCrunch",
+      "date": "2026-08-25",
+      "category": "產業報告",
+      "summary": "Stable Diffusion 開發商 Stability AI 完成 7,600 萬美元 B 輪募資，累計募資總額達 2.32 億美元。值得注意的是資金來源結構：本輪部分資金來自娛樂產業機構，包括 Universal Music Group、Sony Music Group、Warner Music Group 以及遊戲大廠 Electronic Arts（EA）。這代表過去因版權爭議與生成式 AI 對立的內容產業，正轉向以股權投資方式參與並影響生成模型的發展方向。從治理角度看，這是內容權利人從「訴訟對抗」轉為「資本介入」的策略轉折點。",
       "highlights": [
-        "擬人化語彙（失控、流氓 agent、自主行為者）會模糊責任歸屬",
-        "若 AI 被視為無法控制，開發商更易規避損害賠償責任",
-        "業界領袖推動的「超人類系統」監管敘事本身具利益動機",
-        "治理文件應使用系統缺陷與控制失效的語言，而非意識或自主性"
+        "Stability AI 完成 7,600 萬美元 B 輪，累計募資 2.32 億美元",
+        "投資方包含 Universal Music、Sony Music、Warner Music 與 EA",
+        "內容產業從版權訴訟對抗轉向以資本介入影響生成模型發展",
+        "顯示生成式 AI 與內容權利人的關係進入新階段"
       ],
-      "url": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/"
+      "url": "https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/"
     },
     {
-      "title": "The Download: AI's self-improvement problem, and what's driving the heat",
+      "title": "Your brain on AI",
       "source": "MIT Technology Review",
-      "date": "2026-08-19",
+      "date": "2026-08-25",
       "category": "AI趨勢",
-      "summary": "MIT Technology Review 摘要一份新研究，直接挑戰 AI 產業當前最大膽的承諾——AI 即將在幾乎不需人類監督下自我改進。研究發現，AI agent 目前仍無法執行開放式的 AI 研究，也就是沒有明確答案、需要判斷力與創造力才能取得真正突破的自由探索型研究。這意味著「遞迴式自我改進」的時程可能遠比業界宣稱的更長。此結論對能力預測與投資假設具直接影響：若自我改進無法在短期內成立，AI 能力曲線將更依賴人力與資料投入，而非自動加速。對治理規劃而言，這降低了短期「智慧爆炸」情境的權重，但不改變既有 agent 可靠性與控制問題的優先順序。",
+      "summary": "MIT Technology Review 探討 AI 使用對人類認知能力的長期影響。文中引述的研究發現：使用聊天機器人輔助的受試者，初期在辨識假新聞的準確率提升 21%，但到了第四週卻比未使用者「更差 15%」。作者將此類比為 GPS 導航削弱人類方向感的效應——外部認知輔助在短期提升表現，長期卻造成能力萎縮。對金融業而言，這對「人類覆核（human-in-the-loop）」的治理設計提出嚴肅挑戰：若審核者本身的判斷力因長期依賴 AI 而退化，人工覆核這道控制點的有效性將被侵蝕。",
       "highlights": [
-        "新研究指 AI agent 仍無法執行開放式、無明確答案的研究任務",
-        "遞迴式自我改進的實現時程可能遠長於業界宣稱",
-        "能力成長短期內仍高度依賴人力與資料投入",
-        "短期「智慧爆炸」情境權重下降，agent 可靠性問題仍屬當前主要風險"
+        "實驗顯示 AI 輔助初期使假新聞辨識準確率提升 21%",
+        "第四週後同批受試者辨識能力反而比基準低 15%",
+        "類比 GPS 導航削弱人類方向感的「認知外包」效應",
+        "對 human-in-the-loop 治理設計構成挑戰：覆核者能力可能隨時間退化"
       ],
-      "url": "https://www.technologyreview.com/2026/08/19/1140195/the-download-ai-recursive-self-improvement-problem-heatwave-causes/"
+      "url": "https://www.technologyreview.com/2026/08/25/1140958/your-brain-on-ai/"
     },
     {
       "title": "Raised on AI",
       "source": "MIT Technology Review",
       "date": "2026-08-26",
       "category": "AI趨勢",
-      "summary": "MIT Technology Review 2026 年 9 月號主編信，主題聚焦於在 AI 環境中成長的世代。文章討論當生成式 AI 成為兒童與青少年學習、社交與創作的預設工具時，對認知發展、學習方法與教育制度帶來的結構性影響。此議題與 Gartner「因生成式 AI 導致批判性思考能力退化，將促使 50% 全球組織要求 AI-free 技能評估」的預測相互呼應。對企業而言，這不只是教育議題：未來數年進入職場的新進人員，其基礎判斷與查證能力的養成路徑已與現行世代不同，人才評鑑與訓練設計需要相應調整。",
+      "summary": "MIT Technology Review 2026 年 9 月號主編來信，介紹該期以「兒童與 AI」為主題的專輯內容。專輯關注在 AI 環境中成長的世代，涵蓋教育、認知發展與社會規範等面向。文章指出，限制兒童科技使用的訴求已在全球普及，多國陸續禁止兒童使用社群媒體。此議題正從教育政策延伸為監理議題，牽動未成年人資料保護、年齡驗證與內容分級的法規設計。對治理實務而言，兒童保護很可能成為 AI 監理下一波立法的切入點。",
       "highlights": [
-        "9 月號主題聚焦在 AI 環境中成長世代的認知與學習影響",
-        "生成式 AI 成為學習與創作預設工具後的結構性衝擊",
-        "與 Gartner 預測的批判性思考能力退化議題相互呼應",
-        "企業人才評鑑與訓練設計需因應新進人員能力養成路徑的改變"
+        "MIT Technology Review 2026 年 9 月號以「兒童與 AI」為專輯主題",
+        "限制兒童科技使用的訴求已全球普及，多國禁止兒童使用社群媒體",
+        "議題正從教育政策延伸為 AI 監理與未成年人資料保護法規",
+        "兒童保護可能成為下一波 AI 立法的切入點"
       ],
       "url": "https://www.technologyreview.com/2026/08/26/1141949/editors-letter-september-2026/"
     },
     {
-      "title": "The Download: smarter AI in schools, and a robot \"carnival\" in Shanghai",
+      "title": "The Download: the Kids issue arrives, and Bill Gates reveals his AI fears",
       "source": "MIT Technology Review",
-      "date": "2026-08-25",
+      "date": "2026-08-26",
       "category": "AI趨勢",
-      "summary": "MIT Technology Review 報導 AI 進入校園後的治理實務。文章指出聊天機器人讓學校措手不及，學生手上的應用程式可直接回答作業題目或代寫文章；從 OpenAI 到 UNESCO 等組織皆鼓勵在課堂中使用 AI，但多數教師並不確定該如何處理。報導以 Cheshire Academy 為例，該校對教師進行通用 AI 技巧訓練、以生成式 AI 準備教材，其中一位教師設計了「紅綠燈」制度，明確標示哪些作業可以使用 AI、哪些不行。此一分級授權設計，實質上就是把 AI 使用邊界以任務為單位明文化，與企業內部 AI 使用政策的設計邏輯一致。",
+      "summary": "MIT Technology Review 每日電子報 The Download 於 8 月 26 日發布，內容涵蓋該刊「兒童專輯」上線，以及 Bill Gates 對 AI 的疑慮。電子報指出，限制兒童科技使用的主張已成為全球性趨勢，各國陸續針對兒童使用社群媒體立法禁止。此類主流科技媒體的議題設定，通常領先實際監理行動 6 至 12 個月，可作為追蹤 AI 監理走向的前瞻指標。金融業在設計面向一般消費者的 AI 服務時，需將年齡相關的合規要求納入前期設計。",
       "highlights": [
-        "學生可直接以 AI 完成作業，校方普遍缺乏應對準備",
-        "OpenAI 至 UNESCO 皆鼓勵課堂使用 AI，但教師缺乏執行指引",
-        "Cheshire Academy 以「紅綠燈」制度分級標示可否使用 AI",
-        "以任務為單位明文化 AI 使用邊界，邏輯同於企業 AI 使用政策"
+        "MIT Technology Review「兒童專輯」上線，同期報導 Bill Gates 對 AI 的疑慮",
+        "限制兒童科技使用已成全球趨勢，多國立法禁止兒童使用社群媒體",
+        "主流科技媒體議題設定通常領先實際監理行動 6-12 個月",
+        "消費性 AI 服務需在設計階段納入年齡相關合規要求"
       ],
-      "url": "https://www.technologyreview.com/2026/08/25/1142909/the-download-smarter-ai-in-schools-robot-carnival-shanghai/"
-    },
-    {
-      "title": "Why Enterprise AI Costs Are an Inference Problem, Not a Training One",
-      "source": "BigDATAwire (HPCwire)",
-      "date": "2026-08-24",
-      "category": "企業AI",
-      "summary": "BigDATAwire 分析指出，2026 年企業 AI 的成本主軸已從模型訓練預算轉移到推論（inference）。文章論證：當企業從實驗階段進入正式部署，主要成本驅動因子不再是基礎模型訓練，而是同時運行數千個推論工作負載所需的基礎設施，而 agentic AI 正是這個轉變的加速器。實務上的關鍵手法是「路由（routing）」——把每一個請求匹配到能夠處理它的最便宜模型，而非一律送往旗艦模型。此論點與 Gartner 同月預測的「推論悖論」相互印證：單位 token 價格下降，但 agent 因需反覆推理、協商與自我檢查，整體帳單反而膨脹。對成本控管而言，模型路由策略與 token 級成本歸屬已成為必要的架構決策。",
-      "highlights": [
-        "企業 AI 成本主軸已從訓練預算轉向推論基礎設施",
-        "agentic AI 是推論成本膨脹的主要加速器",
-        "關鍵成本手法是路由：把請求匹配到足夠處理它的最便宜模型",
-        "呼應 Gartner「推論悖論」：單價下降但總帳單上升",
-        "模型路由策略與 token 級成本歸屬已成必要架構決策"
-      ],
-      "url": "https://www.hpcwire.com/bigdatawire/2026/08/24/why-enterprise-ai-costs-are-an-inference-problem-not-a-training-one/"
+      "url": "https://www.technologyreview.com/2026/08/26/1143000/the-download-kids-issue-launch-bill-gates-ai-fears/"
     }
   ],
-  "_updated_at": "2026-08-26T18:12:30.851295+08:00"
+  "_updated_at": "2026-08-27T18:14:25.073564+08:00"
 }

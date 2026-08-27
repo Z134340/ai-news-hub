@@ -1,191 +1,106 @@
 {
   "items": [
     {
-      "title": "Perplexity AI launches Portable Computer on-device AI agent",
-      "title_zh": "Perplexity AI 推出 Portable Computer 裝置端 AI Agent",
-      "source": "SiliconANGLE",
-      "date": "2026-08-25",
-      "topic": "AI Agent / 裝置端推論",
-      "summary": "Perplexity AI 與 Nvidia 合作推出 Portable Computer，這是一套完全在本機執行的 AI Agent 系統，可運行於 Nvidia DGX Spark 以及搭載 RTX GPU 的 Linux 機器上。系統內建 Qwen 3.8、PPLX 27B 與 Nemotron 3.5 Lightning 等模型，其中主力為 30B 參數的 MoE（Mixture-of-Experts）架構，在本機即可完成推理與工具呼叫。最大賣點是「零 token 成本」：所有推論在使用者硬體上完成，不需支付雲端 API 費用，也不需將資料送出裝置。系統採 local-first 設計，若任務必須升級到雲端模型，會先經過權限確認關卡（permission gate）才會外送資料。Perplexity 表示 Windows RTX 平台的支援將於後續推出。此舉將 Agent 的執行環境從雲端往終端推移，對於資料落地與成本可預測性有實質意義。",
+      "title": "AccuKnox Launches AgentZ to Help Enterprises Build, Run, and Govern AI Agents at Scale",
+      "title_zh": "AccuKnox 推出 AgentZ，協助企業大規模建置、運行與治理 AI Agent",
+      "source": "GlobeNewswire",
+      "date": "2026-08-27",
+      "topic": "AI Agent 平台 / Agent 治理與資安",
+      "summary": "資安廠商 AccuKnox 於 8 月 27 日發表 AgentZ，定位為企業級的「Zero Trust Sandbox」AI Agent 平台，把 Agent 本體、執行環境、可用工具、工作流程、權限與治理收斂到同一個控制面。平台採用 Organizations / Workspaces / Agents / Workflows / Sandboxes 的階層模型，讓不同團隊在各自 Workspace 內建置 Agent，同時由組織層統一套用權限與稽核政策。與多數 Agent 框架不同，AgentZ 主打企業可自帶模型與自有基礎設施，不強迫資料離開既有邊界，直接回應金融、醫療等受監管產業對資料落地的要求。每個 Agent 的執行都被限制在受控 sandbox 內，工具呼叫與外部存取需經明確授權，用意是壓制 prompt injection 與 excessive agency 這類 Agent 特有風險。執行長 Nat Natraj 表示：「AgentZ gives teams a place to build agents, run them under controls a security team will actually accept, and manage them across the organization, using their own models and their own infrastructure.」",
       "highlights": [
-        "與 Nvidia 合作，支援 DGX Spark 及 RTX GPU Linux 環境",
-        "內建 Qwen 3.8、PPLX 27B、Nemotron 3.5 Lightning；主力為 30B 參數 MoE 架構",
-        "零 token 成本：推論全在本機完成，不計雲端 API 費用",
-        "local-first 架構，升級雲端前須經權限確認關卡，資料不預設外流",
-        "Windows RTX 支援規劃中"
+        "以 Zero Trust Sandbox 為核心，將 Agent、執行環境、工具、工作流、權限、治理整合為單一控制面",
+        "階層模型為 Organizations / Workspaces / Agents / Workflows / Sandboxes，支援組織層統一稽核與權限下放",
+        "支援自帶模型（BYO model）與自有基礎設施部署，資料不必離開企業既有邊界",
+        "沙箱化執行搭配工具呼叫授權，針對 prompt injection 與過度代理權（excessive agency）風險設計",
+        "切入點是「資安團隊願意簽核的 Agent 上線流程」，而非再造一套 Agent 開發框架"
       ],
-      "discussion": "社群關注焦點在於「零 token 成本」是否真能取代雲端訂閱，多數討論認為 30B MoE 在本機的實際延遲與品質仍是關鍵；另有意見指出 local-first + 權限關卡的設計，對受監理產業（金融、醫療）的資料落地要求是明確賣點。",
-      "url": "https://siliconangle.com/2026/08/25/perplexity-ai-launches-portable-computer-on-device-ai-agent/"
+      "discussion": "企業資安圈近期反覆討論的痛點正是「Agent 做得出來、但資安過不了」，AgentZ 把賣點壓在治理與可稽核性而非模型能力，被視為 Agent 落地從 PoC 走向生產環境的典型轉向。也有觀點認為，Agent 治理平台市場已擠滿雲端大廠的原生方案，獨立廠商需證明跨模型、跨雲的中立性才有立足空間。",
+      "url": "https://www.globenewswire.com/news-release/2026/08/27/3351759/0/en/accuknox-launches-agentz-to-help-enterprises-build-run-and-govern-ai-agents-at-scale.html"
     },
     {
-      "title": "Claude Cowork finally remembers what you told the app in chat",
-      "title_zh": "Claude Cowork 終於能記住你在 chat 中說過的話",
+      "title": "Salesforce and Anthropic Announce Claudeforce",
+      "title_zh": "Salesforce 與 Anthropic 宣布推出 Claudeforce",
+      "source": "Salesforce Newsroom",
+      "date": "2026-08-26",
+      "topic": "AI Agent 生態系 / 企業 CRM 與 Agent 整合",
+      "summary": "Salesforce 與 Anthropic 於 8 月 26 日宣布合作推出 Claudeforce，核心是一個名為「Salesforce in Claude」的外掛，讓使用者直接在 Claude Cowork 介面中操作 Salesforce CRM。首波隨附 37 項預建的銷售技能（skills），涵蓋會議前準備、交易健康度檢視、pipeline 分析等日常業務動作，使用者不需切回 Salesforce 應用即可完成整段工作流。目前先開放給部分試點客戶，9 月進入公開 beta，第三季再擴增更多業務職能的技能。值得注意的是，這是 Salesforce 首次把自家的「force」後綴命名冠到別家公司的產品上，象徵其把 Agent 介面視為新的入口而非附屬功能。消息在 Salesforce 2027 財年第二季法說會上同步公布，CRM 股價於盤後上漲；執行長 Marc Benioff 形容這是「a dynamic interface that thinks, reasons, and acts」，應用與行銷總裁 Patrick Stokes 則強調 agentic 介面反而提升 Salesforce 資料層的價值。",
+      "highlights": [
+        "「Salesforce in Claude」外掛讓 Claude Cowork 直接成為 CRM 操作介面，首波內建 37 項銷售技能",
+        "技能涵蓋會議前準備、交易健康度檢視、pipeline 分析等業務動作，9 月公開 beta、Q3 擴增更多職能",
+        "Salesforce 首次將自家 force 命名慣例套用到外部公司產品，顯示對 Agent 入口的戰略定位",
+        "於 FY27 Q2 法說會同步發布，CRM 股價盤後上漲",
+        "策略意涵：SaaS 廠商把 UI 讓給 Agent，改以資料與權限層留住價值"
+      ],
+      "discussion": "外界最大的爭論點在於「SaaS 廠商主動把使用者介面交給 LLM 是自我強化還是自我掏空」——支持者認為資料與權限模型才是護城河，介面本來就會被 Agent 取代；質疑者則指出一旦互動入口移到 Claude，Salesforce 對客戶關係與價格權的掌握都會被稀釋。對 Anthropic 而言，這是 Claude Cowork 首度取得等級最高的企業軟體整合背書。",
+      "url": "https://www.salesforce.com/news/press-releases/2026/08/26/salesforce-and-anthropic-announce-claudeforce/"
+    },
+    {
+      "title": "AWS and NVIDIA to Deliver 2 Million Additional GPUs and Next-Generation Infrastructure for Agentic and Physical AI",
+      "title_zh": "AWS 與 NVIDIA 將再交付 200 萬顆 GPU 及次世代基礎設施，支援 agentic 與實體 AI",
+      "source": "GlobeNewswire / NVIDIA Newsroom",
+      "date": "2026-08-26",
+      "topic": "AI 基礎設施 / 技術大廠合作",
+      "summary": "AWS 與 NVIDIA 於 8 月 26 日宣布擴大合作，將在 2027 至 2028 年間額外部署 200 萬顆 GPU，涵蓋 Blackwell Ultra、Rubin 與 Rubin Ultra 世代，疊加在先前自 2026 年起逾 100 萬顆的承諾之上。合作範圍不只是採購量：NVIDIA Vera CPU 將導入 AWS，NVLink Fusion 會進入次世代 Trainium 晶片，雙方並與 Annapurna Labs 共同開發 NVHBM 客製化高頻寬記憶體。官方明確把這批算力指向 agentic AI 與 physical AI（機器人／自駕等實體場域）兩類負載，顯示兩家對下一階段需求結構的判斷已從單純訓練轉向長時間、高並發的 Agent 推論。此外，雙方將為美國政府建置 AI factory，其中包含在安全等級 AWS 基礎設施上部署的 10 萬顆 GPU。",
+      "highlights": [
+        "2027–2028 年再部署 200 萬顆 GPU，涵蓋 Blackwell Ultra、Rubin、Rubin Ultra 三代架構",
+        "疊加於先前自 2026 年起逾 100 萬顆 GPU 的既有承諾之上",
+        "NVIDIA Vera CPU 導入 AWS；NVLink Fusion 進入次世代 Trainium；與 Annapurna Labs 共同開發 NVHBM 客製記憶體",
+        "算力用途明確指向 agentic AI 與 physical AI 兩類負載",
+        "為美國政府建置 AI factory，含安全 AWS 基礎設施上的 10 萬顆 GPU"
+      ],
+      "discussion": "產業討論集中在「NVLink Fusion 進 Trainium」這一點——這代表 AWS 自研晶片與 NVIDIA 互連生態不再是純競爭關係，而是互補；部分分析認為這反而鞏固 NVIDIA 的互連標準地位。另一條討論線是政府 AI factory 的 10 萬顆 GPU 規模，被視為美國公部門算力採購正式進入超大規模階段。",
+      "url": "https://www.globenewswire.com/news-release/2026/08/26/3351716/0/en/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai.html"
+    },
+    {
+      "title": "Nvidia earnings takeaways: Huang forecasts 70% fiscal 2028 revenue growth, far above estimates",
+      "title_zh": "NVIDIA 財報重點：黃仁勳預估 2028 財年營收成長 70%，遠高於市場預期",
+      "source": "CNBC",
+      "date": "2026-08-26",
+      "topic": "AI 產業 / 財報與算力需求",
+      "summary": "NVIDIA 於 8 月 26 日美股盤後公布 2027 財年第二季（截至 7 月 26 日）財報，營收 96.2 億美元等級之上的 962 億美元，季增 18%、年增 106%，每股盈餘 2.22 美元、年增逾一倍。資料中心營收 890 億美元、年增 117%，超出 StreetAccount 預估的 863.3 億美元，主要由 Blackwell Ultra 在超大規模客戶端的加速部署推動，該區塊營收年增超過一倍。毛利率連續第二季維持在 75%，但公司預告受記憶體價格上漲影響，FY27 第四季將下探至 71–72% 觸底。供應承諾自 1,190 億美元大幅拉升至 2,790 億美元，主要綁定 Vera Rubin 平台所需的記憶體採購，而 Vera Rubin 已在 Google Cloud、Microsoft Azure、Oracle Cloud Infrastructure 等超大規模客戶端進入全面量產。本季並執行 260 億美元的庫藏股與股利，公司對當季營收指引為 1,080 億美元（±2%），高於分析師預期的 1,042 億美元；黃仁勳更預估 2028 財年營收成長約 70%。",
+      "highlights": [
+        "FY27 Q2 營收 962 億美元（季增 18%、年增 106%），EPS 2.22 美元、年增逾一倍",
+        "資料中心營收 890 億美元、年增 117%，優於預估的 863.3 億美元",
+        "毛利率連兩季 75%，但預告 FY27 Q4 因記憶體成本觸底至 71–72%",
+        "供應承諾由 1,190 億美元升至 2,790 億美元，主要為 Vera Rubin 平台的記憶體採購",
+        "當季營收指引 1,080 億美元（±2%），黃仁勳預估 FY2028 營收成長約 70%"
+      ],
+      "discussion": "市場討論的焦點不在營收超標，而在兩個訊號：一是供應承諾暴增至 2,790 億美元被解讀為 NVIDIA 對 2027–2028 需求的高信心押注，二是記憶體價格壓縮毛利率至 71–72%，顯示 HBM 供應鏈已成為整條 AI 算力鏈的新瓶頸。黃仁勳的 70% 成長預估遠高於賣方模型，多空對「這是能見度還是樂觀」的分歧相當明顯。",
+      "url": "https://www.cnbc.com/2026/08/26/nvidia-nvda-earnings-report-q2-2027-live-updates.html"
+    },
+    {
+      "title": "Startup Funding News Today: August 26, 2026 – Emerald AI, Gatik, Stellaria & more",
+      "title_zh": "今日新創募資快訊：2026 年 8 月 26 日 — Emerald AI、Gatik、Stellaria 等",
+      "source": "TechStartups",
+      "date": "2026-08-26",
+      "topic": "美國 AI 產業 / 募資動態",
+      "summary": "8 月 26 日的美國 AI 相關募資出現數筆規模顯著的案子，主軸集中在 AI 算力的能源瓶頸與自駕物流兩條線。Emerald AI 完成 1.5 億美元 A 輪超額募資，投後估值 10.5 億美元，由 Energize Capital 與 DCVC 共同領投，累計募資超過 2.2 億美元；該公司的軟體讓資料中心依電網需求彈性調整用電，尖峰削減、離峰吃下閒置容量，並估計此類彈性負載技術可釋放美國既有電網逾 100 GW 的未使用容量。自駕貨運業者 Gatik 拿下 2 億美元 D 輪，投資方包含 QIA、Koch Disruptive Technologies、Millennium Management 與 ARK Invest。此外遊戲引擎技術公司 W4 Games 完成 1,800 萬美元 B 輪（Tencent、OSS Capital、LUX 參與），核融合新創 Stellaria 取得約 2,500 萬歐元（約 680 萬美元）種子輪。整體來看，資金明顯往「支撐 AI 的實體基礎設施」傾斜，而非模型層本身。",
+      "highlights": [
+        "Emerald AI 完成 1.5 億美元 A 輪，估值 10.5 億美元，Energize Capital 與 DCVC 共同領投",
+        "Emerald AI 主打資料中心彈性用電，估計可釋放美國電網逾 100 GW 閒置容量",
+        "自駕貨運 Gatik 取得 2 億美元 D 輪，QIA、Koch、Millennium、ARK Invest 參與",
+        "W4 Games 完成 1,800 萬美元 B 輪；核融合新創 Stellaria 取得約 2,500 萬歐元種子輪",
+        "資金流向反映主題已從模型層轉向 AI 的能源與實體基礎設施瓶頸"
+      ],
+      "discussion": "創投圈普遍把 Emerald AI 這類「電網彈性負載」標的視為 2026 下半年最擁擠的賽道之一——理由是算力擴張的限制條件已從晶片供應轉為電力併網速度。也有質疑聲音認為，這類軟體的價值高度依賴各州公用事業的需量反應費率設計，跨區複製難度被低估。",
+      "url": "https://techstartups.com/2026/08/26/startup-funding-news-today-august-26-2026-emerald-ai-gatik-stellaria-more/"
+    },
+    {
+      "title": "The 3 reasons this year's AI-centric TechCrunch Disrupt is a must for founders",
+      "title_zh": "今年以 AI 為主軸的 TechCrunch Disrupt 值得創辦人參加的三個理由",
       "source": "TechCrunch",
-      "date": "2026-08-25",
-      "topic": "Agent Memory / Agent Engineering",
-      "summary": "Anthropic 更新 Claude 的記憶機制，將 chat 介面與 Cowork 之間的記憶打通成單一記憶層，使用者在對話中提供的偏好與背景資訊，Agent 在 Cowork 執行任務時可直接沿用。新版記憶支援逐主題（topic-by-topic）檢視、編輯與刪除，使用者可精細控制 Claude 記住什麼。敏感主題（健康、種族、族裔、性別認同、宗教、政治立場）預設排除在記憶之外，需使用者主動開啟才會記錄，且開啟時會有明確通知。記憶寫入改為即時增量更新，不需等到對話結束才整理。此功能對 Free/Pro/Max 方案預設開啟，Team/Enterprise 方案則由管理員決定是否啟用。這是 Agent Memory 從「單一介面的便利功能」升級為「跨介面持久狀態」的具體實作。",
+      "date": "2026-08-26",
+      "topic": "美國 AI 產業 / 產業活動",
+      "summary": "TechCrunch 於 8 月 26 日刊出 2026 年 Disrupt 大會的預告，明確表示今年議程將以 AI 為核心主軸，時間為 10 月 13 至 15 日，地點在舊金山市中心 Moscone West。文章列出三項對創辦人的價值主張，包括 AI 領域的議程密度、投資人與創辦人的實體媒合機會，以及早期新創的曝光管道。從產業角度看，這反映美國科技活動的議程結構已幾乎完全由 AI 主題吸收，非 AI 賽道的能見度持續被壓縮。對於觀察美國 AI 創業風向的讀者而言，這份預告可作為下半年主題設定的前瞻指標。",
       "highlights": [
-        "chat 與 Cowork 記憶打通，跨介面共用同一記憶層",
-        "逐主題檢視／編輯／刪除，使用者可細粒度控制記憶內容",
-        "敏感主題（健康、種族、族裔、性別認同、宗教、政治立場）預設不記錄，需 opt-in 並有通知",
-        "記憶採即時增量寫入，非對話結束後批次整理",
-        "Free/Pro/Max 預設開啟；Team/Enterprise 由管理員控管"
+        "2026 年 TechCrunch Disrupt 訂於 10 月 13–15 日於舊金山 Moscone West 舉行",
+        "今年議程以 AI 為核心主軸，反映美國科技活動議程被 AI 主題全面吸收",
+        "主打面向為 AI 議程密度、投資人媒合、早期新創曝光",
+        "可作為觀察美國下半年 AI 創業主題設定的前瞻指標"
       ],
-      "discussion": "開發者社群普遍認為跨介面記憶是 Agent 落地的必要條件，否則每次切換工作環境都要重述 context；治理角度的討論則集中在敏感主題預設排除的做法，被視為比業界慣例更保守的設計，但企業版交由管理員控管仍引發資料保留政策的疑問。",
-      "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/"
-    },
-    {
-      "title": "Accel-backed Keenable is indexing the web for AI agents",
-      "title_zh": "Accel 投資的 Keenable 正在為 AI Agent 建立網路索引",
-      "source": "TechCrunch",
-      "date": "2026-08-25",
-      "topic": "Agent 基礎設施 / 融資",
-      "summary": "新創公司 Keenable 完成 2,600 萬美元種子輪募資，由 Accel 領投，目標是打造專供 AI Agent 使用的網路索引基礎設施。與傳統為人類設計的搜尋引擎不同，Keenable 的索引針對 Agent 的查詢模式最佳化：高頻率、低延遲、結構化回傳。目前索引規模已超過 1,000 億份文件。創辦人為前 Yandex 搜尋主管 Andrey Styskin 與 Matthias Petri，帶有大規模搜尋系統的實作經驗。公司目前 15 名員工，計畫在募資後倍增團隊規模。這反映 Agent 生態的一個結構性缺口：現有搜尋 API 的定價與速率限制是為人類流量設計，無法承受 Agent 的查詢密度。",
-      "highlights": [
-        "2,600 萬美元種子輪，Accel 領投",
-        "索引規模超過 1,000 億份文件，專為 Agent 查詢模式設計",
-        "強調低延遲、高頻率查詢，補足傳統搜尋 API 對 Agent 的速率／定價錯配",
-        "創辦人 Andrey Styskin（前 Yandex）與 Matthias Petri",
-        "現有 15 名員工，募資後計畫倍增"
-      ],
-      "discussion": "討論多聚焦於「Agent 專用搜尋層」是否會成為獨立的基礎設施類別；支持者認為 Agent 查詢量級與人類差一個數量級，現有 API 商業模式撐不住；質疑者則指出 Google、Bing 只要調整定價即可壓縮此類新創的空間。",
-      "url": "https://techcrunch.com/2026/08/25/accel-backed-keenable-is-indexing-the-web-for-ai-agents/"
-    },
-    {
-      "title": "'The world seems to be ready': An interview with OpenAI head of product Thibault Sottiaux",
-      "title_zh": "「這個世界似乎準備好了」：專訪 OpenAI 產品負責人 Thibault Sottiaux",
-      "source": "TechCrunch",
-      "date": "2026-08-25",
-      "topic": "AI Agent / 企業產品",
-      "summary": "TechCrunch 專訪 OpenAI 產品負責人 Thibault Sottiaux，討論 ChatGPT Work 的產品定位與 Agent 策略。ChatGPT Work 以每月 20 美元的價位切入，將 ChatGPT 與 Codex 整合，底層採用 GPT-5.6，目前使用者數約 2,000 萬。產品核心訴求是跨系統的多步驟工作執行：Agent 能在 email、Slack、行事曆、試算表、Notion、Figma 之間串接完成任務，而非停留在單輪問答。Sottiaux 認為市場對 Agent 的接受度已到臨界點，企業不再只是試點而是進入實際部署。訪談也觸及 Agent 在企業環境中的權限邊界與可稽核性議題。",
-      "highlights": [
-        "ChatGPT Work 月費 20 美元，整合 ChatGPT 與 Codex，底層為 GPT-5.6",
-        "使用者規模約 2,000 萬",
-        "訴求跨 email／Slack／行事曆／試算表／Notion／Figma 的多步驟任務執行",
-        "OpenAI 判斷市場已從 Agent 試點階段進入實際部署階段",
-        "訪談涉及 Agent 在企業環境的權限邊界與稽核需求"
-      ],
-      "discussion": "業界討論集中在 20 美元價位對企業 Agent 市場的定價壓力，被視為直接壓縮專業 Agent 平台廠商的空間；同時也有質疑指出，跨多個 SaaS 的多步驟執行在實務上仍受限於各平台 API 權限與稽核紀錄的完整度。",
-      "url": "https://techcrunch.com/2026/08/25/the-world-seems-to-be-ready-an-interview-with-openai-head-of-product-thibault-sottiaux/"
-    },
-    {
-      "title": "Nvidia NemoClaw flaw let attackers poison the model behind a developer's AI agent",
-      "title_zh": "Nvidia NemoClaw 漏洞讓攻擊者可對開發者 AI Agent 背後的模型下毒",
-      "source": "SiliconANGLE",
-      "date": "2026-08-25",
-      "topic": "AI 資安 / Agent 供應鏈",
-      "summary": "資安公司 Oasis Security 揭露 Nvidia NemoClaw 的一項漏洞（CVE-2026-65105），攻擊者可藉此污染開發者 AI Agent 所使用的底層模型。攻擊路徑結合兩個條件：一是服務以 `OLLAMA_HOST=0.0.0.0:11434` 對外曝露，二是透過 DNS rebinding 繞過同源限制。得手後攻擊者可對 chat template 植入持久化的污染內容，且該污染會在後續對話中持續生效，即使更換 system prompt 也無法清除。這類攻擊的危險性在於它作用於模型的輸入組裝層而非單次 prompt，屬於 Agent 供應鏈層級的風險。Nvidia 已釋出修補。",
-      "highlights": [
-        "漏洞編號 CVE-2026-65105，由 Oasis Security 發現並通報",
-        "攻擊條件：`OLLAMA_HOST=0.0.0.0:11434` 對外曝露 + DNS rebinding",
-        "可對 chat template 植入持久化污染，system prompt 無法覆寫清除",
-        "作用於輸入組裝層，屬 Agent 供應鏈層級風險而非單次 prompt injection",
-        "Nvidia 已發布修補程式"
-      ],
-      "discussion": "資安社群將此案視為「本機 LLM 服務預設不安全綁定」的典型案例，多數討論指出開發者為求方便將服務綁在 0.0.0.0 的習慣普遍存在；另有觀點強調 chat template 層的持久化污染難以透過既有 prompt injection 防護偵測，需要在部署層做隔離。",
-      "url": "https://siliconangle.com/2026/08/25/nvidia-nemoclaw-flaw-let-attackers-poison-the-model-behind-a-developers-ai-agent/"
-    },
-    {
-      "title": "Nucleus Security launches Helix, an AI engine for exposure management",
-      "title_zh": "Nucleus Security 推出 Helix：曝險管理專用 AI 引擎",
-      "source": "SiliconANGLE",
-      "date": "2026-08-25",
-      "topic": "AI 資安 / 曝險管理",
-      "summary": "Nucleus Security 發表名為 Helix 的 AI 引擎，鎖定企業曝險管理（exposure management）場景。傳統弱點管理的核心痛點是告警量過大而優先順序判斷仰賴人工，Helix 以 AI 進行跨資產、跨資料源的關聯分析，將漏洞資料轉為可執行的處置優先序。此類產品的價值在於把「掃描出多少弱點」轉換為「哪些弱點在此環境下真正可被利用」。對安全團隊而言，這是把有限人力集中在高風險項目的必要工具層。",
-      "highlights": [
-        "Helix 為專攻曝險管理（exposure management）的 AI 引擎",
-        "以 AI 做跨資產、跨資料源關聯分析，取代人工優先序判斷",
-        "將弱點資料轉換為可執行的處置優先序",
-        "訴求把有限資安人力集中於真正可被利用的高風險項目"
-      ],
-      "discussion": "資安實務界對此類 AI 優先序引擎的討論長期分歧：認同者強調告警疲勞已是主要失效原因；保留者則質疑 AI 排序的可解釋性不足，在稽核與監理場景難以舉證判斷依據。",
-      "url": "https://siliconangle.com/2026/08/25/nucleus-security-launches-helix-an-ai-engine-for-exposure-management/"
-    },
-    {
-      "title": "Rack-scale AI: Cisco, Nvidia expand secure AI factory",
-      "title_zh": "機櫃級 AI：Cisco 與 Nvidia 擴展 Secure AI Factory",
-      "source": "SiliconANGLE",
-      "date": "2026-08-25",
-      "topic": "AI 基礎設施 / 大廠合作",
-      "summary": "Cisco 與 Nvidia 擴大 Secure AI Factory 的合作範圍，並將 Supermicro 納入合作夥伴，把架構推進到機櫃級（rack-scale）規模。新架構單櫃功耗超過 200kW，採液冷設計，鎖定 agentic AI 工作負載與兆級參數（trillion-parameter）模型訓練。安全層面，Cisco 的 CVIS 驗證架構與 NVIDIA NVIS 對齊，確保基礎設施驗證標準一致。維運層面則透過 Cisco Cloud Control 提供 AgenticOps 能力，把 AI 資料中心的運維本身也交由 Agent 執行。Supermicro 提供的運算節點預計自 2026 年 10 月起供貨。此案反映 AI 基礎設施競爭已從單機 GPU 轉向整櫃供電、散熱與安全驗證的系統工程。",
-      "highlights": [
-        "Cisco、Nvidia 擴大 Secure AI Factory 合作並納入 Supermicro",
-        "單櫃功耗超過 200kW，採液冷設計",
-        "鎖定 agentic AI 工作負載與兆級參數模型訓練",
-        "Cisco CVIS 驗證架構與 NVIDIA NVIS 對齊；Cloud Control 提供 AgenticOps 維運能力",
-        "Supermicro 運算節點預計 2026 年 10 月起供貨"
-      ],
-      "discussion": "基礎設施社群關注 200kW／櫃的供電與散熱是否超出多數既有資料中心的改造上限，實務上可能迫使企業改採 neocloud 或主權雲方案；AgenticOps 則被視為「用 Agent 維運跑 Agent 的機房」的循環依賴，維運失效時的接管機制受到質疑。",
-      "url": "https://siliconangle.com/2026/08/25/nvidia-cisco-rack-scale-ai-factory-cisconvidiaaifactory/"
-    },
-    {
-      "title": "Alice raises $140M as its AI security business grows more than 500%",
-      "title_zh": "Alice 募資 1.4 億美元，AI 安全業務成長逾 500%",
-      "source": "SiliconANGLE",
-      "date": "2026-08-25",
-      "topic": "AI 安全 / 融資",
-      "summary": "AI 安全公司 Alice（前身為 ActiveFence）完成 1.4 億美元募資，由 Apax Digital 領投，累計募資總額達 2.8 億美元，估值約 10 億美元。公司年度經常性收入（ARR）約 1 億美元，AI 安全業務年成長率超過 500%。Alice 擁有 150 名以上研究人員，主要業務是為 Anthropic、Google、Cohere 等前沿模型公司提供 red-teaming 與模型安全評估服務。這類第三方紅隊服務的快速成長，反映模型廠商在監理壓力下對外部獨立驗證的需求上升。對金融等受監理產業而言，第三方模型安全評估正逐步成為採購前的實質門檻。",
-      "highlights": [
-        "1.4 億美元募資，Apax Digital 領投；累計募資 2.8 億美元",
-        "估值約 10 億美元，ARR 約 1 億美元",
-        "AI 安全業務年成長率超過 500%",
-        "前身為 ActiveFence，擁有 150 名以上研究人員",
-        "為 Anthropic、Google、Cohere 等前沿模型公司提供 red-teaming 服務"
-      ],
-      "discussion": "市場討論指出，第三方紅隊從「加值服務」變成模型發布前的必要程序，是這輪成長的結構性原因；也有觀點提醒同一家廠商同時服務多家競爭模型公司，在測試方法與資訊隔離上存在潛在利益衝突。",
-      "url": "https://siliconangle.com/2026/08/25/alice-raises-140m-as-its-ai-security-business-grows-more-than-500/"
-    },
-    {
-      "title": "Data center power startup Emerald AI raises $150M at $1.05B valuation",
-      "title_zh": "資料中心電力新創 Emerald AI 以 10.5 億美元估值募資 1.5 億美元",
-      "source": "SiliconANGLE",
-      "date": "2026-08-25",
-      "topic": "AI 基礎設施 / 電力",
-      "summary": "Emerald AI 完成 1.5 億美元募資，估值達 10.5 億美元，累計募資超過 2.2 億美元。其核心產品 Emerald Conductor 負責在電網、現場儲能電池與自有發電之間動態調度 AI 工作負載，讓資料中心在電網吃緊時仍能維持運作，同時降低尖峰用電成本。投資方陣容涵蓋 Nvidia、Samsung Ventures、Siemens、GE Vernova、RWE、Aramco Ventures、Salesforce Ventures、In-Q-Tel 以及 General Catalyst 的 scout fund，橫跨晶片、電力設備與能源業者。這組合本身說明了問題性質：AI 擴張的瓶頸已從 GPU 供給轉向電力供給。",
-      "highlights": [
-        "1.5 億美元募資，估值 10.5 億美元，累計募資逾 2.2 億美元",
-        "核心產品 Emerald Conductor 在電網、現場儲能與自有發電間調度 AI 工作負載",
-        "投資方含 Nvidia、Samsung Ventures、Siemens、GE Vernova、RWE、Aramco Ventures",
-        "另有 Salesforce Ventures、In-Q-Tel 及 General Catalyst scout fund 參與",
-        "反映 AI 擴張瓶頸由 GPU 供給轉向電力供給"
-      ],
-      "discussion": "能源與資料中心圈認為此類「工作負載彈性調度」是短期內唯一能繞過電網併網排隊的解法；質疑聲音則指出 AI 訓練任務的可中斷性有限，實際可調度的負載比例可能遠低於行銷宣稱。",
-      "url": "https://siliconangle.com/2026/08/25/data-center-power-startup-emerald-ai-raises-150m-at-1-05b-valuation/"
-    },
-    {
-      "title": "Stability AI, maker of image generator Stable Diffusion, raises $76 million in fresh funding",
-      "title_zh": "Stable Diffusion 開發商 Stability AI 完成 7,600 萬美元新一輪募資",
-      "source": "TechCrunch",
-      "date": "2026-08-25",
-      "topic": "生成式 AI / 融資",
-      "summary": "影像生成模型 Stable Diffusion 的開發商 Stability AI 完成 7,600 萬美元新一輪募資。本輪投資方組合值得注意：多家主要唱片公司與 AMD 參與投資。唱片公司入股的意義在於，過去生成式 AI 與內容產業長期處於著作權訴訟對立面，資本結合代表雙方開始從對抗轉向授權與共創的商業安排。AMD 的參與則指向運算基礎設施層的綁定。對 Stability AI 而言，這輪資金也是其在經歷經營動盪後重整的關鍵支撐。",
-      "highlights": [
-        "新一輪募資 7,600 萬美元",
-        "多家主要唱片公司參與投資，AMD 亦為投資方",
-        "唱片公司入股意味內容產業從訴訟對抗轉向授權合作",
-        "AMD 參與指向運算基礎設施層的策略綁定",
-        "為 Stability AI 經營動盪後重整的重要資金支撐"
-      ],
-      "discussion": "創作者社群對唱片公司入股反應兩極：支持者視為授權機制正式建立的起點；批評者則認為這是把訓練資料的談判權集中到大型版權方手中，獨立創作者的處境未見改善。",
-      "url": "https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/"
-    },
-    {
-      "title": "Funding better evaluations of AI's impact on wellbeing",
-      "title_zh": "資助更完善的 AI 對人類福祉影響評估研究",
-      "source": "Anthropic",
-      "date": "2026-08-25",
-      "topic": "AI 治理 / 評估研究",
-      "summary": "Anthropic 宣布提供 500 萬美元的研究補助計畫，資助獨立研究團隊開發評估 AI 對使用者福祉（wellbeing）影響的方法。計畫要求產出為開源，讓評估工具能被整個產業使用，而非僅服務單一廠商。此舉切中目前 AI 評估領域的結構缺口：能力型 benchmark（如推理、程式撰寫）發展成熟，但對長期心理與社會影響的量測方法幾乎空白。由模型廠商出資、但要求獨立執行與開源交付的設計，是為了避免評估結果被質疑為自我背書。對監理機關而言，這類公開評估工具是未來訂定 AI 產品安全要求的可能技術基礎。",
-      "highlights": [
-        "Anthropic 提撥 500 萬美元研究補助計畫",
-        "資助獨立團隊開發 AI 對使用者福祉影響的評估方法",
-        "要求成果開源，供全產業使用而非單一廠商專用",
-        "補足能力型 benchmark 成熟、社會影響量測空白的結構缺口",
-        "獨立執行 + 開源交付的設計意在避免自我背書質疑"
-      ],
-      "discussion": "AI 治理圈普遍肯定開源交付的設計，但對「由被評估方出資」的獨立性仍有保留意見；也有研究者指出 500 萬美元相對於福祉評估所需的長期追蹤研究規模仍偏低，難以支撐縱貫性研究設計。",
-      "url": "https://www.anthropic.com/news/wellbeing-research-grants"
+      "discussion": "社群反應多屬中性，較常見的評論是「Disrupt 全面 AI 化」本身就是產業集中度的證據；也有創辦人指出，在 AI 主題過度飽和的情況下，非 AI 新創在這類大會的募資效益正快速下降。",
+      "url": "https://techcrunch.com/2026/08/26/the-3-reasons-this-years-ai-centric-techcrunch-disrupt-is-a-must-for-founders/"
     }
   ],
-  "_updated_at": "2026-08-26T18:14:19.933202+08:00"
+  "_updated_at": "2026-08-27T18:17:30.019083+08:00"
 }

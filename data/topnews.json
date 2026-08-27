@@ -1,35 +1,125 @@
 {
   "items": [
     {
-      "title": "Top Tech News Today, August 25, 2026: Apple, Cisco, Infineon, OpenAI, Meta, Nvidia, SpaceX & More",
-      "title_zh": "今日科技要聞 2026年8月25日：Apple、Cisco、Infineon、OpenAI、Meta、Nvidia、SpaceX 等",
-      "source": "Tech Startups",
-      "date": "2026-08-25",
-      "domain": "Industry",
-      "model_area": "AI 推論晶片、on-device AI、AI 資安",
-      "summary": "當日科技要聞彙整多則 AI 相關動態：Apple 低調推出主打裝置端 AI（on-device AI）世代的新款 Mac mini；Nvidia 將其專用推論晶片推進全面量產，目標讓 AI Agent 的回應接近即時；另有一筆 1.5 億美元募資，將資料中心轉為可調度的電網夥伴。同日並揭露台灣檢方起訴涉嫌違法輸出 AI 伺服器至中國的內部人員，OpenAI 則關閉一個透過 ChatGPT 運作的俄羅斯影響力行動帳號群。報導同時指出 Nvidia 即將面臨新一輪財報考驗，市場對 AI 基礎建設的投資報酬經濟性疑慮升高。",
+      "title": "Salesforce just put its entire CRM inside Claude — and says you'll never need its app again",
+      "title_zh": "Salesforce 把整套 CRM 塞進 Claude —— 並宣稱你再也不必開它的 App",
+      "source": "VentureBeat",
+      "date": "2026-08-27",
+      "domain": "Agent",
+      "model_area": "Claude Cowork / MCP / Agent Skills",
+      "summary": "Salesforce 推出「Salesforce in Claude」外掛，直接掛在 Anthropic 的 Claude Cowork 上，內建 37 個預先打包的銷售 skill，涵蓋會議準備、交易健康度檢視與 pipeline 分析，業務人員可在不開啟 Salesforce 介面的情況下查詢、更新並操作即時 CRM 資料。此產品源自 Anthropic 內部作法——該公司本身幾乎完全透過 Claude 加上一組 skills 與 MCP server 使用 Salesforce，兩家公司決定把這套內部組態產品化。管理者只需一次性連接，認證與權限集中管理，省去為每位使用者個別接 MCP server 的工程負擔。目前開放給少數 pilot 客戶，9 月進入 open beta，其他業務職能的 skill 於第三季陸續上線。",
       "highlights": [
-        "Nvidia 專用推論晶片進入全面量產，訴求降低 Agent 延遲；Apple 新 Mac mini 主打裝置端 AI 運算",
-        "OpenAI 關閉一個利用 ChatGPT 進行的俄羅斯影響力行動；台灣檢方起訴違法輸出 AI 伺服器至中國之內部人員",
-        "AI 基礎建設經濟性成焦點，Nvidia 財報被視為市場信心的關鍵測試"
+        "37 個預建銷售 skill，涵蓋會議準備、交易健康度、pipeline 分析",
+        "管理者單次連接即完成認證與權限集中控管，解決逐一佈署 MCP server 的痛點",
+        "pilot 客戶已可使用，9 月開放 open beta"
       ],
-      "url": "https://techstartups.com/2026/08/25/top-tech-news-today-august-25-2026-apple-cisco-infineon-openai-meta-nvidia-spacex-more/"
+      "url": "https://venturebeat.com/orchestration/salesforce-just-put-its-entire-crm-inside-claude-and-says-youll-never-need-its-app-again"
     },
     {
-      "title": "Nvidia Backs OpenAI Data Center, Anthropic News, Google Buys Spirit Airlines Data",
-      "title_zh": "Nvidia 資助 OpenAI 資料中心、Anthropic 動態、Google 買下 Spirit Airlines 資料",
-      "source": "Stratechery (Ben Thompson)",
-      "date": "2026-08-25",
-      "domain": "Industry",
-      "model_area": "AI 基礎建設、資料中心、前沿實驗室商業模式",
-      "summary": "Stratechery 當日分析 Nvidia 再度與一家前沿模型實驗室達成資助資料中心的交易，延續晶片供應商以資本綁定算力需求方的模式。文中同時討論 Anthropic 的營收表現與相關公司動態，並分析 Google 取得 Spirit Airlines 資料一案在資料取得競賽中的意義。整體論點聚焦於 AI 產業的資本循環與資料資產爭奪，如何重塑上下游議價能力。",
+      "title": "Surprise: Z.ai is the AI lab behind the mysterious Ox Alpha model",
+      "title_zh": "意外揭曉：神秘模型 Ox Alpha 背後的實驗室是 Z.ai",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "domain": "LLM",
+      "model_area": "Ox Alpha / 開源權重推理模型",
+      "summary": "中國 AI 實驗室 Z.ai 證實自己是近期在多項榜單與 benchmark 登頂的神秘開放模型 Ox Alpha 的開發者，並表示權重即將釋出。Ox Alpha 被定位為推理模型，專為程式撰寫、長時間持續性的 agentic 工作與正式生產環境負載設計。其強項在於長時程（long-horizon）軟體工程任務與複雜推理，正面對上目前以閉源為主的高階 coding agent 市場。Z.ai 先前也在 8 月釋出 GLM-5.2 Turbo，顯示其模型迭代節奏相當密集。",
       "highlights": [
-        "Nvidia 以投資方式綁定前沿實驗室的資料中心算力需求，強化垂直整合",
-        "Anthropic 營收數字與商業進展成為市場評估前沿實驗室估值的依據",
-        "Google 收購航空公司資料，突顯資料取得已成為模型競爭的關鍵戰場"
+        "Z.ai 承認 Ox Alpha 出自該實驗室，模型權重即將開放",
+        "定位為 coding、長時程 agentic 任務與生產負載的推理模型",
+        "延續 Z.ai 8 月釋出 GLM-5.2 Turbo 的高頻率發布節奏"
       ],
-      "url": "https://stratechery.com/2026/nvidia-backs-openai-data-center-anthropic-news-google-buys-spirit-airlines-data/"
+      "url": "https://techcrunch.com/2026/08/26/surprise-z-ai-is-the-ai-lab-behind-the-mysterious-ox-alpha-model/"
+    },
+    {
+      "title": "Radar makes podcasts searchable — and usable by AI agents",
+      "title_zh": "Radar 讓 Podcast 可被搜尋，也可被 AI Agent 取用",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "domain": "Agent",
+      "model_area": "語音轉錄 / 語意檢索 / Agent 資料源",
+      "summary": "新創公司 Particle 推出 Radar，一個 podcast 搜尋引擎，不只把 podcast 音訊轉成逐字稿，還進一步理解內容語意，能自動抽出關鍵引述與重點段落。此定位的關鍵在於把長期以來對機器不友善的語音內容，轉成 AI agent 可直接查詢與引用的結構化資料源。對 agent 應用而言，這補上了非文字媒體長期缺席於 RAG 與工具呼叫生態的一塊。",
+      "highlights": [
+        "不只轉錄，還做語意理解並抽取關鍵引述與重點",
+        "把 podcast 音訊轉為 AI agent 可查詢的結構化資料源",
+        "由新創 Particle 推出"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/radar-makes-podcasts-searchable-and-usable-by-ai-agents/"
+    },
+    {
+      "title": "Nvidia closes in on Hugging Face acquisition",
+      "title_zh": "Nvidia 逼近完成收購 Hugging Face",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "domain": "Industry",
+      "model_area": "開源模型平台 / AI 基礎設施",
+      "summary": "根據報導，Nvidia 已同意以 129 億美元收購開源 AI 樞紐 Hugging Face。Hugging Face 是全球開源模型、資料集與 Spaces 的主要集散地，長期被視為中立的開放生態基礎設施。若交易完成，掌握 AI 硬體主導地位的 Nvidia 將同時握有開源模型分發的核心通路，對開源社群的中立性與競爭格局將產生結構性影響。",
+      "highlights": [
+        "交易金額約 129 億美元",
+        "Hugging Face 為全球最大開源模型與資料集分發平台",
+        "硬體霸主同時掌握開源模型通路，牽動生態中立性議題"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/"
+    },
+    {
+      "title": "Anthropic continues compute-gobbling streak in $45 billion deal with Nscale",
+      "title_zh": "Anthropic 延續算力狂掃態勢，與 Nscale 簽下 450 億美元合約",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "domain": "Infrastructure",
+      "model_area": "AI 訓練與推論算力",
+      "summary": "Anthropic 與英國 AI 基礎設施公司 Nscale 簽訂約 450 億美元的算力租賃合約，這批算力預計自 2027 年下半年開始支撐 Anthropic 的服務。此案延續 Anthropic 近期連續大手筆鎖定長期算力的策略，反映前沿實驗室對推論需求成長的預期已推高到數百億美元等級的長約規模。對金融業採用方而言，供應商的算力鎖定期程與地理分布，直接影響服務可用性與資料落地的評估。",
+      "highlights": [
+        "合約規模約 450 億美元，交易對象為英國 Nscale",
+        "算力預計 2027 年下半年開始投入服務",
+        "延續 Anthropic 連續簽署超大型算力長約的模式"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/"
+    },
+    {
+      "title": "Amazon just tripled its order of Nvidia chips over 'surging demand'",
+      "title_zh": "Amazon 因「需求暴增」將 Nvidia 晶片訂單提高至三倍",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "domain": "Hardware",
+      "model_area": "GPU / 資料中心",
+      "summary": "Amazon 與 Nvidia 宣布擴大合作，內容包含再為 Amazon 資料中心追加 200 萬顆 Nvidia GPU，用以支撐訓練與運行 AI 模型的沉重算力需求。Amazon 將此歸因於「需求暴增」，訂單規模較先前放大約三倍。這與同日 Anthropic 的 450 億美元算力合約形成同一組訊號：2026 下半年的瓶頸仍在供給端而非需求端。",
+      "highlights": [
+        "追加 200 萬顆 Nvidia GPU，訂單規模約為原先三倍",
+        "Amazon 將原因歸於 AI 需求暴增",
+        "與 Anthropic 同日的巨額算力合約共同指向供給端瓶頸"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/"
+    },
+    {
+      "title": "Ex-Meta scientists want to bring visual AI to the factory floor",
+      "title_zh": "前 Meta 科學家要把視覺 AI 帶進工廠現場",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "domain": "Robotics",
+      "model_area": "多模態視覺模型 / 工業 Agent",
+      "summary": "由前 Meta 研究人員創立的 Perceptron 推出最新模型 Isaac 0.5，主打讓機器在工業環境中具備「感知、推理、行動」的能力。此模型鎖定工廠現場的實體場景，把多模態視覺理解與行動決策整合成單一堆疊，屬於 agent 概念由數位工作流延伸到實體作業的一環。相對於雲端 agent，工業場景對延遲、可靠度與在地部署的要求更為嚴苛。",
+      "highlights": [
+        "Perceptron 推出 Isaac 0.5 模型，創辦團隊出自 Meta",
+        "主打工業環境中的感知、推理與行動整合能力",
+        "代表 agent 應用自數位工作流延伸至實體製造現場"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/ex-meta-scientists-want-to-bring-visual-ai-to-the-factory-floor/"
+    },
+    {
+      "title": "Startup Funding News Today, August 26, 2026: Emerald AI, Gatik, Stellaria & More",
+      "title_zh": "今日新創募資快訊 2026 年 8 月 26 日：Emerald AI、Gatik、Stellaria 等",
+      "source": "Tech Startups",
+      "date": "2026-08-26",
+      "domain": "Industry",
+      "model_area": "AI 新創募資",
+      "summary": "當日多筆 AI 相關募資案同時公布。Emerald AI 完成超額認購的 1.5 億美元 A 輪，投後估值達 10.5 億美元，由 Energize Capital 與 DCVC 共同領投，策略性投資人橫跨 AI、能源與工業基礎設施領域。自駕貨運與物流業者 Gatik 於前一日（8 月 25 日）完成 2 億美元 D 輪。整體顯示資金正集中流向「AI 加實體基礎設施」的交叉題材，而非純軟體應用層。",
+      "highlights": [
+        "Emerald AI 募得 1.5 億美元 A 輪，估值 10.5 億美元，Energize Capital 與 DCVC 領投",
+        "自駕物流業者 Gatik 完成 2 億美元 D 輪",
+        "資金明顯集中於 AI 與能源、工業基礎設施的交叉領域"
+      ],
+      "url": "https://techstartups.com/2026/08/26/startup-funding-news-today-august-26-2026-emerald-ai-gatik-stellaria-more/"
     }
   ],
-  "_updated_at": "2026-08-26T18:11:13.034805+08:00"
+  "_updated_at": "2026-08-27T18:13:40.106826+08:00"
 }
