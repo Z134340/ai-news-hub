@@ -1,61 +1,110 @@
 {
   "items": [
     {
-      "title": "比爾蓋茲長文示警「AI 將掀史上最動盪時期」，籲設人類專屬工作與 AI 稅",
-      "source": "科技新報 TechNews",
+      "title": "【資安日報】8月26日，OWASP 2026年LLM十大風險首納事故資料，AI代理過度授權升至第3名",
+      "source": "iThome",
       "date": "2026-08-26",
-      "category": "AI治理",
-      "summary": "比爾蓋茲發表長文，警告 AI 將帶動人類史上最劇烈的社會經濟動盪期，衝擊規模超越過往任何一次技術革命。他認為問題不在於 AI 能否取代人力，而在於取代速度遠快於既有勞動市場與社會安全網的調適能力。為此他提出兩項政策方向：一是由政府明確劃定「人類專屬工作」領域，保留必須由人執行的職務；二是研議對 AI 課稅，將生產力紅利重新分配至受衝擊族群。這兩項主張直接觸及 AI 治理最具爭議的財政與勞動政策層面，也呼應近年各國討論的機器人稅與全民基本收入辯論。文章反映科技業領袖對 AI 外部性治理立場的轉向，從自律走向主張政府介入。",
+      "category": "資安標準",
+      "summary": "OWASP GenAI Security Project 公布 2026 年版 LLM 應用十大風險清單，首次納入實際資安事故資料作為排序依據，而非僅憑專家投票。其中「過度授權」（Excessive Agency）自前一版的第 6 名躍升至第 3 名，反映 AI 代理（AI Agent）被賦予過多工具存取與自主決策權限，已成為企業實際遭遇的高頻風險。建議的緩解措施包括最小權限原則、即時產生的短期憑證（JIT ephemeral tokens），以及在高風險動作前保留人工審核關卡。同日報也引述 Gartner 預測，2029 年多數隱私事故將源自 AI 推論產生的個人資料，建議企業將 AI 治理直接併入既有隱私治理計畫，而非另起爐灶。iThome 針對 CIO 與 CISO 的調查則顯示，26% 受訪者指出 AI 資安與治理人才短缺，21% 認為資料治理成熟度不足。",
       "highlights": [
-        "蓋茲預測 AI 將造成人類史上最動盪的轉型期，衝擊速度快於社會調適能力",
-        "主張政府劃定「人類專屬工作」領域，以法規保留必須由人執行的職務",
-        "提出對 AI 課稅構想，將生產力紅利重分配給受衝擊勞工",
-        "顯示科技業領袖治理立場從產業自律轉向支持政府政策介入"
+        "OWASP 2026 年 LLM 十大風險首次以實際事故資料排序，不再僅依專家投票",
+        "「過度授權」（Excessive Agency）由第 6 名升至第 3 名，直指 AI Agent 權限過大問題",
+        "緩解建議：最小權限、JIT 短期憑證、高風險動作保留 human-in-the-loop",
+        "Gartner 預測 2029 年多數隱私事故將來自 AI 推論出的個人資料",
+        "iThome CIO/CISO 調查：26% 指 AI 資安治理人才短缺、21% 指資料治理不成熟"
       ],
-      "url": "https://technews.tw/2026/08/26/bill-gates-warning-ai"
+      "url": "https://www.ithome.com.tw/news/178451"
     },
     {
-      "title": "Governor Newsom signs legislation 8.22.2026",
-      "source": "Office of Governor Gavin Newsom (California)",
-      "date": "2026-08-22",
-      "category": "AI治理",
-      "summary": "加州州長 Newsom 於 2026 年 8 月 22 日簽署一批法案，其中包含與 AI 監理相關的條文。本批次法案涵蓋 AB 1651，涉及 State Bar of California 在律師執業情境下對 AI 使用的規範與監督權責。加州是美國各州中 AI 立法最密集的司法管轄區，已陸續推出 SB 942（AI 內容透明化）、AB 853、SB 53（前沿模型安全）等法規，形成事實上的全美州級標準。在聯邦層級 AI 立法停滯的情況下，加州的逐案立法模式持續擴散至專業服務、內容標示與模型安全等領域。此舉對在加州營運的 AI 供應商與專業服務業者形成直接合規義務。",
-      "highlights": [
-        "加州州長於 2026-08-22 簽署包含 AI 相關條文的法案包裹",
-        "AB 1651 涉及 State Bar of California 對律師使用 AI 的規範權責",
-        "加州延續 SB 942、AB 853、SB 53 的逐案立法路徑，形成事實上全美州級標準",
-        "在聯邦 AI 立法停滯下，州級規範成為業者主要合規壓力來源"
-      ],
-      "url": "https://www.gov.ca.gov/2026/08/22/governor-newsom-signs-legislation-8-22-2026/"
-    },
-    {
-      "title": "第一屆台灣資料治理年會，助力組織建構 AI-Ready 基礎",
+      "title": "遭控社群媒體使青少年成癮，Meta 以 180 億美元與美國多州和解",
       "source": "科技新報 TechNews",
-      "date": "2026-08-21",
-      "category": "資料治理",
-      "summary": "台灣資料管理協會（TDAMA）舉辦第一屆台灣資料治理年會，聚焦協助企業建立 AI-Ready 的資料基礎。年會核心論點在於：導入 AI 與 Agent 的最大瓶頸並非模型能力，而是組織內部資料品質、資料血緣與權限治理的成熟度不足。議程涵蓋資料治理框架落地、資料品質衡量指標，以及在 AI 應用情境下的資料合規要求。對金融、製造等高度監理產業而言，資料治理是 AI 內控與模型風險管理的前置條件，缺乏此基礎將導致 AI 專案在稽核階段受阻。此活動反映台灣本地企業從 AI 概念驗證轉向治理制度化的階段轉折。",
+      "date": "2026-08-27",
+      "category": "平台監管",
+      "summary": "Meta 與美國 29 州檢察長就「社群媒體導致青少年成癮」的訴訟達成和解，將在 10 年內支付約 180 億美元。除了金額之外，和解條件包含一系列強制性的產品設計變更，屬於少見以「產品治理義務」而非單純罰款收尾的監管案例。針對 13 至 17 歲用戶，Instagram 與 Facebook 將預設每日使用上限 2 小時，且僅有家長能調整；平台須每 15 分鐘顯示使用時間提醒。夜間模式在 00:00 至 06:00 期間預設啟用，並加入上課時段的學校模式。此外未成年帳號預設隱藏按讚數、禁用極端美顏濾鏡，自動播放（autoplay）也須提供關閉選項。",
       "highlights": [
-        "台灣資料管理協會（TDAMA）舉辦首屆台灣資料治理年會",
-        "核心論點：AI 導入瓶頸在資料治理成熟度，而非模型能力",
-        "議程涵蓋資料品質、資料血緣、權限治理與 AI 情境下的合規要求",
-        "資料治理為金融等受監理產業推動 AI 內控與模型風險管理的前置條件"
+        "Meta 與 29 州檢察長和解，10 年內支付約 180 億美元",
+        "13-17 歲用戶預設每日 2 小時使用上限，僅家長可調整",
+        "每 15 分鐘使用提醒、00:00-06:00 夜間模式、上課時段學校模式",
+        "未成年帳號預設隱藏按讚數、禁止極端美顏濾鏡",
+        "和解以強制產品設計變更為核心，開啟平台演算法治理的實質先例"
       ],
-      "url": "https://finance.technews.tw/2026/08/21/tdama-ai-ready/"
+      "url": "https://technews.tw/2026/08/27/meta-settles-us-child-social-media-addiction-lawsuits-for-18-billion"
     },
     {
-      "title": "Debates over AI consciousness are a trap",
-      "source": "MIT Technology Review",
-      "date": "2026-08-20",
-      "category": "AI治理",
-      "summary": "MIT Technology Review 撰文指出，關於「AI 是否具有意識」的辯論本身是一個治理陷阱。文章主張，將監理討論導向意識、感知等無法驗證的哲學命題，會排擠掉真正可治理、可稽核的議題，例如模型的實際輸出行為、對使用者的操縱效果與責任歸屬。當公共討論被意識辯論佔據，業者得以迴避對現行危害（偏誤、錯誤資訊、心理依賴）的具體究責。作者呼籲監理機關與研究社群將資源投注在可測量的風險指標與行為評估上。此論點與各國 AI 法規以風險為基礎（risk-based）而非以能力屬性為基礎的立法方向一致。",
+      "title": "美國多州收緊資料中心監管，紐澤西納管電力、用水資訊",
+      "source": "科技新報 TechNews",
+      "date": "2026-08-28",
+      "category": "AI基礎設施監管",
+      "summary": "報導指出美國多個州正在收緊對資料中心的監管，紐澤西州將資料中心的電力與用水資訊納入管制範圍，要求業者揭露相關耗用數據。此一趨勢的背景是生成式 AI 帶動的算力擴張，使資料中心的電力與水資源需求在短期內大幅上升，對地方電網與供水造成壓力。與過去以租稅優惠吸引資料中心進駐的做法相比，州層級政策方向明顯轉向「先揭露、再核准」。對 AI 治理而言，這代表監管重心正從模型與演算法層，向下延伸到支撐 AI 的實體基礎設施層。企業在規劃 AI 算力布局時，除了合規與資安之外，須將能源與水資源的揭露義務納入評估。",
       "highlights": [
-        "主張 AI 意識辯論會排擠可治理、可稽核的實際風險議題",
-        "監理焦點應放在模型輸出行為、操縱效果與責任歸屬等可測量指標",
-        "警告意識辯論可能被業者用於迴避現行危害的具體究責",
-        "呼應各國採 risk-based 而非能力屬性導向的 AI 立法路徑"
+        "紐澤西州將資料中心電力與用水資訊納入監管揭露範圍",
+        "美國多州同步收緊資料中心相關法規，政策由招商轉向管制",
+        "背景為生成式 AI 算力擴張推升電力與水資源需求",
+        "顯示 AI 監管正從演算法層延伸至實體基礎設施層",
+        "企業 AI 算力布局須新增能源／水資源揭露的合規成本評估"
       ],
-      "url": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/"
+      "url": "https://technews.tw/2026/08/28/us-states-tighten-data-center-regulations-new-jersey-power-water-information"
+    },
+    {
+      "title": "中央社金融永續論壇登場 產官學研共同探討AI信任與安全",
+      "source": "中央社 CNA",
+      "date": "2026-08-25",
+      "category": "金融監管",
+      "summary": "中央通訊社於 8 月 25 日舉辦 2026 金融永續論壇，主題聚焦資訊揭露與 AI 時代下的信任與安全，集結產官學研各界共同討論。中央社社長胡婉玲致詞指出，信任與安全是金融業面對 AI 浪潮時不可或缺的調節變數。金管會副主委陳彥良表示，金融業須以信任與永續作為兩隻翅膀，並透過跨部門、跨產業合作深化社會信任。數位發展部數位產業署平台經濟組組長施偉仁則發表專題演講，討論數位科技如何守護信任防線。整體議程反映金管會與數發部在金融 AI 應用治理上的分工與協作方向。",
+      "highlights": [
+        "中央社 2026 金融永續論壇 8 月 25 日登場，主軸為 AI 信任與安全",
+        "金管會副主委陳彥良：金融業須以信任與永續為兩隻翅膀，強化跨部門與跨產業合作",
+        "數發部數位產業署平台經濟組組長施偉仁專題演講「數位科技守護信任防線」",
+        "中央社社長胡婉玲指出信任與安全是面對 AI 浪潮的關鍵調節變數",
+        "顯示金管會與數發部在金融 AI 治理議題上的政策協同"
+      ],
+      "url": "https://www.cna.com.tw/news/afe/202608250168.aspx"
+    },
+    {
+      "title": "FTC Issues Proposed Policy Statement on Personalized Pricing",
+      "source": "WilmerHale",
+      "date": "2026-08-27",
+      "category": "演算法監管",
+      "summary": "美國聯邦貿易委員會（FTC）發布關於個人化定價（personalized pricing）的執法政策聲明草案，說明其將如何依《FTC Act》第 5 條處理以個人資料驅動的差別定價行為。此舉直接指向企業運用 AI 與行為資料對不同消費者顯示不同價格的做法，即所謂的監控式定價（surveillance pricing）。政策聲明草案由委員會以 2 比 0 表決通過發布，公眾意見徵詢至 2026 年 9 月 18 日截止。對零售、旅遊與金融等大量使用動態定價模型的產業而言，此為近期最具體的演算法定價監管訊號。企業需重新檢視定價模型所使用的個人資料類型與揭露方式，以降低被認定為不公平或欺騙行為的風險。",
+      "highlights": [
+        "FTC 針對個人化定價提出執法政策聲明草案，依 FTC Act 第 5 條處理",
+        "鎖定以個人資料驅動的差別定價，即監控式定價（surveillance pricing）",
+        "委員會以 2 比 0 表決通過發布，意見徵詢至 2026 年 9 月 18 日",
+        "零售、旅遊、金融等使用動態定價模型的產業受直接影響",
+        "企業須檢視定價演算法所用個資類型與消費者揭露機制"
+      ],
+      "url": "https://www.wilmerhale.com/en/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/20260827-ftc-issues-proposed-policy-statement-on-personalized-pricing"
+    },
+    {
+      "title": "The Price Is Right, Just Not the Same for Everyone: The FTC's Proposed Personalized Pricing Enforcement Policy",
+      "source": "InfoLawGroup",
+      "date": "2026-08-24",
+      "category": "演算法監管",
+      "summary": "本文分析美國聯邦貿易委員會（FTC）新提出的個人化定價執法政策，說明監管機關如何看待以消費者個人資料調整售價的商業模式。FTC 的核心關切在於，當定價演算法使用消費者未預期會被用於定價的個人資料時，可能構成《FTC Act》第 5 條下的不公平或欺騙行為。文章指出，該政策聲明並非全面禁止差別定價，而是將重點放在資料來源的正當性與對消費者的揭露是否充分。企業若使用第三方行為資料、位置資料或推論屬性進行定價，面臨的風險最高。文中並提醒業者留意公眾意見徵詢期，及早檢視既有定價實務與隱私政策的一致性。",
+      "highlights": [
+        "FTC 個人化定價政策聚焦於定價所使用個人資料的正當性與揭露充分性",
+        "並非全面禁止差別定價，而是針對消費者未預期被用於定價的資料",
+        "使用第三方行為資料、位置資料或推論屬性定價者風險最高",
+        "企業應檢視定價實務與隱私政策說明是否一致",
+        "建議業者把握公眾意見徵詢期表達立場"
+      ],
+      "url": "https://www.infolawgroup.com/insights/2026/8/24/the-price-is-right-just-not-the-same-for-everyone-the-ftcs-proposed-personalized-pricing-enforcement-policy"
+    },
+    {
+      "title": "Reco Finds Four in Five AI Tools Operate Without IT Oversight in State of Agent Security 2026 Report",
+      "source": "GlobeNewswire (Reco)",
+      "date": "2026-08-26",
+      "category": "代理式AI治理",
+      "summary": "資安業者 Reco 發布《State of Agent Security 2026》報告，指出企業環境中僅約 20% 的 AI 工具處於 IT 部門的治理範圍內，換言之每五個 AI 工具就有四個屬於影子 AI（shadow AI）。報告的資料來源結合 Reco 平台遙測資料、500 個公開 Model Context Protocol（MCP）server 的分析，以及已揭露的漏洞紀錄。研究顯示 81% 的團隊已越過規劃階段實際導入 AI Agent，但僅 14.4% 取得完整的資安核准，形成明顯的治理落差。此外只有 22% 的團隊將 AI Agent 視為獨立身分進行管理，多數仍沿用共用 API key，導致行為無法歸屬與稽核。該結果與 OWASP 將「過度授權」列為 2026 年 LLM 十大風險第 3 名的方向一致。",
+      "highlights": [
+        "企業約 80% 的 AI 工具未納入 IT 治理，屬影子 AI",
+        "資料來源：Reco 平台遙測 + 500 個公開 MCP server 分析 + 已揭露漏洞紀錄",
+        "81% 團隊已實際導入 AI Agent，僅 14.4% 取得完整資安核准",
+        "僅 22% 將 AI Agent 視為獨立身分管理，多數仍用共用 API key",
+        "共用憑證導致 Agent 行為無法歸屬，稽核與究責機制失效"
+      ],
+      "url": "https://www.globenewswire.com/news-release/2026/08/26/3351417/0/en/reco-finds-four-in-five-ai-tools-operate-without-it-oversight-in-state-of-agent-security-2026-report.html"
     }
   ],
-  "_updated_at": "2026-08-27T18:17:03.548206+08:00"
+  "_updated_at": "2026-08-28T18:16:16.392894+08:00"
 }

@@ -1,106 +1,151 @@
 {
   "items": [
     {
-      "title": "AccuKnox Launches AgentZ to Help Enterprises Build, Run, and Govern AI Agents at Scale",
-      "title_zh": "AccuKnox 推出 AgentZ，協助企業大規模建置、運行與治理 AI Agent",
-      "source": "GlobeNewswire",
+      "title": "Previewing the Model Hardware Standard",
+      "title_zh": "Model Hardware Standard 研究預覽發布",
+      "source": "Anthropic",
       "date": "2026-08-27",
-      "topic": "AI Agent 平台 / Agent 治理與資安",
-      "summary": "資安廠商 AccuKnox 於 8 月 27 日發表 AgentZ，定位為企業級的「Zero Trust Sandbox」AI Agent 平台，把 Agent 本體、執行環境、可用工具、工作流程、權限與治理收斂到同一個控制面。平台採用 Organizations / Workspaces / Agents / Workflows / Sandboxes 的階層模型，讓不同團隊在各自 Workspace 內建置 Agent，同時由組織層統一套用權限與稽核政策。與多數 Agent 框架不同，AgentZ 主打企業可自帶模型與自有基礎設施，不強迫資料離開既有邊界，直接回應金融、醫療等受監管產業對資料落地的要求。每個 Agent 的執行都被限制在受控 sandbox 內，工具呼叫與外部存取需經明確授權，用意是壓制 prompt injection 與 excessive agency 這類 Agent 特有風險。執行長 Nat Natraj 表示：「AgentZ gives teams a place to build agents, run them under controls a security team will actually accept, and manage them across the organization, using their own models and their own infrastructure.」",
+      "topic": "AI Agent Engineering",
+      "summary": "Anthropic 以研究預覽（research preview）形式推出 Model Hardware Standard（MHS，模型硬體標準），讓 Claude 這類 AI 模型能夠自行探索、介接並控制具備可程式化介面的實體硬體，例如機械手臂與實驗室儀器。MHS 的核心作法是把硬體的操作方式、限制與安全邊界寫成模型可讀的規格，取代過去只存在於紙本手冊或少數專家腦中的隱性知識。規格中可由硬體廠商指定安全護欄，例如限制機械手臂的移動速度與角度範圍，讓 AI 無法逾越物理安全界線。早期合作者包括 Genentech、CMU、HHMI Janelia、華盛頓大學與 Tetsuwan，回報將儀器整合時間從數週壓縮到數小時；Hugging Face 正在其機器人函式庫 LeRobot 中加入 MHS 支援，Raspberry Pi 也在多項產品上啟用整合。Anthropic 表示預覽結束後將把此框架開源。",
       "highlights": [
-        "以 Zero Trust Sandbox 為核心，將 Agent、執行環境、工具、工作流、權限、治理整合為單一控制面",
-        "階層模型為 Organizations / Workspaces / Agents / Workflows / Sandboxes，支援組織層統一稽核與權限下放",
-        "支援自帶模型（BYO model）與自有基礎設施部署，資料不必離開企業既有邊界",
-        "沙箱化執行搭配工具呼叫授權，針對 prompt injection 與過度代理權（excessive agency）風險設計",
-        "切入點是「資安團隊願意簽核的 Agent 上線流程」，而非再造一套 Agent 開發框架"
+        "MHS 讓 AI 模型直接控制機械手臂、實驗室儀器等具可程式化介面的硬體，等同把 agent 的行動邊界從數位延伸到物理世界",
+        "硬體廠商可在規格中內建安全護欄（如速度、角度上限），把安全控制下放到硬體規格層而非仰賴模型自律",
+        "早期採用者將儀器整合工時從「數週」降到「數小時」，是可量化的部署效益",
+        "Hugging Face LeRobot 與 Raspberry Pi 已投入整合，顯示開源機器人生態系的接受度",
+        "Anthropic 承諾預覽期結束後開源該框架"
       ],
-      "discussion": "企業資安圈近期反覆討論的痛點正是「Agent 做得出來、但資安過不了」，AgentZ 把賣點壓在治理與可稽核性而非模型能力，被視為 Agent 落地從 PoC 走向生產環境的典型轉向。也有觀點認為，Agent 治理平台市場已擠滿雲端大廠的原生方案，獨立廠商需證明跨模型、跨雲的中立性才有立足空間。",
-      "url": "https://www.globenewswire.com/news-release/2026/08/27/3351759/0/en/accuknox-launches-agentz-to-help-enterprises-build-run-and-govern-ai-agents-at-scale.html"
+      "discussion": "社群普遍將 MHS 類比為「MCP 的實體世界版本」，認為這是 agent 從螢幕操作走向物理操作的關鍵標準化嘗試。同時也出現明顯的安全疑慮：一旦 prompt injection 能影響控制實體機具的 agent，風險等級會從資料外洩升級為人身與設備損害，因此硬體端護欄是否足夠成為爭論焦點。",
+      "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"
     },
     {
-      "title": "Salesforce and Anthropic Announce Claudeforce",
-      "title_zh": "Salesforce 與 Anthropic 宣布推出 Claudeforce",
-      "source": "Salesforce Newsroom",
-      "date": "2026-08-26",
-      "topic": "AI Agent 生態系 / 企業 CRM 與 Agent 整合",
-      "summary": "Salesforce 與 Anthropic 於 8 月 26 日宣布合作推出 Claudeforce，核心是一個名為「Salesforce in Claude」的外掛，讓使用者直接在 Claude Cowork 介面中操作 Salesforce CRM。首波隨附 37 項預建的銷售技能（skills），涵蓋會議前準備、交易健康度檢視、pipeline 分析等日常業務動作，使用者不需切回 Salesforce 應用即可完成整段工作流。目前先開放給部分試點客戶，9 月進入公開 beta，第三季再擴增更多業務職能的技能。值得注意的是，這是 Salesforce 首次把自家的「force」後綴命名冠到別家公司的產品上，象徵其把 Agent 介面視為新的入口而非附屬功能。消息在 Salesforce 2027 財年第二季法說會上同步公布，CRM 股價於盤後上漲；執行長 Marc Benioff 形容這是「a dynamic interface that thinks, reasons, and acts」，應用與行銷總裁 Patrick Stokes 則強調 agentic 介面反而提升 Salesforce 資料層的價值。",
+      "title": "Salesforce just put its entire CRM inside Claude — and says you'll never need its app again",
+      "title_zh": "Salesforce 把整套 CRM 搬進 Claude，並稱使用者將不再需要開啟其應用程式",
+      "source": "VentureBeat",
+      "date": "2026-08-27",
+      "topic": "AI Agent / Agent Ecosystem",
+      "summary": "Salesforce 推出「Salesforce in Claude」，這是一個給 Anthropic Claude Cowork 使用的 plugin，內建 37 項預先建置的銷售 skills，涵蓋會議準備、交易健康度檢視與 pipeline 分析等情境。業務人員可以直接在 Claude 內查詢、更新並對即時 CRM 資料採取行動，完全不需開啟 Salesforce 本身。此 plugin 的設計重點在於由管理員一次性連接，認證與權限集中管理，避免每位使用者各自去接 MCP server 的工程負擔。目前僅開放給少數 pilot 客戶，9 月進入公開 beta，其他業務職能的 skills 將於第三季陸續上線。這是 Salesforce 與 Anthropic 擴大合作案「Claudeforce」的一環。",
       "highlights": [
-        "「Salesforce in Claude」外掛讓 Claude Cowork 直接成為 CRM 操作介面，首波內建 37 項銷售技能",
-        "技能涵蓋會議前準備、交易健康度檢視、pipeline 分析等業務動作，9 月公開 beta、Q3 擴增更多職能",
-        "Salesforce 首次將自家 force 命名慣例套用到外部公司產品，顯示對 Agent 入口的戰略定位",
-        "於 FY27 Q2 法說會同步發布，CRM 股價盤後上漲",
-        "策略意涵：SaaS 廠商把 UI 讓給 Agent，改以資料與權限層留住價值"
+        "37 項預建 sales skills 直接在 Claude Cowork 內操作即時 CRM 資料，屬於典型的 agent skill 封裝模式",
+        "管理員一次性連接、權限集中治理，解決了逐一使用者配置 MCP server 的部署痛點",
+        "目前限定 pilot 客戶，9 月公開 beta，其他職能 skills 第三季陸續推出",
+        "策略意涵：SaaS 廠商從「使用者進我的 App」轉為「我的能力進 AI agent」，介面主導權轉移"
       ],
-      "discussion": "外界最大的爭論點在於「SaaS 廠商主動把使用者介面交給 LLM 是自我強化還是自我掏空」——支持者認為資料與權限模型才是護城河，介面本來就會被 Agent 取代；質疑者則指出一旦互動入口移到 Claude，Salesforce 對客戶關係與價格權的掌握都會被稀釋。對 Anthropic 而言，這是 Claude Cowork 首度取得等級最高的企業軟體整合背書。",
-      "url": "https://www.salesforce.com/news/press-releases/2026/08/26/salesforce-and-anthropic-announce-claudeforce/"
+      "discussion": "業界討論集中在 SaaS 商業模式的結構性衝擊——若使用者不再開啟 Salesforce 介面，按席次計價的邏輯是否還成立。另一派看法認為這反而鞏固 Salesforce 的地位，因為資料、工作流與治理規則仍握在其手上，AI 只是新的前端。治理角度則關注集中式權限模型在跨系統代理行動時的稽核軌跡是否完整。",
+      "url": "https://venturebeat.com/orchestration/salesforce-just-put-its-entire-crm-inside-claude-and-says-youll-never-need-its-app-again"
     },
     {
-      "title": "AWS and NVIDIA to Deliver 2 Million Additional GPUs and Next-Generation Infrastructure for Agentic and Physical AI",
-      "title_zh": "AWS 與 NVIDIA 將再交付 200 萬顆 GPU 及次世代基礎設施，支援 agentic 與實體 AI",
-      "source": "GlobeNewswire / NVIDIA Newsroom",
-      "date": "2026-08-26",
-      "topic": "AI 基礎設施 / 技術大廠合作",
-      "summary": "AWS 與 NVIDIA 於 8 月 26 日宣布擴大合作，將在 2027 至 2028 年間額外部署 200 萬顆 GPU，涵蓋 Blackwell Ultra、Rubin 與 Rubin Ultra 世代，疊加在先前自 2026 年起逾 100 萬顆的承諾之上。合作範圍不只是採購量：NVIDIA Vera CPU 將導入 AWS，NVLink Fusion 會進入次世代 Trainium 晶片，雙方並與 Annapurna Labs 共同開發 NVHBM 客製化高頻寬記憶體。官方明確把這批算力指向 agentic AI 與 physical AI（機器人／自駕等實體場域）兩類負載，顯示兩家對下一階段需求結構的判斷已從單純訓練轉向長時間、高並發的 Agent 推論。此外，雙方將為美國政府建置 AI factory，其中包含在安全等級 AWS 基礎設施上部署的 10 萬顆 GPU。",
+      "title": "Amazon Kiro Prompt Injection Can Exfiltrate Sensitive Data Through Kiro Powers",
+      "title_zh": "Amazon Kiro 的 prompt injection 漏洞可透過 Kiro Powers 外洩敏感資料",
+      "source": "The Hacker News",
+      "date": "2026-08-27",
+      "topic": "Cybersecurity",
+      "summary": "資安研究團隊 Mindgard 揭露 Amazon 代理式 AI 開發環境 Kiro 的一項漏洞，攻擊者可藉由 prompt injection 搭配 Kiro Powers 機制，把本機敏感資料外傳到外部端點。Kiro Powers 打包了 MCP server 設定、steering 檔案（POWER.md）、hooks 與情境知識，其中 steering 檔案扮演 agent 的「上手手冊」，告訴 agent 有哪些 MCP 工具可用、何時該用。此漏洞的關鍵在於使用者完全不需輸入惡意 prompt，也不必主動引用受污染的內容——只要開啟含惡意 workspace 檔案的專案，隨便送出一則訊息就足以觸發外洩流程。研究團隊評估其利用難度為「低」。該漏洞未取得 CVE 編號，驗證版本為 Windows 上的 Kiro IDE 0.7.45，最新版本為 1.0.337。",
       "highlights": [
-        "2027–2028 年再部署 200 萬顆 GPU，涵蓋 Blackwell Ultra、Rubin、Rubin Ultra 三代架構",
-        "疊加於先前自 2026 年起逾 100 萬顆 GPU 的既有承諾之上",
-        "NVIDIA Vera CPU 導入 AWS；NVLink Fusion 進入次世代 Trainium；與 Annapurna Labs 共同開發 NVHBM 客製記憶體",
-        "算力用途明確指向 agentic AI 與 physical AI 兩類負載",
-        "為美國政府建置 AI factory，含安全 AWS 基礎設施上的 10 萬顆 GPU"
+        "攻擊不需要使用者輸入惡意 prompt，只要開啟被污染的 workspace 檔案並發送任一訊息即可觸發",
+        "攻擊面來自 Kiro Powers 的 steering 檔案（POWER.md）與 MCP server 設定，屬於 agent 情境層供應鏈污染",
+        "利用難度評估為「低」，且未取得 CVE 編號",
+        "驗證版本 Kiro IDE 0.7.45（Windows），最新版本已推進到 1.0.337"
       ],
-      "discussion": "產業討論集中在「NVLink Fusion 進 Trainium」這一點——這代表 AWS 自研晶片與 NVIDIA 互連生態不再是純競爭關係，而是互補；部分分析認為這反而鞏固 NVIDIA 的互連標準地位。另一條討論線是政府 AI factory 的 10 萬顆 GPU 規模，被視為美國公部門算力採購正式進入超大規模階段。",
-      "url": "https://www.globenewswire.com/news-release/2026/08/26/3351716/0/en/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai.html"
+      "discussion": "資安圈把此案視為「agent 情境即攻擊面」的教科書案例：只要 agent 會讀取專案內的設定與說明檔，這些檔案就等同可執行的指令來源。開發社群則討論 AI IDE 是否應預設隔離 repository 內的 steering／設定檔，並對 MCP 工具呼叫實施出站白名單控管。",
+      "url": "https://thehackernews.com/2026/08/amazon-kiro-prompt-injection-can.html"
     },
     {
-      "title": "Nvidia earnings takeaways: Huang forecasts 70% fiscal 2028 revenue growth, far above estimates",
-      "title_zh": "NVIDIA 財報重點：黃仁勳預估 2028 財年營收成長 70%，遠高於市場預期",
+      "title": "Nvidia agrees to buy Hugging Face for $12.9 billion, report says",
+      "title_zh": "報導指 Nvidia 同意以 129 億美元收購 Hugging Face",
       "source": "CNBC",
-      "date": "2026-08-26",
-      "topic": "AI 產業 / 財報與算力需求",
-      "summary": "NVIDIA 於 8 月 26 日美股盤後公布 2027 財年第二季（截至 7 月 26 日）財報，營收 96.2 億美元等級之上的 962 億美元，季增 18%、年增 106%，每股盈餘 2.22 美元、年增逾一倍。資料中心營收 890 億美元、年增 117%，超出 StreetAccount 預估的 863.3 億美元，主要由 Blackwell Ultra 在超大規模客戶端的加速部署推動，該區塊營收年增超過一倍。毛利率連續第二季維持在 75%，但公司預告受記憶體價格上漲影響，FY27 第四季將下探至 71–72% 觸底。供應承諾自 1,190 億美元大幅拉升至 2,790 億美元，主要綁定 Vera Rubin 平台所需的記憶體採購，而 Vera Rubin 已在 Google Cloud、Microsoft Azure、Oracle Cloud Infrastructure 等超大規模客戶端進入全面量產。本季並執行 260 億美元的庫藏股與股利，公司對當季營收指引為 1,080 億美元（±2%），高於分析師預期的 1,042 億美元；黃仁勳更預估 2028 財年營收成長約 70%。",
+      "date": "2026-08-27",
+      "topic": "M&A",
+      "summary": "根據報導，Nvidia 已同意以約 129 億美元收購 Hugging Face。Hugging Face 成立於 2016 年，是開發者分享與下載開源 AI 模型最主要的樞紐，被形容為開源模型界的 GitHub。雙方近幾週進行了實質談判，但據指出協議尚未正式簽署，交易仍有破局可能。此交易被解讀為 Nvidia 一方面保護其晶片版圖，另一方面重新切入雲端業務的雙重佈局。若成交，Nvidia 將同時掌握 AI 運算硬體與開源模型分發管道兩端。",
       "highlights": [
-        "FY27 Q2 營收 962 億美元（季增 18%、年增 106%），EPS 2.22 美元、年增逾一倍",
-        "資料中心營收 890 億美元、年增 117%，優於預估的 863.3 億美元",
-        "毛利率連兩季 75%，但預告 FY27 Q4 因記憶體成本觸底至 71–72%",
-        "供應承諾由 1,190 億美元升至 2,790 億美元，主要為 Vera Rubin 平台的記憶體採購",
-        "當季營收指引 1,080 億美元（±2%），黃仁勳預估 FY2028 營收成長約 70%"
+        "交易金額約 129 億美元，若完成將是開源 AI 基礎設施史上最大宗併購之一",
+        "Hugging Face 為開源模型分發的核心樞紐，等同 Nvidia 取得模型生態系的流量入口",
+        "報導指協議尚未正式簽署，仍存在破局風險，屬於「已同意但未定案」階段",
+        "戰略動機被解讀為鞏固晶片護城河並重返雲端業務"
       ],
-      "discussion": "市場討論的焦點不在營收超標，而在兩個訊號：一是供應承諾暴增至 2,790 億美元被解讀為 NVIDIA 對 2027–2028 需求的高信心押注，二是記憶體價格壓縮毛利率至 71–72%，顯示 HBM 供應鏈已成為整條 AI 算力鏈的新瓶頸。黃仁勳的 70% 成長預估遠高於賣方模型，多空對「這是能見度還是樂觀」的分歧相當明顯。",
-      "url": "https://www.cnbc.com/2026/08/26/nvidia-nvda-earnings-report-q2-2027-live-updates.html"
+      "discussion": "Hacker News 與開源社群反應兩極：擔憂方認為中立的模型託管平台落入單一晶片廠商手中，長期可能損害開源生態的中立性與跨硬體相容性；支持方則認為 Nvidia 有足夠資源維持平台營運。競爭政策角度亦有人質疑此案可能引發反壟斷審查。",
+      "url": "https://www.cnbc.com/2026/08/27/nvidia-hugging-face-acquisition.html"
     },
     {
-      "title": "Startup Funding News Today: August 26, 2026 – Emerald AI, Gatik, Stellaria & more",
-      "title_zh": "今日新創募資快訊：2026 年 8 月 26 日 — Emerald AI、Gatik、Stellaria 等",
-      "source": "TechStartups",
-      "date": "2026-08-26",
-      "topic": "美國 AI 產業 / 募資動態",
-      "summary": "8 月 26 日的美國 AI 相關募資出現數筆規模顯著的案子，主軸集中在 AI 算力的能源瓶頸與自駕物流兩條線。Emerald AI 完成 1.5 億美元 A 輪超額募資，投後估值 10.5 億美元，由 Energize Capital 與 DCVC 共同領投，累計募資超過 2.2 億美元；該公司的軟體讓資料中心依電網需求彈性調整用電，尖峰削減、離峰吃下閒置容量，並估計此類彈性負載技術可釋放美國既有電網逾 100 GW 的未使用容量。自駕貨運業者 Gatik 拿下 2 億美元 D 輪，投資方包含 QIA、Koch Disruptive Technologies、Millennium Management 與 ARK Invest。此外遊戲引擎技術公司 W4 Games 完成 1,800 萬美元 B 輪（Tencent、OSS Capital、LUX 參與），核融合新創 Stellaria 取得約 2,500 萬歐元（約 680 萬美元）種子輪。整體來看，資金明顯往「支撐 AI 的實體基礎設施」傾斜，而非模型層本身。",
+      "title": "AWS Adds 2 Million More NVIDIA GPUs: Prior 1 Million Commitment Ran Out Early",
+      "title_zh": "AWS 再加碼 200 萬顆 NVIDIA GPU：前一批 100 萬顆承諾提前用罄",
+      "source": "TechTimes",
+      "date": "2026-08-27",
+      "topic": "AI Infrastructure",
+      "summary": "AWS 與 NVIDIA 宣布大幅擴大基礎設施合作，計畫在 2027 至 2028 年間於 AWS 全球機房再部署 200 萬顆 NVIDIA GPU，涵蓋 Blackwell Ultra、Rubin 與 Rubin Ultra 平台。此次加碼的直接原因是先前在 NVIDIA GTC 2026 宣布的「2026 年起新增超過 100 萬顆 GPU」承諾，因需求超出預期而提前用罄。加上本次追加，NVIDIA 今年在 AWS 全球基礎設施上導入的 GPU 總量將超過 300 萬顆。合作範圍同時延伸到 AI factory、CPU、網路、開源模型、資料處理與機器人；雙方另將為美國政府建置 AI factory，包含在安全的 AWS 基礎設施上部署 10 萬顆 GPU。NVIDIA Vera CPU 亦將登陸 AWS，作為代理式 AI（agentic AI）的額外運算選項。",
       "highlights": [
-        "Emerald AI 完成 1.5 億美元 A 輪，估值 10.5 億美元，Energize Capital 與 DCVC 共同領投",
-        "Emerald AI 主打資料中心彈性用電，估計可釋放美國電網逾 100 GW 閒置容量",
-        "自駕貨運 Gatik 取得 2 億美元 D 輪，QIA、Koch、Millennium、ARK Invest 參與",
-        "W4 Games 完成 1,800 萬美元 B 輪；核融合新創 Stellaria 取得約 2,500 萬歐元種子輪",
-        "資金流向反映主題已從模型層轉向 AI 的能源與實體基礎設施瓶頸"
+        "2027–2028 年再部署 200 萬顆 GPU，今年在 AWS 導入總量將突破 300 萬顆",
+        "涵蓋 Blackwell Ultra、Rubin、Rubin Ultra 三代平台，形成跨世代滾動部署",
+        "前一批 100 萬顆承諾因需求超標提前用罄，是需求強度的具體佐證",
+        "為美國政府建置 AI factory，含安全環境內的 10 萬顆 GPU",
+        "NVIDIA Vera CPU 進駐 AWS，明確定位為 agentic AI 的運算選項"
       ],
-      "discussion": "創投圈普遍把 Emerald AI 這類「電網彈性負載」標的視為 2026 下半年最擁擠的賽道之一——理由是算力擴張的限制條件已從晶片供應轉為電力併網速度。也有質疑聲音認為，這類軟體的價值高度依賴各州公用事業的需量反應費率設計，跨區複製難度被低估。",
-      "url": "https://techstartups.com/2026/08/26/startup-funding-news-today-august-26-2026-emerald-ai-gatik-stellaria-more/"
+      "discussion": "市場面關注點在於這是否進一步強化 NVIDIA 對 AI 運算供應鏈的定價權，以及 AWS 自研 Trainium 與外購 GPU 的長期配比。政府 AI factory 部分則引發對主權運算（sovereign compute）與安全分區架構的討論。",
+      "url": "https://www.techtimes.com/articles/325711/20260827/aws-adds-2-million-more-nvidia-gpus-prior-1-million-commitment-ran-out-early.htm"
     },
     {
-      "title": "The 3 reasons this year's AI-centric TechCrunch Disrupt is a must for founders",
-      "title_zh": "今年以 AI 為主軸的 TechCrunch Disrupt 值得創辦人參加的三個理由",
-      "source": "TechCrunch",
-      "date": "2026-08-26",
-      "topic": "美國 AI 產業 / 產業活動",
-      "summary": "TechCrunch 於 8 月 26 日刊出 2026 年 Disrupt 大會的預告，明確表示今年議程將以 AI 為核心主軸，時間為 10 月 13 至 15 日，地點在舊金山市中心 Moscone West。文章列出三項對創辦人的價值主張，包括 AI 領域的議程密度、投資人與創辦人的實體媒合機會，以及早期新創的曝光管道。從產業角度看，這反映美國科技活動的議程結構已幾乎完全由 AI 主題吸收，非 AI 賽道的能見度持續被壓縮。對於觀察美國 AI 創業風向的讀者而言，這份預告可作為下半年主題設定的前瞻指標。",
+      "title": "Salesforce Launches Claudeforce, Posts Four-Year Revenue High as AI Threat Thesis Collapses",
+      "title_zh": "Salesforce 推出 Claudeforce，營收創四年新高，「AI 威脅論」論述瓦解",
+      "source": "TechTimes",
+      "date": "2026-08-27",
+      "topic": "Enterprise AI",
+      "summary": "Salesforce 宣布與 Anthropic 擴大合作推出 Claudeforce，讓 Claude 成為 Agentforce 與 Slackbot 的預設推理模型。Claude 將驅動 Agentforce 背後的 Atlas Reasoning Engine，並預設支撐 Agentforce Vibes 與 Agentforce Coworker，同時開放在 Agent Builder 中使用。串接這一切的基礎建設稱為 AIforce，是 Salesforce 的企業級 harness，透過 MCP server、API 與 CLI 工具，把企業資料、工作流、治理規則與權限暴露給 AI agent 使用。透過 Amazon Bedrock，Claude 可在 Salesforce Trust Boundary 內執行，讓受監理產業客戶得以在資料與 AI 工作負載不外流的前提下部署領域專用 AI。此消息與 Salesforce 創四年新高的季度營收同時公布。",
       "highlights": [
-        "2026 年 TechCrunch Disrupt 訂於 10 月 13–15 日於舊金山 Moscone West 舉行",
-        "今年議程以 AI 為核心主軸，反映美國科技活動議程被 AI 主題全面吸收",
-        "主打面向為 AI 議程密度、投資人媒合、早期新創曝光",
-        "可作為觀察美國下半年 AI 創業主題設定的前瞻指標"
+        "Claude 成為 Agentforce 的 Atlas Reasoning Engine 預設推理模型，並預設驅動 Agentforce Vibes 與 Coworker",
+        "AIforce 作為企業 harness，以 MCP server／API／CLI 將資料、工作流、治理規則與權限開放給 agent",
+        "透過 Amazon Bedrock 在 Salesforce Trust Boundary 內執行，直接對應受監理產業的資料落地需求",
+        "季度營收創四年新高，反駁「AI 將侵蝕 SaaS」的空頭論述"
       ],
-      "discussion": "社群反應多屬中性，較常見的評論是「Disrupt 全面 AI 化」本身就是產業集中度的證據；也有創辦人指出，在 AI 主題過度飽和的情況下，非 AI 新創在這類大會的募資效益正快速下降。",
-      "url": "https://techcrunch.com/2026/08/26/the-3-reasons-this-years-ai-centric-techcrunch-disrupt-is-a-must-for-founders/"
+      "discussion": "金融與受監理產業關注的是 Trust Boundary 內執行模式能否滿足資料主權與稽核要求。分析師社群則辯論：把核心推理外包給單一模型供應商，是否讓 Salesforce 在議價與技術路線上產生新的集中風險。",
+      "url": "https://www.techtimes.com/articles/325751/20260827/salesforce-launches-claudeforce-posts-four-year-revenue-high-ai-threat-thesis-collapses.htm"
+    },
+    {
+      "title": "Expanding our support for scientists",
+      "title_zh": "Anthropic 擴大對科學研究社群的支援",
+      "source": "Anthropic",
+      "date": "2026-08-27",
+      "topic": "Enterprise / Research",
+      "summary": "Anthropic 宣布開放 10,000 個席次給全球科學研究人員，透過新推出的「Claude team plan for scientists」提供為期一年的免費或折扣訂閱。標準席次免費，進階席次每月 15 美元並享有 5 倍用量上限。Anthropic 指出，隨著 Claude 在科學研究任務上的能力持續提升，公司正把重心放在打造支援研究社群的產品與計畫。此舉延續今年 6 月推出的 Claude Science，該產品整合研究人員最常用的工具、產出可稽核的成果物（auditable artifacts），並提供彈性的運算資源存取。Anthropic 表示未來數月將把此計畫擴展到遠超過最初的 10,000 席。",
+      "highlights": [
+        "10,000 個科研席次，標準版免費、進階版每月 15 美元並提供 5 倍用量上限，為期一年",
+        "延續 6 月推出的 Claude Science，強調可稽核成果物與彈性運算資源",
+        "Anthropic 明言未來數月將擴大席次規模",
+        "與同日發布的 Model Hardware Standard 形成「軟體研究助理 + 實體儀器控制」的科研佈局組合"
+      ],
+      "discussion": "研究社群多數正面看待成本門檻降低，但也有學者關切研究資料的保密性與可重現性，以及依賴商業模型進行科學推理時的結果可稽核性問題。",
+      "url": "https://www.anthropic.com/news/expanding-support-for-scientists"
+    },
+    {
+      "title": "Startup Funding News Today, August 27, 2026: Instinct, Breedr, Agentrys & More",
+      "title_zh": "2026 年 8 月 27 日新創募資快訊：Instinct、Breedr、Agentrys 等",
+      "source": "Tech Startups",
+      "date": "2026-08-27",
+      "topic": "Funding",
+      "summary": "當日多筆與 AI agent 相關的募資案公布。消費級 AI 公司 Instinct 完成 2.5 億美元 B 輪募資，由 Index Ventures 與 Benchmark 領投，累計募資達 3.5 億美元、估值 25 億美元；該公司打造的 AI agent 可跨既有服務執行任務，目前仍處私有 beta 階段，並因需要取得廣泛權限而引發隱私疑慮。專注半導體工程領域 AI agent 的 Agentrys 則累計完成 2,450 萬美元的 pre-seed 與 seed 募資，其中 1,910 萬美元 seed 輪由 Etna Capital 領投。此外農業科技公司 Breedr 完成 2,700 萬美元 B 輪，由 Partech 影響力基金領投，Latitude、LocalGlobe 成長基金與 Outsiders Fund 參與。",
+      "highlights": [
+        "Instinct 募資 2.5 億美元、估值 25 億美元，主打跨服務執行任務的消費級 AI agent",
+        "Instinct 的 agent 需取得廣泛服務權限，已引發隱私與授權範圍爭議",
+        "Agentrys 累計募資 2,450 萬美元，聚焦半導體工程領域的垂直 agent",
+        "Breedr 完成 2,700 萬美元 B 輪，由 Partech 影響力基金領投"
+      ],
+      "discussion": "投資圈討論集中在垂直領域 agent（如 Agentrys 的半導體工程）與水平消費級 agent（如 Instinct）兩條路線的護城河差異。隱私社群則對 Instinct 要求的廣泛服務授權提出質疑，認為代理式 AI 的權限最小化原則尚未在消費端建立規範。",
+      "url": "https://techstartups.com/2026/08/27/startup-funding-news-today-august-27-2026-instinct-breedr-agentrys-more/"
+    },
+    {
+      "title": "Top Tech News Today, August 27, 2026: Amazon, Apple, Google, Meta, Nvidia, OpenAI, Salesforce & More",
+      "title_zh": "2026 年 8 月 27 日科技要聞：Amazon、Apple、Google、Meta、Nvidia、OpenAI、Salesforce 等",
+      "source": "Tech Startups",
+      "date": "2026-08-27",
+      "topic": "Industry Roundup",
+      "summary": "當日美國科技與 AI 產業要聞彙整，涵蓋 Amazon、Apple、Google、Meta、Nvidia、OpenAI 與 Salesforce 等主要廠商動態。重點包括 Nvidia 同意以近 130 億美元收購開源模型樞紐 Hugging Face、Nvidia 表示在 AI 基礎設施需求持續攀升下營收可望成長 70%，以及 AWS 與 Nvidia 大幅擴大基礎設施合作，計畫於 2027 至 2028 年在 AWS 全球機房額外部署 200 萬顆 GPU，涵蓋 Blackwell Ultra、Rubin 與 Rubin Ultra 系統。該彙整同時收錄 Salesforce 與 Anthropic 的合作進展等企業級 AI 動態。",
+      "highlights": [
+        "Nvidia 以近 130 億美元收購 Hugging Face，並預期營收成長 70%",
+        "AWS 與 Nvidia 擴大合作，2027–2028 年追加部署 200 萬顆 GPU",
+        "涵蓋 Amazon、Apple、Google、Meta、OpenAI、Salesforce 等主要廠商當日動態",
+        "屬於當日產業全景彙整，可作為單一事件深度報導的交叉查證起點"
+      ],
+      "discussion": "當日市場情緒明顯受 Nvidia 財測帶動，科技股走強；社群討論則圍繞「晶片廠併購模型平台」是否代表 AI 產業垂直整合進入新階段。",
+      "url": "https://techstartups.com/2026/08/27/top-tech-news-today-august-27-2026-amazon-apple-google-meta-nvidia-openai-salesforce-more/"
     }
   ],
-  "_updated_at": "2026-08-27T18:17:30.019083+08:00"
+  "_updated_at": "2026-08-28T18:14:07.121310+08:00"
 }

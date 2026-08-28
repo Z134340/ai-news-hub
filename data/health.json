@@ -1,14 +1,14 @@
 {
-  "last_run": "2026-08-27T18:28:02.655020+08:00",
-  "last_success": "2026-08-27T18:28:02.655020+08:00",
-  "last_date": "2026-08-27",
+  "last_run": "2026-08-28T18:26:56.321475+08:00",
+  "last_success": "2026-08-28T18:26:56.321475+08:00",
+  "last_date": "2026-08-28",
   "source": "local",
-  "status": "missed",
+  "status": "ok",
   "categories_ok": 7,
   "categories_failed": 0,
-  "validation_pass_rate": 97,
-  "consecutive_failures": 1,
-  "last_missed": "2026-08-28",
+  "validation_pass_rate": 96,
+  "consecutive_failures": 0,
+  "last_missed": null,
   "errors": [],
   "agent": {
     "overall": "ok",
@@ -16,12 +16,11 @@
     "advisory": true,
     "production_write": false,
     "publish": "manual_only",
-    "finished_at": "2026-08-27T18:28:02.569268+08:00",
-    "duration_sec": 558,
+    "finished_at": "2026-08-28T18:26:56.255722+08:00",
+    "duration_sec": 555,
     "counts": {
       "ok": 10
     },
     "failed_steps": []
-  },
-  "note": "本機排程未執行，等待電腦上線後自動補跑"
+  }
 }
