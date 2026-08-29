@@ -1,0 +1,59 @@
+{
+  "schema": "hermes-project-optimization-profile/v1",
+  "project_id": "briefwriter",
+  "root": "/Users/zyc/ai-news-hub/agents/brief-writer",
+  "runtime_identity": {
+    "source": "git_head",
+    "required_fields": ["git_sha", "worktree_digest"]
+  },
+  "managed_targets": {
+    "allowlist": ["README.md", "docs/**/*.md", ".hermes/skills/*/metadata.json"],
+    "forbidden": [
+      ".git/**",
+      ".env*",
+      "**/credentials/**",
+      "**/secrets/**",
+      "AGENTS.md",
+      "*RUBRIC*.md",
+      "hermes.project.yaml",
+      "skills/**",
+      "memory/**",
+      "golden/**"
+    ]
+  },
+  "tests": [
+    {"id": "brief-selftest", "argv": ["python3", "../../scripts/newshub_brief.py", "--selftest"]},
+    {"id": "brief-golden-offline", "argv": ["python3", "../../scripts/brief_golden.py", "--offline"]},
+    {"id": "brief-golden-selftest", "argv": ["python3", "../../scripts/brief_golden_selftest.py"]},
+    {"id": "brief-input-selftest", "argv": ["node", "../../scripts/agent/build-brief-input.mjs", "--self-test"]},
+    {"id": "diff-check", "argv": ["git", "diff", "--check"]}
+  ],
+  "success_metrics": [
+    "brief boundary, offline golden, mutation, and input tests pass",
+    "candidate introduces no Git whitespace errors",
+    "charter, rubric, skill instructions, memory, and golden fixtures remain unchanged"
+  ],
+  "canary": {
+    "strategy": "isolated_worktree",
+    "requires_isolated_git_worktree": true
+  },
+  "rollback": {
+    "strategy": "content_addressed_preimage",
+    "exact_previous_revision": true
+  },
+  "data_sensitivity": "internal",
+  "owner": {
+    "id": "ZY",
+    "iris_owner_gate_for_manual_items": true
+  },
+  "manual_only": true,
+  "execution": {
+    "allowed_models": ["gpt-5.5", "claude-opus-5"],
+    "allowed_tools": ["filesystem_read", "git_read", "local_test"],
+    "max_parallelism": 1
+  },
+  "automation": {
+    "mode": "shadow_only",
+    "allowed_change_types": ["documentation", "skill_metadata"]
+  }
+}
