@@ -12,7 +12,12 @@
         "成長主因為企業需保護 AI 系統本身、修補新型漏洞並對抗進階威脅",
         "攻擊面集中在身分／權限治理與輸入通道，意味 Agent 控制設計應優先處理這兩項"
       ],
-      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-26-gartner-forecasts-the-market-for-securing-ai-will-reach-almost-5-billion-in-2027"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-26-gartner-forecasts-the-market-for-securing-ai-will-reach-almost-5-billion-in-2027",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-08-29T18:18:56.622884",
+      "complete": true
     },
     {
       "title": "Gartner Forecasts Worldwide Semiconductor Revenue to Reach $1.6 Trillion in 2026",
@@ -26,22 +31,12 @@
         "半導體產業投資結構正由 AI 基礎建設需求重新定義",
         "算力成本與供應鏈風險將長期受 AI 資料中心投資週期牽動"
       ],
-      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-24-gartner-forecasts-worldwide-semiconductor-revenue-to-reach-1-trillion-dollars-in-2026"
-    },
-    {
-      "title": "The State of AI: Global Survey 2026",
-      "source": "McKinsey & Company (QuantumBlack)",
-      "date": "2026-08-24",
-      "category": "企業AI導入",
-      "summary": "⚠️待確認（發布日期為搜尋結果推估，約 8/24-8/25）。McKinsey 最新一期全球 AI 現況調查顯示，AI 使用面持續擴大但價值兌現仍卡關：88% 的組織表示已在例行工作中使用 AI，但多數仍停留在實驗或試點階段，僅約三分之一表示已開始規模化。Agent 部署明顯加速，年營收超過 10 億美元的大型企業中有 40% 正在規模化 AI Agent，高於去年的 27%；整體有 62% 的受訪者表示組織至少已在試用 AI Agent。然而財務效益仍未同步放大——約 37% 的受訪者認為 AI 對 EBIT 有一定貢獻，與 2025 年幾乎持平。McKinsey 同時指出，進入 Agent 時代後，組織必須面對系統「做錯事」的新型風險，例如採取非預期行動、誤用工具或逾越護欄運作。",
-      "highlights": [
-        "88% 組織已例行使用 AI，但僅約三分之一開始規模化",
-        "年營收逾 10 億美元企業中，40% 正在規模化 AI Agent（去年 27%）",
-        "62% 受訪者表示組織至少已在試驗 AI Agent",
-        "約 37% 表示 AI 對 EBIT 有貢獻，與 2025 年持平——投入增加但財務效益未同步放大",
-        "Agent 時代新風險：非預期行動、工具誤用、逾越護欄運作"
-      ],
-      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-24-gartner-forecasts-worldwide-semiconductor-revenue-to-reach-1-trillion-dollars-in-2026",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-08-29T18:18:56.622922",
+      "complete": true
     },
     {
       "title": "The Download: inside OpenAI's Hugging Face hack, and a new EV takes on the US",
@@ -56,7 +51,12 @@
         "OpenAI 承認 alignment 仍是難題，部分根因短期內無解",
         "訓練誘因設計缺陷可直接外溢成真實資安事故"
       ],
-      "url": "https://www.technologyreview.com/2026/08/27/1143033/the-download-openai-hugging-face-hack-slate-truck-ev"
+      "url": "https://www.technologyreview.com/2026/08/27/1143033/the-download-openai-hugging-face-hack-slate-truck-ev",
+      "url_status": "verified",
+      "title_score": 0.96,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.622994",
+      "complete": true
     },
     {
       "title": "AI models flub these intelligence tests. Can you fare any better?",
@@ -70,7 +70,12 @@
         "反映標準 benchmark 飽和後，評估方法轉向「人類易解、模型難解」的題型設計",
         "呼應企業端議題：模型通過評測不等於真實情境可靠"
       ],
-      "url": "https://www.technologyreview.com/2026/08/26/1141952/puzzles-ai-models-flub-these-tests/"
+      "url": "https://www.technologyreview.com/2026/08/26/1141952/puzzles-ai-models-flub-these-tests/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623031",
+      "complete": true
     },
     {
       "title": "The Download: kids outlearning AI, and space travel agents",
@@ -85,7 +90,12 @@
         "研究方向：逆向工程兒童學習方式，打造更高資料效率的模型架構",
         "同時可能解答語言本質與兒童心智發展的長年學術爭議"
       ],
-      "url": "https://www.technologyreview.com/2026/08/24/1142863/the-download-kids-outlearning-ai-space-travel-agents/"
+      "url": "https://www.technologyreview.com/2026/08/24/1142863/the-download-kids-outlearning-ai-space-travel-agents/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623068",
+      "complete": true
     },
     {
       "title": "Your brain on AI",
@@ -98,7 +108,12 @@
         "研究焦點在 AI 使用對人類認知與資訊攝取方式的影響",
         "顯示 AI 摘要作為單一情報來源時，偏誤與遺漏可能被放大"
       ],
-      "url": "https://www.technologyreview.com/2026/08/25/1140958/your-brain-on-ai/"
+      "url": "https://www.technologyreview.com/2026/08/25/1140958/your-brain-on-ai/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623166",
+      "complete": true
     },
     {
       "title": "Arga Labs is building a better way to train enterprise AI agents",
@@ -113,7 +128,12 @@
         "新創切入點為「部署前針對企業複雜度測試與訓練 Agent」",
         "Agent 評測與訓練正形成獨立的產品與投資類別"
       ],
-      "url": "https://techcrunch.com/2026/08/26/arga-is-building-a-better-way-to-train-enterprise-ai-agents/"
+      "url": "https://techcrunch.com/2026/08/26/arga-is-building-a-better-way-to-train-enterprise-ai-agents/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623205",
+      "complete": true
     },
     {
       "title": "Open-weight AI companies are the Valley's hottest acquisition targets",
@@ -128,7 +148,12 @@
         "開源生態的治理主體正快速集中到少數大廠",
         "企業「用開源避免供應商鎖定」的假設需要重新評估"
       ],
-      "url": "https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/"
+      "url": "https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/",
+      "url_status": "verified",
+      "title_score": 0.95,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623268",
+      "complete": true
     },
     {
       "title": "OpenAI, Anthropic, Google, and 100 other companies call for action to defend against rogue AI",
@@ -143,7 +168,12 @@
         "顯示「rogue AI」已從研究議題轉為跨產業營運風險",
         "屬產業自律先行、監理可能跟進的典型訊號"
       ],
-      "url": "https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/"
+      "url": "https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623306",
+      "complete": true
     },
     {
       "title": "An Anthropic researcher just gave us a peek at self-improving AI",
@@ -158,8 +188,182 @@
         "若成立，對齊工作產能可隨算力擴張而非受限於人力",
         "同時帶出「誰驗證驗證者」的治理設計難題"
       ],
-      "url": "https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/"
+      "url": "https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623341",
+      "complete": true
+    },
+    {
+      "title": "McKinsey says enterprise AI is finally 'on the road to ROI'",
+      "source": "The Register",
+      "date": "2026-08-25",
+      "category": "企業AI",
+      "summary": "The Register 報導 McKinsey《State of AI in 2026》調查結果，指出企業雖持續加碼部署 AI，但實際反映在財報上的效益幾乎沒有進展。調查中有 37% 的受訪者表示 AI 對 EBIT（稅前息前利潤）有某種程度貢獻，與 2025 年調查的比例幾乎相同，顯示規模化與獲利之間仍存在斷層。個人層級的效益則明顯得多：80% 有在工作中使用 AI 的受訪者認為個人生產力有所提升。就業預期方面，39% 的受訪者預期雇主未來一年會因 AI 裁員（2025 年為 32%），但仍有 43% 認為總體人力不會有明顯變化。另有 20% 表示 AI 相關營運成本已經構成使用上的限制，呼應了推論成本上升的產業擔憂。",
+      "highlights": [
+        "37% 受訪者認為 AI 對 EBIT 有貢獻，與 2025 年調查持平",
+        "80% 使用 AI 的工作者回報個人生產力提升，但組織層級效益未同步顯現",
+        "39% 預期雇主一年內因 AI 裁員（去年 32%），43% 認為人力總量不變",
+        "20% 表示 AI 營運成本已限制其使用規模"
+      ],
+      "url": "https://www.theregister.com/ai-and-ml/2026/08/25/mckinsey-says-enterprise-ai-is-finally-on-the-road-to-roi/5292388",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623381",
+      "complete": true
+    },
+    {
+      "title": "Bill Gates says we've passed AI's danger thresholds. Now what?",
+      "source": "MIT Technology Review",
+      "date": "2026-08-26",
+      "category": "AI治理",
+      "summary": "MIT Technology Review 專訪 Bill Gates，他在訪談中表示 AI 已經跨越了先前被視為危險的能力門檻，並對制定 AI 政策的急迫性提出警示。這篇訪談的核心不在於單一技術突破，而在於治理節奏落後於能力演進的結構性問題。Gates 的立場代表產業重量級人物從樂觀敘事轉向風險敘事的轉折點。對照同期 Gartner 對 AI Agent 攻擊面的預測，能力門檻與控制門檻之間的落差正在擴大。",
+      "highlights": [
+        "Bill Gates 認為 AI 已跨越先前被界定的危險能力門檻",
+        "強調 AI 政策制定的急迫性，治理速度落後能力演進",
+        "反映產業領袖敘事從能力樂觀轉向風險管理"
+      ],
+      "url": "https://www.technologyreview.com/2026/08/26/1142946/bill-gates-ai-danger-threshold/",
+      "url_status": "verified",
+      "title_score": 0.97,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623419",
+      "complete": true
+    },
+    {
+      "title": "OpenAI is building AI agents for everything. Will everyone use them?",
+      "source": "TechCrunch",
+      "date": "2026-08-24",
+      "category": "Agent應用",
+      "summary": "TechCrunch 深度報導 OpenAI 桌面應用（desktop app）的 Agent 化方向：該應用已可存取並操控使用者的收件匣、Slack 帳號、手機，以及 Notion、Figma 等應用程式。負責該桌面應用的主任工程師 Andrew Ambrosino 以自身數位生活作為測試場景，將控制權大幅交給模型。文章探討的核心問題不是技術可行性，而是使用者是否願意接受讓 LLM 取得如此廣泛的權限。伴隨而來的隱私與資安疑慮，正是企業導入個人端 Agent 時最直接的阻力。",
+      "highlights": [
+        "OpenAI 桌面應用可存取並操控 email、Slack、手機及 Notion、Figma 等應用",
+        "主任工程師 Andrew Ambrosino 以自身數位生活作為 Agent 全面接管的實測",
+        "核心爭點從技術能力轉向使用者接受度與權限授予意願",
+        "廣泛存取權帶來的隱私與資安風險為主要採用障礙"
+      ],
+      "url": "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623456",
+      "complete": true
+    },
+    {
+      "title": "Google's Gemini has a branding problem, and so does the rest of AI",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "category": "AI趨勢",
+      "summary": "TechCrunch 分析 Google 將 Gemini 每項 AI 功能都各自賦予獨立品牌所造成的認知負擔：使用者需要在 chat、Spark、Daily Brief 三個各自擁有圖示與導覽入口的功能之間切換。文章指出這不只是 Google 的問題，而是整個 AI 產業共通的命名與產品定位混亂。當功能切分過細且命名缺乏一致邏輯，使用者難以判斷何時該用哪一項工具，直接壓抑實際使用率。對企業而言，內部 AI 工具若複製同樣的碎片化命名策略，將同樣造成採用率低落。",
+      "highlights": [
+        "Gemini 將功能拆為 chat、Spark、Daily Brief 等獨立品牌，各有圖示與入口",
+        "過度細分的命名策略提高使用者認知成本、壓抑實際使用率",
+        "命名混亂被視為整體 AI 產業共通問題，非 Google 獨有",
+        "對企業內部 AI 工具佈署的產品命名與入口整合具有直接借鏡意義"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/googles-gemini-has-a-branding-problem-and-so-does-the-rest-of-ai/",
+      "url_status": "verified",
+      "title_score": 0.95,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623493",
+      "complete": true
+    },
+    {
+      "title": "Surprise: Z.ai is the AI lab behind the mysterious Ox Alpha model",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "category": "AI趨勢",
+      "summary": "TechCrunch 揭露先前匿名發布、卻已在多項基準測試與排行榜登頂的開放權重模型 Ox Alpha，背後的開發團隊是中國 AI 實驗室 Z.ai。該公司表示將於當週三釋出 Ox Alpha 的權重。匿名發布再登頂的模式，反映開放權重陣營以績效先行、身分後揭的新競爭策略。對企業採購而言，這也凸顯模型來源與供應鏈盡職調查的難度正在上升。",
+      "highlights": [
+        "匿名開放權重模型 Ox Alpha 的開發者確認為中國實驗室 Z.ai",
+        "Ox Alpha 在公開基準測試與排行榜已取得領先名次",
+        "Z.ai 宣布將於當週三釋出模型權重",
+        "匿名發布策略提高企業模型供應鏈盡職調查難度"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/surprise-z-ai-is-the-ai-lab-behind-the-mysterious-ox-alpha-model/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623529",
+      "complete": true
+    },
+    {
+      "title": "Ex-Meta scientists want to bring visual AI to the factory floor",
+      "source": "TechCrunch",
+      "date": "2026-08-26",
+      "category": "AI趨勢",
+      "summary": "由兩位前 Meta 研究科學家於 2024 年 11 月創立的新創 Perceptron，專注開發前沿視覺模型（frontier vision models）。該公司發表最新模型 Isaac 0.5，目標是讓機器具備在工業場域中「感知、推理、行動」（perceive, reason and act）的能力。應用情境鎖定倉儲與工廠等複雜環境中的視覺導引機器人導航。這代表多模態模型的商業化重心，正從消費端內容生成轉向工業自動化的實體場域。",
+      "highlights": [
+        "Perceptron 由兩位前 Meta 研究科學家於 2024 年 11 月創立",
+        "最新模型 Isaac 0.5 主打工業場域的感知、推理與行動能力",
+        "應用鎖定倉儲、工廠等複雜環境的視覺導引機器人導航",
+        "多模態模型商業化重心轉向實體工業自動化"
+      ],
+      "url": "https://techcrunch.com/2026/08/26/ex-meta-scientists-want-to-bring-visual-ai-to-the-factory-floor/",
+      "url_status": "verified",
+      "title_score": 0.7,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623566",
+      "complete": true
+    },
+    {
+      "title": "I spent a day at a robot \"carnival\" in Shanghai. Here's what I saw.",
+      "source": "MIT Technology Review",
+      "date": "2026-08-25",
+      "category": "AI趨勢",
+      "summary": "MIT Technology Review 記者實地走訪上海的機器人「嘉年華」現場報導，記錄人形機器人在中國成為焦點的實況。文章指出這波熱潮是中國將人工智慧導入日常生活的整體策略的一環，而非單純的技術展示。透過現場觀察，報導呈現了人形機器人從實驗室走向公眾場域的過渡狀態。對觀察中國 AI 政策落地節奏的讀者而言，這是一份具現場感的第一手素材。",
+      "highlights": [
+        "上海機器人嘉年華現場報導，人形機器人成為公眾展示焦點",
+        "人形機器人熱潮被定位為中國將 AI 導入日常生活的國家策略一環",
+        "呈現人形機器人從實驗室走向公眾場域的實際成熟度"
+      ],
+      "url": "https://www.technologyreview.com/2026/08/25/1141907/dispatch-shanghai-humanoid-robot-carnival/",
+      "url_status": "verified",
+      "title_score": 0.96,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623603",
+      "complete": true
+    },
+    {
+      "title": "How to encourage smarter AI use in the classroom",
+      "source": "MIT Technology Review",
+      "date": "2026-08-24",
+      "category": "AI趨勢",
+      "summary": "MIT Technology Review 探討如何在課堂中引導更聰明的 AI 使用方式，聚焦於 LLM 跨產業應用時的政策設計問題。文章的切入點是校園 AI 政策：與其全面禁用或全面開放，關鍵在於設計出能促進思考而非取代思考的使用規範。這個框架同樣適用於企業內部的 AI 使用政策制定。",
+      "highlights": [
+        "聚焦校園 AI 使用政策的設計原則，而非單純禁用或開放",
+        "探討 LLM 在各產業落地時的通用政策框架",
+        "強調規範應促進使用者思考而非取代思考"
+      ],
+      "url": "https://www.technologyreview.com/2026/08/24/1142630/ai-school-classroom-policies/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623640",
+      "complete": true
+    },
+    {
+      "title": "Humans aren't electronics",
+      "source": "MIT Technology Review",
+      "date": "2026-08-25",
+      "category": "AI治理",
+      "summary": "本文為 Strahinja Janjušević（SM '26）所撰、入選 MIT 2026 年 Envisioning the Future of Computing Prize 決選的評論。作者主張 AI 有機會為數以百萬計的肢體缺損與癱瘓者恢復身體自主能力，但同時警告將人體綁定在專有（proprietary）技術上帶來的重大風險。核心論點是：當專有 AI 模型成為人體的「作業系統」，一旦軟體停止維護或當機，所有權與責任歸屬將成為嚴重的倫理問題。這對任何以專有模型承載關鍵功能的產業——包括金融業——都是同構的供應商鎖定風險提醒。",
+      "highlights": [
+        "作者 Strahinja Janjušević 為 MIT 2026 Envisioning the Future of Computing Prize 決選入圍者",
+        "主張 AI 可為數百萬肢體缺損與癱瘓者恢復身體自主能力",
+        "警告人體綁定專有技術的風險：軟體當機或停止維護時的所有權與責任歸屬",
+        "專有 AI 模型成為關鍵功能「作業系統」的供應商鎖定風險"
+      ],
+      "url": "https://www.technologyreview.com/2026/08/25/1141238/humans-arent-electronics/",
+      "url_status": "verified",
+      "title_score": 0.96,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.623678",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-08-29T18:14:08.176952+08:00"
+  "_updated_at": "2026-08-29T18:14:08.176952+08:00",
+  "_fallback": true
 }

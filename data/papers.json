@@ -17,7 +17,12 @@
       "summary": "這篇論文針對「用 LLM 當評審來判定行動裝置 AI Agent 是否完成任務」這件事，建立第一個系統性的基準測試。研究團隊蒐集 931 條真實的行動代理執行軌跡，涵蓋 68 個 Android 應用程式，並由人工標註每條軌跡的成敗作為黃金標準。結果顯示，即使是最強的多模態 LLM 評審，與人工判定的一致率仍明顯低於實務可接受水準，且在「代理宣稱成功但實際失敗」這類假陽性上錯誤率最高。論文進一步拆解評審失準的來源，指出截圖序列的視覺細節遺失與長軌跡的上下文壓縮是兩大瓶頸。",
       "url": "https://arxiv.org/abs/2608.11434",
       "field": "LLM-as-a-Judge / Agent Evaluation",
-      "impact": "直接挑戰目前業界普遍用 LLM 自動評審取代人工驗收的做法，指出在 GUI/行動代理場景下自動評審仍不可全信，對建置代理上線驗收流程的團隊有立即參考價值。"
+      "impact": "直接挑戰目前業界普遍用 LLM 自動評審取代人工驗收的做法，指出在 GUI/行動代理場景下自動評審仍不可全信，對建置代理上線驗收流程的團隊有立即參考價值。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619215",
+      "complete": true
     },
     {
       "title": "Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?",
@@ -34,7 +39,12 @@
       "summary": "本研究檢驗「以評分準則（rubric）逐項打分」這種目前最主流的代理評估方法，在真實 agentic 任務中是否站得住腳。作者建立一組人工標註的準則驗證資料集，比對多個前沿模型作為評審時逐項判定的正確率。結果發現模型在單一準則項目上的判定看似合理，但一旦準則需要跨多步驟軌跡交叉查證（例如「是否真的呼叫了正確工具並使用回傳值」），準確率大幅下滑。論文指出評審模型傾向被代理的自我陳述（self-report）帶著走，而非回頭核對實際執行證據。",
       "url": "https://arxiv.org/abs/2606.29920",
       "field": "LLM-as-a-Judge / Rubric Verification",
-      "impact": "點名 rubric-based 評估的核心弱點在於「不查證據只看敘述」，對金融等需可稽核 AI 決策的場域，等於警告目前自動化評分報告可能無法作為稽核依據。"
+      "impact": "點名 rubric-based 評估的核心弱點在於「不查證據只看敘述」，對金融等需可稽核 AI 決策的場域，等於警告目前自動化評分報告可能無法作為稽核依據。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619341",
+      "complete": true
     },
     {
       "title": "Counsel: A Meta-Evaluation Dataset for Agentic Tasks",
@@ -55,7 +65,12 @@
       "summary": "Counsel 是一組專門用來「評估評估者」的後設評估（meta-evaluation）資料集，處理的問題是：我們如何知道 LLM 評審給出的批評本身是對的。研究團隊在 tau-bench 與 DA-Code 兩個代理基準上蒐集了 1,131 條由人工標註的評審批評（critique），標註者間信度 Krippendorff's α 達 0.78。實驗顯示，主流 LLM 評審產生的批評中有相當比例屬於「表面正確但歸因錯誤」，亦即抓到失敗卻指錯原因。作者主張代理評估必須從「判對錯」升級到「判歸因是否正確」，否則除錯訊號會系統性誤導開發者。",
       "url": "https://arxiv.org/abs/2606.21627",
       "field": "LLM-as-a-Judge / Meta-Evaluation",
-      "impact": "由 Atla、Cohere、Mistral、DeepMind 研究者聯手，把評估的信任問題往上推一層，為「評審的評審」提供可重複使用的公開資料集，是代理評估基礎建設的重要一塊。"
+      "impact": "由 Atla、Cohere、Mistral、DeepMind 研究者聯手，把評估的信任問題往上推一層，為「評審的評審」提供可重複使用的公開資料集，是代理評估基礎建設的重要一塊。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619407",
+      "complete": true
     },
     {
       "title": "From Atomic to Agentic: Rethinking Evaluation for Large Language Model Agents",
@@ -69,7 +84,12 @@
       "summary": "這篇綜述主張現行 LLM 評估仍停留在「原子式」單題單答的框架，無法反映代理在長程、多工具、有狀態環境中的真實能力。作者建構一套從原子能力、組合能力到代理式端到端任務的三層評估分類法，並系統性盤點各層現有基準的覆蓋缺口。分析指出，多數所謂 agent benchmark 實際上仍只測試單輪工具呼叫，真正涉及狀態累積與錯誤復原的測項比例極低。論文最後提出面向流程（process-level）而非只看結果（outcome-level）的評估建議，包括中間狀態檢查點與失敗歸因指標。",
       "url": "https://arxiv.org/abs/2608.26950",
       "field": "Agent Evaluation / Survey",
-      "impact": "提供一張清楚的代理評估地圖，說明為何目前排行榜分數與實際部署可靠度落差如此之大，適合作為建立內部 agent 驗收標準的起點。"
+      "impact": "提供一張清楚的代理評估地圖，說明為何目前排行榜分數與實際部署可靠度落差如此之大，適合作為建立內部 agent 驗收標準的起點。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619461",
+      "complete": true
     },
     {
       "title": "SWE-Bench ProMax: A Multilingual and Contamination-Resistant Benchmark for Coding Agents",
@@ -83,7 +103,12 @@
       "summary": "SWE-Bench ProMax 針對原始 SWE-bench 的兩大問題提出改版：語言單一（幾乎全是 Python）以及訓練資料污染。新基準包含 170 個實例，橫跨 7 種程式語言，並採用發布時間切點與重寫測試的方式降低模型「背過答案」的可能。實測顯示，多個在原始 SWE-bench Verified 上表現亮眼的模型，在 ProMax 上分數出現大幅下滑，非 Python 語言的落差尤其明顯。作者據此主張現行程式代理能力被高估，且能力並未如宣稱般跨語言泛化。",
       "url": "https://arxiv.org/abs/2608.09802",
       "field": "Agent Benchmark / Code Agents",
-      "impact": "為「SWE-bench 分數通膨」提供量化證據，是評估程式代理採購與選型時應納入的對照基準。"
+      "impact": "為「SWE-bench 分數通膨」提供量化證據，是評估程式代理採購與選型時應納入的對照基準。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619513",
+      "complete": true
     },
     {
       "title": "SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science?",
@@ -101,7 +126,12 @@
       "summary": "SWE-bench Science 把程式代理基準從一般軟體工程延伸到科學計算領域，收錄 119 個任務、取自 98 個 GitHub repository、橫跨 20 個科學領域。任務分為三種範式：issue 驅動、專家探索式、以及工程整合式，分別對應不同的真實科研開發情境。評測結果顯示，表現最好的 Claude Code 搭配 Opus-5（max 模式）pass@1 仍低於 50%，遠低於同類代理在一般軟體工程基準上的成績。作者指出科學程式碼的隱性領域知識與數值正確性要求，是現行代理最主要的失敗來源。",
       "url": "https://arxiv.org/abs/2608.19799",
       "field": "Agent Benchmark / Scientific Software Engineering",
-      "impact": "把程式代理的能力邊界具體標定在「需要領域知識的工程任務」上，說明通用程式代理短期內無法直接搬到高專業門檻的產業程式庫。"
+      "impact": "把程式代理的能力邊界具體標定在「需要領域知識的工程任務」上，說明通用程式代理短期內無法直接搬到高專業門檻的產業程式庫。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619564",
+      "complete": true
     },
     {
       "title": "ChainSWE: Benchmarking Coding Agents on Long-Horizon Dependent Software Engineering Tasks",
@@ -115,7 +145,12 @@
       "summary": "ChainSWE 提出「鏈式任務」評測設定：後一個任務必須建立在前一個任務產出的程式碼之上，藉此檢驗代理在長程相依情境的累積正確性。與單點修補式的 SWE-bench 不同，這種設定會讓早期的小錯誤沿著任務鏈放大。實驗結果顯示，代理在單一任務上的高通過率無法轉換成鏈式情境的成功率，鏈長增加時成功率呈明顯衰減。作者指出主要失敗模式是代理無法正確回憶並沿用自己先前的設計決策。",
       "url": "https://arxiv.org/abs/2607.02606",
       "field": "Agent Benchmark / Long-Horizon Evaluation",
-      "impact": "點出「單題高分 ≠ 專案可用」，對評估代理能否承接真實迭代開發工作提供更接近實務的量尺。"
+      "impact": "點出「單題高分 ≠ 專案可用」，對評估代理能否承接真實迭代開發工作提供更接近實務的量尺。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619612",
+      "complete": true
     },
     {
       "title": "Demystifying Agent Skills: Why They Work—Until They Don't",
@@ -129,7 +164,12 @@
       "summary": "這篇論文系統性拆解 Agent Skills（以 SKILL.md 形式注入代理的程序性知識）究竟在什麼條件下有效。作者透過控制實驗分離出技能帶來的三種作用：提供領域知識、限縮動作空間、以及固定輸出格式。實驗發現技能在任務與技能描述高度吻合時能顯著提升成功率，但一旦任務略微偏離技能設定的假設，技能反而會把代理鎖進錯誤的解法路徑。論文並量化了技能載入對 context 長度與 token 成本的排擠效應。",
       "url": "https://arxiv.org/abs/2608.14036",
       "field": "AI Agent Engineering / Context Engineering",
-      "impact": "對正在用 SKILL.md 建構內部代理能力庫的團隊，明確指出技能是雙面刃，需要搭配觸發條件設計而非無條件全載。"
+      "impact": "對正在用 SKILL.md 建構內部代理能力庫的團隊，明確指出技能是雙面刃，需要搭配觸發條件設計而非無條件全載。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619659",
+      "complete": true
     },
     {
       "title": "Agent Skills Can Be Harmful: An Empirical Study of Skill-Induced Failures in LLM Agents",
@@ -148,7 +188,12 @@
       "summary": "本研究以實證方式量測 agent skills 的實際效益，結果呈現高度分歧：部分技能確實提升任務成功率，但另有相當比例的技能毫無效果，甚至同時推高 token 使用量與執行時間並降低成功率。作者建立一套歸因方法，把任務失敗與成本回歸（cost regression）明確追溯到特定被載入的技能。分析顯示技能之間的互相干擾與技能描述過度泛化，是導致代理誤用技能的兩大主因。研究並提出技能上線前應以 A/B 對照驗證，而非憑直覺累加。",
       "url": "https://arxiv.org/abs/2608.11888",
       "field": "AI Agent Engineering / Skill Management",
-      "impact": "與上一篇互補，把「技能越多越好」的直覺明確證偽，對企業內部代理技能庫的治理與版本管控是直接可用的證據。"
+      "impact": "與上一篇互補，把「技能越多越好」的直覺明確證偽，對企業內部代理技能庫的治理與版本管控是直接可用的證據。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619706",
+      "complete": true
     },
     {
       "title": "Agent Lightning v1.0: Towards Harnessed Agentic RL",
@@ -162,7 +207,12 @@
       "summary": "Agent Lightning v1.0 提出把 agent harness（代理運行外殼）與強化學習訓練解耦的框架，讓既有代理應用幾乎無需改寫即可接上 RL 訓練迴圈。核心設計是把代理執行過程統一抽象為可觀測的 transition 序列，訓練端只消費這層抽象而不需理解上層框架。論文報告在多個代理任務上相較基線取得平均 +14.5%、最高 +44.0% 的成效提升。作者強調此設計可同時支援 LangChain、AutoGen 等不同代理框架，避免每換一個框架就要重寫訓練管線。",
       "url": "https://arxiv.org/abs/2608.17528",
       "field": "AI Agent Engineering / Harness Engineering / RL",
-      "impact": "把 harness engineering 從工程實務提升為可訓練的系統層抽象，是微軟在代理基礎設施上的重要一步，對自建代理平台的架構設計有直接參考價值。"
+      "impact": "把 harness engineering 從工程實務提升為可訓練的系統層抽象，是微軟在代理基礎設施上的重要一步，對自建代理平台的架構設計有直接參考價值。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619754",
+      "complete": true
     },
     {
       "title": "From Question Answering to Task Completion: A Survey on Agent System and Harness Design",
@@ -182,7 +232,12 @@
       "summary": "這篇綜述把「agent harness」正式定義為模型之外的整套執行支撐系統，並拆解為六項執行期職責：觀測、上下文、控制、動作、狀態與驗證。作者用這六個維度重新整理近年主要代理框架與系統論文，指出多數研究只優化其中一兩項而缺乏整體設計。論文特別強調上下文管理與驗證機制是目前最薄弱的兩環，也是實際部署最常出問題的地方。文末提出 harness 設計的評估維度建議與開放問題清單。",
       "url": "https://arxiv.org/abs/2606.20683",
       "field": "AI Agent Engineering / Harness Design Survey",
-      "impact": "為 harness engineering 提供目前最完整的分類架構，適合作為設計企業級代理執行環境時的檢核清單。"
+      "impact": "為 harness engineering 提供目前最完整的分類架構，適合作為設計企業級代理執行環境時的檢核清單。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619800",
+      "complete": true
     },
     {
       "title": "TokenPilot: KV-Cache-Aware Context Management for Long-Horizon LLM Agents",
@@ -196,7 +251,12 @@
       "summary": "TokenPilot 處理長程代理的核心成本問題：每次上下文重整都會使 KV cache 失效，導致重複計算成本暴增。作者提出 cache 感知的上下文管理策略，在裁剪與壓縮歷史時盡量保持前綴穩定，讓已快取的部分可以繼續重用。實驗顯示在維持任務成功率的前提下，推論成本降低 61%，在長軌跡情境最高可達 87%。論文並指出常見的「摘要式壓縮」做法雖然省 token，卻因破壞前綴而反而推高實際運算成本。",
       "url": "https://arxiv.org/abs/2606.17016",
       "field": "AI Agent Engineering / Context Engineering",
-      "impact": "把 context engineering 從「省 token」重新框定為「省快取失效」，對長時間運行代理的成本結構有直接且可觀的優化空間。⚠️ 發布日期為搜尋結果 metadata，未取得 arXiv 頁面原文確認。"
+      "impact": "把 context engineering 從「省 token」重新框定為「省快取失效」，對長時間運行代理的成本結構有直接且可觀的優化空間。⚠️ 發布日期為搜尋結果 metadata，未取得 arXiv 頁面原文確認。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619897",
+      "complete": true
     },
     {
       "title": "HarnessX: Systematic Harness Engineering for Reliable LLM Agents",
@@ -210,7 +270,12 @@
       "summary": "HarnessX 主張代理可靠度的瓶頸不在模型本身，而在包裹模型的 harness 層設計品質。作者定義一組 harness 設計原語（動作驗證、狀態檢查點、失敗回退、觀測正規化），並在同一模型上比較不同 harness 配置的成效差異。實驗顯示，僅調整 harness 而不換模型，任務成功率即可出現顯著差距，證明 harness 是與模型選型同等級的變因。論文另提供一套 harness 消融方法，用於定位可靠度損失的具體來源。",
       "url": "https://arxiv.org/abs/2606.14249",
       "field": "AI Agent Engineering / Harness Engineering",
-      "impact": "提供「不換模型也能提升可靠度」的具體工程路徑，對受限於既有模型合約的企業導入場景特別實用。⚠️ 機構資訊來自搜尋摘要，未取得 arXiv 頁面原文確認。"
+      "impact": "提供「不換模型也能提升可靠度」的具體工程路徑，對受限於既有模型合約的企業導入場景特別實用。⚠️ 機構資訊來自搜尋摘要，未取得 arXiv 頁面原文確認。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619944",
+      "complete": true
     },
     {
       "title": "Zero-Shot Self-Orchestration with Ledger-Based Control for Improved LLM Coding Performance",
@@ -229,7 +294,12 @@
       "summary": "這篇論文質疑「多代理系統一定優於單模型」的普遍說法，指出既有比較大多同時改變了 token 預算、工具呼叫次數與提示內容，因此聚合的效能提升無法歸因。作者設計受控實驗，在共享檔案系統工作區上導入 manager-worker 架構，不做任何訓練也不針對個別基準調參，與同一模型單次作答做對照。研究採用帳本（ledger）機制記錄與控制編排狀態，使多代理協作過程可稽核。結果顯示多代理的效益高度依賴任務型態，並非普遍成立。",
       "url": "https://arxiv.org/abs/2608.26480",
       "field": "Agent Orchestration / Multi-Agent Systems",
-      "impact": "對「上多代理架構」的投資決策提供難得的受控證據，提醒不要把預算增加帶來的提升誤認為架構本身的貢獻。"
+      "impact": "對「上多代理架構」的投資決策提供難得的受控證據，提醒不要把預算增加帶來的提升誤認為架構本身的貢獻。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.619989",
+      "complete": true
     },
     {
       "title": "Agent Against Agent: Automated Red-Teaming of Prompt Injection in LLM Agents",
@@ -243,7 +313,12 @@
       "summary": "本研究提出用一個攻擊代理自動挖掘另一個代理的提示注入弱點，取代人工設計攻擊字串的傳統做法。攻擊代理會依據目標代理的工具清單與回應行為，迭代改寫注入內容以繞過防護。在跨多個代理框架的測試中，自動化攻擊成功率達 65.7%，遠高於固定攻擊樣板的 4.5%。論文指出工具描述欄位與外部檢索內容是最容易被利用的注入入口。",
       "url": "https://arxiv.org/abs/2608.05108",
       "field": "Agent Security / Prompt Injection / Red-Teaming",
-      "impact": "顯示靜態防護規則對自適應攻擊幾乎無效，對金融業導入具工具存取權限的代理是明確的資安風險警訊。"
+      "impact": "顯示靜態防護規則對自適應攻擊幾乎無效，對金融業導入具工具存取權限的代理是明確的資安風險警訊。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.620035",
+      "complete": true
     },
     {
       "title": "Agent Data Injection Attacks: Exploiting Retrieved Content in Tool-Augmented LLM Agents",
@@ -257,7 +332,12 @@
       "summary": "這篇論文聚焦於代理透過工具取回的外部資料（網頁、文件、API 回應）作為攻擊載體的風險。作者定義「資料注入」與傳統提示注入的差別：惡意內容不在使用者輸入，而是潛伏在代理主動抓取的資料中，因此使用者端防護完全無效。實驗以 8,135 次試驗涵蓋多種代理配置，量化不同工具類型的受攻擊面差異。結果顯示具備寫入權限（檔案、程式執行）的代理受害後果最嚴重。",
       "url": "https://arxiv.org/abs/2607.05120",
       "field": "Agent Security / Data Injection",
-      "impact": "把攻擊面從使用者輸入擴大到整個檢索管線，對 RAG 加代理的架構設計意味著需在資料入口而非提示層設防。"
+      "impact": "把攻擊面從使用者輸入擴大到整個檢索管線，對 RAG 加代理的架構設計意味著需在資料入口而非提示層設防。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.620081",
+      "complete": true
     },
     {
       "title": "What Makes Good Agentic Data? An ACE Lens on Agentic Data Synthesis",
@@ -271,7 +351,12 @@
       "summary": "本研究提出 ACE（Agentic data Complexity–Environment）分析框架，用來判斷什麼樣的合成資料真正能提升代理能力。作者拆解代理訓練資料的三個面向：任務複雜度、環境保真度與軌跡品質，並量化各面向對下游成效的邊際貢獻。實驗發現環境保真度的影響遠大於單純增加資料量，在低保真環境合成的大量軌跡對真實任務幾乎沒有幫助。論文據此提出資料合成的優先順序建議，主張先投資環境建置再擴大資料規模。",
       "url": "https://arxiv.org/abs/2608.27260",
       "field": "Agent Training / Data Synthesis",
-      "impact": "為代理訓練資料的投資順序提供量化依據，指出環境工程（environment engineering）才是代理能力的真正瓶頸。"
+      "impact": "為代理訓練資料的投資順序提供量化依據，指出環境工程（environment engineering）才是代理能力的真正瓶頸。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.620128",
+      "complete": true
     },
     {
       "title": "Multi-Agent Orchestration for Autonomous Driving Scenario Generation",
@@ -285,7 +370,12 @@
       "summary": "這篇論文把多代理編排應用於自動駕駛的測試場景生成，讓不同角色的代理分別負責場景設計、風險注入與合規檢核。作者設計的編排流程使各代理在共享場景表徵上迭代協作，而非單一模型一次生成。實驗以 304 個場景議題涵蓋 54 個專案，比較單代理與多代理生成的場景覆蓋率與危險情境命中率。結果顯示多代理編排在罕見危險場景的覆蓋上有明顯優勢，但代價是生成成本顯著上升。",
       "url": "https://arxiv.org/abs/2608.20129",
       "field": "Multi-Agent Systems / Applied Agents",
-      "impact": "提供多代理編排在高安全需求領域的具體落地案例，可作為金融業風險情境生成（如壓力測試情境設計）的類比參考。"
+      "impact": "提供多代理編排在高安全需求領域的具體落地案例，可作為金融業風險情境生成（如壓力測試情境設計）的類比參考。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.620174",
+      "complete": true
     },
     {
       "title": "CAKE: Compiler-Agent Co-Design for Frontier Kernel Evolution",
@@ -312,8 +402,14 @@
       "summary": "CAKE 提出編譯器與 AI 代理協同設計的思路，解決 GPU kernel 代理長期把編譯器當黑盒子的問題：代理只能拿到錯誤訊息、正確性結果與執行時間，缺乏可據以推理的中間資訊。作者設計 CAKE IR，一種型別化、硬體資訊外顯的排程表示法，讓代理直接撰寫排程而非猜測。CAKE IR 顯式暴露 warp 角色、記憶體搬移、同步與 pipeline 結構，同時支援驗證、成本模型與局部化診斷。這使代理能取得可行動的回饋訊號，而非只有成敗二元結果。",
       "url": "https://arxiv.org/abs/2608.12629",
       "field": "Agent Systems / Compilers / Code Generation",
-      "impact": "由 FlashInfer、TVM 核心作者群提出，示範了「為代理重新設計工具介面」這個方向——工具回饋的資訊密度，可能比模型能力更決定代理表現。"
+      "impact": "由 FlashInfer、TVM 核心作者群提出，示範了「為代理重新設計工具介面」這個方向——工具回饋的資訊密度，可能比模型能力更決定代理表現。",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-08-29T18:18:56.620221",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-08-29T18:08:04.188749+08:00"
+  "_updated_at": "2026-08-29T18:08:04.188749+08:00",
+  "_fallback": true
 }
