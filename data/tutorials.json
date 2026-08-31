@@ -1,5 +1,81 @@
 [
   {
+    "title": "How to Build an Agent",
+    "source": "LangChain Blog",
+    "date": "2026-08-25",
+    "tool_name": "LangChain / LangGraph / LangSmith",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "LangChain 官方部落格發布的 Agent 建構完整指南，從最基本的「LLM + 工具迴圈」出發，逐步說明何時該把單純的 RAG 檢索升級為具備決策能力的 agentic 流程。文章指出，當工作流程複雜到需要判斷「該查詢哪些資料來源、何時呼叫、如何整合輸出後再送進 LLM」時，就是導入 agent 邏輯的時機。內容涵蓋工具設計、狀態管理與迭代式開發節奏，強調 agent 開發是持續迭代而非一次到位。文中同時介紹 LangSmith 作為 agent engineering 平台的角色，可用來除錯每一個 agent 決策、對變更做 eval 評測，並一鍵部署。整體定位在幫助開發者把實驗性 agent 推進到可上線的生產狀態。",
+    "highlights": [
+      "說明 RAG 與 agentic 架構的分界：需要動態決定資料來源與呼叫時機時才需要 agent",
+      "拆解 agent 核心迴圈：模型決策、工具呼叫、結果回饋的循環設計",
+      "強調 agent 開發本質是迭代，需搭配 eval 才能穩定改善",
+      "介紹 LangSmith 除錯每個 agent 決策、評測變更與一鍵部署的工作流"
+    ],
+    "url": "https://www.langchain.com/blog/how-to-build-an-agent",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+  },
+  {
+    "title": "GitHub 狂飆 6.8 萬星！career-ops 讓 AI Agent 幫你海投履歷、自動配對職缺",
+    "source": "INSIDE",
+    "date": "2026-08-24",
+    "tool_name": "career-ops",
+    "difficulty": "beginner",
+    "category": "AI Agent 應用實戰",
+    "summary": "INSIDE 報導開源專案 career-ops 在 GitHub 累積 6.8 萬顆星的爆紅現象，並說明其實際運作方式。該專案把求職流程拆成可由 AI Agent 自動執行的模組，包含履歷解析、職缺配對、客製化求職信生成與批次投遞。使用者只需提供個人履歷與求職條件，Agent 便會依職缺描述自動調整履歷措辭與重點排序。文章同時說明此類自動化投遞工具在實務上的限制與爭議，例如企業端對大量 AI 生成履歷的反制。對想理解 Agent 如何落地到真實生活場景的讀者，是相當具體的案例教材。",
+    "highlights": [
+      "career-ops 將求職流程拆為履歷解析、職缺配對、信件生成、自動投遞四個 Agent 模組",
+      "GitHub 星數衝上 6.8 萬，反映 Agent 落地個人生產力場景的市場需求",
+      "說明履歷會依職缺描述自動重排重點與調整措辭的客製化機制",
+      "提醒大量 AI 自動投遞可能引發企業端過濾與反制的實務風險"
+    ],
+    "url": "https://www.inside.com.tw/article/42181-2026-08-24-career-ops-ai-job-search-agent",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+  },
+  {
+    "title": "Build production agents with computer use, the Skills API, and the Files API",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-08-20",
+    "tool_name": "Claude API / Skills API / Files API",
+    "difficulty": "advanced",
+    "category": "LLM 應用開發",
+    "summary": "Anthropic 官方教學文，說明如何把 computer use、Skills API 與 Files API 三者組合成可上線的生產級 agent。computer use 讓 Claude 能直接操作圖形介面完成沒有 API 的任務；Skills API 則把可重複使用的專業流程封裝成模組，讓 agent 依情境動態載入；Files API 負責在多輪任務之間持久化檔案狀態。文章以實際端到端流程示範這三個能力如何互補，並討論權限邊界、錯誤處理與成本控制等生產環境必須面對的議題。屬於官方文件中少見、直接對準「從 demo 到 production」落差的實作指南。",
+    "highlights": [
+      "computer use 補足無 API 系統的操作缺口，讓 agent 能直接驅動 GUI",
+      "Skills API 把專業流程封裝為可依情境動態載入的模組，降低 context 負擔",
+      "Files API 提供跨輪次的檔案狀態持久化，支撐長時間任務",
+      "涵蓋權限邊界、錯誤處理與成本控制等生產環境實務考量"
+    ],
+    "url": "https://claude.com/blog/computer-use-skills-api-files-api",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+  },
+  {
+    "title": "The Claude Code Guide For Startups",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-08-20",
+    "tool_name": "Claude Code",
+    "difficulty": "intermediate",
+    "category": "Claude Code 教學",
+    "summary": "Anthropic 從十多個新創團隊的 Claude Code 實際導入案例中，萃取出五條可直接套用的操作準則。內容聚焦在團隊層級而非個人技巧，說明如何建立共用的 CLAUDE.md 規範、如何拆分任務讓 agent 能自主完成較長的工作段落，以及如何在程式碼審查流程中安置人為把關點。文章也點出常見失敗模式，例如把過大的模糊任務一次丟給 agent、或缺乏測試導致無法驗證產出。對正在評估如何把 AI coding agent 制度化導入工程團隊的組織，提供了具體的導入節奏建議。",
+    "highlights": [
+      "整理自十多個新創團隊實際部署經驗，萃取五條可複製的操作準則",
+      "強調團隊共用 CLAUDE.md 規範是導入成效的關鍵前提",
+      "說明任務拆分粒度對 agent 自主完成度的直接影響",
+      "點名常見失敗模式：任務過於模糊、缺乏測試導致產出無法驗證"
+    ],
+    "url": "https://claude.com/blog/claude-code-guide-for-startups",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+  },
+  {
     "title": "Learn System Design for AI Agents: Build a Production-Ready Multi-Agent PR Reviewer",
     "source": "freeCodeCamp",
     "date": "2026-08-20",
@@ -14,9 +90,33 @@
       "強調系統設計重於模型選擇的工程觀點"
     ],
     "url": "https://www.freecodecamp.org/news/learn-system-design-for-ai-agents-build-a-production-ready-multi-agent-pr-reviewer/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.028108",
+    "complete": true
+  },
+  {
+    "title": "Introducing LangSmith Tuned Evaluators",
+    "source": "LangChain Blog",
+    "date": "2026-08-18",
+    "tool_name": "LangSmith",
+    "difficulty": "advanced",
+    "category": "LLM 評估 / Agent Evals",
+    "summary": "LangChain 推出 LangSmith Tuned Evaluators，解決 LLM-as-a-Judge 評測器與人類判準不一致的長年痛點。傳統做法是靠反覆修改 prompt 讓評測器貼近人類標註，過程冗長且難以收斂；Tuned Evaluators 改為讓開發者提供少量人工標註樣本，系統自動校準評測器行為。首波支援的評測維度是 perceived error，即使用者主觀感受到的錯誤率。文章說明如何建立標註資料集、執行校準，以及如何把校準後的評測器接進既有 CI 流程做回歸測試。對正在建構 agent 評測體系的團隊，是相當實用的操作教學。",
+    "highlights": [
+      "用少量人工標註樣本自動校準 LLM 評測器，取代反覆手調 prompt",
+      "首波支援 perceived error（使用者主觀感受錯誤）評測維度",
+      "示範標註資料集建立、校準執行到結果驗證的完整流程",
+      "可將校準後評測器接入 CI，對 agent 變更做自動回歸測試"
+    ],
+    "url": "https://www.langchain.com/blog/introducing-langsmith-tuned-evaluators-starting-with-perceived-error",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "How to Build Production-Grade Agents with Pydantic AI",
@@ -33,9 +133,33 @@
       "面向 production 的 agent 開發紀律"
     ],
     "url": "https://www.freecodecamp.org/news/building-agents-with-pydantic-ai/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.028156",
+    "complete": true
+  },
+  {
+    "title": "Maximizing the value of your Claude Code sessions",
+    "source": "Anthropic (Claude Blog)",
+    "date": "2026-08-14",
+    "tool_name": "Claude Code",
+    "difficulty": "intermediate",
+    "category": "Claude Code 教學 / Context Engineering",
+    "summary": "由 Anthropic 的 Lydia Hallie 撰寫，聚焦在單一 Claude Code session 內如何有效經營 context，是相當紮實的 context engineering 實戰教學。文章說明 context window 並非越滿越好，塞入無關資訊反而會稀釋模型注意力、降低輸出品質。內容涵蓋何時該開新 session、何時該壓縮既有對話、如何用 CLAUDE.md 把長期規則外部化，以及如何透過明確的任務邊界讓 agent 少走冤枉路。文中也示範用 subagent 隔離探索性搜尋，避免大量檔案內容污染主 session。此文在 Hacker News 引發廣泛討論，被視為 Claude Code 使用心法的代表性文章。",
+    "highlights": [
+      "context window 塞越滿不等於效果越好，無關資訊會稀釋模型注意力",
+      "區分「開新 session」與「壓縮既有對話」的適用時機",
+      "用 CLAUDE.md 把長期規則外部化，避免每次重複交代",
+      "以 subagent 隔離探索性搜尋，防止大量檔案內容污染主 session"
+    ],
+    "url": "https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "How to Build a Multi-Agent Trading Research System with LangChain Deep Agents [Full Handbook]",
@@ -52,9 +176,14 @@
       "generator-critic 迴圈降低策略自我肯定偏誤"
     ],
     "url": "https://www.freecodecamp.org/news/build-a-multi-agent-trading-research-system-with-langchain-deep-agents-handbook/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.028220",
+    "complete": true
   },
   {
     "title": "AI Evaluation Engineering: Build a Production-Grade LLM Evaluation Platform from Scratch [Full Handbook]",
@@ -71,9 +200,14 @@
       "附完整開源 companion repository 可直接複用"
     ],
     "url": "https://www.freecodecamp.org/news/ai-evaluation-engineering-build-a-production-grade-llm-evaluation-platform-handbook/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.028271",
+    "complete": true
   },
   {
     "title": "如何打造一個 Agent（How to Build an Agent）",
@@ -96,7 +230,7 @@
     "url_status": "verified",
     "title_score": 0.75,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.281831",
+    "verified_at": "2026-08-31T00:04:07.028326",
     "complete": true
   },
   {
@@ -121,7 +255,31 @@
     "url_status": "verified",
     "title_score": 0.95,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.281882",
+    "verified_at": "2026-08-31T00:04:07.028377",
+    "complete": true
+  },
+  {
+    "title": "Deep Agents",
+    "source": "LangChain Blog",
+    "date": "2026-08-06",
+    "tool_name": "LangChain Deep Agents / LangGraph",
+    "difficulty": "advanced",
+    "category": "AI Agent 架構",
+    "summary": "LangChain 提出 Deep Agents 概念，指能執行長時程、多步驟複雜任務的 agent 架構，與只做單輪工具呼叫的淺層 agent 形成對比。文章拆解 Deep Agent 的四個關鍵構件：明確的規劃機制、可委派子任務的 subagent 結構、外部檔案系統作為長期記憶，以及詳盡的系統提示詞。這四者共同解決長任務中 context 爆量與目標漂移的問題。文中以研究型與程式開發型任務為例，說明如何用 LangGraph 實作這套架構。對照目前 Claude Code、Deep Research 等產品的設計，可看出這是當前 agent 工程的主流收斂方向。",
+    "highlights": [
+      "定義 Deep Agent：能處理長時程、多步驟任務的 agent 架構",
+      "四大構件：規劃機制、subagent 委派、檔案系統長期記憶、詳盡系統提示詞",
+      "以外部檔案系統承載記憶，解決長任務 context 爆量與目標漂移",
+      "提供在 LangGraph 上實作這套架構的具體路徑"
+    ],
+    "url": "https://www.langchain.com/blog/deep-agents",
+    "is_new": true,
+    "first_seen": "2026-07-20T18:21:04.668198+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.029267",
     "complete": true
   },
   {
@@ -145,7 +303,7 @@
     "url_status": "verified",
     "title_score": 0.84,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.281933",
+    "verified_at": "2026-08-31T00:04:07.028426",
     "complete": true
   },
   {
@@ -170,8 +328,27 @@
     "url_status": "verified",
     "title_score": 0.77,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.281981",
+    "verified_at": "2026-08-31T00:04:07.028473",
     "complete": true
+  },
+  {
+    "title": "Automate agent development lifecycles with Gemini Enterprise",
+    "source": "Google Cloud Blog",
+    "date": "2026-07-30",
+    "tool_name": "Gemini Enterprise",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構 / MLOps",
+    "summary": "Google Cloud 說明如何在 Gemini Enterprise 上把 agent 的開發生命週期自動化，涵蓋從設計、測試、部署到監控的完整鏈路。文章強調企業導入 agent 的瓶頸通常不在模型能力，而在缺乏可重複的交付流程與治理機制。內容示範如何把 agent 定義納入版本控管、如何建立自動化評測關卡，以及如何在部署後持續追蹤 agent 行為指標。對金融、製造等受監理產業，文中關於稽核軌跡與權限控管的段落特別具參考價值。整體是偏向平台工程與治理視角的實作指南，而非單純的模型呼叫教學。",
+    "highlights": [
+      "把 agent 開發生命週期納入自動化 CI/CD，涵蓋設計、測試、部署、監控",
+      "指出企業導入瓶頸在交付流程與治理機制，而非模型能力本身",
+      "示範 agent 定義的版本控管與自動化評測關卡設計",
+      "包含稽核軌跡與權限控管設計，適用受監理產業"
+    ],
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/automate-agent-development-lifecycles-with-gemini-enterprise",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "LangSmith LLM Gateway: runtime controls for production agents",
@@ -194,8 +371,27 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282031",
+    "verified_at": "2026-08-31T00:04:07.028526",
     "complete": true
+  },
+  {
+    "title": "AI Skills怎麼寫？grill-me工作流5步拆解，附中文提示詞可複製",
+    "source": "數位時代",
+    "date": "2026-07-28",
+    "tool_name": "Claude Code Agent Skills / grill-me",
+    "difficulty": "beginner",
+    "category": "Prompt 工程",
+    "summary": "數位時代拆解由開發者 Matt Pocock 開源的 grill-me Skill，說明其五步驟工作流並附上可直接複製的中文提示詞。grill-me 的核心設計是讓 AI 在動手前先反過來拷問使用者，把模糊需求拆成決策樹，一次只問一題，逼使用者釐清邊界條件與錯誤處理。文章指出這種「先問後做」的模式能顯著降低 AI 產出偏離需求的機率。報導引用數據顯示，該類 Skill 生態在 skills.sh 平台累積約 1,170 萬次安裝，相關開源專案至該日已超過 19.1 萬顆星。對想入門 Agent Skills 撰寫的讀者，是門檻最低的中文教材之一。",
+    "highlights": [
+      "grill-me 讓 AI 先反問使用者，把模糊需求拆成決策樹逐題釐清",
+      "拆解五步驟工作流並提供可直接複製貼上的中文提示詞",
+      "先問後做的模式可大幅降低 AI 產出偏離原始需求的機率",
+      "引用數據：skills.sh 平台累積約 1,170 萬次安裝，相關專案逾 19.1 萬星"
+    ],
+    "url": "https://www.bnext.com.tw/article/91643/matt-pocock-ai-skills-workflow",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "使用 OpenSpace 建構自我演化 AI Agent：Skills、MCP、Lineage 與低成本重用",
@@ -218,7 +414,7 @@
     "url_status": "title_low_match",
     "title_score": 0.15,
     "verified": "needs_review",
-    "verified_at": "2026-08-23T18:16:09.282083",
+    "verified_at": "2026-08-31T00:04:07.028578",
     "complete": true
   },
   {
@@ -242,7 +438,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282134",
+    "verified_at": "2026-08-31T00:04:07.028628",
     "complete": true
   },
   {
@@ -267,7 +463,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282185",
+    "verified_at": "2026-08-31T00:04:07.028677",
     "complete": true
   },
   {
@@ -292,8 +488,46 @@
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282235",
+    "verified_at": "2026-08-31T00:04:07.028725",
     "complete": true
+  },
+  {
+    "title": "13 demos on Gemini Enterprise Agent Platform",
+    "source": "Google Cloud Blog",
+    "date": "2026-07-17",
+    "tool_name": "Gemini Enterprise Agent Platform",
+    "difficulty": "intermediate",
+    "category": "AI Agent 應用實戰",
+    "summary": "Google Cloud 一次公開 13 個建構在 Gemini Enterprise Agent Platform 上的實作示範，涵蓋客服、資料分析、文件處理與跨系統流程自動化等企業場景。每個 demo 都說明使用的工具串接方式與 agent 編排邏輯，可作為對應場景的架構參考範本。文章的價值在於把抽象的 agent 能力對應到具體業務流程，讓評估導入的團隊能快速判斷哪些場景值得優先切入。內容同時展示多 agent 協作與外部系統整合的實際做法。相較純概念性介紹，這篇提供的是可對照的落地樣板。",
+    "highlights": [
+      "一次公開 13 個企業場景的 agent 實作示範",
+      "涵蓋客服、資料分析、文件處理、跨系統流程自動化等領域",
+      "每個 demo 說明工具串接方式與 agent 編排邏輯，可作架構範本",
+      "展示多 agent 協作與外部既有系統整合的實際做法"
+    ],
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/13-demos-on-gemini-enterprise-agent-platform",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+  },
+  {
+    "title": "ChatGPT Sites教學：用對話就能把網頁部署上線，全程沒寫程式碼",
+    "source": "數位時代",
+    "date": "2026-07-17",
+    "tool_name": "ChatGPT Sites",
+    "difficulty": "beginner",
+    "category": "AI 工具實戰教學",
+    "summary": "數位時代實測 ChatGPT Sites 功能，示範如何全程透過對話把網頁做出來並部署上線，不寫任何一行程式碼。文章說明上線後若要修改，只需回到「websites」區塊直接向 ChatGPT 描述需求，即可調整分享權限、頁面標題與自訂網域。實測建議的適用場景集中在展示型與輕互動網頁，例如資料分析儀表板、內部小工具與個人作品集。文中把 ChatGPT Sites 定位為 vibe coding 流程的最後一哩「部署」環節，補上了過去從生成到上線之間的斷點。對非工程背景的使用者，是門檻極低的入門教學。",
+    "highlights": [
+      "全程對話式操作，不需撰寫程式碼即可完成網頁建置與部署",
+      "上線後回到 websites 區塊即可用自然語言修改內容與設定",
+      "支援調整分享權限、頁面標題與綁定自訂網域",
+      "適用展示型與輕互動場景：儀表板、內部工具、個人作品集"
+    ],
+    "url": "https://www.bnext.com.tw/article/91537/gdd37kufmda5u2gbzdgq",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "建構 VideoAgent 風格多代理系統：影片編輯任務的意圖解析、圖規劃與工具路由",
@@ -316,7 +550,7 @@
     "url_status": "verified",
     "title_score": 0.35,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282287",
+    "verified_at": "2026-08-31T00:04:07.028774",
     "complete": true
   },
   {
@@ -341,7 +575,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282336",
+    "verified_at": "2026-08-31T00:04:07.028821",
     "complete": true
   },
   {
@@ -365,7 +599,7 @@
     "url_status": "title_low_match",
     "title_score": 0.17,
     "verified": "needs_review",
-    "verified_at": "2026-08-23T18:16:09.282387",
+    "verified_at": "2026-08-31T00:04:07.028870",
     "complete": true
   },
   {
@@ -383,9 +617,14 @@
       "擴充支援遠端 MCP server 的整合方式"
     ],
     "url": "https://www.freecodecamp.org/news/build-an-mcp-server-with-fastmcp-for-local-ai-agent/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.028920",
+    "complete": true
   },
   {
     "title": "How to Build Your Own Local AI Agent with Tool Calling and Memory",
@@ -402,9 +641,14 @@
       "LangChain v1 新版 API 的實務用法"
     ],
     "url": "https://www.freecodecamp.org/news/how-to-build-your-own-local-ai-agent-with-tool-calling-and-memory",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.028969",
+    "complete": true
   },
   {
     "title": "Claude 教學 2026｜從入門到 Projects、Skills、Cowork，新手必懂功能一次看",
@@ -428,7 +672,7 @@
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282447",
+    "verified_at": "2026-08-31T00:04:07.029018",
     "complete": true
   },
   {
@@ -452,7 +696,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282497",
+    "verified_at": "2026-08-31T00:04:07.029066",
     "complete": true
   },
   {
@@ -470,9 +714,14 @@
       "LangChain v1 + Ollama + Qwen 零成本組合"
     ],
     "url": "https://www.freecodecamp.org/news/build-a-private-rag-qa-ai-agent-for-your-documents-using-langchain/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 0.97,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.029115",
+    "complete": true
   },
   {
     "title": "How to Build a Personal Web Research AI Agent with Ollama and Qwen",
@@ -489,9 +738,14 @@
       "查詢內容不外送第三方的隱私優勢"
     ],
     "url": "https://www.freecodecamp.org/news/build-a-personal-ai-web-research-agent-with-ollama-and-qwen/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.029163",
+    "complete": true
   },
   {
     "title": "Claude Code 教學：不用寫程式，做 Chrome AI 摘要外掛",
@@ -515,32 +769,27 @@
     "url_status": "verified",
     "title_score": 0.96,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282547",
+    "verified_at": "2026-08-31T00:04:07.029211",
     "complete": true
   },
   {
-    "title": "Deep Agents",
-    "source": "LangChain Blog",
+    "title": "當 AI 已經能寫 Code——打造你的 AI 工作流：Agent Skill + MCP 實戰工作坊回顧",
+    "source": "APPLEBOY 部落格",
     "date": "2026-07-01",
-    "tool_name": "LangChain Deep Agents / LangGraph",
-    "difficulty": "advanced",
-    "category": "AI Agent 建構",
-    "summary": "LangChain 官方部落格說明其開源代理框架 Deep Agents 的設計理念與實作方式。文章指出單純用 LLM 在迴圈中呼叫工具只能做出「淺層」代理，難以規劃並執行長時程的複雜任務。Deep Research、Manus、Claude Code 等應用之所以成功，是因為結合了四項要素：規劃工具 (planning tool)、子代理 (sub agents)、檔案系統存取，以及一份詳盡的系統提示。Deep Agents 將這套模式封裝成可重用的 agent harness，負責處理規劃、context 管理與多代理編排，適用於研究與程式開發等長時間任務。",
+    "tool_name": "Claude Code / Agent Skill / MCP",
+    "difficulty": "intermediate",
+    "category": "MCP 開發 / AI Agent 建構",
+    "summary": "本文是作者在 iThome 臺灣雲端大會 90 分鐘實作工作坊的完整回顧，主題為用 Claude Code 搭配 Agent Skill 與 MCP 打造個人 AI 工作流。工作坊以開源的 OAuth 2.0 專案 AuthGate 為實作標的，帶著參與者走過完整軟體開發生命週期，從需求釐清、程式撰寫、測試到文件產出。文章詳細說明 Agent Skill 與 MCP 各自的定位差異：前者封裝可重複使用的流程知識，後者負責串接外部工具與資料源。內容附有實際指令與設定檔範例，屬於少見的繁體中文深度實作教材。對想在真實專案中導入 MCP 的台灣開發者特別實用。",
     "highlights": [
-      "淺層代理的瓶頸在於無法對長時程、多步驟任務進行規劃與持續執行",
-      "深度代理的四大支柱：規劃工具、子代理、檔案系統、詳盡系統提示",
-      "Deep Agents 是專為長時任務打造的開源 harness，內建 context 管理與多代理編排",
-      "適合套用於 Deep Research 型與 Claude Code 型的複雜工作流"
+      "以開源 OAuth 2.0 專案 AuthGate 為標的，實作完整軟體開發生命週期",
+      "釐清 Agent Skill 與 MCP 的定位差異：流程知識封裝 vs. 外部工具串接",
+      "提供實際指令與設定檔範例，可直接對照操作",
+      "繁體中文深度實作教材，貼近台灣開發者的專案情境"
     ],
-    "url": "https://www.langchain.com/blog/deep-agents",
-    "is_new": false,
-    "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282597",
-    "complete": true
+    "url": "https://blog.wu-boy.com/2026/07/ai-workflow-agent-skill-mcp-workshop-zh-tw/",
+    "is_new": true,
+    "first_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "How to Build an AI Agent That Runs its Own LLM Experiments with autoresearch",
@@ -557,9 +806,14 @@
       "揭示 agent 自主性的能力邊界與風險控制點"
     ],
     "url": "https://www.freecodecamp.org/news/build-an-ai-agent-that-runs-its-own-llm-experiments-with-autoresearch/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.029304",
+    "complete": true
   },
   {
     "title": "Build a Nanobot-Style AI Agent in Google Colab with Tool Calling, Session Memory, Skills, and MCP Servers",
@@ -576,32 +830,13 @@
       "以可讀性優先的方式還原 agent harness 組成"
     ],
     "url": "https://www.marktechpost.com/2026/06/26/build-a-nanobot-style-ai-agent-in-google-colab-with-tool-calling-session-memory-skills-and-mcp-servers/",
-    "is_new": true,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
-  },
-  {
-    "title": "在 Google Colab 打造 Nanobot 風格 AI Agent：工具呼叫、Session 記憶、Skills 與 MCP Server",
-    "source": "MarkTechPost",
-    "date": "2026-06-26",
-    "tool_name": "Nanobot / MCP",
-    "difficulty": "beginner",
-    "category": "AI Agent 建構",
-    "summary": "本教學帶讀者從 provider 抽象層開始，一步步在 Colab 中手寫一個輕量的個人 AI agent，理解 agent loop 的每個組成。內容依序加入工具註冊、session 記憶、生命週期 hooks、skills 與 MCP 風格的工具伺服器，讓讀者看清訊息、工具、記憶與模型回應如何組合成完整迴圈。因為刻意不依賴現成框架，讀者能明確看到每個抽象層解決什麼問題，而非把 agent 當黑盒使用。教學最後完成的 agent 具備 provider 無關特性，可切換不同模型後端。適合想真正理解 agent 內部運作的初學者。",
-    "highlights": [
-      "從 provider 抽象層開始手寫，完整暴露 agent loop 的每個環節",
-      "工具註冊、session 記憶、生命週期 hooks 逐層加入，各層職責清楚可辨",
-      "MCP 風格工具伺服器讓工具與 agent 主體解耦，可獨立擴充",
-      "最終 agent 為 provider 無關設計，可自由替換底層模型"
-    ],
-    "url": "https://www.marktechpost.com/2026/06/26/build-a-nanobot-style-ai-agent-in-google-colab-with-tool-calling-session-memory-skills-and-mcp-servers/",
     "is_new": false,
-    "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
-    "url_status": "title_low_match",
-    "title_score": 0.23,
-    "verified": "needs_review",
-    "verified_at": "2026-08-23T18:16:09.282657",
+    "first_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.029343",
     "complete": true
   },
   {
@@ -619,32 +854,13 @@
       "多代理協調機制的 runtime 層實作"
     ],
     "url": "https://www.marktechpost.com/2026/06/24/how-to-design-an-openharness-style-agent-runtime-with-tools-memory-permissions-skills-and-multi-agent-coordination/",
-    "is_new": true,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
-  },
-  {
-    "title": "如何設計 OpenHarness 風格的 Agent Runtime：工具、記憶、權限、Skills 與多代理協調",
-    "source": "MarkTechPost",
-    "date": "2026-06-24",
-    "tool_name": "OpenHarness",
-    "difficulty": "advanced",
-    "category": "AI Agent 建構",
-    "summary": "這篇教學從零重建一套 OpenHarness 風格的 agent runtime，把 harness engineering 的主要組件全部攤開實作。內容包含工具使用、typed tool schema、權限控制、生命週期 hooks、記憶、skills、context 壓縮、重試邏輯與多代理協調。文章刻意暴露完整控制流程：harness 接收任務、模型決定下一步動作、runtime 驗證並執行工具呼叫、回傳觀察結果，再繼續迴圈直到任務完成。typed tool schema 與權限層說明如何在執行前擋掉不合法的工具呼叫，而 context 壓縮則處理長任務下 context window 耗盡的問題。是目前少見把 agent harness 內部機制講到底的實作教學。",
-    "highlights": [
-      "完整攤開 harness 控制流程：接任務、模型決策、驗證執行、回傳觀察、續行迴圈",
-      "typed tool schema 讓不合法的工具呼叫在執行前就被擋下，而非執行後才報錯",
-      "context 壓縮機制處理長任務的 context window 耗盡問題",
-      "權限層與多代理協調共同構成可控的執行邊界"
-    ],
-    "url": "https://www.marktechpost.com/2026/06/24/how-to-design-an-openharness-style-agent-runtime-with-tools-memory-permissions-skills-and-multi-agent-coordination/",
     "is_new": false,
-    "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
+    "first_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
     "url_status": "verified",
-    "title_score": 0.44,
+    "title_score": 0.91,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282709",
+    "verified_at": "2026-08-31T00:04:07.029379",
     "complete": true
   },
   {
@@ -668,7 +884,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282762",
+    "verified_at": "2026-08-31T00:04:07.029415",
     "complete": true
   },
   {
@@ -691,7 +907,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282812",
+    "verified_at": "2026-08-31T00:04:07.029451",
     "complete": true
   },
   {
@@ -715,7 +931,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282862",
+    "verified_at": "2026-08-31T00:04:07.029486",
     "complete": true
   },
   {
@@ -739,7 +955,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282910",
+    "verified_at": "2026-08-31T00:04:07.029524",
     "complete": true
   },
   {
@@ -763,7 +979,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.282957",
+    "verified_at": "2026-08-31T00:04:07.029560",
     "complete": true
   },
   {
@@ -781,13 +997,13 @@
       "每項功能均附實例與 demo 便於對照驗證"
     ],
     "url": "https://www.marktechpost.com/2026/06/14/claude-code-guide-2026-25-features-with-examples-demo/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-08-24T18:27:14.357562+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283010",
+    "verified_at": "2026-08-31T00:04:07.029597",
     "complete": true
   },
   {
@@ -811,7 +1027,7 @@
     "url_status": "verified",
     "title_score": 0.4,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283061",
+    "verified_at": "2026-08-31T00:04:07.029637",
     "complete": true
   },
   {
@@ -829,9 +1045,14 @@
       "偏地景盤點性質，非單一工具深度教學"
     ],
     "url": "https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
+    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-08-31T00:04:07.029675",
+    "complete": true
   },
   {
     "title": "Claude Cowork 是什麼、怎麼用？新手 10 分鐘設定教學，一次學會檔案自動化",
@@ -855,7 +1076,7 @@
     "url_status": "verified",
     "title_score": 0.96,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283113",
+    "verified_at": "2026-08-31T00:04:07.029711",
     "complete": true
   },
   {
@@ -879,7 +1100,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283163",
+    "verified_at": "2026-08-31T00:04:07.029746",
     "complete": true
   },
   {
@@ -902,7 +1123,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283212",
+    "verified_at": "2026-08-31T00:04:07.029781",
     "complete": true
   },
   {
@@ -927,7 +1148,7 @@
     "url_status": "verified",
     "title_score": 0.6,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283262",
+    "verified_at": "2026-08-31T00:04:07.029817",
     "complete": true
   },
   {
@@ -945,81 +1166,13 @@
       "適合 agent 開發初學者的完整入門路徑"
     ],
     "url": "https://www.freecodecamp.org/news/build-your-own-ai-agent/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00"
-  },
-  {
-    "title": "Claude 是什麼？claude ai 教學：38 篇 Cowork、Skills、省 Token 秘訣全打包",
-    "source": "數位時代 BusinessNext",
-    "date": "2026-06-01",
-    "tool_name": "Claude / Cowork / Skills",
-    "difficulty": "beginner",
-    "category": "AI 工具實戰教學",
-    "summary": "數位時代把旗下 38 篇 Claude 教學整理成一份「Claude 實戰地圖」，作為系統性的學習索引。內容涵蓋方案選擇、模型選擇、下指令方式，一路到如何把 Claude 整合進 Excel、Word 等既有工作流程。地圖依主題分類，包含 Cowork 自動化、Skills 客製化，以及省 Token 的實務技巧，讓使用者依自己的階段挑選對應文章，而不必從頭讀完。對剛開始評估要不要投入 Claude、或不知道從哪篇教學下手的使用者，提供了一個完整的導覽起點。屬於彙整型索引而非單一操作教學。",
-    "highlights": [
-      "彙整 38 篇 Claude 教學成一份主題式「實戰地圖」索引",
-      "涵蓋方案選擇、模型選擇到下指令方式的完整路徑",
-      "包含整合進 Excel、Word 等既有辦公流程的做法",
-      "另闢 Cowork 自動化、Skills 客製化與省 Token 技巧三大主題",
-      "適合作為入門導覽起點，依階段挑選對應文章"
-    ],
-    "url": "https://www.bnext.com.tw/article/91080/claude-cowork-skills",
-    "is_new": false,
-    "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
-    "url_status": "verified",
-    "title_score": 0.91,
-    "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283312",
-    "complete": true
-  },
-  {
-    "title": "Microsoft Agent Governance Toolkit 實作：以政策、審批、審計記錄與風險控制確保 AI Agent 安全用工具",
-    "source": "MarkTechPost",
-    "date": "2026-05-31",
-    "tool_name": "Microsoft Agent Governance Toolkit",
-    "difficulty": "advanced",
-    "category": "AI 治理實作",
-    "summary": "這篇教學實作 Microsoft Agent Governance Toolkit，處理 agent 工具使用的治理問題。系統由四個機制組成：政策定義工具呼叫的允許範圍、審批流程攔截高風險動作等待人工放行、審計記錄保留完整執行軌跡、風險控制則對動作進行分級。文章示範如何把政策規則寫成可執行的檢查，並展示 agent 觸碰高風險工具時審批流程如何介入。審計段落說明記錄應包含哪些欄位才足以事後追溯責任。對金融、醫療等受監管情境部署 agent 的團隊而言，這是把治理要求落到程式碼層的具體範例。",
-    "highlights": [
-      "政策、審批、審計、風險分級四項機制構成完整的 agent 治理層",
-      "高風險動作觸發人工審批攔截，而非允許 agent 自行決定是否執行",
-      "審計記錄需包含足以事後追溯責任的完整欄位，而非僅記錄成功與失敗",
-      "風險分級讓治理成本集中在真正高風險的工具呼叫，避免低風險動作被過度阻擋"
-    ],
-    "url": "https://www.marktechpost.com/2026/05/31/an-implementation-of-the-microsoft-agent-governance-toolkit-for-safe-ai-agent-tool-use-with-policies-approvals-audit-logs-and-risk-controls/",
-    "is_new": false,
-    "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
-    "url_status": "verified",
-    "title_score": 0.42,
-    "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283364",
-    "complete": true
-  },
-  {
-    "title": "2026 年 Cursor AI 完整使用教學：從安裝到 Agent 模式，全面掌握最強 AI 程式碼編輯器",
-    "source": "AI 織夢部落格 (weavai.app)",
-    "date": "2026-05-26",
-    "tool_name": "Cursor",
-    "difficulty": "beginner",
-    "category": "Cursor 教學",
-    "summary": "繁體中文的 Cursor 完整使用教學，從安裝設定一路講到 Agent 模式的實際操作。Cursor 是 Visual Studio Code 的分支（fork），在編輯器核心層深度整合 AI 能力，而非以外掛形式附加。教學說明三大核心操作模式的適用情境：⌘K 行內編輯用於快速修改單一函數、⌘L Chat 用於討論設計思路、⌘I Agent/Composer 用於跨檔案的複雜功能開發。對中文使用者而言是少數把操作模式與使用時機講清楚的入門教材。",
-    "highlights": [
-      "繁體中文完整教學，涵蓋安裝到 Agent 模式",
-      "Cursor 為 VS Code fork、核心層整合 AI 的架構定位",
-      "⌘K / ⌘L / ⌘I 三大操作模式的適用情境區分",
-      "跨檔案理解與修改程式碼的實際操作說明"
-    ],
-    "url": "https://weavai.app/blog/2026/05/26/2026-%E5%B9%B4-cursor-ai-%E5%AE%8C%E6%95%B4%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8%EF%BC%9A%E5%BE%9E%E5%AE%89%E8%A3%9D%E5%88%B0-agent-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%85%A8%E9%9D%A2%E6%8E%8C%E6%8F%A1/",
-    "is_new": true,
-    "first_seen": "2026-08-03T18:36:10.777200+08:00",
     "last_seen": "2026-08-24T18:27:14.357562+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-23T18:16:09.283415",
+    "verified_at": "2026-08-31T00:04:07.029854",
     "complete": true
   }
 ]

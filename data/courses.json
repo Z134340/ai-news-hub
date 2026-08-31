@@ -1,193 +1,200 @@
 {
   "items": [
     {
-      "title": "Anthropic 推出 Claude Academy：免費官方 AI 學習平台",
+      "title": "Learning Tree 推出 Anthropic Claude 認證的講師導引預備課程",
+      "source": "GlobeNewswire",
+      "date": "2026-08-27",
+      "provider": "Learning Tree International",
+      "is_free": false,
+      "cert_included": true,
+      "level": "intermediate",
+      "duration": "未公布",
+      "topics": [
+        "Claude Certification",
+        "Anthropic",
+        "Prompt Engineering",
+        "Enterprise AI",
+        "Pearson VUE"
+      ],
+      "summary": "Learning Tree International 於 2026 年 8 月 27 日宣布推出一套即時講師導引（instructor-led）課程，專門為 Anthropic 的 Claude 認證體系做考前準備。Anthropic 的 Claude Certification Program 目前包含四張透過 Pearson VUE 監考的證照，橫跨 Associate、Developer、Architect 三種角色，考後發放 Credly 數位徽章、效期 12 個月。Learning Tree 的課程依角色分班，讓企業能同時為業務端、開發端與架構端建立 Claude 能力路徑，而不只是個人自學。對金融業而言，這是市面上少數把「Claude 導入」制度化成可驗證職能的訓練供給。需注意官方認證考試本身為付費且部分軌道限 Claude Partner Network 成員報名，預備課程與認證考試費用需分開計算。",
+      "highlights": [
+        "首批針對 Anthropic Claude 認證的第三方講師導引預備課程",
+        "對應 Associate / Developer / Architect 三種角色分軌",
+        "官方認證由 Pearson VUE 監考、Credly 發證、效期 12 個月",
+        "適合企業建立跨部門的 Claude 技能盤點與職能基準"
+      ],
+      "url": "https://www.globenewswire.com/news-release/2026/08/27/3351977/0/en/learning-tree-launches-instructor-led-preparation-courses-for-anthropic-s-claude-certifications.html"
+    },
+    {
+      "title": "DeepLearning.AI 新課程：Building Adaptive AI Agents（打造會自我調適的 AI Agent）",
+      "source": "DeepLearning.AI",
+      "date": "2026-08-26",
+      "provider": "DeepLearning.AI",
+      "is_free": true,
+      "cert_included": false,
+      "level": "intermediate",
+      "duration": "短課程（約 1 小時）",
+      "topics": [
+        "AI Agent",
+        "Agent Memory",
+        "Adaptive Agents",
+        "Context Engineering"
+      ],
+      "summary": "DeepLearning.AI 於 2026 年 8 月 26 日發布新短課程 Building Adaptive AI Agents。課程切入的問題是：多數 AI Agent 在跨 session 之間不帶任何東西前進，因此會反覆犯同樣的錯誤。課程提出三種修正路徑，讓 Agent 能把過去的執行結果轉化為下一次的行為調整。這條主線延續 DeepLearning.AI 自 2026 年 3 月與 Oracle 合作的 Agent Memory 課程，把重點從 prompt engineering、context engineering 推進到 memory engineering。對治理面的意義是：Agent 一旦具備跨 session 記憶與自我調適能力，稽核軌跡與行為可預測性就必須另行設計控制點。",
+      "highlights": [
+        "針對 Agent「跨 session 不學習」的核心缺陷提出三種解法",
+        "延續 Agent Memory 系列，屬 memory engineering 主題線",
+        "免費短課程，實作導向",
+        "與治理相關：自我調適行為會改變 Agent 的可稽核性假設"
+      ],
+      "url": "https://community.deeplearning.ai/t/new-course-enroll-in-building-adaptive-ai-agents/894827"
+    },
+    {
+      "title": "Anthropic 推出免費學習平台 Claude Academy，收錄 26 門課程",
       "source": "Anthropic",
       "date": "2026-08-20",
       "provider": "Anthropic",
       "is_free": true,
-      "cert_included": false,
+      "cert_included": true,
       "level": "beginner",
-      "duration": "自主學習（22 門課程 / 每門約 30-90 分鐘）",
+      "duration": "自主學習，26 門課程",
       "topics": [
         "Claude",
         "AI Fluency",
-        "Prompt Engineering",
-        "Claude Code",
-        "AI Agents",
-        "Enterprise AI Adoption"
+        "Claude API",
+        "Prompt Engineering"
       ],
-      "summary": "Anthropic 於 2026 年 8 月 20 日推出官方免費學習平台 Claude Academy（academy.claude.com），將原本分散的教學資源整合為單一入口。平台以自家提出的「4D AI Fluency Framework」（Delegation 委派、Description 描述、Discernment 判讀、Diligence 盡責）為教學骨幹，內容涵蓋 22 門結構化課程、上百則教學短片、實際使用案例與網路研討會回放。課程分為六個難度層級，從完全沒有 AI 使用經驗的入門者，到需要在企業內部導入 Claude 與 Agent 工作流的技術人員都有對應路徑。完成課程後可取得可分享至 LinkedIn 的結業徽章，但此徽章不等同於需付費應考的 Claude 官方認證。平台支援多語系介面，且全部內容免費開放，不需要 Claude 付費訂閱即可存取。",
+      "summary": "Anthropic 於 2026 年 8 月 20 日將原本的 Anthropic Academy 正式獨立為 Claude Academy，搬遷至專屬網域 academy.claude.com，一次收錄 26 門免費課程。課程分為四條學習路徑：新手入門、產品操作指南、AI fluency（AI 素養），以及 API 開發。內容涵蓋從第一次使用聊天介面，一路到用 Claude API 撰寫應用程式。完成課程會在 Claude 個人檔案中累積完成徽章與結業證明。需要明確區分的是：Claude Academy 的完成證明（completion certificate/badge）與 Anthropic 付費、Pearson VUE 監考的 Claude Certification Program 是兩套不同東西，前者不等於證照。",
       "highlights": [
-        "免費開放，不需 Claude 付費訂閱即可使用全部課程內容",
-        "以 4D AI Fluency Framework（委派／描述／判讀／盡責）作為教學主軸",
-        "六個難度層級，從零基礎到企業導入 Agent 工作流都有對應學習路徑",
-        "完課可獲得 LinkedIn 分享徽章，但與付費的 Claude 官方認證不同",
-        "支援多語系介面，內容涵蓋課程、教學短片、使用案例與網研會回放"
+        "由 Anthropic Academy 改版而來，2026-08-20 上線專屬網域",
+        "26 門免費課程，分入門 / 產品 / AI fluency / API 開發四條路徑",
+        "僅需 Email 註冊即可上課，不需付費訂閱",
+        "完成徽章 ≠ 正式證照，勿與付費監考的 Claude Certification 混淆"
       ],
       "url": "https://academy.claude.com"
     },
     {
-      "title": "JetBrains 與 DeepLearning.AI 合作推出「AI Coding Workflows: From Cloud to Local」課程",
-      "source": "JetBrains Blog",
+      "title": "DeepLearning.AI 攜手 JetBrains 推出 AI Coding Workflows: From Cloud to Local",
+      "source": "DeepLearning.AI",
       "date": "2026-08-13",
       "provider": "DeepLearning.AI × JetBrains",
       "is_free": true,
       "cert_included": false,
       "level": "intermediate",
-      "duration": "短課程（約 1-2 小時）",
+      "duration": "短課程",
       "topics": [
+        "AI Coding",
+        "Claude Code",
+        "Subagents",
         "Local LLM",
-        "Hybrid AI",
-        "AI Coding Assistant",
-        "JetBrains IDE",
-        "Privacy",
-        "Model Selection"
+        "Model Routing"
       ],
-      "summary": "JetBrains 與 DeepLearning.AI 於 2026 年 8 月 13 日宣布推出短課程「AI Coding Workflows: From Cloud to Local」，由 JetBrains 的 Paul Everitt 講授。課程主軸在於「混合式（hybrid）與本地端 AI 編碼工作流」——也就是何時該把工作交給雲端大模型、何時該改用跑在自己機器上的本地模型。內容涵蓋本地模型的實際能力邊界、延遲與成本的取捨，以及在受監管或敏感程式碼情境下把資料留在本機的隱私考量。學員會實際在 IDE 內設定並切換雲端與本地模型，建立可重複使用的編碼工作流。這是 JetBrains 與 DeepLearning.AI 繼「Spec-Driven Development with Coding Agents」之後的第二門合作課程，同樣免費開放。",
+      "summary": "DeepLearning.AI 與 JetBrains 合作推出免費短課程，講師為 JetBrains Developer Advocate Paul Everitt。課程以同一支 Python 應用為基準，依序測試不同的 AI coding 配置：先建立 Claude Code 基準線，再導入 subagent 把任務拆成聚焦子工作，接著讓較便宜的模型處理例行工作，然後改用開源 coding agent 串接不同推論供應商，最後把模型完全跑在本機。課程示範的「大腦分工」是用 Opus 負責主要對話與推理、用 Haiku 負責實作。結業時學員能自行評估各種 AI coding workflow 的成本與效能取捨，選出符合自身工作的組合。對受監理產業而言，雲端到本機的漸進路徑正好對應資料落地與成本控制兩項限制。",
       "highlights": [
-        "由 JetBrains 開發者布道師 Paul Everitt 講授，免費開放",
-        "核心議題是「何時用雲端模型、何時改用本地模型」的實務決策準則",
-        "涵蓋隱私與合規情境：把敏感程式碼留在本機不外送雲端",
-        "實作在 IDE 內配置與切換雲端／本地模型的混合工作流",
-        "為 JetBrains 與 DeepLearning.AI 的第二門合作短課程"
+        "從 Claude Code 雲端基準線一路推進到完全本機執行",
+        "示範 subagent 拆解任務與模型分工（Opus 推理 / Haiku 實作）",
+        "涵蓋更換 coding agent 與切換推論供應商的實務",
+        "免費，使用 PyCharm 與其 AI Chat 為操作環境"
       ],
       "url": "https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local"
     },
     {
-      "title": "Google 擴充 AI Professional Certificate，新增 vibe coding 課程",
-      "source": "Google Blog (Grow with Google)",
-      "date": "2026-08-12",
-      "provider": "Google / Coursera",
-      "is_free": false,
-      "cert_included": true,
-      "level": "beginner",
-      "duration": "自主學習（新增課程約數小時）",
-      "topics": [
-        "Vibe Coding",
-        "Gemini",
-        "AI Application Building",
-        "Prompt Engineering",
-        "Google AI Professional Certificate"
-      ],
-      "summary": "Google 於 2026 年 8 月 12 日宣布擴充其 Google AI Professional Certificate，新增一門聚焦「vibe coding」的課程——也就是用自然語言描述需求、讓 AI 產出可運作應用程式的開發方式。這門新增課程針對完全沒有程式背景的學習者設計，教學員如何用自然語言指令建立可實際運行的應用原型，並理解何時需要人為介入修正 AI 產出。該證書原本在 2026 年 2 月推出，主打不需要程式基礎即可培養職場 AI 技能；此次擴充是 Google 將證書從「會用 AI 工具」推向「能用 AI 做出東西」的延伸。課程透過 Coursera 平台提供，完成後可取得 Google 官方職業證書。",
-      "highlights": [
-        "為 2026 年 2 月推出的 Google AI Professional Certificate 新增 vibe coding 模組",
-        "針對零程式背景學習者設計，用自然語言指令建構可運行的應用原型",
-        "教學重點包含辨識 AI 產出何時需要人為介入修正",
-        "透過 Coursera 提供，完成可取得 Google 官方職業證書",
-        "定位從「會用 AI 工具」升級為「能用 AI 實際做出產品」"
-      ],
-      "url": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/vibe-coding-course/"
-    },
-    {
-      "title": "Anthropic 擴充 Claude 認證計畫，透過 Pearson VUE 提供四張角色型證照",
-      "source": "Pearson VUE",
-      "date": "2026-07-23",
-      "provider": "Anthropic × Pearson VUE",
-      "is_free": false,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "每科考試 120 分鐘",
-      "topics": [
-        "Claude Certification",
-        "Claude Code",
-        "AI Architect",
-        "Agent Development",
-        "Pearson VUE",
-        "Credly"
-      ],
-      "summary": "Anthropic 於 2026 年 7 月 23 日宣布將 Claude 官方認證計畫從單一證照擴充為四張角色型證照，並全面移轉至 Pearson VUE 的線上監考（OnVUE）與實體考場交付。四張證照分別對應不同職能：Claude Certified AI Operator - Foundations（99 美元）、Claude Certified Developer - Foundations（125 美元）、Claude Certified Architect - Foundations（125 美元）與 Claude Certified Architect - Professional（175 美元）。每科考試時間 120 分鐘，滿分 1000 分、720 分及格，證照效期 12 個月。首張證照 Claude Certified Architect: Foundations 於 2026 年 3 月 12 日推出，此次擴充補上了偏應用端的 Operator 與偏開發端的 Developer 路徑。通過者可取得 Credly 數位徽章，部分進階證照需具備 Claude Partner Network 資格才能報考。",
-      "highlights": [
-        "四張角色型證照：AI Operator($99)、Developer($125)、Architect Foundations($125)、Architect Professional($175)",
-        "考試時間 120 分鐘，滿分 1000 分、720 分及格，證照效期 12 個月",
-        "全面移轉至 Pearson VUE 交付，支援 OnVUE 線上監考與實體考場",
-        "通過者取得 Credly 數位徽章，可驗證分享",
-        "部分進階證照需 Claude Partner Network 資格才可報考"
-      ],
-      "url": "https://www.pearsonvue.com/us/en/anthropic.html"
-    },
-    {
-      "title": "AWS 推出「Building AI Agent Harnesses with Strands Agents」免費 14 集影片課程",
-      "source": "AWS Builder Center",
-      "date": "2026-07-15",
-      "provider": "AWS",
+      "title": "DeepLearning.AI 與 Qodo 合作推出 AI Code Review 短課程",
+      "source": "DeepLearning.AI",
+      "date": "2026-07-29",
+      "provider": "DeepLearning.AI × Qodo",
       "is_free": true,
       "cert_included": false,
       "level": "intermediate",
-      "duration": "14 支影片（自主學習）",
+      "duration": "短課程",
       "topics": [
-        "Strands Agents",
-        "Agent Harness",
-        "Agent Loop",
-        "Tool Use",
-        "Agent Swarms",
-        "Observability",
-        "Agent Evaluation"
+        "AI Code Review",
+        "Code Security",
+        "Review Agent",
+        "Pull Request"
       ],
-      "summary": "AWS 於 2026 年 7 月 15 日在 Builder Center 推出免費的 14 集影片課程，教學如何用開源框架 Strands Agents 建構 AI Agent 的「harness」——也就是包在模型外面、負責控制迴圈、工具呼叫與狀態管理的執行骨架。課程從 agent loop 的基本運作講起，逐步涵蓋模型供應商切換、工具定義、hooks 與 plugins 擴充機制、steering 引導行為、對話狀態管理，再進到多 Agent 架構如 agents-as-tools、graph workflows 與 agent swarms。後段則處理正式上線才會遇到的問題：可觀測性（observability）、Agent 評估方法，以及部署到 AWS 雲端環境。整套課程完全免費，不需 AWS 付費訂閱，適合已有 LLM 應用基礎、想把 Agent 從 demo 推到生產環境的工程師。",
+      "summary": "DeepLearning.AI 於 2026 年 7 月 29 日發布與 Qodo 合作的短課程 AI Code Review，講師為 Nnenna Ndukwe。課程的前提是：AI 產出的程式碼量已超過任何團隊人工可審查的規模，而一個 pull request 表面看來正常，卻可能藏著資安問題或漏掉需求。課程教三項讓 AI code review 真正有效的實務：在開 PR 之前就先審、把完整的 codebase 脈絡餵給審查者、以及依風險分級處理審查發現。最後學員會自行建構一個 review agent。這對導入 AI 輔助開發的金融機構特別實用，因為程式碼審查正是內控中最容易被 AI 產能衝破的關卡。",
       "highlights": [
-        "14 支影片全免費，不需 AWS 付費訂閱即可觀看",
-        "從 agent loop 基礎到 hooks/plugins 擴充機制完整拆解 harness 架構",
-        "涵蓋多 Agent 模式：agents-as-tools、graph workflows、agent swarms",
-        "包含生產環境必備的可觀測性（observability）與 Agent 評估方法",
-        "最後帶到雲端部署，適合把 Agent 從 demo 推向生產的工程師"
+        "核心觀點：AI 寫碼速度已超過人工審查上限，審查機制必須自動化",
+        "三大實務：PR 前先審、給足 codebase 脈絡、依風險分級 triage",
+        "動手建構自己的 code review agent",
+        "免費，與 Qodo 合作開發"
       ],
-      "url": "https://builder.aws.com/content/3GYPrAplMhl2IAl7jJW0yeKzXrR/building-ai-agent-harnesses-with-strands-agents-a-free-14-video-course"
+      "url": "https://www.deeplearning.ai/courses/ai-code-review"
     },
     {
-      "title": "DeepLearning.AI 推出「Voice for AI Agents and Applications」語音 Agent 課程",
+      "title": "Microsoft 推出全新 Multi-Agent AI Solutions Expert 專家級認證（AI-500 beta）",
+      "source": "Microsoft Community Hub",
+      "date": "2026-07-23",
+      "provider": "Microsoft",
+      "is_free": false,
+      "cert_included": true,
+      "level": "advanced",
+      "duration": "考試制（beta），2026-09-30 正式上線",
+      "topics": [
+        "Multi-Agent",
+        "Microsoft Foundry",
+        "Azure AI",
+        "Agent Orchestration",
+        "Certification"
+      ],
+      "summary": "Microsoft 於 2026 年 7 月 23 日宣布推出專家級認證 Microsoft Certified: Multi-Agent AI Solutions Expert，考科為 AI-500《Designing and Implementing Multi-Agent AI Solutions》。認證聚焦在以 Microsoft Foundry 與 Azure 架構、開發多 Agent AI 解決方案的實作能力。取得此認證的前提是必須先持有 Microsoft Certified: Azure AI Apps and Agents Developer Associate（AI-103）。AI-500 目前處於 beta 階段，預計 2026 年 9 月 30 日正式上線；beta 期間前 300 位於 2026 年 8 月 5 日前應考者可享 8 折以上折扣。這是主要雲端廠商中第一批把「multi-agent 架構」單獨拉成專家級考科的認證，代表多 Agent 編排已從研究題目變成企業可招募的職能。",
+      "highlights": [
+        "雲端大廠首批以 multi-agent 架構為獨立專家級考科的認證",
+        "考科 AI-500，須先取得 AI-103 Associate 認證為前提",
+        "beta 階段中，預計 2026-09-30 正式上線",
+        "技術基礎為 Microsoft Foundry 與 Azure，偏企業級落地"
+      ],
+      "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-multi-agent-ai-solutions-expert-certification/4494122"
+    },
+    {
+      "title": "UNESCO 與 LG AI Research 推出全球 AI 倫理 MOOC，於 Coursera 免費開放",
+      "source": "UNESCO",
+      "date": "2026-07-20",
+      "provider": "UNESCO × LG AI Research（Coursera 平台）",
+      "is_free": true,
+      "cert_included": false,
+      "level": "beginner",
+      "duration": "自主學習",
+      "topics": [
+        "AI Ethics",
+        "AI Governance",
+        "UNESCO Recommendation",
+        "Responsible AI"
+      ],
+      "summary": "UNESCO 與 LG AI Research 於 2026 年 7 月 20 日在首爾舉行的 Ethics by Design: Industry and Innovation 會議上，共同發表全球 AI 倫理大型開放線上課程（Global MOOC on the Ethics of Artificial Intelligence）。課程託管於 Coursera，向全球學習者免費開放。內容以 UNESCO 的《人工智慧倫理建議書》（Recommendation on the Ethics of Artificial Intelligence）為基礎，該建議書已獲 193 個會員國背書。課程目標是協助個人與組織把這套全球性倫理框架實際套用到真實場域，而非停留在原則宣示。對治理實務者而言，這是少數由國際組織直接提供、可作為內部訓練共同語彙的公開教材。",
+      "highlights": [
+        "以 193 國背書的 UNESCO AI 倫理建議書為課程骨幹",
+        "與 LG AI Research 合作，2026-07-20 於首爾發表",
+        "託管於 Coursera，全球免費開放",
+        "強調框架的實務落地應用，非純理論"
+      ],
+      "url": "https://www.unesco.org/en/articles/unesco-and-lg-ai-research-launch-global-mooc-ethics-ai"
+    },
+    {
+      "title": "DeepLearning.AI 新課程：Voice for AI Agents and Applications（Agent 語音整合）",
       "source": "DeepLearning.AI",
-      "date": "2026-06-17",
+      "date": "2026-06-27",
       "provider": "DeepLearning.AI × VocalBridge",
       "is_free": true,
       "cert_included": false,
       "level": "intermediate",
-      "duration": "短課程（約 1-2 小時）",
+      "duration": "短課程",
       "topics": [
-        "Voice AI",
-        "Speech-to-Text",
-        "Text-to-Speech",
-        "Real-time Agents",
-        "Latency Optimization",
-        "VocalBridge"
+        "Voice Agent",
+        "AI Agent",
+        "Speech Interface",
+        "Tool Use"
       ],
-      "summary": "DeepLearning.AI 與 VocalBridge 合作，於 2026 年 6 月 17 日推出短課程「Voice for AI Agents and Applications」，主題是如何把語音介面接到 AI Agent 上。課程拆解三種語音整合架構模式，包括串接式的 STT→LLM→TTS 管線，以及端到端語音模型，並分析各自在延遲、成本與可控性上的取捨。內容特別著重即時互動場景會踩到的實務問題：如何壓低往返延遲讓對話不卡頓、如何處理使用者插話（barge-in）、以及語音辨識錯誤如何影響下游 Agent 的決策品質。學員會實作可運作的語音 Agent 原型。課程免費開放，適合已熟悉文字型 LLM 應用、想擴展到語音通道的開發者。",
+      "summary": "DeepLearning.AI 於 2026 年 6 月 27 日發布 Voice for AI Agents and Applications 短課程，講師為 Vocal Bridge（AI Fund 投資組合公司）共同創辦人暨執行長 Ashwyn Sharma。課程拆解三種語音整合模式：語音直接嵌入應用程式、在既有 Agent 上疊加語音層而不動其邏輯、以及把語音當成 LLM 可自行決定呼叫的 tool。實作包含建構一個語音與滑鼠點擊同步運作的井字遊戲、為既有 Agent 以極少程式碼加上語音層，以及讓 Agent 具備 make_phone_call 工具，實際撥打號碼並即時串流逐字稿。課程僅要求基本 Python 能力，不需語音 API 經驗。對金融業客服與電話行銷場景，第三種「語音即工具」模式最值得注意，因為它把語音接觸點納入 Agent 的自主決策範圍，責任歸屬需事先界定。",
       "highlights": [
-        "由 DeepLearning.AI 與 VocalBridge 合作開發，免費開放",
-        "拆解三種語音整合架構：STT→LLM→TTS 管線與端到端語音模型的取捨",
-        "聚焦即時互動的延遲優化與使用者插話（barge-in）處理",
-        "討論語音辨識錯誤如何向下傳遞影響 Agent 決策品質",
-        "包含可運作的語音 Agent 實作原型"
+        "三種語音整合模式：嵌入應用、疊加語音層、語音作為 LLM 可呼叫的 tool",
+        "實作包含 Agent 主動撥打外撥電話並即時回傳逐字稿",
+        "僅需基本 Python，不需先備語音 API 經驗",
+        "免費，與 VocalBridge 合作開發"
       ],
       "url": "https://www.deeplearning.ai/courses/voice-for-ai-agents-and-applications"
-    },
-    {
-      "title": "Microsoft 推出 AI Agent Skills Sweepstakes，完成 Applied Skill 可抽免費考試券",
-      "source": "Microsoft Learn",
-      "date": "2026-06-15",
-      "provider": "Microsoft",
-      "is_free": true,
-      "cert_included": true,
-      "level": "intermediate",
-      "duration": "活動期間 2026-06-15 至 2026-07-15",
-      "topics": [
-        "Microsoft Applied Skills",
-        "AI Agents",
-        "Copilot Studio",
-        "Agentic Workflows",
-        "Microsoft Certification"
-      ],
-      "summary": "Microsoft 於 2026 年 6 月 15 日至 7 月 15 日舉辦 AI Agent Skills Sweepstakes 活動，鼓勵學習者取得 AI Agent 相關的 Microsoft Applied Skills 認證。Applied Skills 是 Microsoft 在傳統證照之外新設的「情境式技能驗證」，透過實作環境評測特定任務能力，而非只考選擇題。此次活動聚焦在 Copilot Studio 建構 Agent 與 agentic workflow 設計等主題。活動期間內完成指定 Applied Skills 評測的學習者，可獲得抽取 100% 折抵考試券的資格，等於有機會免費考取 Microsoft 正式證照。學習教材本身在 Microsoft Learn 上全程免費，只有正式證照考試需付費，此活動的設計即是降低這道付費門檻。",
-      "highlights": [
-        "活動期間 2026-06-15 至 2026-07-15，完成指定 Applied Skills 可抽 100% 折抵考試券",
-        "Applied Skills 為實作情境式評測，非傳統選擇題型證照",
-        "主題聚焦 Copilot Studio 建構 Agent 與 agentic workflow 設計",
-        "Microsoft Learn 學習教材本身全程免費，僅正式考試需付費",
-        "設計目的在降低取得 Microsoft AI 正式證照的付費門檻"
-      ],
-      "url": "https://learn.microsoft.com/en-us/credentials/certifications/microsoft-ai-agent-skills-sweepstakes"
     }
   ],
-  "_updated_at": "2026-08-24T18:10:08.242854+08:00"
+  "_updated_at": "2026-08-31T18:12:59.300635+08:00"
 }
