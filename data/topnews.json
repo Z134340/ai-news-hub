@@ -1,20 +1,35 @@
 {
   "items": [
     {
-      "title": "AI agents need their own identity before they need a gateway",
-      "title_zh": "AI 代理需要的是自己的身分識別，而非先急著建閘道",
-      "source": "VentureBeat",
-      "date": "2026-08-30",
-      "domain": "Cybersecurity",
-      "model_area": "AI Agent 身分治理 / Agent Gateway / 企業級 Agent 安全",
-      "summary": "VentureBeat 於 2026-08-30 刊出企業 AI Agent 安全分析，指出組織正快速從「只回答問題的助理」轉向能自主推理、呼叫工具、存取企業系統並與其他 Agent 協作的自主代理，但身分與執行期信任機制尚未跟上。文章指出，AI Agent 即使以合法企業身分完成認證、取得有效 API 憑證並被授權存取 Microsoft 365、ServiceNow、Salesforce、GitHub 等系統，只要有單一被入侵的工具、被污染的知識來源、權限過寬的 API 或被操縱的提示，就足以影響整條工作流程的下游決策。文中並以 AI gateway 為例：CISA 在 6 月將一項 LiteLLM 漏洞列入已知遭利用漏洞（KEV）目錄，該漏洞可透過 gateway 本身在主機上執行指令，串接第二個漏洞後甚至不需任何憑證，而該 AI gateway 單月即揭露 7 個 CVE。作者的核心主張是：企業普遍先導入 gateway 作為第一道控制點，但那恰好是團隊最沒有能力維運的一層，正確順序應是先建立 Agent 專屬身分。",
+      "title": "a16z brings growth fund to $8.5B days after launching new $1.1B fund",
+      "title_zh": "a16z 成長基金加碼至 85 億美元，數日前才剛推出 11 億美元新基金",
+      "source": "TechCrunch",
+      "date": "2026-08-31",
+      "domain": "Industry",
+      "model_area": "AI 創投／AI 硬體（晶片、記憶體、網通、儲存）",
+      "summary": "Andreessen Horowitz（a16z）將其第五號成長型基金規模擴大到 85 億美元，較今年 1 月成立時的 67.5 億美元再追加 17.5 億美元。這次加碼緊接在該公司剛募得 11 億美元的新基金「Machine Age Fund」之後，該新基金專門投資 AI 硬體新創，涵蓋晶片、記憶體、網通與儲存四個方向。兩檔基金合計顯示 a16z 正把資金重心從應用層往下推到 AI 基礎設施與半導體供應鏈。",
       "highlights": [
-        "合法認證不等於安全：Agent 取得有效憑證後，單一被污染的工具、知識來源或被操縱的提示即可污染整條多步驟工作流的下游決策。",
-        "AI gateway 本身就是攻擊面：CISA 於 6 月將一項 LiteLLM 漏洞納入 KEV 目錄（實際遭利用），可經 gateway 於主機執行指令，串接第二個漏洞後無需憑證；同一 gateway 單月揭露 7 個 CVE。",
-        "導入順序建議反轉：多數團隊把 gateway 當第一道控制點，但那是最難維運的一層；應先為 Agent 建立獨立身分與執行期信任基礎。"
+        "第五號成長基金自 1 月的 67.5 億美元加碼 17.5 億美元，總規模達 85 億美元",
+        "新設 11 億美元「Machine Age Fund」專注 AI 硬體：晶片、記憶體、網通、儲存",
+        "反映創投資金配置由 AI 應用層轉向底層基礎設施"
       ],
-      "url": "https://venturebeat.com/security/ai-agents-need-their-own-identity-before-they-need-a-gateway"
+      "url": "https://techcrunch.com/2026/08/31/a16z-brings-growth-fund-to-8-5b-days-after-launching-new-1-1b-fund/"
+    },
+    {
+      "title": "A group funded by Andreessen, Horowitz, and Brockman plans data center ads to sway midterms",
+      "title_zh": "由 Andreessen、Horowitz 與 Brockman 出資的團體計畫以資料中心廣告影響期中選舉",
+      "source": "TechCrunch",
+      "date": "2026-08-31",
+      "domain": "Policy",
+      "model_area": "AI 政策遊說／資料中心基礎設施",
+      "summary": "名為 Build American AI 的倡議團體計畫投放以資料中心為主題的政治廣告，目標影響美國期中選舉的輿論走向。該團體隸屬於超級政治行動委員會（super PAC）Leading the Future，主要金主包括創投人 Marc Andreessen、Ben Horowitz，以及 OpenAI 總裁 Greg Brockman。此舉顯示 AI 產業界正把資金直接投入選舉政治，以對抗地方社群對資料中心擴建的反彈與各州趨嚴的 AI 監管提案。",
+      "highlights": [
+        "Build American AI 隸屬超級政治行動委員會 Leading the Future",
+        "金主包含 Marc Andreessen、Ben Horowitz 與 OpenAI 總裁 Greg Brockman",
+        "廣告聚焦資料中心議題，直接介入期中選舉的 AI 監管辯論"
+      ],
+      "url": "https://techcrunch.com/2026/08/31/a-group-funded-by-andreessen-horowitz-and-brockman-plan-data-center-ads-to-sway-midterms/"
     }
   ],
-  "_updated_at": "2026-08-31T18:26:57.150003+08:00"
+  "_updated_at": "2026-09-01T18:09:09.574727+08:00"
 }

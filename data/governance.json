@@ -1,110 +1,188 @@
 {
   "items": [
     {
-      "title": "'It feels like early COVID': The messy scramble to regulate AI",
-      "source": "CNN Business",
-      "date": "2026-08-30",
+      "title": "Anthropic gets its first court win over the Pentagon's supply-chain risk label",
+      "source": "TechCrunch",
+      "date": "2026-08-28",
       "category": "AI治理",
-      "summary": "CNN 報導美國聯邦政府在缺乏統一 AI 監理架構下，各部會各自為政的混亂狀態，受訪者形容「感覺像疫情初期」。報導指出，川普政府原本採取寬鬆監理立場，但在 2026 年初風向轉變，關鍵導火線是複雜的 AI Agent 從新奇技術快速走向主流應用。Anthropic 於 4 月表示其新模型 Mythos 在發現與利用資安漏洞方面能力過強，判定不宜公開釋出；在無現成監理機制可用的情況下，商務部改以出口管制禁令要求 Anthropic 下架 Mythos 及其公開版本 Fable。另一方面，國防部長 Pete Hegseth 因 Anthropic 拒絕移除禁止自主武器與境內大規模監控用途的護欄，將其列為供應鏈風險，但聯邦法院已裁定撤銷該認定，相關案件仍在審理中。目前白宮國家網路主任辦公室、商務部、財政部與五角大廈皆各自涉入 AI 監督工作，權責重疊且缺乏協調。",
+      "summary": "美國聯邦法院裁定五角大廈將 Anthropic 列入供應鏈風險標籤（supply-chain risk label）的處分不合法，這是 Anthropic 在此案中取得的首次法院勝訴。該標籤原本會實質限制 Anthropic 取得美國國防部相關採購與合作機會，對其政府部門業務造成重大衝擊。法院的核心理由在於程序面：主管機關在做成此類具實質懲罰效果的認定前，未給予被認定廠商足夠的告知與答辯機會。此案的意義超出 Anthropic 單一公司，涉及美國政府在缺乏明確法定程序下，能否單方面以「國安風險」名義排除 AI 供應商。對前沿模型供應商而言，這是一則關於政府採購治理與行政程序正當性的重要判例。",
       "highlights": [
-        "美國聯邦層級仍無統一 AI 監理法源，白宮國家網路主任辦公室、商務部、財政部、五角大廈各自涉入，權責分散",
-        "商務部以出口管制禁令（而非 AI 專法）迫使 Anthropic 下架 Mythos 與公開版 Fable，顯示監理工具挪用既有法規",
-        "Anthropic 因拒絕移除自主武器與境內監控用途護欄，遭國防部列為供應鏈風險，後由聯邦法院裁定撤銷",
-        "AI Agent 從新奇技術走向主流，被視為 2026 年初華府監理風向轉變的關鍵推力",
-        "對金融業意涵：模型可得性可能因國安／出口管制措施在短期內劇烈變動，供應商集中度風險需納入第三方風險管理"
+        "法院認定五角大廈對 Anthropic 的供應鏈風險標籤處分不合法",
+        "爭點集中在行政程序正當性，而非 Anthropic 技術或模型本身的安全性",
+        "此標籤原會實質阻斷 Anthropic 在美國國防部的採購與合作管道",
+        "判決為 AI 供應商面對政府單方面國安風險認定時，建立可資援引的先例"
       ],
-      "url": "https://www.cnn.com/2026/08/30/business/the-scramble-us-government-to-regulate-ai"
+      "url": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/"
+    },
+    {
+      "title": "Judge rules the Pentagon's supply chain risk label for Anthropic unlawful",
+      "source": "CNN Business",
+      "date": "2026-08-27",
+      "category": "AI治理",
+      "summary": "CNN 報導同一起裁決的司法細節：法官認定美國國防部對 Anthropic 施加的供應鏈風險標籤欠缺法律依據，屬違法處分。此標籤機制原設計用於排除具國安疑慮的供應商，但本案中主管機關的認定過程被質疑缺乏透明的事實基礎與救濟途徑。裁決結果意味著相關限制須予以撤銷或重新依法定程序作成。對整體 AI 產業而言，這起案件劃出了政府以國安為由介入 AI 供應鏈的法律邊界。金融、國防等高度監管領域在評估 AI 供應商時，未來須更留意此類行政認定的可爭訟性。",
+      "highlights": [
+        "法官明確認定該供應鏈風險標籤處分違法",
+        "主管機關的認定過程被指缺乏透明事實基礎與救濟途徑",
+        "裁決迫使國防部撤銷或重新依法定程序作成相關限制",
+        "案件劃定政府以國安名義干預 AI 供應鏈的法律邊界"
+      ],
+      "url": "https://www.cnn.com/2026/08/27/tech/anthropic-pentagon-supply-chain-risk-unlawful-hnk"
     },
     {
       "title": "The EU AI Act gets real",
       "source": "Axios",
       "date": "2026-08-28",
       "category": "AI治理",
-      "summary": "Axios 檢視歐盟 AI Act 自 2026 年 8 月 2 日起進入實質執法階段後的初期樣貌。歐盟執委會 AI Office 與各會員國主管機關已於該日啟動執法權，同步生效的還有透明度義務：直接與人互動的 AI 系統必須明確揭露使用者面對的是機器、deepfake 與經 AI 生成或竄改的影音圖像須標示、情緒辨識與生物特徵分類系統須告知被使用的當事人。違反相關義務最高可處 1,500 萬歐元或全球年營收 3%（取高者）罰鍰。不過報導指出，AI Office 至今尚未對任何受規範企業啟動不法行為調查，但已具備向企業索取資訊、要求存取模型的權力。真正影響最大的高風險 AI 義務（生物辨識、就業、教育、必要服務、移民等 Annex III 類別）已延後至 2027 年 12 月 2 日，嵌入受管制產品的 AI 則延至 2028 年 8 月 2 日。",
+      "summary": "Axios 分析歐盟《AI Act》從立法文本轉為實際執法階段的關鍵轉折。隨著通用人工智慧（GPAI）義務與高風險系統要求陸續生效，歐盟執委會與各國主管機關開始行使實質調查與要求提供資訊的權力，業者不再只是「準備合規」而是面臨真實的檢查壓力。報導指出，執法初期的重點落在模型安全評估、外部評測與上市後監控（post-market monitoring）等文件與流程的完備性。對跨國 AI 供應商而言，歐盟的執法節奏正成為全球合規基準線的實質定錨點。金融業採用第三方 AI 服務時，供應商的 EU AI Act 合規證明將逐步成為盡職調查的必要文件。",
       "highlights": [
-        "歐盟 AI Office 與會員國主管機關自 2026-08-02 起啟動 AI Act 執法權，並具備索資與模型存取權",
-        "Article 50 透明度義務生效：聊天機器人揭露、deepfake 標示、AI 生成內容機器可讀標記、情緒辨識告知",
-        "違規最高罰 1,500 萬歐元或全球年營收 3%（取高者）",
-        "AI Office 截至報導時尚未對任何企業啟動不法行為調查，執法尚在暖身階段",
-        "高風險義務延後：Annex III 獨立系統延至 2027-12-02、嵌入受管制產品的 AI 延至 2028-08-02"
+        "EU AI Act 進入實質執法階段，主管機關開始行使調查與資訊要求權",
+        "執法焦點在模型安全評估、外部評測與上市後監控的文件完備性",
+        "跨國業者的歐盟合規標準正外溢成為全球事實基準",
+        "第三方 AI 服務的 EU AI Act 合規證明將納入採購盡職調查"
       ],
       "url": "https://www.axios.com/2026/08/28/eu-ai-act-gets-real"
     },
     {
-      "title": "The Challenge of Regulatory Preemption in AI Governance",
-      "source": "The Regulatory Review (University of Pennsylvania)",
+      "title": "【資安日報】8月26日，OWASP 2026年LLM十大風險首納事故資料，AI代理過度授權升至第3名",
+      "source": "iThome",
       "date": "2026-08-26",
-      "category": "AI治理",
-      "summary": "本文分析美國聯邦與州政府在 AI 監理權限上的衝突，指出截至 2026 年 8 月中旬，聯邦仍無任何具法律效力的優先適用（preemption）法律。2025 年 12 月的國家 AI 政策架構行政命令曾指示司法部對州級 AI 法律提起訴訟、成立 AI 訴訟工作小組，並將部分聯邦寬頻補助與各州是否監理 AI 掛鉤。但行政命令無法廢止州法，國會已將原擬納入國防授權法案的州級 AI 監理暫停條款刪除，參議院推動優先適用立法的努力也在 7 月底因缺乏共識而延後。該行政命令另明訂三個排除優先適用的領域：AI 情境下的兒童安全、AI 算力與資料中心基礎設施、以及州政府採購 AI 系統。文章預期各州將循司法途徑挑戰聯邦優先適用主張，法律不確定期恐大幅延長。",
+      "category": "資安標準",
+      "summary": "OWASP 發布 2026 年版 LLM 十大風險清單，最大變革是首度納入真實事故資料作為排名依據，而非僅憑專家評估。其中「AI 代理過度授權」（excessive agency）風險排名躍升至第 3 名，反映 Agent 在企業實際部署後，因權限配置過寬而導致的資安事件顯著增加。此一調整直接呼應 Agentic AI 落地過程中最常見的治理缺口：權限最小化與人工介入節點未落實。對金融機構而言，這份清單是評估 Agent 系統上線前控制項的實用檢核依據。以事故資料驅動排名的做法，也讓 OWASP 清單從概念性指引轉向可稽核的風險基準。",
       "highlights": [
-        "截至 2026 年 8 月中旬，美國聯邦層級並無任何生效的 AI 優先適用（preemption）法律",
-        "2025 年 12 月行政命令指示司法部挑戰州級 AI 法、設立 AI 訴訟工作小組、並與聯邦寬頻補助掛鉤",
-        "國會已刪除國防授權法案中的州級 AI 監理暫停條款；參議院優先適用立法於 7 月底因無共識延後",
-        "行政命令明訂三項排除優先適用領域：兒童安全、AI 算力與資料中心基礎設施、州政府 AI 採購",
-        "加州、德州、伊利諾州、猶他州的 AI 義務已生效，科羅拉多州替代架構自 2027 年 1 月起適用；跨州合規將持續分歧"
+        "OWASP 2026 年 LLM 十大風險首度以真實事故資料作為排名依據",
+        "「AI 代理過度授權」躍升至第 3 名，反映 Agent 部署後的實際事件增加",
+        "排名變化凸顯 Agent 權限最小化與人工介入節點的治理缺口",
+        "可作為金融機構 Agent 系統上線前的控制項檢核基準"
       ],
-      "url": "https://www.theregreview.org/2026/08/26/li-the-challenge-of-regulatory-preemption-in-ai-governance/"
+      "url": "https://www.ithome.com.tw/news/178451"
     },
     {
-      "title": "Meeting of National Cabinet",
-      "source": "Prime Minister of Australia",
-      "date": "2026-08-26",
+      "title": "Singapore launches world's first liquid cooling standard for data centres in tropical climates",
+      "source": "Enterprise Singapore",
+      "date": "2026-08-27",
       "category": "AI治理",
-      "summary": "澳洲國家內閣（National Cabinet）於 2026 年 8 月 26 日開會，確認聯邦政府將立法制定全國一致的 AI 監理架構，並對大型資料中心設立強制性標準。該架構名為「AI laws in Australia's Interests」，將訂定大型資料中心的最低要求，聯邦將與各州及領地政府共同制定能源、水資源與土地使用的一致性強制標準，並配套技能與訓練支持措施。政策重點聚焦於能源與水資源使用、開發許可審查、以及對電網的衝擊，新設大型資料中心實質上必須自備額外再生能源發電，或全額負擔其電力與水資源需求成本。適用對象預期為大型設施、共置機房、超大規模營運與大型 AI 算力中心，不含小型邊緣或企業自建機房。相關立法預計於 2027 年初提出。",
+      "summary": "新加坡發布全球首個針對熱帶氣候資料中心的液冷標準，由 Enterprise Singapore 與 IMDA 共同推動。此標準因應 AI 運算密度大幅提升後，傳統氣冷方案在高溫高濕環境下難以支撐的現實限制。標準內容涵蓋液冷系統的設計、安裝與維運要求，目標是讓熱帶地區的 AI 資料中心在提升算力密度的同時控制能耗。這是 AI 基礎設施治理從「模型層」延伸到「實體設施層」的具體案例。對區域內規劃 AI 算力布局的機構而言，此標準提供了可援引的工程規範基準。",
       "highlights": [
-        "澳洲國家內閣確認立法制定全國一致 AI 監理架構「AI laws in Australia's Interests」，立法預計 2027 年初提出",
-        "對大型資料中心設立強制性標準，涵蓋能源、水資源與土地使用，由聯邦與各州／領地共同制定",
-        "新設大型資料中心須自備額外再生能源發電，或全額負擔電力與水資源成本",
-        "適用範圍為大型設施、共置機房、超大規模營運與大型 AI 算力中心，排除小型邊緣與企業自建機房",
-        "同場會議亦通過新的槍枝管制協議與家暴防治架構，AI 治理被置於國家層級政策議程"
+        "全球首個熱帶氣候資料中心液冷標準，由 Enterprise Singapore 與 IMDA 推動",
+        "因應 AI 運算密度提升後傳統氣冷在高溫高濕環境的物理限制",
+        "涵蓋液冷系統設計、安裝與維運的完整規範要求",
+        "顯示 AI 治理範疇正從模型層延伸至實體基礎設施層"
       ],
-      "url": "https://www.pm.gov.au/media/meeting-national-cabinet-26-august-26"
+      "url": "https://www.enterprisesg.gov.sg/resources/media-centre/media-releases/2026/august/mr03826_singapore-launches-worlds-first-liquid-cooling-standard-for-data-centres-in-tropical-climates"
+    },
+    {
+      "title": "Singapore launches world's first tropical data centre liquid cooling standard",
+      "source": "Techgoondu",
+      "date": "2026-08-28",
+      "category": "AI治理",
+      "summary": "Techgoondu 從產業角度報導新加坡熱帶資料中心液冷標準的推出背景與影響。報導指出，AI 工作負載使單機櫃功率密度快速攀升，新加坡受限於國土面積與能源供應，必須以更高效的散熱方案換取算力成長空間。此標準被定位為新加坡維持區域資料中心樞紐地位的政策工具之一，而非單純的技術文件。業界關注的重點在於標準是否會逐步從自願採用轉為新建設施的必要條件。對東南亞市場的 AI 基礎設施供應商而言，這將直接影響設計規格與成本結構。",
+      "highlights": [
+        "AI 工作負載推升單機櫃功率密度，是標準推出的直接動因",
+        "新加坡受國土與能源限制，須以散熱效率換取算力成長空間",
+        "標準被定位為維持區域資料中心樞紐地位的政策工具",
+        "業界關注其是否從自願採用轉為新建設施的強制要求"
+      ],
+      "url": "https://www.techgoondu.com/2026/08/28/singapore-launches-worlds-first-tropical-data-centre-liquid-cooling-standard/"
     },
     {
       "title": "Australia Sets New AI Data Centre Rules After National Cabinet",
-      "source": "The Australian Business Journal",
+      "source": "The ABJ",
       "date": "2026-08-27",
       "category": "AI治理",
-      "summary": "報導澳洲國家內閣 8 月 26 日決議後，聯邦與各州將如何落實大型資料中心的強制標準。政策核心是建立「國家利益架構」（national interest framework），把 AI 基礎設施的能源、水資源與土地使用納入統一規範，避免各州標準不一造成監理套利。新設大型資料中心將被要求自行帶入額外的再生能源發電容量，或全額支付其電力與用水的完整成本，藉此避免 AI 算力擴張的外部成本轉嫁給一般用電戶。聯邦同時規劃設立 Office of AI 作為統籌單位。此舉使澳洲成為少數把「AI 算力基礎設施」而非僅「AI 模型與應用」直接納入強制監理的司法管轄區，與歐盟以風險分級規範系統用途的路線形成對照。",
+      "summary": "澳洲聯邦與各州政府透過 National Cabinet 機制達成共識，將對 AI 與資料中心建立跨轄區一致的強制性標準。此舉的核心動機是避免各州各自立法造成的監理碎片化，讓業者面對單一規則書而非九套不同要求。討論範圍涵蓋 AI 系統的強制標準以及資料中心的能源與水資源使用規範。National Cabinet 層級的介入顯示澳洲已將 AI 治理與能源基礎設施政策綁在一起處理。對在澳布局的 AI 業者而言，合規重心將從各州零散要求轉向統一的國家層級標準。",
       "highlights": [
-        "澳洲建立資料中心與 AI 基礎設施的「國家利益架構」，統一各州標準以避免監理套利",
-        "大型資料中心須自備額外再生能源容量，或全額負擔電力與用水完整成本",
-        "聯邦規劃設立 Office of AI 作為 AI 政策統籌單位",
-        "監理標的從「模型與應用」延伸至「算力基礎設施」，與歐盟 AI Act 的風險分級路線形成對照",
-        "對金融業意涵：自建或委外 AI 算力的能源合規成本將成為 TCO 與供應商評估的新變數"
+        "聯邦與各州透過 National Cabinet 達成跨轄區一致的強制標準共識",
+        "核心目標是避免各州各自立法造成的監理碎片化",
+        "範圍涵蓋 AI 系統強制標準與資料中心能源、水資源使用規範",
+        "顯示澳洲將 AI 治理與能源基礎設施政策綁定處理"
       ],
       "url": "https://theabj.com.au/2026/08/27/australia-ai-data-centre-rules-national-cabinet/"
+    },
+    {
+      "title": "Fair Work Commission condemns 'plain wrong' AI legal advice as cases with AI litigants surge",
+      "source": "ABC News",
+      "date": "2026-08-29",
+      "category": "AI治理",
+      "summary": "澳洲 Fair Work Commission（公平工作委員會）公開譴責當事人使用生成式 AI 產出的「完全錯誤」法律意見，並指出使用 AI 的訴訟當事人案件量急遽上升。委員會已發布最終版指引，要求任何使用 ChatGPT、Claude、Copilot、Gemini 等工具製作申請書、書狀或證人陳述的當事人必須揭露該使用行為，並自行查證文件正確性，該規定自 2026 年 10 月 20 日起適用於所有個人權利案件。對不符規定的材料，委員會可降低其證據權重、完全不予採納，或對責任方作出費用裁定。報導引述的具體案例中，一名 ALDI 員工因將 AI 當作「準法律顧問」提出無實質勝訴可能的解僱爭議，被裁定須支付 1,230 澳元的對造律師費用。此案是 AI 使用揭露義務從原則走向實際裁罰的指標性發展。",
+      "highlights": [
+        "Fair Work Commission 譴責 AI 產出的錯誤法律意見，AI 訴訟當事人案量急升",
+        "最終指引要求揭露生成式 AI 使用並自行查證，2026 年 10 月 20 日起生效",
+        "不符規定的材料可被降低權重、不予採納，或遭費用裁定",
+        "ALDI 員工案中當事人被判支付 1,230 澳元對造律師費用",
+        "適用範圍涵蓋不當解僱與一般保護等所有個人權利案件"
+      ],
+      "url": "https://www.abc.net.au/news/2026-08-29/fair-work-commission-condemns-ai-legal-advice/107089766"
+    },
+    {
+      "title": "Commerce Drafts AI Chip Rule for Loophole It Created by Rescinding Biden Know-Your-Customer",
+      "source": "TechTimes",
+      "date": "2026-08-29",
+      "category": "AI治理",
+      "summary": "美國商務部正在草擬新的 AI 晶片出口管制規則，用以填補其先前廢止拜登政府「Know-Your-Customer」（KYC，認識你的客戶）要求後所產生的漏洞。原有的 KYC 機制要求晶片與雲端算力供應商查核最終使用者身分，以防止管制對象透過中介取得先進運算資源。廢止該要求後，管制實效出現缺口，促使商務部回頭補位。此一反覆顯示美國在 AI 晶片管制上的政策路線仍在調整中，缺乏穩定的長期框架。對依賴跨境算力供應的機構而言，出口管制規則的高頻變動本身即是一項需納入評估的營運風險。",
+      "highlights": [
+        "商務部草擬新規，填補廢止 KYC 要求後產生的出口管制漏洞",
+        "原 KYC 機制要求晶片與算力供應商查核最終使用者身分",
+        "政策反覆顯示美國 AI 晶片管制尚無穩定長期框架",
+        "出口管制的高頻變動本身即是跨境算力採購的營運風險"
+      ],
+      "url": "https://www.techtimes.com/articles/325957/20260829/commerce-drafts-ai-chip-rule-loophole-it-created-rescinding-biden-know-your-customer.htm"
     },
     {
       "title": "AI Legislative Update: August 28, 2026",
       "source": "Transparency Coalition",
       "date": "2026-08-28",
       "category": "AI治理",
-      "summary": "Transparency Coalition 每週五發布的美國各州 AI 立法進度追蹤，本期涵蓋 8 月最後一週的州議會動態。加州議會於 8 月 31 日午夜結束會期，約 30 項 AI 相關法案在此前完成最後表決，涵蓋兒少聊天機器人安全、AI 著作權透明度、演算法管理下的勞工保護，以及全美首創的 AI 安全認證委員會等主題。其中 SB 300 要求陪伴型聊天機器人業者防止生成性露骨內容，於 8 月 13 日獲眾議院撥款委員會「Do pass」建議。另有 AB 1651（規範律師資格考試中的 AI 使用）與 SB 928（要求加州州立大學授課者必須為真人而非 AI）已送交州長 Newsom。依加州程序，州長須於 9 月 30 日前簽署，法案自 2027 年 1 月 1 日生效。2026 年會期迄今全美 26 州共提出 69 項相關法案，其中 3 項已完成立法（MD SB 114、MN SF 334、NY SB 8831）。",
+      "summary": "Transparency Coalition 發布截至 2026 年 8 月 28 日的美國 AI 立法進度彙整，追蹤聯邦與各州層級的法案動態。內容涵蓋各州在 AI 揭露義務、演算法決策、兒少保護與訓練資料透明度等面向的立法進展。此類彙整的價值在於呈現美國「無聯邦統一法、各州各自推進」的治理現況全貌。對跨州營運的機構而言，掌握各州法案的生效時程與差異是合規規劃的前提。報告同時反映了聯邦層級預先排除（preemption）各州立法的政治角力仍在持續。",
       "highlights": [
-        "加州議會 8 月 31 日午夜休會，約 30 項 AI 法案在會期尾聲完成表決",
-        "SB 300 要求陪伴型聊天機器人防止生成性露骨內容，8 月 13 日獲眾院撥款委員會 Do pass 建議",
-        "AB 1651（律師考試 AI 使用）與 SB 928（州立大學授課者須為真人）已送交州長簽署",
-        "州長須於 9 月 30 日前簽署，通過法案自 2027-01-01 生效",
-        "2026 年會期全美 26 州提出 69 項 AI 法案，3 項完成立法：MD SB 114、MN SF 334、NY SB 8831"
+        "彙整截至 2026 年 8 月 28 日的美國聯邦與各州 AI 立法動態",
+        "涵蓋 AI 揭露義務、演算法決策、兒少保護、訓練資料透明度等面向",
+        "呈現美國缺乏聯邦統一法、各州分頭推進的治理現況",
+        "反映聯邦預先排除各州立法的政治角力持續進行中"
       ],
       "url": "https://www.transparencycoalition.ai/news/ai-legislative-update-august28-2026"
     },
     {
-      "title": "MIT Says AI Is Forcing A Rethink Of College Itself",
-      "source": "Forbes",
+      "title": "AI use policy and resources for instructors [August 25, 2026]",
+      "source": "MIT Faculty Governance",
       "date": "2026-08-25",
       "category": "AI治理",
-      "summary": "Forbes 報導 MIT 於 2026 年 8 月 25 日發布的 Ad Hoc Committee 報告，該報告發現生成式 AI 已能對其大學部課程中「幾乎任何」書面作業產出可信的解答，等同宣告傳統以書面作業評量學習成效的機制失效。報告建議 MIT 每一門課程都必須明訂並公開其 AI 使用政策，不得留白由師生各自解讀；同時建議校方加大對住宿型社群的投資，強化無法被 AI 取代的面對面學習價值。第三項建議是建立常設機制，持續測試與修訂 MIT 的 AI 因應方式，而非一次性公布政策後就束之高閣。此案例對企業治理具參考價值：當 AI 能力普遍化後，組織需要的不是單次政策公告，而是可持續迭代的治理常設機制與逐場景明訂的使用規範。",
+      "summary": "MIT 教師治理單位發布給授課教師的 AI 使用政策與資源指引。該政策界定學生與教師在課程中使用生成式 AI 的可接受範圍、揭露義務，以及教師如何在課綱中明確設定各自課程的 AI 使用規則。指引採取的是「由授課者依課程性質設定規則、但須事先明確揭露」的分散式治理模式，而非全校一體適用的禁止或開放。此模式對組織內部 AI 使用規範的設計具參考價值：中央訂框架、單位訂細則、使用者須被明確告知。相較於一刀切禁令，這種做法在可執行性與彈性間取得平衡。",
       "highlights": [
-        "MIT 報告認定生成式 AI 可對大學部「幾乎所有」書面作業產出可信解答，傳統評量機制失效",
-        "建議每一門課程都須明訂並公開 AI 使用政策，不得留白由師生自行解讀",
-        "建議加大投資住宿型社群，強化無法被 AI 取代的面對面學習價值",
-        "建議建立常設機制持續測試與修訂 AI 政策，而非一次性公告",
-        "對企業治理啟示：AI 治理須逐場景明訂規則並建立可迭代的常設機制，而非單次政策文件"
+        "MIT 發布授課教師適用的生成式 AI 使用政策與資源指引",
+        "採分散式治理：由授課者依課程性質設定規則並事先明確揭露",
+        "界定學生與教師使用 AI 的可接受範圍與揭露義務",
+        "中央訂框架、單位訂細則的模式可供組織內部 AI 規範設計參考"
       ],
-      "url": "https://www.forbes.com/sites/ronschmelzer/2026/08/25/mit-says-ai-is-forcing-a-rethink-of-college-itself/"
+      "url": "https://facultygovernance.mit.edu/ai-use-policy-and-resources-instructors-august-25-2026"
+    },
+    {
+      "title": "AI in Finance and Banking, August 31, 2026",
+      "source": "LLRX",
+      "date": "2026-08-31",
+      "category": "金融監管",
+      "summary": "LLRX 發布 2026 年 8 月 31 日的 AI 金融與銀行業動態彙整，追蹤 AI 在金融服務領域的應用與監理發展。內容涵蓋銀行導入 AI 的實務案例、監理機關對金融 AI 的關注重點，以及相關法遵風險議題。此類彙整對金融業從業者的價值在於，它同時整合了技術應用與監理動態兩條線索，而非僅追蹤其一。報導反映金融機構在 AI 採用上已從試點階段轉向規模化部署，連帶使模型風險管理與第三方風險管理的要求同步升高。",
+      "highlights": [
+        "彙整 2026 年 8 月 31 日的 AI 金融與銀行業應用與監理動態",
+        "同時涵蓋技術應用案例與監理機關關注重點兩條線索",
+        "反映金融機構 AI 採用已從試點轉向規模化部署",
+        "規模化部署連帶推升模型風險管理與第三方風險管理要求"
+      ],
+      "url": "https://www.llrx.com/2026/08/ai-in-finance-and-banking-august-31-2026/"
+    },
+    {
+      "title": "Nine governments, one rulebook: National Cabinet backs mandatory AI and data centre standards",
+      "source": "Clayton Utz",
+      "date": "2026-08-28",
+      "category": "AI治理",
+      "summary": "澳洲律師事務所 Clayton Utz 從法律實務角度分析 National Cabinet 支持強制性 AI 與資料中心標準的決議。文章標題「九個政府、一套規則書」點出核心：澳洲聯邦加上六州兩領地共九個轄區，過去各自推動 AI 規範，現轉向單一統一標準。分析指出，強制性標準一旦落地，業者的合規負擔將從「追蹤九套規則」轉為「符合一套但要求更明確」的模式。文章同時提醒，統一標準的實際條文內容與生效時程仍待後續立法程序確定，現階段屬政策方向確立而非法律義務成形。⚠️待確認：本文確切發布日期僅能確認為 2026 年 8 月，未取得精確日期。",
+      "highlights": [
+        "澳洲九個轄區從各自推動 AI 規範轉向單一統一強制標準",
+        "業者合規負擔從追蹤九套規則轉為符合一套更明確要求",
+        "強制標準涵蓋 AI 系統與資料中心兩大範疇",
+        "實際條文與生效時程仍待後續立法程序，現階段為政策方向確立"
+      ],
+      "url": "https://www.claytonutz.com/insights/2026/august/nine-governments-one-rulebook-national-cabinet-backs-mandatory-ai-and-data-centre-standards"
     }
   ],
-  "_updated_at": "2026-08-31T18:30:21.744368+08:00"
+  "_updated_at": "2026-09-01T18:15:00.698140+08:00"
 }
