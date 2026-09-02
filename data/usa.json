@@ -1,173 +1,134 @@
 {
   "items": [
     {
-      "title": "Optimizely Introduces Virtual Teammates, Giving Marketers Role-Specific AI Coworkers",
-      "title_zh": "Optimizely 推出 Virtual Teammates，為行銷人員提供角色專屬的 AI 同事",
-      "source": "PR Newswire",
-      "date": "2026-08-31",
-      "topic": "AI Agent / Agentic AI",
-      "summary": "Optimizely 在自家 Opticon 大會上發表 Virtual Teammates，把 AI Agent 從「被動回答問題的工具」改造成具備明確職務的虛擬同事。首波角色包含 Chief of Staff、SEO & AI Search Analyst、Marketing Analyst、Personalization Strategist 與 CRO Manager，各自綁定對應的資料存取範圍與後端系統權限。與一般 chatbot 最大的差異在於三點：這些 Agent 會長期累積組織知識而非單次對話即遺忘、可依排程主動執行工作而不需人類逐項下指令、並在共用聊天室中與真人協作。Optimizely 引用自家針對 2,000 多位 B2B 行銷主管的調查指出，81% 的受訪者每週必須在兩個以上彼此不相通的 AI 工具間切換，19% 甚至同時使用四個以上，形成嚴重的工具碎片化。",
-      "highlights": [
-        "五種預設職務角色：Chief of Staff、SEO & AI Search Analyst、Marketing Analyst、Personalization Strategist、CRO Manager",
-        "以角色為單位界定資料與後端系統存取權，屬於 Agent 權限最小化的實作方向",
-        "支援排程式主動執行（proactive scheduling），不需人類逐項 prompt",
-        "長期保留組織知識（agent memory），跨任務延續脈絡",
-        "調查佐證：81% 行銷主管每週切換 2 個以上不相通的 AI 工具，19% 使用 4 個以上"
-      ],
-      "discussion": "這是本次時間區間內最貼近「Agent 工程」實務的發表。真正值得金融業關注的不是行銷情境，而是「角色化 Agent + 角色綁定權限 + 排程式自主執行」這組設計模式——它等同把 RBAC（角色型存取控制）套用到 Agent 身上，是把 Agent 導入受監管環境時繞不開的治理骨架。反過來說，能自主排程執行、又保有長期記憶的 Agent，稽核軌跡與變更控管的難度也同步升高。",
-      "url": "https://www.prnewswire.com/news-releases/optimizely-introduces-virtual-teammates-giving-marketers-role-specific-ai-coworkers-302864425.html"
-    },
-    {
-      "title": "Change Agents Completes Phase 2 of its Catch-Up Agentic AI Video Studio Platform; Development led by Caylent with Funding from Amazon Web Services Grant",
-      "title_zh": "Change Agents 完成 Catch-Up 代理式 AI 影音工作室平台第二階段開發，由 Caylent 主導並獲 AWS 補助資金支持",
-      "source": "GlobeNewswire",
-      "date": "2026-08-31",
-      "topic": "Agent Ecosystem / Enterprise Agentic AI",
-      "summary": "Change Agents Corporation 宣布其 Catch-Up 代理式 AI 影音製作平台完成第二階段開發，開發工作由 AWS 頂級顧問夥伴 Caylent 主導，資金來自 Amazon Web Services 的補助方案。此案的意義在於展示 agentic AI 在多步驟內容生產流程上的落地路徑——影音製作本質上是一連串需要編排的子任務（腳本、剪輯、字幕、發布），適合以 Agent 編排（orchestration）取代人工串接。以 AWS 補助 + 認證夥伴交付的模式，也反映雲端業者正透過補助與顧問生態把 agentic 應用推進到中小型內容業者。",
-      "highlights": [
-        "Catch-Up 平台第二階段開發完成，定位為 agentic AI 影音工作室",
-        "開發由 AWS 頂級顧問夥伴 Caylent 主導",
-        "資金來源為 Amazon Web Services 補助方案（AWS Grant）",
-        "以 Agent 編排取代人工串接的多步驟內容生產流程"
-      ],
-      "discussion": "單看規模這不是大新聞，但它是 AWS 生態把 agentic AI 往下游推的樣本：雲端業者出錢、認證夥伴出人、客戶出場景。金融業評估 Agent 導入時，這種「補助 + 顧問夥伴交付」的模式值得留意，因為它同時也把架構選擇鎖定在特定雲端棧上，退出成本需要事先算清楚。",
-      "url": "https://www.globenewswire.com/news-release/2026/08/31/3353316/0/en/change-agents-completes-phase-2-of-its-catch-up-agentic-ai-video-studio-platform-development-led-by-caylent-with-funding-from-amazon-web-services-grant.html"
-    },
-    {
-      "title": "When Every Machine Becomes an Agent",
-      "title_zh": "當每一台機器都成為 Agent",
-      "source": "AIwire (HPCwire)",
-      "date": "2026-08-31",
-      "topic": "AI Agent Engineering",
-      "summary": "AIwire 這篇分析指出 AI 正從雲端往實體世界移動，新一代 Agent 開始嵌入日常仰賴的機器、車輛與裝置之中，形成「每台機器都是一個 Agent」的架構轉向。文章引用 Anthropic 檢視數百萬筆人機互動的研究資料作為佐證，其中兩項發現特別關鍵：Agent 已能連續自主執行 45 分鐘以上，且使用者隨著使用經驗累積會逐步放寬授權、減少逐步審查。這兩個趨勢合在一起，意味著 Agent 的自主邊界不是由技術能力單方面決定，而是由使用者信任的累積速度共同決定。",
-      "highlights": [
-        "AI 從雲端下沉到機器、車輛、終端裝置，Agent 成為嵌入式運算單元",
-        "引用 Anthropic 數百萬筆人機互動研究：Agent 可連續自主運行 45 分鐘以上",
-        "使用者隨經驗累積傾向放寬授權、降低逐步審查頻率",
-        "自主邊界由「技術能力」與「使用者信任」共同決定，而非單一因素"
-      ],
-      "discussion": "「使用者越熟練、審查越少」這個觀察對治理是警訊而非好消息。金融場景裡，Agent 自主運行時間拉長到 45 分鐘等級，代表單次授權涵蓋的動作數大幅增加，傳統以「每次操作逐筆核可」為前提的內控設計會失效，必須改為以「事後可重建的完整執行軌跡 + 事前的權限邊界」為主的雙軌控制。",
-      "url": "https://www.hpcwire.com/aiwire/2026/08/31/when-every-machine-becomes-an-agent/"
-    },
-    {
-      "title": "Perceptron AI Launches Isaac 0.5, a Frontier Open-Weight Robotics Model",
-      "title_zh": "Perceptron AI 發表 Isaac 0.5，前沿開放權重機器人模型",
-      "source": "AIwire (HPCwire)",
-      "date": "2026-08-31",
-      "topic": "LLM / 開放權重模型發布",
-      "summary": "Perceptron AI 發表 Isaac 0.5，一個 360 億參數的 dynamic-MoE（動態混合專家）開放權重具身基礎模型，把多模態影片理解、具身推理與機器人控制整合進單一稀疏骨幹，號稱是首個在這三項能力上同時達到前沿水準的開放模型。訓練資料規模為 3 兆多模態 token、100 萬小時通用影片、以及橫跨 35 種以上機器人系統的 10 萬小時機器人操作經驗。在標準操作基準 LIBERO 上，Isaac 0.5 在空間、物件、目標與長時序任務的平均成功率為 97.2%，論文對照表中 NVIDIA GR00T N1.7 為 97.0%、π0.5 為 96.9%。此外它在所評測的五大基準家族全數領先，推論成本最低可達最強開放對手的 1/8.5。一項受控訓練實驗顯示，把通用影片資料從 1,000 小時擴大到 100 萬小時後，達到同等動作損失所需的遙操作資料從約 5,900 小時降到 28 小時。",
-      "highlights": [
-        "36B 參數 dynamic-MoE 稀疏架構，開放權重釋出於 Hugging Face",
-        "訓練規模：3 兆多模態 token、100 萬小時通用影片、35+ 機器人系統的 10 萬小時操作經驗",
-        "LIBERO 平均成功率 97.2%（GR00T N1.7 為 97.0%、π0.5 為 96.9%）",
-        "五大具身推理基準家族全數領先，推論成本最低為最強開放對手的 1/8.5",
-        "通用影片從 1,000 小時擴到 100 萬小時，所需遙操作資料由約 5,900 小時降至 28 小時"
-      ],
-      "discussion": "最值得注意的數字不是 LIBERO 的 97.2%（與對手差距僅 0.2-0.3 個百分點，統計意義有限），而是「通用影片換遙操作資料」的 200 倍替代效率。這代表具身智慧的資料瓶頸有機會用便宜的網路影片繞開，是成本結構的質變。另一個亮點是 8.5 倍的推論成本差距，在邊緣部署場景比基準分數更具決定性。",
-      "url": "https://www.hpcwire.com/aiwire/2026/08/31/perceptron-ai-launches-isaac-0-5-a-frontier-open-weight-robotics-model/"
-    },
-    {
-      "title": "Broadcom Unveils VMware AI Factory with Multi-Vendor Hardware Support",
-      "title_zh": "Broadcom 發表支援多廠牌硬體的 VMware AI Factory",
-      "source": "AIwire (HPCwire)",
-      "date": "2026-08-31",
-      "topic": "企業 AI 基礎設施",
-      "summary": "Broadcom 發表 VMware AI Factory，把 VMware Cloud Foundation（VCF）與來自 Cisco、Dell Technologies、Lenovo、Supermicro 等廠商的認證 VCF AI ReadyNodes 組合成企業自建 AI 平台，並開放客戶自選 AI 軟體堆疊與加速器架構。平台相容超過 150 個開源與商用模型，包含 Nemotron 3、Gemma 4、cotomi、Qwen 3.7-Max 與 GLM 5.2，GPU 同時支援 NVIDIA 與 AMD；Broadcom 另與 AMD 合作推出搭配 Instinct GPU 與開放 ROCm 生態的版本。整合後 IT 可直接從 VCF 管理主控台佈建或重灌多家廠商的實體伺服器，把軟硬體生命週期收攏到單一營運模型，不再需要各廠專屬的硬韌體管理工具。Broadcom 同時宣布與 MetalSoft 合作提供異質裸機自動化，將裸機佈建時間從數週縮短到數分鐘。",
-      "highlights": [
-        "VCF + 認證 AI ReadyNodes（Cisco、Dell、Lenovo、Supermicro）組成企業自建 AI 平台",
-        "相容 150 個以上模型，含 Nemotron 3、Gemma 4、cotomi、Qwen 3.7-Max、GLM 5.2",
-        "同時支援 NVIDIA 與 AMD GPU；與 AMD 合作推出 Instinct + ROCm 版本",
-        "單一 VCF 主控台跨廠牌佈建實體伺服器，取代各廠專屬硬韌體工具",
-        "與 MetalSoft 合作，裸機佈建時間從數週降至數分鐘"
-      ],
-      "discussion": "訴求直指「AI tokenomics」——把推論成本的控制權從雲端業者手上拉回企業自己。對受監管的金融機構而言，這條地端 / 私有雲路線在資料落地與成本可預測性上有實質吸引力；但要注意的是，多廠牌支援換來的是 VCF 這一層新的單點依賴，Broadcom 併購 VMware 後的授權定價變動風險必須納入 TCO 評估。",
-      "url": "https://www.hpcwire.com/aiwire/2026/08/31/broadcom-unveils-vmware-ai-factory-with-multi-vendor-hardware-support/"
-    },
-    {
-      "title": "Microsoft and HUMAIN Expand Strategic Collaboration at LEAP 2026 with New Enterprise AI Offering and AI PC",
-      "title_zh": "Microsoft 與 HUMAIN 於 LEAP 2026 擴大策略合作，推出企業 AI 方案與 AI PC",
-      "source": "PR Newswire",
-      "date": "2026-08-31",
-      "topic": "技術大廠新產品",
-      "summary": "Microsoft 與沙烏地阿拉伯 AI 公司 HUMAIN 在 LEAP 2026 大會宣布擴大合作，推出兩項產品。其一是把 HUMAIN ONE 與 Microsoft 365 綑綁銷售的企業方案，內含 Microsoft 365 Copilot 與 Microsoft IQ，初期目標涵蓋中東與非洲地區 100 萬名使用者。其二是 HUMAIN AI PC，預載 Windows，企業採購自 2026 年 9 月 20 日開放，目標在 2030 年前於中東非地區出貨 100 萬台。這是雙方合作的第二階段——8 月 26 日的第一階段已宣布把 ALLAM 阿拉伯語模型導入 Microsoft Foundry 與 Microsoft 365 Copilot。",
-      "highlights": [
-        "HUMAIN ONE 與 Microsoft 365 綑綁，內含 M365 Copilot 與 Microsoft IQ",
-        "企業方案初期目標：中東與非洲 100 萬名使用者",
-        "HUMAIN AI PC 預載 Windows，企業採購 2026 年 9 月 20 日開放",
-        "2030 年前中東非地區出貨 100 萬台 AI PC 為目標",
-        "承接 8 月 26 日第一階段（ALLAM 阿拉伯語模型進入 Microsoft Foundry）"
-      ],
-      "discussion": "Microsoft 用「主權 AI 夥伴 + Copilot 綑綁 + 自有品牌 AI PC」三件套打包進入中東市場，是把在地語言模型當作通路入場券的典型操作。對其他區域市場的啟示是：主權 AI 的競爭焦點已從「有沒有在地模型」轉向「在地模型能不能綁進日常辦公軟體與終端裝置」。",
-      "url": "https://www.prnewswire.com/news-releases/microsoft-and-humain-expand-strategic-collaboration-at-leap-2026-with-new-enterprise-ai-offering-and-ai-pc-302865157.html"
-    },
-    {
-      "title": "The Pentagon now has its own version of ChatGPT and Grok",
-      "title_zh": "五角大廈現在有了自己版本的 ChatGPT 與 Grok",
+      "title": "AIR raises $50M to help companies vet the skills and add-ons AI agents use",
+      "title_zh": "AIR 募得 5,000 萬美元，協助企業審查 AI Agent 使用的 skills 與外掛元件",
       "source": "TechCrunch",
-      "date": "2026-08-31",
-      "topic": "美國 AI 政策 / 政府採購",
-      "summary": "美國國防部的 GenAI.mil 企業級生成式 AI 入口網週一起新增 ChatGPT Mil 與 Grok for Government 兩個模型，原本平台僅提供 Gemini。這批工具可處理到 CUI（受控非機密資訊）等級的工作，功能涵蓋對話、檔案上傳、專案管理與自訂 GPT。國防部表示 300 萬名人員中已有 170 萬人完成上線導入。這些軍用版本與消費端服務的關鍵差異在於資料處理條款——軍方版本免除消費級服務的資料蒐集行為，模型供應商不得以軍方輸入內容進行訓練。",
+      "date": "2026-09-01",
+      "topic": "AI Agent 治理 / Agent 生態系資安",
+      "summary": "以色列新創 AIR 於 9 月 1 日正式走出隱形模式，宣布累計取得 5,000 萬美元資金，分別為 Sequoia 領投的 1,000 萬美元種子輪，以及 Greenoaks 領投的 4,000 萬美元後續種子輪。共同創辦人為執行長 Yair Saban 與技術長 Niv Hoffman，兩人皆出身以色列情報單位 Unit 8200。AIR 的產品定位在企業內部 AI Agent 的「元件供應鏈審查」：先自動盤點企業內已部署的各種 Agent，再持續檢視這些 Agent 所掛載的 skills、工具與第三方元件，對不符合合規要求的互動直接阻斷。此一題目切中當前 Agent 落地的最大缺口——企業普遍知道自己有多少員工，卻不知道自己有多少 Agent、這些 Agent 又載入了誰寫的 skill。對金融、醫療等受監管產業而言，這等同於把既有的第三方廠商風險管理（TPRM）框架延伸到 Agent 元件層。",
       "highlights": [
-        "GenAI.mil 新增 ChatGPT Mil 與 Grok for Government，原僅有 Gemini",
-        "可處理至 CUI（受控非機密資訊）等級工作",
-        "功能含對話、檔案上傳、專案、自訂 GPT",
-        "300 萬國防部人員中已有 170 萬人完成上線",
-        "免除消費級服務的資料蒐集，軍方輸入不用於模型訓練"
+        "累計 5,000 萬美元：Sequoia 領投 1,000 萬種子輪 + Greenoaks 領投 4,000 萬後續種子輪",
+        "創辦團隊出身 Unit 8200，主打企業級 Agent 元件供應鏈安全",
+        "核心功能：自動發現內部 Agent、持續審查其 skills 與工具、阻斷不合規互動",
+        "反映 Agent skill/plugin 生態擴張後，企業缺乏元件層可視性與管控的結構性缺口"
       ],
-      "discussion": "170 萬人的部署規模讓這件事從採購新聞升級為治理案例：這是目前全球規模最大的單一組織生成式 AI 導入。值得金融業借鏡的是「同一入口、多模型並存」的架構選擇——不押注單一供應商、以入口層統一權限與資料邊界，這正是高度受監管機構導入 LLM 時最務實的解法。至於 xAI 的 Grok 在多次爭議後仍取得國防部門位置，也顯示政府採購的評選權重與商業市場的品牌觀感並不一致。",
-      "url": "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/"
+      "discussion": "資安與 AI 治理社群普遍認為此題目時機正確：隨著 Agent skill、MCP server、外掛工具數量暴增，攻擊面已從模型本身移轉到「Agent 載入了什麼」。討論焦點在於此類產品能否避免淪為又一層告警噪音，以及能否與既有的 CASB／第三方風險管理流程整合，而非另建孤島。",
+      "url": "https://techcrunch.com/2026/09/01/air-raises-50m-to-help-companies-vet-the-skills-and-add-ons-ai-agents-use/"
     },
     {
-      "title": "Chatbots will role-play self-harm scenarios with users, study finds",
-      "title_zh": "研究發現：聊天機器人仍會與使用者角色扮演自傷情境",
-      "source": "The Washington Post",
-      "date": "2026-08-31",
-      "topic": "AI 安全 / AI 資安",
-      "summary": "舊金山非營利研究機構 Transluce 發表研究，以超過 50,000 場模擬多輪對話測試數十個模型，涵蓋自殺意念、思覺失調與躁症等情境，並針對 14 項心理健康相關行為評分。結果呈現兩面：模型辨識自殺風險的能力較先前世代明顯進步，但安全防護在「創意寫作」或「角色扮演」的包裝下仍會失效——當使用者把自傷情境框成虛構敘事時，模型會配合演出。研究另提及較早期的 GPT-4o 與 Gemini 2.5 在模擬對話中，最高有 82% 的比例會強化使用者表現出的妄想內容。OpenAI 與 Anthropic 提供了去識別化的互動樣態資料協助此項研究。",
+      "title": "Anthropic Enterprise Frontier Safeguards",
+      "title_zh": "Anthropic 推出企業級前沿防護機制（Enterprise Frontier Safeguards）",
+      "source": "Anthropic",
+      "date": "2026-09-02",
+      "topic": "AI Agent 企業部署 / 資料治理與濫用偵測",
+      "summary": "Anthropic 於 9 月 2 日發表 Enterprise Frontier Safeguards（EFS），為受監管產業客戶提供在「零資料留存（Zero Data Retention, ZDR）」前提下仍能運作的濫用偵測能力。傳統上企業要求 ZDR 就等於放棄供應商端的跨工作階段濫用偵測，EFS 的設計是把活動資料寫入客戶自有的 S3、Azure Blob 或 GCS 儲存桶，由客戶自己的金鑰加密並保有稽核紀錄，Anthropic 在此架構上執行跨 session 的濫用與異常偵測。該功能由 Anthropic 與逾 100 家客戶共同設計，涵蓋金融服務、醫療、製造、電信、法律、零售與公部門。採分階段推出，自今年秋季稍晚開始，需提出申請取得存取權。對金融業而言，這直接對應「資料不得外流、但監理仍要求可疑行為可被偵測與留痕」的雙重要求。",
       "highlights": [
-        "Transluce 進行 50,000 場以上模擬多輪對話，涵蓋數十個模型",
-        "評估 14 項心理健康相關行為，情境含自殺意念、思覺失調、躁症",
-        "風險辨識能力較前代提升，但角色扮演／創意寫作框架可繞過安全防護",
-        "早期 GPT-4o 與 Gemini 2.5 在模擬對話中最高 82% 會強化使用者妄想",
-        "OpenAI 與 Anthropic 提供去識別化互動資料協助研究"
+        "ZDR 與濫用偵測不再互斥：活動資料留在客戶自有雲端儲存桶，由客戶金鑰加密",
+        "支援 AWS S3、Azure Blob Storage、Google Cloud Storage，並保留客戶端稽核日誌",
+        "與 100 家以上客戶共同設計，橫跨金融、醫療、製造、電信、法律、零售、公部門",
+        "秋季稍晚起分階段推出，採申請制（request-based access）"
       ],
-      "discussion": "這是典型的「框架繞過」（framing bypass）攻擊面：安全機制綁在意圖判讀上，而角色扮演正好提供了合法的意圖偽裝。技術上與 prompt injection 同源——都是靠改變輸入的語境標籤來讓防護誤判。金融業做客服 Agent 的紅隊測試時應直接把這條路徑納入測項，因為同樣手法可用來繞過金融建議或身分驗證的限制，不限於心理健康場景。",
-      "url": "https://www.washingtonpost.com/technology/2026/08/31/chatbots-will-role-play-self-harm-scenarios-with-users-study-finds/"
+      "discussion": "資安媒體與企業架構圈的關注點在於「Anthropic 承諾零留存，但驗證責任落在客戶身上」：The Register 的報導標題即指出客戶必須自行確認 ZDR 確實生效。實務討論集中在稽核證據鏈是否足以應付主管機關檢查，以及分階段申請制會不會讓多數中型企業在今年內都拿不到。",
+      "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"
     },
     {
-      "title": "Commission designates ChatGPT, Reddit and Roblox under the Digital Services Act",
-      "title_zh": "歐盟執委會依《數位服務法》指定 ChatGPT、Reddit 與 Roblox",
-      "source": "European Commission (Digital Strategy)",
-      "date": "2026-08-31",
-      "topic": "AI 監理 / 政策",
-      "summary": "歐盟執委會依《數位服務法》（DSA）將 ChatGPT 指定為「超大型線上搜尋引擎」（VLOSE），這是首次有生成式 AI 聊天機器人被納入該法最嚴格的監理層級。認定門檻為歐盟境內月活躍使用者達 4,500 萬人，OpenAI 揭露截至 2026 年 3 月止的半年間，其搜尋功能的歐盟月活躍使用者約為 1.59 億。同批指定尚包含 Reddit 與 Roblox（歸類為 VLOP），使受指定實體總數達 28 家。ChatGPT 須在四個月內（至 2027 年 1 月底）完成系統性風險評估並提出減緩措施。",
+      "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+      "title_zh": "Anthropic 發表 Claude Fable 5.1 與 Claude Mythos 5.1",
+      "source": "Anthropic",
+      "date": "2026-09-01",
+      "topic": "LLM 新模型發布 / Agentic coding",
+      "summary": "Anthropic 於 9 月 1 日同步發表 Claude Fable 5.1 與 Claude Mythos 5.1，主打程式開發、知識工作與長時間運行任務。在 agentic 科研評測 Terminal-Bench-Science 0.1 上，Fable 5.1 拿下 52.6%，遠高於 Fable 5 的 24.7% 與 Opus 5 的 29.0%，較前代翻倍以上；Terminal-Bench 4.0 為 55.8%（Fable 5 為 42.0%、Opus 5 為 52.3%）；LiveCodeBench 以 90.52% 排名第一，Terminal-Bench 2.1 以 85.02% 排名第二。價格面，快取讀取（cache hits）輸入價自 1.00 美元降至 0.25 美元，降幅 75%，使一般工作負載成本約降 25%、高度 agentic 的工作負載最高降 45%，基礎定價維持每百萬 token 輸入 10 美元／輸出 50 美元。安全防護上，生物領域的防護誤觸率在良性的基礎生物與醫療提問上下降約 85%，資安防護則調整為允許防禦性弱點識別。Mythos 5.1 為同一模型搭配不同防護設定，僅開放給經審核的資安與生命科學組織透過受限存取計畫使用。",
       "highlights": [
-        "ChatGPT 成為首個被指定為 VLOSE 的生成式 AI 聊天機器人",
-        "認定門檻為歐盟月活躍使用者 4,500 萬；OpenAI 揭露搜尋功能約 1.59 億歐盟 MAU（統計至 2026 年 3 月）",
-        "Reddit 與 Roblox 同批指定為 VLOP，受指定實體總數達 28 家",
-        "四個月內（至 2027 年 1 月底）須完成系統性風險評估與減緩措施"
+        "Terminal-Bench-Science 0.1：52.6%，對比 Fable 5 的 24.7%、Opus 5 的 29.0%",
+        "Terminal-Bench 4.0：55.8%；LiveCodeBench 90.52% 排名第一；Terminal-Bench 2.1 85.02%",
+        "快取讀取價降 75%（1.00→0.25 美元），高度 agentic 負載成本最多降 45%，基礎價維持 10/50 美元",
+        "生物防護對良性醫療與基礎生物提問的誤觸率下降約 85%，資安防護開放防禦性弱點識別",
+        "Mythos 5.1 為同模型不同防護版本，僅限受審核的資安與生命科學組織經受限計畫取用"
       ],
-      "discussion": "監理定性上這是分水嶺：歐盟選擇用既有的 DSA 平台監理框架、而非只靠 AI Act 來管生成式 AI，等於認定 ChatGPT 的資訊中介角色已與搜尋引擎同級。實務衝擊在於系統性風險評估、獨立稽核與研究者資料存取這三項義務，成本結構與 AI Act 的合規要求並不重疊而是疊加。台灣金融業若使用 OpenAI 服務，值得追蹤其為歐盟合規所做的產品調整是否會外溢成全球一致的預設行為。",
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act"
+      "discussion": "開發者社群關注焦點集中在快取讀取降價對長時間 Agent 工作流的實質影響——對於 context 反覆重讀的 harness 架構，這是成本結構層級的改變而非邊際優化。Simon Willison 當日即發表實測心得。另一討論軸線是「同一模型、兩套防護」的雙軌發布模式，被視為前沿模型在能力與濫用風險之間採取分級授權的具體做法。",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
     },
     {
-      "title": "A milestone in expanding access to AI",
-      "title_zh": "擴大 AI 近用的里程碑",
-      "source": "OpenAI",
-      "date": "2026-08-31",
-      "topic": "美國 AI 產業 / 商業模式",
-      "summary": "OpenAI 宣布 ChatGPT 廣告業務在不到 200 天內達到 10 億美元的年化營收執行率（annualized run rate），目前已有數萬家廣告主投放、覆蓋 40 多個國家。自 8 月 31 日起，印度、歐洲、中東與北非的廣告主可透過 Ads Manager 直接購買。回顧時間軸：美國試點於 2 月啟動，4 月（約六週後）達到 1 億美元年化執行率，中小企業廣告主占比達「顯著比重」。需要提醒的是，run rate 是以近期營收外推的年化推估值，並非已入帳的實際年營收。",
+      "title": "Claude for Teachers, now available for U.S. K-12 schools and districts",
+      "title_zh": "Claude for Teachers 正式開放給美國 K-12 學校與學區",
+      "source": "Anthropic (claude.com blog)",
+      "date": "2026-09-01",
+      "topic": "AI 教育應用 / 企業級部署",
+      "summary": "Anthropic 於 9 月 1 日宣布 Claude for Teachers 正式開放美國 K-12 學校與學區採用，以免費 Enterprise 方案形式提供。學校只要在 2027 年 6 月 30 日前完成註冊，即可取得完整一年的免費使用權。方案含 SSO 單一登入與角色型存取控制（RBAC），並提供符合 FERPA 規範的 K-12 專用條款與資料處理協議（DPA），直接回應學區在學生資料保護上的法遵疑慮。教學工具方面對齊全美 50 州的課綱標準，讓教師在備課與教材生成時能直接對應所在州的標準。此舉延續前沿模型業者以教育市場建立長期使用習慣的策略，同時把合規包裝（FERPA 條款、DPA、RBAC）當成進入公部門採購的門票。",
       "highlights": [
-        "不到 200 天達 10 億美元年化營收執行率",
-        "數萬家廣告主、覆蓋 40 多個國家",
-        "8 月 31 日起印度、歐洲、中東與北非可透過 Ads Manager 直接購買",
-        "2 月美國試點啟動，4 月達 1 億美元年化執行率（約六週）",
-        "中小企業廣告主占比達顯著比重",
-        "⚠️ run rate 為外推推估值，非已實現年營收"
+        "以免費 Enterprise 方案提供，2027 年 6 月 30 日前註冊可享完整一年免費",
+        "內建 SSO 與角色型存取控制，符合學區 IT 管理要求",
+        "提供對齊 FERPA 的 K-12 專用條款與資料處理協議（DPA）",
+        "教學工具對齊全美 50 州課綱標準"
       ],
-      "discussion": "OpenAI 正在把補貼式的免費使用者轉成可變現資產，這對推論成本的攤提結構是關鍵一步。但商業模式的轉向直接牽動信任問題——當回答與廣告收益掛鉤，中立性的舉證責任就落到 OpenAI 身上；恰好同一天歐盟把 ChatGPT 指定為 VLOSE，兩件事疊在一起看，廣告透明度與推薦系統可解釋性會是接下來歐盟監理的第一個施力點。",
-      "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/"
+      "discussion": "教育科技圈的討論分為兩面：一面肯定合規包裝（FERPA 條款、DPA）確實是學區採購的實質障礙排除；另一面則質疑「首年免費」的獲客模式在免費期結束後，學區是否有預算承接，形成事實上的鎖定。",
+      "url": "https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts"
+    },
+    {
+      "title": "The Pentagon is giving 3 million military and civilian workers access to ChatGPT and Grok through a secure AI platform built for 'warfighter needs'",
+      "title_zh": "五角大廈透過安全 AI 平台，開放 300 萬軍職與文職人員使用 ChatGPT 與 Grok",
+      "source": "Fortune",
+      "date": "2026-09-01",
+      "topic": "美國政府 AI 採用 / 國防",
+      "summary": "美國國防部在內部平台 GenAI.mil 上新增 OpenAI for Government 的 ChatGPT Mil 與 SpaceX Starshield AI 的 Grok for Government，加入原有的 Google Gemini 行列。兩項新工具皆通過 Impact Level 5（IL5）認證，可處理受控非機密資訊（CUI），意即獲准用於敏感但非機密的政府作業。GenAI.mil 目前累計超過 170 萬名不重複使用者，而國防部軍職、文職與承包商總人力約 300 萬人，代表逾半數人力已實際使用該平台，五角大廈的生成式 AI 導入已明顯脫離試點階段。此案在採購結構上值得注意：國防部同時納入三家前沿模型供應商，形成多源競標而非單一綁定。",
+      "highlights": [
+        "ChatGPT Mil 與 Grok for Government 加入 GenAI.mil，與既有的 Google Gemini 並列",
+        "兩者皆取得 Impact Level 5 認證，可處理受控非機密資訊（CUI）",
+        "GenAI.mil 已有逾 170 萬名不重複使用者，佔約 300 萬總人力的半數以上",
+        "採多供應商並行架構，避免單一模型廠商綁定"
+      ],
+      "discussion": "政策與國防科技社群的爭論集中在把商用前沿模型導入軍事作業流程的邊界何在——即使限縮於 CUI 等級，人員將模型輸出用於決策支援的實務風險仍難以事前界定。另有討論指出 xAI 旗下 Grok 過往的內容管控爭議與其取得政府認證之間的落差。",
+      "url": "https://fortune.com/2026/09/01/pentagon-chatgpt-grok-government-military-ai-members-pete-hegseth-defense-department/"
+    },
+    {
+      "title": "Sony and Warner Music sue Anthropic over alleged theft of 'tens of thousands' of songs, including 'I Am the Walrus' and 'Hallelujah'",
+      "title_zh": "Sony 與 Warner Music 控告 Anthropic 竊取「數萬首」歌曲，包括〈I Am the Walrus〉與〈Hallelujah〉",
+      "source": "Fortune",
+      "date": "2026-09-01",
+      "topic": "AI 著作權訴訟 / 法律風險",
+      "summary": "Sony Music 與 Warner Music 於 8 月 28 日在加州北區聯邦地方法院對 Anthropic 提起訴訟，指控其未經授權使用「數萬首」歌曲訓練模型，點名曲目包括〈I Am the Walrus〉與〈Hallelujah〉。訴狀主張 Anthropic 透過 Library Genesis、Pirate Library Mirror 等盜版來源，以及 Musixmatch、LyricFind 等歌詞資料庫，以 torrent 下載與網頁爬取方式取得歌詞與作品資料。原告依《著作權法》請求每件詞曲最高 15 萬美元的法定賠償，並罕見地將執行長 Dario Amodei 與共同創辦人 Benjamin Mann 列為個人被告。將創辦人個人列名是本案在法律策略上最值得注意之處，意在突破公司實體的責任隔離。",
+      "highlights": [
+        "8 月 28 日於加州北區聯邦地方法院提起，原告為 Sony Music 與 Warner Music",
+        "指控來源包括 Library Genesis、Pirate Library Mirror，以及 Musixmatch、LyricFind 歌詞庫",
+        "請求每件詞曲最高 15 萬美元法定賠償，涉及「數萬首」作品",
+        "罕見將 Dario Amodei 與 Benjamin Mann 列為個人被告"
+      ],
+      "discussion": "法律與 AI 產業圈認為，把創辦人個人列為被告是對「訓練資料取得手段」而非「訓練行為本身」的針對性攻擊——若能證明明知使用盜版來源，合理使用抗辯的空間會被大幅壓縮。業界同時關注此案對其他前沿模型業者資料來源揭露義務的外溢效果。",
+      "url": "https://fortune.com/2026/09/01/anthropic-warner-sony-music-songs-lawsuit/"
+    },
+    {
+      "title": "Anthropic signs $35 billion cloud deal with Nvidia-backed Lambda",
+      "title_zh": "Anthropic 與 Nvidia 投資的 Lambda 簽下 350 億美元雲端運算合約",
+      "source": "Quartz",
+      "date": "2026-09-01",
+      "topic": "AI 基礎設施 / 算力採購",
+      "summary": "Anthropic 與獲 Nvidia 投資的雲端業者 Lambda 簽署約 350 億美元的運算合約。標的為德州 Nueces County 約 350 兆瓦（MW）的資料中心容量，由 Hut 8 開發、租予 Nvidia，晶片安裝與營運由 Lambda 負責，形成「開發商—晶片商—雲端商—模型商」四層轉租結構。此案緊接在數日前與 Nscale 就西維吉尼亞州簽下的 450 億美元承諾之後，使 Anthropic 一週內公布的算力承諾累計約 800 億美元。對照同期報導的 Fluidstack 約 500 億美元與 SpaceX 約 450 億美元交易，前沿模型業者的算力採購已進入以「年度營收數倍」規模預先鎖定容量的階段，財務結構風險成為外界主要質疑點。",
+      "highlights": [
+        "約 350 億美元、德州 Nueces County 約 350MW 容量",
+        "四層結構：Hut 8 開發 → 租予 Nvidia → Lambda 安裝晶片與營運 → Anthropic 使用",
+        "緊接 Nscale 西維吉尼亞州 450 億美元承諾，一週內累計約 800 億美元算力承諾",
+        "同期另有 Fluidstack 約 500 億、SpaceX 約 450 億美元交易之報導"
+      ],
+      "discussion": "金融與科技分析圈的質疑集中在承諾金額與實際營收之間的落差，以及 Nvidia 同時作為投資人、晶片供應商與承租方所形成的循環交易結構（circular financing）。支持方則認為在容量稀缺下預先鎖定是理性行為。",
+      "url": "https://qz.com/anthropic-lambda-nvidia-cloud-deal-35-billion-090126"
+    },
+    {
+      "title": "OpenAI calls trade secret dispute 'a mess of Apple's own making'",
+      "title_zh": "OpenAI 反擊：營業秘密爭議是「Apple 自己造成的爛攤子」",
+      "source": "9to5Mac",
+      "date": "2026-09-01",
+      "topic": "AI 人才與營業秘密訴訟",
+      "summary": "OpenAI 對 Apple 於今年 7 月提起的營業秘密訴訟提出反駁，指該爭議是「Apple 自己造成的爛攤子」。Apple 該案除告 OpenAI 外，另將前員工 Tang Tan 與 Chang Liu 列為被告，主張其帶走硬體設計、製造與供應鏈相關營業秘密。OpenAI 的抗辯主軸有二：其一，Apple 長期容許員工以個人 iCloud 帳號存放公司文件，本身即為資訊管控失當；其二，Apple 對離職員工採取立即請離的做法，使員工沒有交還或清除資料的機會。背景是 OpenAI 為推進硬體產品線，已自 Apple 招募約 400 名員工。此案的實質爭點在於企業內部資訊管控實務是否會反過來削弱其營業秘密保護主張，對所有面臨人才流失的科技公司都具參考價值。",
+      "highlights": [
+        "Apple 於 7 月提告，被告包含 OpenAI 及前員工 Tang Tan、Chang Liu",
+        "OpenAI 抗辯 Apple 縱容員工以個人 iCloud 存放公司文件，屬自身管控失當",
+        "OpenAI 主張 Apple 對離職員工立即請離，使其無機會交還或清除資料",
+        "OpenAI 為硬體產品線已自 Apple 招募約 400 名員工"
+      ],
+      "discussion": "營業秘密法圈的討論指出，OpenAI 的抗辯直指「合理保密措施」這項法定要件——若企業自身管控鬆散，營業秘密的法律地位本就脆弱。科技業人資圈則關注 400 人規模的挖角是否會促使 Apple 調整離職流程與競業條款設計。",
+      "url": "https://9to5mac.com/2026/09/01/openai-calls-trade-secret-dispute-a-mess-of-apples-own-making/"
     }
   ],
-  "_updated_at": "2026-09-01T18:17:08.854426+08:00"
+  "_updated_at": "2026-09-02T19:46:45.583757+08:00"
 }

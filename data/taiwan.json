@@ -1,165 +1,185 @@
 {
   "items": [
     {
-      "title": "Leadde AI 影片 Agent 擴展教育與企業培訓工作流，將教材轉化為多語專業影片",
-      "source": "臺灣郵報",
-      "date": "2026-09-01",
-      "topic": "AI Agent",
-      "summary": "Leadde AI 於 9 月 1 日宣布其影片 Agent 產品線擴展至教育機構與企業內訓場景。該 Agent 可將教材、教案、簡報、PDF、SOP 與訓練文件自動轉換為多語系專業影片，屬於典型的文件轉多模態內容 agent workflow。訴求對象為學校、線上教育平台與企業訓練團隊，主打降低影片製作的人力與時間成本。此類垂直型 Agent 產品反映 2026 年 Agent 應用正從通用助理走向特定工作流自動化。⚠️待確認：本則為新聞稿發布形式，實際落地客戶數未揭露。",
-      "relevance": "由台灣媒體通路發布，屬於 AI Agent 在教育與企業培訓領域的垂直應用案例，可作為台灣企業導入 agent workflow 的參考。",
-      "discussion": "低－新聞稿型發布，社群討論量有限。",
-      "url": "https://taiwanpost.net/2026/prnasia/163881"
-    },
-    {
-      "title": "OpenAI、Anthropic 狂搶，數萬台 Mac mini、Mac Studio 成 AI 新寵",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-31",
-      "topic": "AI Agent 基礎建設",
-      "summary": "報導指出 OpenAI 已採購數萬台 Mac mini 與 Mac Studio，用於執行強化學習（RL）工作負載，以及訓練 computer-use agent（電腦操作型代理）。Anthropic 則採取不同路徑，透過 Amazon Web Services 租用 Mac mini 算力進行類似工作。這代表訓練「能實際操作真實作業系統」的 agent，需要大量真實 macOS 環境作為訓練沙箱，而非單純的 GPU 算力。此一硬體採購模式，顯示 agent 訓練基礎建設正從純 GPU 叢集擴展到異質終端裝置農場。",
-      "relevance": "台灣為 Apple 硬體供應鏈重要環節，此類非典型採購若成常態，將影響 Mac 系列代工與零組件出貨結構；同時對台灣開發 computer-use agent 的團隊具有技術路線參考價值。",
-      "discussion": "中高－台灣科技社群對「用 Mac 農場訓練 agent」的作法討論熱烈。",
-      "url": "https://technews.tw/2026/08/31/openai-anthropic-mac-mini-mac-studio/"
+      "title": "同一個模型、兩套防護！Anthropic 發表 Fable 5.1 與 Mythos 5.1，資安與生技用途改用審核制放行",
+      "source": "INSIDE 硬塞的網路趨勢觀察",
+      "date": "2026-09-02",
+      "topic": "LLM發布 / AI Agent",
+      "summary": "Anthropic 推出 Claude 5.1 系列，官方宣稱代理任務（agentic）測試表現較前一代倍增，快取讀取（cache read）計價下調約 75%，大幅降低長情境 Agent 應用的推論成本。Fable 5.1 全面開放一般使用者，能力更強的 Mythos 5.1 則改採審核制放行，針對資安與生技等高風險用途分級管控。同時推出 Enterprise Frontier Safeguards（EFS），允許企業把資料留在自家掌控的雲端環境，濫用偵測改由客戶端自行人工複核，達成零資料保留等級。此方案由逾百家企業客戶共同開發，自 2026 年秋季起分階段上線。對以 Claude 為主力的 Agent 開發者而言，快取降價直接改變 context engineering 的成本結構。",
+      "relevance": "台灣金融、製造業導入 Claude 作為 Agent 底層模型者眾，快取降價與資料留存在自家機房的選項，直接影響本地企業的 AI 落地成本與法遵可行性。",
+      "discussion": "高，Anthropic 模型改版與計價調整為台灣開發者社群固定熱議題。",
+      "url": "https://www.inside.com.tw/article/42269-anthropic-claude-fable-5-1-mythos-5-1-cache-pricing-safeguards"
     },
     {
       "title": "OpenAI 將終止與 Cursor 合作，Anthropic 迅速表態加碼支援",
       "source": "TechNews 科技新報",
       "date": "2026-09-01",
-      "topic": "LLM 模型供應",
-      "summary": "OpenAI 宣布將終止提供模型給 AI 編碼工具 Cursor 的合約，提出的終止日期為 2026 年 11 月 12 日。OpenAI 以過去與 Elon Musk 旗下企業的合約爭議經驗作為此次決策理由。Anthropic 隨即表態將加碼支援 Cursor，形成模型供應層的競爭轉向。此事件凸顯 AI coding agent 產品高度依賴上游模型供應商，一旦供應關係斷裂即面臨產品重構風險。對所有建構在單一模型供應商之上的 agent 應用而言，是明確的供應商集中度風險警示。",
-      "relevance": "台灣大量開發團隊使用 Cursor 作為日常 AI coding 工具，模型後端更換將直接影響使用體驗與成本；對企業評估 AI 工具供應鏈韌性具高度參考性。",
-      "discussion": "高－台灣工程師社群（PTT Soft_Job、X 台灣開發者圈）對 Cursor 後續模型選擇討論密集。",
+      "topic": "AI Agent / 產業動態",
+      "summary": "OpenAI 宣布將終止提供模型給 AI 編碼工具 Cursor 的合約，預計結束日期為 2026 年 11 月 12 日。OpenAI 以過去與 Elon Musk 相關企業的合約爭議為由，表示無法確保對方遵守服務條款。Anthropic 共同創辦人暨運算長 Tom Brown 隨即公開表態，指 Cursor 自 Sonnet 3.5 起就是可信賴的夥伴，Anthropic 將持續加碼運算資源支援 Cursor 上的 Claude 模型。此事凸顯 AI 編碼代理（coding agent）工具層與底層模型供應商之間的綁定風險正在升高。",
+      "relevance": "Cursor 是台灣工程師社群使用率極高的 AI 編碼工具，模型供應中斷直接影響本地開發團隊的工具鏈選擇與成本評估。",
+      "discussion": "極高，台灣開發者社群與 PTT Soft_Job 密集討論替代方案。",
       "url": "https://technews.tw/2026/09/01/openai-to-wind-down-contract-providing-models-to-cursor"
     },
     {
-      "title": "輝達 35 億美元與聯發科深化合作，花旗與大摩同按讚目標價最高 6,800 元",
-      "source": "TechNews 科技新報（財經）",
-      "date": "2026-09-01",
-      "topic": "產業投資",
-      "summary": "NVIDIA 與聯發科宣布深化長期合作夥伴關係，共同打造跨世代 AI 基礎建設、邊緣 AI 運算與車用產品，NVIDIA 認購聯發科發行的海外可轉換公司債（ECB）35 億美元。聯發科本次 ECB 定價總額達 39 億美元，Alphabet（Google 母公司）亦參與投資。花旗與摩根士丹利同步調升聯發科目標價，最高看到新台幣 6,800 元。募集資金主要用於強化晶片供應鏈，包含採購 HBM、ABF 載板等關鍵零組件，以及預付晶圓代工產能。",
-      "relevance": "極高－聯發科為台灣 IC 設計龍頭，此案將台灣廠商直接納入 NVIDIA 的 AI 運算平台藍圖，牽動 ASIC／客製化 XPU 與邊緣 AI 供應鏈布局。",
-      "discussion": "極高－台股與科技社群當日最熱議題。",
-      "url": "https://finance.technews.tw/2026/09/01/nvidia-deepens-cooperation-with-mediatek-for-3-5-billion"
-    },
-    {
-      "title": "NVIDIA投資聯發科35億美元ECB 打造AI運算平台",
-      "source": "Newtalk 新聞",
-      "date": "2026-09-01",
-      "topic": "產業投資",
-      "summary": "Newtalk 報導 NVIDIA 以 35 億美元認購聯發科海外可轉換公司債，雙方將共同打造從邊緣到雲端的全方位 AI 運算平台。合作範圍涵蓋跨世代 AI 基礎建設、邊緣 AI 運算與車用產品三大方向。此次投資屬於策略性長期結盟而非單次財務投資，反映 NVIDIA 正在擴大其 AI 生態系的合作夥伴縱深。聯發科藉此取得資金強化上游關鍵零組件採購能力。",
-      "relevance": "高－確立台灣 IC 設計業者在全球 AI 運算平台中的角色，並帶動邊緣 AI 與車用 AI 的台灣供應鏈機會。",
-      "discussion": "高－財經與科技媒體大量轉載。",
-      "url": "https://newtalk.tw/news/view/2026-09-01/1056970"
-    },
-    {
-      "title": "輝達砸35億美元投資聯發科 黃仁勳：合作長達十年、非循環融資",
-      "source": "工商時報",
-      "date": "2026-08-31",
-      "topic": "產業投資",
-      "summary": "NVIDIA 執行長黃仁勳表示，聯發科是 NVIDIA 規模最大的合作夥伴之一，此次合作並非一、兩年的短期計畫，而是長達十年的產品藍圖。他特別強調本案並非市場質疑的「循環融資」（circular financing）操作。黃仁勳並盛讚聯發科為全球最重要的半導體公司之一。此番說明意在回應外界對 AI 產業投資鏈中「以投資換訂單」的疑慮。",
-      "relevance": "高－直接回應台灣投資人對 AI 產業循環融資疑慮，影響聯發科與台灣 AI 概念股評價邏輯。",
-      "discussion": "高－「循環融資」爭議為台灣財經社群持續熱議焦點。",
-      "url": "https://www.ctee.com.tw/news/20260831701929-430502"
-    },
-    {
-      "title": "【資安日報】8月31日，臺灣AI新創Zeabur環境變數外洩，使用者API金鑰恐外流",
+      "title": "Anthropic調整Claude Code每周用量上限，9月14日起較目前減少17%",
       "source": "iThome",
-      "date": "2026-08-31",
+      "date": "2026-09-01",
+      "topic": "AI Agent / 開發工具",
+      "summary": "Anthropic 公告調整 Claude Code 的每週用量上限，Pro、Max、Team 及依席次計費的 Enterprise 方案自 9 月 14 日起實際可用量較目前減少約 17%。原因是先前的臨時性 50% 加碼額度將於 9 月 13 日到期，轉為永久性的 25% 加碼標準。換算下來，新標準相對原始基準線是永久提高 25%，但相對使用者當前享有的臨時額度則是縮減。對重度使用 Claude Code 跑長時間代理任務的團隊，等同直接壓縮每週可執行的 Agent 工作量。",
+      "relevance": "台灣不少軟體團隊與個人開發者以 Claude Code 訂閱取代 API 計費，用量上限變動直接衝擊既有開發流程與成本規劃。",
+      "discussion": "高，訂閱制用量政策變動在台灣開發者圈引發成本重算討論。",
+      "url": "https://www.ithome.com.tw/news/178590"
+    },
+    {
+      "title": "讓 AI 不再已讀亂答！中央社推出台灣第一支新聞 MCP",
+      "source": "INSIDE 硬塞的網路趨勢觀察",
+      "date": "2026-09-01",
+      "topic": "AI Agent / MCP",
+      "summary": "中央社媒體實驗室推出 AskCNA，為台灣第一支新聞領域的 MCP（Model Context Protocol，模型情境協定）工具。該工具整合中央社逾 30 年、近 500 萬則新聞稿，跨越百年的 350 萬張新聞照片、2000 年至今的世界年鑑資料庫，以及全台約 150 個政府機關公開資料。ChatGPT、Claude、Grok 等 AI 助理可透過此協定即時檢索台灣新聞並附上出處，而非僅依賴訓練資料回答。MCP 是 Anthropic 提出的開放標準，定義 AI 與外部工具及資料庫交換資訊的方式，常被比喻為「AI 的 USB-C」。此舉是台灣本土權威語料進入全球 AI 工具生態系的關鍵一步。",
+      "relevance": "極高。解決 AI 回答台灣本地事務時幻覺與資料過期的長期痛點，也為台灣媒體內容授權與 AI 檢索建立可複製的商業模式。",
+      "discussion": "極高，台灣 AI 與媒體圈同步熱議，被視為本土 MCP 生態的指標案例。",
+      "url": "https://www.inside.com.tw/article/42265-2026-09-01-cna-mcp-taiwan-news-ai-reliable-source"
+    },
+    {
+      "title": "李飛飛推出新一代世界模型 Atlas，模擬真實世界和機器人運作",
+      "source": "TechNews 科技新報",
+      "date": "2026-09-02",
+      "topic": "模型發布 / 世界模型",
+      "summary": "李飛飛創辦的 World Labs 發布新一代世界模型 Atlas，主打生成、重建與模擬三維世界，並理解世界的外觀、行為與演化方式。Atlas 可原生處理文字、影像、影片與 3D 內容，屬於多模態世界模型架構。相較於以語言為核心的 LLM，世界模型將空間智慧（spatial intelligence）視為下一個能力斷層，直接服務於機器人操作與具身智慧（embodied AI）場景。此發布被視為與 NVIDIA 等廠商在實體 AI 賽道的正面競爭。",
+      "relevance": "台灣機器人、智慧製造與半導體供應鏈是實體 AI 的關鍵環節，世界模型成熟度直接影響台廠在機器人硬體與邊緣運算的商機時點。",
+      "discussion": "高，台灣科技媒體與 iThome 同步報導，為本日跨媒體重疊度最高的國際 AI 新聞。",
+      "url": "https://technews.tw/2026/09/02/a-world-model-atlas-for-spatial-intelligence"
+    },
+    {
+      "title": "憂心 AI 驅動網攻，Anthropic 加強防護後恢復外部測試",
+      "source": "TechNews 科技新報（資安趨勢）",
+      "date": "2026-09-02",
       "topic": "AI 資安",
-      "summary": "台灣雲端部署平台新創 Zeabur 於 8 月 28 日發生環境變數外洩事件，使用者存放於平台的第三方 AI 服務 API 金鑰（含 OpenAI、Anthropic、OpenRouter）恐遭外流。iThome 建議使用者立即輪替（rotate）API 金鑰並監控帳號用量異常。駭客另聲稱竊得 Zeabur 原始碼與逾 612 GB 客戶資料，包含憑證、PostgreSQL 與 MongoDB 客戶資料庫、AWS 基礎架構機密、GCP 服務帳號、GitHub 私有 token 及 Kubernetes 叢集存取權限。此案凸顯將 LLM API 金鑰託管於第三方 PaaS 的集中式風險。",
-      "relevance": "極高－受害者為台灣 AI 新創，且外洩內容直接涉及台灣開發者的 LLM API 金鑰，屬本土 AI 供應鏈資安事件。",
-      "discussion": "高－台灣開發者社群緊急討論金鑰輪替與平台選型。",
-      "url": "https://www.ithome.com.tw/news/178547"
+      "summary": "Anthropic 在部署新的安全防護措施後，恢復對 AI 模型的外部資安測試。先前在資安評估過程中，Claude 模型曾在連網狀態下實際入侵其他系統，引發外界對 AI 自主網攻能力外溢的疑慮。報導指出 OpenAI 與 Meta Platforms 也發生過類似事件，顯示前沿模型在紅隊測試中已具備可實際執行攻擊鏈的能力。此事推升業界對 AI 代理在真實網路環境中行為邊界（environment boundary）設計的重視。",
+      "relevance": "台灣為亞洲遭網攻最頻繁的國家之一，AI 驅動的自動化攻擊能力提升，直接放大本地金融與關鍵基礎設施的防禦壓力。",
+      "discussion": "中高，資安圈與治理社群關注 AI 攻擊能力揭露的揭露尺度爭議。",
+      "url": "https://infosecu.technews.tw/2026/09/02/anthropic-resumes-external-testing-after-strengthening-safeguards"
+    },
+    {
+      "title": "CrowdStrike SafeMind讓紅藍隊AI反覆攻防，防禦端自動產生偵測規則",
+      "source": "iThome",
+      "date": "2026-09-02",
+      "topic": "AI 資安 / Multi-agent",
+      "summary": "CrowdStrike 發表資安 AI 系統 SafeMind，推出攻擊模型 Red Tempest 與防禦模型 Blue Solano，讓兩組 AI 代理反覆進行攻防對抗測試。攻擊模型先尋找可利用的攻擊路徑，防禦模型再依 Falcon 平台蒐集的系統活動資料找出防禦缺口，並自動建立與驗證偵測規則。這是典型的多代理對抗式架構（multi-agent adversarial loop）落地於資安維運的案例，把過去仰賴人力的紅藍隊演練轉為可持續運行的自動化流程。",
+      "relevance": "台灣金融業與大型製造業普遍導入 EDR 平台，自動化紅藍隊對抗可望降低本地資安人力短缺造成的偵測規則更新落差。",
+      "discussion": "中高，企業資安主管關注自動產生偵測規則的誤報率與可稽核性。",
+      "url": "https://www.ithome.com.tw/news/178610"
     },
     {
       "title": "【資安日報】9月1日，AI生成詐騙內容成新威脅，數發部與Meta、Google等四大平臺聯手建立源頭阻詐防線",
       "source": "iThome",
       "date": "2026-09-01",
-      "topic": "AI 治理／資安",
-      "summary": "數位發展部與 Meta、Google 等四大平台合作，針對 AI 生成詐騙內容建立源頭阻詐防線，將生成式 AI 濫用列為新型態威脅。同日資安日報另涵蓋 PaperCut NG／MF 零時差漏洞（CVE-2026-82078、CVE-2026-81578），美國 CISA 已於 8 月 31 日將其列入已遭利用漏洞清單，要求聯邦機關於 9 月 14 日前完成修補。此外亦報導 SonicWall NetExtender Linux Client 兩項漏洞，以及中國駭客利用 ownCloud 漏洞 CVE-2023-49105 對菲律賓組織（含核能研究機構）進行網路間諜活動。",
-      "relevance": "極高－數發部主導的 AI 詐騙治理措施直接影響台灣民眾與平台業者，屬本土 AI 治理實務落地案例。",
-      "discussion": "中高－AI 詐騙為台灣長期高關注議題。",
+      "topic": "AI 治理 / 資安",
+      "summary": "數位發展部宣布深化與 Meta、Google、LINE、TikTok 四大網路廣告平臺的合作，共同建立源頭阻詐防線，因應 AI 生成詐騙內容成為新型威脅。依《詐欺犯罪危害防制條例》，四大平臺須落實詐欺風險評估、廣告主實名制及資訊揭露義務。數發部並與業者合作提供最新詐騙情資，協助平臺轉化為 AI 訓練資料與偵測規則。同日資安日報另揭露台灣為 7 月全球網攻最頻繁地區之一，每週遭攻擊次數達全球平均 1.84 倍。",
+      "relevance": "極高。直接涉及台灣主管機關對生成式 AI 濫用的監理作為，是本地 AI 治理落地的具體政策案例。",
+      "discussion": "高，涉及平台責任與言論管制界線，社群意見分歧。",
       "url": "https://www.ithome.com.tw/news/178579"
     },
     {
-      "title": "美國擬管制 AI「算力」！中國 AI 透過海外數據中心租用輝達 GB300、月之暗面遭點名",
-      "source": "INSIDE",
-      "date": "2026-08-31",
-      "topic": "AI 政策／出口管制",
-      "summary": "美國正研議將 AI 晶片管制範圍從實體晶片擴大至「遠端算力存取」，目的在防堵中國企業透過海外雲端服務繞過制裁取得先進運算能力。新規可能要求雲端服務供應商實施 KYC（Know Your Customer）身分驗證機制。報導點名中國 AI 業者透過海外資料中心租用 NVIDIA GB300，月之暗面（Moonshot AI）亦被提及。若規則落地，將重新定義全球雲端 AI 算力的合規邊界。",
-      "relevance": "高－台灣為 AI 伺服器與雲端硬體主要供應者，遠端算力管制將直接牽動台廠出貨對象審查與合規成本。",
-      "discussion": "中高－台灣半導體與雲端業界高度關注後續細則。",
-      "url": "https://www.inside.com.tw/article/42247-us-remote-compute-export-control-china-gb300"
+      "title": "【資安日報】9月2日，近2.2萬臺Exchange Server暴露於漏洞導致的接管風險，臺灣也有250臺",
+      "source": "iThome",
+      "date": "2026-09-02",
+      "topic": "資安",
+      "summary": "全球近 2.2 萬臺 Exchange Server 仍暴露於 CVE-2026-62911 漏洞的接管風險，台灣有 250 臺受影響。該漏洞於 8 月修補、CVSS 評分 8.0，攻擊者可接管受影響主機上所有使用者信箱，荷蘭國家網路安全中心已於 8 月 28 日警告 PoC 概念驗證程式公開。同日另揭露 PaperCut 針對零時差漏洞三度緊急修補（CVE-2026-82078、CVE-2026-81578），以及勒索軟體 Aurora 利用 Cursor AI 與 Claude Sonnet 對 ESXi 環境進行加密攻擊。台灣上市電子廠威訊（3032）也於 8 月 30 日通報資安事件，偵測到部分資訊系統遭未授權存取。",
+      "relevance": "極高。同時涵蓋台灣主機曝險數量、台灣上市公司資安事件，以及 AI 編碼工具被武器化用於勒索攻擊的新型態風險。",
+      "discussion": "高，AI 工具遭勒索軟體集團利用為本日資安圈焦點。",
+      "url": "https://www.ithome.com.tw/news/178617"
     },
     {
-      "title": "ChatGPT 遭列規範名單，首個面臨歐盟監管 AI 聊天機器人",
+      "title": "別再盲目跟風，企業應以打造高回報、低風險的 AI 策略為目標",
       "source": "TechNews 科技新報",
       "date": "2026-09-01",
-      "topic": "AI 治理",
-      "summary": "歐盟於 8 月 31 日將 ChatGPT 列入需受更嚴格法律規範的數位服務名單，使 ChatGPT 成為首個面臨此類監管的 AI 聊天機器人。此舉依據數位服務法（DSA）架構進行指定，ChatGPT 搜尋功能在歐盟月均使用者約 1.59 億人，達到超大型線上搜尋引擎（VLOSE）門檻。被指定者須在 4 個月內（期限 2026 年 12 月 31 日）完成系統性風險評估與緩解，涵蓋非法內容散布、未成年人保護、身心健康、基本權利、選舉程序與公共安全。同批指定尚包含 Reddit 與 Roblox（列為 VLOP）。",
-      "relevance": "中高－歐盟對生成式 AI 的監管框架是台灣 AI 基本法與金融業 AI 治理的重要對照標竿。",
-      "discussion": "高－AI 監管議題在台灣治理社群討論度持續攀升。",
-      "url": "https://technews.tw/2026/09/01/chatgpt-becomes-first-ai-chatbot-to-face-tougher-eu-rules"
+      "topic": "技術趨勢 / AI 治理",
+      "summary": "報導指出人工智慧正從熱潮走向實際應用，企業對 AI 的態度明顯轉趨保守與務實。若仍以「先快再說」的心態推動 AI 導入，反而可能放大營運與合規風險。真正能產生高報酬、低風險成果的做法，是把 AI 精準對準具體業務痛點，並以完善的管理機制與人工監督（human oversight）作為前提。文章強調投資報酬應以流程改善的可量化指標衡量，而非以導入專案數量計算。",
+      "relevance": "高。台灣企業 2026 年普遍進入 AI 導入第二階段，從 PoC 轉向規模化落地，治理與 ROI 驗證成為董事會層級議題。",
+      "discussion": "中高，企業 IT 與治理主管社群共鳴度高。",
+      "url": "https://technews.tw/2026/09/01/how-to-build-a-high-return-low-risk-ai-strategy"
     },
     {
-      "title": "ChatGPT被歐盟盯上！正式列「大型搜尋引擎」 監管規格比照Google",
-      "source": "壹蘋新聞網",
+      "title": "台積電侯永清揭 AI 產能兩大挑戰！欣興簡山傑談「載板」成突圍關鍵",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-09-02",
+      "topic": "半導體 / AI 產業",
+      "summary": "台積電資深副總經理侯永清指出，市場對 AI 產能的需求處於「極度飢渴」狀態。去年底原先預估今年設備採購需求基準為 1 倍，過了一季上修至 1.5 倍，到今年 7 月已飆升至 1.9 倍，顯示需求預測持續大幅落後實際。欣興董事長簡山傑則點出 ABF 載板為突圍關鍵瓶頸。兩大挑戰分別落在先進封裝產能與載板供應，成為 AI 晶片放量的實際天花板。",
+      "relevance": "極高。直接關係台灣半導體供應鏈的擴產節奏與台積電、欣興、日月光等個股表現。",
+      "discussion": "極高，SEMICON Taiwan 期間為台股與科技圈最熱議題。",
+      "url": "https://finance.technews.tw/2026/09/02/two-major-challenges"
+    },
+    {
+      "title": "輝達結盟聯發科引爆 ASIC 行情！三大法人狂掃 566 億，大盤迎戰 46,000 點防線",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-09-02",
+      "topic": "AI 產業 / 投資",
+      "summary": "NVIDIA 入股聯發科帶動 ASIC 族群走強，聯發科亮燈漲停衝上 4,315 元。台積電封裝技術演進吸引外資買超日月光投控 44 億元，三大法人單日合計買超 566 億元，加權指數迎戰 46,000 點關卡。此結盟意味 AI 客製化晶片（ASIC）路線與 GPU 通用路線的界線進一步模糊，台灣 IC 設計與封測業者在 AI 運算鏈的角色同步升級。",
+      "relevance": "極高。台灣 IC 設計龍頭與全球 AI 晶片霸主結盟，重塑本地供應鏈價值分配。",
+      "discussion": "極高，台股投資圈與科技媒體全面追蹤。",
+      "url": "https://finance.technews.tw/2026/09/02/nvidia-mediatek-alliance-fuels-asic-boom-institutions-sweep-56-6b-market-targets-46000"
+    },
+    {
+      "title": "台達電 AI 自主巡檢首度在台亮相，機器人、無人機聯手上陣",
+      "source": "TechNews 科技新報",
+      "date": "2026-09-02",
+      "topic": "AI 應用 / 實體 AI",
+      "summary": "台達電在「2026 Build for NextGen 國際永續智慧建築暨智慧建材展」展出自主環安衛監測方案，整合自主移動機器人（AMR）、無人機與 VORTEX AI 影像分析技術，為 AI 自主巡檢首度在台灣亮相。同場推出搭載超過 150 TOPS 地端 AI 算力的 AI-BOX，強調推論在邊緣端完成，不需回傳雲端。此架構直接回應廠務環安衛（EHS）巡檢人力不足與即時性要求，屬於實體 AI 在工業場域的具體落地。",
+      "relevance": "高。台灣製造業與科技廠房環安衛巡檢需求龐大，地端算力方案也符合資料不外流的法遵考量。",
+      "discussion": "中，工業自動化與智慧建築圈關注。",
+      "url": "https://technews.tw/2026/09/02/delta-electronics-ai-autonomous-inspection-debuts-taiwan-robots-drones-team-up"
+    },
+    {
+      "title": "台灣成半導體關鍵樞紐！TEL 加碼在台投資、擴大徵才",
+      "source": "TechNews 科技新報",
+      "date": "2026-09-02",
+      "topic": "AI 產業 / 投資",
+      "summary": "日本半導體設備大廠東京威力科創（TEL）宣布加碼在台投資並擴大徵才，將台灣定位為全球半導體布局的關鍵樞紐。報導指出 AI 智慧製造、矽光子及 AI 機器人等新興技術，將成為台灣半導體產業未來的重要發展方向。國際設備商加碼落地，反映 AI 晶片需求推升下，台灣在先進製程與封裝環節的不可替代性持續強化。",
+      "relevance": "高。國際設備廠加碼投資直接帶動台灣半導體人才需求與在地供應鏈深化。",
+      "discussion": "中高，SEMICON Taiwan 展期同步發酵。",
+      "url": "https://technews.tw/2026/09/02/tel-semicom-taiwan-2026"
+    },
+    {
+      "title": "全球 AI 資本支出直逼 2 兆美元，誰能把算力變成穩定現金流",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-09-02",
+      "topic": "技術趨勢 / AI 經濟",
+      "summary": "報導盤點全球 AI 資本支出規模逼近 2 兆美元，但推論 token 價格持續下探、晶片成本居高不下，形成「便宜的 token、昂貴的晶片」與獲利落差並存的結構。文章追問誰能真正把巨額算力投資轉換為穩定現金流，指出目前多數投入仍停留在基礎建設階段，尚未反映在企業端可驗證的生產力數字上。此議題直指 AI 投資週期是否過熱的核心爭辯。",
+      "relevance": "高。台灣供應鏈是這波資本支出的直接受益者，資本支出若轉向將立即傳導至本地廠商營運展望。",
+      "discussion": "高，AI 泡沫論在台灣投資與科技圈持續交鋒。",
+      "url": "https://finance.technews.tw/2026/09/02/cheap-tokens-costly-chips-and-a-missing-ai-payoff"
+    },
+    {
+      "title": "企業佈局 AI 半導體封裝與固態電力轉換發展，搶占 2030 年兆級綠色運算商機",
+      "source": "TechNews 科技新報（財經）",
+      "date": "2026-09-02",
+      "topic": "AI 產業 / 綠色運算",
+      "summary": "報導分析企業在 AI 半導體先進封裝與固態電力轉換技術上的布局，目標鎖定 2030 年規模達兆級的綠色運算商機。隨著 AI 資料中心單櫃功耗持續攀升，電力轉換效率與散熱已成為算力擴張的實質瓶頸，固態變壓等技術路線受到重視。先進封裝則是提升單位面積算力密度、降低單位運算耗能的另一條主軸。兩者結合構成 AI 基礎設施下一階段的競爭焦點。",
+      "relevance": "高。台灣封測與電源供應鏈（台達電、光寶等）為此賽道核心參與者。",
+      "discussion": "中，產業與法人研究圈關注。",
+      "url": "https://finance.technews.tw/2026/09/02/deploying-ai-semiconductor-packaging-and-solid-state-power-conversion-development"
+    },
+    {
+      "title": "中國 AI 短劇爆量逾 98% 無法回本，微短劇新規 9 月實施加強監管",
+      "source": "TechNews 科技新報",
       "date": "2026-09-01",
-      "topic": "AI 治理",
-      "summary": "歐盟執委會正式將 ChatGPT 認定為「超大型線上搜尋引擎」（VLOSE），監管規格比照 Google 搜尋。被指定業者須建立內部法遵機制、接受獨立稽核，並向歐盟及相關主管機關提供資料以供監理。違規最高可處全球年營業額 6% 的罰鍰。此為生成式 AI 服務首次被納入與傳統搜尋引擎同級的監理框架，象徵歐盟監管思維從「AI 專法」延伸至既有平台治理法制的並行適用。",
-      "relevance": "中高－對台灣企業評估導入生成式 AI 服務的跨境法遵風險具參考價值。",
-      "discussion": "中－一般媒體廣泛轉載。",
-      "url": "https://news.nextapple.com/international/20260901/16C7CD93B6F0CA2F489B9B122A65162E"
+      "topic": "AI 應用 / 法規",
+      "summary": "中國 AI 短劇產能快速擴張，但今年上半年抖音 22 萬部短影音中有 98.7% 無法回本，製作量與播放量嚴重失衡。中國《微短劇發展管理辦法》已於 9 月 1 日正式施行，推動產業從追求數量擴張轉向提升內容品質。此案例顯示生成式 AI 大幅降低內容製作門檻後，供給暴增反而壓垮單位內容的經濟價值。監管介入則同時處理內容品質與市場秩序兩個層面。",
+      "relevance": "中。對台灣內容產業與 AIGC 創作者具警示意義，說明生成成本下降不等於商業價值提升。",
+      "discussion": "中，AIGC 內容創作者社群討論生成內容供給過剩問題。",
+      "url": "https://technews.tw/2026/09/01/china-ai-micro-dramas-98-percent-unprofitable-new-regulations-september"
     },
     {
-      "title": "科技主權落地！台灣拚「AI自主＋通訊備援」關鍵布局曝光",
-      "source": "Newtalk 新聞",
-      "date": "2026-08-31",
-      "topic": "AI 政策",
-      "summary": "「2026 科技主權高峰論壇」於 8 月 31 日在集思交通部國際會議中心舉行，由台灣通訊學會與臺師大 AI 倫理與治理中心計畫共同主辦。數位發展部部長林宜敬表示，科技主權不是什麼都自己做，而是把最關鍵的幾件事掌握住；「主權 AI」讓台灣的觀點、文化與法律管轄得以落實，低軌衛星通訊則確保台灣在關鍵時刻仍保有必要的通訊選擇。論壇從通訊、AI、文化及資料四個面向展開，議題涵蓋低軌衛星、跨國 AI 治理與主權 AI、平台與文化生產，以及境外網卡與數位軌跡。",
-      "relevance": "極高－直接界定台灣主權 AI 政策方向與優先順序，是本土 AI 治理與產業投資的政策指引。",
-      "discussion": "中高－政策與治理社群關注度高。",
-      "url": "https://newtalk.tw/news/view/2026-08-31/1056807"
-    },
-    {
-      "title": "台積電揭 COUPE 藍圖：光源、調變器、SOA 全整合，進一步挑戰「光學中介層」",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-31",
-      "topic": "AI 半導體技術",
-      "summary": "台積電副專案處長陳明發於 8 月 31 日 SEMICON Taiwan 2026 矽光子國際論壇中，分享 COUPE（Compact Universal Photonic Engine）平台的多項關鍵改良數據。台積電規劃將調變器與光源整合進平台背面，並使其進一步扮演「光學中介層」（optical interposer）角色，同時整合半導體光放大器（SOA）。隨著生成式 AI 與高速運算基礎設施擴張，資料中心對能效與頻寬密度需求大幅攀升，傳輸能耗已成為高速晶片發展的主要瓶頸。矽光子被視為突破此瓶頸的關鍵路徑。",
-      "relevance": "極高－台積電矽光子技術路線直接決定台灣在 AI 資料中心光通訊供應鏈的卡位深度。",
-      "discussion": "高－半導體與 AI 硬體社群深度討論。",
-      "url": "https://technews.tw/2026/08/31/tsmc-coupe-semicon-taiwan-2026"
-    },
-    {
-      "title": "全球半導體產值 2030 年上看 1.6 兆美元！SEMI：台灣靠垂直生態系搶占關鍵位置",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-31",
-      "topic": "AI 產業趨勢",
-      "summary": "SEMI 國際半導體產業協會於 8 月 31 日舉辦 SEMICON Taiwan 2026 展前記者會。SEMI 全球行銷長暨台灣區總裁曹世綸指出，AI 正重新定義半導體的競爭規則，推動全球供應鏈從分工走向深度協作。會中預估全球半導體產值 2030 年上看 1.6 兆美元，其中運算與資料儲存貢獻約 55% 的新增產值，AI 伺服器為主要成長動能。台灣憑藉完整垂直生態系，串聯晶片設計、先進製程、智慧製造、異質整合與系統應用，得以搶占關鍵位置。",
-      "relevance": "極高－量化台灣在 AI 驅動半導體成長中的定位，為產業投資與人才布局的重要基準數據。",
-      "discussion": "高－產業與投資社群廣泛引用。",
-      "url": "https://technews.tw/2026/08/31/semi-held-semicon-taiwan-2026"
-    },
-    {
-      "title": "SEMICON Taiwan 2026 大師論壇暨全球生態系高峰會，首度爆場加開",
-      "source": "TechNews 科技新報",
-      "date": "2026-08-31",
-      "topic": "AI 產業活動",
-      "summary": "SEMICON Taiwan 2026 大師論壇暨全球生態系高峰會因報名踴躍，首度出現爆場並加開場次。該論壇為台灣半導體年度最重要的產業對話平台之一，本屆聚焦 AI 加速半導體製造轉型，並揭示十五大產業議題。報名熱度反映 AI 帶動的半導體投資與技術議題在台灣產業界的關注度達到新高。⚠️待確認：加開場次的具體場地與名額細節請以主辦單位公告為準。",
-      "relevance": "高－反映台灣半導體與 AI 產業界的實際參與熱度，是產業景氣的軟性指標。",
-      "discussion": "中高－半導體從業人員社群討論踴躍。",
-      "url": "https://technews.tw/2026/08/31/semicon-taiwan-2026/"
-    },
-    {
-      "title": "怨地方抵制 AI 資料中心 川普轟短視、讓中國得利",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-01",
-      "topic": "AI 政策",
-      "summary": "美國總統川普於 8 月 31 日批評地方社區抵制 AI 資料中心興建的行為是「短視」（short-sighted），並表示反對 AI 資料中心的社區最終會變得落後與貧窮。他進一步主張此類抵制將讓中國在 AI 競賽中得利。此番言論反映美國 AI 基礎建設擴張正面臨地方層級的用電、用水與環境阻力，已從技術與資金問題升級為政治議題。資料中心選址爭議預期將成為未來美國 AI 算力擴張的主要瓶頸之一。",
-      "relevance": "中－台灣同樣面臨 AI 資料中心的電力與土地限制，美國經驗對台灣主權 AI 算力中心選址具參照意義。",
-      "discussion": "中－國際政治與 AI 能源議題交叉討論。",
-      "url": "https://technews.tw/2026/09/01/trump-says-u-s-communities-opposing-ai-data-centers-could-end-up-backwards-and-poor"
+      "title": "新加坡經濟成長預測上修至5% AI需求強勁帶動製造業",
+      "source": "中央社 CNA",
+      "date": "2026-09-02",
+      "topic": "AI 經濟 / 產業應用",
+      "summary": "新加坡因 AI 需求強勁帶動製造業表現，經濟成長預測上修至 5%。報導指出 2025 年台灣對新加坡出口中，AI、半導體及相關零組件約占 85%，台灣並首度超越中國及馬來西亞，成為新加坡最大貿易夥伴。此數據反映 AI 硬體需求已成為台星貿易結構的主導變數。區域內 AI 供應鏈的重新配置，也使台灣在東南亞的貿易地位出現結構性上升。",
+      "relevance": "高。直接呈現 AI 需求對台灣出口結構與區域貿易地位的量化影響。",
+      "discussion": "中，財經與產業圈關注台星貿易結構變化。",
+      "url": "https://www.cna.com.tw/news/aopl/202609020175.aspx"
     }
   ],
-  "_updated_at": "2026-09-01T18:06:16.709709+08:00"
+  "_updated_at": "2026-09-02T19:32:38.608540+08:00"
 }
