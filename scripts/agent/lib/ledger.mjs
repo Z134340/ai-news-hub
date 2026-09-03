@@ -28,6 +28,10 @@ export const EVENT_TYPES = new Set([
   "user_correction",     // 人審改了某筆輸出（含改成什麼）
   "proposal_reviewed",   // 某筆 proposal 被人審處理（核可或退回）
   "audit_finding",       // SystemAuditor 提出的系統面觀察
+  "human_rating",        // 前端 好/中/不好 按鈕，經 Firestore 由 pull-feedback.mjs 讀回
+  "proposal_evaluated",  // change-evaluator 對某筆 proposal 的裁定（accept / reject）
+  "proposal_auto_applied", // apply-change.mjs 實際改了檔案（含 diff 摘要與 canary 起算日）
+  "canary_reverted",     // canary-check.mjs 偵測退化並回滾
 ]);
 
 function ensureDir() {

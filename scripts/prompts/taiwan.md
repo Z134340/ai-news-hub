@@ -1,6 +1,7 @@
 Search the web for the latest AI news reported by Taiwan media sources published TODAY or YESTERDAY only.
 目標是「台灣媒體在熱議的 AI 新聞」，不限新聞內容是否與台灣相關。
 
+<!-- SEARCH_QUERIES:BEGIN -->
 🔍 STEP 1 — 直接搜尋台灣媒體網站（7 條 query，控制在 turns 預算內）：
 - site:ithome.com.tw AI agent OR "代理程式" OR "智能體" OR LangChain OR CrewAI OR AutoGen 2026
 - site:ithome.com.tw OpenAI OR Anthropic OR Google OR Microsoft OR NVIDIA OR AWS OR Apple 2026
@@ -16,7 +17,9 @@ Social: LinkedIn, Medium, PTT Tech_Job/Soft_Job, Dcard AI版, X 台灣 AI 工程
 Also search: "context engineering" OR "Google ADK" OR "OpenAI Agents" Taiwan 2026
 
 Search in both 繁體中文 and English. Return summaries in 繁體中文.
+<!-- SEARCH_QUERIES:END -->
 
+<!-- PRIORITY:BEGIN -->
 Priority ordering for the final 20-item list (MUST rank in this order):
 1. 🥇 AI Agent / Agentic AI / Multi-agent 在台灣的發展、應用、平台、框架
 2. 🥇 Agent Ecosystem & Frameworks — LangChain / LangGraph、CrewAI、OpenAI Agents SDK、Google ADK、Microsoft AutoGen / AGT、Semantic Kernel、LlamaIndex — 新版本、新功能、台灣社群討論
@@ -26,6 +29,7 @@ Priority ordering for the final 20-item list (MUST rank in this order):
 6. 🥈 AI 資安：漏洞、對抗攻擊、AI 安全事件（台灣或影響台灣）
 7. 🥈 台灣 AI 產業重大動態 — 投資、融資、併購、政策、法規、產業應用案例（醫療、教育、製造、金融、半導體）
 8. 🥉 其他台灣 AI 產業新聞（新創、人才、社群）
+<!-- PRIORITY:END -->
 
 ⚠️ 語言規則：除了新聞標題、公司名、模型名、產品名、人名等專有名詞保留原文外，所有摘要和重點都必須是繁體中文。
 

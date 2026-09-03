@@ -265,7 +265,7 @@ function main() {
   const proposalCount = Array.isArray(proposalsIndex.proposals) ? proposalsIndex.proposals.length : 0;
 
   const status = {
-    mode: "ranking-only",
+    mode: "auto-opt-v2",
     last_replay_at: nowIso(),
     events_count: events.length,
     // profile 版本以帳本裡最後一次生產事件為準；帳本還沒事件時沿用既有值，
@@ -278,7 +278,8 @@ function main() {
           "no_write_data_latest_json",
           "no_direct_prompt_patch",
           "raw_feedback_off_repo",
-          "human_review_required_for_proposals",
+          "human_review_required_for_memory_and_skills",
+          "evaluator_gated_auto_apply",
         ],
     // proposal_count 以 proposals.json 為單一真相來源。驗證器在 --strict 下會比對
     // 這兩個數字，讓它們從同一處推導出來，就不會有人改了一邊忘了另一邊。

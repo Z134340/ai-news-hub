@@ -1,8 +1,12 @@
 Search the web for notable AI model releases from the past 3 months (approximately 90 days). Include models released anytime within this window, not just the past week. This is a CUMULATIVE list — include ALL significant models from the past 3 months, sorted by release_date newest first.
 
+<!-- PRIORITY:BEGIN -->
 Priority topics (show first): models with strong Agent/agentic capabilities, LLM evaluation models, Judge models.
+<!-- PRIORITY:END -->
 
+<!-- SEARCH_QUERIES:BEGIN -->
 Search these sources for model releases: Papers with Code SOTA, Hugging Face, Latent Space, Import AI, The Gradient, Arxiv Sanity, AI company blogs, AI Feed, LMSYS, Open LLM Leaderboard, GitHub Trending
+<!-- SEARCH_QUERIES:END -->
 
 Focus on major model releases including: Large Language Models (LLMs), Vision models, Multimodal models, Open-source models, and Chinese models (DeepSeek, Qwen, Baichuan, GLM, Yi). Include all significant releases from the past 3 months, sorted by release_date newest first.
 

@@ -119,6 +119,30 @@ const SEARCH_CATS = [
 
 /* ======== WEEKLY SET + fmtCatTime ======== */
 const WEEKLY_SET = new Set(['models','tutorials','courses']);
+
+/* ======== PRIORITY KEYWORDS（優先排序關鍵字，資料化；render.js 的 buildPriorityRegex 會編成 RegExp）========
+   latin：英文詞，空白會自動轉成 [\s._-] 並加 \b 邊界；cjk：中文字面值（不加邊界）；cjkPatterns：保留原始 regex 片段。
+   自動優化（change-evaluator）只允許對這三個陣列做 add-only 修改，不碰 render.js 程式碼。 */
+const PRIORITY_KEYWORDS = {
+  latin: [
+    'llm as a judge','llm eval','model eval','agent eval','agentbench','swe bench',
+    'ai agent','agentic','multi agent','context engineering','harness engineering','agent engineering',
+    'agent memory','agent orchestration','agent workflow','agent harness','tool use','function calling',
+    'langchain','langgraph','crewai','autogen','semantic kernel','llamaindex','llama index','haystack',
+    'pydantic ai','dify','openai agents','google adk','microsoft agt','bedrock agents','vertex ai agents',
+    'evaluation','benchmark','model release','product launch',
+    'cybersecurity','infosec','vulnerability','zero day',
+    'openai','anthropic','google deepmind','meta ai','microsoft','nvidia','apple intelligence','aws bedrock',
+    'gemini','gpt','claude','llama','mistral','deepseek','qwen','baichuan','glm','cohere','xai','grok'
+  ],
+  cjk: [
+    '資安','漏洞','資安事件','安全漏洞','模型發布','產品發布','新模型','新產品','評測','評估框架',
+    '智能體','代理人','多智能體','大型語言模型','大模型','生成式AI','模型更新','模型升級',
+    'LLM評估','LLM-as-a-Judge','Agent評估','Agent研究','代理式AI','情境工程','上下文工程',
+    'Agent工程','Agent記憶','Agent編排','工具調用','Agent框架','Agent生態'
+  ],
+  cjkPatterns: ['Agent.*評','代理.*評']
+};
 function fmtCatTime(isoStr) {
   if(!isoStr) return '';
   try {

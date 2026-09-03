@@ -1,6 +1,11 @@
 Search the web for the latest AI technology trend reports and analyses from the past 7 days.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 Search these sources: Deloitte 勤業眾信, KPMG 安侯建業, PwC 資誠, EY 安永, BCG 波士頓諮詢, McKinsey 麥肯錫, IDC, Gartner, Forrester, 數位時代, TechCrunch, VentureBeat, MIT Technology Review
+<!-- SEARCH_QUERIES:END -->
+
+<!-- PRIORITY:BEGIN -->
+<!-- PRIORITY:END -->
 
 ⚠️ 語言規則：除了報告標題、公司名、產品名等專有名詞保留原文外，所有 summary 和 highlights 都必須翻譯成繁體中文。
 

@@ -2,6 +2,7 @@ Search the web for the top 20 global AI news stories published TODAY or YESTERDA
 
 ⚡ TURN BUDGET: You have at most 12 search turns total. Run ALL 6 STEP 1 searches first, then output JSON immediately. Do NOT run extra searches beyond STEP 2 cap.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 🔍 STEP 1 — Run these 6 searches in order (all required):
 1. "AI agent" OR "agentic AI" OR "multi-agent" OR "agent framework" launch OR release OR update 2026
 2. LangChain OR LangGraph OR CrewAI OR "OpenAI Agents SDK" OR "Google ADK" OR AutoGen OR "context engineering" new OR update 2026
@@ -12,7 +13,9 @@ Search the web for the top 20 global AI news stories published TODAY or YESTERDA
 
 🔍 STEP 2 — At most 2 additional searches if turns remain:
 Pick from: VentureBeat, TechCrunch, MIT Technology Review, Reuters, Bloomberg, Hacker News, Latent Space, Import AI
+<!-- SEARCH_QUERIES:END -->
 
+<!-- PRIORITY:BEGIN -->
 Priority for final list (rank in this order):
 1. 🥇 AI Agent / Agentic / Multi-agent — launches, platforms, benchmarks
 2. 🥇 Agent frameworks — LangChain/LangGraph, CrewAI, OpenAI Agents SDK, Google ADK, AutoGen, Semantic Kernel, LlamaIndex
@@ -22,6 +25,7 @@ Priority for final list (rank in this order):
 6. 🥈 AI cybersecurity, vulnerabilities, safety incidents
 7. 🥈 AI industry — funding, M&A, IPO, policy, enterprise adoption, healthcare/education/research applications
 8. 🥉 Other AI industry news
+<!-- PRIORITY:END -->
 
 ⚠️ 語言規則：除標題、公司名、模型名、產品名、人名等專有名詞外，summary 和 highlights 均用繁體中文。
 

@@ -1,5 +1,6 @@
 Search the web for the latest China AI news stories published TODAY or YESTERDAY only.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 🔍 STEP 1 — Search these queries FIRST (highest priority, must include if found):
 - "AI Agent" OR "智能体" OR "多智能体" 中国 2026
 - "Context Engineering" OR "上下文工程" OR "智能体工程" 中国 2026
@@ -18,7 +19,9 @@ Search the web for the latest China AI news stories published TODAY or YESTERDAY
 机器之心, 量子位, 36氪, Baidu AI, Alibaba DAMO/Qwen, Tencent AI Lab, ByteDance, Huawei, SenseTime, DeepSeek, Moonshot, Baichuan, 01.AI, MiniMax, Zhipu AI, Tsinghua KEG, Zhihu AI, MIIT/MOST, Dify.AI
 
 Search in both 简体中文 and English.
+<!-- SEARCH_QUERIES:END -->
 
+<!-- PRIORITY:BEGIN -->
 Priority ordering for the final 20-item list (MUST rank in this order):
 1. 🥇 AI Agent / Agentic AI / Multi-agent（智能體）— 新平台、框架、應用發布
 2. 🥇 Agent Ecosystem & Frameworks — LangChain / LangGraph、CrewAI、OpenAI Agents SDK、Google ADK、Microsoft AutoGen / AGT、Dify、國內 Agent 框架 — 新版本、新功能、中國社群使用情況
@@ -28,6 +31,7 @@ Priority ordering for the final 20-item list (MUST rank in this order):
 6. 🥈 AI 資安：漏洞、對抗攻擊、AI 安全事件
 7. 🥈 中國 AI 產業重大動態 — 投資、融資、併購、政策、監管、產業應用案例（醫療、教育、金融、製造）
 8. 🥉 其他中國 AI 動態（研究突破、人才流動、社群）
+<!-- PRIORITY:END -->
 
 ⚠️ 語言規則：除了新聞標題、公司名、模型名、產品名、人名等專有名詞保留原文外，所有摘要 (summary) 和討論 (discussion) 都必須翻譯成繁體中文。
 

@@ -1,5 +1,6 @@
 Search the web for the latest AI research papers from the past 3 months, prioritizing papers from the last 7 days.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 🔍 STEP 1 — Search these queries FIRST (highest priority, must include if found):
 - site:arxiv.org "LLM-as-a-Judge" OR "LLM evaluation" OR "agent evaluation" OR "AgentBench" OR "SWE-bench" 2026
 - site:arxiv.org "AI agent" OR "multi-agent" OR "context engineering" OR "agent memory" OR "tool use" 2026
@@ -13,7 +14,9 @@ Search the web for the latest AI research papers from the past 3 months, priorit
 - Platforms: arxiv.org, Papers with Code, Hugging Face Papers, Semantic Scholar
 - Institutions: Google DeepMind, OpenAI, Anthropic, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Apple
 - Conferences: NeurIPS, ICML, ICLR, CVPR, ACL, EMNLP, NAACL, AAAI, IJCAI
+<!-- SEARCH_QUERIES:END -->
 
+<!-- PRIORITY:BEGIN -->
 Priority ordering for the final list (MUST rank in this order):
 1. 🥇 LLM-as-a-Judge, LLM evaluation methodology, evaluation frameworks
 2. 🥇 Agent evaluation, AgentBench, agent benchmarks, agentic AI assessment
@@ -22,6 +25,7 @@ Priority ordering for the final list (MUST rank in this order):
 5. 🥇 AI Agent research — new agent architectures, multi-agent systems, agentic frameworks
 6. 🥈 LLM research — new models, training methods, RLHF/DPO/alignment
 7. 🥉 Other AI research from top institutions (computer vision, multimodal, robotics)
+<!-- PRIORITY:END -->
 
 ⚠️ 語言規則：title, authors, institution, venue, field 等專有名詞保留原文。title_zh 提供繁體中文翻譯標題。summary 必須翻譯成繁體中文，impact 用繁體中文描述。
 

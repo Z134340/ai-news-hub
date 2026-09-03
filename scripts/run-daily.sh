@@ -471,7 +471,11 @@ for cat in ["topnews", "taiwan", "china", "usa", "techtrends", "governance"]:
                        if x.get("url","") not in existing_urls
                        and x.get("date","") >= cutoff]
         needed = MIN_ITEMS - len(current)
-        merged[cat] = current + supplements[:needed]
+        picked = []
+        for x in supplements[:needed]:
+            y = dict(x); y["is_backfill"] = True   # 標記補入項目，供 metrics/回饋分析區分「當日新鮮」與「舊料補位」
+            picked.append(y)
+        merged[cat] = current + picked
         if supplements[:needed]:
             print(f"  {cat}: 今日 {len(current)} 筆 < {MIN_ITEMS}，補入 {len(supplements[:needed])} 筆（≥{cutoff}）→ 共 {len(merged[cat])} 筆")
 

@@ -18,7 +18,13 @@ function toggleCard(key) {
 }
 
 /* ======== SORT / FILTER ======== */
-const PRIORITY_KW = /\b(llm[\s._-]as[\s._-]a[\s._-]judge|llm[\s._-]eval|model[\s._-]eval|agent[\s._-]eval|agentbench|swe[\s._-]bench|ai[\s._-]agent|agentic|multi[\s._-]agent|context[\s._-]engineering|harness[\s._-]engineering|agent[\s._-]engineering|agent[\s._-]memory|agent[\s._-]orchestration|agent[\s._-]workflow|agent[\s._-]harness|tool[\s._-]use|function[\s._-]calling|langchain|langgraph|crewai|autogen|semantic[\s._-]kernel|llamaindex|llama[\s._-]index|haystack|pydantic[\s._-]ai|dify|openai[\s._-]agents|google[\s._-]adk|microsoft[\s._-]agt|bedrock[\s._-]agents|vertex[\s._-]ai[\s._-]agents|evaluation|benchmark|model[\s._-]release|product[\s._-]launch|cybersecurity|infosec|vulnerability|zero[\s._-]day|openai|anthropic|google[\s._-]deepmind|meta[\s._-]ai|microsoft|nvidia|apple[\s._-]intelligence|aws[\s._-]bedrock|gemini|gpt|claude|llama|mistral|deepseek|qwen|baichuan|glm|cohere|xai|grok)\b|資安|漏洞|資安事件|安全漏洞|模型發布|產品發布|新模型|新產品|Agent.*評|代理.*評|評測|評估框架|智能體|代理人|多智能體|大型語言模型|大模型|生成式AI|模型更新|模型升級|LLM評估|LLM-as-a-Judge|Agent評估|Agent研究|代理式AI|情境工程|上下文工程|Agent工程|Agent記憶|Agent編排|工具調用|Agent框架|Agent生態/i;
+function buildPriorityRegex(k) {
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\\/-]/g, '\\$&');
+  const latin = (k.latin || []).map(w => esc(w).replace(/ /g, '[\\s._-]'));
+  const cjk = (k.cjk || []).map(esc).concat(k.cjkPatterns || []);
+  return new RegExp('\\b(' + latin.join('|') + ')\\b|' + cjk.join('|'), 'i');
+}
+const PRIORITY_KW = buildPriorityRegex(PRIORITY_KEYWORDS);
 function hasPriority(item) {
   const txt = [item.title,item.summary,item.model_name,item.field,item.domain,...(item.highlights||[]),...(item.advantages||[])].filter(Boolean).join(' ');
   return PRIORITY_KW.test(txt);

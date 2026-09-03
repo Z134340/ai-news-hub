@@ -1,5 +1,6 @@
 Search the web for the latest US AI news stories published TODAY or YESTERDAY only.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 🔍 STEP 1 — Search these queries FIRST (9 queries, stay within turns budget):
 - "AI agent" OR "agentic AI" OR "multi-agent" launch OR release OR platform 2026
 - LangChain OR LangGraph OR CrewAI OR "OpenAI Agents SDK" OR "Google ADK" new OR update 2026
@@ -13,7 +14,9 @@ Search the web for the latest US AI news stories published TODAY or YESTERDAY on
 
 🔍 STEP 2 — Broaden search from (use remaining turns, pick highest-signal sources first):
 OpenAI blog, Anthropic blog, Google DeepMind blog, Meta AI blog, Microsoft AI blog, AWS Machine Learning blog, NVIDIA developer blog, LangChain blog, CrewAI blog, Microsoft AutoGen GitHub releases, AI Business, AI Magazine, The Rundown AI, Latent Space, Import AI, US AI policy (White House/Congress/FTC/NIST), Stanford HAI, MIT, X/Reddit/HN, VentureBeat, TechCrunch, The Information, xAI, Cohere
+<!-- SEARCH_QUERIES:END -->
 
+<!-- PRIORITY:BEGIN -->
 Priority ordering for the final 20-item list (MUST rank in this order):
 1. 🥇 AI Agent / Agentic AI / Multi-agent — any new platform, framework, agent capability launch
 2. 🥇 Agent Ecosystem & Frameworks — LangChain / LangGraph, CrewAI, OpenAI Agents SDK, Google ADK, Microsoft AutoGen / AGT, Semantic Kernel, LlamaIndex, Haystack, Pydantic AI, AWS Bedrock Agents, Vertex AI Agents — any new version, feature, integration
@@ -23,6 +26,7 @@ Priority ordering for the final 20-item list (MUST rank in this order):
 6. 🥈 AI cybersecurity, vulnerabilities, adversarial attacks, AI safety incidents
 7. 🥈 US AI industry — funding, M&A, IPO, policy, regulation, enterprise adoption, healthcare/education/research applications
 8. 🥉 Other US AI industry news (talent, community, research)
+<!-- PRIORITY:END -->
 
 ⚠️ 語言規則：除了新聞標題、公司名、模型名、產品名、人名等專有名詞保留原文外，所有摘要 (summary)、重點 (highlights)、討論 (discussion) 都必須翻譯成繁體中文。
 

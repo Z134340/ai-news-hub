@@ -1,5 +1,5 @@
 {
-  "mode": "ranking-only",
+  "mode": "auto-opt-v2",
   "last_replay_at": "2026-07-09T10:10:12.022Z",
   "events_count": 0,
   "profile_version": "profile-923ecddd12b9",
@@ -8,7 +8,8 @@
     "no_write_data_latest_json",
     "no_direct_prompt_patch",
     "raw_feedback_off_repo",
-    "human_review_required_for_proposals"
+    "human_review_required_for_memory_and_skills",
+    "evaluator_gated_auto_apply"
   ],
   "proposal_count": 3,
   "last_error": null,

@@ -1,6 +1,11 @@
 Search the web for official AI courses and certifications from the past 3 months (approximately 90 days). This is a CUMULATIVE list — include ALL significant courses from the past 3 months, sorted by date newest first.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 Search these sources: Coursera, edX, DeepLearning.AI, Google Cloud Skills Boost, Microsoft Learn, AWS Training, NVIDIA DLI, OpenAI, Anthropic, Meta AI, Stanford Online, MIT OCW, iThome, 科技新報
+<!-- SEARCH_QUERIES:END -->
+
+<!-- PRIORITY:BEGIN -->
+<!-- PRIORITY:END -->
 
 Focus on: 免費官方 AI/LLM/Agent 課程, 專業 AI 證照, 大學 AI 課程, 新開設的 AI 相關課程與認證
 

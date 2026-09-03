@@ -1,6 +1,11 @@
 Search the web for AI tool tutorials and practical guides from the past 3 months (approximately 90 days). This is a CUMULATIVE list — include ALL significant tutorials from the past 3 months, sorted by date newest first.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 Search these sources: iThome, AI 郵報 (AI Post Hub), Medium, YouTube, 科技新報, 數位時代, INSIDE, OpenAI Blog, Anthropic Blog, Google AI Blog, Hugging Face Blog, LangChain Blog
+<!-- SEARCH_QUERIES:END -->
+
+<!-- PRIORITY:BEGIN -->
+<!-- PRIORITY:END -->
 
 Focus on: AI 工具實戰教學, Prompt 工程, LLM 應用開發, AI Agent 建構, RAG 實作, 微調指南, MCP 開發, Claude Code 教學, Cursor/Copilot 教學
 

@@ -2,7 +2,7 @@ name: 每日健康檢查
 
 on:
   schedule:
-    - cron: '30 11 * * *'  # UTC 11:30 = Taiwan 19:30（擷取 18:00 起跑、約 18:47 推完，留 ~40min 餘裕避免誤判 missed）
+    - cron: '0 12 * * *'  # UTC 12:00 = Taiwan 20:00（擷取 18:00 起跑，L3 判讀預算 2100s，留餘裕避免誤判 missed）
 
 permissions:
   contents: write

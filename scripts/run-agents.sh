@@ -19,7 +19,7 @@
 #   scripts/run-agents.sh --dry-run       只驗接線，模型步驟改跑 --print-prompt
 #   scripts/run-agents.sh --self-test     只跑決定論自我測試，不碰任何檔案
 #   scripts/run-agents.sh --strict        失敗時回傳非 0（給人工除錯用；排程不要用）
-#   環境變數：AGENT_BUDGET_SEC（整段預算，預設 1500）
+#   環境變數：AGENT_BUDGET_SEC（整段預算，預設 2100）
 #             AGENT_STEP_TIMEOUT_SEC（單一模型步驟上限，預設 420）
 # ============================================================
 
@@ -35,7 +35,7 @@ AGENT_SCRIPTS="$SCRIPTS_DIR/agent"
 PREVIEW_DIR="$REPO_DIR/data/agent/.preview"
 STATUS_FILE="$PREVIEW_DIR/agent-run-status.json"
 
-BUDGET_SEC="${AGENT_BUDGET_SEC:-1500}"
+BUDGET_SEC="${AGENT_BUDGET_SEC:-2100}"
 MODEL_STEP_TIMEOUT="${AGENT_STEP_TIMEOUT_SEC:-420}"
 # 低於這個剩餘秒數就不再起新步驟——起了也只會半途被砍，留下半截檔案更難查
 MIN_REMAIN_SEC=45
@@ -144,8 +144,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
     [[ "$STATUS_FILE" == "$PREVIEW_DIR"/* ]]; chk "S-4 狀態檔落在 .preview/ 底下" $?
 
     # S-5 預算配置必須容得下三個模型步驟，否則第三步注定被預算砍掉
-    [[ $BUDGET_SEC -ge $(( MODEL_STEP_TIMEOUT * 3 )) ]]
-    chk "S-5 預算 ${BUDGET_SEC}s ≥ 3×單步上限 $(( MODEL_STEP_TIMEOUT * 3 ))s" $?
+    [[ $BUDGET_SEC -ge $(( MODEL_STEP_TIMEOUT * 5 )) ]]
+    chk "S-5 預算 ${BUDGET_SEC}s ≥ 5×單步上限 $(( MODEL_STEP_TIMEOUT * 5 ))s" $?
 
     # S-6 記憶（agents/*/memory/）只能人工寫入。本支不得有任何步驟碰它。
     #     同樣只檢查實際呼叫行——註解裡提到路徑名不算違規。

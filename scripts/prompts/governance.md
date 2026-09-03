@@ -1,6 +1,11 @@
 Search the web for the latest AI governance, regulation, and policy news from the past 7 days.
 
+<!-- SEARCH_QUERIES:BEGIN -->
 Search these sources: MIT Technology Review, OWASP, 台灣金融監督管理委員會 (FSC), 數位發展部 (moda.gov.tw), 國發會 (NDC), Reuters, Bloomberg, iThome, 中央社 CNA, 科技新報
+<!-- SEARCH_QUERIES:END -->
+
+<!-- PRIORITY:BEGIN -->
+<!-- PRIORITY:END -->
 
 Focus on: AI 治理, Agent/代理式 AI 治理, AI 安全標準, 金管會金融 AI 政策, 數位發展部政策, EU AI Act, NIST 指南
 
