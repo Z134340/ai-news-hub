@@ -11,6 +11,17 @@ service cloud.firestore {
 
     // 冷封存新聞：公開可讀（與公開網站一致），僅指定 writer 帳號可寫。
     // writer = archiver@ai-news-hub-33c51.firebaseapp.com（2026-07-07 建立）。
+    // 前端 好/中/不好 回饋：一人一筆一文件，docId 必須以本人 uid 開頭；
+    // 本人可讀寫自己的（前端查詢帶 where uid ==），writer 帳號可整批讀（夜班 pull-feedback.mjs）。
+    match /feedback/{docId} {
+      allow read: if request.auth != null
+        && (resource.data.uid == request.auth.uid || request.auth.uid == 'pYozGzhoIHchJvONuHvjxkVN4b52');
+      allow create, update: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && docId.matches('^' + request.auth.uid + '_.+');
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
     match /archives/{date} {
       allow read:  if true;
       allow write: if request.auth != null && request.auth.uid == 'pYozGzhoIHchJvONuHvjxkVN4b52';

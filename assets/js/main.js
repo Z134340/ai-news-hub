@@ -2,6 +2,7 @@
 
 /* ======== INIT ======== */
 loadBookmarks();
+loadFeedback();
 buildTabs();
 updateBmTabCount();
 loadData();

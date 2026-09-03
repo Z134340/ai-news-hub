@@ -54,6 +54,7 @@ const FEEDBACK_STEP = 0.1;
 const WEIGHT_MIN = 0.5;
 const WEIGHT_MAX = 1.5;
 const SUMMARY_LIMIT = 6;
+const RATING_HALF_LIFE_DAYS = 30;   // 人類評分的時間衰減半衰期：30 天前的一票只算半票
 
 const round3 = (n) => Math.round(n * 1000) / 1000;
 const nowIso = () => new Date().toISOString();
@@ -129,11 +130,53 @@ export function foldEvents(events) {
     }
   }
 
-  return { topics, sources, styles, effects, latestProfileVersion, latestOutputsAt };
+  // 人類評分：每個 subject 只留最新一筆（重新評分覆蓋舊評分）。
+  const ratings = new Map();
+  for (const event of events) {
+    if (event.event_type !== "human_rating") continue;
+    const id = String(event.subject_id || "");
+    if (!id) continue;
+    const prev = ratings.get(id);
+    if (!prev || String(event.ts || "") > String(prev.ts || "")) ratings.set(id, event);
+  }
+
+  return { topics, sources, styles, effects, latestProfileVersion, latestOutputsAt, human_ratings: ratings };
 }
 
-export function buildSummary(events) {
+
+// 彙總人類評分：只輸出計數、分類、來源網域與衰減後分數；標題與 URL 絕不離開帳本。
+export function summarizeHumanRatings(ratings, now = Date.now()) {
+  const byCategory = {};
+  const bySource = {};
+  const bump = (bucket, key, rating, weight) => {
+    if (!key) return;
+    const b = bucket[key] || (bucket[key] = { good: 0, mid: 0, bad: 0, wsum: 0, wscore: 0 });
+    if (rating in b) b[rating] += 1;
+    b.wsum += weight;
+    b.wscore += weight * (rating === "good" ? 1 : rating === "bad" ? -1 : 0);
+  };
+  for (const event of ratings.values()) {
+    const payload = event.payload || {};
+    const rating = String(payload.rating || "");
+    if (!["good", "mid", "bad"].includes(rating)) continue;
+    const ageDays = Math.max(0, (now - Date.parse(event.ts || "")) / 86400000) || 0;
+    const weight = Math.pow(0.5, ageDays / RATING_HALF_LIFE_DAYS);
+    bump(byCategory, String(payload.cat || ""), rating, weight);
+    bump(bySource, String(payload.source || ""), rating, weight);
+  }
+  const finish = (b) => ({ good: b.good, mid: b.mid, bad: b.bad, score: b.wsum ? round3(b.wscore / b.wsum) : 0 });
+  const by_category = {};
+  for (const [cat, b] of Object.entries(byCategory).sort()) by_category[cat] = finish(b);
+  const by_source_domain = Object.entries(bySource)
+    .map(([id, b]) => ({ id, ...finish(b), feedback_count: b.good + b.mid + b.bad }))
+    .sort((a, b) => b.feedback_count - a.feedback_count || a.id.localeCompare(b.id))
+    .slice(0, SUMMARY_LIMIT);
+  return { half_life_days: RATING_HALF_LIFE_DAYS, items_rated: ratings.size, by_category, by_source_domain };
+}
+
+export function buildSummary(events, now = Date.now()) {
   const folded = foldEvents(events);
+  const humanRatings = summarizeHumanRatings(folded.human_ratings, now);
 
   const topicSignals = [...folded.topics.values()]
     .map((t) => ({
@@ -187,6 +230,7 @@ export function buildSummary(events) {
     topic_signals: topicSignals,
     source_signals: sourceSignals,
     lens_signals: lensSignals,
+    human_ratings: humanRatings,
     style_signals: styleSignals,
     applied_effect_counts: folded.effects,
     latest_profile_version: folded.latestProfileVersion,
@@ -245,6 +289,26 @@ function selfTest() {
   // 六個叢集都要有 lens 對應，否則回饋會靜靜消失在對照表裡。
   const mapped = Object.values(CLUSTER_TO_LENS).every((lens) => LENS_IDS.includes(lens));
   check("叢集對 lens 的對照全部落在既有四條", mapped);
+
+  // 人類評分：計數、latest-wins、去敏（標題／URL 不得出現在彙總）。
+  const hr = (id, rating, ts, extra = {}) => ({
+    ts, event_type: "human_rating", actor: "human", subject_type: "news_item", subject_id: id,
+    payload: { rating, cat: "topnews", title: "SECRET TITLE", url: "https://news.example.com/x", source: "news.example.com", ...extra },
+  });
+  const nowTs = Date.parse("2026-09-03T00:00:00.000Z");
+  const rated = buildSummary([
+    hr("a", "good", "2026-09-02T00:00:00.000Z"),
+    hr("b", "good", "2026-09-02T00:00:00.000Z"),
+    hr("c", "bad", "2026-09-01T00:00:00.000Z"),
+    hr("c", "mid", "2026-09-02T12:00:00.000Z"),
+  ], nowTs).human_ratings;
+  check("人類評分：items_rated 去重", rated.items_rated === 3);
+  check("人類評分：分類計數（latest-wins，c 由 bad 變 mid）", rated.by_category.topnews.good === 2 && rated.by_category.topnews.mid === 1 && rated.by_category.topnews.bad === 0);
+  check("人類評分：分數落在 (0,1]", rated.by_category.topnews.score > 0 && rated.by_category.topnews.score <= 1);
+  check("人類評分：來源網域保留", rated.by_source_domain[0].id === "news.example.com" && rated.by_source_domain[0].feedback_count === 3);
+  const leak = JSON.stringify(rated);
+  check("人類評分：彙總不含標題／URL", !leak.includes("SECRET TITLE") && !leak.includes("https://"));
+  check("人類評分：空帳本結構完整", empty.human_ratings.items_rated === 0 && Object.keys(empty.human_ratings.by_category).length === 0);
 
   const failed = cases.filter(([, ok]) => !ok);
   for (const [label, ok] of cases) console.log(`  ${ok ? "ok  " : "FAIL"} ${label}`);

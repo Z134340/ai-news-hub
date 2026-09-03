@@ -37,6 +37,9 @@ const ICO = {
   flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
   calendar: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
   bookmark: '<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>',
+  thumbup: '<path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>',
+  thumbmid: '<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>',
+  thumbdown: '<path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/>',
 };
 function svg(name, size=14, color='currentColor') {
   return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0">${ICO[name]||''}</svg>`;
@@ -47,7 +50,8 @@ let DATA = null, HEALTH = null, DATA_LATEST = null, HIST_VIEWING = null;
 let curSec = 'dashboard', curSub = 'topnews';
 const openCards = {};
 const REGISTRY = {}; // bmId → {cat, catLabel, catColor, item}
-let BOOKMARKS = {};  // bmId → {cat, catLabel, catColor, item, savedAt}
+let BOOKMARKS = {};
+let FEEDBACK = {};   // 好/中/不好 回饋（localStorage ainews-fb；登入後同步 Firestore feedback/）  // bmId → {cat, catLabel, catColor, item, savedAt}
 let srchActive = false, srchQuery = '', srchTimer = null;
 let updateTime = null, autoLock = false;  // data.js 自動更新偵測狀態（避免讀取未宣告變數丟 ReferenceError）
 

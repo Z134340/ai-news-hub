@@ -84,7 +84,7 @@ function renderPapers(items) {
       <div class="card-row">
         ${rank(i+1,'#6366f1')}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(p.title)}</div>${p.title_zh?`<div class="card-title-zh">${esc(p.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${p.verified?svg('check',14,'#34d399'):''}${bmBtn(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(p.title)}</div>${p.title_zh?`<div class="card-title-zh">${esc(p.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${p.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
             ${p.institution?badge('#818cf8',svg('building',10)+' '+esc(p.institution)):''}
             ${p.venue?badge('#f472b6',esc(p.venue)):''}
@@ -126,7 +126,7 @@ function renderNewsPanel(items, key, color) {
       <div class="card-row">
         ${rank(i+1,color)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div>${n.title_zh?`<div class="card-title-zh">${esc(n.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'#34d399'):''}${bmBtn(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div>${n.title_zh?`<div class="card-title-zh">${esc(n.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -161,7 +161,7 @@ function renderTutorials(items) {
       <div class="card-row">
         ${rank(i+1,'#fbbf24')}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(t.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${t.verified?svg('check',14,'#34d399'):''}${bmBtn(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(t.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${t.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -193,7 +193,7 @@ function renderCourses(items) {
       <div class="card-row">
         ${rank(i+1,'#34d399')}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(c.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${c.verified?svg('check',14,'#34d399'):''}${bmBtn(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(c.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${c.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -220,7 +220,7 @@ function renderModels(items) {
       <div class="card-row">
         ${rank(i+1,'#8b5cf6')}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(name)} ${m.version?`<span style="font-size:12px;color:var(--tx3);font-weight:500">v${esc(m.version)}</span>`:''}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${m.verified?svg('check',14,'#34d399'):''}${bmBtn(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(name)} ${m.version?`<span style="font-size:12px;color:var(--tx3);font-weight:500">v${esc(m.version)}</span>`:''}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${m.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
             ${m.institution?badge('#818cf8',svg('building',10)+' '+esc(m.institution)):''}
             ${m.domain?badge('#a78bfa',svg('cpu',10)+' '+esc(m.domain)):''}

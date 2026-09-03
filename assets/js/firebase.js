@@ -23,7 +23,7 @@ function initFirebase() {
     _fb.auth.onAuthStateChanged(async (user) => {
       _fb.user = user || null;
       updateAuthUI(_fb.user);
-      if (user) { await syncBookmarksFromCloud(); }
+      if (user) { await syncBookmarksFromCloud(); await syncFeedbackFromCloud(); }
     });
   } catch (e) { console.error('Firebase 初始化失敗', e); }
 }
@@ -63,6 +63,45 @@ async function syncBookmarksFromCloud() {
     });
     await syncBookmarksToCloud();   // 把聯集結果寫回，讓兩端一致
   } catch (e) { console.error('書籤下載失敗', e); }
+}
+
+/* ── 回饋同步：feedback/{uid}_{key} 一筆一文件；取消評分 → 刪文件。
+   docId 用 uid 開頭是 firestore.rules 的硬條件；key 先去掉 Firestore 不接受的字元。── */
+function fbDocId(itemId) {
+  const safe = String(itemId).replace(/[^A-Za-z0-9_-]/g, c => '.' + c.charCodeAt(0).toString(16));
+  return `${_fb.user.uid}_${safe}`;
+}
+async function syncFeedbackToCloud(itemId, rec) {
+  if (!_fb.ready || !_fb.user) return;
+  try {
+    const ref = _fb.db.collection('feedback').doc(fbDocId(itemId));
+    if (!rec) { await ref.delete(); return; }
+    await ref.set({ uid: _fb.user.uid, item_id: itemId, cat: rec.cat || '', rating: rec.rating,
+      item_date: rec.item_date || '', title: rec.title || '', url: rec.url || '', ts: rec.ts }, { merge: true });
+  } catch (e) { console.error('回饋上傳失敗', e); }
+}
+async function syncFeedbackFromCloud() {
+  if (!_fb.ready || !_fb.user) return;
+  try {
+    const snap = await _fb.db.collection('feedback').where('uid', '==', _fb.user.uid).get();
+    const cloud = {};
+    snap.docs.forEach(d => { const x = d.data() || {}; if (x.item_id) cloud[x.item_id] = x; });
+    const merged = { ...FEEDBACK };
+    Object.entries(cloud).forEach(([id, x]) => {
+      const local = merged[id];
+      if (!local || (x.ts || '') > (local.ts || '')) {
+        merged[id] = { rating: x.rating, cat: x.cat || '', item_date: x.item_date || '', title: x.title || '', url: x.url || '', ts: x.ts || '' };
+      }
+    });
+    FEEDBACK = merged;
+    localStorage.setItem('ainews-fb', JSON.stringify(FEEDBACK));
+    paintFeedbackButtons();
+    // 本機較新的那幾筆補上雲，讓兩端一致
+    for (const [id, rec] of Object.entries(FEEDBACK)) {
+      const c = cloud[id];
+      if (!c || (rec.ts || '') > (c.ts || '')) await syncFeedbackToCloud(id, rec);
+    }
+  } catch (e) { console.error('回饋下載失敗', e); }
 }
 
 /* ── 冷封存讀取（公開讀，免登入；前端用 JS SDK，後端 run-daily 才用 REST 寫入）── */

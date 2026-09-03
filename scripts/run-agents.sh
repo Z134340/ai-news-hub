@@ -120,6 +120,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
              "$AGENT_SCRIPTS/build-roadmap-input.mjs" \
              "$AGENT_SCRIPTS/build-brief-input.mjs" \
              "$AGENT_SCRIPTS/harvest-precedents.mjs" \
+             "$AGENT_SCRIPTS/pull-feedback.mjs" \
              "$SCRIPTS_DIR/newshub_agents.py" \
              "$SCRIPTS_DIR/newshub_roadmap.py" \
              "$SCRIPTS_DIR/newshub_brief.py"; do
@@ -168,6 +169,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
     chk "S-6g freshness release gate manifest binding／hash parity／stale block 全綠" $?
     node "$AGENT_SCRIPTS/build-review-packet.mjs" --self-test >/dev/null 2>&1
     chk "S-6h review packet candidate／diff／report hashes 與 exact decision contract 全綠" $?
+    node "$AGENT_SCRIPTS/pull-feedback.mjs" --self-test >/dev/null 2>&1; chk "S-6i pull-feedback 自測（env 解析／游標去重／去敏）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -385,6 +387,9 @@ cd "$REPO_DIR" || { log "❌ 進不去 $REPO_DIR"; exit 1; }
 
 # ── DAG：核心七步嚴格循序，任一步失敗則其下游全部 skipped_dep ──
 # 1-2 是確定性程式（不呼叫模型），3/5/7 是模型判讀，4/6 是把上游判讀組成下一層的輸入。
+# ── 00：把前端 好/中/不好 回饋從 Firestore 讀回本機帳本（archiver.env 不存在時靜默跳過；失敗不阻斷判讀）──
+run_step "00-pull-feedback" node "$AGENT_SCRIPTS/pull-feedback.mjs"
+FAILED_STEP=""
 run_step "01-insights"      node "$AGENT_SCRIPTS/build-insights.mjs" --window "$INSIGHTS_WINDOW"
 run_step "02-timeline"      node "$AGENT_SCRIPTS/build-timeline.mjs" --window "$TIMELINE_WINDOW"
 run_model_step "03-trend-assess" trend-assessment.json python3 "$SCRIPTS_DIR/newshub_agents.py"  --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
