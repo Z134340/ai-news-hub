@@ -1,80 +1,119 @@
 {
   "items": [
     {
-      "title": "Gartner Forecasts the Market for Securing AI Will Reach $4.8 Billion in 2027",
-      "source": "Gartner",
-      "date": "2026-08-26",
-      "category": "AI趨勢",
-      "summary": "Gartner 最新預測指出，全球「AI 安全防護（Securing AI）」市場規模將在 2027 年達到近 48 億美元，較 2026 年成長 68.7%，並在 2028 年進一步逼近 77 億美元。Gartner 將此市場切分為四大區隔：AI application security（AI 應用安全）、AI usage control（AI 使用控管）、AI governance platforms（AI 治理平台）與 AI gateways（AI 閘道）。其中規模最大的是 AI application security，2027 年將達約 8.51 億美元；AI usage control 次之，約 7.49 億美元。成長動能來自企業大量導入生成式 AI 與 agentic AI 後所暴露的新攻擊面，特別是第三方模型與開源元件構成的供應鏈風險。對金融等高度監管產業而言，這代表 AI 安全支出正從既有資安預算中獨立出來，成為一條需要單獨編列與治理的支出線。",
+      "title": "McKinsey Report: Enterprise AI Is Becoming a Two-Speed Race",
+      "source": "AIwire",
+      "date": "2026-09-02",
+      "category": "企業AI",
+      "summary": "AIwire 解讀 McKinsey《State of AI 2026》全球調查，該調查涵蓋 97 個國家、1,719 位受訪者。報告指出企業 AI 正分裂成「雙速市場」：年營收超過 10 億美元的大型企業中，40% 表示已在規模化 AI agent，較去年的 27% 明顯上升；但中小型組織的規模化比例僅 22%，與去年持平、毫無成長。軟體編碼 agent 是規模化速度最快的應用，約兩成組織已在規模化，大型企業更達 31%。值得注意的是，32% 的受訪者表示組織曾因為可用 agentic coding 工具自行建置功能，而決定放棄採購至少一項軟體產品或功能。至於財務成效，37% 的受訪者將部分 EBIT（稅前息前獲利）影響歸因於 AI 使用，此比例與 2025 年調查大致相同，顯示從試點走向規模化效益仍是多數組織未竟之業。",
       "highlights": [
-        "2027 年 AI 安全防護市場規模近 48 億美元，年成長率 68.7%",
-        "2028 年市場規模將進一步接近 77 億美元",
-        "四大區隔：AI application security、AI usage control、AI governance platforms、AI gateways",
-        "2027 年 AI application security 約 8.51 億美元為最大宗，AI usage control 約 7.49 億美元次之",
-        "主要驅動因素為第三方模型與開源元件帶來的 AI 供應鏈攻擊風險"
+        "大型企業（年營收 >10 億美元）規模化 AI agent 比例 40%，年增 13 個百分點；中小型企業停滯於 22%",
+        "32% 組織因 agentic coding 工具可自建功能，放棄採購至少一項軟體產品或功能，對 SaaS 商業模式構成直接威脅",
+        "37% 受訪者認為 AI 已帶來部分 EBIT 影響，與 2025 年持平，顯示 ROI 轉化尚未加速",
+        "軟體編碼 agent 為規模化最快類別，大型企業達 31%",
+        "調查基礎：97 國、1,719 位受訪者"
       ],
-      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-26-gartner-forecasts-the-market-for-securing-ai-will-reach-almost-5-billion-in-2027"
+      "url": "https://www.hpcwire.com/aiwire/2026/09/02/mckinsey-report-enterprise-ai-is-becoming-a-two-speed-race/"
     },
     {
       "title": "Gartner Finds Just 22% of Organizations Have Scaled AI Across Business Units",
       "source": "AIwire",
       "date": "2026-09-01",
-      "category": "企業AI",
-      "summary": "Gartner 最新調查顯示，僅 22% 的組織成功將 AI 規模化擴展至多個事業單位、或真正採取 AI-first 的營運模式，凸顯投資意圖與落地成效之間的巨大落差。該調查執行期間為 2026 年 1 月至 4 月，樣本為 1,303 位受訪者，來自 2025 會計年度全企業年營收至少 5,000 萬美元的組織。調查同時發現，85% 的功能部門主管計畫在 2026 年增加 AI 支出，而 2025 年各功能部門平均已將 12% 的部門預算投入 AI。值得警惕的是，約 11% 的組織完全不清楚自己的功能部門在 2025 年究竟花了多少錢在 AI 上，顯示成本可視性與治理機制嚴重不足。這組數字說明多數企業仍停留在單點試行階段，缺乏跨部門的規模化路徑與支出管控紀律。",
+      "category": "產業報告",
+      "summary": "Gartner 最新調查顯示，僅 22% 的組織已將 AI 規模化擴展到跨業務單位的層級，多數企業仍停留在單點試行。與此同時，85% 的職能主管計畫在 2026 年增加 AI 支出，而 2025 年各職能平均已將 12% 的職能預算投入 AI。這組數字呈現典型的「投入高、落地低」落差：預算持續加碼，但真正把 AI 嵌入跨部門流程的組織不到四分之一。此一結果與 Gartner 先前發布的 agentic AI Hype Cycle 判斷一致，即多數企業仍卡在概念驗證與生產系統之間的鴻溝。⚠️待確認：本則為 AIwire 對 Gartner 調查的二手報導，Gartner 原始新聞稿連結未於搜尋結果中取得。",
       "highlights": [
-        "僅 22% 組織成功跨多個事業單位規模化 AI 或採 AI-first 模式",
-        "調查期間 2026 年 1–4 月，樣本 1,303 位、企業年營收至少 5,000 萬美元",
-        "85% 功能部門主管計畫在 2026 年增加 AI 支出",
-        "2025 年各功能部門平均將 12% 預算投入 AI",
-        "約 11% 組織完全不掌握自身 2025 年的 AI 實際支出金額"
+        "僅 22% 組織已達成跨業務單位的 AI 規模化",
+        "85% 職能主管計畫在 2026 年增加 AI 支出",
+        "2025 年各職能平均將 12% 職能預算投入 AI",
+        "預算成長與規模化成熟度之間存在顯著落差"
       ],
       "url": "https://www.hpcwire.com/aiwire/2026/09/01/gartner-finds-just-22-of-organizations-have-scaled-ai-across-business-units/"
     },
     {
-      "title": "McKinsey Report: Enterprise AI Is Becoming a Two-Speed Race",
-      "source": "BigDATAwire",
-      "date": "2026-08-26",
-      "category": "產業報告",
-      "summary": "McKinsey 最新《State of AI》報告（樣本 1,719 位受訪者、涵蓋 97 個國家）指出，企業 AI 正演變為明顯的「雙速賽局」：年營收超過 10 億美元的大型企業有 40% 正在規模化 AI agents，較前一年的 27% 大幅躍升；相對地，中小型企業僅 22% 且與去年持平。在 coding agents 方面，整體約 20% 已規模化，大型企業則達 31%。報告同時顯示 23% 的企業已在組織某處規模化 agentic 系統、62% 至少在實驗 agents，但任一單一職能的規模化比例都不超過 10%，代表落地仍高度分散。AI 的日常使用已相當普及，88% 企業至少有一個職能常態使用 AI（去年為 78%），但只有 37% 認為 AI 已帶來可辨識的 EBIT 影響。此外，五分之一企業因營運成本過高而限制 AI 使用，成本節省效益最常出現在供應鏈、服務營運與製造三個領域。",
+      "title": "Cost per Token vs. Cost per Task: What Really Determines AI ROI",
+      "source": "AIwire",
+      "date": "2026-09-02",
+      "category": "AI趨勢",
+      "summary": "本文主張 agentic 工作負載的成本計價單位必須從「每 token 成本」改為「每任務完成成本」，並納入成功機率與未被偵測失敗的代價。核心論點是 token 密度問題：一個單價只有競品一半、但完成同一任務需要兩倍 token 的模型，總成本其實相當，所謂「便宜的模型」在真實任務完成後未必便宜。文中引用實例指出，在導入智慧路由（把每個查詢送到適配的模型，而非一律用最貴的）之後，總 token 消耗成長 6.7 倍，支出卻只成長 2.2 倍。對企業而言，這代表 AI ROI 的關鍵槓桿不在議價，而在模型路由與任務-模型配適的工程設計。此一觀點對金融業評估 agent 成本治理特別有參考價值：預算控制應綁定任務完成率，而非 API 用量。",
       "highlights": [
-        "調查樣本 1,719 位受訪者、涵蓋 97 個國家",
-        "年營收逾 10 億美元企業 40% 正在規模化 AI agents（去年 27%），中小型企業僅 22% 且持平",
-        "整體約 20% 已規模化 coding agents，大型企業達 31%",
-        "23% 已在組織某處規模化 agentic 系統、62% 至少在實驗 agents，但單一職能規模化比例均不到 10%",
-        "88% 企業至少一個職能常態使用 AI（去年 78%），但僅 37% 認為 AI 帶來 EBIT 影響；五分之一因營運成本限制 AI 使用"
+        "計價單位應為「完成的任務」，需納入成功機率與未偵測失敗的成本",
+        "token 密度陷阱：單價減半但耗用 token 加倍，總成本持平",
+        "實例：導入智慧路由後 token 用量成長 6.7 倍、支出僅成長 2.2 倍",
+        "策略核心是把任務配對到「能可靠完成它的最便宜模型」"
       ],
-      "url": "https://www.hpcwire.com/bigdatawire/2026/08/26/mckinsey-report-enterprise-ai-is-becoming-a-two-speed-race/"
+      "url": "https://www.hpcwire.com/aiwire/2026/09/02/cost-per-token-vs-cost-per-task-what-really-determines-ai-roi/"
+    },
+    {
+      "title": "When Every Machine Becomes an Agent",
+      "source": "AIwire",
+      "date": "2026-08-31",
+      "category": "AI趨勢",
+      "summary": "本文分析 AI 正快速離開雲端、進入實體世界的趨勢：新一代智慧 agent 正嵌入機器、車輛與各類裝置之中。此一「機器即 agent」的走向意味著 agent 的部署邊界從資料中心延伸到邊緣端點，隨之而來的是身分、權限與可觀測性的治理挑戰。⚠️待確認：本則僅取得搜尋摘要層級的內容，未能取得完整內文的量化數據，故未列出統計數字。",
+      "highlights": [
+        "AI 正從雲端向實體世界擴散，agent 嵌入機器、車輛與裝置",
+        "agent 部署邊界由資料中心延伸至邊緣端點",
+        "端點 agent 化將帶出身分、權限與可觀測性的新治理議題"
+      ],
+      "url": "https://www.hpcwire.com/aiwire/2026/08/31/when-every-machine-becomes-an-agent/"
+    },
+    {
+      "title": "Facilitating AI integration with simplicity at scale",
+      "source": "MIT Technology Review",
+      "date": "2026-09-02",
+      "category": "企業AI",
+      "summary": "MIT Technology Review 訪談 Jabil 的 SAP IT 總監 Harish Manohar，主張企業必須先簡化與整合既有技術堆疊，才能為 AI 打下可用基礎。文章指出，企業規模擴張後，支撐營運的技術本身會變成負債：系統彼此斷裂、各廠區各自為政的工具、試算表與人工繞道作業，共同造成資料孤島，使問題無法早期發現、跨部門協同困難、決策缺乏信心。Jabil 因此採取「先簡化、再創新」的心法，認為在未先降低複雜度之前導入新技術，只會製造更多風險。整合後的工作流讓員工共享資料視野、減少人工對帳，把時間從追資料轉為依洞察行動。在可信資料與整合系統就位後，Jabil 才進一步探索預測式供應鏈洞察、智慧例外處理與 AI 驅動的規劃與預測。受訪者結論是「規模化下的簡潔本身就是競爭優勢」，技術投資最終必須連結到商業價值與營運韌性。",
+      "highlights": [
+        "核心心法：simplify-first, then-innovate；未先降複雜度就導入新技術等於增加風險",
+        "斷裂系統、廠區專用工具、試算表與人工繞道造成資料孤島，是 AI 落地的根本阻力",
+        "整合工作流帶來共享資料視野、減少人工對帳，員工從找資料轉為用洞察行動",
+        "資料可信後才推進預測式供應鏈、智慧例外處理與 AI 規劃預測",
+        "「Simplicity at scale is a very competitive advantage」— Harish Manohar, Jabil"
+      ],
+      "url": "https://www.technologyreview.com/2026/09/02/1142879/facilitating-ai-integration-with-simplicity-at-scale/"
     },
     {
       "title": "毕马威：2026年全球科技报告",
       "source": "新浪科技",
       "date": "2026-09-01",
       "category": "產業報告",
-      "summary": "KPMG（毕马威）發布《2026 年全球科技報告》，調查涵蓋 27 個國家、超過 2,500 位科技領域高階主管。報告顯示 68% 的受訪企業目標在 2026 年底前達到最高 AI 成熟度，但目前僅有 24% 真正達標，期望與現況落差達 44 個百分點。在 agentic AI 布局上，88% 的企業正投資於將 agentic AI 內建至既有系統中，顯示自主代理已從概念驗證走向系統整合階段。價值實現方面，74% 表示 AI 使用案例已產生商業價值，但只有 24% 能在多個使用案例上同時實現投資報酬，規模化仍是主要瓶頸。人力面則呈現擴張而非替代：65% 預期未來一年擴編，54% 以科技、AI 與自動化提升現有人力生產力，46% 投入訓練與技能升級。整體而言，在 10 大科技類別中已有 79% 達到前三個成熟度層級。",
+      "summary": "新浪科技報導 KPMG（毕马威）《2026 全球技術報告》調研結果。報告顯示 88% 的受訪企業表示已開始將代理式 AI（agentic AI）融入其系統，92% 認為未來 5 年內「管理智能體」將成為員工的重要技能之一。技術成熟度方面，目前僅 11% 的企業達到最高階段，但有高達 50% 的企業預期在 2026 年內達成，顯示企業對 AI 落地時程的預期極為積極。報導同時指出中國企業級 AI 應用呈現「L1 輔助級、L2 執行級、L3 系統級」的三階段演進特徵；2026 年 5 月國家網信辦等三部門聯合印發《智能体规范应用与创新发展实施意见》，代表中國的代理式 AI 已從技術熱潮轉向場景價值驗證與安全治理協同並行的新階段。",
       "highlights": [
-        "調查涵蓋 27 個國家、逾 2,500 位科技領域高階主管",
-        "68% 目標 2026 年底達最高 AI 成熟度，但目前僅 24% 達標",
-        "88% 正投資於將 agentic AI 內建至既有系統",
-        "74% 表示 AI 使用案例已產生商業價值，但僅 24% 能在多個案例上實現 ROI",
-        "65% 預期未來一年擴編，54% 以科技/AI/自動化提升人力生產力、46% 投入訓練與技能升級"
+        "88% 受訪企業已開始將代理式 AI 融入系統",
+        "92% 認為未來 5 年內「管理智能體」將成為員工必備技能",
+        "僅 11% 企業已達技術成熟度最高階段，但 50% 預期在 2026 年內達成",
+        "中國企業級 AI 應用呈 L1 輔助級 / L2 執行級 / L3 系統級三階段演進",
+        "2026 年 5 月中國三部門印發《智能体规范应用与创新发展实施意见》，轉向價值驗證與安全治理協同"
       ],
       "url": "https://finance.sina.com.cn/tech/roll/2026-09-01/doc-iniqhfqh4800964.shtml"
     },
     {
-      "title": "When Every Machine Becomes an Agent",
-      "source": "AIwire",
-      "date": "2026-08-31",
+      "title": "Agentic AI solved coding — and exposed every other problem in software engineering",
+      "source": "VentureBeat",
+      "date": "2026-09-01",
       "category": "Agent應用",
-      "summary": "AIwire 分析指出，新一代智慧 agents 正嵌入日常仰賴的機器、車輛與裝置之中，具備在現場即時思考、決策與行動的能力，將 AI 從雲端推向邊緣。文章引述 Anthropic 針對數百萬次人機互動的研究，發現 agents 已能自主連續運行 45 分鐘以上，且使用者隨著使用經驗累積而逐步放寬授權範圍、給予更高的信任。這代表企業正加速跳脫被動反應式 AI，轉向在邊緣端運作的自主、目標導向系統。對治理而言，此趨勢的關鍵風險在於「長時間自主執行」與「信任逐步擴張」兩者疊加——授權邊界若未同步收斂，稽核軌跡與即時中斷機制將成為最脆弱的一環。",
+      "summary": "由 SAP 的 David Imbert 與 Lara Albert 撰寫的分析文章，主張 agentic AI 已成為工程流程的核心組成，帶來巨大的執行槓桿，讓團隊能產出前所未有的程式碼量。但作者指出關鍵盲點：寫程式從來就不是真正的瓶頸，真正困難的是定義正確的需求、與複雜系統整合，以及在真實環境條件下維護軟體。文章的核心結論是 agent 壓縮了「執行時間」，卻沒有壓縮「模糊性、當責歸屬與營運複雜度」。因此當 coding 被自動化之後，工程師的工作重心轉移到設計邊界（design boundaries）與回饋迴路（feedback loops），以確保複雜系統中的產出可靠。此觀點與近期 harness engineering 的討論一致：工程師不再寫程式，而是設計「治理 agent 如何寫程式」的系統。",
       "highlights": [
-        "新一代 agents 正嵌入機器、車輛與裝置，於邊緣端即時思考、決策與行動",
-        "Anthropic 研究分析數百萬次人機互動，觀察真實使用行為",
-        "研究發現 agents 已能自主連續運行 45 分鐘以上",
-        "使用者隨經驗累積而逐步提高對 agents 的信任與授權範圍",
-        "企業正加速從被動反應式 AI 轉向邊緣端的自主、目標導向系統"
+        "agentic AI 已成工程流程核心，帶來大量程式碼產出的執行槓桿",
+        "寫程式從來不是瓶頸；需求定義、系統整合、真實環境維運才是",
+        "agent 壓縮執行時間，但無法壓縮模糊性、當責與營運複雜度",
+        "工程師角色轉向設計邊界與回饋迴路，以確保複雜系統中的可靠產出"
       ],
-      "url": "https://www.hpcwire.com/aiwire/2026/08/31/when-every-machine-becomes-an-agent/"
+      "url": "https://venturebeat.com/technology/agentic-ai-solved-coding-and-exposed-every-other-problem-in-software-engineering"
+    },
+    {
+      "title": "AIR raises $50M to help companies vet the skills and add-ons AI agents use",
+      "source": "TechCrunch",
+      "date": "2026-09-01",
+      "category": "Agent應用",
+      "summary": "TechCrunch 報導新創 AIR 完成 5,000 萬美元募資，切入 AI agent 的擴充元件審查市場。報導指出，當企業開始讓 AI agent 存取愈來愈多內部系統時，一個新的軟體供應鏈正圍繞 agent 所使用的工具成形——包括 skills、外掛（plug-ins）、MCP server 與各式 add-on，這些元件讓 agent 得以與網際網路及企業系統互動。這代表 agent 生態的風險面已從「模型本身」外移到「agent 掛載的第三方能力」，形成類似傳統開源套件的供應鏈風險結構。對金融業治理而言，這條趨勢線直接對應到 agent 工具鏈的來源審查、權限最小化與元件盤點清單需求。",
+      "highlights": [
+        "AIR 募得 5,000 萬美元，專攻 AI agent 擴充元件（skills / plug-ins / MCP servers / add-ons）審查",
+        "企業放大 agent 系統存取權，催生出全新的 agent 軟體供應鏈",
+        "風險焦點由模型本身外移至 agent 掛載的第三方能力",
+        "對應治理需求：工具鏈來源審查、權限最小化、元件盤點"
+      ],
+      "url": "https://techcrunch.com/2026/09/01/air-raises-50m-to-help-companies-vet-the-skills-and-add-ons-ai-agents-use/"
     }
   ],
-  "_updated_at": "2026-09-02T19:45:04.473767+08:00"
+  "_updated_at": "2026-09-03T18:12:37.409376+08:00"
 }

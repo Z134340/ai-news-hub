@@ -1,12 +1,12 @@
 {
-  "last_run": "2026-09-02T19:58:15.603589+08:00",
-  "last_success": "2026-09-02T19:58:15.603589+08:00",
-  "last_date": "2026-09-02",
+  "last_run": "2026-09-03T18:24:56.691737+08:00",
+  "last_success": "2026-09-03T18:24:56.691737+08:00",
+  "last_date": "2026-09-03",
   "source": "local",
   "status": "ok",
   "categories_ok": 7,
   "categories_failed": 0,
-  "validation_pass_rate": 97,
+  "validation_pass_rate": 95,
   "consecutive_failures": 0,
   "last_missed": null,
   "errors": [],
@@ -16,8 +16,8 @@
     "advisory": true,
     "production_write": false,
     "publish": "manual_only",
-    "finished_at": "2026-09-02T19:58:15.526031+08:00",
-    "duration_sec": 594,
+    "finished_at": "2026-09-03T18:24:56.629028+08:00",
+    "duration_sec": 456,
     "counts": {
       "ok": 10
     },

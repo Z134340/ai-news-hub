@@ -1,65 +1,95 @@
 {
   "items": [
     {
-      "title": "Manus 宣布正式恢復獨立運營 原創始團隊繼續領導公司",
-      "source": "新浪財經",
-      "date": "2026-09-01",
+      "title": "Manus resumes independent operations after Meta deal collapses",
+      "source": "TechNode",
+      "date": "2026-09-03",
       "company": "Manus / Meta",
-      "topic": "AI Agent 平台",
-      "summary": "通用型 AI Agent 產品 Manus 於 9 月 1 日宣布正式恢復獨立運營，創始人肖弘與核心團隊成員季逸超、張濤全數留任並繼續領導公司。此前 Meta 於 2025 年 12 月 29 日以約 20 億美元收購 Manus，但該交易在 2026 年 4 月 27 日遭中國國家發改委叫停審查。公司自 2026 年 6 月起啟動營運分離，並於 8 月完成使用者資料與服務基礎設施的遷移作業。此次恢復獨立標誌著中國通用 Agent 賽道最具代表性的產品重新回到自主經營軌道，也顯示跨境 AI 併購在監管層面的高度不確定性。對整個 Agent 生態而言，Manus 的獨立意味著其產品路線與模型供應商選擇將重新擁有自主權。",
-      "discussion": "在中國科技社群引發高度關注，討論焦點集中在跨境 AI 併購的監管紅線、Agent 產品的商業化可持續性，以及 Manus 團隊在脫離 Meta 資源後的算力與模型成本壓力。",
-      "url": "https://finance.sina.com.cn/stock/estate/integration/2026-09-01/doc-iniqiaty1528891.shtml"
+      "topic": "AI Agent",
+      "summary": "通用型 AI Agent 新創 Manus 宣布恢復獨立營運，正式脫離 Meta 的併購安排。Meta 於 2025 年 12 月提出的 20 億美元收購案遭北京以國家安全為由否決，並在今年 4 月被要求解除交易結構。創始團隊肖弘（Xiao Hong）、張濤（Zhang Tao）與季逸超（Ji Yichao）重新取回公司控制權。Manus 將自身重新定位為專注通用型 AI Agent 的「獨立 Agent 實驗室」，繼續推進自主任務執行的代理式產品線。此案是中國監管單位首次直接阻擋本土 Agent 新創被美國大廠收購的指標性事件。",
+      "discussion": "討論度極高。中英文科技社群同步熱議，焦點集中在兩點：一是中國對 AI Agent 資料與模型能力外流的監管紅線正式浮上檯面，二是 Manus 失去 Meta 資源後能否獨力支撐通用 Agent 的算力與商業化成本。多家媒體（Caixin Global、China Money Network、Digitimes）同日跟進報導。",
+      "url": "https://technode.com/2026/09/03/manus-resumes-independent-operations-after-meta-deal-collapses/"
     },
     {
-      "title": "影眸科技發布世界生成模型 Hyper3D WorldGen",
-      "source": "界面新聞",
-      "date": "2026-09-01",
-      "company": "影眸科技 (Hyper3D)",
-      "topic": "3D 生成模型 / 世界模型",
-      "summary": "影眸科技於 9 月 1 日正式發布世界生成模型 Hyper3D WorldGen，使用者上傳一張場景圖片後，系統可自動識別畫面中的主體物件並生成獨立的 3D 資產，也支援使用者手動框選指定內容進行生成。WorldGen 的核心突破在於不只生成單一物件，而是同時重建物件之間的物理關係——誰支撐誰、誰懸掛於誰——最終輸出包含獨立物件、空間關係與物理約束的完整 3D 場景。該模型基於影眸自研的 CAST 架構，該架構曾獲 2025 年 SIGGRAPH 最佳論文獎，核心能力是從單張圖片補全被遮擋物件的 3D 結構並判定接觸、支撐與懸掛關係。從研究到產品化歷時約一年，團隊主要解決的是多模組串聯時的誤差累積問題。應用場景指向具身智能仿真訓練、影視動畫、遊戲與空間計算。",
-      "discussion": "3D 生成與具身智能社群反應熱烈，討論集中在「單體生成走向完整場景生成」的技術分水嶺意義，以及該模型能否成為具身智能仿真訓練資料的低成本來源。",
-      "url": "https://www.jiemian.com/article/15042048.html"
+      "title": "Tencent opens WorkBuddy to third-party developers with 100+ partners",
+      "source": "TechNode",
+      "date": "2026-09-03",
+      "company": "Tencent",
+      "topic": "AI Agent",
+      "summary": "騰訊宣布將 WorkBuddy 的 Agent 能力以開放平台形式對第三方開發者與硬體廠商釋出。首批合作夥伴超過 100 家，涵蓋 SaaS、金融與智慧硬體領域，包括微盟（Weimob）、廣發證券（GF Securities）、Rokid 與科大訊飛（iFlytek）。開發者可將 WorkBuddy 的任務執行、工具調用與工作流編排能力嵌入自家產品，而非僅止於對話式問答。此舉將騰訊的企業級 Agent 從自家產品線推向生態系競爭，直接對標阿里與字節的 Agent 開放平台策略。",
+      "discussion": "開發者社群關注度高，討論集中在 WorkBuddy 開放的 API 邊界、工具調用權限模型，以及與騰訊會議／企業微信既有生態的整合深度。硬體廠商加入（Rokid、iFlytek）被視為 Agent 落地端側的訊號。",
+      "url": "https://technode.com/2026/09/03/tencent-opens-workbuddy-to-third-party-developers-with-100-partners/"
     },
     {
-      "title": "Chinese MRAM chipmaker ICY Tech rethinks HBM for rack-scale AI inference",
-      "source": "DIGITIMES",
-      "date": "2026-09-01",
-      "company": "寒序科技 (ICY Tech)",
-      "topic": "AI 推理晶片 / 記憶體架構",
-      "summary": "中國 MRAM 晶片業者寒序科技公布其面向機櫃級 AI 推理的產品路線圖，核心是以 MRAM（磁阻式記憶體）重新設計高頻寬記憶體架構，推出 uHBM 與 uLPU 兩條產品線。首代 uHBM 規劃片內帶寬達 24 TB/s，目標是繞開傳統 HBM 在推理場景下的容量與功耗瓶頸。uLPU 則是專為大模型推理設計的處理單元，針對 4B 級多模態模型的目標吞吐量設定在每秒 2000 Tokens 以上。此路線的策略意義在於，中國業者在先進 HBM 供應受限的情況下，嘗試以非揮發性記憶體技術繞道解決推理算力的記憶體牆問題。若能量產落地，將直接影響國產大模型推理成本結構。",
-      "discussion": "半導體與 AI 基礎設施圈關注度高，爭論點在於 MRAM 良率與量產成本能否支撐宣稱的帶寬指標，以及 24 TB/s 片內帶寬的實測數據何時公開。",
-      "url": "https://www.digitimes.com/news/a20260901VL209/ai-inference-mram-hbm-silicon-roadmap.html"
+      "title": "Nubia's Doubao-powered AI agent phone clears network access approval",
+      "source": "TechNode",
+      "date": "2026-09-03",
+      "company": "Nubia (ZTE) / ByteDance",
+      "topic": "AI Agent",
+      "summary": "努比亞（Nubia）搭載字節跳動豆包（Doubao）模型的 AI Agent 手機 NaviX Ultra 於 9 月 1 日通過中國入網許可審批，本月內上市。該機由努比亞與字節豆包團隊共同開發，內建的 Doubao Phone Assistant 可依自然語言指令跨多個 App 執行完整任務流程，而非僅停留在聊天或內容生成。這是中國市場少數以 Agent 任務執行為核心賣點、而非以模型參數量為訴求的旗艦機型。手機端側 Agent 的跨 App 操作能力，被視為 Agent 從雲端走向終端的關鍵驗證場景。",
+      "discussion": "手機與 AI 社群同步討論，爭點在於跨 App 自動操作的權限與資安風險（誤操作、支付授權），以及在無廠商 API 支援下，Agent 以介面模擬方式操作第三方 App 的穩定性。",
+      "url": "https://technode.com/2026/09/03/nubias-doubao-powered-ai-agent-phone-clears-network-access-approval/"
     },
     {
-      "title": "中央網信辦：當前人工智慧領域主要面臨 5 方面安全風險挑戰",
-      "source": "中國新聞網",
-      "date": "2026-09-01",
-      "company": "中央網信辦",
-      "topic": "AI 安全 / 監管政策",
-      "summary": "在 2026 年國家網絡安全宣傳週新聞發布會上，中央網信辦網絡安全協調局副局長王麗宏指出，當前人工智慧領域主要面臨五個方面的安全風險挑戰。此番表態出現在中國 AI 監管框架持續收緊的背景下，延續了近年來對生成式 AI 內容標識、演算法備案與資料安全的治理路線。國家網絡安全宣傳週為中國網信體系年度重要政策風向場合，官方在此場合對 AI 風險的定調，通常預示後續監管細則的重點方向。對於在中國營運的 AI 業者而言，這意味著模型安全評估、內容溯源與資料合規的檢查強度可能進一步提升。金融、醫療等高監管行業導入大模型與智能體時，須特別留意風險評估文件的完備性。",
-      "discussion": "政策與合規圈討論熱度高，關注焦點在於五類風險的具體界定，以及是否將延伸出針對智能體（Agent）自主決策行為的專門監管條款。",
-      "url": "https://www.chinanews.com.cn/gn/2026/09-01/10687770.shtml"
+      "title": "Alibaba upgrades Qwen3.8-Max with new 0902 snapshot",
+      "source": "TechNode",
+      "date": "2026-09-02",
+      "company": "Alibaba (Qwen)",
+      "topic": "LLM發布",
+      "summary": "阿里巴巴發布 Qwen3.8-Max-0902 快照版本，總參數 2.4T、1M context 與定價（輸入每百萬 token 2 美元、輸出 6 美元）皆維持不變。前端編程能力提升最顯著，CodeArena 分數上升 22 分至 1,691，登上該榜單第一。此版本同時強化多工具編排（multi-tool orchestration）與端到端 Agent 任務交付能力，並優化原生視覺理解，包括圖表推理與文件解析。在不調整參數規模與價格的前提下以快照迭代提升 Agent 實戰表現，顯示阿里將優化重心從模型規模移向工具使用與任務完成率。",
+      "discussion": "開發者社群討論熱烈，焦點在 CodeArena 榜首是否反映真實前端開發體驗，以及多工具編排提升幅度能否在長流程 Agent 任務中複現。同價格升級被普遍視為對國內模型廠的價格壓力。",
+      "url": "https://technode.com/2026/09/02/alibaba-upgrades-qwen38-max-with-new-0902-snapshot/"
     },
     {
-      "title": "快手：國家人工智慧基金向北京可靈注入現金資本 14 億元",
-      "source": "IT之家",
-      "date": "2026-09-01",
-      "company": "快手 (Kuaishou) / 可靈 AI",
-      "topic": "AI 投融資 / 國家產業基金",
-      "summary": "快手公告，國家人工智慧產業投資基金將向旗下北京可靈注入現金資本 14 億元人民幣，對應約 1.14% 股權；同時向正大機器人注資 1.31 億元人民幣，對應約 0.11% 股權。可靈（Kling）為快手旗下影片生成模型產品線，是中國目前商業化程度最高的影片生成模型之一。此次由國家級產業基金直接入股，顯示中國官方資本正加速佈局生成式 AI 與具身智能兩條主線。以入股比例回推，可靈估值約在千億元人民幣量級。國家隊資金進場對可靈後續的算力採購與海外市場擴張具有實質支撐作用。",
-      "discussion": "投資圈與影片生成社群關注度高，討論重點在於國家基金入股後可靈的估值錨定、國資背景是否影響其海外市場拓展，以及同批注資機器人業務所透露的產業佈局訊號。",
-      "url": "https://www.ithome.com/0/996/663.htm"
+      "title": "Moonshot AI reportedly submits confidential Hong Kong IPO filing",
+      "source": "TechNode",
+      "date": "2026-09-03",
+      "company": "Moonshot AI (月之暗面)",
+      "topic": "產業動態",
+      "summary": "據報導，月之暗面（Moonshot AI）本週已向香港交易所（HKEX）遞交機密 A1 上市申請，正式啟動 IPO 程序。Moonshot 為 Kimi 系列模型開發商，是中國「大模型六小虎」中首批推進公開上市的業者之一。採機密遞交方式意味著財務細節與募資規模在正式聆訊前不對外揭露。若順利掛牌，將成為中國 LLM 新創在資本市場的重要定價參考點。",
+      "discussion": "投資與 AI 社群高度關注，討論集中在中國大模型新創的估值基準、持續虧損下的上市時點選擇，以及選擇香港而非 A 股的監管與外資考量。",
+      "url": "https://technode.com/2026/09/03/moonshot-ai-reportedly-submits-confidential-hong-kong-ipo-filing/"
     },
     {
-      "title": "VAST 完成約 30 億元 B 和 B+ 輪融資，經緯創投領投",
-      "source": "投資界 (PEDaily)",
-      "date": "2026-09-01",
-      "company": "VAST",
-      "topic": "AI 3D 生成 / 融資",
-      "summary": "3D 生成模型公司 VAST 宣布完成約 30 億元人民幣的 B 輪與 B+ 輪融資，由經緯創投領投。加上先前輪次，VAST 半年內累計融資規模約達 50 億元人民幣，為 AI 3D 生成賽道近期金額最高的單一公司融資。VAST 同步發布 3D 原生基礎模型 Tripo P2.0，強化從文字或圖片直接生成可用於生產流程之 3D 資產的能力。此輪融資與同日影眸科技發布 WorldGen 形成呼應，顯示 AI 3D 生成正從單體物件競爭轉向完整場景生成的競賽階段。下游需求主要來自遊戲、影視、電商與具身智能仿真訓練。",
-      "discussion": "創投與 3D 內容產業討論熱烈，焦點在於 AI 3D 賽道是否已進入產業化分水嶺，以及 VAST 與影眸科技在場景級生成能力上的路線差異。",
-      "url": "https://news.pedaily.cn/202609/568395.shtml"
+      "title": "Z.ai brings AI services to e-commerce with first Tmall store",
+      "source": "TechNode",
+      "date": "2026-09-02",
+      "company": "Z.ai (Zhipu AI / 智譜)",
+      "topic": "產業應用",
+      "summary": "智譜（Zhipu AI）海外品牌 Z.ai 開設首家官方天貓旗艦店，透過電商通路直接販售付費 AI 服務。此舉將大模型訂閱從自有網站與 API 通路，延伸至中國主流消費電商場景。以電商店鋪銷售 AI 訂閱是中國模型廠拓展 C 端付費用戶的新嘗試，可直接觸及非開發者族群。此模式同時繞開 App Store 抽成，並利用天貓既有的支付與客服基礎設施。",
+      "discussion": "討論度中等，多聚焦於 AI 訂閱服務在電商平台的退換貨與履約定義、以及 C 端付費意願是否足以支撐獲客成本。被視為模型廠商業化路徑的探索性訊號。",
+      "url": "https://technode.com/2026/09/02/z-ai-brings-ai-services-to-e-commerce-with-first-tmall-store/"
+    },
+    {
+      "title": "Baidu: AI could soon match search business profit and cash returns",
+      "source": "TechNode",
+      "date": "2026-09-02",
+      "company": "Baidu",
+      "topic": "產業動態",
+      "summary": "百度財務長何俊傑（Henry He）表示，公司 AI 業務在利潤與現金回報上可望在不久後與傳統搜尋業務相當。此說法意味百度長期投入的模型與雲端 AI 服務正接近損益轉折點。搜尋一直是百度的現金流核心，AI 業務若能追平，代表其營收結構將完成實質轉型。此表態亦為中國大廠 AI 投入的回收週期提供了少見的公開財務指引。",
+      "discussion": "投資圈討論集中在「利潤相當」的定義是否包含攤提與算力資本支出，以及 AI 雲業務毛利率能否支撐該說法。多數分析認為時程仍需財報數據佐證。",
+      "url": "https://technode.com/2026/09/02/baidu-ai-could-soon-match-search-business-profit-and-cash-returns/"
+    },
+    {
+      "title": "China's humanoid robot boom is moving beyond the show floor",
+      "source": "TechNode",
+      "date": "2026-09-02",
+      "company": "Galaxea AI 等",
+      "topic": "產業應用",
+      "summary": "報導指出中國人形機器人產業正從展場展示走向實際任務執行。2026 世界機器人大會（WRC，8 月 19–23 日於北京舉行）共 373 家企業參展、超過 3,000 項產品、311 項首發。其中 Galaxea AI 的 G1 能完成製作早餐的完整流程，並在倒水過程中杯子被移動時自主修正動作。這類具身智能（embodied AI）展示的重點已從動作展演轉向對環境變化的即時應變能力，也就是 Agent 在物理世界的容錯與重規劃能力。",
+      "discussion": "具身智能社群討論熱烈，爭論點在於展示場景的預設程度、真實泛化能力，以及量產成本與可靠度是否足以支撐商用落地。",
+      "url": "https://technode.com/2026/09/02/chinas-humanoid-robot-boom-i-moving-beyond-the-show-floor/"
+    },
+    {
+      "title": "Audi opens Shanghai innovation center to develop four Audi-brand models",
+      "source": "TechNode",
+      "date": "2026-09-03",
+      "company": "Audi / SAIC",
+      "topic": "產業應用",
+      "summary": "Audi 在上海設立創新中心，將開發四款 Audi 品牌車型。該中心聚焦電動車、車聯網技術、AI 智慧座艙與駕駛輔助系統的在地化研發。此配置反映外資車廠將 AI 座艙與輔助駕駛的研發重心移往中國，以貼近本地供應鏈與使用者習慣。中國市場的智慧座艙功能迭代速度高於歐洲，成為外資設立在地 AI 研發據點的主要動因。",
+      "discussion": "討論度偏低，多集中於汽車產業社群，關注在地研發能否真正縮短外資品牌智慧座艙與中國本土車廠的功能落差。",
+      "url": "https://technode.com/2026/09/03/audi-opens-shanghai-innovation-center-to-develop-four-audi-brand-models/"
     }
   ],
-  "_updated_at": "2026-09-02T19:38:53.851840+08:00"
+  "_updated_at": "2026-09-03T18:07:31.643243+08:00"
 }

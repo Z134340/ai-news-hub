@@ -1,92 +1,205 @@
 {
   "items": [
     {
-      "title": "Judge says Pentagon illegally blacklisted Anthropic",
-      "source": "NOTUS",
-      "date": "2026-08-27",
+      "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act",
+      "source": "European Commission",
+      "date": "2026-08-31",
       "category": "AI治理",
-      "summary": "美國聯邦地區法院法官 Rita F. Lin 於 8 月 27 日作出裁決，認定五角大廈將 Anthropic 標記為「供應鏈風險」(supply chain risk) 的行為違法。法官在 59 頁的意見書中指出，該項指定構成對政府批評者的報復，違反美國憲法第一修正案與正當法律程序。爭議根源在於 Anthropic 拒絕依國防部要求移除模型護欄，以支援全自主武器與大規模監控用途。法官在意見書中寫道：「空泛援引國家安全，並非用來懲罰與報復政府批評者的空白支票。」此案是 AI 業者首次在與美國國防部門的監理衝突中取得法院勝訴，將影響 AI 供應商在政府採購中維持自身安全政策的空間。",
+      "summary": "歐盟執委會依據 Digital Services Act (DSA) 正式指定 ChatGPT 為超大型線上搜尋引擎 (VLOSE)，並將 Reddit 與 Roblox 指定為超大型線上平台 (VLOP)。這是史上第一次有 AI 聊天機器人被納入 DSA 最嚴格的監管層級。三項服務均自行申報在歐盟境內的月平均使用者數達 4,500 萬人以上，跨過 DSA 的指定門檻。執委會認定 ChatGPT 屬於「混合型服務」，因其回應提示的方式包含檢索網路資訊，因此符合搜尋引擎的定義。被指定的服務有四個月時間（至 2026 年 12 月底）完成合規，須履行未成年人保護、演算法透明度、非法內容風險緩解與獨立風險稽核等義務。監理權責由執委會與愛爾蘭 Coimisiún na Meán（ChatGPT、Reddit）及荷蘭 ACM（Roblox）共同分擔。",
       "highlights": [
-        "聯邦法官 Rita F. Lin 以 59 頁意見書認定五角大廈的「供應鏈風險」指定違法",
-        "法院認定該指定違反第一修正案與正當法律程序，屬對政府批評者的報復",
-        "爭議起於 Anthropic 拒絕為全自主武器與大規模監控移除模型安全護欄",
-        "此為 AI 業者對美國國防部監理措施的首次法院勝訴",
-        "國防部預期將提出上訴，另一起於華盛頓特區的平行訴訟仍未結案"
+        "ChatGPT 成為首個被納入 DSA 最嚴格層級的 AI 聊天機器人，被歸類為 VLOSE",
+        "Reddit 與 Roblox 被指定為 VLOP，三者皆申報歐盟月活躍使用者達 4,500 萬以上",
+        "四個月合規期限至 2026 年 12 月底，須完成未成年人保護與演算法透明度義務",
+        "須接受獨立第三方風險稽核，並提交系統性風險緩解報告",
+        "DSA 最嚴格層級的服務總數增至 28 項"
       ],
-      "url": "https://www.notus.org/courts/judge-says-pentagon-illegally-blacklisted-anthropic"
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act"
     },
     {
-      "title": "Federal judge overturns Pentagon ban on Claude chatbot maker Anthropic",
-      "source": "The Washington Post",
-      "date": "2026-08-27",
+      "title": "EU places ChatGPT, Reddit and Roblox under strictest digital safety rules",
+      "source": "Euronews",
+      "date": "2026-08-31",
       "category": "AI治理",
-      "summary": "《華盛頓郵報》報導聯邦法官推翻五角大廈對 Anthropic 的禁令，撤銷國防部長 Hegseth 對該公司作出的「供應鏈風險」認定。法院認為此一行政認定並非基於實質的國安評估，而是針對 Anthropic 公開反對特定軍事用途的報復手段。裁決要求國防部不得依該項指定限制 Anthropic 參與聯邦採購。對 AI 治理而言，本案確立了模型供應商設定使用限制 (acceptable use policy) 的行為，受憲法言論自由保障，政府不得以採購資格作為懲罰工具。案件後續仍可能進入上訴程序。",
+      "summary": "歐盟將 ChatGPT、Reddit 與 Roblox 納入 Digital Services Act 最嚴格的監管規範之下。此舉代表生成式 AI 服務首次被視同大型社群平台，須承擔同等的系統性風險管理責任。三家業者必須在四個月內建立內容風險評估機制、強化未成年人保護措施，並開放演算法運作方式供監理機關檢視。歐盟監理機關特別關注 AI 聊天機器人可能對青少年造成的心理健康與內容安全風險。此決定與美國在同期推動放寬 AI 監管的立場形成明顯對比。",
       "highlights": [
-        "法院撤銷國防部長 Hegseth 對 Anthropic 的「供應鏈風險」指定",
-        "裁定政府不得以聯邦採購資格作為懲罰 AI 業者的手段",
-        "確立 AI 供應商設定使用政策與安全護欄受憲法言論自由保障",
-        "判決對其他 AI 業者與政府部門的採購談判具指標意義"
+        "生成式 AI 服務首次被要求比照大型社群平台承擔系統性風險管理義務",
+        "監理重點聚焦於未成年人保護與心理健康風險",
+        "業者須開放演算法運作方式接受監理機關檢視",
+        "與美國同期推動的鬆綁路線形成路線分歧"
       ],
-      "url": "https://www.washingtonpost.com/technology/2026/08/27/federal-judge-overturns-pentagon-ban-claude-chatbot-maker-anthropic/"
+      "url": "https://www.euronews.com/next/2026/08/31/eu-places-chatgpt-reddit-and-roblox-under-strictest-digital-safety-rules"
     },
     {
-      "title": "Anthropic gets its first court win over the Pentagon's supply chain risk label",
+      "title": "ChatGPT becomes first AI chatbot to face tougher EU rules",
+      "source": "BNN Bloomberg",
+      "date": "2026-08-31",
+      "category": "AI治理",
+      "summary": "ChatGPT 成為首個面臨歐盟加嚴監管的 AI 聊天機器人。歐盟執委會依 Digital Services Act 將其指定為超大型線上搜尋引擎，理由是 ChatGPT 在回應使用者提示時會檢索網路內容，功能上等同搜尋引擎。OpenAI 須在 2026 年底前完成合規部署，包括建立非法內容通報與處理流程、提供演算法推薦邏輯的說明，以及接受獨立稽核。違反 DSA 的罰則可達全球年營業額的 6%。此案被視為歐盟將既有平台監管框架延伸適用於生成式 AI 的指標性案例。",
+      "highlights": [
+        "ChatGPT 因「檢索網路內容回應提示」被認定功能等同搜尋引擎",
+        "OpenAI 須於 2026 年底前完成 DSA 合規部署",
+        "DSA 罰則上限為全球年營業額 6%",
+        "被視為歐盟將平台監管框架延伸至生成式 AI 的指標案例"
+      ],
+      "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/08/31/chatgpt-becomes-first-ai-chatbot-to-face-tougher-eu-rules/"
+    },
+    {
+      "title": "EU heightens digital safety rules for ChatGPT, Roblox, Reddit",
+      "source": "UPI",
+      "date": "2026-08-31",
+      "category": "AI治理",
+      "summary": "歐盟提高對 ChatGPT、Roblox 與 Reddit 的數位安全規範層級。三項服務因在歐盟境內月使用者數超過 4,500 萬人的門檻而被納入 Digital Services Act 的最高監管等級。新增義務包括每年進行系統性風險評估、針對未成年人使用情境設計防護機制，以及向監理機關與經審核的研究者開放資料。Roblox 因其使用者以兒童與青少年為主，未成年人保護要求特別受到關注。監理責任由歐盟執委會與服務設立地的成員國主管機關共同承擔。",
+      "highlights": [
+        "三項服務均超過歐盟境內 4,500 萬月使用者的指定門檻",
+        "須每年執行系統性風險評估並向監理機關開放資料",
+        "Roblox 的未成年人保護義務因使用者結構而受到特別關注",
+        "監理由歐盟執委會與成員國主管機關共同承擔"
+      ],
+      "url": "https://www.upi.com/Top_News/World-News/2026/08/31/eu-chatgpt-reddit-roblox-digital-services-act-designation/3171788188948/"
+    },
+    {
+      "title": "EU Now Regulates ChatGPT as a Very Large Online Search Engine",
+      "source": "WinBuzzer",
+      "date": "2026-09-01",
+      "category": "AI治理",
+      "summary": "歐盟正式將 ChatGPT 當作超大型線上搜尋引擎 (VLOSE) 加以監管。此分類的關鍵在於執委會對「混合型服務」的認定：ChatGPT 雖以對話介面呈現，但因具備網路檢索能力而落入搜尋引擎的法律定義。這項認定為未來其他具備檢索功能的 AI 助理建立了監管先例。OpenAI 須在四個月內建立符合 DSA 的風險緩解制度，涵蓋錯誤資訊、非法內容與未成年人曝險等面向。分析認為此舉將迫使 AI 業者在產品設計階段即納入合規考量，而非事後補救。",
+      "highlights": [
+        "「混合型服務」認定成為 AI 助理適用搜尋引擎規範的法律依據",
+        "為其他具檢索功能的 AI 助理建立監管先例",
+        "風險緩解制度須涵蓋錯誤資訊、非法內容與未成年人曝險",
+        "促使 AI 業者將合規設計前移至產品開發階段"
+      ],
+      "url": "https://winbuzzer.com/2026/09/01/eu-designates-chatgpt-tougher-dsa-search-engine-scrutiny-xcxwbn/"
+    },
+    {
+      "title": "US pushes looser approach to AI regulation, while EU pushes new law",
+      "source": "Al Jazeera",
+      "date": "2026-09-02",
+      "category": "AI治理",
+      "summary": "美國在北卡羅來納州 Chapel Hill 舉行的 G20 創新部長會議上推動寬鬆的 AI 監管路線，與歐盟同期推進新法規的方向形成直接對比。白宮科技顧問 Michael Kratsios 推動不具約束力的「Carolina Principles」，主張僅針對真正新穎的問題制定新規範、避免設立專責的 AI 監理機構、資助基礎 AI 研究，並推動技術測試的公私協作。此提案獲得包含中國在內的全體 20 個成員國同意。同一週歐盟則將 ChatGPT 納入 DSA 最嚴格監管層級，兩大經濟體的治理路線分歧因此更為明顯。報導指出這種分歧將使跨國 AI 業者面臨同時遵循兩套邏輯相反規範的壓力。",
+      "highlights": [
+        "Carolina Principles 主張避免設立專責 AI 監理機構，屬非約束性原則",
+        "G20 全體 20 國同意，包含中國在內",
+        "同週歐盟將 ChatGPT 納入 DSA 最嚴格層級，路線對比鮮明",
+        "跨國 AI 業者將面臨同時遵循兩套相反監管邏輯的壓力"
+      ],
+      "url": "https://www.aljazeera.com/news/2026/9/2/us-pushes-looser-approach-to-ai-regulation-while-eu-pushes-new-law"
+    },
+    {
+      "title": "US Urges Hands-Off Approach to AI Regulation at G20 Tech Meeting",
+      "source": "U.S. News (Reuters)",
+      "date": "2026-09-01",
+      "category": "AI治理",
+      "summary": "美國在 G20 科技會議上呼籲各國對 AI 採取不干預的監管態度。為期兩天的 G20 創新部長會議於北卡羅來納州 Chapel Hill 舉行，由商務部長 Howard Lutnick 與白宮科技顧問 Michael Kratsios 共同宣布「Carolina Principles」。該原則主張新的監管應保留給真正新穎的考量事項，既有法規已涵蓋的領域不需重複立法。Kratsios 並與中國科學技術部部長陰和俊進行雙邊會談。OpenAI 執行長 Sam Altman 與 NVIDIA 執行長黃仁勳亦在會議中向各國代表發表談話。",
+      "highlights": [
+        "由商務部長 Howard Lutnick 與白宮科技顧問 Michael Kratsios 共同宣布",
+        "主張新監管僅保留給真正新穎的考量，避免與既有法規重複",
+        "Kratsios 與中國科技部部長陰和俊舉行雙邊會談",
+        "Sam Altman 與黃仁勳向 G20 各國代表發表談話"
+      ],
+      "url": "https://www.usnews.com/news/top-news/articles/2026-09-01/us-to-urge-hands-off-ai-regulation-at-g-20-official-says"
+    },
+    {
+      "title": "US Urges G20 to Skip New AI Rules at Summit",
+      "source": "Technology.org",
+      "date": "2026-09-02",
+      "category": "AI治理",
+      "summary": "美國在 G20 峰會上力勸各國不要制定新的 AI 規範。「Carolina Principles」的四項核心主張為：將新監管保留給真正新穎的考量事項、避免創設專責的新 AI 監理機關、資助基礎性 AI 研究，以及推動技術測試領域的公私協作。這套原則反映美國現行政策將 AI 監管視為創新阻力的立場。批評者認為缺乏專責監理機關將使 AI 風險的問責機制難以落實。支持者則主張既有的部門別法規（如金融、醫療、消費者保護）已足以涵蓋多數 AI 應用風險。",
+      "highlights": [
+        "Carolina Principles 四項主張：限縮新規、不設專責機關、資助基礎研究、公私協作測試",
+        "反映美國將 AI 監管視為創新阻力的政策立場",
+        "批評者指缺乏專責機關將弱化 AI 風險問責",
+        "支持者主張既有部門別法規已可涵蓋多數 AI 應用風險"
+      ],
+      "url": "https://www.technology.org/2026/09/02/us-g20-carolina-principles-ai-regulation/"
+    },
+    {
+      "title": "G20 seals pact on new emerging technologies principles",
+      "source": "IANS",
+      "date": "2026-09-03",
+      "category": "AI治理",
+      "summary": "G20 就新興技術原則達成協議。歷時兩天的 G20 創新部長會議在北卡羅來納州 Chapel Hill 閉幕，全體 20 個成員國一致同意採納「Carolina Principles」作為新興技術的治理共識框架。該協議屬於不具法律約束力的原則性宣示，各國仍保有依本國情況制定 AI 法規的空間。協議達成的意義在於首次在 G20 層級形成關於 AI 監管密度的共同語言，儘管歐盟成員國同時仍在推進 EU AI Act 與 DSA 的執法。觀察者認為此協議的實質效果將取決於各國後續的國內立法動向。",
+      "highlights": [
+        "G20 全體 20 個成員國一致採納 Carolina Principles",
+        "屬不具法律約束力的原則性宣示，各國保留國內立法空間",
+        "首次在 G20 層級形成關於 AI 監管密度的共同語言",
+        "歐盟成員國同時仍持續推進 EU AI Act 與 DSA 執法"
+      ],
+      "url": "https://ianslive.in/g20-seals-pact-on-new-emerging-technologies-principles--20260903024503"
+    },
+    {
+      "title": "'It feels like early Covid': The messy scramble to regulate AI",
+      "source": "CNN Business",
+      "date": "2026-08-30",
+      "category": "AI治理",
+      "summary": "美國 AI 監管的混亂局面被參與者形容為「感覺像疫情初期」。聯邦與州政府在 AI 規範上出現明顯拉扯：多個州推動各自的 AI 法案，而白宮則以行政命令試圖排除州法的適用。這種聯邦優先權爭議使企業面臨規範不確定性，難以判斷應遵循哪一層級的要求。報導引述業界與政策圈人士指出，目前的狀況缺乏統一的風險評估標準與問責分工，各方在資訊不足下倉促制定規則。此結構性衝突預期將延續至司法途徑解決。",
+      "highlights": [
+        "聯邦與州在 AI 監管上出現優先權衝突，白宮以行政命令試圖排除州法",
+        "企業面臨規範不確定性，難以判斷應遵循的監管層級",
+        "缺乏統一的風險評估標準與問責分工",
+        "結構性衝突預期將透過司法途徑尋求解決"
+      ],
+      "url": "https://us.cnn.com/2026/08/30/business/the-scramble-us-government-to-regulate-ai"
+    },
+    {
+      "title": "New Cequence & EMA Research: 94% of Enterprises Trust Their AI Agents Aren't Over-Provisioned. Only 33% Actually Enforce It.",
+      "source": "GlobeNewswire",
+      "date": "2026-08-31",
+      "category": "資安標準",
+      "summary": "Cequence 與 EMA 的最新研究揭露企業在 AI Agent 權限治理上的重大落差。調查對象為 202 位員工數 1,000 人以上、正在部署或評估 agentic AI 的企業 IT 與資安主管（含 CIO、CTO、CISO、IT 總監）。94% 的受訪者相信自家 AI Agent 未被過度授權，但僅 33% 實際落實驗證。65% 回報曾發生 Agent 行為超出預期範圍的情況，其中 29% 造成嚴重後果，包括資料外洩、財務損失、營運中斷或商譽損害。研究歸納三大根因：過於寬泛的常設權限、授權檢查時點延遲，以及被遺忘的憑證。",
+      "highlights": [
+        "94% 企業相信 AI Agent 未過度授權，但僅 33% 實際驗證，落差達 61 個百分點",
+        "65% 曾發生 Agent 行為超出預期範圍",
+        "29% 因此造成資料外洩、財務損失、營運中斷或商譽損害",
+        "根因為寬泛常設權限、授權檢查延遲、遺忘的憑證",
+        "樣本為 202 位員工數 1,000 人以上企業的 IT/資安主管"
+      ],
+      "url": "https://www.globenewswire.com/news-release/2026/08/31/3353329/0/en/new-cequence-ema-research-94-of-enterprises-trust-their-ai-agents-aren-t-over-provisioned-only-33-actually-enforce-it.html"
+    },
+    {
+      "title": "Judge rules the Pentagon's supply chain risk label for Anthropic unlawful",
+      "source": "CNN Business",
+      "date": "2026-08-27",
+      "category": "AI治理",
+      "summary": "美國加州北區聯邦地方法院法官 Rita Lin 於 2026 年 8 月 27 日裁定國防部對 Anthropic 的「供應鏈風險」標籤違法，並命令移除該指定。判決認定國防部的行為構成違反憲法第一修正案的非法報復，且 Anthropic 未獲得第五修正案所要求的剝奪前程序保障。爭議起源於國防部要求以 Anthropic 的 Claude 模型用於「一切合法用途」，包含敏感的軍事與情報應用，而 Anthropic 堅持維持禁止全自主致命武器與大規模監控美國公民的使用限制。此案是該監管工具首次被用於針對美國本土企業的政策爭議，而非外資持股疑慮。Anthropic 在華盛頓特區的另一訴訟仍在進行中。",
+      "highlights": [
+        "加州北區聯邦法官 Rita Lin 於 2026-08-27 裁定供應鏈風險指定違法",
+        "判決認定構成違反第一修正案的非法報復，並違反第五修正案程序保障",
+        "爭點為 Anthropic 拒絕解除全自主致命武器與大規模監控的使用限制",
+        "首次有該監管工具被用於美國本土企業的政策爭議而非外資疑慮",
+        "華盛頓特區訴訟仍在進行，指定尚未完全解除"
+      ],
+      "url": "https://www.cnn.com/2026/08/27/tech/anthropic-pentagon-supply-chain-risk-unlawful-hnk"
+    },
+    {
+      "title": "Anthropic gets its first court win over the Pentagon's supply-chain risk label",
       "source": "TechCrunch",
       "date": "2026-08-28",
       "category": "AI治理",
-      "summary": "TechCrunch 報導 Anthropic 在與五角大廈的法律衝突中取得首場法院勝利。法院認定國防部的「供應鏈風險」標籤缺乏事實基礎，且明顯與 Anthropic 拒絕放寬武器與監控用途的模型政策有關。報導指出，此案的核心是 AI 業者能否在承接政府合約的同時保留自訂的安全紅線。判決結果對整體 AI 產業具示範效果，等於認可業者的使用政策不因政府客戶而必須讓步。國防部尚未說明是否上訴。",
+      "summary": "Anthropic 在對抗國防部供應鏈風險標籤的訴訟中取得首場勝訴。此標籤原本使 Anthropic 遭到所有聯邦機關（包含國防以外部門）停止合作，衝擊其政府市場業務。法院的裁定確立了政府不得因企業堅持自身 AI 使用政策而施加行政制裁的界線，對 AI 業者在國安應用場景中的自主權具有指標意義。此案凸顯 AI 供應商的使用限制條款（usage policy）與政府採購需求之間的結構性緊張。判決結果亦可能影響其他 AI 業者與政府機關的合約談判立場。",
       "highlights": [
-        "法院認定「供應鏈風險」標籤缺乏事實基礎",
-        "核心爭點為 AI 業者能否在政府合約中保留自訂安全紅線",
-        "判決對整體 AI 產業具示範效果，業者使用政策不必因政府客戶讓步",
-        "國防部尚未表態是否上訴"
+        "法院確立政府不得因企業堅持 AI 使用政策而施加行政制裁",
+        "原指定曾使所有聯邦機關（含非國防部門）停止與 Anthropic 合作",
+        "凸顯 AI 供應商使用限制條款與政府採購需求的結構性緊張",
+        "判決可能影響其他 AI 業者與政府機關的合約談判立場"
       ],
       "url": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/"
     },
     {
-      "title": "US judge blocks Pentagon blacklisting of AI firm Anthropic",
-      "source": "Al Jazeera",
-      "date": "2026-08-28",
+      "title": "中國AI短劇爆量逾98%無法回本 微短劇新規9月實施加強監管",
+      "source": "中央社 CNA",
+      "date": "2026-09-01",
       "category": "AI治理",
-      "summary": "半島電視台報導美國法院阻止五角大廈將 AI 公司 Anthropic 列入黑名單。判決指出國防部的行政措施違反憲法保障，屬於針對企業立場的報復性處分。報導從國際視角指出，本案凸顯各國政府在推動 AI 軍事應用時，與商業 AI 供應商安全政策之間的結構性衝突。Anthropic 因拒絕支援全自主武器系統與大規模監控而遭列管，最終由司法途徑推翻。此一結果可能影響其他國家政府採購 AI 模型時的條件設定。",
+      "summary": "中國微短劇管理新規於 2026 年 9 月正式實施，加強對該產業的內容監管。報導指出中國 AI 生成短劇數量爆增，但超過 98% 無法回收製作成本，顯示產能過剩與品質落差。新規的政策目標是推動產業從數量擴張轉向內容品質提升，其中包含對 AI 生成內容的治理要求。監管措施涉及內容審核、AI 生成標示與平台責任等面向。此政策是中國近期強化生成式 AI 內容治理的一環，也反映 AI 大量生產內容後對產業經濟結構造成的衝擊。",
       "highlights": [
-        "美國法院阻止國防部將 Anthropic 列入黑名單",
-        "凸顯 AI 軍事應用需求與商業 AI 業者安全政策的結構性衝突",
-        "Anthropic 因拒絕支援全自主武器與大規模監控而遭列管",
-        "判決結果可能外溢影響其他國家的 AI 政府採購條件"
+        "中國微短劇管理新規於 2026 年 9 月正式實施",
+        "超過 98% 的 AI 生成短劇無法回收製作成本",
+        "政策目標為推動產業從數量擴張轉向內容品質提升",
+        "監管涵蓋內容審核、AI 生成標示與平台責任",
+        "屬中國強化生成式 AI 內容治理的一環"
       ],
-      "url": "https://www.aljazeera.com/news/2026/8/28/us-judge-blocks-pentagon-blacklisting-of-ai-firm-anthropic"
-    },
-    {
-      "title": "AI生成詐騙內容成新威脅，數發部與Meta、Google等四大平臺聯手建立AI源頭阻詐防線",
-      "source": "iThome",
-      "date": "2026-08-31",
-      "category": "AI治理",
-      "summary": "數位發展部宣布與 Meta、Google、LINE、TikTok 四大網路平臺建立 AI 源頭阻詐合作機制。做法是由政府端提供最新詐騙態樣與樣本，平臺方將其轉化為 AI 模型的訓練資料與偵測規則，在內容生成與散布的源頭進行攔阻。雙方並建立常態化的諮詢與情資交換機制，縮短新型詐騙從出現到被偵測的時間差。數發部指出當前三大詐騙趨勢，其中之一是利用生成式 AI 大量產製詐騙文案與使用者生成內容 (UGC)，並在其中夾帶釣魚連結。此機制的法律依據為《詐欺犯罪危害防制條例》，該條例課予平臺詐欺風險評估、防制計畫、廣告主實名制與廣告資訊揭露等義務。",
-      "highlights": [
-        "數發部與 Meta、Google、LINE、TikTok 四大平臺建立 AI 源頭阻詐機制",
-        "政府提供詐騙態樣，平臺轉化為 AI 訓練資料與偵測規則",
-        "建立常態化諮詢與情資交換機制，縮短新型詐騙的偵測時間差",
-        "當前趨勢之一為以生成式 AI 大量產製詐騙文案與 UGC 並夾帶釣魚連結",
-        "法律依據為《詐欺犯罪危害防制條例》，含廣告主實名制與廣告資訊揭露義務"
-      ],
-      "url": "https://www.ithome.com.tw/news/178552"
-    },
-    {
-      "title": "Singapore seeks consultation on intellectual property regimes' response to AI",
-      "source": "TechNode Global",
-      "date": "2026-08-26",
-      "category": "AI治理",
-      "summary": "新加坡律政部 (MinLaw) 與新加坡知識產權局 (IPOS) 啟動公眾諮詢，檢視現行智慧財產權制度如何回應生成式 AI 帶來的挑戰。諮詢議題包括 AI 訓練資料使用他人受保護著作的合法性、AI 生成內容的著作權歸屬，以及既有例外規定是否足以支撐 AI 研發需求。諮詢期自 2026 年 8 月 26 日起至 10 月 22 日止，開放產業界、學界與公眾提交意見。此舉反映亞太地區監理機關在 AI 治理上，除了安全與風險議題外，開始正面處理智慧財產權的制度性缺口。諮詢結果將作為新加坡後續修法或發布指引的基礎。",
-      "highlights": [
-        "新加坡 MinLaw 與 IPOS 就 AI 與智慧財產權制度啟動公眾諮詢",
-        "議題涵蓋 AI 訓練資料合法性與 AI 生成內容的著作權歸屬",
-        "諮詢期間為 2026 年 8 月 26 日至 10 月 22 日",
-        "反映亞太監理機關開始正面處理 AI 的智財制度缺口",
-        "諮詢結果將作為後續修法或指引的基礎"
-      ],
-      "url": "https://technode.global/2026/08/26/singapore-seeks-consultation-on-intellectual-property-regimes-response-to-ai/"
+      "url": "https://www.cna.com.tw/news/acn/202609010227.aspx"
     }
   ],
-  "_updated_at": "2026-09-02T19:46:43.390578+08:00"
+  "_updated_at": "2026-09-03T18:15:52.020279+08:00"
 }
