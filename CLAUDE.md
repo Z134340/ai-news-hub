@@ -739,6 +739,116 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
 
 ---
 
+## auto-opt 路線圖與工作紀律（2026-09-04）
+
+**進度與施工單以 `HANDOFF.md` 為準**（Phase 0、1 已 commit `c4951fc`、`4a67b37`；Phase 2 未動工）。本節只放每個 session 都要遵守的紀律，以及下一節的 shape 速查。
+
+工作紀律（本專案強制，原因是 2026-09 曾因重複整檔讀取連續 compact 14 次）：
+
+1. **先查下一節的 shape，再決定要不要開檔。** 查不到的 shape，開檔確認後回填到下一節，不要只留在對話裡。
+2. 讀檔只用 `grep -n` 找行號、`sed -n START,END` 看要改的段落；資料檔用 `head -c 600`、`jq keys`、`wc -l`。不 `cat` 整個 `run-agents.sh`、`config.js`、`newshub_agents.py`、`latest.json`。
+3. 廣泛調查一律交給 Explore subagent，主 context 只收結論。
+4. 新檔用 heredoc 寫入、不回顯；同一檔多處修改集中在一次 python heredoc；改完不重讀。
+5. 一個 session 只做一個 Phase，做完 commit 就開新 session，不 `/compact`。
+6. 三條紅線：`data/agent/.preview/` 永遠 gitignore；`promote.sh` 不加 `--promote` 到 `run-agents.sh`；原始評分／標題／URL 只留 `~/.ai-news-hub/learning/`。
+
+## 檔案 shape 速查（2026-09-04，由 Explore 逐檔核對）
+
+### A. L3 判讀層：`scripts/run-agents.sh`（491 行）
+
+| 項目 | 內容 |
+|---|---|
+| 環境變數 | `AGENT_BUDGET_SEC`（預設 2100）、`AGENT_STEP_TIMEOUT_SEC`（420）、`AGENT_INSIGHTS_WINDOW`（7）、`AGENT_TIMELINE_WINDOW`（90）、`AGENT_MODEL`（選用，加 `--model`）；`MIN_REMAIN_SEC=45` 常數 |
+| CLI | `--dry-run`（model step 改 `--print-prompt`）、`--self-test`、`--strict`、`--budget N`、`--step-timeout N`、`-h`；未知參數 exit 2 |
+| `run_step name cmd…` | DAG 感知：預算耗盡 → `skipped_budget`、上游失敗 → `skipped_dep`；輸出 `$TMP_DIR/$name.out`；設 `LAST_STEP_STATUS` / `FAILED_STEP`；恆 `return 0` |
+| `run_model_step name artifact cmd…` | 先快照 `.preview/$artifact` → `$SNAP_DIR`，跑 `run_step`，再 `guard_verdict`（新檔 `.source=="fail_open"` 而快照不是 → 還原） |
+| `run_observer_step name cmd…` | 無視預算與上游失敗一定跑；失敗仍設 `FAILED_STEP` |
+| `model_timeout` | `min(MODEL_STEP_TIMEOUT, remain-15)`，下限 60 |
+| Step 順序 | `00-pull-feedback`（跑完清 `FAILED_STEP`）→ `01-insights` → `02-timeline` → `03-trend-assess`(model, `trend-assessment.json`) → `04-roadmap-input` → `05-roadmap`(model, `roadmap.json`) → `06-brief-input` → `07-brief`(model, `brief-latest.json`) → `08-precedents`（前面把 `FAILED_STEP` 存進 `HARVEST_BLOCKER` 再清）→ `09-current-state-manifest`(observer) → `10-system-status`(observer) |
+| Self-test | S-1 執行檔存在（15 支）／S-2 無 `--promote`／S-2b 無 `--out-dir`／S-3 `.gitignore` 含 `data/agent/.preview/`／S-4 status 檔在 preview 內／S-5 `BUDGET_SEC ≥ MODEL_STEP_TIMEOUT×5`／S-6 無 step 動 `memory/`／S-6b~S-6i 轉呼叫子腳本 `--self-test`（S-6i = pull-feedback）／S-7 `bash -n`／S-8 model artifact 集合 == `"brief-latest.json roadmap.json trend-assessment.json "`／S-8b model runner 不得用裸 `run_step`／S-8c、S-8d observer 09/10 精確行／S-9a~f `guard_verdict` 真值表 |
+| 加第四個 model step 要改 | S-1 清單、S-8 期望字串（排序後）、S-8b regex `newshub_(agents|roadmap|brief)\.py`、必要時 S-5 乘數 |
+| 輸出 | `.preview/agent-run-status.json`（`agent-run-status-v1`：`mode, advisory:true, production_write:false, publish:"manual_only", started_at, finished_at, duration_sec, budget_sec, overall(ok|degraded|failed), counts, steps[], freshness{source_latest_date,generated_at}, restored_artifacts[]`）；log 在 `mktemp -d -t ai-news-hub-agent`（EXIT 刪）；exit 0（degraded 也 0）、`--strict` 且非 ok → 1 |
+
+### B. 模型 runner：`scripts/newshub_agents.py`（743 行，可 import）
+
+常數 `SCHEMA="agent-trend-v0.1"`、`MODEL="claude-opus-5"`、`TIMEOUT_SEC=900`。可重用函式：`fail_open(reason)`（回 `{"source":"fail_open",…}`）、`cap_text`、`_extract_json(text)`、`_cli_error_detail(stdout)`、`call_analyst(system_prompt, user_prompt, model, timeout, backoff)`。`call_analyst` 指令：`claude -p <user> --model M --output-format json --system-prompt <sys> --allowedTools "" --strict-mcp-config --permission-mode plan`，執行前 pop `ANTHROPIC_API_KEY`，只在 transient API status 重試。`main()` 旗標 `--selftest/--input/--out/--model/--timeout/--print-prompt`；輸入缺 → 2；`fail_open` → 1；`if __name__ == "__main__"` 保護，故新 runner 可直接 import。`newshub_roadmap.py`、`newshub_brief.py` 同型。
+
+### C. 帳本：`scripts/agent/lib/ledger.mjs`（off-repo）
+
+路徑 `~/.ai-news-hub/learning/events.jsonl`；游標 `~/.ai-news-hub/learning/feedback-cursor.json` = `{last_ts, seen:{docName: ts}}`。
+
+| 欄位 | 值域 |
+|---|---|
+| `ts` | ISO8601 |
+| `event_type` | `outputs_generated` `curation_imported` `output_accepted` `user_correction` `proposal_reviewed` `audit_finding` `human_rating` `proposal_evaluated` `proposal_auto_applied` `canary_reverted`（未知即 throw；後三種已為 Phase 3 預留） |
+| `actor` | 預設 `"system"`；回饋為 `"human"` |
+| `subject_type` / `subject_id` | string；`human_rating` 為 `"news_item"` / item_id |
+| `payload` | object |
+
+`human_rating.payload`：`rating ∈ {"good","mid","bad"}`（字串，非數字）、`cat`、`item_date`、`title`、`url`、`source`（hostname 去 `www.`）、`uid_hash`（sha256 前 8 碼）。`readEvents()` → `{events, skipped}`；`ledgerStats()` → `{events_count, event_types, skipped_count}`。
+
+### D. `pull-feedback.mjs` 與 Firestore `feedback/`
+
+- 憑證：`ARCHIVER_ENV` 或 `~/.config/ai-news-hub/archiver.env`，需 `FB_API_KEY / FB_PROJECT_ID / WRITER_EMAIL / WRITER_PASSWORD`；檔不存在 → 印 `pull-feedback skipped`、exit 0；self-test 失敗 1；fatal 2。
+- 查詢：REST `runQuery`，`from feedback where ts >= last_ts orderBy ts, __name__`，每頁 500、最多 20 頁；**唯讀**。重新評分換新 `ts` 會再擷取一次，latest-wins 交給 replay；前端取消評分（刪文件）不會回帳本。
+- 文件 `feedback/{uid}_{safe}`：`{uid, item_id, cat, rating, item_date, title, url, ts}`，`safe` = item_id 非 `[A-Za-z0-9_-]` 字元改成 `.` + 十六進位；docId 以 uid 開頭是 `firestore.rules` 硬條件。
+- 前端：localStorage `ainews-fb` = `{[itemId]: {rating, cat, item_date, title, url, ts}}`，全域 `FEEDBACK`（`config.js:54`）；`FB_RATINGS=['good','mid','bad']`；同鍵再按 = 取消（本機刪 + Firestore `delete()`）；雙向比 `ts`，較新者勝。
+
+### E. `replay-learning.mjs` 與 `learning-status.json`
+
+- 寫到 `.preview/learning-status.json`；`--promote` 才寫 `data/agent/learning-status.json`。旗標 `--promote --self-test --strict`。
+- 頂層：`mode:"auto-opt-v2", last_replay_at, events_count, profile_version, active_boundaries[6], proposal_count, last_error, skipped_events_count, learning_summary`。
+- `learning_summary`：`generated_from_events, summary_limit(6), topic_signals[], source_signals[], lens_signals[]{id,weight,direction}, human_ratings{}, style_signals[], applied_effect_counts{}, latest_profile_version, latest_outputs_at`。
+- `human_ratings`：`{half_life_days:30, items_rated, by_category[], by_source_domain[]}`，元素 `{id, good, mid, bad, score, feedback_count}`，依 `feedback_count` 降冪取前 6；`score = Σ(0.5^(ageDays/30)·v)/Σweight`，good=+1、mid=0、bad=-1，round 3 位。
+- 注意：磁碟上的 `data/agent/learning-status.json` 是 2026-07-09 舊版，沒有 `human_ratings`；要看新欄位請看 `.preview/`。
+
+### F. contract v2 驗證器：`check-agent-outputs.mjs`（230 行）
+
+旗標 `--strict`、`--self-test-boundary`；驗 `data/agent/`（不是 `.preview/`）。`REQUIRED_BOUNDARIES`：`agent_outputs_advisory_only, no_direct_prompt_patch, raw_feedback_off_repo, human_review_required_for_memory_and_skills, evaluator_gated_auto_apply`。proposal `status ∈ {pending_review, evaluated, rejected, auto_applied, canary, reverted}`；`pending_review` 必須 `requires_human_review:true, advisory_only:true, production_applied:false`；非 pending 需 `evaluated_by` 且 `target_files` 全在 allowlist。`AUTO_APPLY_ALLOWED_TARGETS`：`scripts/prompts/[a-z]+.md`、`assets/js/config.js`、`scripts/tier-b-domains.json`。`BLOCKED_TARGETS`：`.env`、`secrets/`、`firebase.json`、`firestore.rules`、`.github/workflows/deploy.yml`、`data/latest.json`、`data/index.json`。B-14 擋 `agents/_control/canaries.json`。
+
+### G. `scripts/agent/` 其他腳本（一行一檔）
+
+| 檔 | 用途 / 旗標 / 輸出 |
+|---|---|
+| `build-insights.mjs` | 語料 → `trends.json`、`candidates.json`、`recommendations.json`；`--window --out-dir --promote --self-test` |
+| `build-timeline.mjs` | `lib/trend-metrics.mjs` 每日頻次 → `timeline.json`；同上旗標 |
+| `build-roadmap-input.mjs` | timeline + trend-assessment → `roadmap-input.json`；`--timeline --trend --curation --clusters --out --promote --self-test` |
+| `build-brief-input.mjs` | 語料 + timeline + 兩份上游 → `brief-input.json`（`brief-input-v0.1`） |
+| `harvest-precedents.mjs` | 閘 1 降級紀錄 → 判例候選（`.preview/precedent-proposals/`） |
+| `build-current-state-manifest.mjs` / `build-system-status.mjs` | observer 09/10；`--out --root --self-test`、`--manifest --out --root --schema --self-test` |
+| `validate-system-status-schema.mjs`、`verify-dashboard-system-status.mjs`、`freshness-release-gate.mjs`、`build-review-packet.mjs` | 驗證 / 一致性 / 新鮮度閘 / 人審包；皆有 `--self-test`（verify-dashboard 無旗標） |
+| `promote.sh` | `.preview/` → `data/agent/` 人工晉升；`--apply --allow-degraded --window --root --self-test`；第 53 行 `NEVER_FILES="roadmap-input.json brief-input.json brief-input-7d.json agent-run-status.json current-state-manifest.json"` |
+| `lib/corpus.mjs` / `lib/lexicons.mjs` / `lib/trend-metrics.mjs` | 語料讀取（熱層 7 天、`~/.ai-news-hub/corpus/` 34 天）／六個固定 `cluster_id` 詞庫／決定論指標（刻意不消毒標題） |
+
+### H. `agents/<name>/` scaffold 與 `hermes.project.yaml`
+
+目錄：`.hermes/optimization-profile.json`、`AGENTS.md`、`<X>_RUBRIC.md`、`hermes.project.yaml`、`golden/{manifest.json, cases/C-0n.json, redteam/R-0n.json}`、`memory/{MEMORY.md, precedents.jsonl, principles.md}`、`skills/<skill>/SKILL.md`。三個現有 agent：`brief-writer`（high）、`tech-roadmap`（high）、`trend-analyst`（medium）。
+
+`hermes.project.yaml` 鍵樹（三個 agent 完全相同，只差值）：`project_id, display_name, role:"judgment-agent", risk_profile(medium|high), read_scope[], write_scope[]（=memory/precedents.jsonl）, deny_read_write_paths[]（.env, .env*, secrets/, **/*.key, **/credentials*, ../../data/agent/*.json, ../../data/latest.json, ../../data/index.json）, read_only_paths[], test_commands[], learning{mode:shadow, shared_learning:ranking_only, shared_ledger:false, decisions_ledger}, approval{high_risk:manual_only, publish:manual_only}, agent_outputs{assessment, precedents, learning_status}, allowed_autonomy{7 個 boolean，含 direct_skill_patch:false, tool_scope_change:false}, evidence{eval_commands, required_controls}, skills[]（skill-contract-v1）`。Root `hermes.project.yaml` 是專案級版本，無 `allowed_autonomy` / `evidence`。
+
+`golden/manifest.json`：`schema:"trend-golden-manifest-v0.1", manifest_version, analyst_version, rubric_version, expectation_semantics{13 key}, suites.cases / suites.redteam{gate:"hard", must_pass_ratio:1.0, fixtures[]}`；case 有 `hard/soft/evidence`，redteam 有 `vector/field/offline_must_survive/hard/note`。`precedents.jsonl` 每行 `{id:"P-nnn", date, situation, call, discriminator, rubric:"TR-n"}`。`.hermes/optimization-profile.json` 與 root 只差 `project_id, root, managed_targets.forbidden, tests, success_metrics`。
+
+### I. `data/agent/*.json` 頂層（不含 `.preview/`）
+
+| 檔 | 頂層 → 元素欄位 |
+|---|---|
+| `trends.json` | `generated_at, source_latest_date, profile_version, window_days, mode, advisory, production_write, schema_version, input_summary, clusters[]` → `cluster_id, title, score, score_breakdown, evidence_count, unique_item_count, financial_signal_rate, categories, sources, why_now, financial_implication, suggested_action, evidence` |
+| `timeline.json` | `metrics_schema, window{start,end,observed_days,missing_dates,continuity}, axis{dates,…}, totals, clusters[]` → `cluster_id, title, present_in_window, totals, series, delta, moving_average{ma7,ma30,ma90}, slope, source_concentration, syndication_evidence` |
+| `candidates.json` | `candidate_count, candidates[]` → `candidate_id, candidate_type, topic, category, status, score, scores, reason, why_now, research_questions, suggested_next_queries, evidence, boundary` |
+| `recommendations.json` | `recommendations[]` → `recommendation_id, cluster_id, priority, title, rationale, suggested_action, review_questions, evidence_urls` |
+| `trend-assessment.json` | `schema, rubric_version, analyst_version, assessments[], source, gate{…}, duration_ms, attempts, model, session_id` → `cluster_id, stage, confidence, syndication_call, headline_zh, scores, rationale, rubric_hits, security_flag` |
+| `roadmap.json` | 同上外殼，`roadmaps[]` → `cluster_id, trajectory, horizon, next_milestone, falsifier, watch_signals, blockers_ranked, confidence` |
+| `brief-latest.json` | `…, highlights[], omitted_note_zh, security_notice{detected,scope,note_zh}, gate{…}` → `highlight_id, headline_zh, body_zh, why_it_matters_zh, confidence, confidence_ceiling, evidence_ids, cluster_id` |
+| `proposals.json` | `proposal_count, proposals[]` → `proposal_id, created_at, proposal_type, status, target_files, rationale, expected_effect, risk, rollback, evidence, requires_human_review, advisory_only, production_applied`；單筆也在 `data/agent/proposals/prop-*.json` |
+| `metrics-history.jsonl`（Phase 2 新增，尚無） | 每晚每分類一行聚合數字，不含標題／URL |
+
+### J. `data/latest.json` 與 prompt marker
+
+- `latest.json` 頂層：`date, time, generated_at, source, data{cat: []}, stats, _updated_at, validation{total, verified, warnings, removed, pass_rate(數值)}`。一般分類項目：`title, date, url, verified, url_status, title_score, complete, verified_at`；papers 另有 `title_zh, field, impact, institution, venue, authors`；tutorials/models 有 `is_new, first_seen, last_seen` 且可能沒有 `verified/url_status`；models 用 `model_name/release_date` 代替 `title/date`；`is_backfill` 可能不存在。**指標程式必須容忍缺 key。**
+- `data/logs/validate-YYYY-MM-DD.json`：`date, dry_run, total_items, verified, warnings, removed, details, per_item_results`，沒有分類層。
+- `scripts/prompts/*.md` 10 檔各有兩個 HTML 註解區段：`<!-- SEARCH_QUERIES:BEGIN/END -->` 與 `<!-- PRIORITY:BEGIN/END -->`（`models.md` 是 PRIORITY 在前）；區段內容是自由 Markdown；目前沒有任何程式讀 marker，消費者留給 Phase 3 的 `apply-change.mjs`。
+- `PRIORITY_KEYWORDS`（`assets/js/config.js:130-149`）：`{latin[], cjk[], cjkPatterns[]}`；唯一消費者 `render.js:21-31` 的 `buildPriorityRegex`；自動優化只允許對三個陣列 add-only。
+
 ## 常用指令（部署後通常不需使用）
 
 | 指令 | 用途 | 何時用 |
