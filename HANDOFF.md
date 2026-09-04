@@ -16,7 +16,7 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 | 3 | `agents/change-evaluator/`、`apply-change.mjs`、`canary-check.mjs`、週報判例摘要 → Slack Iris 讀回 | 未開始 | — |
 | 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 未開始 | — |
 | 收尾 | CLAUDE.md 補 dashboard.js 載入順序、新步驟；狀態盤點表 | 未開始 | — |
-| S-PWR | 電池模式偵測與 17:50 電源提醒（方案 1 加 2，獨立施工單） | 已 commit 並 push；P-1／P-2／P-3 全做，plist 已裝、`launchctl list` 兩個 label 都在（使用者待辦：拔電源 kickstart 看通知，見 §3） | `62a9a65` |
+| S-PWR | 電池模式偵測與 17:50 電源提醒（方案 1 加 2，獨立施工單） | 已 commit 並 push；P-1／P-2／P-3 全做，plist 已裝、`launchctl list` 兩個 label 都在；拔電源 kickstart 通知已由使用者驗過（剩電池模式整跑，見 §3） | `62a9a65` |
 
 ## 1. 使用者已拍板的決策（不要再問）
 
@@ -45,7 +45,7 @@ S2-C 已在磁碟的檔案是前一個 session 寫的、沒驗過（S2-A 已驗�
 
 session prompt 固定寫：「先讀 HANDOFF.md §0–§2，只做 S-PWR，只讀 `docs/specs/setup-scheduler.md` 與 `docs/specs/data-formats.md`，做完 commit 並 push。」
 
-**狀態（2026-09-05）：已 commit `62a9a65` 並 push。** 三項都做了：P-1 `scripts/power-reminder.sh` + `setup-scheduler.sh` 裝第二個 plist（已跑過，`launchctl list | grep ainewshub` 兩個 label 都在；AC 下 kickstart 無通知、exit 0）；P-2 `run-daily.sh` 第 50 行後偵測 + health `power_source`（用假參數跑 HEALTH_PYEOF 區塊驗過：battery → `['電池模式執行（合蓋週期睡眠），5 類別回退']`，ac → 只留配額備註）；P-3 實際落點是 `assets/js/ui.js` `updateHeader()` 的 banner 區（`dashboard.js` 只渲染 agent 的 `artifact_health`，不碰 `data/health.json`），黃色橫幅「上次擷取：{errors[0]}」。**未做的驗收**：拔電源 kickstart 看通知、電池模式整跑 run-daily.sh（本 session 機器插著電，做不到，列在 §3 使用者待辦）。
+**狀態（2026-09-05）：已 commit `62a9a65` 並 push。** 三項都做了：P-1 `scripts/power-reminder.sh` + `setup-scheduler.sh` 裝第二個 plist（已跑過，`launchctl list | grep ainewshub` 兩個 label 都在；AC 下 kickstart 無通知、exit 0）；P-2 `run-daily.sh` 第 50 行後偵測 + health `power_source`（用假參數跑 HEALTH_PYEOF 區塊驗過：battery → `['電池模式執行（合蓋週期睡眠），5 類別回退']`，ac → 只留配額備註）；P-3 實際落點是 `assets/js/ui.js` `updateHeader()` 的 banner 區（`dashboard.js` 只渲染 agent 的 `artifact_health`，不碰 `data/health.json`），黃色橫幅「上次擷取：{errors[0]}」。拔電源 kickstart 通知已由使用者驗過（2026-09-05）。**未做的驗收**：電池模式整跑 run-daily.sh，列在 §3 使用者待辦。
 
 | 項目 | 要做的事 | 檔案 | 驗收 |
 |---|---|---|---|
@@ -77,7 +77,7 @@ Phase 3、4 的細節見上表（紀律見 CLAUDE.md「auto-opt 路線圖與工�
 |---|---|---|
 | 部署 Firestore rules（Phase 1） | `firebase deploy --only firestore:rules` | `pull-feedback.mjs` dry-run 回 403，帳本收不到 `human_rating` |
 | 網站登入 | 站上以 writer 帳號登入 | 按鈕只寫 localStorage，不會同步到 Firestore |
-| S-PWR 驗收（拔電源） | 拔電源後 `launchctl kickstart -k gui/$(id -u)/com.ainewshub.power-reminder` 應跳「18:00 擷取即將開始，請接電源」；之後任一晚電池模式跑完，`python3 -c "import json;h=json.load(open('data/health.json'));print(h['power_source'],h['errors'])"` 應印 `battery` 與回退備註 | 只是驗收，功能已裝好；不影響 AC 正常執行 |
+| S-PWR 驗收（電池模式整跑） | 拔電源 kickstart 通知已於 2026-09-05 由使用者驗過（有跳「18:00 擷取即將開始，請接電源」）。剩下：任一晚電池模式跑完，`python3 -c "import json;h=json.load(open('data/health.json'));print(h['power_source'],h['errors'])"` 應印 `battery` 與回退備註 | 只是驗收，功能已裝好；不影響 AC 正常執行 |
 | Phase 3 前填 Slack 設定 | `~/.config/ai-news-hub/slack.env`（webhook 或 bot token） | 週報無法送出；此檔永不入版控 |
 | **每天 18:00 前接電源**（合蓋與否皆可；2026-09-05 拍板，方案 1） | MacBook 接 AC | 電池＋合蓋時 macOS 每 17–36 分鐘只暗醒幾秒，`caffeinate` 擋不住；實測 08-30、09-04 兩次電池執行都跑 4–6 小時、7 類別只成功 2 個（AC 執行 25–28 分鐘、7/7 成功） |
 
