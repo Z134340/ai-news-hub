@@ -144,9 +144,26 @@ if ! git -C "$REPO_DIR" ls-remote origin HEAD > /dev/null 2>&1; then
 fi
 
 # ── Git pull ──
+# 2026-09-05 修正：原本 `git pull --rebase … 2>/dev/null` 把錯誤全部吞掉。2026-08-22 一次 rebase 衝突
+# 留下 .git/rebase-merge 殘留後，之後每天 pull 都靜默失敗，被後面的 fetch+soft-reset 遮住兩週沒人發現。
+# 現在：(1) 先清殘留的 rebase 狀態（用 --quit，不切分支、不動工作樹）；(2) rebase 失敗就 --abort 再退回 merge；
+# (3) merge 也失敗就 --abort；(4) 所有 git 輸出進 log（本檔 stdout/stderr 已導向 LOG_FILE）。
 log "Pulling latest changes..."
 cd "$REPO_DIR"
-git pull --rebase origin main 2>/dev/null || git pull origin main 2>/dev/null || log "WARNING: Git pull failed, continuing..."
+for _stale in rebase-merge rebase-apply; do
+    if [[ -d "$REPO_DIR/.git/$_stale" ]]; then
+        log "⚠️ 偵測到殘留的 .git/$_stale（先前 rebase 未完成），執行 git rebase --quit 清除"
+        git rebase --quit || log "⚠️ git rebase --quit 失敗，請手動檢查 .git/$_stale"
+    fi
+done
+if ! git pull --rebase origin main; then
+    log "⚠️ git pull --rebase 失敗，abort 後改用 merge"
+    git rebase --abort 2>/dev/null || true
+    if ! git pull --no-rebase origin main; then
+        git merge --abort 2>/dev/null || true
+        log "WARNING: Git pull failed (rebase 與 merge 皆失敗，已還原), continuing..."
+    fi
+fi
 
 # ── 星期判斷 & 分類排程 ──
 DOW=$(date +%u)  # 1=週一 7=週日

@@ -2,7 +2,10 @@ name: 每日健康檢查
 
 on:
   schedule:
-    - cron: '0 12 * * *'  # UTC 12:00 = Taiwan 20:00（擷取 18:00 起跑，L3 判讀預算 2100s，留餘裕避免誤判 missed）
+    # UTC 12:17 = 台灣 20:17。本機擷取 18:00 起跑，L3 判讀預算 2100s，留餘裕避免誤判 missed。
+    # 避開整點：GitHub 排程在整點壅塞時延遲更嚴重（實測 2026-08/09 延遲 3–9 小時，會跨台灣午夜）。
+    - cron: '17 12 * * *'
+  workflow_dispatch:  # 手動觸發，方便驗證邏輯
 
 permissions:
   contents: write
@@ -15,19 +18,30 @@ jobs:
 
       - name: Check today's data
         run: |
-          # Get today's date in Taiwan timezone
-          TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
-          echo "TODAY=$TODAY" >> $GITHUB_ENV
+          # 以台灣時間判斷「這次檢查對應哪一天的 18:00 擷取」（SLOT_DATE）。
+          # GitHub cron 常延遲數小時；若延遲到台灣午夜之後才跑，date 會變成隔天，
+          # 舊邏輯（latest.date == 今天）就會把「昨晚其實成功」誤判成 missed（2026-08-28、08-29、09-01、09-05 皆為此誤判）。
+          # 規則：台灣時間 < 20:00 → 這是延遲到隔天才跑的檢查，slot 是昨天；否則 slot 是今天。
+          NOW_TW=$(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')
+          HOUR_TW=$(TZ=Asia/Taipei date +%H)
+          if [ "$HOUR_TW" -lt 20 ]; then
+            SLOT_DATE=$(TZ=Asia/Taipei date -d 'yesterday' +%Y-%m-%d)
+          else
+            SLOT_DATE=$(TZ=Asia/Taipei date +%Y-%m-%d)
+          fi
+          echo "SLOT_DATE=$SLOT_DATE" >> $GITHUB_ENV
 
-          # Read latest.json date field
+          # 讀取 data/latest.json 的 date 欄位
           LATEST_DATE=$(python3 -c "import json,os; f='data/latest.json'; print(json.load(open(f)).get('date','') if os.path.exists(f) else '')" 2>/dev/null || echo "")
           echo "LATEST_DATE=$LATEST_DATE" >> $GITHUB_ENV
+          echo "台灣時間 $NOW_TW｜檢查 slot=$SLOT_DATE｜latest.json date=$LATEST_DATE"
 
-          if [ "$LATEST_DATE" = "$TODAY" ]; then
-            echo "✅ 本機已完成今日擷取"
+          # ISO 日期字串可直接比大小；latest 日期 >= slot 即視為該日擷取已完成
+          if [ -n "$LATEST_DATE" ] && [ "$(printf '%s\n%s\n' "$SLOT_DATE" "$LATEST_DATE" | sort | head -n1)" = "$SLOT_DATE" ]; then
+            echo "✅ 本機已完成 $SLOT_DATE 的擷取"
             echo "STATUS=success" >> $GITHUB_ENV
           else
-            echo "❌ 本機未完成今日擷取"
+            echo "❌ 本機未完成 $SLOT_DATE 的擷取"
             echo "STATUS=missed" >> $GITHUB_ENV
           fi
 
@@ -37,11 +51,9 @@ jobs:
           python3 << 'EOF'
           import json
           import os
-          from datetime import datetime
 
-          TODAY = os.environ.get('TODAY')
+          SLOT_DATE = os.environ.get('SLOT_DATE')
 
-          # Read current health data
           health_file = 'data/health.json'
           if os.path.exists(health_file):
             with open(health_file, 'r') as f:
@@ -55,27 +67,32 @@ jobs:
               "note": ""
             }
 
-          # Update health data
+          # 同一個 slot 已標記過（例如手動重跑）→ 不重複累加，也不產生新 commit
+          if health.get("last_missed") == SLOT_DATE and health.get("status") == "missed":
+            print(f"health.json 已標記 missed {SLOT_DATE}，略過")
+            raise SystemExit(0)
+
           health["status"] = "missed"
-          health["last_missed"] = TODAY
+          health["last_missed"] = SLOT_DATE
           health["consecutive_failures"] = health.get("consecutive_failures", 0) + 1
           health["note"] = "本機排程未執行，等待電腦上線後自動補跑"
 
-          # Write updated health data
           with open(health_file, 'w') as f:
             json.dump(health, f, indent=2, ensure_ascii=False)
+            f.write("\n")
 
-          print(f"Updated health.json: status=missed, consecutive_failures={health['consecutive_failures']}")
+          print(f"Updated health.json: status=missed, last_missed={SLOT_DATE}, consecutive_failures={health['consecutive_failures']}")
           EOF
 
       - name: Commit changes
         if: env.STATUS == 'missed'
         run: |
+          if git diff --quiet -- data/health.json; then
+            echo "health.json 無變更，不 commit"
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add data/health.json
-
-          COMMIT_MSG="🔴 Health check: missed ${{ env.TODAY }}"
-          git commit -m "$COMMIT_MSG"
+          git commit -m "🔴 Health check: missed ${{ env.SLOT_DATE }}"
           git push

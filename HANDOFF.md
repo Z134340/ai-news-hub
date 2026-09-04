@@ -75,6 +75,7 @@ Phase 3、4 的細節見上表（紀律見 CLAUDE.md「auto-opt 路線圖與工�
 - 已取消的評分不會傳到帳本（Phase 1 已知限制，非 bug）。
 - `Hermes-Agent/Hermes-auto-optimization-manual.spec.json` 標記 confidential，不得引用到公開產物。
 - **「commit 不 push」在本 repo 只能撐到當晚 18:00，因此 2026-09-05 起改為 commit 完立刻 push（決策 7）。** `run-daily.sh` 第 701–728 行每晚 `git fetch` → `git reset --soft origin/main` → `git add data/` → commit → `git push origin main`：所有未 push 的本機 commit 會被折進當晚的「📰 AI News」commit 一起推上公開 repo（2026-09-04 已實際發生：`8e75a91`、`8a2d97a`、`fb16719` 三個 commit 折進 `e0f71a4`）。舊決策「push 只在使用者明講時」只對「當天 18:00 之前」成立，已作廢；HANDOFF 記的 hash 隔天可能已作廢，要用 `git diff <hash> HEAD -- <檔案>` 核對內容而不是找 hash。是否改 `run-daily.sh`（例如只 push data/ 的 commit、或改成先 `git rebase` 再 commit）由使用者拍板，不屬任何 Phase。
+- **GitHub「🔴 Health check: missed」commit 多數是誤判，不代表本機沒跑。** 2026-09-05 前 `health-check.yml` 用「latest.date == 台灣今天」判斷，但 GitHub cron 實測延遲 3–9 小時，跨台灣午夜後「今天」變隔天就誤判（08-28／08-29／09-01／09-05 四次皆誤判）。已改為以 SLOT_DATE（台灣時間 < 20:00 視為前一天的 slot）比較 `latest.date >= SLOT_DATE`，並加 `workflow_dispatch`。看到 missed 先對 `data/logs/<日期>.log` 的「推送成功」時間，再決定要不要補跑。同一次修正也把 `run-daily.sh` 的 `git pull --rebase … 2>/dev/null` 改成會清 `.git/rebase-merge` 殘留、失敗即 abort、錯誤進 log（2026-08-22 起殘留兩週沒人發現）。
 
 ## 5. 低 context 工作法（在本專案強制）
 
