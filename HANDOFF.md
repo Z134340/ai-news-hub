@@ -25,11 +25,11 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）與 Phase 2-B（2-3，commit `e43a54
 4. 新網域走 Tier B、只增不減，清單放 `scripts/tier-b-domains.json`；`agents/_control/**` 刻意**不**列入 auto-apply allowlist。
 5. 自動套用上限：每週 3 件、每分類 1 件、canary 3 晚、指標掉超過 10 個百分點即回退；先照這組數字跑一個月，再用 `data/agent/metrics-history.jsonl` 實際波動調整；數字只放 `agents/_control/canaries.json`，改數字不能需要改程式。
 6. 模型步驟一律 pop `ANTHROPIC_API_KEY`、`--allowedTools ""`、`--permission-mode plan`，用既有訂閱，不引入額外計費。
-7. 每個 Phase 各自 commit（trailer `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`），**push 只在使用者明講時**。
+7. 每個 Phase 各自 commit（trailer `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`），**commit 完立刻 push**（2026-09-05 使用者拍板；原「push 只在使用者明講時」作廢，原因見 §4 最後一條）。
 
 ## 2. Phase 2 施工單（拆成 4 個 session，每個 session 只做一列、只讀一份 shape 檔）
 
-Phase 2 原本一個 session 做完會連續 compact（實測 14 次），所以拆成 4 個。**每個 session 開頭的 prompt 固定寫：「先讀 HANDOFF.md §0–§2，只做 S2-X，只讀它指定的那份 docs/shapes 檔，做完 commit 不 push。」** 做完一列就把「磁碟現況」欄改成「已 commit `<hash>`」，再開下一個 session。
+Phase 2 原本一個 session 做完會連續 compact（實測 14 次），所以拆成 4 個。**每個 session 開頭的 prompt 固定寫：「先讀 HANDOFF.md §0–§2，只做 S2-X，只讀它指定的那份 docs/shapes 檔，做完 commit 並 push。」** 做完一列就把「磁碟現況」欄改成「已 commit `<hash>`」，再開下一個 session。
 
 | Session | 對應項目 | 磁碟現況（2026-09-04） | 唯一要讀的 shape 檔 | 驗收（做完才 commit） |
 |---|---|---|---|---|
@@ -74,7 +74,7 @@ Phase 3、4 的細節見上表（紀律見 CLAUDE.md「auto-opt 路線圖與工�
 - `hermes.project.yaml` 內 `deny_read_write_paths`、`approval.*: manual_only`、`direct_skill_patch:false`、`tool_scope_change:false` 是契約，不放寬。
 - 已取消的評分不會傳到帳本（Phase 1 已知限制，非 bug）。
 - `Hermes-Agent/Hermes-auto-optimization-manual.spec.json` 標記 confidential，不得引用到公開產物。
-- **「commit 不 push」在本 repo 只能撐到當晚 18:00。** `run-daily.sh` 第 701–728 行每晚 `git fetch` → `git reset --soft origin/main` → `git add data/` → commit → `git push origin main`：所有未 push 的本機 commit 會被折進當晚的「📰 AI News」commit 一起推上公開 repo（2026-09-04 已實際發生：`8e75a91`、`8a2d97a`、`fb16719` 三個 commit 折進 `e0f71a4`）。決策 7「push 只在使用者明講時」目前只對「當天 18:00 之前」成立；HANDOFF 記的 hash 隔天可能已作廢，要用 `git diff <hash> HEAD -- <檔案>` 核對內容而不是找 hash。是否改 `run-daily.sh`（例如只 push data/ 的 commit、或改成先 `git rebase` 再 commit）由使用者拍板，不屬任何 Phase。
+- **「commit 不 push」在本 repo 只能撐到當晚 18:00，因此 2026-09-05 起改為 commit 完立刻 push（決策 7）。** `run-daily.sh` 第 701–728 行每晚 `git fetch` → `git reset --soft origin/main` → `git add data/` → commit → `git push origin main`：所有未 push 的本機 commit 會被折進當晚的「📰 AI News」commit 一起推上公開 repo（2026-09-04 已實際發生：`8e75a91`、`8a2d97a`、`fb16719` 三個 commit 折進 `e0f71a4`）。舊決策「push 只在使用者明講時」只對「當天 18:00 之前」成立，已作廢；HANDOFF 記的 hash 隔天可能已作廢，要用 `git diff <hash> HEAD -- <檔案>` 核對內容而不是找 hash。是否改 `run-daily.sh`（例如只 push data/ 的 commit、或改成先 `git rebase` 再 commit）由使用者拍板，不屬任何 Phase。
 
 ## 5. 低 context 工作法（在本專案強制）
 
