@@ -121,6 +121,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
              "$AGENT_SCRIPTS/build-brief-input.mjs" \
              "$AGENT_SCRIPTS/harvest-precedents.mjs" \
              "$AGENT_SCRIPTS/pull-feedback.mjs" \
+             "$AGENT_SCRIPTS/build-category-metrics.mjs" \
              "$SCRIPTS_DIR/newshub_agents.py" \
              "$SCRIPTS_DIR/newshub_roadmap.py" \
              "$SCRIPTS_DIR/newshub_brief.py"; do
@@ -170,6 +171,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
     node "$AGENT_SCRIPTS/build-review-packet.mjs" --self-test >/dev/null 2>&1
     chk "S-6h review packet candidate／diff／report hashes 與 exact decision contract 全綠" $?
     node "$AGENT_SCRIPTS/pull-feedback.mjs" --self-test >/dev/null 2>&1; chk "S-6i pull-feedback 自測（env 解析／游標去重／去敏）" $?
+    node "$AGENT_SCRIPTS/build-category-metrics.mjs" --self-test >/dev/null 2>&1; chk "S-6j build-category-metrics 自測（key 白名單去敏／同日冪等／缺 key 不 crash）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -375,6 +377,9 @@ model_timeout() {
 # 所以一律用 ${arr[@]+"${arr[@]}"} 這個寫法（陣列未設定時整段消失）。
 MODEL_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && MODEL_EXTRA=(--print-prompt)
+# 00b 指標步驟唯一會寫到 .preview/ 之外（data/agent/metrics-history.jsonl）的確定性步驟：dry-run 時只印不落地。
+METRICS_EXTRA=()
+[[ $DRY_RUN -eq 1 ]] && METRICS_EXTRA=(--dry-run)
 
 # AGENT_MODEL 是給演練用的：故意填一個不存在的模型名，就能重現「判讀層整片掛掉、
 # 主管線照樣完成擷取與推送」的情境。日常不設，三支 runner 各自用內建預設模型。
@@ -389,6 +394,9 @@ cd "$REPO_DIR" || { log "❌ 進不去 $REPO_DIR"; exit 1; }
 # 1-2 是確定性程式（不呼叫模型），3/5/7 是模型判讀，4/6 是把上游判讀組成下一層的輸入。
 # ── 00：把前端 好/中/不好 回饋從 Firestore 讀回本機帳本（archiver.env 不存在時靜默跳過；失敗不阻斷判讀）──
 run_step "00-pull-feedback" node "$AGENT_SCRIPTS/pull-feedback.mjs"
+FAILED_STEP=""
+# ── 00b：每晚每分類聚合指標 append 到 data/agent/metrics-history.jsonl（只寫數字不寫標題／URL；同日冪等；失敗不阻斷判讀）──
+run_step "00b-category-metrics" node "$AGENT_SCRIPTS/build-category-metrics.mjs" ${METRICS_EXTRA[@]+"${METRICS_EXTRA[@]}"}
 FAILED_STEP=""
 run_step "01-insights"      node "$AGENT_SCRIPTS/build-insights.mjs" --window "$INSIGHTS_WINDOW"
 run_step "02-timeline"      node "$AGENT_SCRIPTS/build-timeline.mjs" --window "$TIMELINE_WINDOW"
