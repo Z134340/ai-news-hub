@@ -40,6 +40,19 @@ Phase 2 原本一個 session 做完會連續 compact（實測 14 次），所以
 
 S2-C 已在磁碟的檔案是前一個 session 寫的、沒驗過（S2-A 已驗收並 commit）：**先跑驗收指令，過了才 commit，不過就修，不要重寫。** 2-8 的單一「Phase 2」commit 改為四個 commit，trailer 不變。
 
+### 獨立施工單 S-PWR：電池模式偵測與提醒（2026-09-05 拍板「方案 1 加 2」；不屬 Phase 2，不混進 S2-C）
+
+session prompt 固定寫：「先讀 HANDOFF.md §0–§2，只做 S-PWR，只讀 `docs/specs/setup-scheduler.md` 與 `docs/specs/data-formats.md`，做完 commit 並 push。」
+
+| 項目 | 要做的事 | 檔案 | 驗收 |
+|---|---|---|---|
+| P-1 17:50 提醒 | 新增 launchd 工作 `com.ainewshub.power-reminder`（StartCalendarInterval 17:50），執行 `scripts/power-reminder.sh`：`pmset -g batt` 第一行不含 `AC Power` 就 `osascript -e 'display notification "18:00 擷取即將開始，請接電源" with title "AI News Hub"'`；AC 時不動作。plist 由 `scripts/setup-scheduler.sh` 一併安裝（照現有 `com.ainewshub.daily` 寫法，PATH 自帶 `/opt/homebrew/bin`） | `scripts/power-reminder.sh`（新）、`scripts/setup-scheduler.sh`、`~/Library/LaunchAgents/com.ainewshub.power-reminder.plist`（不入版控，由 setup 產生） | 拔電源 `launchctl kickstart -k gui/$(id -u)/com.ainewshub.power-reminder` 出現通知；接電源再 kickstart 無通知；`launchctl list \| grep ainewshub` 兩個 label 都在 |
+| P-2 起跑標記 | `run-daily.sh` 第 44 行 caffeinate 段之後：`pmset -g batt` 判斷電源，電池模式時 `log "⚠️ 電池模式執行：macOS 合蓋會週期性睡眠，擷取可能逾時回退"`，並設 `POWER_SOURCE=battery`；最終 health 寫入（第 685–697 行 `health = {...}`）加欄位 `"power_source": "ac"\|"battery"`，電池模式時 `errors` 追加一筆「電池模式執行（合蓋週期睡眠），N 類別回退」。`docs/specs/data-formats.md` 的 health.json 範例同步加 `power_source` | `scripts/run-daily.sh`、`docs/specs/data-formats.md` | `bash -n` 通過；拔電源手動跑 `scripts/run-daily.sh`（可用 `/fetch` 單類別）後 `python3 -c "import json;h=json.load(open('data/health.json'));print(h['power_source'],h['errors'])"` 顯示 battery 與該筆 errors；接電源跑則 `ac` 且無該筆 |
+| P-3 前端顯示（可選） | 先 `grep -n "health" assets/js/dashboard.js` 確認目前是否已渲染 `health.errors`；有就不動，沒有才在健康指標旁加一行顯示 `errors[0]`（純文字，不用 emoji，icon 用 svg） | `assets/js/dashboard.js`、`docs/specs/frontend-ux.md` | 本機開 `index.html`，health.json 手動塞一筆 errors 能看到；還原後看不到 |
+
+紅線：不改 `pmset -b sleep`（合蓋仍會睡且耗電）；不引入方案 3 的補跑排程；`power_source` 只放 `ac`／`battery` 兩個值，不放電量。
+背景數據（2026-09-05 查 `pmset -g log`）：08-30 電池 98% 跑 6h12m、2/7 成功；09-04 電池 78% 跑 4h15m、2/7 成功；09-01、09-03 AC 跑 25–28 分鐘、7/7 成功。
+
 ### 2-1～2-8 明細（原施工單，內容不變，供各 session 查規格）
 
 | # | 工作項目 | 驗收條件 |
@@ -62,7 +75,7 @@ Phase 3、4 的細節見上表（紀律見 CLAUDE.md「auto-opt 路線圖與工�
 | 部署 Firestore rules（Phase 1） | `firebase deploy --only firestore:rules` | `pull-feedback.mjs` dry-run 回 403，帳本收不到 `human_rating` |
 | 網站登入 | 站上以 writer 帳號登入 | 按鈕只寫 localStorage，不會同步到 Firestore |
 | Phase 3 前填 Slack 設定 | `~/.config/ai-news-hub/slack.env`（webhook 或 bot token） | 週報無法送出；此檔永不入版控 |
-| push | `git push` | 目前三個 commit 只在本機 |
+| **每天 18:00 前接電源**（合蓋與否皆可；2026-09-05 拍板，方案 1） | MacBook 接 AC | 電池＋合蓋時 macOS 每 17–36 分鐘只暗醒幾秒，`caffeinate` 擋不住；實測 08-30、09-04 兩次電池執行都跑 4–6 小時、7 類別只成功 2 個（AC 執行 25–28 分鐘、7/7 成功） |
 
 ## 4. 勿動 / 勿誤判
 
