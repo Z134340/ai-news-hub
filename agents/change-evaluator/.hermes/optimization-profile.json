@@ -1,0 +1,44 @@
+{
+  "schema": "hermes-project-optimization-profile/v1",
+  "project_id": "changeevaluator",
+  "root": "/Users/zyc/ai-news-hub/agents/change-evaluator",
+  "runtime_identity": "claude -p, ANTHROPIC_API_KEY popped, --allowedTools \"\", --permission-mode plan",
+  "managed_targets": {
+    "allowlist": [],
+    "forbidden": [
+      ".git/**",
+      ".env*",
+      "**/credentials/**",
+      "**/secrets/**",
+      "AGENTS.md",
+      "*RUBRIC*.md",
+      "hermes.project.yaml",
+      "skills/**",
+      "memory/**",
+      "golden/**"
+    ]
+  },
+  "tests": [
+    { "id": "build-input-selftest", "argv": ["node", "../../scripts/agent/build-change-eval-input.mjs", "--self-test"] },
+    { "id": "promote-selftest", "argv": ["bash", "../../scripts/agent/promote.sh", "--self-test"] }
+  ],
+  "success_metrics": [
+    "golden suites.cases must_pass_ratio 1.0",
+    "golden suites.redteam offline_must_survive 全數成立",
+    "verdicts 的 proposal_id 集合與輸入 proposals 完全相等"
+  ],
+  "canary": "由 scripts/agent/canary-check.mjs（S3-D）以 agents/_control/canaries.json 的 canary_nights／revert_drop_pp 觀察；本代理人不自行設定夜數",
+  "rollback": "accept 的變更由 apply-change.mjs 快照還原；本代理人的 rubric／skills 改動用 git revert",
+  "data_sensitivity": "internal",
+  "owner": { "id": "ZY", "iris_owner_gate_for_manual_items": true },
+  "manual_only": true,
+  "execution": {
+    "allowed_models": ["gpt-5.5", "claude-opus-5"],
+    "allowed_tools": [],
+    "max_parallelism": 1
+  },
+  "automation": {
+    "mode": "shadow_only",
+    "allowed_change_types": []
+  }
+}

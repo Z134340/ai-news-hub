@@ -50,7 +50,7 @@ TIMELINE_WINDOW="${AGENT_TIMELINE_WINDOW:-90}"
 COPY_FILES="trend-assessment.json roadmap.json brief-latest.json"
 # 永不上線的封鎖名單。roadmap-input 含完整理由文字、brief-input* 含原始語料、
 # agent-run-status 與 current-state-manifest 是內部控制證據，永不公開。
-NEVER_FILES="roadmap-input.json brief-input.json brief-input-7d.json agent-run-status.json current-state-manifest.json search-review-input.json"
+NEVER_FILES="roadmap-input.json brief-input.json brief-input-7d.json agent-run-status.json current-state-manifest.json search-review-input.json change-eval-input.json"
 # brief-latest-7d 前端未讀；system-status 雖已有 public UI consumer，但這支內容晉升
 # 腳本不會自行發布狀態，只把 .preview/system-status 當 freshness gate 輸入。兩者都
 # 不屬於本腳本的 copy/rebuild 集合；狀態發布仍須走 Owner-controlled 流程。
