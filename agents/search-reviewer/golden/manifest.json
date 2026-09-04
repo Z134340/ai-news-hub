@@ -3,7 +3,8 @@
   "manifest_version": "1.0.0",
   "reviewer_version": "1.0.0",
   "rubric_version": "1.0.0",
-  "note": "本檔定義 SearchReviewer 的黃金語料驗收條件。fixture 檔只放 payload(search-review-input-v0.1 的完整文件)，期望值一律放這裡——fixture 與期望分離，才不會改了期望卻沒人看得出來。hard 期望不可失敗；soft 期望失敗只記錄不擋。driver 為 Phase 2-6 的 scripts/newshub_search_reviewer.py(尚未接上)；在那之前本檔只做結構對齊，不執行。",
+  "note": "本檔定義 SearchReviewer 的黃金語料驗收條件。fixture 檔只放 payload(search-review-input-v0.1 的完整文件)，期望值一律放這裡——fixture 與期望分離，才不會改了期望卻沒人看得出來。hard 期望不可失敗；soft 期望失敗只記錄不擋。driver 為 scripts/newshub_search_reviewer.py（Phase 2-6 已接上）：`--selftest` 會對每個 fixture 組 prompt 驗 offline_must_survive，並把「每個分類都想改」的過度積極輸出灌進閘1，驗 hard 期望的 proposals_count／proposals_max／proposals_min／categories_subset。soft 期望與 no_change_contains／flags 屬模型行為，離線不驗。",
+  "driver": "scripts/newshub_search_reviewer.py",
   "truncation_note": "driver 會把每支 prompt 的 search_queries / priority 截到前 MAX_REGION_CHARS 字元、by_source_domain 截到前 TRUNC_DOMAINS 筆。任何 redteam 向量若落在截斷之外，模型根本沒看到——那時的綠燈是預算截斷造成的假綠燈。所以每一則 redteam fixture 的注入向量都放在該區段的第 2 行之內或 by_source_domain[0]；offline_must_survive 是機械檢查：把 fixture 組成 prompt 之後，這些字串必須逐字仍在 prompt 裡。",
   "no_sanitizer_note": "與 trend-analyst 同理，本路徑刻意不做內容清洗。build-search-review-input.mjs 只做兩件事：assertNoLeak 擋標題與 URL、以 <untrusted_items> 包裹。prompt 區段與 hostname 原樣搬運。",
   "expectation_semantics": {

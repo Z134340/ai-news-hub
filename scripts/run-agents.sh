@@ -122,16 +122,18 @@ if [[ $SELF_TEST -eq 1 ]]; then
              "$AGENT_SCRIPTS/harvest-precedents.mjs" \
              "$AGENT_SCRIPTS/pull-feedback.mjs" \
              "$AGENT_SCRIPTS/build-category-metrics.mjs" \
+             "$AGENT_SCRIPTS/build-search-review-input.mjs" \
              "$SCRIPTS_DIR/newshub_agents.py" \
              "$SCRIPTS_DIR/newshub_roadmap.py" \
-             "$SCRIPTS_DIR/newshub_brief.py"; do
+             "$SCRIPTS_DIR/newshub_brief.py" \
+             "$SCRIPTS_DIR/newshub_search_reviewer.py"; do
         [[ -f "$f" ]]; chk "S-1 執行檔存在：${f#$REPO_DIR/}" $?
     done
 
     # S-2 任何一個步驟的呼叫都不得帶晉升旗標：一旦帶了，產物會落到 data/agent/
     #     而被 run-daily.sh 的 `git add data/` 直接推上公開 repo。
     #     只檢查 run_*_step 開頭的實際呼叫行，上面註解提到旗標名不算違規。
-    #     （模型步驟改走 run_model_step 之後，這個 pattern 一定要一起改，否則三支模型
+    #     （模型步驟改走 run_model_step 之後，這個 pattern 一定要一起改，否則四支模型
     #      步驟會從所有發布安全檢查中憑空消失——S-8 就是釘住這件事的。）
     STEP_CALLS='^run_(step|model_step|observer_step) '
     ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--promote"
@@ -145,7 +147,9 @@ if [[ $SELF_TEST -eq 1 ]]; then
     # S-4 所有輸出路徑都在 .preview/ 底下
     [[ "$STATUS_FILE" == "$PREVIEW_DIR"/* ]]; chk "S-4 狀態檔落在 .preview/ 底下" $?
 
-    # S-5 預算配置必須容得下三個模型步驟，否則第三步注定被預算砍掉
+    # S-5 預算配置必須容得下四個模型步驟（03/05/07/08b），否則最後一步注定被預算砍掉。
+    #     乘數維持 ×5：4 步各 420s = 1680s，餘 420s 給確定性步驟；改 ×6 會要求 2520s，
+    #     超過 launchd 給判讀層的 2100s 預算。08b 排在最後，預算吃緊時 model_timeout 會先縮它。
     [[ $BUDGET_SEC -ge $(( MODEL_STEP_TIMEOUT * 5 )) ]]
     chk "S-5 預算 ${BUDGET_SEC}s ≥ 5×單步上限 $(( MODEL_STEP_TIMEOUT * 5 ))s" $?
 
@@ -172,17 +176,19 @@ if [[ $SELF_TEST -eq 1 ]]; then
     chk "S-6h review packet candidate／diff／report hashes 與 exact decision contract 全綠" $?
     node "$AGENT_SCRIPTS/pull-feedback.mjs" --self-test >/dev/null 2>&1; chk "S-6i pull-feedback 自測（env 解析／游標去重／去敏）" $?
     node "$AGENT_SCRIPTS/build-category-metrics.mjs" --self-test >/dev/null 2>&1; chk "S-6j build-category-metrics 自測（key 白名單去敏／同日冪等／缺 key 不 crash）" $?
+    node "$AGENT_SCRIPTS/build-search-review-input.mjs" --self-test >/dev/null 2>&1; chk "S-6k build-search-review-input 自測（無標題／URL 洩漏、區段截取）" $?
+    python3 "$SCRIPTS_DIR/newshub_search_reviewer.py" --selftest >/dev/null 2>&1; chk "S-6l newshub_search_reviewer 自測（閘1 只丟不補寫、golden／redteam 語料）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
 
-    # S-8 三支會寫出 fail_open 空殼的模型步驟，必須全部走 run_model_step（才有快照保護），
+    # S-8 四支會寫出 fail_open 空殼的模型步驟，必須全部走 run_model_step（才有快照保護），
     #     而且保護的檔名要跟它們實際寫出的產物一致。少一個或打錯字，防護等於沒裝，
     #     但腳本照樣全綠——所以把 DAG 的實際呼叫行抓出來對答案。
     guarded="$(grep -E '^run_model_step ' "$0" | awk '{print $3}' | tr -d '"' | sort | tr '\n' ' ')"
-    [[ "$guarded" == "brief-latest.json roadmap.json trend-assessment.json " ]]
-    chk "S-8 三支模型產物都有快照保護（實得：${guarded:-無}）" $?
-    ! grep -E '^run_step ' "$0" | grep -qE 'newshub_(agents|roadmap|brief)\.py'
+    [[ "$guarded" == "brief-latest.json roadmap.json search-review.json trend-assessment.json " ]]
+    chk "S-8 四支模型產物都有快照保護（實得：${guarded:-無}）" $?
+    ! grep -E '^run_step ' "$0" | grep -qE 'newshub_(agents|roadmap|brief|search_reviewer)\.py'
     chk "S-8b 沒有模型 runner 從沒保護的 run_step 溜過去" $?
     grep -qE '^run_observer_step "09-current-state-manifest" node "\$AGENT_SCRIPTS/build-current-state-manifest\.mjs"$' "$0"
     chk "S-8c current-state manifest 已接入不受上游阻擋的 observer step" $?
@@ -412,6 +418,14 @@ HARVEST_BLOCKER="$FAILED_STEP"
 FAILED_STEP=""
 run_step "08-precedents"    node "$AGENT_SCRIPTS/harvest-precedents.mjs"
 [[ -z "$FAILED_STEP" ]] && FAILED_STEP="$HARVEST_BLOCKER"
+
+# ── Phase 2-7：搜尋策略審查。輸入只有數字與 prompt 區段（無標題／URL），提案只落 .preview/
+#    且一律 pending_review，永不自動套用。同樣不受 03/05/07 失敗阻擋：指標是 00b 寫的，跟判讀層無關。──
+SEARCH_REVIEW_BLOCKER="$FAILED_STEP"
+FAILED_STEP=""
+run_step "08a-search-review-input" node "$AGENT_SCRIPTS/build-search-review-input.mjs"
+run_model_step "08b-search-review" search-review.json python3 "$SCRIPTS_DIR/newshub_search_reviewer.py" --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
+[[ -z "$FAILED_STEP" ]] && FAILED_STEP="$SEARCH_REVIEW_BLOCKER"
 
 # ── ANH-001：最後盤點 current state。只寫 .preview，不受上游失敗與模型預算阻擋。──
 run_observer_step "09-current-state-manifest" node "$AGENT_SCRIPTS/build-current-state-manifest.mjs"

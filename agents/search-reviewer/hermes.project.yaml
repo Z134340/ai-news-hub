@@ -51,10 +51,10 @@ read_only_paths: []
 
 # 工作目錄為本 adapter 所在目錄(agents/search-reviewer/)，故 repo 根在 ../../。
 # 退出碼：0=通過。兩支都不呼叫模型、$0。
-# Phase 2-6 接上 scripts/newshub_search_reviewer.py 後，在此追加 "--selftest"。
 test_commands:
   - "node ../../scripts/agent/build-search-review-input.mjs --self-test"   # 0 輸入組裝 + 無標題/URL 洩漏
   - "bash ../../scripts/agent/promote.sh --self-test"                      # 0 search-review-input.json 在 NEVER_FILES
+  - "python3 ../../scripts/newshub_search_reviewer.py --selftest"          # 0 閘1 只丟不補寫 + golden／redteam 語料離線驗收
 
 learning:
   mode: shadow
