@@ -1,18 +1,18 @@
 # HANDOFF.md — 交接狀態（2026-09-04：auto-opt 自我強化迴圈）
 
-> **新 session 先讀這份，再讀 CLAUDE.md 的「檔案 shape 速查」。不要重讀整個檔案，不要再 `/compact` 舊 session。**
-> 舊 session `專案檔案討論` 已連續 14 次 compact 後失效，原因是每次摘要都遺失檔案 shape，導致重複整檔讀取。shape 已固化進 CLAUDE.md，本檔只記「做到哪、接下來做什麼、什麼不能碰」。
+> **新 session 先讀這份 §0–§2，再只讀 §2 你那個 session 指定的那一份 `docs/shapes/*.md`。不要整檔讀，不要 `/compact`；context 滿了就更新本檔後 `/clear`。**
+> 舊 session `專案檔案討論` 已連續 14 次 compact 後失效，原因是每次摘要都遺失檔案 shape，導致重複整檔讀取。shape 已固化進 `docs/shapes/`（每檔 1–3 KB，索引在 `docs/shapes/README.md`），規範拆到 `docs/specs/`，CLAUDE.md 只剩 5 KB 索引。本檔只記「做到哪、接下來做什麼、什麼不能碰」。
 
 ## 0. 一句話現況
 
-Phase 0 與 Phase 1 已 commit（未 push）；Phase 2 只完成調查、**一個檔案都還沒寫**；工作樹乾淨在 `4a67b37`。
+Phase 0、Phase 1 與 Phase 2-A（2-1、2-2）已 commit（未 push）；2-5 已在磁碟（尚未 commit），2-3、2-4、2-6、2-7 未動工；`data/agent/metrics-history.jsonl` 已由手動驗收產出 10 行（2026-09-04）留在工作樹未追蹤，S2-B 接線後由每晚流程產出；2026-09-04 另有一個 commit 把 CLAUDE.md 拆成 `docs/specs/` + `docs/shapes/` 並封鎖 `json.tool`／`cat data/*.json`。工作樹另有 `data/*.json` 的每日更新差異（run-daily.sh 產物，不是任何 Phase 的東西，不要手動 commit，也不要 checkout 掉）。
 
 | Phase | 內容 | 狀態 | Commit |
 |---|---|---|---|
 | tag `pre-auto-opt` | Phase 0 之前的基線 | 已打 tag | `8338bc0` |
 | 0 | `PRIORITY_KEYWORDS` 資料化、10 個 prompt 加 marker region、contract v2、`run-agents.sh` 預算 2100（S-5 ×5）、`health-check.yml` 改 UTC 12:00、`run-daily.sh` 補入項目標 `is_backfill` | 已完成 | `c4951fc` |
 | 1 | 前端 好/中/不好 按鈕 → localStorage `ainews-fb` → Firestore `feedback/{uid}_{key}` → `pull-feedback.mjs` → 帳本 `human_rating` → `replay-learning.mjs` 聚合成 `learning_summary.human_ratings`；`run-agents.sh` step 00 非阻塞 + S-6i | 已完成（使用者手動項見 §3） | `4a67b37` |
-| 2 | `agents/_control/canaries.json`、`build-category-metrics.mjs` → `data/agent/metrics-history.jsonl`、`agents/search-reviewer/` + `newshub_search_reviewer.py` 第四個模型步驟 | **調查完成，未動工** | — |
+| 2 | 拆成 4 個 session（見 §2）：S2-A canaries + metrics；S2-B run-agents 接線；S2-C search-reviewer scaffold + input；S2-D `newshub_search_reviewer.py` + 08b 接線 | **S2-A 已 commit `8a2d97a`；S2-C 的 2-5 已在磁碟；S2-B、S2-D 未動工** | S2-A `8a2d97a` |
 | 3 | `agents/change-evaluator/`、`apply-change.mjs`、`canary-check.mjs`、週報判例摘要 → Slack Iris 讀回 | 未開始 | — |
 | 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 未開始 | — |
 | 收尾 | CLAUDE.md 補 dashboard.js 載入順序、新步驟；狀態盤點表 | 未開始 | — |
@@ -27,7 +27,20 @@ Phase 0 與 Phase 1 已 commit（未 push）；Phase 2 只完成調查、**一�
 6. 模型步驟一律 pop `ANTHROPIC_API_KEY`、`--allowedTools ""`、`--permission-mode plan`，用既有訂閱，不引入額外計費。
 7. 每個 Phase 各自 commit（trailer `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`），**push 只在使用者明講時**。
 
-## 2. Phase 2 施工單（下一個 session 直接照做）
+## 2. Phase 2 施工單（拆成 4 個 session，每個 session 只做一列、只讀一份 shape 檔）
+
+Phase 2 原本一個 session 做完會連續 compact（實測 14 次），所以拆成 4 個。**每個 session 開頭的 prompt 固定寫：「先讀 HANDOFF.md §0–§2，只做 S2-X，只讀它指定的那份 docs/shapes 檔，做完 commit 不 push。」** 做完一列就把「磁碟現況」欄改成「已 commit `<hash>`」，再開下一個 session。
+
+| Session | 對應項目 | 磁碟現況（2026-09-04） | 唯一要讀的 shape 檔 | 驗收（做完才 commit） |
+|---|---|---|---|---|
+| S2-A | 2-1 `agents/_control/canaries.json`；2-2 `scripts/agent/build-category-metrics.mjs` → `data/agent/metrics-history.jsonl` | 已 commit `8a2d97a`（2026-09-04；驗收全過：self-test T-1..T-19、dry-run 不落地、同日兩次皆 10 行、http 計數 0） | `docs/shapes/data-agent-json.md` | `node scripts/agent/build-category-metrics.mjs --self-test` 通過；`--dry-run` 不落地；同日再跑一次 jsonl 行數不變；`grep -c 'http' data/agent/metrics-history.jsonl` 為 0；commit「Phase 2-A」 |
+| S2-B | 2-3 `run-agents.sh` 加 `00b-category-metrics`（非阻塞）、S-1 清單、self-test chk | 未動工 | `docs/shapes/run-agents.md` | `bash scripts/run-agents.sh --self-test` 全綠；`git diff --check` 乾淨；commit「Phase 2-B」 |
+| S2-C | 2-4 `agents/search-reviewer/` scaffold；2-5 `build-search-review-input.mjs` + `promote.sh` NEVER_FILES 追加 | 2-5 兩處已在磁碟（`build-search-review-input.mjs` 未 commit；`promote.sh` 第 53 行已加 `search-review-input.json`）；2-4 未動工 | `docs/shapes/agents-scaffold.md`（改 promote.sh 時另補 `docs/shapes/agent-scripts.md` 的 G 段，≤ 20 行） | `hermes.project.yaml` 有 `learning.mode: shadow`、`approval.*: manual_only`；`node scripts/agent/build-search-review-input.mjs --self-test` 通過；`bash scripts/agent/promote.sh --self-test` 通過，且 `grep -n NEVER_FILES scripts/agent/promote.sh` 含 `search-review-input.json`；commit「Phase 2-C」 |
+| S2-D | 2-6 `scripts/newshub_search_reviewer.py`；2-7 `run-agents.sh` 加 `08b-search-review`、S-8／S-8b／S-1／S-5 調整 | 未動工 | `docs/shapes/newshub_agents.md`（改 run-agents.sh 那半段再讀 `docs/shapes/run-agents.md`） | `python3 scripts/newshub_search_reviewer.py --selftest` 通過；`node scripts/agent/check-agent-outputs.mjs --strict --self-test-boundary` 通過；`bash scripts/run-agents.sh --self-test` 全綠；commit「Phase 2-D」 |
+
+S2-C 已在磁碟的檔案是前一個 session 寫的、沒驗過（S2-A 已驗收並 commit）：**先跑驗收指令，過了才 commit，不過就修，不要重寫。** 2-8 的單一「Phase 2」commit 改為四個 commit，trailer 不變。
+
+### 2-1～2-8 明細（原施工單，內容不變，供各 session 查規格）
 
 | # | 工作項目 | 驗收條件 |
 |---|---|---|
@@ -68,7 +81,9 @@ Phase 3、4 的細節見上表（紀律見 CLAUDE.md「auto-opt 路線圖與工�
 2. 廣泛調查交給 Explore subagent，主 context 只收結論。
 3. 新檔用 heredoc 寫入，不回顯；同一檔的多處修改集中在一次 python heredoc。
 4. 一個 session 只做一個 Phase；做完 commit，然後開新 session，不 `/compact`。
-5. shape 一律先查 CLAUDE.md「檔案 shape 速查」，查不到再開檔並回填該節。
+5. shape 一律先查 `docs/shapes/README.md` 對應的那一份檔，查不到再開檔並回填該檔。規範（run-daily、validate、分類、前端 UX）在 `docs/specs/`，同樣只讀對應那份。
+6. `data/*.json` 只用 `python3 -c` 印 keys／len／前 3 筆；`json.tool` 與 `cat data/*.json` 已在 `.claude/settings.json` deny。
+7. context 快滿：先把本檔 §0 與 §2「磁碟現況」欄更新，然後 `/clear` 開新 session，不 `/compact`。
 
 ---
 
