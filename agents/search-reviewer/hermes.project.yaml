@@ -1,0 +1,157 @@
+# Hermes 控制平面 adapter — searchreviewer
+# schema: adapter-contract-v1
+# SearchReviewer 審查十支分類 prompt 的搜尋策略(SEARCH_QUERIES / PRIORITY 區段)、
+# PRIORITY_KEYWORDS 與 Tier B 網域清單，只在指標惡化能歸因到策略本身時提案，
+# 且提案一律 pending_review，目標檔只落在允許清單。
+#
+# 為什麼它自成一個 project：與 trend-analyst 同理，判斷型代理人的可寫範圍只有
+# 自己的判例庫一份檔案。它的提案會改寫 scripts/prompts/*.md，那些檔案又是它
+# 下一輪的輸入——這是本管線唯一會讀自己產物的代理人，邊界要比 trend-analyst 更硬。
+schema_version: adapter-contract-v1
+
+project_id: searchreviewer
+display_name: SearchReviewer(搜尋策略審查代理人)
+role: judgment-agent
+risk_profile: medium
+
+# 風險為 medium 而非 high 的理由：Phase 2 內它的提案只進 .preview/ 與人審包，
+# 套用是人工動作。Phase 3 接上 change-evaluator + canary 自動套用時，本欄
+# 必須重新評估(提案將能改變接下來每晚抓什麼)，屆時視 canary 的 revert 實績決定。
+
+read_scope:
+  - AGENTS.md
+  - SEARCH_RUBRIC.md
+  - skills/
+  - memory/principles.md
+  - memory/MEMORY.md
+  - golden/manifest.json
+
+write_scope:
+  - memory/precedents.jsonl
+
+deny_read_write_paths:
+  - .env
+  - .env*
+  - secrets/
+  - "**/*.key"
+  - "**/credentials*"
+  # 發布爆炸半徑：run-daily.sh 每天 18:00 會 git add data/ 推上 GitHub Pages。
+  # 代理人一律只能寫 .preview/，晉升到 data/agent/ 是人工動作。
+  - ../../data/agent/*.json
+  - ../../data/latest.json
+  - ../../data/index.json
+  # 它的提案對象。提案只能「說」要改這些檔，不能自己改；套用是 Phase 3 的
+  # apply-change.mjs 在配額與 canary 之後做的事。
+  - ../../scripts/prompts/*.md
+  - ../../assets/js/config.js
+  - ../../scripts/tier-b-domains.json
+  - ../../agents/_control/**
+
+read_only_paths: []
+
+# 工作目錄為本 adapter 所在目錄(agents/search-reviewer/)，故 repo 根在 ../../。
+# 退出碼：0=通過。兩支都不呼叫模型、$0。
+# Phase 2-6 接上 scripts/newshub_search_reviewer.py 後，在此追加 "--selftest"。
+test_commands:
+  - "node ../../scripts/agent/build-search-review-input.mjs --self-test"   # 0 輸入組裝 + 無標題/URL 洩漏
+  - "bash ../../scripts/agent/promote.sh --self-test"                      # 0 search-review-input.json 在 NEVER_FILES
+
+learning:
+  mode: shadow
+  shared_learning: ranking_only
+  shared_ledger: false
+  decisions_ledger: memory/precedents.jsonl
+  # 解鎖門檻計數基準是「排程輪次的落點檔」，不是判例筆數(理由同 trend-analyst)：
+  #   1. 累積 ≥30 輪 data/agent/.preview/search-review.json
+  #   2. 人審過的提案 ≥ 20 筆，其中被接受且 canary 三晚未 revert 的比例 ≥ 70%
+  #   3. SR-7 誤判(把合法 query 標成注入)連續兩季為 0
+
+approval:
+  high_risk: manual_only     # 改憲章、改 SEARCH_RUBRIC、改 golden 期望、改允許清單 → 一律人審
+  publish: manual_only       # 只能寫 .preview/，晉升 data/agent/ 一律人工
+
+agent_outputs:
+  assessment: data/agent/.preview/search-review.json
+  precedents: memory/precedents.jsonl
+  # adapter-contract-v1 要求宣告 learning_status。目前沒有任何程式產生它——
+  # 代理人的 write_scope 只有 precedents.jsonl，刻意不擴大。
+  learning_status: memory/learning-status.json
+
+# skill-contract-v1。三支技能各對應一個失敗模式。
+skills:
+  - skill_id: searchreviewer.metric-attribution
+    source: project
+    path: skills/metric-attribution/
+    skill_doc: skills/metric-attribution/SKILL.md
+    risk_profile: medium
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "node ../../scripts/agent/build-search-review-input.mjs --self-test"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - propose_only_never_apply
+
+  - skill_id: searchreviewer.proposal-scoping
+    source: project
+    path: skills/proposal-scoping/
+    skill_doc: skills/proposal-scoping/SKILL.md
+    risk_profile: high
+    # 這支比 attribution 高一級：允許清單與配額是 Phase 3 自動套用的爆炸半徑上限，
+    # 技能文件若被放寬(多一個合法路徑、少一條配額)，等於直接擴大自動改寫的範圍。
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "bash ../../scripts/agent/promote.sh --self-test"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - propose_only_never_apply
+        - allowlist_change_requires_owner
+
+  - skill_id: searchreviewer.injection-detection
+    source: project
+    path: skills/injection-detection/
+    skill_doc: skills/injection-detection/SKILL.md
+    risk_profile: high
+    # 輸入含 prompt 區段全文與外部 hostname，且 prompt 區段是它自己提案的改寫對象：
+    # 注入偵測失效等於允許一段文字透過提案把自己寫進下一輪的指令。
+    learning:
+      mode: shadow
+      shared_learning: ranking_only
+      raw_events: private
+    allowed_autonomy:
+      ranking: true
+      trigger_tuning: false
+      example_selection: true
+      eval_selection: true
+      doc_patch_proposal: true
+      direct_skill_patch: false
+      tool_scope_change: false
+    evidence:
+      eval_commands:
+        - "node ../../scripts/agent/build-search-review-input.mjs --self-test"
+      required_controls:
+        - named_reviewer_for_instruction_change
+        - redteam_suite_must_stay_100_percent

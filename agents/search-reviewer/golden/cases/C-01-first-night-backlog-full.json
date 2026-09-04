@@ -1,0 +1,288 @@
+{
+  "schema": "search-review-input-v0.1",
+  "generated_at": "2026-09-05T02:10:00.000Z",
+  "window_days": 14,
+  "source_latest_date": "2026-09-04",
+  "metrics": {
+    "available": true,
+    "dates": [
+      "2026-09-04"
+    ],
+    "by_category": {
+      "papers": [
+        {
+          "date": "2026-09-04",
+          "items": 17,
+          "verified_rate": 1,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.941,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 96.15
+        }
+      ],
+      "topnews": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "taiwan": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "china": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "usa": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "techtrends": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "governance": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "tutorials": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "courses": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ],
+      "models": [
+        {
+          "date": "2026-09-04",
+          "items": 12,
+          "verified_rate": 0.94,
+          "needs_review": 0,
+          "title_low_match": 0,
+          "backfill": 0,
+          "priority_hit_rate": 0.9,
+          "human_rating_score": null,
+          "human_rating_count": 0,
+          "validation_pass_rate": 95.0
+        }
+      ]
+    }
+  },
+  "prompt_regions": {
+    "papers": {
+      "present": true,
+      "target_file": "scripts/prompts/papers.md",
+      "search_queries": "- arXiv cs.AI cs.CL 本週新論文 agent\n- OpenReview 2026 accepted LLM reasoning\n- \"technical report\" foundation model 2026",
+      "search_queries_lines": 3,
+      "priority": "優先：Agent、LLM、大廠模型與產品發布、資安",
+      "priority_lines": 1
+    },
+    "topnews": {
+      "present": true,
+      "target_file": "scripts/prompts/topnews.md",
+      "search_queries": "- AI 大廠 模型發布 本週\n- LLM product launch this week",
+      "search_queries_lines": 2,
+      "priority": "優先：Agent、LLM、大廠模型與產品發布、資安",
+      "priority_lines": 1
+    },
+    "taiwan": {
+      "present": true,
+      "target_file": "scripts/prompts/taiwan.md",
+      "search_queries": "- 台灣 AI 政策 本週\n- Taiwan AI agent 企業導入",
+      "search_queries_lines": 2,
+      "priority": "優先：Agent、LLM、大廠模型與產品發布、資安",
+      "priority_lines": 1
+    },
+    "china": {
+      "present": true,
+      "target_file": "scripts/prompts/china.md",
+      "search_queries": "- 中國 大模型 發布 本週\n- China LLM release this week",
+      "search_queries_lines": 2,
+      "priority": "優先：Agent、LLM、大廠模型與產品發布、資安",
+      "priority_lines": 1
+    },
+    "usa": {
+      "present": true,
+      "target_file": "scripts/prompts/usa.md",
+      "search_queries": "- US AI policy this week\n- OpenAI OR Anthropic OR Google announcement",
+      "search_queries_lines": 2,
+      "priority": "優先：Agent、LLM、大廠模型與產品發布、資安",
+      "priority_lines": 1
+    },
+    "techtrends": {
+      "present": true,
+      "target_file": "scripts/prompts/techtrends.md",
+      "search_queries": "- AI infrastructure trend 7 days\n- inference cost benchmark",
+      "search_queries_lines": 2,
+      "priority": "",
+      "priority_lines": 0
+    },
+    "governance": {
+      "present": true,
+      "target_file": "scripts/prompts/governance.md",
+      "search_queries": "- AI governance regulation 7 days\n- EU AI Act enforcement",
+      "search_queries_lines": 2,
+      "priority": "",
+      "priority_lines": 0
+    },
+    "tutorials": {
+      "present": true,
+      "target_file": "scripts/prompts/tutorials.md",
+      "search_queries": "- LLM agent tutorial 2026\n- RAG hands-on guide",
+      "search_queries_lines": 2,
+      "priority": "",
+      "priority_lines": 0
+    },
+    "courses": {
+      "present": true,
+      "target_file": "scripts/prompts/courses.md",
+      "search_queries": "- AI agent course 2026 syllabus\n- LLM engineering course",
+      "search_queries_lines": 2,
+      "priority": "",
+      "priority_lines": 0
+    },
+    "models": {
+      "present": true,
+      "target_file": "scripts/prompts/models.md",
+      "search_queries": "- new open-weight model release\n- model card 2026",
+      "search_queries_lines": 2,
+      "priority": "優先：Agent、LLM、大廠模型與產品發布、資安",
+      "priority_lines": 1
+    }
+  },
+  "priority_keywords": {
+    "latin": [
+      "agent",
+      "llm",
+      "model",
+      "security"
+    ],
+    "cjk": [
+      "代理",
+      "模型",
+      "資安"
+    ],
+    "cjkPatterns": [
+      "大模型",
+      "智能體"
+    ]
+  },
+  "human_ratings": {
+    "available": true,
+    "half_life_days": 30,
+    "items_rated": 0,
+    "by_category": [],
+    "by_source_domain": []
+  },
+  "canaries": {
+    "present": true,
+    "read_only": true,
+    "weekly_cap": 3,
+    "per_category_cap": 1,
+    "canary_nights": 3,
+    "revert_drop_pp": 10,
+    "auto_opt_enabled": true
+  },
+  "proposals": {
+    "total": 3,
+    "by_status": {
+      "pending_review": 3
+    },
+    "pending_review": 3
+  },
+  "allowlist_targets": [
+    "scripts/prompts/<cat>.md",
+    "assets/js/config.js",
+    "scripts/tier-b-domains.json"
+  ],
+  "boundary": {
+    "advisory_only": true,
+    "production_write": false,
+    "publish": "manual_only",
+    "proposals_must_be": "pending_review",
+    "never_promote_this_file": true
+  }
+}
