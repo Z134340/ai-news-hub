@@ -48,6 +48,15 @@ echo $$ > "$LOCK_FILE"
 caffeinate -dims &
 CAFFEINATE_PID=$!
 
+# ── 電源來源偵測（S-PWR P-2）──
+# caffeinate -s 只在 AC 電源下有效；電池＋合蓋時 macOS 每 17–36 分鐘只暗醒幾秒，
+# 實測電池執行 4–6 小時、7 類別只成功 2 個。這裡只標記，不改 pmset、不補跑。
+POWER_SOURCE="ac"
+if command -v pmset >/dev/null 2>&1 && ! pmset -g batt 2>/dev/null | head -1 | grep -q "AC Power"; then
+    POWER_SOURCE="battery"
+    log "⚠️ 電池模式執行：macOS 合蓋會週期性睡眠，擷取可能逾時回退"
+fi
+
 # ── 應變：SIGTERM/SIGINT trap（外部強制終止時仍嘗試合併推送）──
 INTERRUPTED=0
 trap '_handle_interrupt' TERM INT
@@ -638,7 +647,7 @@ else
 fi
 
 # ── 更新 health.json（最終版）──
-python3 - "$OVERALL_STATUS" "$CATEGORIES_OK" "$CATEGORIES_FAILED" "$PASS_RATE" "$DATA_DIR/health.json" "$QUOTA_NOTE" "$AGENT_STATUS_FILE" << 'HEALTH_PYEOF'
+python3 - "$OVERALL_STATUS" "$CATEGORIES_OK" "$CATEGORIES_FAILED" "$PASS_RATE" "$DATA_DIR/health.json" "$QUOTA_NOTE" "$AGENT_STATUS_FILE" "${POWER_SOURCE:-ac}" << 'HEALTH_PYEOF'
 import json, sys, os
 from datetime import datetime, timezone, timedelta
 
@@ -649,6 +658,7 @@ pass_rate = int(sys.argv[4])
 health_path = sys.argv[5]
 quota_note = sys.argv[6] if len(sys.argv) > 6 else ""
 agent_status_path = sys.argv[7] if len(sys.argv) > 7 else ""
+power_source = sys.argv[8] if len(sys.argv) > 8 and sys.argv[8] == "battery" else "ac"
 
 now = datetime.now(timezone(timedelta(hours=8)))
 
@@ -693,7 +703,9 @@ health = {
     "validation_pass_rate": pass_rate,
     "consecutive_failures": 0 if status in ("ok", "partial") else old.get("consecutive_failures", 0) + 1,
     "last_missed": None if status in ("ok", "partial") else old.get("last_missed"),
-    "errors": [quota_note] if quota_note else [],
+    "errors": ([quota_note] if quota_note else [])
+              + ([f"電池模式執行（合蓋週期睡眠），{cats_fail} 類別回退"] if power_source == "battery" else []),
+    "power_source": power_source,
     "agent": agent_block(agent_status_path),
 }
 

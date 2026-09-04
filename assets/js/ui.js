@@ -102,6 +102,9 @@ function updateHeader() {
   if(HIST_VIEWING) b.innerHTML += `<div class="banner info"><span>📅 正在檢視歷史資料：${esc(HIST_VIEWING)}</span><button class="banner-x" onclick="backToLatest()">返回今日</button></div>`;
   else if(!isToday) b.innerHTML += `<div class="banner warn"><span>⚠️ 今日資料尚未更新（上次：${esc(DATA.date)}），電腦上線後將自動補跑。</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
   if(HEALTH?.status==='missed') b.innerHTML += `<div class="banner err"><span>🔴 排程未執行，請確認電腦是否有開機。</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
+  // S-PWR P-3：health.errors[0]（配額耗盡／電池模式回退）純文字一行，icon 用 svg
+  const herr = Array.isArray(HEALTH?.errors) && HEALTH.errors.length ? String(HEALTH.errors[0]) : '';
+  if(herr) b.innerHTML += `<div class="banner warn"><span>${svg('alert',14,'#fbbf24')} 上次擷取：${esc(herr)}</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
 }
 
 /* ======== STICKY OFFSETS ======== */

@@ -27,3 +27,8 @@
 
 ---
 
+## 電源提醒（S-PWR P-1，2026-09-05）
+
+`setup-scheduler.sh` 同時安裝第二個 LaunchAgent `~/Library/LaunchAgents/com.ainewshub.power-reminder.plist`（不入版控），每日 17:50 執行 `scripts/power-reminder.sh`：`pmset -g batt` 第一行不含 `AC Power` 就以 `osascript` 送 macOS 通知「18:00 擷取即將開始，請接電源」；AC 時不動作。PATH 同樣自帶 `/opt/homebrew/bin`，stdout/stderr 寫 `data/logs/power-reminder.log`。不改 `pmset -b sleep`、不做補跑排程。
+
+驗證：`launchctl list | grep ainewshub` 應同時列出 `com.ainewshub.daily` 與 `com.ainewshub.power-reminder`；手動觸發 `launchctl kickstart -k gui/$(id -u)/com.ainewshub.power-reminder`，拔電源時應跳通知、接電源時無通知。

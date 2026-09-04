@@ -31,9 +31,12 @@
   "validation_pass_rate": "95%",
   "consecutive_failures": 0,
   "last_missed": null,
-  "errors": []
+  "errors": [],
+  "power_source": "ac|battery"
 }
 ```
+
+`power_source`（S-PWR，2026-09-05）：`run-daily.sh` 啟動時以 `pmset -g batt` 第一行是否含 `AC Power` 判定，只放 `ac`／`battery` 兩值，不放電量。電池模式時 `errors` 會多一筆「電池模式執行（合蓋週期睡眠），N 類別回退」（N 為 `categories_failed`）。`errors` 排序：配額備註在前、電池備註在後。
 
 ---
 

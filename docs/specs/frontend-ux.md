@@ -29,6 +29,7 @@
 - 排序邏輯：先依優先主題分組（匹配者在前），組內依日期由新到舊
 - 資料非今日 → 頂部固定橙色橫幅：「⚠️ 今日資料尚未更新（上次：YYYY-MM-DD），電腦上線後將自動補跑。」
 - health.json status === "missed" → 紅色橫幅：「🔴 昨日排程未執行，請確認電腦是否有開機。」
+- health.json `errors[0]` 非空 → 黃色橫幅（svg alert icon，純文字）：「上次擷取：{errors[0]}」；來源為配額耗盡備註或 S-PWR 電池模式回退備註（`ui.js` updateHeader）
 
 ### 自動更新偵測（⚠️ Bug Fix #9）
 - 每 **15 分鐘**靜默 fetch latest.json?v={Date.now()}（排程每日傍晚一次，較頻繁檢查以利補跑後即時更新）

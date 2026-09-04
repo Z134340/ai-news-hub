@@ -10,6 +10,10 @@ REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT_PATH="$REPO_DIR/scripts/run-daily.sh"
 PLIST_LABEL="com.ainewshub.daily"
 PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_LABEL}.plist"
+# S-PWR P-1：17:50 電源提醒（電池模式時送 macOS 通知；AC 時不動作）
+REMINDER_SCRIPT="$REPO_DIR/scripts/power-reminder.sh"
+REMINDER_LABEL="com.ainewshub.power-reminder"
+REMINDER_PATH="$HOME/Library/LaunchAgents/${REMINDER_LABEL}.plist"
 
 echo "============================================"
 echo "  AI News Hub 排程安裝程式"
@@ -56,6 +60,10 @@ case "$OS" in
     if launchctl list 2>/dev/null | grep -q "$PLIST_LABEL"; then
       echo "移除舊排程..."
       launchctl unload "$PLIST_PATH" 2>/dev/null || true
+    fi
+    if launchctl list 2>/dev/null | grep -q "$REMINDER_LABEL"; then
+      echo "移除舊電源提醒..."
+      launchctl unload "$REMINDER_PATH" 2>/dev/null || true
     fi
 
     mkdir -p "$HOME/Library/LaunchAgents"
@@ -108,6 +116,55 @@ PLIST
 
     echo "✅ plist 已建立: $PLIST_PATH"
 
+    # ── Step 2b：安裝 17:50 電源提醒 plist（S-PWR P-1）──
+    cat > "$REMINDER_PATH" << PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>${REMINDER_LABEL}</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>${REMINDER_SCRIPT}</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>17</integer>
+        <key>Minute</key>
+        <integer>50</integer>
+    </dict>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>TZ</key>
+        <string>Asia/Taipei</string>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>${REPO_DIR}</string>
+
+    <key>StandardOutPath</key>
+    <string>${REPO_DIR}/data/logs/power-reminder.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>${REPO_DIR}/data/logs/power-reminder.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
+PLIST
+
+    chmod +x "$REMINDER_SCRIPT" 2>/dev/null || true
+    echo "✅ 電源提醒 plist 已建立: $REMINDER_PATH"
+
     # ── Step 3：載入排程 ──
     echo ""
     echo "── Step 3/3：載入排程 ──"
@@ -115,6 +172,8 @@ PLIST
 
     launchctl load "$PLIST_PATH"
     echo "✅ 排程已載入"
+    launchctl load "$REMINDER_PATH"
+    echo "✅ 電源提醒已載入（每日 17:50，電池模式才通知）"
 
     echo ""
     echo "============================================"
@@ -122,6 +181,7 @@ PLIST
     echo "============================================"
     echo ""
     echo "排程時間：每日 18:00（台灣時間）"
+    echo "電源提醒：每日 17:50（電池模式時通知「請接電源」；AC 時不動作）"
     echo "執行腳本：$SCRIPT_PATH"
     echo "Log 目錄：$REPO_DIR/data/logs/"
     echo ""
@@ -133,6 +193,7 @@ PLIST
     echo ""
     echo "卸載排程："
     echo "  launchctl unload $PLIST_PATH"
+    echo "  launchctl unload $REMINDER_PATH"
     echo ""
     ;;
 
