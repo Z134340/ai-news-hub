@@ -49,6 +49,21 @@ canaries.present == false → 上限 0
 
 ---
 
+## `patch` 契約(apply-change.mjs 唯一讀的改檔依據)
+
+`summary_zh` 是給人看的，`patch` 是給機器套的；兩者都要有，缺 `patch` 的提案只會停在 `evaluated`、不改檔、不占配額。形狀依 `change_type` 固定：
+
+| `change_type` | `patch` 形狀 | 字串規則 |
+|---|---|---|
+| `add_query` | `{"add": "- <一整行 query>"}` | 單行 ≤ 300 字；照輸入區段的行格式(通常以 `- ` 起頭)；不含 URL、不含 `<!--`／`-->` |
+| `drop_query` | `{"remove": "<原行>"}` | `remove` 必須與輸入 `prompt_regions.<cat>.SEARCH_QUERIES` 的某一行**逐字相同**(含 `- ` 與尾端年份) |
+| `rephrase_query` | `{"replace": {"from": "<原行>", "to": "<新行>"}}` | `from` 同 `drop_query` 的逐字規則；`to` 同 `add_query`；`from` ≠ `to` |
+| `add_keyword` | `{"add": "<關鍵字>", "list": "latin｜cjk｜cjkPatterns"}` | ≤ 80 字；不含引號、反斜線、反引號、`$`；`list` 省略＝`latin`，CJK 關鍵字必須標 `cjk` |
+| `drop_keyword` | `{"remove": "<關鍵字>", "list": ...}` | 同上；`remove` 必須與輸入 `priority_keywords.<list>` 內某一項逐字相同 |
+| `add_domain` | `{"add": "example.com"}` | 小寫主機名，不帶 `https://`、路徑或萬用字元 |
+
+不要把 diff 語法(`+`／`-` 前綴、`@@`)寫進 `patch`；不要在 `patch` 裡塞第二個改動——一筆提案只改一行，要改兩行就是兩筆提案(各吃一個配額)。
+
 ## `summary_zh` 怎麼寫
 
-40 字內，格式固定：「<cat> 的 <region> <動作> <對象>」。例如：「papers 的 SEARCH_QUERIES 改寫第 3 條 query，收窄到 arXiv 與 OpenReview」。不寫理由(理由在 `evidence`)，不寫 diff(那是人審者或 apply-change.mjs 的事)。
+40 字內，格式固定：「<cat> 的 <region> <動作> <對象>」。例如：「papers 的 SEARCH_QUERIES 改寫第 3 條 query，收窄到 arXiv 與 OpenReview」。不寫理由(理由在 `evidence`)，不寫 diff(實際改動寫在 `patch` 欄位，`summary_zh` 只用中文講一次)。

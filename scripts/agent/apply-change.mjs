@@ -227,12 +227,15 @@ export function loadCanaries(root) {
     revert_drop_pp: c.revert_drop_pp ?? null,
   };
 }
-// 週視窗內的 in-flight（evaluated / canary）：與 build-change-eval-input.mjs 同一把尺。
+// 週視窗內的配額計數：與 build-change-eval-input.mjs 同一把尺（IN_FLIGHT_STATUSES × 7 天），
+// 但只算 production_applied === true（真的改過檔的 canary）。evaluated 而無 patch 的提案
+// 仍留在 IN_FLIGHT_STATUSES 供 7 天去重，不再吃每週 3 個名額（S3-C2 ③）。
 export function countInFlight(proposals, indexGeneratedAt, now) {
   const cutoff = new Date(now.getTime() - IN_FLIGHT_WINDOW_DAYS * 86400000);
   const byCat = {}; let total = 0;
   for (const p of proposals) {
     if (!IN_FLIGHT_STATUSES.has(p.status)) continue;
+    if (p.production_applied !== true) continue;
     const since = resolveSince(p, indexGeneratedAt);
     if (since && since < cutoff) continue;
     total += 1;
@@ -630,6 +633,35 @@ function selfTest() {
     let badMarker = null; try { editMarkerRegion(USA, "SEARCH_QUERIES", "add_query", { add: "<!-- PRIORITY:END -->" }); } catch (e) { badMarker = e; }
     check("A-9e 含 URL 或 marker 的行被拒", !!badLine && !!badMarker);
     for (const x of [root, root2, root3]) fs.rmSync(x, { recursive: true, force: true });
+  }
+  // A-10 3 件 evaluated 無 patch（production_applied false）不占配額；第 4 件有 patch 的 accept 仍可進 canary
+  {
+    const root = setup({
+      proposals: [
+        { proposal_id: "SP-101", category: "china", status: "evaluated", evaluated_at: "2026-09-04T10:00:00Z", target_files: ["scripts/prompts/china.md"], evidence: ["e"], evaluated_by: ACTOR, production_applied: false },
+        { proposal_id: "SP-102", category: "papers", status: "evaluated", evaluated_at: "2026-09-04T10:00:00Z", target_files: ["scripts/prompts/papers.md"], evidence: ["e"], evaluated_by: ACTOR, production_applied: false },
+        { proposal_id: "SP-103", category: "taiwan", status: "evaluated", evaluated_at: "2026-09-04T10:00:00Z", target_files: ["scripts/prompts/taiwan.md"], evidence: ["e"], evaluated_by: ACTOR, production_applied: false },
+      ],
+    });
+    const before = countInFlight(JSON.parse(r(root, "data/agent/proposals.json")).proposals, "2026-09-05T09:00:00Z", NOW);
+    check("A-10 evaluated 無 patch 不計入配額", before.total === 0 && Object.keys(before.byCat).length === 0);
+    const res = run(root, opts);
+    const idx = JSON.parse(r(root, "data/agent/proposals.json"));
+    const sp = idx.proposals.find((p) => p.proposal_id === "SP-001");
+    check("A-10 第 4 件有 patch 的 accept 進 canary", res.applied === 1 && res.held.length === 0 && sp && sp.status === "canary" && sp.production_applied === true
+      && r(root, "scripts/prompts/usa.md").includes("agentbench"));
+    check("A-10 三件 evaluated 維持原狀（去重仍在，不被改寫）", idx.proposals.filter((p) => p.status === "evaluated" && p.production_applied === false).length === 3);
+    // 同一批裡若混一件 production_applied true 的 canary，配額照算：再跑一次同分類即被擋
+    const root2 = setup({
+      proposals: [
+        { proposal_id: "SP-101", category: "china", status: "evaluated", evaluated_at: "2026-09-04T10:00:00Z", target_files: ["scripts/prompts/china.md"], evidence: ["e"], evaluated_by: ACTOR, production_applied: false },
+        { proposal_id: "SP-000", category: "usa", status: "canary", canary_started_at: "2026-09-03T10:00:00Z", target_files: ["scripts/prompts/usa.md"], evidence: ["e"], evaluated_by: ACTOR, production_applied: true },
+      ],
+    });
+    const res2 = run(root2, opts);
+    const sp2 = JSON.parse(r(root2, "data/agent/proposals.json")).proposals.find((p) => p.proposal_id === "SP-001");
+    check("A-10 production_applied true 的 canary 仍占配額（類別 usa 被擋）", res2.applied === 0 && res2.held.length === 1 && sp2.status === "evaluated");
+    for (const x of [root, root2]) fs.rmSync(x, { recursive: true, force: true });
   }
   console.log(fails ? `\n${fails} 項失敗` : "\napply-change 自測全綠");
   process.exit(fails ? 1 : 0);

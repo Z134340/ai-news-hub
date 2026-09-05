@@ -343,6 +343,73 @@ def sr4_verdict(cat: str, by_category: dict[str, Any]) -> tuple[bool, str]:
     return True, ""
 
 
+# --------------------------------------------------------------------------
+# patch 欄位（S3-C2 ①）：與 scripts/agent/apply-change.mjs 檔頭契約同一把尺。
+#   add_query / add_keyword / add_domain : {"add": str, "list"?: latin|cjk|cjkPatterns（僅 keyword）}
+#   drop_query / drop_keyword            : {"remove": str, "list"?: ...}
+#   rephrase_query                       : {"replace": {"from": str, "to": str}}
+# 閘1 唯一「不丟整筆、改成 None」的欄位：patch 壞掉的提案仍值得人看，apply-change 會把它停在
+# evaluated（不改檔、不占配額）；閘1 不補寫內容，只把不合法的 patch 歸零並記在 gate1.patch_nulled。
+# --------------------------------------------------------------------------
+PATCH_LINE_MAX = 300
+PATCH_KEYWORD_MAX = 80
+PK_LISTS = ("latin", "cjk", "cjkPatterns")
+PATCH_URL_RE = re.compile(r"https?://", re.I)
+PATCH_CTRL_RE = re.compile(r"[\x00-\x1f\x7f]")
+PATCH_DOMAIN_RE = re.compile(r"^[a-z0-9][a-z0-9.-]{0,120}\.[a-z]{2,}$")
+PATCH_KEYWORD_BAD = set("'\"\\`$")
+
+
+def _patch_line(v: Any, max_len: int = PATCH_LINE_MAX) -> str | None:
+    if not isinstance(v, str):
+        return None
+    t = v.strip()
+    if not t or len(t) > max_len or PATCH_CTRL_RE.search(t) or "<!--" in t or "-->" in t or PATCH_URL_RE.search(t):
+        return None
+    return t
+
+
+def _patch_keyword(v: Any) -> str | None:
+    t = _patch_line(v, PATCH_KEYWORD_MAX)
+    if t is None or any(ch in PATCH_KEYWORD_BAD for ch in t):
+        return None
+    return t
+
+
+def _valid_patch(ct: Any, raw: Any) -> dict[str, Any] | None:
+    """依 change_type 驗 patch 形狀與字串安全；任何一處不合法就回 None（不修補、不猜）。"""
+    if not isinstance(raw, dict):
+        return None
+    is_kw = ct in ("add_keyword", "drop_keyword")
+    val = _patch_keyword if is_kw else _patch_line
+    out: dict[str, Any]
+    if ct in ("add_query", "add_keyword", "add_domain"):
+        t = val(raw.get("add"))
+        if t is None or (ct == "add_domain" and not PATCH_DOMAIN_RE.match(t)):
+            return None
+        out = {"add": t}
+    elif ct in ("drop_query", "drop_keyword"):
+        t = val(raw.get("remove"))
+        if t is None:
+            return None
+        out = {"remove": t}
+    elif ct == "rephrase_query":
+        rp = raw.get("replace")
+        if not isinstance(rp, dict):
+            return None
+        frm, to = _patch_line(rp.get("from")), _patch_line(rp.get("to"))
+        if frm is None or to is None or frm == to:
+            return None
+        out = {"replace": {"from": frm, "to": to}}
+    else:
+        return None
+    if is_kw and raw.get("list") is not None:
+        if raw.get("list") not in PK_LISTS:
+            return None
+        out["list"] = raw["list"]
+    return out
+
+
 def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
     metrics = payload.get("metrics") if isinstance(payload.get("metrics"), dict) else {}
     by_cat = metrics.get("by_category") if isinstance(metrics.get("by_category"), dict) else {}
@@ -379,6 +446,7 @@ def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]
 
     discarded: list[dict[str, Any]] = []
     kept: list[dict[str, Any]] = []
+    patch_nulled: list[str] = []
     per_cat: dict[str, int] = {}
     sr4_cache: dict[str, tuple[bool, str]] = {}
 
@@ -468,6 +536,9 @@ def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]
         if per_cat.get(cat, 0) >= per_cat_cap:
             drop(p, f"SR-3：{cat} 超出 per_category_cap {per_cat_cap}"); continue
         per_cat[cat] = per_cat.get(cat, 0) + 1
+        patch = _valid_patch(ct, p.get("patch"))
+        if patch is None and p.get("patch") is not None:
+            patch_nulled.append(na.cap_text(p.get("proposal_id"), 20) or "?")
         kept.append({
             "proposal_id": None,  # 下面重新編號；模型給的保留在 model_proposal_id
             "model_proposal_id": na.cap_text(p.get("proposal_id"), 20) or None,
@@ -481,6 +552,7 @@ def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]
             "expected_effect": {"metric": eff["metric"], "direction": eff["direction"]},
             "risk": RISK_BY_CHANGE[ct],
             "rubric_hits": sorted(set(hits)),
+            "patch": patch,
             "security_flag": False,
             "requires_human_review": True,
             "advisory_only": True,
@@ -511,6 +583,7 @@ def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]
             "flagged_categories": sorted(flagged),
             "model_proposals": len(raw_props),
             "discarded": discarded,
+            "patch_nulled": patch_nulled,
         },
     }
 
@@ -551,6 +624,7 @@ def _greedy_model_output(payload: dict[str, Any]) -> dict[str, Any]:
             "evidence": [f"metrics.by_category.{cat}[-1].verified_rate = {last.get('verified_rate')}"],
             "expected_effect": {"metric": "verified_rate", "direction": "up"},
             "risk": "medium", "rubric_hits": ["SR-4", "SR-5"], "security_flag": False,
+            "patch": {"remove": f"- {cat} low-yield query 2026"},
         })
     return {"schema": SCHEMA, "rubric_version": RUBRIC_VERSION, "proposals": props,
             "no_change": [], "security_flags": [], "notes_zh": []}
@@ -610,6 +684,7 @@ def selftest() -> int:
         check(f"T-5b {name} 每筆 pending_review + 人審三旗標 + allowlist", all(
             p["status"] == "pending_review" and p["requires_human_review"] is True and p["advisory_only"] is True
             and p["production_applied"] is False and all(allowlisted(t) for t in p["target_files"])
+            and p["patch"] == {"remove": f"- {p['category']} low-yield query 2026"}
             for p in gate["proposals"]))
 
     # T-6 結構丟棄：每一種「不得」都要整筆丟、不補寫
@@ -654,6 +729,40 @@ def selftest() -> int:
     check("T-8 垃圾模型輸出不 crash 且提案為空", r["proposals"] == [] and r["no_change"] == [] and r["security_flags"] == [])
     r = reconcile(good, {})
     check("T-8b 空輸入 payload 不 crash", r["proposals"] == [])
+
+    # T-9 patch：合法照抄；不合法 → None 但整筆保留（apply-change 會停在 evaluated）；只驗、不補寫
+    def kept_patch(mut: dict[str, Any], base_payload: dict[str, Any] = base) -> tuple[int, Any, list[str]]:
+        m = copy.deepcopy(good); m["proposals"][0].update(mut)
+        r = reconcile(m, base_payload)
+        return len(r["proposals"]), (r["proposals"][0]["patch"] if r["proposals"] else "absent"), r["gate1"]["patch_nulled"]
+    n, pt, nulled = kept_patch({})
+    check("T-9 drop_query 合法 patch 原樣保留", n == 1 and pt == {"remove": "- papers low-yield query 2026"} and nulled == [])
+    for label, mut in {
+        "patch 缺": {"patch": None},
+        "patch 非物件": {"patch": "- x"},
+        "patch 形狀與 change_type 不符": {"patch": {"add": "- x 2026"}},
+        "patch 含 URL": {"patch": {"remove": "- see https://x.example 2026"}},
+        "patch 含 marker": {"patch": {"remove": "- x <!-- SEARCH_QUERIES:END --> 2026"}},
+        "patch 超長": {"patch": {"remove": "- " + "x" * 300}},
+        "patch 多行": {"patch": {"remove": "- a\n- b"}},
+        "patch 空字串": {"patch": {"remove": "   "}},
+        "rephrase 缺 to": {"change_type": "rephrase_query", "patch": {"replace": {"from": "- a 2026"}}},
+        "rephrase from==to": {"change_type": "rephrase_query", "patch": {"replace": {"from": "- a 2026", "to": "- a 2026"}}},
+    }.items():
+        n, pt, nulled = kept_patch(mut)
+        want_nulled = [] if mut.get("patch") is None else ["SP-001"]
+        check(f"T-9 {label} → 整筆保留、patch None", n == 1 and pt is None and nulled == want_nulled, f"n={n} patch={pt!r} nulled={nulled}")
+    n, pt, _ = kept_patch({"change_type": "rephrase_query", "patch": {"replace": {"from": " - a 2026 ", "to": "- b 2026"}}})
+    check("T-9 rephrase 合法（兩端空白裁掉）", n == 1 and pt == {"replace": {"from": "- a 2026", "to": "- b 2026"}})
+    kw = {"region": "PRIORITY_KEYWORDS", "change_type": "add_keyword", "risk": "low", "target_files": ["assets/js/config.js"]}
+    n, pt, _ = kept_patch(dict(kw, patch={"add": "AgentBench", "list": "latin"}))
+    check("T-9 add_keyword 合法含 list", n == 1 and pt == {"add": "AgentBench", "list": "latin"})
+    n, pt, _ = kept_patch(dict(kw, patch={"add": "AgentBench"}))
+    check("T-9 add_keyword 無 list 也合法（apply-change 預設 latin）", n == 1 and pt == {"add": "AgentBench"})
+    for label, bad in {"list 不在三選一": {"add": "AgentBench", "list": "emoji"}, "含引號": {"add": "Agent\"Bench"},
+                       "含 $": {"add": "$Agent"}, "超過 80 字": {"add": "A" * 81}}.items():
+        n, pt, _ = kept_patch(dict(kw, patch=bad))
+        check(f"T-9 add_keyword {label} → patch None", n == 1 and pt is None, f"n={n} patch={pt!r}")
 
     print(f"[search-review] selftest {'全綠' if not fails else '失敗 ' + str(len(fails)) + ' 項'}")
     return 0 if not fails else 1

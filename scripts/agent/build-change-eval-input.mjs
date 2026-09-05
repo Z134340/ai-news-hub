@@ -65,6 +65,8 @@ function slimProposal(p) {
     rubric_hits: Array.isArray(p.rubric_hits) ? p.rubric_hits : [],
     rollback: rollbackUp || deriveRollback(p.change_type),
     rollback_source: rollbackUp ? "upstream" : "derived",
+    // S3-C2 ②：閘 2 要看得到實際 diff 才裁定；patch 內的字串一樣走 scrub（URL → 佔位）。
+    patch: p.patch && typeof p.patch === "object" && !Array.isArray(p.patch) ? p.patch : null,
   });
 }
 
@@ -93,6 +95,8 @@ export function loadInFlight(root, now) {
       change_type: p.change_type ?? p.proposal_type ?? null,
       target_files: Array.isArray(p.target_files) ? p.target_files : [],
       status: p.status, since: since ?? "unknown",
+      // 只有真的改過檔的 canary 才占週配額；evaluated 無 patch 只做 7 天去重（與 apply-change.countInFlight 同尺）。
+      production_applied: p.production_applied === true,
     }));
   }
   return out;
@@ -110,8 +114,9 @@ export function build(root, opts = {}) {
 
   const canaries = loadCanaries(root);
   const inFlight = loadInFlight(root, now);
+  const quotaUsed = inFlight.filter((c) => c.production_applied === true);
   const byCat = {};
-  for (const c of inFlight) byCat[c.category || "unknown"] = (byCat[c.category || "unknown"] || 0) + 1;
+  for (const c of quotaUsed) byCat[c.category || "unknown"] = (byCat[c.category || "unknown"] || 0) + 1;
   const weeklyCap = canaries.present && Number.isFinite(canaries.weekly_cap) ? canaries.weekly_cap : 0;
 
   const doc = {
@@ -135,9 +140,10 @@ export function build(root, opts = {}) {
       revert_drop_pp: canaries.present ? canaries.revert_drop_pp : null,
       auto_opt_enabled: canaries.present ? canaries.auto_opt_enabled : false,
       window_days: IN_FLIGHT_WINDOW_DAYS,
-      in_flight: inFlight.length,
+      in_flight: quotaUsed.length,
       in_flight_by_category: byCat,
-      remaining: Math.max(0, weeklyCap - inFlight.length),
+      dedupe_in_flight: inFlight.length,
+      remaining: Math.max(0, weeklyCap - quotaUsed.length),
     },
     canaries_in_flight: inFlight,
     proposals: pending.map(slimProposal),
@@ -187,9 +193,13 @@ function selfTest() {
   // T-4 remaining = max(0, cap − in_flight)：cap 3、in_flight 5 → 0
   {
     const r = mk(); writeJson(r, "agents/_control/canaries.json", canaries);
-    writeJson(r, "data/agent/proposals.json", { generated_at: NOW, proposals: Array.from({ length: 5 }, (_, i) => ({ proposal_id: `P-${i}`, category: "usa", status: i % 2 ? "canary" : "evaluated", evaluated_at: "2026-09-04T00:00:00Z" })) });
+    writeJson(r, "data/agent/proposals.json", { generated_at: NOW, proposals: Array.from({ length: 5 }, (_, i) => ({ proposal_id: `P-${i}`, category: "usa", status: i % 2 ? "canary" : "evaluated", evaluated_at: "2026-09-04T00:00:00Z", production_applied: true })) });
     const d = build(r, { now: NOW });
     check("T-4 remaining clamps at 0", d.quota.in_flight === 5 && d.quota.remaining === 0);
+    // 同 5 件但都沒真的改檔（evaluated 無 patch）→ 去重清單仍 5 件、配額 0 件、remaining 回到 cap
+    writeJson(r, "data/agent/proposals.json", { generated_at: NOW, proposals: Array.from({ length: 5 }, (_, i) => ({ proposal_id: `P-${i}`, category: "usa", status: "evaluated", evaluated_at: "2026-09-04T00:00:00Z", production_applied: false })) });
+    const d2 = build(r, { now: NOW });
+    check("T-4b evaluated 無 patch 不占配額但留在去重清單", d2.quota.in_flight === 0 && d2.quota.dedupe_in_flight === 5 && d2.quota.remaining === 3 && d2.canaries_in_flight.length === 5 && d2.canaries_in_flight.every((c) => c.production_applied === false));
   }
   // T-5 in_flight 7 天窗：pending_review 不算、10 天前的 canary 不算、時間只有 HH:MM 退到 generated_at
   {
@@ -197,13 +207,13 @@ function selfTest() {
     writeJson(r, "data/agent/proposals.json", { generated_at: "2026-09-03T18:09:00Z", proposals: [
       { proposal_id: "A", category: "usa", status: "pending_review", created_at: "18:09" },
       { proposal_id: "B", category: "china", status: "canary", canary_started_at: "2026-08-25T00:00:00Z" },
-      { proposal_id: "C", category: "papers", status: "canary", created_at: "18:09" },
-      { proposal_id: "D", category: "usa", status: "evaluated", evaluated_at: "2026-09-02T00:00:00Z" },
+      { proposal_id: "C", category: "papers", status: "canary", created_at: "18:09", production_applied: true },
+      { proposal_id: "D", category: "usa", status: "evaluated", evaluated_at: "2026-09-02T00:00:00Z", production_applied: false },
     ] });
     const d = build(r, { now: NOW });
     const ids = d.canaries_in_flight.map((c) => c.proposal_id).sort();
-    check("T-5 in_flight window filter", ids.join(",") === "C,D" && d.quota.in_flight === 2 && d.quota.remaining === 1);
-    check("T-6 in_flight_by_category", d.quota.in_flight_by_category.usa === 1 && d.quota.in_flight_by_category.papers === 1);
+    check("T-5 in_flight window filter", ids.join(",") === "C,D" && d.quota.dedupe_in_flight === 2 && d.quota.in_flight === 1 && d.quota.remaining === 2);
+    check("T-6 in_flight_by_category 只算 production_applied", d.quota.in_flight_by_category.papers === 1 && !("usa" in d.quota.in_flight_by_category));
   }
   // T-7 無標題／URL：title/url 鍵被丟、evidence 內 URL 改佔位、assertNoLeak 過
   {
@@ -250,8 +260,23 @@ function selfTest() {
     const usa = d.metrics_window.by_category.usa;
     check("T-11 metrics window", d.metrics_window.available && d.metrics_window.dates.length === 14 && usa.length === 14 && usa[usa.length - 1].priority_hit_rate === 0.9);
   }
+  // T-12 patch 保留給閘 2 看；patch 內 URL 改佔位；非物件 patch → null
+  {
+    const r = mk(); writeJson(r, "agents/_control/canaries.json", canaries);
+    writeJson(r, "data/agent/.preview/search-review.json", { proposals: [
+      prop("SP-001", { patch: { add: "- \"agent eval\" OR \"agentbench\" 2026" } }),
+      prop("SP-002", { change_type: "rephrase_query", patch: { replace: { from: "- old 2026", to: "- see https://x.example/a 2026" } } }),
+      prop("SP-003", { patch: "not an object" }),
+      prop("SP-004"),
+    ] });
+    const d = build(r, { now: NOW });
+    const [a, b, c, e] = d.proposals;
+    check("T-12 patch retained / scrubbed / nulled", a.patch && a.patch.add === "- \"agent eval\" OR \"agentbench\" 2026"
+      && b.patch && b.patch.replace.from === "- old 2026" && b.patch.replace.to === "[url-removed]"
+      && c.patch === null && e.patch === null && !/https?:\/\//.test(JSON.stringify(d)));
+  }
   if (fails.length) { console.error("build-change-eval-input self-test FAILED: " + fails.join("; ")); return 1; }
-  console.log("build-change-eval-input self-test passed (T-1..T-11)");
+  console.log("build-change-eval-input self-test passed (T-1..T-12)");
   return 0;
 }
 

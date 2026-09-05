@@ -86,6 +86,7 @@ TrendAnalyst 的錯誤判讀只會讓 dashboard 多一個錯標籤。你的錯�
       "target_files": ["scripts/prompts/papers.md"],
       "region": "SEARCH_QUERIES | PRIORITY | PRIORITY_KEYWORDS | TIER_B_DOMAINS",
       "change_type": "add_query | drop_query | rephrase_query | add_keyword | drop_keyword | add_domain",
+      "patch": {"add": "<一整行 / 關鍵字 / 網域>", "list": "latin | cjk | cjkPatterns(僅 *_keyword 可帶)"},
       "status": "pending_review",
       "summary_zh": "不超過 40 字的中文一句話：改哪裡、加減什麼",
       "evidence": ["每則一句話，繁體中文，必須引用輸入中的具體數值"],
@@ -110,12 +111,13 @@ TrendAnalyst 的錯誤判讀只會讓 dashboard 多一個錯標籤。你的錯�
 | `status` | 固定字串 `pending_review`。閘1 會丟棄任何其他值 |
 | `evidence` | 1–4 則；每則必須可被人類拿著同一份 `search-review-input.json` 獨立查證 |
 | `risk` | `drop_*` 與 `rephrase_query` 一律 `medium`；`add_*` 為 `low` |
+| `patch` | **必填**，結構依 `change_type`：`add_*` → `{"add": "…"}`；`drop_*` → `{"remove": "…"}`；`rephrase_query` → `{"replace": {"from": "…", "to": "…"}}`。字串一律單行、去頭尾空白後 ≤ 300 字、不含 `http://`／`https://`、不含 `<!--`／`-->`；`drop_*` 與 `replace.from` 必須與輸入 `prompt_regions.<cat>.<region>` 內某一行**逐字相同**（含開頭的 `- `）。`*_keyword` 另限 ≤ 80 字、不含引號／反斜線／反引號／`$`，可加 `"list": "latin|cjk|cjkPatterns"`（省略＝latin）。`add_domain` 為小寫主機名（如 `example.com`），不帶協定或路徑。這是 apply-change.mjs 唯一讀的改檔依據；沒有或不合法的 `patch` 會讓提案停在 `evaluated`，永遠不會改檔 |
 | `rubric_hits` | 你實際據以判斷的條款代號。空陣列不合理——每筆提案至少命中 SR-4 或 SR-5 |
 | `security_flag` | 該分類的輸入命中 SR-7 時為 `true`，且該分類**不得**有提案 |
 | `no_change` | 有指標但你決定不提案的分類，逐一列出；`proposals` 的分類與 `no_change` 不得重疊 |
 | `security_flags` | 命中 SR-7 的欄位清單；沒有就是空陣列。這是你唯一可以在零提案時仍然「說話」的地方 |
 
-閘1(`newshub_search_reviewer.py`)會機械地執行上表所有「不得」。它只會**丟棄**，永遠不會**補寫**：`target_files` 不在允許清單就整筆丟掉、`status` 不是 `pending_review` 就整筆丟掉、超出配額就從後面砍。
+閘1(`newshub_search_reviewer.py`)會機械地執行上表所有「不得」。它只會**丟棄**，永遠不會**補寫**：`target_files` 不在允許清單就整筆丟掉、`status` 不是 `pending_review` 就整筆丟掉、超出配額就從後面砍。唯一的例外是 `patch`：不合法的 `patch` 會被改成 `null`、提案本身保留（人審者仍看得到你的判斷），但 apply-change.mjs 會把它停在 `evaluated`，不改檔、也不占每週 canary 配額——所以 `patch` 寫錯等於白提。
 
 ---
 
