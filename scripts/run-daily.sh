@@ -789,6 +789,6 @@ rm -f "$LOCK_FILE" 2>/dev/null || true
 
 log "========== 完成 · 狀態: $OVERALL_STATUS · 驗證: ${PASS_RATE}% =========="
 
-# 2026-09-06：整輪全失敗也回非零（partial 仍視為成功，避免早報天天紅）。
-[[ "$OVERALL_STATUS" == "failed" ]] && exit 1
+# 2026-09-06：整輪非 ok（partial／failed）都回非零，讓 F-3 早報標紅（ZY 拍板 partial 也要標）。
+[[ "$OVERALL_STATUS" == "ok" ]] || exit 1
 exit 0
