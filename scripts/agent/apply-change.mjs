@@ -459,7 +459,7 @@ export function run(root, opts = {}) {
     }
     const stagedRel = "data/agent/.preview/apply-change-staged.txt";
     fs.mkdirSync(path.dirname(assertWritable(root, stagedRel)), { recursive: true });
-    fs.writeFileSync(assertWritable(root, stagedRel), [...staged].map((s) => `${s}\n`).join(""), "utf8");
+    fs.appendFileSync(assertWritable(root, stagedRel), [...staged].map((s) => `${s}\n`).join(""), "utf8"); // 00c 每晚新建、08e 只追加（整檔覆寫會洗掉回退的檔）
   }
   out.changed_files = [...staged];
   log(`apply-change：evaluated ${out.evaluated}、rejected ${out.rejected}、applied ${out.applied}、held ${out.held.length}、changed files ${out.changed_files.length}${dryRun ? "（dry-run）" : ""}`);

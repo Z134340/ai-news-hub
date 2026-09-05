@@ -130,7 +130,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
            "$AGENT_SCRIPTS/build-change-eval-input.mjs" \
            "$SCRIPTS_DIR/newshub_change_evaluator.py" \
            "$REPO_DIR/agents/change-evaluator/CHANGE_RUBRIC.md" \
-           "$AGENT_SCRIPTS/apply-change.mjs"; do
+           "$AGENT_SCRIPTS/apply-change.mjs" \
+           "$AGENT_SCRIPTS/canary-check.mjs"; do
         [[ -f "$f" ]]; chk "S-1 執行檔存在：${f#$REPO_DIR/}" $?
     done
 
@@ -144,10 +145,15 @@ if [[ $SELF_TEST -eq 1 ]]; then
     chk "S-2 沒有任何步驟帶 --promote（發布安全）" $?
     ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--out-dir"
     chk "S-2b 沒有任何步驟覆寫 --out-dir" $?
-    # S-2c：apply-change.mjs 的每一個 writeFileSync／renameSync 都必須經過 assertWritable()（靜態字串檢查，不執行）
+    # S-2c：apply-change.mjs／canary-check.mjs 的每一個 fs 寫入（writeFileSync/appendFileSync/renameSync/copyFileSync/unlinkSync/rmSync）
+    # 都必須經過 assertWritable()（靜態字串檢查，不執行；紅線①白名單只在 apply-change.mjs 定義一處，canary-check 只 import）
     # 掃描範圍：「// ── 自測」分隔線之前的正式程式碼（自測 fixture 只寫 mkdtemp 假 root，不在掃描範圍）
-    sed -n '1,/^\/\/ ── 自測/p' "$AGENT_SCRIPTS/apply-change.mjs" | grep -nE 'writeFileSync|renameSync' | grep -vE 'assertWritable\(' | grep -vqE '^[0-9]+:\s*//'
-    [[ $? -ne 0 ]]; chk "S-2c apply-change.mjs 正式碼所有 writeFileSync/renameSync 皆經 assertWritable() 白名單" $?
+    for f in apply-change.mjs canary-check.mjs; do
+        sed -n '1,/^\/\/ ── 自測/p' "$AGENT_SCRIPTS/$f" | grep -nE 'writeFileSync|appendFileSync|renameSync|copyFileSync|unlinkSync|rmSync' | grep -vE 'assertWritable\(' | grep -vqE '^[0-9]+:\s*//'
+        [[ $? -ne 0 ]]; chk "S-2c $f 正式碼所有 fs 寫入皆經 assertWritable() 白名單" $?
+    done
+    ! grep -qE '^(export )?function (assertWritable|splitRegion)\b' "$AGENT_SCRIPTS/canary-check.mjs" && grep -qE '^import \{[^}]*assertWritable[^}]*\} from "\./apply-change\.mjs"' "$AGENT_SCRIPTS/canary-check.mjs"
+    chk "S-2d canary-check.mjs 只 import assertWritable/splitRegion，不重新定義白名單" $?
 
     # S-3 .gitignore 必須仍然擋住 .preview/，否則所有產物會直接上公開 repo
     grep -qx "data/agent/.preview/" "$REPO_DIR/.gitignore"; chk "S-3 .gitignore 仍擋住 data/agent/.preview/" $?
@@ -194,6 +200,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
   chk "S-6n newshub_change_evaluator 自測（閘2 只丟不補寫、golden／redteam、超配額砍到 remaining）" $?
   node "$AGENT_SCRIPTS/apply-change.mjs" --self-test >/dev/null 2>&1
   chk "S-6o apply-change 自測（A-1..A-9：只動 marker 區段、白名單、配額、快照還原、帳本、冪等）" $?
+  node "$AGENT_SCRIPTS/canary-check.mjs" --self-test >/dev/null 2>&1
+  chk "S-6p canary-check 自測（C-1..C-9：夜數、10pp 邊界、快照位元組還原、缺夜不計、不重判、帳本無標題、門檻讀 canaries.json、零 canary 零寫入、evaluated 不看）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -404,6 +412,8 @@ METRICS_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && METRICS_EXTRA=(--dry-run)
 APPLY_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && APPLY_EXTRA=(--dry-run)
+CANARY_EXTRA=()
+[[ $DRY_RUN -eq 1 ]] && CANARY_EXTRA=(--dry-run)
 
 # AGENT_MODEL 是給演練用的：故意填一個不存在的模型名，就能重現「判讀層整片掛掉、
 # 主管線照樣完成擷取與推送」的情境。日常不設，三支 runner 各自用內建預設模型。
@@ -421,6 +431,11 @@ run_step "00-pull-feedback" node "$AGENT_SCRIPTS/pull-feedback.mjs"
 FAILED_STEP=""
 # ── 00b：每晚每分類聚合指標 append 到 data/agent/metrics-history.jsonl（只寫數字不寫標題／URL；同日冪等；失敗不阻斷判讀）──
 run_step "00b-category-metrics" node "$AGENT_SCRIPTS/build-category-metrics.mjs" ${METRICS_EXTRA[@]+"${METRICS_EXTRA[@]}"}
+FAILED_STEP=""
+# ── 00c：canary 判讀（跑在 00b 之後、任何模型步驟之前）。只看 proposals.json 內 status=canary 且 production_applied=true 的提案，
+#   夜數 ≥ canaries.json canary_nights 才判：掉超過 revert_drop_pp 就由快照還原區段 → reverted（還原的檔寫進 .preview/apply-change-staged.txt，
+#   每晚新建、可為空，08e 之後只追加），否則 auto_applied。門檻只讀 canaries.json；失敗不阻斷後續步驟。dry-run 只印不寫。
+run_step "00c-canary-check" node "$AGENT_SCRIPTS/canary-check.mjs" ${CANARY_EXTRA[@]+"${CANARY_EXTRA[@]}"}
 FAILED_STEP=""
 run_step "01-insights"      node "$AGENT_SCRIPTS/build-insights.mjs" --window "$INSIGHTS_WINDOW"
 run_step "02-timeline"      node "$AGENT_SCRIPTS/build-timeline.mjs" --window "$TIMELINE_WINDOW"
