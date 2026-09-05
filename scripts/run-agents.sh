@@ -32,6 +32,7 @@ export PATH="/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOM
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPTS_DIR="$REPO_DIR/scripts"
 AGENT_SCRIPTS="$SCRIPTS_DIR/agent"
+export AGENT_SCRIPTS   # 08f 週報步驟走 bash -c 子 shell，需要看得到這個路徑
 PREVIEW_DIR="$REPO_DIR/data/agent/.preview"
 STATUS_FILE="$PREVIEW_DIR/agent-run-status.json"
 
@@ -131,7 +132,9 @@ if [[ $SELF_TEST -eq 1 ]]; then
            "$SCRIPTS_DIR/newshub_change_evaluator.py" \
            "$REPO_DIR/agents/change-evaluator/CHANGE_RUBRIC.md" \
            "$AGENT_SCRIPTS/apply-change.mjs" \
-           "$AGENT_SCRIPTS/canary-check.mjs"; do
+           "$AGENT_SCRIPTS/canary-check.mjs" \
+           "$AGENT_SCRIPTS/build-weekly-report.mjs" \
+           "$AGENT_SCRIPTS/slack-notify.sh"; do
         [[ -f "$f" ]]; chk "S-1 執行檔存在：${f#$REPO_DIR/}" $?
     done
 
@@ -202,6 +205,10 @@ if [[ $SELF_TEST -eq 1 ]]; then
   chk "S-6o apply-change 自測（A-1..A-9：只動 marker 區段、白名單、配額、快照還原、帳本、冪等）" $?
   node "$AGENT_SCRIPTS/canary-check.mjs" --self-test >/dev/null 2>&1
   chk "S-6p canary-check 自測（C-1..C-9：夜數、10pp 邊界、快照位元組還原、缺夜不計、不重判、帳本無標題、門檻讀 canaries.json、零 canary 零寫入、evaluated 不看）" $?
+  node "$AGENT_SCRIPTS/build-weekly-report.mjs" --self-test >/dev/null 2>&1
+  chk "S-6q build-weekly-report 自測（W-1..W-11：缺源不炸、7 天窗、[P-nnn] 對照表、零 URL／標題外洩、120 字截斷、狀態計數、metrics 均值、只寫 .preview 兩檔、dry-run 零寫）" $?
+  bash "$AGENT_SCRIPTS/slack-notify.sh" --self-test >/dev/null 2>&1
+  chk "S-6r slack-notify 自測（N-1..N-7：缺 slack.env 跳過、dry-run 不發、Bearer 標頭、jsonl 追加 ts、ok:false 退 1 不寫、token 不進任何輸出、無 xtrace）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -414,6 +421,8 @@ APPLY_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && APPLY_EXTRA=(--dry-run)
 CANARY_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && CANARY_EXTRA=(--dry-run)
+# 08f slack-notify 走 bash -c 固定字串，dry-run 用環境變數告知：只印 payload 摘要、不打 Slack（token 照樣不進輸出）。
+[[ $DRY_RUN -eq 1 ]] && export SLACK_NOTIFY_DRY_RUN=1
 
 # AGENT_MODEL 是給演練用的：故意填一個不存在的模型名，就能重現「判讀層整片掛掉、
 # 主管線照樣完成擷取與推送」的情境。日常不設，三支 runner 各自用內建預設模型。
@@ -462,6 +471,9 @@ run_step "08c-change-eval-input" node "$AGENT_SCRIPTS/build-change-eval-input.mj
 run_model_step "08d-change-eval" change-eval.json python3 "$SCRIPTS_DIR/newshub_change_evaluator.py" --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
 run_step "08e-apply-change" node "$AGENT_SCRIPTS/apply-change.mjs" ${APPLY_EXTRA[@]+"${APPLY_EXTRA[@]}"}
 [[ -z "$FAILED_STEP" ]] && FAILED_STEP="$SEARCH_REVIEW_BLOCKER"
+# ── Phase 3-E（3-9／3-10）：只在週日（date +%u = 7）產週報並貼 Slack，平日與任何失敗都 || true 不阻斷夜跑。
+# 週報只讀 .preview/precedent-proposals、proposals.json、metrics-history；slack-notify 缺 ~/.config/ai-news-hub/slack.env 時印「未設定，跳過」。
+run_step "08f-weekly-report" bash -c '[[ $(date +%u) -eq 7 ]] && node "$AGENT_SCRIPTS/build-weekly-report.mjs" && bash "$AGENT_SCRIPTS/slack-notify.sh" || true'
 
 # ── ANH-001：最後盤點 current state。只寫 .preview，不受上游失敗與模型預算阻擋。──
 run_observer_step "09-current-state-manifest" node "$AGENT_SCRIPTS/build-current-state-manifest.mjs"
