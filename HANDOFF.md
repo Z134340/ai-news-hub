@@ -17,6 +17,7 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 | 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 未開始 | — |
 | 收尾 | CLAUDE.md 補 dashboard.js 載入順序、新步驟；狀態盤點表 | 未開始 | — |
 | S-PWR | 電池模式偵測與 17:50 電源提醒（方案 1 加 2，獨立施工單） | 已 commit 並 push；P-1／P-2／P-3 全做，plist 已裝、`launchctl list` 兩個 label 都在；拔電源 kickstart 通知已由使用者驗過（剩電池模式整跑，見 §3） | `62a9a65` |
+| 跨專案調度 | Hermes 管制塔／launchd 引擎／Iris 櫃台；fleet.yaml 單一真相、時窗重排、清債（見 §6，施工單 F-0～F-4） | 已盤點並規劃（2026-09-05）；F-0 等決策 §6.4 A、B | — |
 
 ## 1. 使用者已拍板的決策（不要再問）
 
@@ -138,6 +139,135 @@ Phase 4 的細節見 §0（紀律見 CLAUDE.md「auto-opt 路線圖與工作紀�
 5. shape 一律先查 `docs/shapes/README.md` 對應的那一份檔，查不到再開檔並回填該檔。規範（run-daily、validate、分類、前端 UX）在 `docs/specs/`，同樣只讀對應那份。
 6. `data/*.json` 只用 `python3 -c` 印 keys／len／前 3 筆；`json.tool` 與 `cat data/*.json` 已在 `.claude/settings.json` deny。
 7. context 快滿：先把本檔 §0 與 §2「磁碟現況」欄更新，然後 `/clear` 開新 session，不 `/compact`。
+
+## 6. 跨專案調度施工單（2026-09-05 規劃；Hermes 管制塔／launchd 引擎／Iris 櫃台）
+
+> 本節是**跨專案**施工單，施工地點主要在 `~/Hermes-Agent`、`~/.hermes`、`~/Library/LaunchAgents`，不是 ai-news-hub 的 Phase。放在本檔是因為本 repo 是唯一有 HANDOFF 紀律的地方；各 session 開工先讀本節，再只開該 session 列出的檔案。§4 紅線全部適用（Hermes 真本契約不動、`~/.config/hermes/*.env` 連變數名都不讀、confidential spec 不引用）。
+> 盤點日期 2026-09-05，來源為 `~/Library/LaunchAgents/*.plist` 全部解析、`launchctl list`、`pmset -g sched`、`du`、各 repo `git status`；標 ［未能驗證］ 者無實測數據。
+
+### 6.0 白話結論
+
+一台 16GB 的機器上有兩套排程器互不知情：launchd 掛 19 個工作（12 個 Hermes、7 個其他專案），Hermes v0.20.0 內建 cron 只跑 1 個工作；沒有共用的鎖、log、執行帳本，pmset 只有一個喚醒點（17:55），所以凌晨四個工作全是假排程，都擠到早上開機時一起跑。目標架構：**Hermes 當管制塔（只讀執行帳本、經 Iris 每天 DM 一份艦隊摘要），launchd 當引擎（保留行程隔離，套一支共用 runner），Iris 當櫃台（DM 摘要、告警、核准中繼；不做 ai-news-hub 週報 ✅ 讀回）**。金融類比：launchd 是清算系統真的執行，Hermes 是風控監控台只看帳，Iris 是客服櫃台只對使用者說話。
+
+**不把重型工作搬進 Hermes cron** 的三個實測理由：gateway `KeepAlive` 重啟會漏 Docker 容器（已需 03:30 reaper 收拾）；ai-news-hub 一晚 7–10 支平行 `claude -p`（各 1200s）不適合塞進單一 Python 常駐行程；launchd 的獨立行程／鎖／PATH 是目前唯一的隔離手段。
+
+### 6.1 現況診斷（量化）
+
+**排程時窗（台北時間）**
+
+| 時窗 | 工作 | 模型呼叫 | 問題 |
+|---|---|---|---|
+| 00:00 | hermes learner（`run_learner_daily.sh`） | Opus 2＋N（N＝候選數÷batch，`daily_learner.py:772` 無上限） | 機器通常在睡；延到下次喚醒才爆發 |
+| 03:30／04:30／D1 04:45 | container-reaper、agent-memory daily、monthly | 0 | 同上；monthly 與 daily 相隔 15 分鐘搶 `AgentMemoryFabric/Backups` |
+| 09:00／09:20 | skillwatch（`~/skill-vault/scripts/run_all.sh`）、eaga optimizer | 0–1 | 與被延後的凌晨工作在開機時擠在一起 |
+| 17:55 喚醒→18:00 | ai-news-hub `run-daily.sh` | 12–15 | AC 25–28 分；電池 4–6 小時，撞到凌晨窗 |
+| 19:30 | hermes curator | Opus 1 | 與 ai-news-hub 電池模式重疊 |
+| 日 20:00／一 08:30 | auditor、weekly-digest | Opus ≥2／1–2 | auditor 與 ai-news-hub 08f 週日同晚 |
+| 六 21:00 | gdrive-sync（rclone） | 0 | 08-08 跑 11.5 小時，留 44 GB 歸檔 |
+| 每 300s | dashboard-push → Firestore | 0 | 288 次／日，餵的本機 dashboard（:9119）已停用 |
+
+**其他事實**
+
+| 項目 | 數字 | 備註 |
+|---|---|---|
+| pmset 喚醒點 | 1（17:55） | `pmset repeat` 只允許一組 |
+| 互不知情的 Claude CLI 路徑 | 3 | `run-daily.sh` 直呼、Hermes claude-cli-proxy（127.0.0.1:18796）、NeuroLearn `claude_proxy.py`（127.0.0.1:7734，socket-activated） |
+| 每日模型呼叫 | 約 16–20＋N | Hermes 各腳本 `MODEL="claude-opus-5"` 寫死；N 是唯一無上限變數 |
+| Hermes 常駐行程 RSS | 約 125 MB（4 個） | 不是瓶頸 |
+| 孤兒 MCP stdio server | 20 個，約 555 MB | mcp-pdf ×6、playwright ×7、agent-memory ×7，來自已結束的 Claude Code session |
+| memory_pressure | 38% free | 18:00 那批是 CPU／網路瓶頸，非記憶體 |
+
+**技術債與無效益檔案**（可回收約 3 GB＋44 GB 週期性）
+
+| 項目 | 大小 | 處置 |
+|---|---|---|
+| `~/.hermes/hermes-agent-rollback-20260809T022830-747312000` | 1.4 GB | 08-09 升版殘留，無 plist 引用 → 刪 |
+| `~/.hermes/v020-stage-home`、`backups`、`state-snapshots` | 664＋591＋87 MB | 同次升版殘留 → 刪或壓成一份 |
+| `~/.hermes/iris-runtime/releases/`（55 版 1.2.4→2.1.41-rc.30）、`backups/` | 90＋44 MB | 只留 `current` 與前一版 |
+| `iris-runtime/` 24 個 `failed-uat-*.json`、4 個 `failed-install-*.json`、11 個 `*.rolled-back.json` | 小 | 清，但先過 6.4 決策 B |
+| `~/.hermes/logs/`（`claude_cli_proxy.launchd.log` 25 MB、`gateway-manual.log` 12 MB、`agent.log`×4 20 MB、`slack_bridge.log.*` 10 MB） | 77 MB | 無輪替 → runner 內建 14 天輪替 |
+| `~/.hermes/*.jsonl`（`iris-runtime-telemetry` 2.1 MB、`iris-learning-retrieval` 1.3 MB） | 3.4 MB | 無 retention → 加上限 |
+| `~/.hermes/config.yaml.bak-*`、`.corrupt.*.bak` | 8 個 | 刪（`~/.hermes` 本身是 git，最後 commit `32dd5a0` 07-11） |
+| `~/Hermes-Agent/hermes-iris-runtime-v2.1.41-rc.15…rc.21`（7 棵 untracked） | 19 MB | 刪 |
+| `~/Hermes-Agent/loop-engineering`（07-09 起未動）、根目錄 4 張 PNG | 100 MB、3.7 MB | 6.4 決策 D；PNG 移出 git |
+| `~/Hermes-Agent/dist` | 16 MB | 依 `docs/dist-retention-policy-2026-08-25.md` 執行 |
+| launchd 真相三份副本（installed、`scripts/launchd/`、`hermes-console/deploy/`） | — | 由 6.2 的 `fleet.yaml` 取代 |
+| `~/Library/LaunchAgents/disabled/` 5 個 plist（`linkedin-weekly` 為壞 XML）、`disabled-2026-07-25/`、`~/.hermes/com.zyc.hermes-console.plist` | 小 | 刪 |
+| `~/gdrive-sync/_archive/2026-08-08_210001` | 44 GB | `_cleanup.sh` 保留 30 天，約 09-12 自動到期；保留期改 14 天 |
+| `~/gdrive-sync/_sync_logs/launchd.out.log`、`_sync_manifest.csv`、`summary_2026-08-08.md`、3 個 `.bak` | 55＋58＋46 MB＋小 | log 被 `_cleanup.sh:53,64` 明確排除、無上限 → 納入輪替；`.bak` 刪、腳本改 git 管理 |
+| `~/NeuroLearn/claude_proxy.py`（根目錄 untracked，與 `scripts/claude_proxy.py` 完全相同；plist 指向 untracked 那份） | 小 | plist 改指 `scripts/`，刪根目錄複本 |
+| GOVNHUB-WebTest-Agent（plist 硬編另一台機器路徑、07-08 起無 commit；GitHub Action 仍每天 22:00 UTC 跑） | 0 | 6.4 決策 D |
+| `~/Obsidian-KM/_scripts/daily-maintenance.log` | 3.1 MB | 納入輪替 |
+| `~/ai-news-hub/ai-news-hub.bundle`（04-07）、`scripts/__pycache__` | 91 KB | 刪、`__pycache__` 加 gitignore |
+
+**Hermes-Agent repo 半套用狀態（先於一切）**：branch `minimal-governance` 有 20 個 modified、10 個 untracked、**46 個 staged 未 commit 的刪除**（整套 Iris UAT harness：`scripts/iris_*uat*`、`tests/test_iris_*uat*`、`hermes-console/iris_uat_*.js`、`schemas/iris-*uat*-v1.json`、`deploy/iris-runtime/cutover.py`、`release_partition_validator.py`、舊 `hermes-console/*.plist`＋wrapper），自 09-03 停在這狀態；同時 `~/.hermes/iris-runtime/current` → rc.26，但 rc.29／rc.30 已建、最後 commit `ccc68c6` 記載 rc.31，線上 Iris 落後 4–5 個候選版。
+
+### 6.2 目標架構
+
+| 元件 | 落點 | 內容 | 不做什麼 |
+|---|---|---|---|
+| 單一真相 `fleet.yaml` | `~/Hermes-Agent/fleet/fleet.yaml`（退路：`~/.hermes/fleet/`，代價是與治理 repo 分家） | 每工作一列：`id, project, entry, window, timeout, needs_model, needs_ac, needs_docker, notify_on_fail` | 不含任何機密、不引用 `.env` |
+| 產生器 `gen-plists.sh` | 同目錄 | 由 `fleet.yaml` 產 plist 到 `~/Library/LaunchAgents/`，`plutil -lint` 全過 | 不改各專案 entry script |
+| 共用 runner `run.sh <job-id>` | 同目錄 | `export PATH=/opt/homebrew/bin:…`、`flock` 單例鎖、`timeout`、log → `~/.local/state/fleet/logs/<job>/`（14 天輪替）、結束 append `~/.local/state/fleet/runs.jsonl`（job、start、end、exit、duration、host_on_ac） | 不讀 `.env`、不回顯任何輸出到 Slack |
+| Hermes cron（唯一一個工作） | `hermes cron create` 08:00 | 讀 `runs.jsonl`，經 Iris DM 昨晚摘要與失敗清單 | 不跑任何重型工作 |
+| Iris | 現狀（DM-only、單一使用者、片語核准） | 摘要、告警、optimization proposal 核准中繼 | 不做 ai-news-hub 週報 ✅ 讀回（無 `reactions:read`／頻道 history；加上去要改 Hermes 真本）→ ai-news-hub 維持專用 Slack app（§3） |
+
+ai-news-hub 端改動＝plist 的 `ProgramArguments` 換成 `run.sh ai-news-hub-daily`；`run-daily.sh` 零改動。
+
+**時窗重排（一個喚醒點就夠）**
+
+| 窗 | 內容 | 說明 |
+|---|---|---|
+| 17:55 喚醒／18:00 晚間鏈 | 序列：ai-news-hub → curator → learner（`DEEP_BATCH` 上限＋timeout 90 分）→ 週日 auditor → agent-memory daily → container-reaper | 同一時間只有一條 Claude 路徑；ai-news-hub 內部 7–10 平行不變 |
+| 09:00 早間輕窗 | skillwatch → eaga optimizer → D1 agent-memory monthly | 機器已開、0–1 次模型；monthly 移早上就不再與 daily 搶目錄 |
+| 一 08:30 | weekly-digest | 維持 |
+| 六 22:00 | gdrive-sync | 歸檔保留 14 天、`launchd.out.log` 納入輪替、`timeout 6h` |
+| 事件驅動 | dashboard-push 改為 runner 結束時觸發＋每小時 1 次心跳 | 288 次／日 → 約 30 次／日 |
+| 08:00 | Hermes cron → Iris DM 艦隊摘要 | Hermes 現成 cron→Slack 遞送，零 Hermes 程式改動［未能驗證：v0.20.0 cron job 能否直接讀本機檔案，只從 `cron/scheduler.py` toolset 機制推斷；失敗退回 runner 結尾直接 `chat.postMessage`］ |
+
+**方案優先順序**
+
+| 方案 | 成本 | 效益 | 判定 |
+|---|---|---|---|
+| A 管制塔架構（本節） | 約 5 個 session（F-0～F-4）；Hermes 程式只改 learner 一個常數 | 排程單一真相、零重疊、模型路徑序列化、每日可觀測、回收約 3 GB | **優先** |
+| B 全搬進 Hermes cron | 改寫 12 個 wrapper、失去行程隔離 | 少一套排程器 | 否決：gateway 重啟漏容器、平行 `claude -p` 不宜行程內 |
+| C 只清債不重排 | 1 個 session | 回收空間 | 治標；凌晨工作仍假排程、配額仍三頭馬車 |
+
+### 6.3 施工單（每 session 一列；做完 commit 立刻 push；F-0 未完成前 F-1 不開工）
+
+| Session | 工作項目 | 只開這些檔 | 驗收條件 | 需使用者拍板 |
+|---|---|---|---|---|
+| **F-0 Hermes-Agent 收斂** | 依決策 A/B 處理 46 個 staged 刪除與 rc.26；`git rm --cached` 或刪 7 棵 `hermes-iris-runtime-v2.1.41-rc.*`；4 張 PNG 移出 git；`dist` 依 retention policy | `~/Hermes-Agent`：`git status`、`deploy/iris-runtime/README.md`、`docs/dist-retention-policy-2026-08-25.md` | `git status` 乾淨；`readlink ~/.hermes/iris-runtime/current` 與最新 commit 記載版本一致 | 決策 A、B |
+| **F-1 fleet 單一真相** | 寫 `fleet/fleet.yaml`（19 個工作逐一登錄）、`fleet/gen-plists.sh`、`fleet/run.sh`；刪 `scripts/launchd/`、`hermes-console/deploy/*.plist`、`~/Library/LaunchAgents/disabled*/`、`~/.hermes/com.zyc.hermes-console.plist` | `~/Library/LaunchAgents/*.plist`（python plistlib 解析，不 cat）、上述三檔 | 產生的 plist 與 `launchctl list` 逐一對得上；`plutil -lint` 全過；`run.sh --self-test` 通過；每個工作在 `runs.jsonl` 至少一筆 | 決策 C（落點） |
+| **F-2 時窗重排** | 依 6.2 表改 `fleet.yaml`，`launchctl bootout`／`bootstrap` 重掛；learner 加 batch 上限與 timeout（Hermes 腳本改一個常數）；NeuroLearn plist 改指 `scripts/claude_proxy.py` | `fleet.yaml`、`run_learner_daily.sh`（grep 常數行）、`com.neurolearn.proxy.plist` | 連續 7 晚 `runs.jsonl` 無重疊（end_i ≤ start_{i+1}）；晚間鏈 AC 下總時長 ≤ 90 分；`data/health.json` 的 `QUOTA_NOTE` 7 晚為空 | learner 上限數字 |
+| **F-3 Iris 摘要** | `hermes cron create` 08:00 工作，prompt 只讀 `~/.local/state/fleet/runs.jsonl`；失敗退回 runner 結尾 `chat.postMessage` | `~/.hermes/cron/jobs.json`（只印 keys） | 連續 3 天 08:00 收到 DM；失敗工作有標示 | 無 |
+| **F-4 清債** | 依 6.1 表逐項刪除（刪前列清單給使用者確認）；gdrive `_cleanup.sh` 保留期 14 天＋log 納入；`~/.hermes` JSONL 加上限；GOVNHUB workflow 停用；孤兒 MCP 清理並找出來源 | 6.1 表所列路徑；`~/gdrive-sync/_cleanup.sh` | `du -sh ~/.hermes` ≤ 1.8 GB；`~/gdrive-sync` 穩態 ≤ 5 GB；`ps` 無 etime > 30 分的 mcp stdio 行程；`git status` 各 repo 乾淨 | 決策 D |
+
+### 6.4 待使用者拍板
+
+| 代號 | 問題 | 建議 |
+|---|---|---|
+| A | 46 個 staged 刪除（Iris UAT harness＋舊部署機制）commit 還是 `git reset`？ | commit：09-03 後沒有任何 UAT 腳本被 plist 或 runtime 引用 |
+| B | `iris-runtime/current` 停在 rc.26，rc.29／rc.30／rc.31 去留？ | 升到最後一個 UAT 通過版並刪其餘；否則凍結 rc.26 並把 rc.27+ 全刪 |
+| C | `fleet/` 放 `~/Hermes-Agent` 還是 `~/.hermes`？ | `~/Hermes-Agent`（治理 repo、且要取代的兩份 plist 副本就在那） |
+| D | `loop-engineering`（100 MB、07-09 起未動）、GOVNHUB（本機已死、Action 仍跑）、EAGA optimizer（每日 09:20）去留？ | loop-engineering 歸檔為 git tag 後刪；GOVNHUB 停 workflow；EAGA 保留但納入 fleet |
+
+### 6.5 紅線（本節專用，疊加 §4）
+
+- `~/Hermes-Agent/*/hermes.project.yaml` 七份契約真本不動；`fleet.yaml` 是排程登錄簿，不是契約，不放 `approval`／`write_scope` 之類欄位。
+- `run.sh` 與 `runs.jsonl` 不含任何 token、不含 Slack 訊息內容、不含 ai-news-hub 原始評分／標題／URL。
+- Hermes gateway 行程內只跑 F-3 那一個 cron 工作；任何 `needs_model: true` 或 `needs_docker: true` 的工作一律 launchd。
+- 刪除任何 6.1 表項目前先列清單給使用者，不因「已在表上」直接刪。
+
+### 6.6 狀態盤點
+
+| 項目 | 狀態 |
+|---|---|
+| 盤點（launchd、pmset、du、git status、Hermes cron） | 已完成 2026-09-05 |
+| 規劃（本節） | 已寫入 |
+| F-0～F-4 | 未開始；F-0 等決策 A、B |
+| ai-news-hub §3 人工項（專用 Slack app／slack.env） | 未變，與本節無關 |
+| Phase 4、收尾 | 未變 |
 
 ---
 
