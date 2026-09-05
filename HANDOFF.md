@@ -17,7 +17,7 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 | 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 未開始 | — |
 | 收尾 | CLAUDE.md 補 dashboard.js 載入順序、新步驟；狀態盤點表 | 未開始 | — |
 | S-PWR | 電池模式偵測與 17:50 電源提醒（方案 1 加 2，獨立施工單） | 已 commit 並 push；P-1／P-2／P-3 全做，plist 已裝、`launchctl list` 兩個 label 都在；拔電源 kickstart 通知已由使用者驗過（剩電池模式整跑，見 §3） | `62a9a65` |
-| 跨專案調度 | Hermes 管制塔／launchd 引擎／Iris 櫃台；fleet.yaml 單一真相、時窗重排、清債（見 §6，施工單 F-0～F-4） | 已盤點並規劃（2026-09-05）；F-0 等決策 §6.4 A、B | — |
+| 跨專案調度 | Hermes 管制塔／launchd 引擎／Iris 櫃台；fleet.yaml 單一真相、時窗重排、清債（見 §6，施工單 F-0～F-4） | 已盤點並規劃（2026-09-05）；§6.4 A 已拍板 commit，F-0 修訂版見 §6.3a；B 預設 B1 | — |
 
 ## 1. 使用者已拍板的決策（不要再問）
 
@@ -237,18 +237,31 @@ ai-news-hub 端改動＝plist 的 `ProgramArguments` 換成 `run.sh ai-news-hub-
 
 | Session | 工作項目 | 只開這些檔 | 驗收條件 | 需使用者拍板 |
 |---|---|---|---|---|
-| **F-0 Hermes-Agent 收斂** | 依決策 A/B 處理 46 個 staged 刪除與 rc.26；`git rm --cached` 或刪 7 棵 `hermes-iris-runtime-v2.1.41-rc.*`；4 張 PNG 移出 git；`dist` 依 retention policy | `~/Hermes-Agent`：`git status`、`deploy/iris-runtime/README.md`、`docs/dist-retention-policy-2026-08-25.md` | `git status` 乾淨；`readlink ~/.hermes/iris-runtime/current` 與最新 commit 記載版本一致 | 決策 A、B |
+| **F-0 Hermes-Agent 收斂**（修訂版，見下表 6.3a） | 決策 A 已拍板 commit：備份分支＋stash 物件 → 拆兩個 commit → 補 `docs/HANDOFF.md` 決策紀錄 → 清 7 棵 rc 暫存樹與 PNG → 建 2.2.0 跑 canary → 通過才 promote／合 main／清 `releases/` | `~/Hermes-Agent`：`git status`、`docs/HANDOFF.md`（新）、`deploy/iris-runtime/release_spec.json`、`deploy/iris-runtime/README.md`、`docs/dist-retention-policy-2026-08-25.md` | 見 6.3a 各步驟驗收；步驟 5 canary 失敗即停在步驟 4，不合 main | 決策 B（F-0 步驟 5–6 預設走 B1） |
 | **F-1 fleet 單一真相** | 寫 `fleet/fleet.yaml`（19 個工作逐一登錄）、`fleet/gen-plists.sh`、`fleet/run.sh`；刪 `scripts/launchd/`、`hermes-console/deploy/*.plist`、`~/Library/LaunchAgents/disabled*/`、`~/.hermes/com.zyc.hermes-console.plist` | `~/Library/LaunchAgents/*.plist`（python plistlib 解析，不 cat）、上述三檔 | 產生的 plist 與 `launchctl list` 逐一對得上；`plutil -lint` 全過；`run.sh --self-test` 通過；每個工作在 `runs.jsonl` 至少一筆 | 決策 C（落點） |
 | **F-2 時窗重排** | 依 6.2 表改 `fleet.yaml`，`launchctl bootout`／`bootstrap` 重掛；learner 加 batch 上限與 timeout（Hermes 腳本改一個常數）；NeuroLearn plist 改指 `scripts/claude_proxy.py` | `fleet.yaml`、`run_learner_daily.sh`（grep 常數行）、`com.neurolearn.proxy.plist` | 連續 7 晚 `runs.jsonl` 無重疊（end_i ≤ start_{i+1}）；晚間鏈 AC 下總時長 ≤ 90 分；`data/health.json` 的 `QUOTA_NOTE` 7 晚為空 | learner 上限數字 |
 | **F-3 Iris 摘要** | `hermes cron create` 08:00 工作，prompt 只讀 `~/.local/state/fleet/runs.jsonl`；失敗退回 runner 結尾 `chat.postMessage` | `~/.hermes/cron/jobs.json`（只印 keys） | 連續 3 天 08:00 收到 DM；失敗工作有標示 | 無 |
 | **F-4 清債** | 依 6.1 表逐項刪除（刪前列清單給使用者確認）；gdrive `_cleanup.sh` 保留期 14 天＋log 納入；`~/.hermes` JSONL 加上限；GOVNHUB workflow 停用；孤兒 MCP 清理並找出來源 | 6.1 表所列路徑；`~/gdrive-sync/_cleanup.sh` | `du -sh ~/.hermes` ≤ 1.8 GB；`~/gdrive-sync` 穩態 ≤ 5 GB；`ps` 無 etime > 30 分的 mcp stdio 行程；`git status` 各 repo 乾淨 | 決策 D |
 
+#### 6.3a F-0 修訂版（2026-09-05 依 §6.4 A 拍板；一步一驗收，步驟 5 是關鍵閘）
+
+| 步驟 | 工作 | 驗收 |
+|---|---|---|
+| 1 | `~/Hermes-Agent` 先 `git branch backup/pre-minimal-governance-20260905 ccc68c6`；工作樹用 `git stash create` 存一個 stash 物件當保險，不套用、不 drop | `git branch -a` 看到備份分支；stash 物件 hash 記回本檔 §6.6 |
+| 2 | commit 1：46 個 staged 刪除＋20 個修改中對應的設定檔（`iris_local_full_gate.py`、`verify_python_test_matrix.py`、`release_spec.json`、`install.py`、`test_iris_runtime_release.py`、`test_weekly_production_preflight.py` 等）；commit 2：`hermes-console/iris_intent_classifier.js`、`tests/test_iris_intent_classification.mjs`＋`slack_bridge.mjs` 接線 | `git status` 只剩 7 棵 `hermes-iris-runtime-v2.1.41-rc.*` 暫存樹與 `CLAUDE.md`；`node --check` 與 `python3 scripts/iris_local_full_gate.py` 通過 |
+| 3 | 寫 `docs/HANDOFF.md`（AGENTS.md 已要求此檔）：拆閘門理由（08-14～09-03 共 24 次 UAT 全失敗、6 個候選版 0 推廣）、新閘門定義（sonnet 單車道分流＋intent classifier）、rc.27 機密 printenv 封鎖與 rc.28 worker 遞迴委派關閉兩項修正在 2.2.0 的落點；commit 3 | 檔案存在且入版控；`grep -n 'minimal-governance' docs/HANDOFF.md` 至少 1 筆 |
+| 4 | 刪 7 棵 rc 暫存樹（2.7–2.9 MB 各）、4 張 PNG 移出 git、`CLAUDE.md`（`@AGENTS.md`）收入；`dist` 依 retention policy | `git status` 乾淨；push `minimal-governance` 到 origin |
+| 5 | `scripts/build_iris_runtime_release.py` 建 2.2.0 → `python3 install.py plan` → `canary`；`launchctl list` 四個 hermes 服務 exit 0；Iris DM 一句測試訊息有回 | 通過：`readlink ~/.hermes/iris-runtime/current` = `releases/2.2.0`。失敗：`install.py rollback` 後 `current` 回到 `releases/2.1.41-rc.26`，停在步驟 4，把 12 項阻斷檢查最小子集拉回來再談合 main |
+| 6 | `promote`；`minimal-governance` 合 main、push；`releases/` 只留 2.2.0 與 rc.26（回滾基準），刪 rc.13–25、rc.27–30（約 80 MB）；24 個 `failed-uat-*.json` 打成一個 tar 歸檔後刪 | `readlink current` = 2.2.0；`ls releases/` 只剩 2 個；`git branch -vv` main 與 origin 同步 |
+
+未能驗證（做到該步驟時先補驗）：2.2.0 的 `install.py verify --live` 與 `rollback` 是否仍可執行（只讀 diff 未實跑）；`failed-uat-*.json` 與 rc 版本對應靠 mtime 推斷；`~/.config/hermes/*` 與 confidential spec 依紅線未開。
+
 ### 6.4 待使用者拍板
 
 | 代號 | 問題 | 建議 |
 |---|---|---|
-| A | 46 個 staged 刪除（Iris UAT harness＋舊部署機制）commit 還是 `git reset`？ | commit：09-03 後沒有任何 UAT 腳本被 plist 或 runtime 引用 |
-| B | `iris-runtime/current` 停在 rc.26，rc.29／rc.30／rc.31 去留？ | 升到最後一個 UAT 通過版並刪其餘；否則凍結 rc.26 並把 rc.27+ 全刪 |
+| A | 46 個 staged 刪除（Iris UAT harness＋舊部署機制）commit 還是 `git reset`？ | **已拍板（2026-09-05）：commit**，拆兩個 commit 留在 `minimal-governance`，先不合 main；理由：分支與 main 同指 `ccc68c6`、15,330 行只在工作樹；刪除集合 0 個活引用；舊閘門 24 次 UAT 全失敗、0/6 推廣。執行見 6.3a |
+| B | `iris-runtime/current` 停在 rc.26，rc.27～rc.31 去留？ | 建議 B1：rc.26 續用，rc.27–30 不推（rc.27 canary 已回滾、rc.28–30 從未過閘、rc.31 未建），改建 2.2.0 走新閘 canary；rc.30 走舊閘走不通（舊閘要 UAT receipt，rc.30 是 0 執行）。6.3a 步驟 5–6 預設此路徑，未正式拍板 |
 | C | `fleet/` 放 `~/Hermes-Agent` 還是 `~/.hermes`？ | `~/Hermes-Agent`（治理 repo、且要取代的兩份 plist 副本就在那） |
 | D | `loop-engineering`（100 MB、07-09 起未動）、GOVNHUB（本機已死、Action 仍跑）、EAGA optimizer（每日 09:20）去留？ | loop-engineering 歸檔為 git tag 後刪；GOVNHUB 停 workflow；EAGA 保留但納入 fleet |
 
@@ -265,7 +278,7 @@ ai-news-hub 端改動＝plist 的 `ProgramArguments` 換成 `run.sh ai-news-hub-
 |---|---|
 | 盤點（launchd、pmset、du、git status、Hermes cron） | 已完成 2026-09-05 |
 | 規劃（本節） | 已寫入 |
-| F-0～F-4 | 未開始；F-0 等決策 A、B |
+| F-0～F-4 | 未開始；A 已拍板 commit（6.3a）；B 預設 B1 待正式拍板 |
 | ai-news-hub §3 人工項（專用 Slack app／slack.env） | 未變，與本節無關 |
 | Phase 4、收尾 | 未變 |
 
