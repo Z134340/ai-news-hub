@@ -280,7 +280,8 @@ ai-news-hub 端改動＝plist 的 `ProgramArguments` 換成 `run.sh ai-news-hub-
 | 規劃（本節） | 已寫入 |
 | F-0（Hermes-Agent `minimal-governance` 收斂） | 已完成 2026-09-05：步驟 1–5（備份、commit、HANDOFF、清理 push、tag／build／install／smoke／DM 人測）與步驟 6（S-F0-6a～6c：push＋main ff＋tag `v2.2.0`；24 個 failed-uat 歸檔刪除；14 個 rc 目錄歸檔刪除，`releases/` 剩 42、`current`→`2.2.0`）全部完成；Hermes-Agent 最終 commit `0ae4968`（S-F0-6d 回寫 commit 見該 repo git log）。F-1 可開工 |
 | F-1（fleet 單一真相） | 已完成 2026-09-05：Hermes-Agent commit `a95f683`（`fleet/fleet.yaml` 19 工作、`gen-plists.sh`、`run.sh`），驗收四項全過（plutil 19/19、launchctl label 19/19、self-test 19/19、runs.jsonl 每工作 ≥1）。決策 C 依 §6.2 採 `~/Hermes-Agent/fleet/`。plist 只在 `~/.local/state/fleet/plists/` 暫存區，`~/Library/LaunchAgents/` 未動、未換掛；刪除 5 項未 move，清單在 Hermes-Agent `docs/HANDOFF.md` §3 第 5 點待 ZY 拍板 |
-| F-2～F-4 | 未開始；F-2 可開工；A 已拍板 commit（6.3a）；B 預設 B1 待正式拍板 |
+| F-2（時窗重排＋換掛） | 已完成 2026-09-05：Hermes-Agent commit `de7e031`（19/19 由 fleet 產物換掛、`gen-plists.sh --verify --diff` 零差異；時窗依 §6.2：learner 20:30、curator 20:00、auditor 日 22:00、agent-memory-daily 22:30、reaper 23:00、monthly 1 日 10:30、gdrive-sync 六 22:00、dashboard-push 3600s；活引用改指 `fleet/`；5 項 move 到 `~/Hermes-Agent-backup-20260905/`）。learner `MAX_DEEP`／`DEEP_BATCH` 上限數字待 ZY 拍板；換掛後 7 晚長期驗收留 S-F3 開工前確認。F-3 可開工 |
+| F-3～F-4 | 未開始；F-3 可開工；A 已拍板 commit（6.3a）；B 預設 B1 待正式拍板 |
 | F-0 步驟 1 備份（2026-09-05） | 已完成：分支 `backup/pre-minimal-governance-20260905`=`ccc68c6`；stash 物件 `eacd1291d398779cb3094aa4360c46c1a5bdd8ff`（另掛 ref `refs/backup/f0-step1-stash` 防 gc，未套用未 drop）；untracked 10 項 tar 於 `~/Hermes-Agent-backup-20260905/untracked-f0-step1.tgz`（5.0 MB） |
 | ai-news-hub §3 人工項（專用 Slack app／slack.env） | 未變，與本節無關 |
 | Phase 4、收尾 | 未變 |
