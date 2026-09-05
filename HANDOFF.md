@@ -108,7 +108,7 @@ Phase 4 的細節見 §0（紀律見 CLAUDE.md「auto-opt 路線圖與工作紀�
 
 | 項目 | 指令／位置 | 未做的後果 |
 |---|---|---|
-| 部署 Firestore rules（Phase 1） | `firebase deploy --only firestore:rules` | `pull-feedback.mjs` dry-run 回 403，帳本收不到 `human_rating` |
+| 部署 Firestore rules（Phase 1） | `npx -y firebase-tools deploy --only firestore:rules`（首次會開瀏覽器要 `firebase login`；本機未裝 firebase CLI）| `pull-feedback.mjs` 回 403，帳本收不到 `human_rating`；前端評分也寫不進 Firestore。**2026-09-05 已查證根因就是這條、與 S3-B 無關**：writer 帳號 signIn 200、uid 與 `firestore.rules` 內常數一致，`runQuery feedback` 回 `PERMISSION_DENIED`（不帶 where 也一樣）→ 線上仍是 `c2695db` 的舊 rules（無 `feedback` match）。未部署前每晚 `00-pull-feedback` 都會 exit 2、overall 恆為 degraded；不要改程式把 403 吞成 skipped，那會遮掉真的設定錯誤 |
 | 網站登入 | 站上以 writer 帳號登入 | 按鈕只寫 localStorage，不會同步到 Firestore |
 | S-PWR 驗收（電池模式整跑） | 拔電源 kickstart 通知已於 2026-09-05 由使用者驗過（有跳「18:00 擷取即將開始，請接電源」）。剩下：任一晚電池模式跑完，`python3 -c "import json;h=json.load(open('data/health.json'));print(h['power_source'],h['errors'])"` 應印 `battery` 與回退備註 | 只是驗收，功能已裝好；不影響 AC 正常執行 |
 | Phase 3 前填 Slack 設定（S3-E 動工前） | 建一個 Slack app（bot token scopes：`chat:write`、`reactions:read`、`channels:history`；私頻道則 `groups:history`），把 bot 加進目標頻道，寫 `~/.config/ai-news-hub/slack.env`：`SLACK_BOT_TOKEN=xoxb-...`、`SLACK_CHANNEL_ID=C...`（`chmod 600`）。**要用 bot token 不用 incoming webhook**：webhook 只能送不能讀，S3-F 的讀回需要同一支 app | S3-E／S3-F 只會 log「Slack 未設定，跳過」，不會 crash；此檔永不入版控 |
