@@ -3,12 +3,12 @@
   "last_success": "2026-09-04T22:20:42.104570+08:00",
   "last_date": "2026-09-04",
   "source": "local",
-  "status": "partial",
+  "status": "missed",
   "categories_ok": 2,
   "categories_failed": 5,
   "validation_pass_rate": 96,
-  "consecutive_failures": 0,
-  "last_missed": null,
+  "consecutive_failures": 1,
+  "last_missed": "2026-09-05",
   "errors": [
     "配額/連線耗盡: taiwan（秒級重試無效，已回退舊資料）"
   ],
@@ -27,5 +27,6 @@
     "failed_steps": [
       "00-pull-feedback"
     ]
-  }
+  },
+  "note": "本機排程未執行，等待電腦上線後自動補跑"
 }
