@@ -128,14 +128,14 @@ CLAUDE_BIN=$(which claude 2>/dev/null || echo "")
 if [[ -z "$CLAUDE_BIN" ]]; then
     log "ERROR: claude 指令找不到 (PATH=$PATH)"
     update_health_json "failed" "claude command not found in PATH"
-    exit 0
+    exit 1   # 2026-09-06：前置檢查失敗回非零，讓 fleet/run.sh 記進 runs.jsonl、F-3 早報列為失敗（原 exit 0 會被記成成功）
 fi
 log "Claude CLI: $CLAUDE_BIN"
 
 if ! "$CLAUDE_BIN" auth status > /dev/null 2>&1; then
     log "ERROR: Claude auth failed"
     update_health_json "failed" "Claude auth status failed"
-    exit 0
+    exit 1   # 2026-09-06：前置檢查失敗回非零，讓 fleet/run.sh 記進 runs.jsonl、F-3 早報列為失敗（原 exit 0 會被記成成功）
 fi
 log "Claude auth: OK"
 
@@ -143,7 +143,7 @@ log "Claude auth: OK"
 if ! curl -s --max-time 5 https://api.anthropic.com > /dev/null 2>&1; then
     log "ERROR: API connectivity check failed"
     update_health_json "failed" "API connectivity check failed"
-    exit 0
+    exit 1   # 2026-09-06：前置檢查失敗回非零，讓 fleet/run.sh 記進 runs.jsonl、F-3 早報列為失敗（原 exit 0 會被記成成功）
 fi
 log "Network: OK"
 
@@ -788,3 +788,7 @@ fi
 rm -f "$LOCK_FILE" 2>/dev/null || true
 
 log "========== 完成 · 狀態: $OVERALL_STATUS · 驗證: ${PASS_RATE}% =========="
+
+# 2026-09-06：整輪全失敗也回非零（partial 仍視為成功，避免早報天天紅）。
+[[ "$OVERALL_STATUS" == "failed" ]] && exit 1
+exit 0
