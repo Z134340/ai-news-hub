@@ -278,7 +278,8 @@ ai-news-hub 端改動＝plist 的 `ProgramArguments` 換成 `run.sh ai-news-hub-
 |---|---|
 | 盤點（launchd、pmset、du、git status、Hermes cron） | 已完成 2026-09-05 |
 | 規劃（本節） | 已寫入 |
-| F-0～F-4 | 未開始；A 已拍板 commit（6.3a）；B 預設 B1 待正式拍板 |
+| F-0（Hermes-Agent `minimal-governance` 收斂） | 已完成 2026-09-05：步驟 1–5（備份、commit、HANDOFF、清理 push、tag／build／install／smoke／DM 人測）與步驟 6（S-F0-6a～6c：push＋main ff＋tag `v2.2.0`；24 個 failed-uat 歸檔刪除；14 個 rc 目錄歸檔刪除，`releases/` 剩 42、`current`→`2.2.0`）全部完成；Hermes-Agent 最終 commit `0ae4968`（S-F0-6d 回寫 commit 見該 repo git log）。F-1 可開工 |
+| F-1～F-4 | 未開始；A 已拍板 commit（6.3a）；B 預設 B1 待正式拍板 |
 | F-0 步驟 1 備份（2026-09-05） | 已完成：分支 `backup/pre-minimal-governance-20260905`=`ccc68c6`；stash 物件 `eacd1291d398779cb3094aa4360c46c1a5bdd8ff`（另掛 ref `refs/backup/f0-step1-stash` 防 gc，未套用未 drop）；untracked 10 項 tar 於 `~/Hermes-Agent-backup-20260905/untracked-f0-step1.tgz`（5.0 MB） |
 | ai-news-hub §3 人工項（專用 Slack app／slack.env） | 未變，與本節無關 |
 | Phase 4、收尾 | 未變 |
