@@ -734,6 +734,7 @@ git fetch origin main 2>/dev/null || true
 git reset --soft origin/main 2>/dev/null || true
 
 git add data/ 2>/dev/null || true
+[[ -s data/agent/.preview/apply-change-staged.txt ]] && xargs -I{} git add -- {} < data/agent/.preview/apply-change-staged.txt
 
 if git diff --staged --quiet 2>/dev/null; then
     log "無變更，跳過推送"
@@ -765,6 +766,7 @@ else
             git fetch origin main 2>/dev/null || true
             git reset --soft origin/main 2>/dev/null || true
             git add data/ 2>/dev/null || true
+            [[ -s data/agent/.preview/apply-change-staged.txt ]] && xargs -I{} git add -- {} < data/agent/.preview/apply-change-staged.txt
             git diff --staged --quiet 2>/dev/null || git commit -m "📰 AI News $TODAY $TAG [local]" 2>/dev/null || true
             sleep 5
         fi

@@ -129,7 +129,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
              "$SCRIPTS_DIR/newshub_search_reviewer.py" \
            "$AGENT_SCRIPTS/build-change-eval-input.mjs" \
            "$SCRIPTS_DIR/newshub_change_evaluator.py" \
-           "$REPO_DIR/agents/change-evaluator/CHANGE_RUBRIC.md"; do
+           "$REPO_DIR/agents/change-evaluator/CHANGE_RUBRIC.md" \
+           "$AGENT_SCRIPTS/apply-change.mjs"; do
         [[ -f "$f" ]]; chk "S-1 執行檔存在：${f#$REPO_DIR/}" $?
     done
 
@@ -143,6 +144,10 @@ if [[ $SELF_TEST -eq 1 ]]; then
     chk "S-2 沒有任何步驟帶 --promote（發布安全）" $?
     ! grep -E "$STEP_CALLS" "$0" | grep -q -- "--out-dir"
     chk "S-2b 沒有任何步驟覆寫 --out-dir" $?
+    # S-2c：apply-change.mjs 的每一個 writeFileSync／renameSync 都必須經過 assertWritable()（靜態字串檢查，不執行）
+    # 掃描範圍：「// ── 自測」分隔線之前的正式程式碼（自測 fixture 只寫 mkdtemp 假 root，不在掃描範圍）
+    sed -n '1,/^\/\/ ── 自測/p' "$AGENT_SCRIPTS/apply-change.mjs" | grep -nE 'writeFileSync|renameSync' | grep -vE 'assertWritable\(' | grep -vqE '^[0-9]+:\s*//'
+    [[ $? -ne 0 ]]; chk "S-2c apply-change.mjs 正式碼所有 writeFileSync/renameSync 皆經 assertWritable() 白名單" $?
 
     # S-3 .gitignore 必須仍然擋住 .preview/，否則所有產物會直接上公開 repo
     grep -qx "data/agent/.preview/" "$REPO_DIR/.gitignore"; chk "S-3 .gitignore 仍擋住 data/agent/.preview/" $?
@@ -187,6 +192,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
   chk "S-6m build-change-eval-input 自測（缺 search-review 仍寫空提案、canaries 缺→remaining 0）" $?
   python3 "$SCRIPTS_DIR/newshub_change_evaluator.py" --selftest >/dev/null 2>&1
   chk "S-6n newshub_change_evaluator 自測（閘2 只丟不補寫、golden／redteam、超配額砍到 remaining）" $?
+  node "$AGENT_SCRIPTS/apply-change.mjs" --self-test >/dev/null 2>&1
+  chk "S-6o apply-change 自測（A-1..A-9：只動 marker 區段、白名單、配額、快照還原、帳本、冪等）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -395,6 +402,8 @@ MODEL_EXTRA=()
 # 00b 指標步驟唯一會寫到 .preview/ 之外（data/agent/metrics-history.jsonl）的確定性步驟：dry-run 時只印不落地。
 METRICS_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && METRICS_EXTRA=(--dry-run)
+APPLY_EXTRA=()
+[[ $DRY_RUN -eq 1 ]] && APPLY_EXTRA=(--dry-run)
 
 # AGENT_MODEL 是給演練用的：故意填一個不存在的模型名，就能重現「判讀層整片掛掉、
 # 主管線照樣完成擷取與推送」的情境。日常不設，三支 runner 各自用內建預設模型。
@@ -436,6 +445,7 @@ run_step "08a-search-review-input" node "$AGENT_SCRIPTS/build-search-review-inpu
 run_model_step "08b-search-review" search-review.json python3 "$SCRIPTS_DIR/newshub_search_reviewer.py" --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
 run_step "08c-change-eval-input" node "$AGENT_SCRIPTS/build-change-eval-input.mjs"
 run_model_step "08d-change-eval" change-eval.json python3 "$SCRIPTS_DIR/newshub_change_evaluator.py" --timeout "$(model_timeout)" ${MODEL_EXTRA[@]+"${MODEL_EXTRA[@]}"}
+run_step "08e-apply-change" node "$AGENT_SCRIPTS/apply-change.mjs" ${APPLY_EXTRA[@]+"${APPLY_EXTRA[@]}"}
 [[ -z "$FAILED_STEP" ]] && FAILED_STEP="$SEARCH_REVIEW_BLOCKER"
 
 # ── ANH-001：最後盤點 current state。只寫 .preview，不受上游失敗與模型預算阻擋。──

@@ -133,6 +133,9 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 ```bash
 git pull --rebase origin main 2>/dev/null || git pull origin main
 git add data/
+# Phase 3-C：apply-change.mjs 把實際改過的白名單檔（scripts/prompts/*.md、assets/js/config.js、scripts/tier-b-domains.json）列在 .preview/apply-change-staged.txt，補進同一個 commit
+[[ -s data/agent/.preview/apply-change-staged.txt ]] && xargs -I{} git add -- {} < data/agent/.preview/apply-change-staged.txt
+# 檔案不存在或為空時，此行是 no-op，行為與原本完全相同
 git diff --staged --quiet && exit 0  # 無變更則結束
 
 # 驗證率 100% → [verified]，否則 [unverified]
