@@ -1,205 +1,197 @@
 {
   "items": [
     {
-      "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act",
-      "source": "European Commission",
+      "title": "FSB Chair warns of risks arising from frontier Artificial Intelligence (AI) models",
+      "source": "Financial Stability Board (FSB)",
       "date": "2026-08-31",
-      "category": "AI治理",
-      "summary": "歐盟執委會依據 Digital Services Act (DSA) 正式指定 ChatGPT 為超大型線上搜尋引擎 (VLOSE)，並將 Reddit 與 Roblox 指定為超大型線上平台 (VLOP)。這是史上第一次有 AI 聊天機器人被納入 DSA 最嚴格的監管層級。三項服務均自行申報在歐盟境內的月平均使用者數達 4,500 萬人以上，跨過 DSA 的指定門檻。執委會認定 ChatGPT 屬於「混合型服務」，因其回應提示的方式包含檢索網路資訊，因此符合搜尋引擎的定義。被指定的服務有四個月時間（至 2026 年 12 月底）完成合規，須履行未成年人保護、演算法透明度、非法內容風險緩解與獨立風險稽核等義務。監理權責由執委會與愛爾蘭 Coimisiún na Meán（ChatGPT、Reddit）及荷蘭 ACM（Roblox）共同分擔。",
+      "category": "金融監管",
+      "summary": "金融穩定委員會（FSB）主席、英格蘭銀行總裁 Andrew Bailey 於致 G20 財長與央行總裁的信函中警告，前沿 AI 模型（frontier AI models）對全球金融體系構成的最迫切威脅來自資安風險。信函日期為 8 月 28 日，FSB 於 8 月 31 日對外公布。Bailey 指出，前沿 AI 模型展現出日益成熟的自主性與問題解決能力，威脅能力範圍同步擴大，可能實質改變資安攻擊的速度、規模與成本結構。由於金融業高度依賴少數集中的第三方科技服務商，一旦出現漏洞將迅速跨國蔓延，全面衝擊市場信心。他並指出多數司法管轄區目前仍缺乏管理前沿 AI 模型開發、釋出與部署的協定，對金融部門構成額外風險。信函同時涵蓋市場槓桿升高、AI 相關資產投資集中化等更廣泛的金融穩定議題。[已驗證：URL 與日期來自 FSB 官網路徑及多家媒體交叉比對；未經 web_fetch 逐字核對]",
       "highlights": [
-        "ChatGPT 成為首個被納入 DSA 最嚴格層級的 AI 聊天機器人，被歸類為 VLOSE",
-        "Reddit 與 Roblox 被指定為 VLOP，三者皆申報歐盟月活躍使用者達 4,500 萬以上",
-        "四個月合規期限至 2026 年 12 月底，須完成未成年人保護與演算法透明度義務",
-        "須接受獨立第三方風險稽核，並提交系統性風險緩解報告",
-        "DSA 最嚴格層級的服務總數增至 28 項"
+        "FSB 主席 Bailey 致 G20 信函（8/28 撰寫、8/31 公布），將前沿 AI 帶來的資安風險列為全球金融體系最迫切威脅",
+        "核心論點：前沿 AI 可能改變資安攻擊的「速度、規模與經濟結構」，而非產生全新風險類型",
+        "第三方服務商高度集中是關鍵放大器，單一漏洞可迅速跨國蔓延",
+        "多數司法管轄區缺乏前沿模型開發、釋出、部署的管理協定，形成監理真空",
+        "同時示警 AI 企業與超大規模雲端商交叉投資推升市場集中度，與市場槓桿升高交互作用"
       ],
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act"
+      "url": "https://www.fsb.org/2026/08/fsb-chair-warns-of-risks-arising-from-frontier-artificial-intelligence-ai-models/"
     },
     {
-      "title": "EU places ChatGPT, Reddit and Roblox under strictest digital safety rules",
-      "source": "Euronews",
+      "title": "Bank of England chief warns new AI models threaten global financial stability",
+      "source": "CNBC",
       "date": "2026-08-31",
-      "category": "AI治理",
-      "summary": "歐盟將 ChatGPT、Reddit 與 Roblox 納入 Digital Services Act 最嚴格的監管規範之下。此舉代表生成式 AI 服務首次被視同大型社群平台，須承擔同等的系統性風險管理責任。三家業者必須在四個月內建立內容風險評估機制、強化未成年人保護措施，並開放演算法運作方式供監理機關檢視。歐盟監理機關特別關注 AI 聊天機器人可能對青少年造成的心理健康與內容安全風險。此決定與美國在同期推動放寬 AI 監管的立場形成明顯對比。",
+      "category": "金融監管",
+      "summary": "CNBC 報導 FSB 主席暨英格蘭銀行總裁 Andrew Bailey 對 G20 財長與央行總裁提出的 AI 金融穩定警告。報導指出，Bailey 認為 AI 讓原本已受中東衝突及其通膨效應衝擊的風險版圖更形複雜。前沿 AI 模型的自主性與威脅能力同步上升，其中最立即的隱患在於網路攻擊面。報導同時涵蓋信函中關於市場槓桿攀升、AI 相關資產投資集中的內容，指出兩者交互作用可能在未來市場修正時大幅放大衝擊。[已驗證：日期取自 URL 路徑 2026/08/31；未經 web_fetch 逐字核對內文]",
       "highlights": [
-        "生成式 AI 服務首次被要求比照大型社群平台承擔系統性風險管理義務",
-        "監理重點聚焦於未成年人保護與心理健康風險",
-        "業者須開放演算法運作方式接受監理機關檢視",
-        "與美國同期推動的鬆綁路線形成路線分歧"
+        "Bailey 以 FSB 主席身分致函 G20，AI 風險與地緣政治、通膨風險並列",
+        "前沿 AI 的網路攻擊風險被列為對金融體系最立即的威脅",
+        "市場槓桿升高與 AI 資產投資集中度是第二層結構性風險",
+        "示警一旦市場修正，上述因素可能形成無秩序調整"
       ],
-      "url": "https://www.euronews.com/next/2026/08/31/eu-places-chatgpt-reddit-and-roblox-under-strictest-digital-safety-rules"
+      "url": "https://www.cnbc.com/2026/08/31/bailey-frontier-ai-financial-stability-risk.html"
     },
     {
-      "title": "ChatGPT becomes first AI chatbot to face tougher EU rules",
-      "source": "BNN Bloomberg",
+      "title": "FSB chair Andrew Bailey warns G20 on AI cyber risk",
+      "source": "Quartz",
       "date": "2026-08-31",
-      "category": "AI治理",
-      "summary": "ChatGPT 成為首個面臨歐盟加嚴監管的 AI 聊天機器人。歐盟執委會依 Digital Services Act 將其指定為超大型線上搜尋引擎，理由是 ChatGPT 在回應使用者提示時會檢索網路內容，功能上等同搜尋引擎。OpenAI 須在 2026 年底前完成合規部署，包括建立非法內容通報與處理流程、提供演算法推薦邏輯的說明，以及接受獨立稽核。違反 DSA 的罰則可達全球年營業額的 6%。此案被視為歐盟將既有平台監管框架延伸適用於生成式 AI 的指標性案例。",
+      "category": "金融監管",
+      "summary": "Quartz 報導 FSB 主席 Bailey 針對前沿 AI 資安風險向 G20 提出的正式警告。報導聚焦於 Bailey 對「AI 已具備改變資安攻防經濟學能力」的判斷，以及金融業對集中化第三方科技供應商的高度依賴。文中亦指出，多國尚未建立針對前沿模型的釋出與部署管理機制，屬於監理落差。FSB 藉此呼籲各界建立安全的 AI 部署協定，並同步強化金融機構的資安與資本防線。[已驗證：日期取自 URL 尾碼 083126；未經 web_fetch 逐字核對內文]",
       "highlights": [
-        "ChatGPT 因「檢索網路內容回應提示」被認定功能等同搜尋引擎",
-        "OpenAI 須於 2026 年底前完成 DSA 合規部署",
-        "DSA 罰則上限為全球年營業額 6%",
-        "被視為歐盟將平台監管框架延伸至生成式 AI 的指標案例"
+        "以 G20 為對象的多邊層級 AI 資安示警，非單一國家監理動作",
+        "強調 AI 改變的是資安攻擊的「速度、規模、成本」三個維度",
+        "指出前沿模型部署缺乏跨國協定，屬結構性監理落差",
+        "建議金融機構同時強化資安防線與資本緩衝"
       ],
-      "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/08/31/chatgpt-becomes-first-ai-chatbot-to-face-tougher-eu-rules/"
+      "url": "https://qz.com/fsb-bailey-frontier-ai-cyber-risk-financial-stability-g20-083126"
     },
     {
-      "title": "EU heightens digital safety rules for ChatGPT, Roblox, Reddit",
-      "source": "UPI",
-      "date": "2026-08-31",
-      "category": "AI治理",
-      "summary": "歐盟提高對 ChatGPT、Roblox 與 Reddit 的數位安全規範層級。三項服務因在歐盟境內月使用者數超過 4,500 萬人的門檻而被納入 Digital Services Act 的最高監管等級。新增義務包括每年進行系統性風險評估、針對未成年人使用情境設計防護機制，以及向監理機關與經審核的研究者開放資料。Roblox 因其使用者以兒童與青少年為主，未成年人保護要求特別受到關注。監理責任由歐盟執委會與服務設立地的成員國主管機關共同承擔。",
+      "title": "Financial Stability Board Sounds the Alarm Over Frontier AI Risks",
+      "source": "Infosecurity Magazine",
+      "date": "2026-09-03",
+      "category": "資安標準",
+      "summary": "Infosecurity Magazine 從資安角度解讀 FSB 對前沿 AI 的警告，指出全球金融體系正因前沿 AI 改變網路威脅環境而承受風險。報導引述 Bailey 致 G20 財長與央行總裁的信函（信函日期 8 月 28 日），說明前沿 AI 模型如何壓縮漏洞發現到被利用的時間窗口。文章並將此警告置於金融業第三方集中風險的脈絡下討論，指出集中化服務商是系統性傳染路徑。⚠️待確認：本文發布日期無法以 web_fetch 驗證，搜尋結果 metadata 推估為 2026-09-03，屬 [snippet 推論]。",
       "highlights": [
-        "三項服務均超過歐盟境內 4,500 萬月使用者的指定門檻",
-        "須每年執行系統性風險評估並向監理機關開放資料",
-        "Roblox 的未成年人保護義務因使用者結構而受到特別關注",
-        "監理由歐盟執委會與成員國主管機關共同承擔"
+        "以資安專業視角解讀 FSB 警告，補足金融監理報導未涵蓋的技術面",
+        "前沿 AI 壓縮「漏洞發現到被利用」的時間差，是防禦端的核心挑戰",
+        "第三方服務商集中化被視為系統性風險的傳染路徑",
+        "⚠️待確認：發布日期為 snippet 推論，非原文核對"
       ],
-      "url": "https://www.upi.com/Top_News/World-News/2026/08/31/eu-chatgpt-reddit-roblox-digital-services-act-designation/3171788188948/"
+      "url": "https://www.infosecurity-magazine.com/news/financial-stability-board-alarm/"
     },
     {
-      "title": "EU Now Regulates ChatGPT as a Very Large Online Search Engine",
-      "source": "WinBuzzer",
+      "title": "FSB警告AI可能會破壞全球金融穩定",
+      "source": "iThome",
+      "date": "2026-09-01",
+      "category": "金融監管",
+      "summary": "iThome 以繁體中文報導 FSB 主席 Andrew Bailey 於 8 月 31 日（週一）發出的警告：隨著具備高自主性的前沿 AI 模型崛起，結合市場日益高漲的槓桿，全球金融體系風險版圖更趨複雜，恐衝擊市場信心與金融穩定。報導指出 Bailey 特別點名資安為最急迫隱患，因為金融業高度依賴少數集中的第三方科技服務商，AI 可能實質改變資安攻擊的速度與規模。文中並說明 AI 企業與超大規模雲端商之間的交叉投資加劇市場集中度，正與攀升的槓桿交互作用，可能在未來市場修正時放大衝擊。FSB 呼籲建立安全的 AI 部署協定，同時全面強化金融機構的資安與資本防線。⚠️待確認：本文發布日期無法以 web_fetch 驗證（事件日為 8/31），日期為推估。",
+      "highlights": [
+        "繁體中文第一手報導 FSB 對前沿 AI 的金融穩定警告，適合國內金融業內部引用",
+        "點名資安為最急迫隱患，關鍵在第三方科技服務商的高度集中",
+        "AI 企業與雲端商交叉投資推升市場集中度，與槓桿形成放大效應",
+        "FSB 建議雙軌並進：安全部署協定 + 資安與資本防線強化",
+        "⚠️待確認：發布日期未經原文核對"
+      ],
+      "url": "https://www.ithome.com.tw/news/178584"
+    },
+    {
+      "title": "U.S. pushes G20 Carolina Principles AI regulation at summit",
+      "source": "Quartz",
       "date": "2026-09-01",
       "category": "AI治理",
-      "summary": "歐盟正式將 ChatGPT 當作超大型線上搜尋引擎 (VLOSE) 加以監管。此分類的關鍵在於執委會對「混合型服務」的認定：ChatGPT 雖以對話介面呈現，但因具備網路檢索能力而落入搜尋引擎的法律定義。這項認定為未來其他具備檢索功能的 AI 助理建立了監管先例。OpenAI 須在四個月內建立符合 DSA 的風險緩解制度，涵蓋錯誤資訊、非法內容與未成年人曝險等面向。分析認為此舉將迫使 AI 業者在產品設計階段即納入合規考量，而非事後補救。",
+      "summary": "美國於北卡羅萊納州 Chapel Hill 舉行的 G20 創新部長會議中，推動名為「Carolina Principles（卡羅萊納原則）」的 AI 治理框架，主張採取寬鬆、親創新的監管路線。該框架的核心承諾是各國同意「僅針對真正新型態的考量才立新法」，而非把每一項新 AI 能力都視為需要全新規則的政策問題。原則同時建議各國避免設立新的 AI 專責監理機關、將資源導向基礎研究，並擴大新興技術的商業機會。此舉與歐盟以 AI Act 為核心的規則導向路線形成明顯對比。[已驗證：日期取自 URL 尾碼 090126；未經 web_fetch 逐字核對內文]",
       "highlights": [
-        "「混合型服務」認定成為 AI 助理適用搜尋引擎規範的法律依據",
-        "為其他具檢索功能的 AI 助理建立監管先例",
-        "風險緩解制度須涵蓋錯誤資訊、非法內容與未成年人曝險",
-        "促使 AI 業者將合規設計前移至產品開發階段"
+        "Carolina Principles 為美國主導、非拘束力的 G20 層級 AI 治理框架",
+        "核心主張：僅對「真正新型態」的風險立新法，避免疊床架屋",
+        "明確建議各國不要設立新的 AI 專責監理機關",
+        "與歐盟 AI Act 的規則導向路線形成國際治理路線分歧",
+        "會議地點為北卡羅萊納州 Chapel Hill 的 G20 創新部長會議"
       ],
-      "url": "https://winbuzzer.com/2026/09/01/eu-designates-chatgpt-tougher-dsa-search-engine-scrutiny-xcxwbn/"
+      "url": "https://qz.com/us-g20-carolina-principles-ai-regulation-north-carolina-090126"
     },
     {
       "title": "US pushes looser approach to AI regulation, while EU pushes new law",
       "source": "Al Jazeera",
       "date": "2026-09-02",
       "category": "AI治理",
-      "summary": "美國在北卡羅來納州 Chapel Hill 舉行的 G20 創新部長會議上推動寬鬆的 AI 監管路線，與歐盟同期推進新法規的方向形成直接對比。白宮科技顧問 Michael Kratsios 推動不具約束力的「Carolina Principles」，主張僅針對真正新穎的問題制定新規範、避免設立專責的 AI 監理機構、資助基礎 AI 研究，並推動技術測試的公私協作。此提案獲得包含中國在內的全體 20 個成員國同意。同一週歐盟則將 ChatGPT 納入 DSA 最嚴格監管層級，兩大經濟體的治理路線分歧因此更為明顯。報導指出這種分歧將使跨國 AI 業者面臨同時遵循兩套邏輯相反規範的壓力。",
+      "summary": "半島電視台報導美歐在 AI 監管路線上的持續分歧：華盛頓在 G20 部長級會議上敦促各國政府放鬆對 AI 的約束，歐盟則同步推進其法規體系。報導將美國的去監管訴求與歐盟以 AI Act 為主軸的立法路徑並置比較，凸顯兩大經濟體在 AI 治理哲學上的根本差異。此一分歧對跨國企業意味著合規基準不再收斂，而是朝多軌並存發展。對金融業而言，跨境營運的 AI 系統將面臨依司法管轄區而異的義務組合。[已驗證：日期取自 URL 路徑 2026/9/2；未經 web_fetch 逐字核對內文]",
       "highlights": [
-        "Carolina Principles 主張避免設立專責 AI 監理機構，屬非約束性原則",
-        "G20 全體 20 國同意，包含中國在內",
-        "同週歐盟將 ChatGPT 納入 DSA 最嚴格層級，路線對比鮮明",
-        "跨國 AI 業者將面臨同時遵循兩套相反監管邏輯的壓力"
+        "美歐 AI 治理路線分歧在 G20 場合被正式化，非僅學術討論",
+        "美國訴求：放鬆約束、以既有部門法規為主；歐盟：持續推進專法",
+        "跨國企業合規基準朝多軌並存發展，不再期待國際收斂",
+        "跨境金融機構須為不同司法管轄區準備差異化的 AI 義務組合"
       ],
       "url": "https://www.aljazeera.com/news/2026/9/2/us-pushes-looser-approach-to-ai-regulation-while-eu-pushes-new-law"
     },
     {
-      "title": "US Urges Hands-Off Approach to AI Regulation at G20 Tech Meeting",
-      "source": "U.S. News (Reuters)",
-      "date": "2026-09-01",
-      "category": "AI治理",
-      "summary": "美國在 G20 科技會議上呼籲各國對 AI 採取不干預的監管態度。為期兩天的 G20 創新部長會議於北卡羅來納州 Chapel Hill 舉行，由商務部長 Howard Lutnick 與白宮科技顧問 Michael Kratsios 共同宣布「Carolina Principles」。該原則主張新的監管應保留給真正新穎的考量事項，既有法規已涵蓋的領域不需重複立法。Kratsios 並與中國科學技術部部長陰和俊進行雙邊會談。OpenAI 執行長 Sam Altman 與 NVIDIA 執行長黃仁勳亦在會議中向各國代表發表談話。",
-      "highlights": [
-        "由商務部長 Howard Lutnick 與白宮科技顧問 Michael Kratsios 共同宣布",
-        "主張新監管僅保留給真正新穎的考量，避免與既有法規重複",
-        "Kratsios 與中國科技部部長陰和俊舉行雙邊會談",
-        "Sam Altman 與黃仁勳向 G20 各國代表發表談話"
-      ],
-      "url": "https://www.usnews.com/news/top-news/articles/2026-09-01/us-to-urge-hands-off-ai-regulation-at-g-20-official-says"
-    },
-    {
-      "title": "US Urges G20 to Skip New AI Rules at Summit",
-      "source": "Technology.org",
-      "date": "2026-09-02",
-      "category": "AI治理",
-      "summary": "美國在 G20 峰會上力勸各國不要制定新的 AI 規範。「Carolina Principles」的四項核心主張為：將新監管保留給真正新穎的考量事項、避免創設專責的新 AI 監理機關、資助基礎性 AI 研究，以及推動技術測試領域的公私協作。這套原則反映美國現行政策將 AI 監管視為創新阻力的立場。批評者認為缺乏專責監理機關將使 AI 風險的問責機制難以落實。支持者則主張既有的部門別法規（如金融、醫療、消費者保護）已足以涵蓋多數 AI 應用風險。",
-      "highlights": [
-        "Carolina Principles 四項主張：限縮新規、不設專責機關、資助基礎研究、公私協作測試",
-        "反映美國將 AI 監管視為創新阻力的政策立場",
-        "批評者指缺乏專責機關將弱化 AI 風險問責",
-        "支持者主張既有部門別法規已可涵蓋多數 AI 應用風險"
-      ],
-      "url": "https://www.technology.org/2026/09/02/us-g20-carolina-principles-ai-regulation/"
-    },
-    {
-      "title": "G20 seals pact on new emerging technologies principles",
-      "source": "IANS",
+      "title": "G20成員國支持卡羅萊納原則，主張放寬AI監管",
+      "source": "iThome",
       "date": "2026-09-03",
       "category": "AI治理",
-      "summary": "G20 就新興技術原則達成協議。歷時兩天的 G20 創新部長會議在北卡羅來納州 Chapel Hill 閉幕，全體 20 個成員國一致同意採納「Carolina Principles」作為新興技術的治理共識框架。該協議屬於不具法律約束力的原則性宣示，各國仍保有依本國情況制定 AI 法規的空間。協議達成的意義在於首次在 G20 層級形成關於 AI 監管密度的共同語言，儘管歐盟成員國同時仍在推進 EU AI Act 與 DSA 的執法。觀察者認為此協議的實質效果將取決於各國後續的國內立法動向。",
+      "summary": "iThome 以繁體中文報導 G20 成員國支持美國推動的「卡羅萊納原則」，主張採取較寬鬆且具彈性的 AI 監管方式，在管控風險的同時降低監管負擔，以促進 AI 技術創新與經濟成長。報導指出多位矽谷重量級人物出席並表態支持，包括 NVIDIA 執行長黃仁勳呼籲各國政府應基於「實際且真實的危害」而非理論風險進行監管，OpenAI 執行長 Sam Altman 則將 AI 的普及類比為電力革命，強調其對現代經濟的重要性。相對地，歐盟採取明顯不同的路徑：歐盟執委會科技主權執行副主席證實，歐盟已向全球逾 30 家 AI 公司發出資訊索取要求，準備依 AI Act 就安全性與著作權合規進行全面且嚴格的審查。⚠️待確認：本文發布日期無法以 web_fetch 驗證，屬推估。",
       "highlights": [
-        "G20 全體 20 個成員國一致採納 Carolina Principles",
-        "屬不具法律約束力的原則性宣示，各國保留國內立法空間",
-        "首次在 G20 層級形成關於 AI 監管密度的共同語言",
-        "歐盟成員國同時仍持續推進 EU AI Act 與 DSA 執法"
+        "繁體中文報導 G20 支持卡羅萊納原則，適合國內治理單位引用",
+        "黃仁勳主張監管應針對「實際且真實的危害」，反對以理論風險立法",
+        "Altman 以電力革命類比 AI 普及，強化去監管論述",
+        "歐盟反向操作：向逾 30 家 AI 公司發出 AI Act 資訊索取要求",
+        "⚠️待確認：發布日期未經原文核對"
       ],
-      "url": "https://ianslive.in/g20-seals-pact-on-new-emerging-technologies-principles--20260903024503"
+      "url": "https://www.ithome.com.tw/news/178704"
     },
     {
-      "title": "'It feels like early Covid': The messy scramble to regulate AI",
-      "source": "CNN Business",
-      "date": "2026-08-30",
-      "category": "AI治理",
-      "summary": "美國 AI 監管的混亂局面被參與者形容為「感覺像疫情初期」。聯邦與州政府在 AI 規範上出現明顯拉扯：多個州推動各自的 AI 法案，而白宮則以行政命令試圖排除州法的適用。這種聯邦優先權爭議使企業面臨規範不確定性，難以判斷應遵循哪一層級的要求。報導引述業界與政策圈人士指出，目前的狀況缺乏統一的風險評估標準與問責分工，各方在資訊不足下倉促制定規則。此結構性衝突預期將延續至司法途徑解決。",
-      "highlights": [
-        "聯邦與州在 AI 監管上出現優先權衝突，白宮以行政命令試圖排除州法",
-        "企業面臨規範不確定性，難以判斷應遵循的監管層級",
-        "缺乏統一的風險評估標準與問責分工",
-        "結構性衝突預期將透過司法途徑尋求解決"
-      ],
-      "url": "https://us.cnn.com/2026/08/30/business/the-scramble-us-government-to-regulate-ai"
-    },
-    {
-      "title": "New Cequence & EMA Research: 94% of Enterprises Trust Their AI Agents Aren't Over-Provisioned. Only 33% Actually Enforce It.",
-      "source": "GlobeNewswire",
-      "date": "2026-08-31",
-      "category": "資安標準",
-      "summary": "Cequence 與 EMA 的最新研究揭露企業在 AI Agent 權限治理上的重大落差。調查對象為 202 位員工數 1,000 人以上、正在部署或評估 agentic AI 的企業 IT 與資安主管（含 CIO、CTO、CISO、IT 總監）。94% 的受訪者相信自家 AI Agent 未被過度授權，但僅 33% 實際落實驗證。65% 回報曾發生 Agent 行為超出預期範圍的情況，其中 29% 造成嚴重後果，包括資料外洩、財務損失、營運中斷或商譽損害。研究歸納三大根因：過於寬泛的常設權限、授權檢查時點延遲，以及被遺忘的憑證。",
-      "highlights": [
-        "94% 企業相信 AI Agent 未過度授權，但僅 33% 實際驗證，落差達 61 個百分點",
-        "65% 曾發生 Agent 行為超出預期範圍",
-        "29% 因此造成資料外洩、財務損失、營運中斷或商譽損害",
-        "根因為寬泛常設權限、授權檢查延遲、遺忘的憑證",
-        "樣本為 202 位員工數 1,000 人以上企業的 IT/資安主管"
-      ],
-      "url": "https://www.globenewswire.com/news-release/2026/08/31/3353329/0/en/new-cequence-ema-research-94-of-enterprises-trust-their-ai-agents-aren-t-over-provisioned-only-33-actually-enforce-it.html"
-    },
-    {
-      "title": "Judge rules the Pentagon's supply chain risk label for Anthropic unlawful",
-      "source": "CNN Business",
-      "date": "2026-08-27",
-      "category": "AI治理",
-      "summary": "美國加州北區聯邦地方法院法官 Rita Lin 於 2026 年 8 月 27 日裁定國防部對 Anthropic 的「供應鏈風險」標籤違法，並命令移除該指定。判決認定國防部的行為構成違反憲法第一修正案的非法報復，且 Anthropic 未獲得第五修正案所要求的剝奪前程序保障。爭議起源於國防部要求以 Anthropic 的 Claude 模型用於「一切合法用途」，包含敏感的軍事與情報應用，而 Anthropic 堅持維持禁止全自主致命武器與大規模監控美國公民的使用限制。此案是該監管工具首次被用於針對美國本土企業的政策爭議，而非外資持股疑慮。Anthropic 在華盛頓特區的另一訴訟仍在進行中。",
-      "highlights": [
-        "加州北區聯邦法官 Rita Lin 於 2026-08-27 裁定供應鏈風險指定違法",
-        "判決認定構成違反第一修正案的非法報復，並違反第五修正案程序保障",
-        "爭點為 Anthropic 拒絕解除全自主致命武器與大規模監控的使用限制",
-        "首次有該監管工具被用於美國本土企業的政策爭議而非外資疑慮",
-        "華盛頓特區訴訟仍在進行，指定尚未完全解除"
-      ],
-      "url": "https://www.cnn.com/2026/08/27/tech/anthropic-pentagon-supply-chain-risk-unlawful-hnk"
-    },
-    {
-      "title": "Anthropic gets its first court win over the Pentagon's supply-chain risk label",
-      "source": "TechCrunch",
-      "date": "2026-08-28",
-      "category": "AI治理",
-      "summary": "Anthropic 在對抗國防部供應鏈風險標籤的訴訟中取得首場勝訴。此標籤原本使 Anthropic 遭到所有聯邦機關（包含國防以外部門）停止合作，衝擊其政府市場業務。法院的裁定確立了政府不得因企業堅持自身 AI 使用政策而施加行政制裁的界線，對 AI 業者在國安應用場景中的自主權具有指標意義。此案凸顯 AI 供應商的使用限制條款（usage policy）與政府採購需求之間的結構性緊張。判決結果亦可能影響其他 AI 業者與政府機關的合約談判立場。",
-      "highlights": [
-        "法院確立政府不得因企業堅持 AI 使用政策而施加行政制裁",
-        "原指定曾使所有聯邦機關（含非國防部門）停止與 Anthropic 合作",
-        "凸顯 AI 供應商使用限制條款與政府採購需求的結構性緊張",
-        "判決可能影響其他 AI 業者與政府機關的合約談判立場"
-      ],
-      "url": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/"
-    },
-    {
-      "title": "中國AI短劇爆量逾98%無法回本 微短劇新規9月實施加強監管",
-      "source": "中央社 CNA",
+      "title": "EU questions dozens of companies using new AI powers",
+      "source": "Free Malaysia Today",
       "date": "2026-09-01",
       "category": "AI治理",
-      "summary": "中國微短劇管理新規於 2026 年 9 月正式實施，加強對該產業的內容監管。報導指出中國 AI 生成短劇數量爆增，但超過 98% 無法回收製作成本，顯示產能過剩與品質落差。新規的政策目標是推動產業從數量擴張轉向內容品質提升，其中包含對 AI 生成內容的治理要求。監管措施涉及內容審核、AI 生成標示與平台責任等面向。此政策是中國近期強化生成式 AI 內容治理的一環，也反映 AI 大量生產內容後對產業經濟結構造成的衝擊。",
+      "summary": "歐盟執委會於 9 月 1 日依 AI Act 首次行使新監理權限，向逾 30 家 AI 供應商發出正式資訊索取要求（requests for information）。此舉發生在 AI Act 大部分條文自 8 月 2 日起適用之後，且在今年夏季發生數起 AI 模型相關事故之後。要求分為兩大主軸：第一是安全性與資安，特別針對最先進的 AI 模型；第二則聚焦著作權與透明度議題。供應商依法必須回覆，且回覆內容將成為永久監理紀錄的一部分；提供誤導性回覆將面臨罰則。[已驗證：日期取自 URL 路徑 2026/09/01；未經 web_fetch 逐字核對內文]",
       "highlights": [
-        "中國微短劇管理新規於 2026 年 9 月正式實施",
-        "超過 98% 的 AI 生成短劇無法回收製作成本",
-        "政策目標為推動產業從數量擴張轉向內容品質提升",
-        "監管涵蓋內容審核、AI 生成標示與平台責任",
-        "屬中國強化生成式 AI 內容治理的一環"
+        "歐盟 AI Act 進入實質執法階段，首波對象為逾 30 家 AI 供應商",
+        "雙主軸調查：①安全性與資安（針對最先進模型）②著作權與透明度",
+        "供應商負法定回覆義務，回覆納入永久監理紀錄",
+        "誤導性回覆將面臨罰則，非自願性問卷",
+        "觸發背景包含 2026 年夏季數起 AI 模型相關事故"
       ],
-      "url": "https://www.cna.com.tw/news/acn/202609010227.aspx"
+      "url": "https://www.freemalaysiatoday.com/category/world/2026/09/01/eu-questions-dozens-of-companies-using-new-ai-powers"
+    },
+    {
+      "title": "European Commission sends first requests for information to more than 30 AI providers",
+      "source": "Agence Europe",
+      "date": "2026-09-01",
+      "category": "AI治理",
+      "summary": "Agence Europe 報導歐盟執委會 AI Office 依 AI Act 向逾 30 家 AI 供應商發出首波資訊索取要求。要求涵蓋兩個獨立主軸：其一為安全性與資安，特別是最先進 AI 模型的使用；其二聚焦著作權與透明度。具體問題包括供應商如何防禦模型遭受攻擊、是否已有獨立專家完成評測、上線後如何監控系統，以及訓練資料包含哪些內容。第二主軸特別鎖定未曾與 AI Office 進行非正式合規對話的業者，由執委會副主席 Henna Virkkunen 於週日對外說明。⚠️待確認：本文發布日期無法以 web_fetch 驗證，事件日為 2026-09-01。",
+      "highlights": [
+        "AI Office 首次行使 AI Act 正式調查權，具指標意義",
+        "安全主軸四大問題：攻擊防禦、獨立專家評測、上線後監控、訓練資料內容",
+        "著作權主軸鎖定未參與非正式合規對話的業者，形同對不配合者加壓",
+        "由執委會副主席 Virkkunen 親自對外說明，政治層級高",
+        "⚠️待確認：發布日期未經原文核對"
+      ],
+      "url": "https://agenceurope.eu/en/bulletin/article/13929/31/european-commission-sends-first-requests-for-information-to-more-than-30-ai-providers"
+    },
+    {
+      "title": "State of Agentic AI Security and Governance",
+      "source": "OWASP Gen AI Security Project",
+      "date": "2026-09-01",
+      "category": "資安標準",
+      "summary": "OWASP Gen AI Security Project 於 9 月 1 日發布《State of Agentic AI Security and Governance》v2.01 更新版（初版於 2026 年 6 月 1 日發布）。該報告定位為技術藍圖，面向正在為快速擴散的自主 AI Agent 建立防護的資安團隊、開發者與決策者。2026 年版建立在真實事件、真實使用案例與實證資料的蒐集分析之上，新增即時事故與漏洞利用追蹤器（live incidents and exploits tracker）、修訂後的 Agent 分類法、企業導入成熟度模型，以及 Agent 身分識別、AI SBOM、供應鏈來源證明與法規地景等全新章節。法規部分涵蓋 10 個司法管轄區共 42 項監理工具。此為目前少數同時處理 Agent 資安威脅模型與治理成熟度的公開框架。[snippet 推論：v2.01 與 2026-09-01 發布日期由兩次獨立搜尋結果交叉佐證，未經 web_fetch 核對頁面]",
+      "highlights": [
+        "v2.01 於 2026-09-01 更新，初版為 2026-06-01",
+        "新增即時事故與漏洞利用追蹤器，從框架轉向實證導向",
+        "新增 Agent 身分識別、AI SBOM、供應鏈來源證明三大治理缺口章節",
+        "法規地景章節涵蓋 10 個司法管轄區、42 項監理工具",
+        "提供企業導入成熟度模型，可作為金融業 Agent 治理自評基準",
+        "⚠️待確認：版本號與發布日期為 snippet 推論"
+      ],
+      "url": "https://genai.owasp.org/resource/state-of-agentic-ai-security-and-governance/"
+    },
+    {
+      "title": "California's 2026 legislative session closes: What passed on privacy and AI",
+      "source": "Stauss Firm (David Stauss)",
+      "date": "2026-09-01",
+      "category": "隱私",
+      "summary": "加州立法會期於 2026 年 8 月 31 日結束，本會期共通過 8 項隱私法案與 16 項 AI 法案。AI 法案涵蓋聊天機器人、加州 AI 透明法（California AI Transparency Act）修正、僱傭決策、醫療照護、姓名肖像權（NIL），以及 AI 稽核人員（AI auditor）管理等領域。依據其他報導，2026 會期累計通過 26 項 AI 相關法案，其中 2 項已由 Newsom 州長簽署生效，其餘送交州長辦公室待決。州長須於 9 月 30 日前決定簽署或否決。加州持續扮演美國事實上的 AI 主要監理者角色，與聯邦層級的去監管方向形成張力。[已驗證：日期取自 URL 路徑 2026/09/01；未經 web_fetch 逐字核對內文]",
+      "highlights": [
+        "加州 2026 會期於 8/31 結束，通過 8 項隱私法案 + 16 項 AI 法案",
+        "AI 法案涵蓋聊天機器人、AI 透明法修正、僱傭、醫療、NIL、AI 稽核人員管理",
+        "另有報導指累計 26 項 AI 法案通過，2 項已簽署、其餘待州長決定",
+        "關鍵時程：州長 Newsom 須於 2026-09-30 前簽署或否決",
+        "加州路線與聯邦去監管方向形成張力，企業面臨州法/聯邦雙軌不確定性"
+      ],
+      "url": "https://staussfirm.com/2026/09/01/californias-2026-legislative-session-closes-what-passed-on-privacy-and-ai/"
+    },
+    {
+      "title": "金管會主委彭金隆：虛擬資產服務法最快明年首季上路",
+      "source": "中央社 CNA",
+      "date": "2026-09-02",
+      "category": "金融監管",
+      "summary": "中央社報導金管會主委彭金隆對外說明虛擬資產服務法的立法時程，指最快於明年（2027 年）首季上路。此為金管會近期金融科技監理布局的一環，與該會既有的金融業 AI 治理政策同屬監理現代化議程。金管會此前已發布「金融業運用人工智慧（AI）指引」，揭示建立治理及問責機制、重視公平性及以人為本、保護隱私及客戶權益、確保系統穩健性與安全性、落實透明性與可解釋性、促進永續發展等六項核心原則，並規劃將可程式化 AI、代理式 AI（AI Agent）與 AI 風險分類納入指引。⚠️待確認：本則摘要中虛擬資產服務法部分僅依標題與搜尋摘要撰寫，未經 web_fetch 核對內文細節；AI 指引相關背景取自金管會官網既有公開資料，非本文內容。",
+      "highlights": [
+        "虛擬資產服務法（VASP 專法）預計最快 2027 年第一季上路",
+        "屬金管會金融科技監理現代化議程的一環",
+        "金管會既有「金融業運用 AI 指引」六大核心原則仍為金融業 AI 治理基準",
+        "金管會規劃將可程式化 AI、代理式 AI、AI 風險分類納入指引修訂",
+        "⚠️待確認：內文細節未經原文核對，AI 指引部分為背景補充非本文內容"
+      ],
+      "url": "https://www.cna.com.tw/news/afe/202609020089.aspx"
     }
   ],
-  "_updated_at": "2026-09-03T18:15:52.020279+08:00"
+  "_updated_at": "2026-09-06T18:18:33.206897+08:00"
 }
