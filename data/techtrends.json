@@ -1,50 +1,35 @@
 {
   "items": [
     {
-      "title": "Gartner Finds Just 22% of Organizations Have Scaled AI Across Business Units",
-      "source": "AIwire (HPCwire)",
+      "title": "Gartner Survey Finds Only 22% of Organizations Have Successfully Scaled AI Across Multiple Business Units",
+      "source": "Gartner",
       "date": "2026-09-01",
       "category": "企業AI",
-      "summary": "Gartner 最新調查顯示，僅 22% 的組織成功將 AI 規模化擴展至多個業務單位或採用 AI-first 策略，顯示多數企業仍停留在單點試行階段。該調查於 2026 年 1 月至 4 月進行，樣本為 1,303 位受訪者，來自 2025 會計年度全企業年營收至少 5,000 萬美元的組織。儘管規模化成果有限，85% 的職能主管仍計畫在 2026 年增加 AI 支出，2025 年各職能平均已將 12% 的預算投入 AI。值得注意的是，約 11% 的組織完全不清楚自身職能在 2025 年於 AI 上花了多少錢。Gartner 傑出副總裁暨院士 Tina Nunno 指出，這種財務可視性的缺乏在支出加速的同時放大了風險，企業應聚焦於能帶來正向財務回報的使用案例。",
+      "summary": "Gartner 於 2026 年 9 月 1 日發布調查，指出僅有 22% 的組織成功將 AI 規模化擴展至多個事業單位、或真正採取 AI-first 的營運方式，顯示多數企業仍停留在單點試行階段。該調查於 2026 年 1 月至 4 月進行，受訪者共 1,303 位，來自 2025 會計年度全企業年營收至少 5,000 萬美元的組織。儘管規模化成效有限，投資仍持續加速：85% 的職能主管計畫在 2026 年增加 AI 支出，而 2025 年各職能平均已將 12% 的預算投入 AI。更值得警惕的是，約 11% 的組織完全不掌握自身職能在 2025 年的 AI 實際花費。Gartner 傑出副總裁暨研究員 Tina Nunno 指出，這種財務可視性的缺乏會在支出加速時放大風險；若缺少與業務成果直接掛鉤的紀律性衡量，組織將面臨資源浪費與期望落空。⚠️待確認：發布日期取自搜尋結果摘要，未經 web_fetch 原文核對。",
       "highlights": [
-        "僅 22% 組織成功跨多個業務單位規模化 AI，或已採用 AI-first 做法",
-        "調查期間 2026 年 1–4 月，樣本 1,303 位、企業年營收門檻 5,000 萬美元以上",
-        "85% 職能主管計畫 2026 年增加 AI 支出；2025 年職能預算平均 12% 投入 AI",
-        "約 11% 組織完全不掌握自身職能 2025 年的 AI 實際支出金額",
-        "Gartner 觀點：財務可視性不足會在支出加速時放大治理風險，須以財務回報篩選使用案例"
+        "僅 22% 組織成功跨多個事業單位規模化 AI 或採 AI-first 營運模式",
+        "調查期間 2026 年 1–4 月，樣本 1,303 位，受訪組織 2025 年營收門檻 5,000 萬美元以上",
+        "85% 職能主管計畫 2026 年增加 AI 支出，2025 年 AI 平均已佔職能預算 12%",
+        "約 11% 組織完全不知道自身職能 2025 年在 AI 上花了多少錢，財務可視性缺口顯著",
+        "Gartner 警告：缺乏與業務成果掛鉤的衡量紀律，將導致資源浪費與期望落空"
       ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/01/gartner-finds-just-22-of-organizations-have-scaled-ai-across-business-units/"
-    },
-    {
-      "title": "New Cequence & EMA Research: 94% of Enterprises Trust Their AI Agents Aren't Over-Provisioned. Only 33% Actually Enforce It.",
-      "source": "Cequence Security / Enterprise Management Associates (EMA)（GlobeNewswire 發布）",
-      "date": "2026-08-31",
-      "category": "Agent應用",
-      "summary": "EMA 受 Cequence Security 委託、針對 202 位企業技術與資安主管進行的研究指出，企業對 AI Agent 權限的「信心」與「實際落地執行」之間存在顯著落差：94% 相信自家 AI Agent 沒有被過度授權，但只有 33% 真正以最小權限（least-privilege）方式配置。調查顯示 65% 的企業曾遇到 AI Agent 行為超出預設範圍，其中 29% 造成可量化的組織影響。導入速度方面，46% 的組織已在多個部門與正式生產流程中規模化使用 agentic AI，近 79% 同時併行運行生成式與 agentic AI。偵測與圍堵能力則明顯落後：僅 32.2% 能以自動化機制在數分鐘內偵測並圍堵越權行為，54.5% 需要數小時且必須人工介入；另有 35.6% 是在造成實質損害前才攔下近失事件，3.5% 是由客戶或合作夥伴回報才得知。EMA 研究副總裁 Christopher M. Steffen 表示，多數組織都有書面政策也對政策有信心，真正的落差在於「寫下來的」與「實際強制執行的」之間。",
-      "highlights": [
-        "94% 企業相信 AI Agent 未被過度授權，但僅 33% 實際執行最小權限配置",
-        "65% 企業曾出現 AI Agent 超出預設範圍的行為，29% 造成可量化的組織影響",
-        "46% 已跨部門規模化 agentic AI，近 79% 同時併行生成式與 agentic AI",
-        "僅 32.2% 能於數分鐘內自動偵測並圍堵越權行為，54.5% 需數小時且靠人工介入",
-        "3.5% 的組織是由客戶或合作夥伴通報，才首次得知 Agent 出現越權行為"
-      ],
-      "url": "https://www.globenewswire.com/news-release/2026/08/31/3353329/0/en/new-cequence-ema-research-94-of-enterprises-trust-their-ai-agents-aren-t-over-provisioned-only-33-actually-enforce-it.html"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/gartner-survey-finds-only-22-percent-of-organizations-have-successfully-scaled-ai-across-multiple-business-units"
     },
     {
       "title": "2026 Corporate AI Talent Study Report Available",
-      "source": "AI Leaders Council（PR Newswire 發布）",
+      "source": "PR Newswire / AI Leaders Council",
       "date": "2026-09-04",
       "category": "產業報告",
-      "summary": "AI Leaders Council 發布《2026 Corporate AI Talent Study》，研究北美各產業組織如何導入、訓練與運用 AI，並聚焦 AI 人才策略。調查顯示 AI 使用率在九個月內大幅上升：97% 受訪者已在某種程度上使用 AI，高於今年 1 月的 87%，但真正做到全企業深度嵌入的比例僅停滯在 3%。人才面的準備度明顯落後導入速度，只有 37% 的受訪組織提供 AI 訓練，33% 完全沒有明確的 AI 人才策略。研究同時盤點最搶手與最難補齊的 AI 職務、限制 AI 進展的關鍵技能缺口，以及 AI 對職務設計、人力規劃與未來招募預期的重塑。整體結論指向一個典型落差：工具普及速度遠快於組織能力建置速度。",
+      "summary": "AI Leaders Council 於 2026 年 9 月 4 日發布《2026 Corporate AI Talent Study》，調查北美組織在 AI 採用、訓練與實際使用上的現況。調查顯示 97% 的受訪者已在某種程度上使用 AI，高於今年 1 月的 87%，AI 試行專案與正式上線用例同步增加。但「全企業完整嵌入 AI」的比例僅停留在 3%，顯示採用的廣度與深度落差極大。人才面的準備明顯不足：僅 37% 的受訪者所屬組織有提供 AI 訓練，33% 完全沒有明確的 AI 人才策略。就業影響方面，51% 預期不會有顯著衝擊，37% 計畫調整既有職務內容，僅 6% 預期會實際縮減現有人力。⚠️待確認：發布日期取自搜尋結果摘要，未經 web_fetch 原文核對。",
       "highlights": [
-        "97% 受訪者已在某種程度使用 AI，較 2026 年 1 月的 87% 明顯上升",
-        "全企業深度嵌入 AI 的比例僅 3%，顯示普及與深化之間落差極大",
-        "僅 37% 的組織提供 AI 訓練，人才準備度落後導入速度",
-        "33% 的組織尚無明確定義的 AI 人才策略",
-        "研究涵蓋最難填補的 AI 職務、技能缺口，以及 AI 對人力規劃與招募的重塑"
+        "97% 受訪者已在某種程度上使用 AI，較 2026 年 1 月的 87% 明顯上升",
+        "但「全企業完整嵌入 AI」僅 3%，採用廣度與落地深度落差極大",
+        "僅 37% 的組織提供 AI 訓練，33% 沒有任何明確的 AI 人才策略",
+        "就業衝擊預期偏保守：51% 認為無顯著影響、37% 調整現有職務、僅 6% 預期減編",
+        "調查範圍為北美組織，聚焦 AI 採用、訓練與人才策略三個面向"
       ],
       "url": "https://www.prnewswire.com/news-releases/2026-corporate-ai-talent-study-report-available-302870134.html"
     }
   ],
-  "_updated_at": "2026-09-06T18:17:14.490531+08:00"
+  "_updated_at": "2026-09-07T18:18:25.927943+08:00"
 }

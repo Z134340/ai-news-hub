@@ -1,5 +1,24 @@
 [
   {
+    "title": "用 ADK 打造可暫停、可恢復、永不遺失脈絡的長時間執行 AI Agent",
+    "source": "Google Developers Blog",
+    "date": "2026-08-26",
+    "tool_name": "Google ADK (Agent Development Kit)",
+    "difficulty": "advanced",
+    "category": "AI Agent 建構",
+    "summary": "這篇 Google Developers Blog 教學處理的是長時間執行 Agent 的核心工程問題：當一個任務不是幾秒鐘就結束，而是要跨越數小時甚至數天，Agent 必須能中途暫停、之後再恢復，且不遺失先前累積的脈絡。文章以 HR 新人到職流程（onboarding）為實作案例，說明如何用 ADK 把 Agent 寫成可長期背景執行的程序。重點在於 session 的持久化（persistent sessions），也就是把 Agent 的狀態存下來，讓下一次喚醒時能接續原本的工作，而不是從零開始。這類設計對需要等待人工簽核、外部系統回覆的企業流程特別關鍵。⚠️待確認：本筆日期取自搜尋結果回報，未經原文開啟核對。",
+    "highlights": [
+      "以 HR 新人到職流程作為長時間執行 Agent 的實作案例，非玩具範例",
+      "核心機制是 persistent session（狀態持久化），讓 Agent 暫停後可恢復並保留脈絡",
+      "適用於需等待人工簽核或外部系統回應的企業流程自動化",
+      "屬於 ADK 進階主題，需先具備基本 Agent 開發經驗"
+    ],
+    "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
+    "is_new": true,
+    "first_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+  },
+  {
     "title": "How to Build an Agent",
     "source": "LangChain Blog",
     "date": "2026-08-25",
@@ -14,9 +33,14 @@
       "介紹 LangSmith 除錯每個 agent 決策、評測變更與一鍵部署的工作流"
     ],
     "url": "https://www.langchain.com/blog/how-to-build-an-agent",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.110652",
+    "complete": true
   },
   {
     "title": "GitHub 狂飆 6.8 萬星！career-ops 讓 AI Agent 幫你海投履歷、自動配對職缺",
@@ -33,9 +57,14 @@
       "提醒大量 AI 自動投遞可能引發企業端過濾與反制的實務風險"
     ],
     "url": "https://www.inside.com.tw/article/42181-2026-08-24-career-ops-ai-job-search-agent",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.110679",
+    "complete": true
   },
   {
     "title": "Build production agents with computer use, the Skills API, and the Files API",
@@ -52,9 +81,14 @@
       "涵蓋權限邊界、錯誤處理與成本控制等生產環境實務考量"
     ],
     "url": "https://claude.com/blog/computer-use-skills-api-files-api",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.110707",
+    "complete": true
   },
   {
     "title": "The Claude Code Guide For Startups",
@@ -71,9 +105,14 @@
       "點名常見失敗模式：任務過於模糊、缺乏測試導致產出無法驗證"
     ],
     "url": "https://claude.com/blog/claude-code-guide-for-startups",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.110734",
+    "complete": true
   },
   {
     "title": "Learn System Design for AI Agents: Build a Production-Ready Multi-Agent PR Reviewer",
@@ -96,7 +135,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028108",
+    "verified_at": "2026-09-06T18:19:44.110761",
     "complete": true
   },
   {
@@ -114,9 +153,32 @@
       "可將校準後評測器接入 CI，對 agent 變更做自動回歸測試"
     ],
     "url": "https://www.langchain.com/blog/introducing-langsmith-tuned-evaluators-starting-with-perceived-error",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.110788",
+    "complete": true
+  },
+  {
+    "title": "用 ADK 與全新 Interactions API 建構 Agent",
+    "source": "Google Developers Blog",
+    "date": "2026-08-17",
+    "tool_name": "Google ADK (Agent Development Kit)",
+    "difficulty": "intermediate",
+    "category": "AI Agent 建構",
+    "summary": "本文介紹 Google 新推出的 Interactions API，以及它如何與 ADK 搭配用於建構具狀態（stateful）的 agentic workflow。所謂具狀態，指的是 Agent 在多輪互動之間能記住先前發生什麼、目前進行到哪一步，而不是每次呼叫都當成獨立事件處理。文章說明兩者的整合模式（integration patterns），也就是開發者該怎麼把 Interactions API 接進既有的 ADK Agent 架構。對於已經在用 ADK、但卡在多輪狀態管理的開發者，這是直接對應的解法。⚠️待確認：本筆日期取自搜尋結果回報，未經原文開啟核對。",
+    "highlights": [
+      "聚焦 ADK 與新版 Interactions API 的整合模式",
+      "解決 agentic workflow 的多輪狀態（stateful）管理問題",
+      "適合已有 ADK 基礎、需要處理跨輪次脈絡的開發者"
+    ],
+    "url": "https://developers.googleblog.com/building-agents-with-the-adk-and-the-new-interactions-api/",
+    "is_new": true,
+    "first_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-07T18:21:52.992888+08:00"
   },
   {
     "title": "How to Build Production-Grade Agents with Pydantic AI",
@@ -139,7 +201,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028156",
+    "verified_at": "2026-09-06T18:19:44.110816",
     "complete": true
   },
   {
@@ -157,9 +219,14 @@
       "以 subagent 隔離探索性搜尋，防止大量檔案內容污染主 session"
     ],
     "url": "https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.110843",
+    "complete": true
   },
   {
     "title": "How to Build a Multi-Agent Trading Research System with LangChain Deep Agents [Full Handbook]",
@@ -182,7 +249,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028220",
+    "verified_at": "2026-09-06T18:19:44.110874",
     "complete": true
   },
   {
@@ -206,7 +273,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028271",
+    "verified_at": "2026-09-06T18:19:44.110901",
     "complete": true
   },
   {
@@ -230,7 +297,7 @@
     "url_status": "verified",
     "title_score": 0.75,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028326",
+    "verified_at": "2026-09-06T18:19:44.110935",
     "complete": true
   },
   {
@@ -255,7 +322,7 @@
     "url_status": "verified",
     "title_score": 0.95,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028377",
+    "verified_at": "2026-09-06T18:19:44.110964",
     "complete": true
   },
   {
@@ -273,13 +340,13 @@
       "提供在 LangGraph 上實作這套架構的具體路徑"
     ],
     "url": "https://www.langchain.com/blog/deep-agents",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
     "last_seen": "2026-08-31T18:33:24.388697+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029267",
+    "verified_at": "2026-09-06T18:19:44.110991",
     "complete": true
   },
   {
@@ -303,7 +370,7 @@
     "url_status": "verified",
     "title_score": 0.84,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028426",
+    "verified_at": "2026-09-06T18:19:44.111020",
     "complete": true
   },
   {
@@ -328,27 +395,46 @@
     "url_status": "verified",
     "title_score": 0.77,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028473",
+    "verified_at": "2026-09-06T18:19:44.111047",
     "complete": true
   },
   {
-    "title": "Automate agent development lifecycles with Gemini Enterprise",
-    "source": "Google Cloud Blog",
-    "date": "2026-07-30",
-    "tool_name": "Gemini Enterprise",
-    "difficulty": "advanced",
-    "category": "AI Agent 建構 / MLOps",
-    "summary": "Google Cloud 說明如何在 Gemini Enterprise 上把 agent 的開發生命週期自動化，涵蓋從設計、測試、部署到監控的完整鏈路。文章強調企業導入 agent 的瓶頸通常不在模型能力，而在缺乏可重複的交付流程與治理機制。內容示範如何把 agent 定義納入版本控管、如何建立自動化評測關卡，以及如何在部署後持續追蹤 agent 行為指標。對金融、製造等受監理產業，文中關於稽核軌跡與權限控管的段落特別具參考價值。整體是偏向平台工程與治理視角的實作指南，而非單純的模型呼叫教學。",
+    "title": "2026 年 Prompt 工程最佳實踐",
+    "source": "Anthropic (claude.com Blog)",
+    "date": "2026-08-03",
+    "tool_name": "Claude",
+    "difficulty": "intermediate",
+    "category": "Prompt 工程",
+    "summary": "Anthropic 官方部落格整理針對 Claude 5 世代模型的 prompt 撰寫原則。核心論點是：prompt engineering 正在與 context engineering 收斂，也就是說重點從「搭鷹架、給大量指令」轉向「精選要放進脈絡的內容」。對舊世代模型有效的長系統提示、逐條列舉的 do's and don'ts，在新世代模型上反而會拖累品質並浪費 token。對已在生產環境使用 Claude 的團隊來說，這代表既有 prompt 資產需要重新檢視而非直接沿用。⚠️待確認：本筆日期取自搜尋結果回報，未經原文開啟核對。",
     "highlights": [
-      "把 agent 開發生命週期納入自動化 CI/CD，涵蓋設計、測試、部署、監控",
-      "指出企業導入瓶頸在交付流程與治理機制，而非模型能力本身",
-      "示範 agent 定義的版本控管與自動化評測關卡設計",
-      "包含稽核軌跡與權限控管設計，適用受監理產業"
+      "Claude 5 世代的 prompting 原則：少鷹架（scaffolding）、多脈絡篩選（curation）",
+      "prompt engineering 與 context engineering 正在收斂成同一件事",
+      "為舊模型設計的長系統提示與冗長規則清單，在新模型上會反噬品質與成本",
+      "既有 prompt 資產應重新檢視，不宜直接沿用"
     ],
-    "url": "https://cloud.google.com/blog/topics/developers-practitioners/automate-agent-development-lifecycles-with-gemini-enterprise",
+    "url": "https://claude.com/blog/best-practices-for-prompt-engineering",
     "is_new": true,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "first_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+  },
+  {
+    "title": "2026 年如何建構 AI Agent：新手完整教學",
+    "source": "UseLearnAI",
+    "date": "2026-07-31",
+    "tool_name": "Anthropic Claude API / OpenAI API",
+    "difficulty": "beginner",
+    "category": "AI Agent 建構",
+    "summary": "這是一篇給初學者的 Agent 建構教學，先界定什麼叫 AI Agent：一支用語言模型決定「下一步要做什麼」的程式。文章接著說明底層運作原理、2026 年值得投入的框架有哪些，並帶一個可實際跑起來的入門專案。作者給的最快路徑是：挑一個有明確成功條件的任務，用 Claude API 或 OpenAI API 並開啟 tool use，定義 2 到 3 個工具，再把整段包進一個迴圈。這個「明確成功條件 + 少量工具 + 迴圈」的收斂法，正好對應業界共識的極簡 Agent 架構。⚠️待確認：本筆日期取自搜尋結果回報，未經原文開啟核對。",
+    "highlights": [
+      "Agent 的定義收斂為「用 LLM 決定下一步的程式」，不神化概念",
+      "最快上手路徑：明確成功條件 → 開啟 tool use → 定義 2-3 個工具 → 包成迴圈",
+      "涵蓋框架選型比較與一個可跑的 step-by-step 專案",
+      "適合零基礎入門，不預設既有 Agent 開發經驗"
+    ],
+    "url": "https://www.uselearnai.com/blog/how-to-build-ai-agents-beginners-guide-2026",
+    "is_new": true,
+    "first_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-07T18:21:52.992888+08:00"
   },
   {
     "title": "LangSmith LLM Gateway: runtime controls for production agents",
@@ -371,27 +457,8 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028526",
+    "verified_at": "2026-09-06T18:19:44.111073",
     "complete": true
-  },
-  {
-    "title": "AI Skills怎麼寫？grill-me工作流5步拆解，附中文提示詞可複製",
-    "source": "數位時代",
-    "date": "2026-07-28",
-    "tool_name": "Claude Code Agent Skills / grill-me",
-    "difficulty": "beginner",
-    "category": "Prompt 工程",
-    "summary": "數位時代拆解由開發者 Matt Pocock 開源的 grill-me Skill，說明其五步驟工作流並附上可直接複製的中文提示詞。grill-me 的核心設計是讓 AI 在動手前先反過來拷問使用者，把模糊需求拆成決策樹，一次只問一題，逼使用者釐清邊界條件與錯誤處理。文章指出這種「先問後做」的模式能顯著降低 AI 產出偏離需求的機率。報導引用數據顯示，該類 Skill 生態在 skills.sh 平台累積約 1,170 萬次安裝，相關開源專案至該日已超過 19.1 萬顆星。對想入門 Agent Skills 撰寫的讀者，是門檻最低的中文教材之一。",
-    "highlights": [
-      "grill-me 讓 AI 先反問使用者，把模糊需求拆成決策樹逐題釐清",
-      "拆解五步驟工作流並提供可直接複製貼上的中文提示詞",
-      "先問後做的模式可大幅降低 AI 產出偏離原始需求的機率",
-      "引用數據：skills.sh 平台累積約 1,170 萬次安裝，相關專案逾 19.1 萬星"
-    ],
-    "url": "https://www.bnext.com.tw/article/91643/matt-pocock-ai-skills-workflow",
-    "is_new": true,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "使用 OpenSpace 建構自我演化 AI Agent：Skills、MCP、Lineage 與低成本重用",
@@ -414,7 +481,7 @@
     "url_status": "title_low_match",
     "title_score": 0.15,
     "verified": "needs_review",
-    "verified_at": "2026-08-31T00:04:07.028578",
+    "verified_at": "2026-09-06T18:19:44.111110",
     "complete": true
   },
   {
@@ -438,7 +505,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028628",
+    "verified_at": "2026-09-06T18:19:44.111140",
     "complete": true
   },
   {
@@ -463,7 +530,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028677",
+    "verified_at": "2026-09-06T18:19:44.111168",
     "complete": true
   },
   {
@@ -488,27 +555,8 @@
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028725",
+    "verified_at": "2026-09-06T18:19:44.111204",
     "complete": true
-  },
-  {
-    "title": "13 demos on Gemini Enterprise Agent Platform",
-    "source": "Google Cloud Blog",
-    "date": "2026-07-17",
-    "tool_name": "Gemini Enterprise Agent Platform",
-    "difficulty": "intermediate",
-    "category": "AI Agent 應用實戰",
-    "summary": "Google Cloud 一次公開 13 個建構在 Gemini Enterprise Agent Platform 上的實作示範，涵蓋客服、資料分析、文件處理與跨系統流程自動化等企業場景。每個 demo 都說明使用的工具串接方式與 agent 編排邏輯，可作為對應場景的架構參考範本。文章的價值在於把抽象的 agent 能力對應到具體業務流程，讓評估導入的團隊能快速判斷哪些場景值得優先切入。內容同時展示多 agent 協作與外部系統整合的實際做法。相較純概念性介紹，這篇提供的是可對照的落地樣板。",
-    "highlights": [
-      "一次公開 13 個企業場景的 agent 實作示範",
-      "涵蓋客服、資料分析、文件處理、跨系統流程自動化等領域",
-      "每個 demo 說明工具串接方式與 agent 編排邏輯，可作架構範本",
-      "展示多 agent 協作與外部既有系統整合的實際做法"
-    ],
-    "url": "https://cloud.google.com/blog/products/ai-machine-learning/13-demos-on-gemini-enterprise-agent-platform",
-    "is_new": true,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
   },
   {
     "title": "ChatGPT Sites教學：用對話就能把網頁部署上線，全程沒寫程式碼",
@@ -525,9 +573,14 @@
       "適用展示型與輕互動場景：儀表板、內部工具、個人作品集"
     ],
     "url": "https://www.bnext.com.tw/article/91537/gdd37kufmda5u2gbzdgq",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.111232",
+    "complete": true
   },
   {
     "title": "建構 VideoAgent 風格多代理系統：影片編輯任務的意圖解析、圖規劃與工具路由",
@@ -550,7 +603,7 @@
     "url_status": "verified",
     "title_score": 0.35,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028774",
+    "verified_at": "2026-09-06T18:19:44.111260",
     "complete": true
   },
   {
@@ -575,7 +628,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028821",
+    "verified_at": "2026-09-06T18:19:44.111287",
     "complete": true
   },
   {
@@ -599,8 +652,27 @@
     "url_status": "title_low_match",
     "title_score": 0.17,
     "verified": "needs_review",
-    "verified_at": "2026-08-31T00:04:07.028870",
+    "verified_at": "2026-09-06T18:19:44.111317",
     "complete": true
+  },
+  {
+    "title": "Claude Code 完整教學 2026：從安裝到實戰，不會寫程式也能用",
+    "source": "Grenade 手榴彈",
+    "date": "2026-07-09",
+    "tool_name": "Claude Code",
+    "difficulty": "beginner",
+    "category": "Claude Code 教學",
+    "summary": "繁體中文的 Claude Code 完整入門教學，訴求對象包含不會寫程式的一般使用者。文章把 Claude Code 定位成跑在自己電腦上的 AI 助手，能讀寫本機檔案、安裝軟體、使用工具並串接外部服務。教學中對 MCP 的白話說明是「轉接頭」：讓 Claude Code 能連上 Google Drive、LINE、瀏覽器等外部工具，直接讀取資料而不必手動複製貼上。實戰示範是用中文直接下自然語言指令，例如請它整理 Google Drive 上個月的收據發票、算總花費並存到桌面，全程不需學任何指令語法。⚠️待確認：本筆日期取自搜尋結果回報，未經原文開啟核對。",
+    "highlights": [
+      "以「跑在本機的 AI 助手」定位 Claude Code，涵蓋檔案讀寫與外部服務串接",
+      "用「轉接頭」類比說明 MCP，降低非工程背景讀者的理解門檻",
+      "示範用中文自然語言下指令完成 Google Drive 檔案整理與試算",
+      "繁體中文教學，從安裝設定一路帶到實戰情境"
+    ],
+    "url": "https://grenade.tw/blog/claude-code-tutorial-ai/",
+    "is_new": true,
+    "first_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-07T18:21:52.992888+08:00"
   },
   {
     "title": "How to Build an MCP Server with FastMCP for Your Local AI Agent",
@@ -623,7 +695,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028920",
+    "verified_at": "2026-09-06T18:19:44.111346",
     "complete": true
   },
   {
@@ -647,7 +719,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.028969",
+    "verified_at": "2026-09-06T18:19:44.111437",
     "complete": true
   },
   {
@@ -672,7 +744,7 @@
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029018",
+    "verified_at": "2026-09-06T18:19:44.111477",
     "complete": true
   },
   {
@@ -696,7 +768,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029066",
+    "verified_at": "2026-09-06T18:19:44.111503",
     "complete": true
   },
   {
@@ -720,7 +792,7 @@
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029115",
+    "verified_at": "2026-09-06T18:19:44.111531",
     "complete": true
   },
   {
@@ -744,7 +816,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029163",
+    "verified_at": "2026-09-06T18:19:44.111557",
     "complete": true
   },
   {
@@ -769,7 +841,7 @@
     "url_status": "verified",
     "title_score": 0.96,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029211",
+    "verified_at": "2026-09-06T18:19:44.111584",
     "complete": true
   },
   {
@@ -787,9 +859,14 @@
       "繁體中文深度實作教材，貼近台灣開發者的專案情境"
     ],
     "url": "https://blog.wu-boy.com/2026/07/ai-workflow-agent-skill-mcp-workshop-zh-tw/",
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00"
+    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-06T18:19:44.111613",
+    "complete": true
   },
   {
     "title": "How to Build an AI Agent That Runs its Own LLM Experiments with autoresearch",
@@ -812,8 +889,27 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029304",
+    "verified_at": "2026-09-06T18:19:44.111642",
     "complete": true
+  },
+  {
+    "title": "如何用 MCP 建構 AI Agent：完整逐步指南",
+    "source": "DEV Community",
+    "date": "2026-06-26",
+    "tool_name": "Model Context Protocol (MCP)",
+    "difficulty": "intermediate",
+    "category": "MCP 開發",
+    "summary": "這篇教學把 MCP 的定位講得很乾脆：RAG 負責「取回資料」，MCP 負責「實際動手做事」。當 Agent 需要寫入資料庫、呼叫 API、觸發工作流程或讀取即時資料時，靠的是 MCP 而不是檢索。文章以逐步方式帶讀者從零建出一個用 MCP 的 Agent。作者引用的採用數據是 MCP 每月 SDK 下載量達 9,700 萬次，並已被 LangChain、LlamaIndex 與 Google ADK 等主要框架納入，據此主張 MCP 在 2026 年已進入生產就緒階段。⚠️待確認：本筆日期與 9,700 萬次下載數字均取自搜尋結果回報，未經原文開啟核對。",
+    "highlights": [
+      "清楚切分職責：RAG 負責檢索取回，MCP 負責執行動作",
+      "適用情境包含寫入資料庫、呼叫 API、觸發工作流程、讀取即時資料",
+      "引用數據：MCP 每月 SDK 下載量 9,700 萬次（⚠️待確認）",
+      "LangChain、LlamaIndex、Google ADK 均已支援，佐證生態成熟度"
+    ],
+    "url": "https://dev.to/prateek23/how-to-build-an-ai-agent-with-mcp-a-complete-step-by-step-guide-41dg",
+    "is_new": true,
+    "first_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-07T18:21:52.992888+08:00"
   },
   {
     "title": "Build a Nanobot-Style AI Agent in Google Colab with Tool Calling, Session Memory, Skills, and MCP Servers",
@@ -836,7 +932,7 @@
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029343",
+    "verified_at": "2026-09-06T18:19:44.111672",
     "complete": true
   },
   {
@@ -860,31 +956,7 @@
     "url_status": "verified",
     "title_score": 0.91,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029379",
-    "complete": true
-  },
-  {
-    "title": "n8n 教學 2026：AI Agent、自動化工作流與實戰案例完整指南",
-    "source": "Mason AI Lab",
-    "date": "2026-06-23",
-    "tool_name": "n8n",
-    "difficulty": "intermediate",
-    "category": "AI 工具實戰教學 / 自動化",
-    "summary": "本篇為 n8n 自動化平台的 2026 年完整教學，聚焦於在 n8n 中建構 AI Agent 與自動化工作流。內容從 n8n 基礎節點與工作流概念出發，逐步帶到串接 LLM 模型、打造具決策能力的 AI Agent，並輔以實戰案例說明如何落地企業自動化情境。文章同時涵蓋觸發器、排程與錯誤處理等實務細節。適合想以低程式碼方式打造 AI 自動化流程的使用者。",
-    "highlights": [
-      "以 n8n 低程式碼方式建構自動化工作流與 AI Agent",
-      "示範在工作流中串接 LLM 模型並賦予代理決策能力",
-      "涵蓋觸發器、排程、錯誤處理等生產實務細節",
-      "搭配實戰案例說明企業自動化落地場景"
-    ],
-    "url": "https://masonailab.com/tools/n8n-ai-agent-workflow-guide-2026/",
-    "is_new": false,
-    "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029415",
+    "verified_at": "2026-09-06T18:19:44.111700",
     "complete": true
   },
   {
@@ -907,7 +979,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029451",
+    "verified_at": "2026-09-06T18:19:44.111728",
     "complete": true
   },
   {
@@ -931,7 +1003,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029486",
+    "verified_at": "2026-09-06T18:19:44.111756",
     "complete": true
   },
   {
@@ -955,7 +1027,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029524",
+    "verified_at": "2026-09-06T18:19:44.111784",
     "complete": true
   },
   {
@@ -979,7 +1051,7 @@
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029560",
+    "verified_at": "2026-09-06T18:19:44.111810",
     "complete": true
   },
   {
@@ -1003,7 +1075,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029597",
+    "verified_at": "2026-09-06T18:19:44.111839",
     "complete": true
   },
   {
@@ -1027,7 +1099,7 @@
     "url_status": "verified",
     "title_score": 0.4,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029637",
+    "verified_at": "2026-09-06T18:19:44.111868",
     "complete": true
   },
   {
@@ -1051,128 +1123,7 @@
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029675",
-    "complete": true
-  },
-  {
-    "title": "Claude Cowork 是什麼、怎麼用？新手 10 分鐘設定教學，一次學會檔案自動化",
-    "source": "數位時代 BusinessNext",
-    "date": "2026-06-05",
-    "tool_name": "Claude Cowork",
-    "difficulty": "beginner",
-    "category": "AI 工具實戰教學",
-    "summary": "本文說明 Claude Cowork 與一般聊天式使用的根本差異：Cowork 能在本機環境直接讀取與產出檔案，把對話結果落地成實際可用的檔案，而不只是回覆文字。教學從安裝與本機環境設定開始，說明如何指定 Cowork 可存取的工作資料夾，以及權限授予的注意事項。接著示範檔案自動化的實際場景，例如批次整理、格式轉換與資料彙整，讓使用者在約 10 分鐘內完成第一個可運作的自動化流程。文章也提醒本機操作型工具的風險界線——應限縮可存取範圍，避免讓 AI 對整個磁碟有讀寫權限。屬於零基礎新手的入門設定指南。",
-    "highlights": [
-      "釐清 Cowork 與聊天式使用的差異：能直接在本機讀寫檔案",
-      "從安裝、本機環境設定到指定可存取工作資料夾逐步示範",
-      "示範批次整理、格式轉換、資料彙整等檔案自動化場景",
-      "約 10 分鐘可完成第一個可運作的自動化流程",
-      "提醒限縮存取範圍，避免 AI 取得整個磁碟讀寫權限"
-    ],
-    "url": "https://www.bnext.com.tw/article/91158/from-chat-to-cowork-local-claude-workflow-guide",
-    "is_new": false,
-    "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
-    "url_status": "verified",
-    "title_score": 0.96,
-    "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029711",
-    "complete": true
-  },
-  {
-    "title": "How to Build a Custom Agent Harness",
-    "source": "LangChain Blog",
-    "date": "2026-06-04",
-    "tool_name": "LangChain create_agent / Deep Agents",
-    "difficulty": "advanced",
-    "category": "Agent Harness 與 Middleware 建構",
-    "summary": "本文說明如何建構自訂的 agent harness，並指出最簡便的路徑是使用 LangChain 的 create_agent 搭配 middleware，再依使用情境客製。文中對照 Deep Agents 這套「開箱即用」的通用 agent harness，其設計目標是支撐長時間執行的任務，內建規劃、context 管理與多 Agent 編排能力，適用於研究與程式開發等複雜工作。Deep Agents 的 middleware 可協助 Agent 壓縮對話歷史、將大型工具結果卸載到外部、以 subagent 隔離 context，並使用 prompt caching 降低延遲與成本。對於需要自建 harness 而非直接套用框架預設的團隊，本文提供了組裝層級的設計指引。",
-    "highlights": [
-      "自訂 harness 的最短路徑：create_agent + middleware 組合",
-      "Deep Agents 為長時間任務設計的通用 harness，內建規劃與 context 管理",
-      "middleware 四項核心能力：壓縮歷史、卸載大型工具結果、subagent 隔離 context、prompt caching",
-      "prompt caching 同時降低延遲與 token 成本"
-    ],
-    "url": "https://www.langchain.com/blog/how-to-build-a-custom-agent-harness",
-    "is_new": false,
-    "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029746",
-    "complete": true
-  },
-  {
-    "title": "Fine-tune FLUX.2 [klein] with a LoRA under 60 minutes",
-    "source": "Hugging Face Blog (Black Forest Labs)",
-    "date": "2026-06-04",
-    "tool_name": "FLUX.2 [klein] / LoRA",
-    "difficulty": "intermediate",
-    "category": "模型微調實作（LoRA）",
-    "summary": "這是一篇 60 分鐘內完成 FLUX.2 [klein] LoRA 微調的實作教學，發表於 Hugging Face 官方 blog 的 Black Forest Labs 帳號。文章屬於 Gradio 與 Hugging Face 共同舉辦的 Build Small Hackathon 系列內容。主題聚焦於以 LoRA 這種參數高效微調方式，在有限時間與運算資源下完成影像生成模型的客製化。對想快速驗證微調可行性、而非投入完整 full fine-tuning 的團隊具參考價值。⚠️待確認：僅取得標題、URL 與日期，內文步驟未經原文逐段核對。",
-    "highlights": [
-      "目標明確：60 分鐘內完成 FLUX.2 [klein] 的 LoRA 微調",
-      "屬 Gradio × Hugging Face「Build Small Hackathon」系列產出",
-      "以參數高效微調（LoRA）降低運算門檻，適合快速驗證"
-    ],
-    "url": "https://huggingface.co/blog/black-forest-labs/flux-2-klein-lora",
-    "is_new": false,
-    "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
-    "url_status": "verified",
-    "title_score": 0,
-    "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029781",
-    "complete": true
-  },
-  {
-    "title": "LangChain 與 LangGraph Agent 框架正式達到 1.0 版本里程碑",
-    "source": "LangChain Blog",
-    "date": "2026-06-04",
-    "tool_name": "LangChain, LangGraph",
-    "difficulty": "intermediate",
-    "category": "AI Agent 框架教學",
-    "summary": "LangChain 與 LangGraph 在 2026 年 6 月 4 日同步宣告達到 1.0 版本里程碑，標誌著這兩個主流開源 AI Agent 框架正式進入生產就緒階段。LangGraph 1.0 以圖形化架構為核心，支援建構有狀態、多角色的自主應用程式，適合企業級複雜工作流。此次版本新增對 MCP（Model Context Protocol）的原生整合，以及 Skills、Triggers、Subagents 等機制，大幅降低 Agent 開發門檻。LangSmith 作為配套的觀測與評估平台，提供完整的 Agent 追蹤、除錯與 A/B 測試能力。此版本標誌著 LangChain 生態系統從實驗性工具演進為可信賴的企業級解決方案。",
-    "highlights": [
-      "LangChain 1.0 與 LangGraph 1.0 同步宣告生產就緒，是開源 AI Agent 框架的重要里程碑",
-      "LangGraph 圖形化編排模型支援複雜多步驟 Agent 工作流，包含迴圈、條件分支與並行執行",
-      "原生整合 MCP、Skills 與 Subagents 機制，開發者可直接呼叫外部工具與服務",
-      "LangSmith 提供 Agent 追蹤、評估與 A/B 測試能力，適合持續改進生產環境 Agent",
-      "企業級功能包含授權管理、沙箱模式，Sentry 監控整合增強可觀測性"
-    ],
-    "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
-    "is_new": false,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 0.6,
-    "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029817",
-    "complete": true
-  },
-  {
-    "title": "Build Your Own AI Agent",
-    "source": "freeCodeCamp",
-    "date": "2026-06-02",
-    "tool_name": "AI Agent / Slackbot",
-    "difficulty": "beginner",
-    "category": "AI Agent 建構",
-    "summary": "由 Ania Kubow 講授的課程，教導如何建構並部署可銜接大型語言模型與真實世界自動化的 AI agent。實作專案為一個可上線的 AI 驅動 Slackbot，能處理複雜的研究與資料分析任務。課程強調從 LLM 呼叫到實際業務自動化之間的落差如何弭平。適合初次接觸 agent 開發、希望有明確可交付成果的學習者。",
-    "highlights": [
-      "以可上線 Slackbot 作為完整實作專案",
-      "銜接 LLM 與真實世界自動化的落地方法",
-      "涵蓋複雜研究與資料分析任務的處理",
-      "適合 agent 開發初學者的完整入門路徑"
-    ],
-    "url": "https://www.freecodecamp.org/news/build-your-own-ai-agent/",
-    "is_new": false,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-08-31T00:04:07.029854",
+    "verified_at": "2026-09-06T18:19:44.111897",
     "complete": true
   }
 ]
