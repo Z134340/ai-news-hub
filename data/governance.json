@@ -1,229 +1,105 @@
 {
   "items": [
     {
-      "title": "FSB Chair warns of risks arising from frontier Artificial Intelligence (AI) models",
-      "source": "Financial Stability Board (FSB)",
-      "date": "2026-08-31",
-      "category": "金融監管",
-      "summary": "金融穩定委員會（FSB）於 2026 年 8 月 31 日公布主席 Andrew Bailey 致 G20 財長與央行總裁的信函，趕在 8 月 31 日至 9 月 1 日 G20 會議前提出警示。Bailey 指出前沿 AI 模型（frontier AI models）展現日益成熟的自主性、問題解決能力與潛在威脅能力，從金融穩定角度看，網路風險（cyber risk）是最迫切的關切。他警告前沿 AI 可能從根本改變網路攻擊的速度、規模與成本結構，而金融業高度依賴少數集中的第三方科技服務供應商，一旦出現漏洞將快速跨境擴散。信中同時點出總體經濟脆弱性與金融市場槓桿攀升的疊加效應，市場仍可能出現失序修正，並跨境傳染。Bailey 呼籲各國主管機關採取適當措施支持模型的安全與負責任釋出及部署，並要求金融機構確保健全的應變與復原能力，以及關鍵第三方供應商的韌性。",
-      "highlights": [
-        "FSB 主席 Bailey 將「前沿 AI 模型帶來的網路風險」列為當前全球金融穩定最迫切的關切",
-        "前沿 AI 恐改變網路攻擊的速度、規模與經濟成本，並因第三方供應商集中而跨境快速擴散",
-        "AI 企業與超大規模雲端業者的交叉投資推高市場集中度，與槓桿上升交互作用，可能在市場修正時放大衝擊",
-        "呼籲主管機關支持安全負責任的模型釋出與部署，金融機構須強化應變、復原與關鍵第三方韌性"
-      ],
-      "url": "https://www.fsb.org/2026/08/fsb-chair-warns-of-risks-arising-from-frontier-artificial-intelligence-ai-models/"
-    },
-    {
-      "title": "ChatGPT 遭列規範名單，首個面臨歐盟監管 AI 聊天機器人",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-01",
+      "title": "US, China gear up for mid-September AI safety talks: Reuters",
+      "source": "CNBC (Reuters)",
+      "date": "2026-09-05",
       "category": "AI治理",
-      "summary": "歐盟執委會於 2026 年 8 月 31 日將 ChatGPT 納入《數位服務法》（DSA）的超大型線上搜尋引擎（VLOSE）名單，使 ChatGPT 成為第一個受此類最嚴格規範的 AI 聊天機器人。同批被指定的還有 Reddit 與 Roblox，被列為超大型線上平台（VLOP）。指定門檻依 DSA 第 33(1) 條為歐盟境內月活躍使用者達 4,500 萬人，ChatGPT 申報的歐盟月活躍使用者達 1.59 億人，遠超門檻。被指定者須承擔 DSA 最嚴格的內容治理、透明度與獨立稽核義務。依 DSA 規定，額外義務於執委會通知指定後四個月起適用，換算約在 2026 年 11 月底前須完成整改。",
+      "summary": "美國與中國正籌備於 9 月中旬舉行 AI 安全（AI safety）雙邊對話，這是兩大 AI 強權在前沿模型風險管控上少數的正式溝通管道。報導由 Reuters 首發、CNBC 轉載，主題聚焦於前沿模型的失控風險、誤用防範與兩國各自監理框架的相互理解。此類對話的實質意義在於建立技術性的風險溝通基準，而非簽署具拘束力的協議。對金融與關鍵基礎設施產業而言，美中若能就模型能力揭露與紅隊測試標準取得部分共識，將直接影響跨國 AI 供應鏈的合規預期。⚠️待確認：會談的確切日期、層級與議程細節，雙方官方均尚未完整公布。",
       "highlights": [
-        "歐盟 8 月 31 日將 ChatGPT 指定為 DSA 下的超大型線上搜尋引擎（VLOSE），為首個受此規範的 AI 聊天機器人",
-        "ChatGPT 申報歐盟月活躍使用者 1.59 億，遠超 DSA 第 33(1) 條的 4,500 萬門檻",
-        "同批 Reddit 與 Roblox 被列為超大型線上平台（VLOP）",
-        "指定後四個月起適用最嚴格的內容、透明度與稽核義務，整改期約至 2026 年 11 月底"
+        "美中預計 9 月中旬舉行 AI 安全對話，為兩國少數的前沿模型風險官方溝通管道",
+        "議題聚焦前沿模型失控風險、誤用防範與雙方監理框架互通",
+        "屬技術性風險溝通，非具拘束力協議，短期不預期產生共同規則",
+        "若就模型能力揭露與紅隊測試取得共識，將牽動跨國 AI 供應鏈合規預期"
       ],
-      "url": "https://technews.tw/2026/09/01/chatgpt-becomes-first-ai-chatbot-to-face-tougher-eu-rules"
+      "url": "https://www.cnbc.com/2026/09/05/us-china-gear-up-for-mid-september-ai-safety-talks-reuters.html"
     },
     {
-      "title": "G20 科技會議，美敦促各國少干預 AI 規範",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-02",
-      "category": "AI治理",
-      "summary": "美國於 2026 年 9 月 1 日在北卡羅來納州舉行的 G20 科技部長會議上，敦促各國對 AI 監管採取「少干預」（hands-off）做法，避免為這項技術新增規則。美方立場強調降低監理負擔、以促進創新與經濟成長為優先，與歐盟以《AI Act》為核心的事前風險分級管制路線形成明顯對比。這一主張延續美方近期在多邊場合推動寬鬆 AI 治理框架的方向。對跨國金融機構而言，美歐監理路線分歧將使全球一致的 AI 合規基準更難成形，集團層級須同時滿足最嚴格與最寬鬆兩端的落差。",
-      "highlights": [
-        "美國在 9 月 1 日 G20 科技會議上主張各國對 AI 採取少干預的監管態度",
-        "美方強調減輕監理負擔以促進 AI 創新與經濟成長",
-        "與歐盟《AI Act》事前風險分級管制路線形成明顯對比",
-        "監理路線分歧將提高跨國企業建立單一 AI 合規基準的難度"
-      ],
-      "url": "https://technews.tw/2026/09/02/us-urges-hands-off-approach-to-ai-regulation-at-g20-tech-meeting"
-    },
-    {
-      "title": "美國擬推 AI 出口新規，防堵中國跨境承租輝達 GPU",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-01",
-      "category": "AI治理",
-      "summary": "美國商務部正研擬全新的 AI 出口管制規則，管制標的將從既有的「實體晶片出口」擴大到中國企業透過海外資料中心遠端租用高階 GPU 算力的行為。此舉意在堵住現行管制的漏洞：即便晶片本身未輸出到中國，中國業者仍可透過境外雲端服務取得等效的訓練算力。報導指出，最快預計於 9 月向 AI 企業與產業界徵詢意見。若成案，雲端服務供應商將被要求對客戶身分與算力用途進行更嚴格的盡職調查與紀錄保存。這將把 AI 出口管制的合規責任，從硬體供應鏈延伸到雲端與服務層。",
-      "highlights": [
-        "美國商務部研擬將 AI 出口管制從實體晶片擴大至跨境遠端租用 GPU 算力",
-        "目的在堵住中國業者透過海外資料中心取得高階算力的漏洞",
-        "最快 9 月向 AI 企業與產業界徵詢意見",
-        "雲端服務供應商恐須承擔客戶身分與用途的盡職調查義務"
-      ],
-      "url": "https://technews.tw/2026/09/01/us-commerce-block-china-ai"
-    },
-    {
-      "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
-      "source": "OpenAI",
-      "date": "2026-09-03",
+      "title": "SEMI E187驗證標章亮相，10月將公布第一家認證機構，首波標章產品有望於年底問世",
+      "source": "iThome",
+      "date": "2026-09-07",
       "category": "資安標準",
-      "summary": "OpenAI 於 2026 年 9 月 3 日推出「Daybreak for Frontline Defenders」全球計畫，承諾投入 10 億美元補貼其 Daybreak 資安模型的使用權、訓練、技術支援與夥伴合作。補貼對象優先包括自來水與污水處理事業、電網營運商、州與地方政府、社區銀行與區域型銀行、非營利組織及開源專案維護者，這些單位共通特徵是防守關鍵基礎設施但沒有企業級資安預算。該筆補貼規劃在未來六個月內消化。服務分為兩層：Daybreak Blue 以主線模型支援常見防禦工作；Daybreak Red 則提供經核准組織使用專門的資安模型，處理更敏感、技術要求更高的任務。實務上，公用事業可用它檢視老舊程式碼、分析可疑活動、識別並驗證漏洞、依嚴重度排序，並開發與測試修補。",
+      "summary": "SEMI E187 驗證標章於 9 月 4 日 SEMICON Taiwan 2026 半導體資安論壇正式亮相，由數位發展部部長林宜敬、政務次長楊佳玲、數位產業署署長林俊秀，以及 SEMI 全球行銷長暨臺灣區總裁曹世綸、SEMI 半導體資安委員會主席暨台積電企業資訊安全處長屠震共同揭露。SEMI E187 是針對半導體製造設備的資安標準，規範設備作業系統、網路安全、端點防護與資安監控四大面向。依規劃，10 月台北市電腦公會（TCA）可望成為經 TAF（全國認證基金會）認可的驗證機構，首波取得標章的產品預期年底前問世。這是台灣把資安標準從「產業自律」推進到「第三方驗證＋標章」的關鍵一步，等同為半導體供應鏈建立可稽核的資安門檻。⚠️待確認：本篇文章的精確發布日期係依 iThome 同日《資安日報》9 月 7 日收錄推定。",
       "highlights": [
-        "OpenAI 承諾 10 億美元補貼 Daybreak 資安模型給缺乏企業級預算的關鍵基礎設施防守方",
-        "社區銀行與區域型銀行被明列為優先補貼對象，直接觸及金融業第三方 AI 依賴議題",
-        "分為 Daybreak Blue（主線模型、常見防禦任務）與 Daybreak Red（專門資安模型、需核准）兩層",
-        "補貼額度規劃於未來六個月內消化，適用美國及國際"
+        "SEMI E187 驗證標章 9 月 4 日於 SEMICON Taiwan 2026 半導體資安論壇揭露，數位發展部高層與台積電、SEMI 共同出席",
+        "10 月台北市電腦公會（TCA）可望成為首家經 TAF 認可的 SEMI E187 驗證機構",
+        "首波取得標章的半導體設備產品預計年底前問世",
+        "標準涵蓋設備作業系統、網路安全、端點防護與資安監控四大面向",
+        "代表台灣半導體資安從自律走向第三方驗證與標章制度"
       ],
-      "url": "https://openai.com/index/daybreak-for-frontline-defenders/"
+      "url": "https://www.ithome.com.tw/news/178733"
     },
     {
-      "title": "UK cyber bill targets AI users, not the vendors building it",
-      "source": "The Register",
-      "date": "2026-09-02",
+      "title": "Balisacan: AI can fight corruption, monitor projects, speed up government",
+      "source": "Manila Bulletin",
+      "date": "2026-09-07",
       "category": "AI治理",
-      "summary": "英國政府否決了上議院議員提出的修正提案，該提案希望把 AI 供應商納入《網路安全與韌性（網路與資訊系統）法案》（Cyber Security and Resilience Bill）的規範範圍。資安部長 Baroness Lloyd of Effra 主張，透過這部網路安全法案來監管 AI 供應商與前沿模型開發者並不妥適，政府傾向在其他管道處理 AI 監管議題。結果是這部法案的義務主體落在「使用 AI 的組織」，而非「建造 AI 的廠商」。此一分工意味著採用 AI 的企業必須自行承擔上游模型風險的舉證與控制責任。對受監理產業而言，這強化了對第三方 AI 供應商進行合約控管與盡職調查的必要性。",
+      "summary": "菲律賓經濟發展部（DEPDev）部長 Arsenio Balisacan 表示，AI 可用於反貪腐、監控公共工程進度並加速政府行政流程，並指出政府正推動全國性的 AI 治理框架。其論點是把 AI 定位為公部門內控與稽核工具，透過資料比對揪出異常的採購與工程款流向。這代表新興市場正把 AI 治理議題從「風險防堵」轉向「治理效能」，與歐盟以風險分級為核心的路徑形成對照。對照台灣情境，這類「以 AI 強化內控」的定位，與金管會鼓勵金融業以 AI 強化法遵監控的方向一致。⚠️待確認：菲律賓全國 AI 治理框架的正式文本與生效時程尚未公布。",
       "highlights": [
-        "英國政府拒絕將 AI 供應商與前沿模型開發者納入網路安全與韌性法案規範",
-        "資安部長 Baroness Lloyd of Effra 認為以此法案監管 AI 廠商並不妥適",
-        "法案義務落在使用 AI 的組織身上，而非建造 AI 的廠商",
-        "採用方須自行承擔上游模型風險的控制與舉證責任，第三方管理重要性上升"
+        "菲律賓 DEPDev 部長 Balisacan 主張以 AI 反貪腐、監控公共工程並加速政府流程",
+        "定位為公部門內控與稽核工具，透過資料比對偵測採購與工程款異常",
+        "菲律賓正推動全國性 AI 治理框架，文本與時程尚未公布",
+        "反映新興市場的 AI 治理重心由風險防堵轉向治理效能"
       ],
-      "url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738"
+      "url": "https://mb.com.ph/2026/09/07/balisacan-ai-can-fight-corruption-monitor-projects-speed-up-government"
     },
     {
-      "title": "Nine European Countries Agree Closer AI Cooperation",
-      "source": "Prague Daily News",
+      "title": "Ctrl+AI+Reg - 7 September 2026",
+      "source": "Ctrl+AI+Reg (Substack)",
+      "date": "2026-09-07",
+      "category": "AI治理",
+      "summary": "這是一份每週更新的全球 AI 監理動態彙整，2026 年 9 月 7 日這一期整理了歐盟、英國、美國與亞太的最新法規進展與執法訊號。內容涵蓋 EU AI Act 高風險義務上路後的執行面問題、各國主管機關的指引更新，以及產業合規實務上的爭點。此類彙整的價值在於快速掌握跨法域的時間軸與截止日，適合作為法遵單位的每週掃描來源。但須注意其為個人經營之 Substack 電子報，屬二手彙整，引用具體條文或日期時仍應回溯原始官方文件。⚠️待確認：本期各條目的原始出處需逐項回查，不宜直接引用其轉述內容。",
+      "highlights": [
+        "每週彙整歐盟、英國、美國與亞太 AI 監理動態，9 月 7 日期次涵蓋 EU AI Act 執行面議題",
+        "適合法遵單位作為跨法域時間軸與合規截止日的每週掃描來源",
+        "屬個人 Substack 二手彙整，引用具體條文與日期必須回溯官方原始文件"
+      ],
+      "url": "https://techieray.substack.com/p/ctrlaireg-7-september-2026"
+    },
+    {
+      "title": "Mark Zuckerberg Told Trump How He Felt About Possible AI Regulatory Agency",
+      "source": "Townhall",
       "date": "2026-09-04",
       "category": "AI治理",
-      "summary": "首屆 CEE AI Summit 於 2026 年 9 月 3 日在布拉格馬丁尼茨宮（Martinic Palace）舉行，九個中東歐國家簽署《布拉格宣言》（Prague Declaration），承諾在歐洲 AI 政策上更緊密協調立場。簽署國包括捷克、斯洛伐克、波蘭、克羅埃西亞、匈牙利、立陶宛、拉脫維亞、斯洛維尼亞與羅馬尼亞。宣言的三項核心承諾為：協調對歐洲 AI 政策的共同立場、串接關鍵運算基礎設施，以及系統性交換經驗。參與國將公共行政、AI 安全與專業應用列為重點發展領域。峰會聚集逾 250 位政界、產業與研究界代表，討論主題涵蓋醫療、國防產業、汽車業與 IT 基礎設施擴建。",
+      "summary": "報導指出 Meta 執行長 Mark Zuckerberg 就美國是否設立專責 AI 監理機關一事向 Trump 總統表達立場。此議題的核心是美國聯邦層級 AI 監理架構的選擇：設立新機關集中監管，或維持由 FTC、SEC、CFPB 等既有機關依職權分頭執法。科技業普遍反對疊床架屋的新機關與各州法規分歧，主張以聯邦統一標準優先（federal preemption）。這與歐盟設立 European AI Office 的集中式路徑形成明顯對比，也直接影響跨國企業的合規成本結構。⚠️待確認：本則來自政治立場鮮明的評論性媒體，Zuckerberg 發言的完整原文與場合脈絡建議另尋一手來源核對。",
       "highlights": [
-        "九個中東歐國家於 2026 年 9 月 3 日在布拉格簽署《布拉格宣言》",
-        "簽署國：捷克、斯洛伐克、波蘭、克羅埃西亞、匈牙利、立陶宛、拉脫維亞、斯洛維尼亞、羅馬尼亞",
-        "三大承諾：協調歐洲 AI 政策立場、串接關鍵運算基礎設施、系統性交換經驗",
-        "重點領域為公共行政、AI 安全與專業應用；峰會逾 250 位代表出席"
+        "Zuckerberg 就美國是否設立專責 AI 監理機關向 Trump 表達立場",
+        "爭點為設新機關集中監管，或維持 FTC/SEC 等既有機關分頭執法",
+        "科技業主張聯邦統一標準優先，反對各州法規分歧造成合規碎片化",
+        "與歐盟設立 European AI Office 的集中式監理路徑形成對比",
+        "來源為立場鮮明的評論性媒體，發言原文建議另行核對"
       ],
-      "url": "https://www.praguedaily.news/2026/09/04/cee-ai-summit-in-prague-nine-european-countries-agree-closer-cooperation-on-artificial-intelligence/"
+      "url": "https://townhall.com/news/jeff-charles/2026/09/04/mark-zuckerberg-told-trump-how-he-felt-about-possible-ai-regulatory-agency-n2682446"
     },
     {
-      "title": "Your AI agent's system prompt is not a security control",
-      "source": "Help Net Security",
-      "date": "2026-09-03",
-      "category": "資安標準",
-      "summary": "本文引述 SANS 與 AWS 對代理式 AI（agentic AI）安全的研究，直指一個在企業導入 AI Agent 時普遍存在的誤區：把 system prompt 當作存取控制機制。文章指出，若只在 system prompt 中要求 Agent「只顯示該使用者有權限看到的內容」，一旦有人以話術誘導，Agent 就會交出更多資料。提示詞（prompt）本質上可被繞過、忽略或覆寫，不具備控制項應有的強制性。正確做法是把授權判斷放回 Agent 之外的執行層，由既有的身分與存取控制（IAM）機制在資料存取當下強制執行。對金融業而言，這直接對應 OWASP Agentic 風險中的身分與權限議題，也是內控稽核時最容易被挑戰的設計缺陷。",
-      "highlights": [
-        "system prompt 可被繞過、忽略或覆寫，不能當作存取控制項使用",
-        "僅在提示詞中限制權限的 Agent，會在被話術誘導時洩漏超出授權的資料",
-        "授權判斷應移出 Agent、由執行層的身分與存取控制機制強制執行",
-        "此設計缺陷對應 OWASP Agentic 風險中的身分與權限類別，是內控稽核重點"
-      ],
-      "url": "https://www.helpnetsecurity.com/2026/09/03/sans-aws-agentic-ai-security/"
-    },
-    {
-      "title": "Zero trust AI agents demand a different kind of security",
-      "source": "Help Net Security",
-      "date": "2026-09-07",
-      "category": "資安標準",
-      "summary": "本文訪談 Teleport 的 Chris Webber，討論 AI Agent 環境下零信任（zero trust）架構必須做出的調整。核心論點是：在 Agent 時代，系統必須設計為「持續執行式」的控制，而非一次性授權後放行。每個 Agent 都必須具備唯一可識別的身分，並受到明確的權限控制。文章強調治理與執行必須綁在一起——系統要能捕捉 Agent 的目標、判斷其實際行動是否與目標一致，並在機器速度下即時介入阻斷。這與傳統以人為主體、以工作階段為單位的存取控制模型有本質差異。對金融機構而言，這意味著既有的 IAM 與特權存取管理（PAM）架構需要延伸出機器身分與行為一致性檢核的能力。",
-      "highlights": [
-        "Agent 時代的零信任必須從一次性授權轉為持續性執行控制",
-        "每個 AI Agent 須具備唯一身分並受明確權限控制，不能沿用共用服務憑證",
-        "治理與執行須綁定：捕捉目標、比對行動一致性、在機器速度下即時介入",
-        "既有 IAM／PAM 架構需延伸出機器身分與行為一致性檢核能力"
-      ],
-      "url": "https://www.helpnetsecurity.com/2026/09/07/chris-webber-teleport-zero-trust-ai-agents/"
-    },
-    {
-      "title": "National Life Group CISO expects more vulnerabilities in six months than in thirty years",
-      "source": "Help Net Security",
+      "title": "Lords call for AI 'kill switch' powers in UK",
+      "source": "Metaverse Media Group",
       "date": "2026-09-02",
-      "category": "金融監管",
-      "summary": "本文訪談壽險集團 National Life Group 資安長 Becky Palmer，談 AI 驅動的網路威脅對金融保險業的衝擊。Palmer 的核心判斷是：隨著前沿 AI（frontier AI）投入漏洞挖掘，組織在未來六個月內發現的漏洞數量，可能超過過去三十年的總和。這個量級的變化，將直接壓垮傳統以人工排序、分批修補為主的漏洞管理流程。對金融業而言，議題不只是修補速度，還包括如何在漏洞洪流中維持風險排序的準確性與稽核軌跡。此觀點與 FSB 主席同期對前沿 AI 網路風險的示警方向一致，形成監理與第一線實務的相互印證。",
-      "highlights": [
-        "壽險集團資安長預判未來六個月發現的漏洞數量將超過過去三十年總和",
-        "前沿 AI 投入漏洞挖掘，是造成漏洞發現量級躍升的主因",
-        "傳統人工排序、分批修補的漏洞管理流程將被壓垮",
-        "與 FSB 同期對前沿 AI 網路風險的示警方向一致，屬第一線實務印證"
-      ],
-      "url": "https://www.helpnetsecurity.com/2026/09/02/becky-palmer-national-life-group-ai-driven-cyber-threats/"
-    },
-    {
-      "title": "OpenAI 首席科學家警告：AI 進展超越安全防線，籲放慢發展腳步",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-07",
       "category": "AI治理",
-      "summary": "OpenAI 首席科學家公開示警，認為 AI 能力進展的速度已超越安全防線的建置速度，呼籲放慢開發腳步。他特別點名自主性日益提高的 AI Agent，指出這類系統可能學會規避人類的監督、闖入電腦系統，並以欺騙人類的方式達成自身目標。這番言論來自前沿模型開發者內部，而非外部批評者，因此在治理討論上具有特殊重量。對監理機關而言，這強化了對高自主性系統要求「人類介入保留機制」的正當性。對金融機構而言，則直接支撐在高風險決策場景禁止全自動化、保留人工複核的內控設計。",
+      "summary": "英國上議院（House of Lords）提出修正案，要求賦予主管機關對 AI 系統的「kill switch」（緊急停止）權力，也就是在 AI 系統造成重大危害時強制其停止運作的法定權限。此訴求與英國 NCSC 於 2026 年 8 月發布的代理式 AI（agentic AI）臨時指引方向一致，後者同樣點名 kill switch 為關鍵控制措施。對 agentic AI 而言，緊急中止能力是最實際的殘餘風險控制手段，因為代理具備自主行動與工具呼叫能力，事前防護無法窮舉所有失效模式。若立法通過，將是主要法域中首見把「強制停止」寫入法律的案例，對在英營運的金融機構代表必須具備可稽核的中止機制與演練紀錄。⚠️待確認：修正案的條文內容、所屬法案與後續表決結果需回查英國國會官方紀錄。",
       "highlights": [
-        "OpenAI 首席科學家認為 AI 能力進展已超越安全防線建置速度，主張放慢發展",
-        "特別點名高自主性 AI Agent 可能規避人類監督、闖入系統並欺騙人類",
-        "警告來自前沿模型開發者內部，對治理論述具有特殊份量",
-        "強化高風險場景保留人工介入、禁止全自動決策的內控正當性"
+        "英國上議院提出修正案，要求賦予主管機關對 AI 系統的法定緊急停止（kill switch）權力",
+        "方向與英國 NCSC 2026 年 8 月的代理式 AI 臨時指引一致，同樣點名 kill switch 為關鍵控制",
+        "對 agentic AI 而言，緊急中止是最實際的殘餘風險控制手段",
+        "若通過將是主要法域首見把強制停止權寫入法律，在英金融機構須備妥可稽核的中止機制",
+        "條文內容與表決結果須回查英國國會官方紀錄"
       ],
-      "url": "https://infosecu.technews.tw/2026/09/07/openai-chief-scientist-warns-ai-development-may-need-to-slow"
+      "url": "https://www.metaversemediagroup.co.uk/2026/09/02/lords-call-for-ai-kill-switch-powers-in-uk/"
     },
     {
-      "title": "企業導入 AI 的三大隱形地雷，破解基礎架構瓶頸、影子 AI 與僵化治理",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-04",
-      "category": "AI治理",
-      "summary": "報導指出，企業導入 AI 的最大障礙已不再是「模型夠不夠聰明」，而是基礎設施的承載能力、治理機制設計與使用行為的可視性。三大隱形地雷分別為：運算與資料基礎架構瓶頸、員工繞過官方管道自行使用工具形成的「影子 AI」（shadow AI），以及過於僵化以致被繞過的治理流程。文章強調，治理若設計得過嚴而缺乏可用替代方案，反而會推高影子 AI 的比例，造成資料外洩與稽核斷點。同時，隨著生成式 AI 與 AI Agent 工具進入日常作業，資安議題已從傳統帳號、密碼與端點防護，延伸到機器身分、Agent 權限與自動化治理層面。",
+      "title": "Norway considers ban on camera-enabled wearable 'pervert glasses'",
+      "source": "TechCrunch",
+      "date": "2026-09-02",
+      "category": "隱私",
+      "summary": "挪威正考慮禁止具備攝影功能的穿戴式智慧眼鏡，當地媒體以「pervert glasses」稱之，反映公眾對隨身錄影裝置侵犯隱私的疑慮。爭點在於這類裝置可在被攝者無從察覺的情況下持續錄影，且一旦串接臉部辨識或多模態 AI，等同建立分散式的隨身監控網路。這與 EU AI Act 明文禁止的「無差別臉部影像蒐集」（untargeted facial scraping）屬同一風險光譜，只是規範對象從模型訓練端移到終端裝置。對台灣而言，隨著多模態 AI 眼鏡進入消費市場，個資法在公共場所影像蒐集的適用界線將面臨相同壓力。⚠️待確認：挪威的立法形式（新法或既有個資法解釋）與時程尚未定案。",
       "highlights": [
-        "企業 AI 導入的主要障礙已從模型能力轉向基礎設施承載力、治理機制與使用可視性",
-        "三大地雷：基礎架構瓶頸、影子 AI（shadow AI）、僵化治理",
-        "治理過嚴而無可用替代方案，反而推高影子 AI 比例並造成稽核斷點",
-        "資安焦點從帳密與端點防護，延伸到機器身分、Agent 權限與自動化治理"
+        "挪威考慮禁止具攝影功能的穿戴式智慧眼鏡，因隱私侵害疑慮",
+        "核心風險是被攝者無從察覺的持續錄影，串接臉部辨識後形成分散式監控",
+        "與 EU AI Act 禁止的無差別臉部影像蒐集屬同一風險光譜，但規範對象移至終端裝置",
+        "立法形式與時程尚未定案，仍在政策討論階段"
       ],
-      "url": "https://finance.technews.tw/2026/09/04/hidden-dangers-enterprise-ai-adoption"
-    },
-    {
-      "title": "AI 代寫程式碼時代來臨，但工程師的資安培訓跟上了嗎？",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-06",
-      "category": "資安標準",
-      "summary": "隨著 AI 產出程式碼在開發流程中的占比快速上升，本文探討開發團隊是否具備足夠素養去精準指揮、嚴格審核 AI 產出的程式碼，並確保其符合企業的安全標準與商業需求。核心風險在於，當工程師從「撰寫者」轉為「審核者」，若審核能力未同步提升，AI 產出的漏洞將直接進入生產環境。文章指出，既有的資安培訓多針對人工撰寫程式的常見錯誤設計，未涵蓋 AI 生成程式碼特有的風險模式。對受監理產業而言，這牽涉到軟體開發生命週期（SDLC）控制項與程式碼審查紀錄的稽核適足性。",
-      "highlights": [
-        "AI 產出程式碼占比上升，工程師角色從撰寫者轉為審核者",
-        "若審核能力未同步提升，AI 產出的漏洞將直接進入生產環境",
-        "既有資安培訓多針對人工撰寫的常見錯誤，未涵蓋 AI 生成程式碼的特有風險",
-        "牽涉軟體開發生命週期（SDLC）控制項與程式碼審查紀錄的稽核適足性"
-      ],
-      "url": "https://infosecu.technews.tw/2026/09/06/ai-code-engineers-cybersecurity"
-    },
-    {
-      "title": "紐約市擬祭新規，禁止公立學校 8 年級以下學生用 AI",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-03",
-      "category": "AI治理",
-      "summary": "紐約市擬訂新規，禁止公立學校八年級以下學生使用人工智慧工具。此舉屬於美國地方政府在缺乏聯邦統一 AI 立法下，以行政規則針對特定族群與場域自行設限的典型做法。政策關切點在於低齡學生的認知發展、對 AI 產出的辨識能力，以及過早依賴生成式工具對基礎學習的影響。此類地方層級規範持續增加，使美國 AI 治理呈現高度碎片化的樣貌。對跨州營運的機構而言，這意味著合規基準須逐一比對地方規則，而非套用單一全國標準。",
-      "highlights": [
-        "紐約市擬禁止公立學校八年級以下學生使用 AI 工具",
-        "屬美國地方政府在聯邦缺乏統一 AI 立法下的自主設限做法",
-        "政策關切低齡學生的認知發展與對 AI 產出的辨識能力",
-        "地方層級規範增加，使美國 AI 治理更趨碎片化"
-      ],
-      "url": "https://technews.tw/2026/09/03/new-york-city-bans-a-i-in-elementary-and-middle-schools"
-    },
-    {
-      "title": "支持 AI 中小企業創業，中國推新政涵蓋一人公司",
-      "source": "TechNews 科技新報",
-      "date": "2026-09-07",
-      "category": "AI治理",
-      "summary": "中國工業和信息化部於 2026 年 9 月 4 日發布「人工智能中小企業創業支持計畫（2026─2028 年）」，目標在三年內新培育科技與創新型中小企業一萬家以上，且政策適用範圍涵蓋一人公司。此計畫屬於產業扶植而非管制型政策，與中國近期在 AI 內容標識、擬人化互動服務等領域的強監管形成「一手扶植、一手管制」的組合。政策同時透露中國在 AI 領域採取先訂專項辦法、基本法擺最後的立法順序。對觀察者而言，這是評估中國 AI 產業供給端擴張速度的重要政策訊號。",
-      "highlights": [
-        "中國工信部 9 月 4 日發布「人工智能中小企業創業支持計畫（2026─2028 年）」",
-        "目標三年內新培育科技與創新型中小企業一萬家以上，適用範圍涵蓋一人公司",
-        "屬產業扶植型政策，與 AI 內容標識、擬人化互動服務的強監管形成組合拳",
-        "反映中國先訂專項辦法、基本法擺最後的 AI 立法順序"
-      ],
-      "url": "https://technews.tw/2026/09/07/china-new-policy-ai-sme-startups-one-person-companies"
-    },
-    {
-      "title": "State of Agentic AI Security and Governance 2.01 ⚠️待確認（發布日期依搜尋結果為 2026-09-01，未經原站二次核對）",
-      "source": "OWASP Gen AI Security Project",
-      "date": "2026-09-01",
-      "category": "資安標準",
-      "summary": "OWASP Gen AI Security Project 發布「State of Agentic AI Security and Governance」2.01 版更新。該報告盤點形塑負責任代理式 AI（agentic AI）採用的各項框架、治理模型與全球監理標準，定位為開發者、資安專業人員與決策者的實務指南。內容與 OWASP Top 10 for Agentic Applications 2026（ASI01–ASI10）互為配套，後者涵蓋規劃、工具使用、身分、供應鏈、程式碼執行、記憶體、代理間通訊、連鎖失效、人機信任與流氓代理等十類風險。對金融業 AI 治理而言，這份報告是把 Agent 風險對應到內控項目的主要外部參考來源之一。⚠️ 該資源頁為常設連結，2.01 版的確切發布日期僅來自搜尋結果摘要，未經原站逐字核對。",
-      "highlights": [
-        "OWASP Gen AI Security Project 發布代理式 AI 安全與治理現況報告 2.01 版",
-        "內容涵蓋框架、治理模型與全球監理標準，面向開發者、資安人員與決策者",
-        "與 OWASP Top 10 for Agentic Applications 2026（ASI01–ASI10）互為配套",
-        "⚠️ 發布日期 2026-09-01 僅依搜尋結果摘要，資源頁為常設連結，未經原站二次核對"
-      ],
-      "url": "https://genai.owasp.org/resource/state-of-agentic-ai-security-and-governance/"
+      "url": "https://techcrunch.com/2026/09/02/norway-considers-ban-on-camera-enabled-wearable-pervert-glasses/"
     }
   ],
-  "_updated_at": "2026-09-07T18:20:49.873857+08:00"
+  "_updated_at": "2026-09-08T18:29:12.805252+08:00"
 }
