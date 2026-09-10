@@ -35,7 +35,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 AGENT_DIR = REPO_ROOT / "agents" / "trend-analyst"
@@ -257,12 +257,21 @@ def _cli_error_detail(stdout: str) -> tuple[int | None, str]:
     return status, str(msg)[:300]
 
 
-def call_analyst(system_prompt: str, user_prompt: str,
-                 model: str = MODEL, timeout: int = TIMEOUT_SEC,
-                 backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
+def run_model(system_prompt: str, user_prompt: str,
+              fail: "Callable[[str], dict[str, Any]]", noun: str,
+              actor: str = "判斷者",
+              model: str = MODEL, timeout: int = TIMEOUT_SEC,
+              backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
+    """五支 runner 共用的 `claude -p` 呼叫（L-8 去重）。
+
+    不變式：零工具（--allowedTools ""、--permission-mode plan、--strict-mcp-config）、
+    pop ANTHROPIC_API_KEY 走既有訂閱、只對 TRANSIENT_API_STATUSES 重試、逾時 fail-open。
+    成功回 {"parsed": dict, "meta": {source/duration_ms/attempts/model/session_id}}；
+    失敗回 fail(reason) 再附 duration_ms/attempts（可用 source == "fail_open" 判斷）。
+    """
     claude = shutil.which("claude")
     if not claude:
-        return fail_open("找不到 claude CLI，判斷者不可用，本輪不出趨勢標籤")
+        return fail(f"找不到 claude CLI，{actor}不可用，本輪不出{noun}")
 
     cmd = [
         claude, "-p", user_prompt,
@@ -284,7 +293,7 @@ def call_analyst(system_prompt: str, user_prompt: str,
             proc = subprocess.run(cmd, capture_output=True, text=True,
                                   timeout=timeout, env=env, cwd=str(REPO_ROOT))
         except subprocess.TimeoutExpired:
-            out = fail_open(f"判讀逾時（>{timeout}s），本輪不出趨勢標籤")
+            out = fail(f"判讀逾時（>{timeout}s），本輪不出{noun}")
             out["duration_ms"] = int((time.time() - started) * 1000)
             out["attempts"] = attempts
             return out
@@ -303,7 +312,7 @@ def call_analyst(system_prompt: str, user_prompt: str,
             reason += f"（API {status}）"
         if detail:
             reason += f"：{detail}"
-        out = fail_open(f"{reason}，本輪不出趨勢標籤")
+        out = fail(f"{reason}，本輪不出{noun}")
         out["duration_ms"] = int((time.time() - started) * 1000)
         out["attempts"] = attempts
         out["api_error_status"] = status
@@ -314,7 +323,7 @@ def call_analyst(system_prompt: str, user_prompt: str,
 
     envelope = _extract_json(proc.stdout)
     if not isinstance(envelope, dict):
-        out = fail_open("claude CLI 輸出非合法 JSON，本輪不出趨勢標籤")
+        out = fail(f"claude CLI 輸出非合法 JSON，本輪不出{noun}")
         out["duration_ms"] = duration_ms
         out["attempts"] = attempts
         return out
@@ -322,22 +331,41 @@ def call_analyst(system_prompt: str, user_prompt: str,
     inner = envelope.get("result", envelope)
     parsed = _extract_json(inner) if isinstance(inner, str) else inner
     if not isinstance(parsed, dict):
-        out = fail_open("判斷者回覆無法解析為判讀 JSON，本輪不出趨勢標籤")
+        out = fail(f"{actor}回覆無法解析為{noun} JSON，本輪不出{noun}")
         out["duration_ms"] = duration_ms
         out["attempts"] = attempts
         return out
 
     return {
+        "parsed": parsed,
+        "meta": {
+            "source": "model",
+            "duration_ms": duration_ms,
+            "attempts": attempts,
+            "model": envelope.get("model") or model,
+            "session_id": envelope.get("session_id"),
+        },
+    }
+
+
+def as_list(v: Any) -> list[Any]:
+    return v if isinstance(v, list) else []
+
+
+def call_analyst(system_prompt: str, user_prompt: str,
+                 model: str = MODEL, timeout: int = TIMEOUT_SEC,
+                 backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
+    r = run_model(system_prompt, user_prompt, fail_open, "趨勢標籤",
+                  model=model, timeout=timeout, backoff=backoff)
+    if r.get("source") == "fail_open":
+        return r
+    parsed = r["parsed"]
+    return {
         "schema": SCHEMA,
         "rubric_version": str(parsed.get("rubric_version") or RUBRIC_VERSION),
         "analyst_version": ANALYST_VERSION,
-        "assessments": parsed.get("assessments") if isinstance(
-            parsed.get("assessments"), list) else [],
-        "source": "model",
-        "duration_ms": duration_ms,
-        "attempts": attempts,
-        "model": envelope.get("model") or model,
-        "session_id": envelope.get("session_id"),
+        "assessments": as_list(parsed.get("assessments")),
+        **r["meta"],
     }
 
 
@@ -698,13 +726,22 @@ DEFAULT_INPUT = REPO_ROOT / "data" / "agent" / ".preview" / "timeline.json"
 DEFAULT_OUT = REPO_ROOT / "data" / "agent" / ".preview" / "trend-assessment.json"
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(
-        description="ai-news-hub TrendAnalyst 執行器（判讀 + 閘1）")
+def run_main(tag: str, description: str, default_input: Path, default_out: Path,
+             input_schema: str, selftest_fn: "Callable[[], int]",
+             print_prompt_fn: "Callable[[dict[str, Any]], None]",
+             run_fn: "Callable[..., dict[str, Any]]",
+             summary_fn: "Callable[[dict[str, Any]], str]",
+             input_help: str = "") -> int:
+    """五支 runner 共用的 CLI 骨架（L-8 去重）。
+
+    旗標固定 --selftest/--input/--out/--model/--timeout/--print-prompt；輸入缺 → 2；
+    fail_open → 1；輸出 JSON indent=2 加換行；fail_open 的 note 印到 stderr。
+    """
+    ap = argparse.ArgumentParser(description=description)
     ap.add_argument("--selftest", action="store_true", help="只跑決定論自我測試")
-    ap.add_argument("--input", default=str(DEFAULT_INPUT),
-                    help="trend-metrics.mjs 產出的 timeline JSON")
-    ap.add_argument("--out", default=str(DEFAULT_OUT))
+    ap.add_argument("--input", default=str(default_input),
+                    help=input_help or f"輸入 JSON（預設 {default_input}）")
+    ap.add_argument("--out", default=str(default_out))
     ap.add_argument("--model", default=MODEL)
     ap.add_argument("--timeout", type=int, default=TIMEOUT_SEC)
     ap.add_argument("--print-prompt", action="store_true",
@@ -712,32 +749,48 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.selftest:
-        return selftest()
+        return selftest_fn()
 
     src = Path(args.input)
-    if not src.exists():
-        print(f"[trend] 找不到輸入 {src}", file=sys.stderr)
+    if not src.is_file():
+        print(f"[{tag}] 找不到輸入 {src}", file=sys.stderr)
         return 2
     payload = json.loads(src.read_text(encoding="utf-8"))
-    if payload.get("schema") not in (INPUT_SCHEMA, None):
-        print(f"[trend] 輸入 schema 非 {INPUT_SCHEMA}：{payload.get('schema')}",
+    if not isinstance(payload, dict):
+        print(f"[{tag}] 輸入不是 JSON 物件", file=sys.stderr)
+        return 2
+    if payload.get("schema") not in (input_schema, None):
+        print(f"[{tag}] 輸入 schema 非 {input_schema}：{payload.get('schema')}",
               file=sys.stderr)
 
     if args.print_prompt:
-        clusters, meta = project(payload)
-        print(build_system_prompt())
-        print("\n=== USER ===\n")
-        print(build_user_prompt(clusters, meta))
+        print_prompt_fn(payload)
         return 0
 
-    out = analyze(payload, model=args.model, timeout=args.timeout)
+    out = run_fn(payload, model=args.model, timeout=args.timeout)
     dst = Path(args.out)
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n",
                    encoding="utf-8")
-    n = len(out.get("assessments") or [])
-    print(f"[trend] source={out.get('source')} assessments={n} → {dst}")
+    print(f"[{tag}] source={out.get('source')} {summary_fn(out)} → {dst}")
+    if out.get("source") == "fail_open" and out.get("note"):
+        print(f"[{tag}] note: {out['note']}", file=sys.stderr)
     return 0 if out.get("source") != "fail_open" else 1
+
+
+def _print_prompt(payload: dict[str, Any]) -> None:
+    clusters, meta = project(payload)
+    print(build_system_prompt())
+    print("\n=== USER ===\n")
+    print(build_user_prompt(clusters, meta))
+
+
+def main() -> int:
+    return run_main(
+        "trend", "ai-news-hub TrendAnalyst 執行器（判讀 + 閘1）",
+        DEFAULT_INPUT, DEFAULT_OUT, INPUT_SCHEMA, selftest, _print_prompt, analyze,
+        lambda out: f"assessments={len(out.get('assessments') or [])}",
+        input_help="trend-metrics.mjs 產出的 timeline JSON")
 
 
 if __name__ == "__main__":

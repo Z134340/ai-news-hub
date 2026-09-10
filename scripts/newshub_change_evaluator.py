@@ -15,14 +15,9 @@
 """
 from __future__ import annotations
 
-import argparse
 import json
-import os
 import re
-import shutil
-import subprocess
 import sys
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -217,56 +212,20 @@ def build_user_prompt(meta: dict[str, Any], untrusted: dict[str, Any]) -> str:
 # --------------------------------------------------------------------------
 # 模型呼叫（與 call_reviewer 同組不變式）
 # --------------------------------------------------------------------------
-def call_evaluator(system_prompt: str, user_prompt: str, model: str = MODEL,
-                   timeout: int = TIMEOUT_SEC, backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
-    claude = shutil.which("claude")
-    if not claude:
-        return fail_open("找不到 claude CLI（PATH 需含 /opt/homebrew/bin）")
-    cmd = [claude, "-p", user_prompt, "--model", model, "--output-format", "json",
-           "--system-prompt", system_prompt, "--allowedTools", "", "--strict-mcp-config",
-           "--permission-mode", "plan"]
-    env = dict(os.environ)
-    env.pop("ANTHROPIC_API_KEY", None)
-    attempts = 0
-    started = time.monotonic()
-    while True:
-        attempts += 1
-        try:
-            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, env=env, cwd=str(REPO_ROOT))
-        except subprocess.TimeoutExpired:
-            out = fail_open(f"裁定逾時（>{timeout}s），本輪不產生任何判決")
-            out["duration_ms"] = int((time.monotonic() - started) * 1000)
-            out["attempts"] = attempts
-            return out
-        if proc.returncode != 0:
-            status, detail = na._cli_error_detail(proc.stdout)
-            if status in TRANSIENT_API_STATUSES and attempts <= len(backoff):
-                time.sleep(backoff[attempts - 1])
-                continue
-            out = fail_open(f"claude CLI 退出碼 {proc.returncode}：{detail}")
-            out["api_error_status"] = status
-            out["stderr_tail"] = (proc.stderr or "")[-500:]
-            out["duration_ms"] = int((time.monotonic() - started) * 1000)
-            out["attempts"] = attempts
-            return out
-        break
-    envelope = na._extract_json(proc.stdout)
-    if not isinstance(envelope, dict):
-        return fail_open("claude CLI 輸出不是 JSON envelope")
-    inner = envelope.get("result", envelope)
-    parsed = na._extract_json(inner) if isinstance(inner, str) else inner
-    if not isinstance(parsed, dict):
-        return fail_open("模型回覆不是 JSON 物件")
+def call_evaluator(system_prompt: str, user_prompt: str,
+                   model: str = MODEL, timeout: int = TIMEOUT_SEC,
+                   backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
+    r = na.run_model(system_prompt, user_prompt, fail_open, "判決", actor="裁定者",
+                     model=model, timeout=timeout, backoff=backoff)
+    if r.get("source") == "fail_open":
+        return r
+    parsed = r["parsed"]
     return {
         "schema": SCHEMA,
         "rubric_version": str(parsed.get("rubric_version") or RUBRIC_VERSION),
         "evaluator_version": EVALUATOR_VERSION,
         "raw": parsed,
-        "source": "model",
-        "duration_ms": int((time.monotonic() - started) * 1000),
-        "attempts": attempts,
-        "model": envelope.get("model") or model,
-        "session_id": envelope.get("session_id"),
+        **r["meta"],
     }
 
 
@@ -920,41 +879,24 @@ def selftest() -> int:
     return 0
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description="ChangeEvaluator（閘 2）runner")
-    ap.add_argument("--selftest", action="store_true")
-    ap.add_argument("--input", default=str(DEFAULT_INPUT))
-    ap.add_argument("--out", default=str(DEFAULT_OUT))
-    ap.add_argument("--model", default=MODEL)
-    ap.add_argument("--timeout", type=int, default=TIMEOUT_SEC)
-    ap.add_argument("--print-prompt", action="store_true")
-    args = ap.parse_args()
-    if args.selftest:
-        return selftest()
-    src = Path(args.input)
-    if not src.is_file():
-        print(f"[change-eval] 輸入不存在：{src}", file=sys.stderr)
-        return 2
-    payload = json.loads(src.read_text(encoding="utf-8"))
-    if not isinstance(payload, dict):
-        print("[change-eval] 輸入不是 JSON 物件", file=sys.stderr)
-        return 2
-    if payload.get("schema") != INPUT_SCHEMA:
-        print(f"[change-eval] 警告：輸入 schema={payload.get('schema')!r}，預期 {INPUT_SCHEMA}", file=sys.stderr)
-    if args.print_prompt:
-        meta, untrusted = project(payload)
-        print(build_system_prompt())
-        print("\n=== USER ===\n")
-        print(build_user_prompt(meta, untrusted))
-        return 0
-    out = evaluate(payload, model=args.model, timeout=args.timeout)
-    dst = Path(args.out)
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def _print_prompt(payload: dict[str, Any]) -> None:
+    meta, untrusted = project(payload)
+    print(build_system_prompt())
+    print("\n=== USER ===\n")
+    print(build_user_prompt(meta, untrusted))
+
+
+def _summary(out: dict[str, Any]) -> str:
     g = out.get("gate2") or {}
-    print(f"[change-eval] source={out.get('source')} verdicts={len(out.get('verdicts') or [])} "
-          f"accepted={g.get('accepted', 0)} discarded={len(g.get('discarded') or [])} → {dst}")
-    return 0 if out.get("source") != "fail_open" else 1
+    return (f"verdicts={len(out.get('verdicts') or [])} "
+            f"accepted={g.get('accepted', 0)} discarded={len(g.get('discarded') or [])}")
+
+
+def main() -> int:
+    return na.run_main(
+        "change-eval", "ChangeEvaluator（閘 2）runner",
+        DEFAULT_INPUT, DEFAULT_OUT, INPUT_SCHEMA, selftest, _print_prompt, evaluate,
+        _summary, input_help="build-change-eval-input.mjs 產出的 change-eval-input JSON")
 
 
 if __name__ == "__main__":

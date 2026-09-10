@@ -87,16 +87,14 @@ BW-1 引用 `stage` / `horizon` / `next_milestone`、BW-4 引用 `syndication_ca
 
 from __future__ import annotations
 
-import argparse
 import json
-import os
 import re
-import shutil
-import subprocess
 import sys
-import time
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import newshub_agents as na  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 AGENT_DIR = REPO_ROOT / "agents" / "brief-writer"
@@ -126,10 +124,10 @@ UPSTREAM_RUBRIC_VERSIONS = {
 RUBRIC_VERSION_RE = re.compile(
     r"^-\s*`rubric_version`\s*[:：]\s*(\d+\.\d+\.\d+)", re.MULTILINE)
 
-MODEL = "claude-opus-5"
-TIMEOUT_SEC = 900
-RETRY_BACKOFF_SEC = (20, 60)
-TRANSIENT_API_STATUSES = (429, 500, 502, 503, 504, 529)
+MODEL = na.MODEL
+TIMEOUT_SEC = na.TIMEOUT_SEC
+RETRY_BACKOFF_SEC = na.RETRY_BACKOFF_SEC
+TRANSIENT_API_STATUSES = na.TRANSIENT_API_STATUSES
 
 # BW-5 的三個字數上限與 BW-2 的 omitted_note 上限。改這裡要同步遞增 rubric_version。
 MAX_HEADLINE_CHARS = 40
@@ -150,7 +148,7 @@ RUBRIC_CODES = tuple(f"BW-{i}" for i in range(0, 9))
 
 # 投影上限。與 Node 側 build-brief-input.mjs 的 CAP_* 是兩套：那邊管「輸入檔裡放多長」，
 # 這邊管「prompt 裡放多長」。兩邊都放寬才會真的變長。
-MAX_FIELD_CHARS = 200
+MAX_FIELD_CHARS = na.MAX_FIELD_CHARS
 MAX_SUMMARY_CHARS = 300
 MAX_CLUSTERS = 24
 MAX_CANDIDATES = 900          # 實測 7 日視窗 821 則。這是失控保險，不是常態裁切
@@ -185,32 +183,6 @@ def fail_open(reason: str) -> dict[str, Any]:
 # --------------------------------------------------------------------------
 # 投影：把 brief-input 收成 prompt 放得下的形狀
 # --------------------------------------------------------------------------
-def cap_text(v: Any, cap: int = MAX_FIELD_CHARS) -> str:
-    s = "" if v is None else str(v)
-    s = s.replace("\r", " ").replace("\n", " ").strip()
-    return s[:cap]
-
-
-def _as_str_list(v: Any, cap_each: int, cap_len: int) -> list[str]:
-    """把值收成字串陣列。
-
-    裸字串**不得**被逐字元迭代——那會讓「非空」這種期望被一個字元滿足，是 curator 那邊
-    實測抓到過的假綠燈（rationale 退化成「六」而閘門全放行）。
-    """
-    if isinstance(v, str):
-        items = [v]
-    elif isinstance(v, list):
-        items = v
-    else:
-        return []
-    out: list[str] = []
-    for x in items[:cap_len]:
-        s = cap_text(x, cap_each)
-        if s:
-            out.append(s)
-    return out
-
-
 def _as_int(v: Any) -> int | None:
     if isinstance(v, bool):
         return None
@@ -232,19 +204,19 @@ def project_cluster(c: dict[str, Any]) -> dict[str, Any]:
     TechRoadmap 假設了一組前瞻，BW-1 的 S-B 缺席條款永遠測不到。
     """
     out: dict[str, Any] = {
-        "cluster_id": cap_text(c.get("cluster_id"), 120),
-        "title": cap_text(c.get("title"), 120),
-        "stage": cap_text(c.get("stage"), 32),
-        "syndication_call": cap_text(c.get("syndication_call"), 32),
-        "headline_zh": cap_text(c.get("headline_zh"), MAX_FIELD_CHARS),
+        "cluster_id": na.cap_text(c.get("cluster_id"), 120),
+        "title": na.cap_text(c.get("title"), 120),
+        "stage": na.cap_text(c.get("stage"), 32),
+        "syndication_call": na.cap_text(c.get("syndication_call"), 32),
+        "headline_zh": na.cap_text(c.get("headline_zh"), MAX_FIELD_CHARS),
         "security_flag": bool(c.get("security_flag")),
     }
     if "trajectory" in c:
-        out["trajectory"] = cap_text(c.get("trajectory"), 32)
+        out["trajectory"] = na.cap_text(c.get("trajectory"), 32)
     if "horizon" in c:
-        out["horizon"] = cap_text(c.get("horizon"), 32)
+        out["horizon"] = na.cap_text(c.get("horizon"), 32)
     if "next_milestone" in c:
-        out["next_milestone"] = cap_text(c.get("next_milestone"), MAX_FIELD_CHARS)
+        out["next_milestone"] = na.cap_text(c.get("next_milestone"), MAX_FIELD_CHARS)
     return out
 
 
@@ -256,21 +228,21 @@ def project_candidate(it: dict[str, Any]) -> dict[str, Any]:
     """
     cid = it.get("cluster_id")
     out: dict[str, Any] = {
-        "item_id": cap_text(it.get("item_id"), 40),
-        "title": cap_text(it.get("title"), MAX_FIELD_CHARS),
-        "source": cap_text(it.get("source"), 80),
-        "date": cap_text(it.get("date"), 32),
-        "category": cap_text(it.get("category"), 32),
+        "item_id": na.cap_text(it.get("item_id"), 40),
+        "title": na.cap_text(it.get("title"), MAX_FIELD_CHARS),
+        "source": na.cap_text(it.get("source"), 80),
+        "date": na.cap_text(it.get("date"), 32),
+        "category": na.cap_text(it.get("category"), 32),
         "verified": bool(it.get("verified")),
-        "cluster_id": cap_text(cid, 120) if isinstance(cid, str) and cid else None,
+        "cluster_id": na.cap_text(cid, 120) if isinstance(cid, str) and cid else None,
     }
     if it.get("title_en"):
-        out["title_en"] = cap_text(it.get("title_en"), MAX_FIELD_CHARS)
+        out["title_en"] = na.cap_text(it.get("title_en"), MAX_FIELD_CHARS)
     age = _as_int(it.get("age_days"))
     if "age_days" in it and age is not None:
         out["age_days"] = age
     if it.get("summary"):
-        out["summary"] = cap_text(it.get("summary"), MAX_SUMMARY_CHARS)
+        out["summary"] = na.cap_text(it.get("summary"), MAX_SUMMARY_CHARS)
     return out
 
 
@@ -321,14 +293,6 @@ def highlight_cap(days: int | None) -> int:
 # --------------------------------------------------------------------------
 # prompt
 # --------------------------------------------------------------------------
-CHARTER_SKIP_RE = re.compile(
-    r"<!--\s*charter:skip\s*-->.*?<!--\s*/charter:skip\s*-->\s*", re.DOTALL)
-
-
-def strip_maintainer_sections(text: str) -> str:
-    return CHARTER_SKIP_RE.sub("", text)
-
-
 def read_upstream_versions() -> dict[str, tuple[str, str | None]]:
     """讀兩份上游判準檔頭宣告的版本，回傳 {key: (期望值, 實際值 or None)}。
 
@@ -351,7 +315,7 @@ def build_system_prompt(precedent_limit: int = 40) -> str:
     for f in CHARTER_FILES:
         if not f.exists():
             raise FileNotFoundError(f"判斷者憲章檔案缺失：{f}")
-        body = strip_maintainer_sections(f.read_text(encoding="utf-8"))
+        body = na.strip_maintainer_sections(f.read_text(encoding="utf-8"))
         parts.append(f"<<<FILE:{f.relative_to(REPO_ROOT)}>>>\n{body}")
 
     if PRECEDENTS.exists():
@@ -421,124 +385,22 @@ def build_user_prompt(clusters: list[dict[str, Any]],
 # --------------------------------------------------------------------------
 # 模型呼叫
 # --------------------------------------------------------------------------
-def _extract_json(text: str) -> dict[str, Any] | None:
-    text = str(text).strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```[a-zA-Z]*\n?", "", text)
-        text = re.sub(r"\n?```$", "", text).strip()
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-    depth, start = 0, None
-    for i, ch in enumerate(text):
-        if ch == "{":
-            if depth == 0:
-                start = i
-            depth += 1
-        elif ch == "}":
-            depth -= 1
-            if depth == 0 and start is not None:
-                try:
-                    return json.loads(text[start:i + 1])
-                except json.JSONDecodeError:
-                    return None
-    return None
-
-
-def _cli_error_detail(stdout: str) -> tuple[int | None, str]:
-    env = _extract_json(stdout)
-    if not isinstance(env, dict) or not env.get("is_error"):
-        return None, ""
-    status = env.get("api_error_status")
-    status = status if isinstance(status, int) else None
-    msg = env.get("result") or env.get("terminal_reason") or ""
-    return status, str(msg)[:300]
-
-
 def call_writer(system_prompt: str, user_prompt: str,
                 model: str = MODEL, timeout: int = TIMEOUT_SEC,
                 backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
-    claude = shutil.which("claude")
-    if not claude:
-        return fail_open("找不到 claude CLI，判斷者不可用，本輪不出重點")
-
-    cmd = [
-        claude, "-p", user_prompt,
-        "--model", model,
-        "--output-format", "json",
-        "--system-prompt", system_prompt,
-        "--allowedTools", "",
-        "--strict-mcp-config",
-        "--permission-mode", "plan",
-    ]
-    env = dict(os.environ)
-    env.pop("ANTHROPIC_API_KEY", None)  # 用既有訂閱，不引入額外計費路徑
-
-    attempts = 0
-    started = time.time()
-    while True:
-        attempts += 1
-        try:
-            proc = subprocess.run(cmd, capture_output=True, text=True,
-                                  timeout=timeout, env=env, cwd=str(REPO_ROOT))
-        except subprocess.TimeoutExpired:
-            out = fail_open(f"判讀逾時（>{timeout}s），本輪不出重點")
-            out["duration_ms"] = int((time.time() - started) * 1000)
-            out["attempts"] = attempts
-            return out
-
-        if proc.returncode == 0:
-            break
-
-        status, detail = _cli_error_detail(proc.stdout)
-        # 只對暫時性錯誤重試。提示被拒、額度用盡、參數錯誤重試幾次都一樣。
-        if status in TRANSIENT_API_STATUSES and attempts <= len(backoff):
-            time.sleep(backoff[attempts - 1])
-            continue
-
-        reason = f"claude CLI 返回碼 {proc.returncode}"
-        if status is not None:
-            reason += f"（API {status}）"
-        if detail:
-            reason += f"：{detail}"
-        out = fail_open(f"{reason}，本輪不出重點")
-        out["duration_ms"] = int((time.time() - started) * 1000)
-        out["attempts"] = attempts
-        out["api_error_status"] = status
-        out["stderr"] = (proc.stderr or "")[-500:]
-        return out
-
-    duration_ms = int((time.time() - started) * 1000)
-
-    envelope = _extract_json(proc.stdout)
-    if not isinstance(envelope, dict):
-        out = fail_open("claude CLI 輸出非合法 JSON，本輪不出重點")
-        out["duration_ms"] = duration_ms
-        out["attempts"] = attempts
-        return out
-
-    inner = envelope.get("result", envelope)
-    parsed = _extract_json(inner) if isinstance(inner, str) else inner
-    if not isinstance(parsed, dict):
-        out = fail_open("判斷者回覆無法解析為重點 JSON，本輪不出重點")
-        out["duration_ms"] = duration_ms
-        out["attempts"] = attempts
-        return out
-
+    r = na.run_model(system_prompt, user_prompt, fail_open, "重點", actor="判斷者",
+                     model=model, timeout=timeout, backoff=backoff)
+    if r.get("source") == "fail_open":
+        return r
+    parsed = r["parsed"]
     return {
         "schema": SCHEMA,
         "rubric_version": str(parsed.get("rubric_version") or RUBRIC_VERSION),
         "brief_version": BRIEF_VERSION,
-        "highlights": parsed.get("highlights") if isinstance(
-            parsed.get("highlights"), list) else [],
+        "highlights": na.as_list(parsed.get("highlights")),
         "omitted_note_zh": parsed.get("omitted_note_zh"),
         "security_notice": parsed.get("security_notice"),
-        "source": "model",
-        "duration_ms": duration_ms,
-        "attempts": attempts,
-        "model": envelope.get("model") or model,
-        "session_id": envelope.get("session_id"),
+        **r["meta"],
     }
 
 
@@ -555,7 +417,7 @@ def _id_list(v: Any) -> list[str]:
         return []
     out: list[str] = []
     for x in items:
-        s = cap_text(x, 40)
+        s = na.cap_text(x, 40)
         if s and s not in out:
             out.append(s)
     return out
@@ -582,8 +444,8 @@ def _security_notice(v: Any) -> dict[str, Any]:
     d = v if isinstance(v, dict) else {}
     return {
         "detected": bool(d.get("detected")),
-        "scope": _as_str_list(d.get("scope"), 120, MAX_SCOPE_ITEMS),
-        "note_zh": cap_text(d.get("note_zh"), MAX_FIELD_CHARS),
+        "scope": na._as_str_list(d.get("scope"), 120, MAX_SCOPE_ITEMS),
+        "note_zh": na.cap_text(d.get("note_zh"), MAX_FIELD_CHARS),
     }
 
 
@@ -627,7 +489,7 @@ def reconcile(raw: dict[str, Any],
             stats["security_flag_dropped"] += 1
             continue
 
-        conf = cap_text(r.get("confidence"), 32)
+        conf = na.cap_text(r.get("confidence"), 32)
         if conf not in CONFIDENCE_ORDER:
             stats["contract_violations"] += 1
             continue
@@ -642,7 +504,7 @@ def reconcile(raw: dict[str, Any],
         if cid_raw is None or (isinstance(cid_raw, str) and not cid_raw.strip()):
             cid: str | None = None
         else:
-            cid = cap_text(cid_raw, 120)
+            cid = na.cap_text(cid_raw, 120)
             if cid not in valid_clusters:
                 stats["dropped_unknown_cluster"] += 1
                 continue
@@ -654,8 +516,8 @@ def reconcile(raw: dict[str, Any],
             continue
 
         notes: list[str] = []
-        head_raw = cap_text(r.get("headline_zh"), MAX_HEADLINE_CHARS * 4)
-        body_raw = cap_text(r.get("body_zh"), MAX_BODY_CHARS * 4)
+        head_raw = na.cap_text(r.get("headline_zh"), MAX_HEADLINE_CHARS * 4)
+        body_raw = na.cap_text(r.get("body_zh"), MAX_BODY_CHARS * 4)
         if not head_raw or not body_raw:
             stats["dropped_empty_text"] += 1
             continue
@@ -665,12 +527,12 @@ def reconcile(raw: dict[str, Any],
         body = body_raw[:MAX_BODY_CHARS]
         if len(body_raw) > MAX_BODY_CHARS:
             notes.append(f"body_zh 超過 {MAX_BODY_CHARS} 字，已截斷")
-        why_raw = cap_text(r.get("why_it_matters_zh"), MAX_WHY_CHARS * 4)
+        why_raw = na.cap_text(r.get("why_it_matters_zh"), MAX_WHY_CHARS * 4)
         why = why_raw[:MAX_WHY_CHARS]
         if len(why_raw) > MAX_WHY_CHARS:
             notes.append(f"why_it_matters_zh 超過 {MAX_WHY_CHARS} 字，已截斷")
 
-        hid = cap_text(r.get("highlight_id"), 40)
+        hid = na.cap_text(r.get("highlight_id"), 40)
         if not hid:
             # 編號是簿記不是判斷，補一個不會滿足任何 golden 期望。
             auto_id += 1
@@ -683,7 +545,7 @@ def reconcile(raw: dict[str, Any],
             continue
         seen_ids.add(hid)
 
-        hits = [h for h in _as_str_list(r.get("rubric_hits"), 16, 12)
+        hits = [h for h in na._as_str_list(r.get("rubric_hits"), 16, 12)
                 if h in RUBRIC_CODES]
 
         item = {
@@ -715,7 +577,7 @@ def reconcile(raw: dict[str, Any],
         "window_days": days,
         "highlight_cap": cap,
         "highlights": kept,
-        "omitted_note_zh": cap_text(raw.get("omitted_note_zh"), MAX_OMITTED_CHARS),
+        "omitted_note_zh": na.cap_text(raw.get("omitted_note_zh"), MAX_OMITTED_CHARS),
         "security_notice": _security_notice(raw.get("security_notice")),
         "source": raw.get("source", "model"),
         "gate": stats,
@@ -833,17 +695,17 @@ def selftest() -> int:
             "（先照 BRIEF_RUBRIC 版本紀律複核 BW-1/BW-4 再改釘選值）")
 
     # ---- JSON 擷取 --------------------------------------------------------
-    chk("extract:plain", _extract_json('{"a":1}') == {"a": 1})
-    chk("extract:fenced", _extract_json('```json\n{"a":1}\n```') == {"a": 1})
-    chk("extract:embedded", _extract_json('前言 {"a":1} 後語') == {"a": 1})
-    chk("extract:invalid", _extract_json("не json") is None)
+    chk("extract:plain", na._extract_json('{"a":1}') == {"a": 1})
+    chk("extract:fenced", na._extract_json('```json\n{"a":1}\n```') == {"a": 1})
+    chk("extract:embedded", na._extract_json('前言 {"a":1} 後語') == {"a": 1})
+    chk("extract:invalid", na._extract_json("не json") is None)
 
     # ---- 陣列收斂 ---------------------------------------------------------
     chk("strlist:bare-string-not-iterated",
-        _as_str_list("BW-1", 16, 4) == ["BW-1"],
+        na._as_str_list("BW-1", 16, 4) == ["BW-1"],
         "裸字串被逐字元迭代會讓「非空」期望被一個字元滿足")
-    chk("strlist:list", _as_str_list(["a", "", "b"], 16, 4) == ["a", "b"])
-    chk("strlist:non-list", _as_str_list(7, 16, 4) == [])
+    chk("strlist:list", na._as_str_list(["a", "", "b"], 16, 4) == ["a", "b"])
+    chk("strlist:non-list", na._as_str_list(7, 16, 4) == [])
     chk("idlist:bare-string-not-iterated", _id_list("i0001") == ["i0001"])
     chk("idlist:dedupes", _id_list(["i1", "i1", "i2"]) == ["i1", "i2"])
 
@@ -1073,51 +935,25 @@ DEFAULT_INPUT = REPO_ROOT / "data" / "agent" / ".preview" / "brief-input.json"
 DEFAULT_OUT = REPO_ROOT / "data" / "agent" / ".preview" / "brief-latest.json"
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(
-        description="BriefWriter 重點整理執行器（判讀 + 閘1）")
-    ap.add_argument("--selftest", action="store_true", help="只跑決定論自我測試")
-    ap.add_argument("--input", default=str(DEFAULT_INPUT),
-                    help=f"brief-input JSON（預設 {DEFAULT_INPUT}）")
-    ap.add_argument("--out", default=str(DEFAULT_OUT))
-    ap.add_argument("--model", default=MODEL)
-    ap.add_argument("--timeout", type=int, default=TIMEOUT_SEC)
-    ap.add_argument("--print-prompt", action="store_true",
-                    help="只組 prompt 印出來，不呼叫模型")
-    args = ap.parse_args()
+def _print_prompt(payload: dict[str, Any]) -> None:
+    clusters, candidates, meta = project(payload)
+    print(build_system_prompt())
+    print("\n=== USER ===\n")
+    print(build_user_prompt(clusters, candidates, meta))
 
-    if args.selftest:
-        return selftest()
 
-    src = Path(args.input)
-    if not src.exists():
-        print(f"[brief] 找不到輸入 {src}", file=sys.stderr)
-        return 2
-    payload = json.loads(src.read_text(encoding="utf-8"))
-    if payload.get("schema") not in (INPUT_SCHEMA, None):
-        print(f"[brief] 輸入 schema 非 {INPUT_SCHEMA}：{payload.get('schema')}",
-              file=sys.stderr)
-
-    if args.print_prompt:
-        clusters, candidates, meta = project(payload)
-        print(build_system_prompt())
-        print("\n=== USER ===\n")
-        print(build_user_prompt(clusters, candidates, meta))
-        return 0
-
-    out = write_brief(payload, model=args.model, timeout=args.timeout)
-    dst = Path(args.out)
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n",
-                   encoding="utf-8")
+def _summary(out: dict[str, Any]) -> str:
     g = out.get("gate", {})
-    print(f"[brief] source={out.get('source')} "
-          f"highlights={len(out.get('highlights', []))} "
-          f"cap={out.get('highlight_cap')} "
-          f"dropped={sum(v for v in g.values() if isinstance(v, int))} → {dst}")
-    if out.get("note"):
-        print(f"[brief] note: {out['note']}", file=sys.stderr)
-    return 0 if out.get("source") != "fail_open" else 1
+    dropped = sum(v for v in g.values() if isinstance(v, int))
+    return (f"highlights={len(out.get('highlights', []))} "
+            f"cap={out.get('highlight_cap')} dropped={dropped}")
+
+
+def main() -> int:
+    return na.run_main(
+        "brief", "BriefWriter 重點整理執行器（判讀 + 閘1）",
+        DEFAULT_INPUT, DEFAULT_OUT, INPUT_SCHEMA, selftest, _print_prompt, write_brief,
+        _summary, input_help=f"brief-input JSON（預設 {DEFAULT_INPUT}）")
 
 
 if __name__ == "__main__":

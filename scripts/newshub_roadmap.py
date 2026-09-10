@@ -76,16 +76,15 @@ FileNotFoundError；selftest 另外驗證 `tech_rubric_version` 等於預期值�
 
 from __future__ import annotations
 
-import argparse
 import json
 import os
 import re
-import shutil
-import subprocess
 import sys
-import time
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import newshub_agents as na  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 AGENT_DIR = REPO_ROOT / "agents" / "tech-roadmap"
@@ -115,17 +114,17 @@ INPUT_SCHEMA = "roadmap-input-v0.1"
 RUBRIC_VERSION = "1.0.0"
 ROADMAP_VERSION = "1.0.0"
 
-MODEL = "claude-opus-5"
-TIMEOUT_SEC = 900
-RETRY_BACKOFF_SEC = (20, 60)
-TRANSIENT_API_STATUSES = (429, 500, 502, 503, 504, 529)
+MODEL = na.MODEL
+TIMEOUT_SEC = na.TIMEOUT_SEC
+RETRY_BACKOFF_SEC = na.RETRY_BACKOFF_SEC
+TRANSIENT_API_STATUSES = na.TRANSIENT_API_STATUSES
 
 # 投影上限。改這些常數等於改 redteam 的有效性——注入向量若被截掉，模型根本沒看到，
 # 那時的綠燈是預算截斷造成的。golden/manifest.json 的 offline_must_survive 就是為了
 # 讓這件事在離線階段就爆掉，見 roadmap_golden.py。本代理人的注入面比 TrendAnalyst 多
 # 一層：上游兩支代理人的自由文字（trend.rationale / trend.headline_zh /
 # tech_assessment.rationale_zh）也會原樣進 prompt，所以那三個欄位的上限要夠寬。
-MAX_FIELD_CHARS = 200
+MAX_FIELD_CHARS = na.MAX_FIELD_CHARS
 MAX_CLUSTERS = 24
 MAX_UP_RATIONALE = 4
 MAX_UP_RATIONALE_CHARS = 300
@@ -169,32 +168,6 @@ def fail_open(reason: str) -> dict[str, Any]:
 # --------------------------------------------------------------------------
 # 投影：把 roadmap-input 收成 prompt 放得下的形狀
 # --------------------------------------------------------------------------
-def cap_text(v: Any, cap: int = MAX_FIELD_CHARS) -> str:
-    s = "" if v is None else str(v)
-    s = s.replace("\r", " ").replace("\n", " ").strip()
-    return s[:cap]
-
-
-def _as_str_list(v: Any, cap_each: int, cap_len: int) -> list[str]:
-    """把值收成字串陣列。
-
-    裸字串**不得**被逐字元迭代——那會讓「rationale 非空」這種期望被一個字元滿足，
-    是 curator 那邊實測抓到過的假綠燈（rationale 退化成「六」而閘門全放行）。
-    """
-    if isinstance(v, str):
-        items = [v]
-    elif isinstance(v, list):
-        items = v
-    else:
-        return []
-    out: list[str] = []
-    for x in items[:cap_len]:
-        s = cap_text(x, cap_each)
-        if s:
-            out.append(s)
-    return out
-
-
 def project_cluster(c: dict[str, Any]) -> dict[str, Any]:
     """原樣搬運數字與代號，只做長度截斷與陣列截斷。刻意不消毒上游的自由文字。
 
@@ -204,36 +177,36 @@ def project_cluster(c: dict[str, Any]) -> dict[str, Any]:
     自己看出來的東西，程式先洗掉，redteam 就變成程式在答。
     """
     out: dict[str, Any] = {
-        "cluster_id": cap_text(c.get("cluster_id"), 120),
-        "title": cap_text(c.get("title"), 120),
+        "cluster_id": na.cap_text(c.get("cluster_id"), 120),
+        "title": na.cap_text(c.get("title"), 120),
         "metrics": c.get("metrics") if isinstance(c.get("metrics"), dict) else {},
     }
 
     tr = c.get("trend") if isinstance(c.get("trend"), dict) else {}
     out["trend"] = {
-        "stage": cap_text(tr.get("stage"), 32),
+        "stage": na.cap_text(tr.get("stage"), 32),
         "confidence": tr.get("confidence"),
-        "syndication_call": cap_text(tr.get("syndication_call"), 32),
-        "headline_zh": cap_text(tr.get("headline_zh"), MAX_FIELD_CHARS),
-        "rationale": _as_str_list(tr.get("rationale"),
+        "syndication_call": na.cap_text(tr.get("syndication_call"), 32),
+        "headline_zh": na.cap_text(tr.get("headline_zh"), MAX_FIELD_CHARS),
+        "rationale": na._as_str_list(tr.get("rationale"),
                                   MAX_UP_RATIONALE_CHARS, MAX_UP_RATIONALE),
         "security_flag": bool(tr.get("security_flag")),
-        "source": cap_text(tr.get("source"), 32),
+        "source": na.cap_text(tr.get("source"), 32),
     }
 
     ta = c.get("tech_assessment")
     if isinstance(ta, dict):
         out["tech_assessment"] = {
-            "tech_layer": cap_text(ta.get("tech_layer"), 16),
-            "tech_layer_name": cap_text(ta.get("tech_layer_name"), 40),
-            "secondary_layers": _as_str_list(ta.get("secondary_layers"), 16, 5),
-            "maturity": cap_text(ta.get("maturity"), 16),
-            "delta": cap_text(ta.get("delta"), 16),
-            "evidence_grade": cap_text(ta.get("evidence_grade"), 16),
-            "blocker_candidates": _as_str_list(ta.get("blocker_candidates"), 16, 6),
-            "rationale_zh": _as_str_list(ta.get("rationale_zh"),
+            "tech_layer": na.cap_text(ta.get("tech_layer"), 16),
+            "tech_layer_name": na.cap_text(ta.get("tech_layer_name"), 40),
+            "secondary_layers": na._as_str_list(ta.get("secondary_layers"), 16, 5),
+            "maturity": na.cap_text(ta.get("maturity"), 16),
+            "delta": na.cap_text(ta.get("delta"), 16),
+            "evidence_grade": na.cap_text(ta.get("evidence_grade"), 16),
+            "blocker_candidates": na._as_str_list(ta.get("blocker_candidates"), 16, 6),
+            "rationale_zh": na._as_str_list(ta.get("rationale_zh"),
                                          MAX_UP_RATIONALE_CHARS, MAX_UP_RATIONALE),
-            "source_cluster_ids": _as_str_list(ta.get("source_cluster_ids"), 40, 8),
+            "source_cluster_ids": na._as_str_list(ta.get("source_cluster_ids"), 40, 8),
         }
     else:
         # null 不是故障，是判準明文涵蓋的狀態。這裡不補預設值——補了就是程式替
@@ -262,14 +235,6 @@ def project(payload: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, An
 # --------------------------------------------------------------------------
 # prompt
 # --------------------------------------------------------------------------
-CHARTER_SKIP_RE = re.compile(
-    r"<!--\s*charter:skip\s*-->.*?<!--\s*/charter:skip\s*-->\s*", re.DOTALL)
-
-
-def strip_maintainer_sections(text: str) -> str:
-    return CHARTER_SKIP_RE.sub("", text)
-
-
 def read_tech_rubric() -> tuple[str, str | None]:
     """讀跨 repo 的 T 軸唯一真本，回傳（本文, 檔頭宣告的版本）。
 
@@ -289,7 +254,7 @@ def build_system_prompt(precedent_limit: int = 40) -> str:
     for f in CHARTER_FILES:
         if not f.exists():
             raise FileNotFoundError(f"判斷者憲章檔案缺失：{f}")
-        body = strip_maintainer_sections(f.read_text(encoding="utf-8"))
+        body = na.strip_maintainer_sections(f.read_text(encoding="utf-8"))
         parts.append(f"<<<FILE:{f.relative_to(REPO_ROOT)}>>>\n{body}")
 
     # 引用而非複製：每輪從那一份檔案當場讀進來，本 repo 不留副本。
@@ -297,7 +262,7 @@ def build_system_prompt(precedent_limit: int = 40) -> str:
     parts.append(
         f"<<<FILE:Hermes-Agent/curator/TECH_RUBRIC.md"
         f"（跨 repo，T 軸定義唯一真本，宣告版本 {tech_ver or '未標示'}）>>>\n"
-        + strip_maintainer_sections(tech_body))
+        + na.strip_maintainer_sections(tech_body))
 
     if PRECEDENTS.exists():
         rows = [l for l in PRECEDENTS.read_text(encoding="utf-8").splitlines()
@@ -339,138 +304,26 @@ def build_user_prompt(clusters: list[dict[str, Any]], meta: dict[str, Any]) -> s
 # --------------------------------------------------------------------------
 # 模型呼叫
 # --------------------------------------------------------------------------
-def _extract_json(text: str) -> dict[str, Any] | None:
-    text = str(text).strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```[a-zA-Z]*\n?", "", text)
-        text = re.sub(r"\n?```$", "", text).strip()
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-    depth, start = 0, None
-    for i, ch in enumerate(text):
-        if ch == "{":
-            if depth == 0:
-                start = i
-            depth += 1
-        elif ch == "}":
-            depth -= 1
-            if depth == 0 and start is not None:
-                try:
-                    return json.loads(text[start:i + 1])
-                except json.JSONDecodeError:
-                    return None
-    return None
-
-
-def _cli_error_detail(stdout: str) -> tuple[int | None, str]:
-    env = _extract_json(stdout)
-    if not isinstance(env, dict) or not env.get("is_error"):
-        return None, ""
-    status = env.get("api_error_status")
-    status = status if isinstance(status, int) else None
-    msg = env.get("result") or env.get("terminal_reason") or ""
-    return status, str(msg)[:300]
-
-
 def call_forecaster(system_prompt: str, user_prompt: str,
                     model: str = MODEL, timeout: int = TIMEOUT_SEC,
                     backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
-    claude = shutil.which("claude")
-    if not claude:
-        return fail_open("找不到 claude CLI，判斷者不可用，本輪不出前瞻")
-
-    cmd = [
-        claude, "-p", user_prompt,
-        "--model", model,
-        "--output-format", "json",
-        "--system-prompt", system_prompt,
-        "--allowedTools", "",
-        "--strict-mcp-config",
-        "--permission-mode", "plan",
-    ]
-    env = dict(os.environ)
-    env.pop("ANTHROPIC_API_KEY", None)  # 用既有訂閱，不引入額外計費路徑
-
-    attempts = 0
-    started = time.time()
-    while True:
-        attempts += 1
-        try:
-            proc = subprocess.run(cmd, capture_output=True, text=True,
-                                  timeout=timeout, env=env, cwd=str(REPO_ROOT))
-        except subprocess.TimeoutExpired:
-            out = fail_open(f"判讀逾時（>{timeout}s），本輪不出前瞻")
-            out["duration_ms"] = int((time.time() - started) * 1000)
-            out["attempts"] = attempts
-            return out
-
-        if proc.returncode == 0:
-            break
-
-        status, detail = _cli_error_detail(proc.stdout)
-        # 只對暫時性錯誤重試。提示被拒、額度用盡、參數錯誤重試幾次都一樣。
-        if status in TRANSIENT_API_STATUSES and attempts <= len(backoff):
-            time.sleep(backoff[attempts - 1])
-            continue
-
-        reason = f"claude CLI 返回碼 {proc.returncode}"
-        if status is not None:
-            reason += f"（API {status}）"
-        if detail:
-            reason += f"：{detail}"
-        out = fail_open(f"{reason}，本輪不出前瞻")
-        out["duration_ms"] = int((time.time() - started) * 1000)
-        out["attempts"] = attempts
-        out["api_error_status"] = status
-        out["stderr"] = (proc.stderr or "")[-500:]
-        return out
-
-    duration_ms = int((time.time() - started) * 1000)
-
-    envelope = _extract_json(proc.stdout)
-    if not isinstance(envelope, dict):
-        out = fail_open("claude CLI 輸出非合法 JSON，本輪不出前瞻")
-        out["duration_ms"] = duration_ms
-        out["attempts"] = attempts
-        return out
-
-    inner = envelope.get("result", envelope)
-    parsed = _extract_json(inner) if isinstance(inner, str) else inner
-    if not isinstance(parsed, dict):
-        out = fail_open("判斷者回覆無法解析為前瞻 JSON，本輪不出前瞻")
-        out["duration_ms"] = duration_ms
-        out["attempts"] = attempts
-        return out
-
+    r = na.run_model(system_prompt, user_prompt, fail_open, "前瞻", actor="判斷者",
+                     model=model, timeout=timeout, backoff=backoff)
+    if r.get("source") == "fail_open":
+        return r
+    parsed = r["parsed"]
     return {
         "schema": SCHEMA,
         "rubric_version": str(parsed.get("rubric_version") or RUBRIC_VERSION),
         "roadmap_version": ROADMAP_VERSION,
-        "roadmaps": parsed.get("roadmaps") if isinstance(
-            parsed.get("roadmaps"), list) else [],
-        "source": "model",
-        "duration_ms": duration_ms,
-        "attempts": attempts,
-        "model": envelope.get("model") or model,
-        "session_id": envelope.get("session_id"),
+        "roadmaps": na.as_list(parsed.get("roadmaps")),
+        **r["meta"],
     }
 
 
 # --------------------------------------------------------------------------
 # 閘1：邊界驗收器（只降不升）
 # --------------------------------------------------------------------------
-def _clamp01(v: Any, default: float = 0.0) -> float:
-    try:
-        f = float(v)
-    except (TypeError, ValueError):
-        return default
-    if f != f:                       # NaN
-        return default
-    return max(0.0, min(1.0, round(f, 4)))
-
-
 def _watch_signals(v: Any) -> list[dict[str, str]]:
     """0–3 筆，每筆 signal 與 where 皆非空；缺欄位的那筆丟棄。"""
     if not isinstance(v, list):
@@ -479,8 +332,8 @@ def _watch_signals(v: Any) -> list[dict[str, str]]:
     for row in v:
         if not isinstance(row, dict):
             continue
-        sig = cap_text(row.get("signal"), MAX_SIGNAL_CHARS)
-        where = cap_text(row.get("where"), MAX_SIGNAL_CHARS)
+        sig = na.cap_text(row.get("signal"), MAX_SIGNAL_CHARS)
+        where = na.cap_text(row.get("where"), MAX_SIGNAL_CHARS)
         if not sig or not where:
             continue
         out.append({"signal": sig, "where": where})
@@ -499,7 +352,7 @@ def _blockers(v: Any) -> list[str]:
         return []
     out: list[str] = []
     for x in items:
-        s = cap_text(x, 16)
+        s = na.cap_text(x, 16)
         if s in BLOCKERS and s not in out:
             out.append(s)
         if len(out) == MAX_BLOCKERS:
@@ -559,9 +412,9 @@ def reconcile(raw: dict[str, Any],
             continue
 
         horizon = str(r.get("horizon") or "")
-        milestone = cap_text(r.get("next_milestone"), MAX_MILESTONE_CHARS)
-        falsifier = cap_text(r.get("falsifier"), MAX_FALSIFIER_CHARS)
-        conf = _clamp01(r.get("confidence"))
+        milestone = na.cap_text(r.get("next_milestone"), MAX_MILESTONE_CHARS)
+        falsifier = na.cap_text(r.get("falsifier"), MAX_FALSIFIER_CHARS)
+        conf = na._clamp01(r.get("confidence"))
         flag = bool(r.get("security_flag"))
         forced = False
 
@@ -603,10 +456,10 @@ def reconcile(raw: dict[str, Any],
             "next_milestone": milestone,
             "falsifier": falsifier,
             "watch_signals": _watch_signals(r.get("watch_signals")),
-            "adoption_note": cap_text(r.get("adoption_note"), MAX_ADOPTION_CHARS),
+            "adoption_note": na.cap_text(r.get("adoption_note"), MAX_ADOPTION_CHARS),
             "blockers_ranked": _blockers(r.get("blockers_ranked")),
             "confidence": conf,
-            "rubric_hits": _as_str_list(r.get("rubric_hits"), 16, MAX_RUBRIC_HITS),
+            "rubric_hits": na._as_str_list(r.get("rubric_hits"), 16, MAX_RUBRIC_HITS),
             "security_flag": flag,
             "source": "model",
             "gate_notes": notes,
@@ -725,17 +578,17 @@ def selftest() -> int:
         chk("techrubric:path-alive", False, str(e))
 
     # --- JSON 抽取 ---
-    chk("extract:plain", (_extract_json('{"a":1}') or {}).get("a") == 1)
-    chk("extract:fenced", (_extract_json('```json\n{"a":1}\n```') or {}).get("a") == 1)
-    chk("extract:prefixed", (_extract_json('前瞻如下：{"a":2} 以上') or {}).get("a") == 2)
-    chk("extract:garbage", _extract_json("not json at all") is None)
+    chk("extract:plain", (na._extract_json('{"a":1}') or {}).get("a") == 1)
+    chk("extract:fenced", (na._extract_json('```json\n{"a":1}\n```') or {}).get("a") == 1)
+    chk("extract:prefixed", (na._extract_json('前瞻如下：{"a":2} 以上') or {}).get("a") == 2)
+    chk("extract:garbage", na._extract_json("not json at all") is None)
 
     # --- 字串陣列不得逐字元迭代 ---
     chk("strlist:bare-string-not-exploded",
-        _as_str_list("六個 cluster 全部收縮", 300, 4) == ["六個 cluster 全部收縮"])
-    chk("strlist:list", _as_str_list(["a", "", "b"], 300, 4) == ["a", "b"])
-    chk("strlist:cap-len", len(_as_str_list(["a", "b", "c", "d", "e"], 300, 4)) == 4)
-    chk("strlist:non-list", _as_str_list({"a": 1}, 300, 4) == [])
+        na._as_str_list("六個 cluster 全部收縮", 300, 4) == ["六個 cluster 全部收縮"])
+    chk("strlist:list", na._as_str_list(["a", "", "b"], 300, 4) == ["a", "b"])
+    chk("strlist:cap-len", len(na._as_str_list(["a", "b", "c", "d", "e"], 300, 4)) == 4)
+    chk("strlist:non-list", na._as_str_list({"a": 1}, 300, 4) == [])
 
     # --- 投影 ---
     p = project_cluster(_c(trend={"stage": "plateau", "confidence": 0.4,
@@ -754,7 +607,7 @@ def selftest() -> int:
     chk("project:keeps-numbers",
         project_cluster(_c(metrics={"totals": {"occurrences": 7}}))
         ["metrics"]["totals"]["occurrences"] == 7)
-    chk("project:newline-flattened", cap_text("a\nb") == "a b")
+    chk("project:newline-flattened", na.cap_text("a\nb") == "a b")
 
     pn = project_cluster(_c(tech_assessment=None))
     chk("project:tech-null-stays-null", pn["tech_assessment"] is None)
@@ -925,46 +778,22 @@ DEFAULT_INPUT = REPO_ROOT / "data" / "agent" / ".preview" / "roadmap-input.json"
 DEFAULT_OUT = REPO_ROOT / "data" / "agent" / ".preview" / "roadmap.json"
 
 
+def _print_prompt(payload: dict[str, Any]) -> None:
+    clusters, meta = project(payload)
+    print(build_system_prompt())
+    print("\n=== USER ===\n")
+    print(build_user_prompt(clusters, meta))
+
+
+def _summary(out: dict[str, Any]) -> str:
+    return f"roadmaps={len(out.get('roadmaps') or [])}"
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(
-        description="ai-news-hub TechRoadmap 執行器（前瞻判讀 + 閘1）")
-    ap.add_argument("--selftest", action="store_true", help="只跑決定論自我測試")
-    ap.add_argument("--input", default=str(DEFAULT_INPUT),
-                    help="build-roadmap-input.mjs 產出的 roadmap-input JSON")
-    ap.add_argument("--out", default=str(DEFAULT_OUT))
-    ap.add_argument("--model", default=MODEL)
-    ap.add_argument("--timeout", type=int, default=TIMEOUT_SEC)
-    ap.add_argument("--print-prompt", action="store_true",
-                    help="只組 prompt 印出來，不呼叫模型")
-    args = ap.parse_args()
-
-    if args.selftest:
-        return selftest()
-
-    src = Path(args.input)
-    if not src.exists():
-        print(f"[roadmap] 找不到輸入 {src}", file=sys.stderr)
-        return 2
-    payload = json.loads(src.read_text(encoding="utf-8"))
-    if payload.get("schema") not in (INPUT_SCHEMA, None):
-        print(f"[roadmap] 輸入 schema 非 {INPUT_SCHEMA}：{payload.get('schema')}",
-              file=sys.stderr)
-
-    if args.print_prompt:
-        clusters, meta = project(payload)
-        print(build_system_prompt())
-        print("\n=== USER ===\n")
-        print(build_user_prompt(clusters, meta))
-        return 0
-
-    out = forecast(payload, model=args.model, timeout=args.timeout)
-    dst = Path(args.out)
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n",
-                   encoding="utf-8")
-    n = len(out.get("roadmaps") or [])
-    print(f"[roadmap] source={out.get('source')} roadmaps={n} → {dst}")
-    return 0 if out.get("source") != "fail_open" else 1
+    return na.run_main(
+        "roadmap", "ai-news-hub TechRoadmap 執行器（前瞻判讀 + 閘1）",
+        DEFAULT_INPUT, DEFAULT_OUT, INPUT_SCHEMA, selftest, _print_prompt, forecast,
+        _summary, input_help="build-roadmap-input.mjs 產出的 roadmap-input JSON")
 
 
 if __name__ == "__main__":

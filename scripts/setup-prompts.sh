@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================
-# setup-prompts.sh — 從 SKILL.md 規範自動產生 11 個 prompt 檔案
+# setup-prompts.sh — 依 CLAUDE.md 與 docs/specs/（categories.md 等）規範產生 prompt 檔案
 # 用法: bash scripts/setup-prompts.sh
 # ============================================================
 set -euo pipefail
@@ -8,16 +8,17 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 PROMPTS_DIR="$SCRIPT_DIR/prompts"
-SKILL_MD="$REPO_DIR/SKILL.md"
+CLAUDE_MD="$REPO_DIR/CLAUDE.md"
+SPECS_DIR="$REPO_DIR/docs/specs"
 
 mkdir -p "$PROMPTS_DIR"
 
-if [[ ! -f "$SKILL_MD" ]]; then
-  echo "❌ 找不到 SKILL.md: $SKILL_MD"
+if [[ ! -f "$CLAUDE_MD" || ! -f "$SPECS_DIR/categories.md" ]]; then
+  echo "❌ 找不到規範檔: $CLAUDE_MD 或 $SPECS_DIR/categories.md"
   exit 1
 fi
 
-echo "📝 從 SKILL.md 產生 prompt 檔案 → $PROMPTS_DIR/"
+echo "📝 依 CLAUDE.md + docs/specs/ 產生 prompt 檔案 → $PROMPTS_DIR/"
 
 # ── 共用尾行 ──
 TAIL='所有 URL 必須從搜尋結果直接複製。所有數據來自原始出處。不確定標註⚠️待確認。不足指定筆數如實回報。ONLY valid JSON, NO markdown, NO preamble.'
@@ -252,4 +253,4 @@ ls -1 "$PROMPTS_DIR"/*.md | while read f; do
   echo "   📄 $(basename "$f")"
 done
 echo ""
-echo "完成！提示詞已依 SKILL.md 規範產生。"
+echo "完成！提示詞已依 CLAUDE.md + docs/specs/ 規範產生。"

@@ -12,16 +12,11 @@ strip_maintainer_sections 與模型呼叫不變式（無 API key、無工具、p
 """
 from __future__ import annotations
 
-import argparse
 import copy
 import json
-import os
 import re
-import shutil
 import statistics
-import subprocess
 import sys
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -229,76 +224,17 @@ def build_user_prompt(meta: dict[str, Any], untrusted: dict[str, Any]) -> str:
 def call_reviewer(system_prompt: str, user_prompt: str,
                   model: str = MODEL, timeout: int = TIMEOUT_SEC,
                   backoff: tuple[int, ...] = RETRY_BACKOFF_SEC) -> dict[str, Any]:
-    claude = shutil.which("claude")
-    if not claude:
-        return fail_open("找不到 claude CLI，審查者不可用，本輪不出提案")
-
-    cmd = [
-        claude, "-p", user_prompt,
-        "--model", model,
-        "--output-format", "json",
-        "--system-prompt", system_prompt,
-        "--allowedTools", "",
-        "--strict-mcp-config",
-        "--permission-mode", "plan",
-    ]
-    env = dict(os.environ)
-    env.pop("ANTHROPIC_API_KEY", None)  # 用既有訂閱，不引入額外計費路徑
-
-    attempts = 0
-    started = time.time()
-    while True:
-        attempts += 1
-        try:
-            proc = subprocess.run(cmd, capture_output=True, text=True,
-                                  timeout=timeout, env=env, cwd=str(REPO_ROOT))
-        except subprocess.TimeoutExpired:
-            out = fail_open(f"審查逾時（>{timeout}s），本輪不出提案")
-            out["duration_ms"] = int((time.time() - started) * 1000)
-            out["attempts"] = attempts
-            return out
-        if proc.returncode == 0:
-            break
-        status, detail = na._cli_error_detail(proc.stdout)
-        if status in TRANSIENT_API_STATUSES and attempts <= len(backoff):
-            time.sleep(backoff[attempts - 1])
-            continue
-        reason = f"claude CLI 返回碼 {proc.returncode}"
-        if status is not None:
-            reason += f"（API {status}）"
-        if detail:
-            reason += f"：{detail}"
-        out = fail_open(f"{reason}，本輪不出提案")
-        out["duration_ms"] = int((time.time() - started) * 1000)
-        out["attempts"] = attempts
-        out["api_error_status"] = status
-        out["stderr"] = (proc.stderr or "")[-500:]
-        return out
-
-    duration_ms = int((time.time() - started) * 1000)
-    envelope = na._extract_json(proc.stdout)
-    if not isinstance(envelope, dict):
-        out = fail_open("claude CLI 輸出非合法 JSON，本輪不出提案")
-        out["duration_ms"] = duration_ms
-        out["attempts"] = attempts
-        return out
-    inner = envelope.get("result", envelope)
-    parsed = na._extract_json(inner) if isinstance(inner, str) else inner
-    if not isinstance(parsed, dict):
-        out = fail_open("審查者回覆無法解析為提案 JSON，本輪不出提案")
-        out["duration_ms"] = duration_ms
-        out["attempts"] = attempts
-        return out
+    r = na.run_model(system_prompt, user_prompt, fail_open, "提案", actor="審查者",
+                     model=model, timeout=timeout, backoff=backoff)
+    if r.get("source") == "fail_open":
+        return r
+    parsed = r["parsed"]
     return {
         "schema": SCHEMA,
         "rubric_version": str(parsed.get("rubric_version") or RUBRIC_VERSION),
         "reviewer_version": REVIEWER_VERSION,
         "raw": parsed,
-        "source": "model",
-        "duration_ms": duration_ms,
-        "attempts": attempts,
-        "model": envelope.get("model") or model,
-        "session_id": envelope.get("session_id"),
+        **r["meta"],
     }
 
 
@@ -816,42 +752,24 @@ DEFAULT_INPUT = REPO_ROOT / "data" / "agent" / ".preview" / "search-review-input
 DEFAULT_OUT = REPO_ROOT / "data" / "agent" / ".preview" / "search-review.json"
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description="ai-news-hub SearchReviewer 執行器（提案 + 閘1）")
-    ap.add_argument("--selftest", action="store_true", help="只跑決定論自我測試")
-    ap.add_argument("--input", default=str(DEFAULT_INPUT), help="build-search-review-input.mjs 產出的 JSON")
-    ap.add_argument("--out", default=str(DEFAULT_OUT))
-    ap.add_argument("--model", default=MODEL)
-    ap.add_argument("--timeout", type=int, default=TIMEOUT_SEC)
-    ap.add_argument("--print-prompt", action="store_true", help="只組 prompt 印出來，不呼叫模型")
-    args = ap.parse_args()
+def _print_prompt(payload: dict[str, Any]) -> None:
+    meta, untrusted = project(payload)
+    print(build_system_prompt())
+    print("\n=== USER ===\n")
+    print(build_user_prompt(meta, untrusted))
 
-    if args.selftest:
-        return selftest()
 
-    src = Path(args.input)
-    if not src.exists():
-        print(f"[search-review] 找不到輸入 {src}", file=sys.stderr)
-        return 2
-    payload = json.loads(src.read_text(encoding="utf-8"))
-    if payload.get("schema") not in (INPUT_SCHEMA, None):
-        print(f"[search-review] 輸入 schema 非 {INPUT_SCHEMA}：{payload.get('schema')}", file=sys.stderr)
-
-    if args.print_prompt:
-        meta, untrusted = project(payload)
-        print(build_system_prompt())
-        print("\n=== USER ===\n")
-        print(build_user_prompt(meta, untrusted))
-        return 0
-
-    out = review(payload, model=args.model, timeout=args.timeout)
-    dst = Path(args.out)
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def _summary(out: dict[str, Any]) -> str:
     n = len(out.get("proposals") or [])
     d = len((out.get("gate1") or {}).get("discarded") or [])
-    print(f"[search-review] source={out.get('source')} proposals={n} discarded={d} → {dst}")
-    return 0 if out.get("source") != "fail_open" else 1
+    return f"proposals={n} discarded={d}"
+
+
+def main() -> int:
+    return na.run_main(
+        "search-review", "ai-news-hub SearchReviewer 執行器（提案 + 閘1）",
+        DEFAULT_INPUT, DEFAULT_OUT, INPUT_SCHEMA, selftest, _print_prompt, review,
+        _summary, input_help="build-search-review-input.mjs 產出的 JSON")
 
 
 if __name__ == "__main__":
