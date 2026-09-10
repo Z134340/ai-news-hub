@@ -17,6 +17,7 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 | 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 未開始 | — |
 | 收尾 | CLAUDE.md 補 dashboard.js 載入順序、新步驟；狀態盤點表 | 未開始 | — |
 | S-PWR | 電池模式偵測與 17:50 電源提醒（方案 1 加 2，獨立施工單） | 已 commit 並 push；P-1／P-2／P-3 全做，plist 已裝、`launchctl list` 兩個 label 都在；拔電源 kickstart 通知已由使用者驗過（剩電池模式整跑，見 §3） | `62a9a65` |
+| **learning-loop v1** | 雙訊號優化迴圈（icon 回饋 × RSS 探索），規範 `docs/specs/learning-loop-v1.md`，施工單 §7 L-0～L-9 | 2026-09-10 拍板並寫入規範；L-0 進行中 | — |
 | 跨專案調度 | Hermes 管制塔／launchd 引擎／Iris 櫃台；fleet.yaml 單一真相、時窗重排、清債（見 §6，施工單 F-0～F-4） | 已盤點並規劃（2026-09-05）；§6.4 A 已拍板 commit，F-0 修訂版見 §6.3a；B 預設 B1 | — |
 
 ## 1. 使用者已拍板的決策（不要再問）
@@ -28,6 +29,12 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 5. 自動套用上限：每週 3 件、每分類 1 件、canary 3 晚、指標掉超過 10 個百分點即回退；先照這組數字跑一個月，再用 `data/agent/metrics-history.jsonl` 實際波動調整；數字只放 `agents/_control/canaries.json`，改數字不能需要改程式。
 6. 模型步驟一律 pop `ANTHROPIC_API_KEY`、`--allowedTools ""`、`--permission-mode plan`，用既有訂閱，不引入額外計費。
 7. 每個 Phase 各自 commit（trailer `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`），**commit 完立刻 push**（2026-09-05 使用者拍板；原「push 只在使用者明講時」作廢，原因見 §4 最後一條）。
+
+8. （2026-09-10）learning-loop v1 採**方案 1 混合**：RSS/Atom（Node fetch，硬驗證）為主、WebSearch 探索提示為補充；不引入付費趨勢 API。
+9. （2026-09-10）起步值可接受：探索配額 25%、單一來源上限 30% 加 HHI 上限、回饋權重 0.15、訊號斷線判定 7 晚、同案回退 2 次凍結；全部只放 `agents/_control/canaries.json`，先跑一個月再調。
+10. （2026-09-10）**最低限度治理：迴圈關鍵路徑上沒有人工檢核，唯一人工輸入是站上 icon 評分。** 決策 2 的 Slack 週報／picks／判例貼進 memory 改為**可選**（缺 `slack.env` 直接跳過，不影響任何閘門）；機械閘門（閘 2 rubric、canary、回退、凍結）保留；機器仍永不寫 `memory/**`。
+11. （2026-09-10）P5 技術債（L-8、L-9）與 P0–P4 分開排，在 L-0～L-7 之後才動。
+12. （2026-09-10）分工比照 Hermes-Agent SOW：一個工項一個新 session，session prompt 固定寫「先讀 HANDOFF.md §0–§1 與 §7，只做 L-X，只讀它指定的 shape 檔，做完 commit 並 push」。
 
 ## 2. Phase 2 施工單（拆成 4 個 session，每個 session 只做一列、只讀一份 shape 檔）
 
@@ -112,6 +119,7 @@ Phase 4 的細節見 §0（紀律見 CLAUDE.md「auto-opt 路線圖與工作紀�
 | 項目 | 指令／位置 | 未做的後果 |
 |---|---|---|
 | ~~部署 Firestore rules（Phase 1）~~ **✅ 2026-09-05 已部署**（`firebase login` 後 `deploy --only firestore:rules` 成功；`pull-feedback.mjs --dry-run` 回 `scanned=0` exit 0，403 消失；之後改 rules 只需重跑 deploy，登入 token 在 `~/.config/configstore/firebase-tools.json`） | `npx -y firebase-tools deploy --only firestore:rules`（首次會開瀏覽器要 `firebase login`；本機未裝 firebase CLI，須在 `~/ai-news-hub` 執行）| 未部署時 `pull-feedback.mjs` 回 403，帳本收不到 `human_rating`；前端評分也寫不進 Firestore。**2026-09-05 已查證根因就是這條、與 S3-B 無關**：writer 帳號 signIn 200、uid 與 `firestore.rules` 內常數一致，`runQuery feedback` 回 `PERMISSION_DENIED`（不帶 where 也一樣）→ 線上仍是 `c2695db` 的舊 rules（無 `feedback` match）。未部署前每晚 `00-pull-feedback` 都會 exit 2、overall 恆為 degraded；不要改程式把 403 吞成 skipped，那會遮掉真的設定錯誤 |
+| **L-1 前登入點評分**（2026-09-10 開列） | 站上以 writer 帳號登入後，對任 3 則新聞各按一次 好／中／不好；隔天 `node scripts/agent/pull-feedback.mjs --dry-run` 應回 `scanned>=3` | 帳本永遠 0 筆 `human_rating`，L-2 訊號接排序無資料可接；C2 健康閘會持續黃燈 |
 | 網站登入 | 站上以 writer 帳號登入 | 按鈕只寫 localStorage，不會同步到 Firestore |
 | S-PWR 驗收（電池模式整跑） | 拔電源 kickstart 通知已於 2026-09-05 由使用者驗過（有跳「18:00 擷取即將開始，請接電源」）。剩下：任一晚電池模式跑完，`python3 -c "import json;h=json.load(open('data/health.json'));print(h['power_source'],h['errors'])"` 應印 `battery` 與回退備註 | 只是驗收，功能已裝好；不影響 AC 正常執行 |
 | Phase 3 前填 Slack 設定（S3-E 動工前） | 建一個 Slack app（bot token scopes：`chat:write`、`reactions:read`、`channels:history`；私頻道則 `groups:history`），把 bot 加進目標頻道，寫 `~/.config/ai-news-hub/slack.env`：`SLACK_BOT_TOKEN=xoxb-...`、`SLACK_CHANNEL_ID=C...`（`chmod 600`）。**要用 bot token 不用 incoming webhook**：webhook 只能送不能讀，S3-F 的讀回需要同一支 app | S3-E／S3-F 只會 log「Slack 未設定，跳過」，不會 crash；此檔永不入版控 |
@@ -288,6 +296,25 @@ ai-news-hub 端改動＝plist 的 `ProgramArguments` 換成 `run.sh ai-news-hub-
 | F-0 步驟 1 備份（2026-09-05） | 已完成：分支 `backup/pre-minimal-governance-20260905`=`ccc68c6`；stash 物件 `eacd1291d398779cb3094aa4360c46c1a5bdd8ff`（另掛 ref `refs/backup/f0-step1-stash` 防 gc，未套用未 drop）；untracked 10 項 tar 於 `~/Hermes-Agent-backup-20260905/untracked-f0-step1.tgz`（5.0 MB） |
 | ai-news-hub §3 人工項（專用 Slack app／slack.env） | 未變，與本節無關 |
 | Phase 4、收尾 | 未變 |
+
+## 7. learning-loop v1 施工單（2026-09-10；每 session 一列，做完 commit 立刻 push；規範見 `docs/specs/learning-loop-v1.md`）
+
+session prompt 固定寫：「先讀 HANDOFF.md §0–§1 與 §7，只做 L-X，只讀它指定的 shape 檔，做完 commit 並 push。」每列驗收全綠才 commit；不過就修，不重寫。
+
+| Session | 工作項目 | 改哪些檔 | 只讀這份 shape | 驗收條件 | 狀態 |
+|---|---|---|---|---|---|
+| **L-0 訊號健康閘**（C2） | 新增 `scripts/agent/check-signal-health.mjs`：讀 `metrics-history.jsonl` 最近 7 晚每分類 `human_rating_count`、讀 pull-feedback 當晚輸出（`~/.ai-news-hub/learning/feedback-cursor.json` 與帳本 `human_rating` 計數）；全 0 → `state:"yellow"`、`reason` 列舉；寫 `data/agent/signal-health.json`（只有計數與日期）＋帳本 `signal_health` 事件（`ledger.mjs` EVENT_TYPES 加一項）；`run-agents.sh` 加 `00e-signal-health`（非阻塞）、S-1 清單、self-test chk；`canaries.json` 加 `signal_health:{silent_nights:7}` | `scripts/agent/check-signal-health.mjs`（新）、`scripts/agent/lib/ledger.mjs`、`scripts/run-agents.sh`、`agents/_control/canaries.json`、`docs/shapes/ledger.md`、`docs/shapes/agent-scripts.md` | `docs/shapes/ledger.md`（改 run-agents 那段再讀 `docs/shapes/run-agents.md`） | `node scripts/agent/check-signal-health.mjs --self-test` 全綠（≥ 6 項：全 0 黃、有評分綠、jsonl 缺檔容忍、cursor 缺檔容忍、事件 schema、輸出只含允許鍵）；`bash scripts/run-agents.sh --self-test` 0 失敗；`--dry-run` 不落地；`git diff --check` 乾淨 | 進行中 |
+| **L-1 端到端驗證**（C7） | `bookmarks.js` 未登入時評分列旁加「登入後才同步」提示（既有 `svg()`，不加新 icon）；使用者登入點 3 則（§3）；跑 `pull-feedback.mjs --dry-run` 確認 `scanned>=3`，再真跑一次讓帳本出現 `human_rating`；`build-category-metrics.mjs` 當晚列 `human_rating_count>0`；`signal-health.json` 轉綠 | `assets/js/bookmarks.js`、`docs/specs/frontend-ux.md`（加一行） | `docs/shapes/pull-feedback.md` | `grep -c human_rating ~/.ai-news-hub/learning/events.jsonl` ≥ 3；`signal-health.json` `state:"green"`；前端未登入可見提示、登入後提示消失 | 待 L-0 |
+| **L-2 訊號接排序**（C1） | `build-insights.mjs`：新增 `feedbackAffinity()` 讀帳本 `human_rating`（半衰期 30 天）算每分類、每網域親和度，WEIGHTS 加 `feedback:0.15`（其餘六項等比縮至 0.85）；聚合寫 `.preview/feedback-affinity.json`；`promote.sh` NEVER_FILES 追加 | `scripts/agent/build-insights.mjs`、`scripts/agent/promote.sh`、`docs/shapes/agent-scripts.md` | `docs/shapes/agent-scripts.md` | `--self-test` 加 ≥ 4 項（無事件時權重退回 0、半衰期計算、網域親和度、不含標題/URL）；`insights.json` 頂層不含任何 URL 或標題；`git diff --check` 乾淨 | 待 L-1 |
+| **L-3 來源登錄**（C3） | 新增 `scripts/sources-registry.json`（10 分類 × 官方站與 RSS/Atom URL、tier A/B/C；每 URL 先 `curl -sI` 確認 200 才收）；新增 `scripts/tier-b-domains.json`（marker 區段格式照 `apply-change.mjs` 檔頭契約）；`validate.py` 讀 tier-b 檔併入 `TRUSTED_DOMAINS`（add-only） | `scripts/sources-registry.json`（新）、`scripts/tier-b-domains.json`（新）、`scripts/validate.py`、`docs/specs/validate.md` | `docs/shapes/latest-json-prompts.md`（validate.py 那段） | `python3 scripts/validate.py --self-test`（或既有測試）全綠；`node -e` 可讀兩份 JSON；registry 每分類 ≥ 3 個 feed 且全部 HTTP 200（記錄查證日期） | 可與 L-0 並行 |
+| **L-4 探索管線**（C4） | 新增 `scripts/agent/discover-trends.mjs`：fetch registry feed（併發 ≤ 5、單 feed 10 秒、總 90 秒）、解析 RSS/Atom（自寫最小解析，不裝套件）、對 90 天 `data/history/` 語料算新穎度（標題 token 集合 Jaccard），輸出 `.preview/emerging-candidates.json`；`run-agents.sh` 加 `00f-discover-trends`（非阻塞）；`promote.sh` NEVER_FILES 追加；週一 trend-analyst 輸入附候選 | `scripts/agent/discover-trends.mjs`（新）、`scripts/run-agents.sh`、`scripts/agent/promote.sh`、`scripts/agent/build-*-input.mjs`（trend-analyst 那支） | `docs/shapes/run-agents.md` | `--self-test` ≥ 6 項（RSS、Atom、壞 XML、逾時、新穎度、空 registry）；`--dry-run` 不落地不打網路；實跑一次候選 ≥ 10 且每筆有 `source_domain`、`novelty`；run-agents self-test 0 失敗 | 待 L-3 |
+| **L-5 探索配額**（C5） | `build-insights.mjs` 排序後套 `canaries.json` `exploration:{quota:0.25,source_cap:0.30,hhi_cap:0.25}`：候選保底名額、單網域超限降權補位、HHI 超限重抽；`insights.json` 加 `exploration_share`、`hhi` 兩個數字 | `scripts/agent/build-insights.mjs`、`agents/_control/canaries.json`、`docs/shapes/data-agent-json.md` | `docs/shapes/data-agent-json.md` | `--self-test` 加 ≥ 4 項（配額保底、單網域 cap、HHI cap、無候選時退回原排序）；連跑兩晚 `exploration_share` 介於 0.20–0.30 | 待 L-4 |
+| **L-6 候選進閘 1**（C6） | `build-search-review-input.mjs` 附上 `emerging_candidates`（去標題保留主題詞與網域）；search-reviewer prompt／SKILL 加 `add_query` 提案型別（`patch:{add,list:"SEARCH_QUERIES"}`）；閘 2 rubric 不變 | `scripts/agent/build-search-review-input.mjs`、`agents/search-reviewer/AGENTS.md`、`scripts/prompts/` 對應 marker、`docs/shapes/agents-scaffold.md` | `docs/shapes/agents-scaffold.md` | golden case 加 1 筆 `add_query`；`check-agent-outputs.mjs` 通過；`apply-change.mjs --self-test` 仍全綠（配額不變） | 待 L-4 |
+| **L-7 迴圈硬化**（C8） | ①`newshub_change_evaluator.py` 輸出加 `verdict_report`（`overall/score/items[]`），`reconcile` 只讀它；②`canary-check.mjs` 對同一 `proposal_id` 第 2 次回退寫 `proposal_frozen` 事件並拒絕再套用（`canaries.json` `freeze_after_reverts:2`）；③`newshub_agents.py` 每個 `claude -p` 顯式帶 `--model "$MODEL"` | `scripts/newshub_change_evaluator.py`、`scripts/agent/canary-check.mjs`、`scripts/newshub_agents.py`、`scripts/agent/lib/ledger.mjs`、`docs/shapes/ledger.md`、`docs/shapes/newshub_agents.md` | `docs/shapes/newshub_agents.md` | 三支 `--self-test`／`selftest` 全綠；golden 含 1 筆凍結案例；`grep -n -- "--model" scripts/newshub_agents.py` ≥ 1 | 無前置 |
+| **L-8 技術債 A** | `setup-prompts.sh` 改讀 `CLAUDE.md`／`docs/specs/`，不再讀 `SKILL.md`（先 `git mv SKILL.md docs/legacy/`）；5 支 `newshub_*.py` 的 `fail_open/cap_text/_extract_json/reconcile/selftest/main` 全部 `import newshub_agents as na` 重用，刪重複 | `scripts/setup-prompts.sh`、`scripts/newshub_{brief,roadmap,search_reviewer,change_evaluator}.py`、`SKILL.md` | `docs/shapes/newshub_agents.md` | 各 `selftest` 全綠；`wc -l` 五支合計較前減少 ≥ 300 行；`bash scripts/setup-prompts.sh` 產出與改前 `diff` 為空 | 待 L-0～L-7 |
+| **L-9 技術債 B** | 刪 `data/agent/.preview/_orphans-2026-08-16/`（先列清單）；`scripts/__pycache__/` 入 gitignore 並 `git rm --cached`；文件漂移（timeout 600 vs 1200、「11 類別」→10）修正；`.github/workflows/` 加 `selftest.yml`（只跑 `--self-test`，不打網路）；重寫 `data/agent/learning-status.json` 為當前快照 | `.gitignore`、`docs/specs/*.md`、`.github/workflows/selftest.yml`（新）、`data/agent/learning-status.json` | `docs/shapes/replay-learning.md` | `git status` 無 pycache；workflow 在 GitHub 跑綠一次；`grep -rn "1200\|11 類" docs/specs CLAUDE.md` 為 0 筆 | 待 L-8 |
+
+紅線（每列都適用）：`data/agent/.preview/` 永遠 gitignore；`promote.sh` 不加 `--promote`；原始評分／標題／URL／uid 只留 `~/.ai-news-hub/learning/`；`memory/**`、`agents/_control/**` 機器不寫；數字只在 `canaries.json`；不引入付費 API 或 npm 套件。
 
 ---
 
