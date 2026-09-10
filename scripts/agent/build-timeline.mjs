@@ -33,6 +33,7 @@
 //   node scripts/agent/build-timeline.mjs --self-test     # 只跑內建不變式檢查
 
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { loadWindow, itemsOf } from "./lib/corpus.mjs";
@@ -67,6 +68,43 @@ export const TIMELINE_SCHEMA = "agent-timeline-v0.1";
 export const DELTA_WINDOW = 7;
 
 const round4 = (n) => (Number.isFinite(n) ? Math.round(n * 10000) / 10000 : null);
+
+// learning-loop v1 L-4：週一（台北）把 00f 寫出的 .preview/emerging-candidates.json 附進
+// timeline.json 的 meta 層，trend-analyst 的輸入就多一段候選。放 meta 層而不進
+// buildTimeline()，理由同 generated_at：self-test 檢查的是 buildTimeline() 的決定論。
+// --with-candidates 可在非週一強制附上（測試用）。候選只留主題所需欄位、最多 30 筆。
+export const CANDIDATES_FILE = "emerging-candidates.json";
+export const CANDIDATES_CAP = 30;
+export function taipeiWeekday(now = new Date()) {
+  const ymd = now.toLocaleDateString("sv-SE", { timeZone: "Asia/Taipei" });
+  return new Date(`${ymd}T00:00:00Z`).getUTCDay(); // 0=日 … 1=一
+}
+export function loadEmergingCandidates(dir, { force = false, now = new Date() } = {}) {
+  if (!force && taipeiWeekday(now) !== 1) return null;
+  const file = path.join(dir, CANDIDATES_FILE);
+  if (!fs.existsSync(file)) return null;
+  let doc;
+  try {
+    doc = JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch {
+    return null;
+  }
+  const list = Array.isArray(doc && doc.candidates) ? doc.candidates : [];
+  return {
+    schema_version: String(doc.schema_version || ""),
+    generated_at: String(doc.generated_at || ""),
+    feeds_ok: doc.feeds && Number.isFinite(doc.feeds.ok) ? doc.feeds.ok : null,
+    feeds_total: doc.feeds && Number.isFinite(doc.feeds.total) ? doc.feeds.total : null,
+    candidate_count: list.length,
+    candidates: list.slice(0, CANDIDATES_CAP).map((c) => ({
+      title: String(c.title || "").slice(0, 160),
+      source_domain: String(c.source_domain || ""),
+      category: String(c.category || ""),
+      novelty: Number.isFinite(c.novelty) ? c.novelty : null,
+      published_at: c.published_at || null,
+    })),
+  };
+}
 const nowIso = () => new Date().toISOString();
 
 // 把 start~end 之間每一個日曆日都列出來（含頭含尾）。
@@ -364,6 +402,27 @@ export function selfTestCases() {
       JSON.stringify(buildTimeline(real)) === JSON.stringify(rtl));
   }
 
+  // ── L-4 週一探索候選附件
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "timeline-cand-"));
+  try {
+    const mon = new Date("2026-09-14T02:00:00Z"); // 台北週一 10:00
+    const sun = new Date("2026-09-13T02:00:00Z");
+    check("台北週幾：2026-09-14 是週一、09-13 是週日", taipeiWeekday(mon) === 1 && taipeiWeekday(sun) === 0);
+    check("候選檔缺 → null（週一也一樣）", loadEmergingCandidates(tmpDir, { now: mon }) === null);
+    fs.writeFileSync(path.join(tmpDir, CANDIDATES_FILE), JSON.stringify({
+      schema_version: "emerging-candidates-v0.1", generated_at: "x", feeds: { ok: 3, total: 4 },
+      candidates: Array.from({ length: 40 }, (_, i) => ({ title: `t${i}`, link: "https://e.example/" + i, source_domain: "e.example", category: "papers", novelty: 0.9, published_at: null })),
+    }));
+    check("非週一不附（force 才附）", loadEmergingCandidates(tmpDir, { now: sun }) === null && loadEmergingCandidates(tmpDir, { now: sun, force: true }) !== null);
+    const att = loadEmergingCandidates(tmpDir, { now: mon });
+    check("週一附上：cap 30、不帶 link、欄位齊", att && att.candidate_count === 40 && att.candidates.length === CANDIDATES_CAP
+      && att.candidates.every((c) => !("link" in c) && c.source_domain && typeof c.novelty === "number") && att.feeds_ok === 3);
+    fs.writeFileSync(path.join(tmpDir, CANDIDATES_FILE), "{not json");
+    check("候選檔壞 JSON → null 不炸", loadEmergingCandidates(tmpDir, { now: mon }) === null);
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
+
   return cases;
 }
 
@@ -396,6 +455,8 @@ function main() {
     window_days: days.length,
     ...body,
   };
+  const emerging = loadEmergingCandidates(OUT_DIR, { force: flags.has("--with-candidates") });
+  if (emerging) timeline.emerging_candidates = emerging;
 
   const size = writeJson(path.join(OUT_DIR, "timeline.json"), timeline);
 

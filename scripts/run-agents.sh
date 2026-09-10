@@ -136,7 +136,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
            "$AGENT_SCRIPTS/canary-check.mjs" \
            "$AGENT_SCRIPTS/build-weekly-report.mjs" \
            "$AGENT_SCRIPTS/slack-notify.sh" \
-           "$AGENT_SCRIPTS/read-slack-picks.mjs"; do
+           "$AGENT_SCRIPTS/read-slack-picks.mjs" \
+           "$AGENT_SCRIPTS/discover-trends.mjs"; do
         [[ -f "$f" ]]; chk "S-1 執行檔存在：${f#$REPO_DIR/}" $?
     done
 
@@ -215,6 +216,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
   chk "S-6s read-slack-picks 自測（21 條：缺 slack.env／缺 token／無 sent log／離線／ok:false 皆 exit 0 零寫入、✅ 全收、回覆 P-nnn 部分收、dry-run 不寫、token 不進輸出、memory 零改動）" $?
   node "$AGENT_SCRIPTS/check-signal-health.mjs" --self-test >/dev/null 2>&1
   chk "S-6t check-signal-health 自測（T-1..T-11：全 0→yellow、有評分→green、缺 jsonl／缺游標容忍、事件 schema、key 白名單零外洩、dry-run 零寫、門檻讀 canaries.json、視窗外不計、壞行容忍）" $?
+  node "$AGENT_SCRIPTS/discover-trends.mjs" --self-test >/dev/null 2>&1
+  chk "S-6u discover-trends 自測（T-1..T-11：RSS、Atom、壞 XML、單 feed 逾時、新穎度、空 registry、dry-run 零 fetch 零寫、混合 feeds 計數、候選欄位、schema、總期限＋併發 ≤ 5；假 fetch 不打網路）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -431,6 +434,8 @@ SIGNAL_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && SIGNAL_EXTRA=(--dry-run)
 PICKS_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && PICKS_EXTRA=(--dry-run)
+DISCOVER_EXTRA=()
+[[ $DRY_RUN -eq 1 ]] && DISCOVER_EXTRA=(--dry-run)
 # 08f slack-notify 走 bash -c 固定字串，dry-run 用環境變數告知：只印 payload 摘要、不打 Slack（token 照樣不進輸出）。
 [[ $DRY_RUN -eq 1 ]] && export SLACK_NOTIFY_DRY_RUN=1
 
@@ -463,6 +468,11 @@ FAILED_STEP=""
 # 00d：讀回週報在 Slack 的 ✅／[P-nnn] 回覆 → .preview/precedent-picks.json（Phase 3-F）。
 #      每晚跑、非阻塞；缺 slack.env 或離線都 exit 0。只記「人挑了哪幾筆」，不動 memory/。
 run_step "00d-slack-picks" node "$AGENT_SCRIPTS/read-slack-picks.mjs" ${PICKS_EXTRA[@]+"${PICKS_EXTRA[@]}"}
+FAILED_STEP=""
+# 00f：RSS 探索管線（learning-loop v1 L-4）。抓 sources-registry.json 的 115 個 feed
+#      （併發 ≤ 5、單 feed 10 秒、總 90 秒），對 90 天語料算標題新穎度 → .preview/emerging-candidates.json。
+#      非阻塞：離線／全部逾時仍 exit 0，候選只是週一 trend-analyst 的附件與 L-5/L-6 的輸入。
+run_step "00f-discover-trends" node "$AGENT_SCRIPTS/discover-trends.mjs" ${DISCOVER_EXTRA[@]+"${DISCOVER_EXTRA[@]}"}
 FAILED_STEP=""
 run_step "01-insights"      node "$AGENT_SCRIPTS/build-insights.mjs" --window "$INSIGHTS_WINDOW"
 run_step "02-timeline"      node "$AGENT_SCRIPTS/build-timeline.mjs" --window "$TIMELINE_WINDOW"
