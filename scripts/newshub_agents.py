@@ -165,6 +165,7 @@ def project(payload: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, An
         "window": payload.get("window"),
         "cluster_count": len(kept),
         "truncated_clusters": max(0, len(clusters) - len(kept)),
+        "emerging_candidates": payload.get("emerging_candidates"),
     }
     return kept, meta
 

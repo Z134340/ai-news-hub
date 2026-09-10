@@ -8,5 +8,10 @@
   },
   "signal_health": {
     "silent_nights": 7
+  },
+  "exploration": {
+    "quota": 0.25,
+    "source_cap": 0.3,
+    "hhi_cap": 0.25
   }
 }

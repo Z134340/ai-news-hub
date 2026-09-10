@@ -83,6 +83,128 @@ function readJsonIfExists(file, fallback) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// learning-loop v1 L-5：探索配額（C5）。
+// 六個叢集是固定主題，不能被擠掉，所以探索名額採「附加」：k = round(base × q/(1−q))，
+// 使 k/(base+k) ≈ quota。數字只讀 agents/_control/canaries.json 的 exploration 區塊；
+// 候選只讀 .preview/emerging-candidates.json（00f 產出）。輸出只留 source_domain /
+// category / tier / novelty / published_at，不帶 title 與 link——candidates.json 是
+// promote 的 COPY 檔，原始標題／URL 只能留在 repo 外。
+const CANARIES_FILE = path.join(ROOT, "agents/_control/canaries.json");
+const EMERGING_FILE = path.join(ROOT, "data/agent/.preview/emerging-candidates.json");
+const EXPLORATION_FIELDS = ["quota", "source_cap", "hhi_cap"];
+
+function loadExplorationConfig(file = CANARIES_FILE) {
+  const doc = readJsonIfExists(file, null);
+  const cfg = doc && typeof doc.exploration === "object" && doc.exploration ? doc.exploration : null;
+  if (!cfg) return { enabled: false, reason: "canaries.json 缺 exploration 區塊" };
+  for (const k of EXPLORATION_FIELDS) {
+    const v = cfg[k];
+    if (!Number.isFinite(v) || v < 0 || v > 1) return { enabled: false, reason: `exploration.${k} 不是 0~1 的數字` };
+  }
+  return { enabled: true, quota: cfg.quota, source_cap: cfg.source_cap, hhi_cap: cfg.hhi_cap };
+}
+
+function loadEmergingCandidates(file = EMERGING_FILE) {
+  const doc = readJsonIfExists(file, null);
+  const list = doc && Array.isArray(doc.candidates) ? doc.candidates : [];
+  return list
+    .filter((c) => c && typeof c.source_domain === "string" && c.source_domain)
+    .map((c) => ({
+      source_domain: c.source_domain,
+      category: String(c.category || ""),
+      tier: String(c.tier || ""),
+      novelty: Number.isFinite(c.novelty) ? c.novelty : 0,
+      published_at: c.published_at || null,
+    }));
+}
+
+// Herfindahl–Hirschman index：各來源網域佔比平方和，1 = 全部同一網域。空集合回 0。
+function hhiOf(domains) {
+  if (!domains.length) return 0;
+  const counts = {};
+  for (const d of domains) counts[d] = (counts[d] || 0) + 1;
+  return Object.values(counts).reduce((acc, n) => acc + (n / domains.length) ** 2, 0);
+}
+
+function explorationSlots(baseCount, quota) {
+  if (!(quota > 0) || quota >= 1 || baseCount <= 0) return 0;
+  return Math.round((baseCount * quota) / (1 - quota));
+}
+
+// 候選排序：novelty 高者先、published_at 新者先、再 source_domain 字典序——決定論。
+function sortCandidates(list) {
+  return [...list].sort((a, b) =>
+    (b.novelty - a.novelty)
+    || String(b.published_at || "").localeCompare(String(a.published_at || ""))
+    || a.source_domain.localeCompare(b.source_domain));
+}
+
+// 貪婪挑 k 筆：任一網域最多 floor(k × source_cap) 筆，但至少 1 筆（否則名額小時什麼都挑不到）；
+// 填不滿就少填，不放寬。
+function pickWithSourceCap(sorted, k, sourceCap) {
+  const allowed = Math.max(1, Math.floor(k * sourceCap));
+  const picked = [];
+  const perDomain = {};
+  for (const c of sorted) {
+    if (picked.length >= k) break;
+    const next = (perDomain[c.source_domain] || 0) + 1;
+    if (next > allowed) continue;
+    perDomain[c.source_domain] = next;
+    picked.push(c);
+  }
+  return picked;
+}
+
+// 主流程：排序後保留名額 → 單網域 cap → HHI 超限就把最集中網域降權（每輪拿掉一筆）重抽補位。
+// 回傳值永遠帶 exploration_share 與 hhi 兩個數字；沒候選或關閉時退回原排序（share 0）。
+function applyExplorationQuota(clusters, candidates, cfg) {
+  const base = clusters.length;
+  const empty = (reason) => ({
+    enabled: false, reason, quota: cfg.quota ?? null, source_cap: cfg.source_cap ?? null, hhi_cap: cfg.hhi_cap ?? null,
+    reserved_slots: 0, candidate_pool: candidates.length, demoted_domains: [], selected: [],
+    exploration_share: 0, hhi: 0,
+  });
+  if (!cfg.enabled) return empty(cfg.reason);
+  if (!candidates.length) return empty("無候選，退回原排序");
+  const k = explorationSlots(base, cfg.quota);
+  if (k === 0) return empty("配額換算後名額為 0");
+
+  const sorted = sortCandidates(candidates);
+  const demoted = [];
+  let pool = sorted;
+  let picked = pickWithSourceCap(pool, k, cfg.source_cap);
+  let hhi = hhiOf(picked.map((c) => c.source_domain));
+  // 重抽：HHI 超限時，找出已選集合裡最集中的網域，從候選池拿掉它排最後的一筆，再抽一次。
+  // 每輪池子嚴格變小，必定終止。兩個停損：①已選網域全不重複時 HHI = 1/n 是下限，再抽也降不了
+  //（名額 k 小時 hhi_cap 可能永遠達不到，例如 k=2 下限就是 0.5）；②重抽反而填得更少就保留前一輪——
+  // 名額填滿優先於 HHI。
+  for (let guard = 0; hhi > cfg.hhi_cap && picked.length > 0 && guard < sorted.length; guard++) {
+    const counts = {};
+    for (const c of picked) counts[c.source_domain] = (counts[c.source_domain] || 0) + 1;
+    const ranked = Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    if (ranked[0][1] <= 1) break;
+    const top = ranked[0][0];
+    let idx = -1;
+    for (let i = pool.length - 1; i >= 0; i--) if (pool[i].source_domain === top) { idx = i; break; }
+    if (idx < 0) break;
+    const nextPool = pool.filter((_, i) => i !== idx);
+    const nextPicked = pickWithSourceCap(nextPool, k, cfg.source_cap);
+    if (nextPicked.length < picked.length) break;
+    pool = nextPool;
+    demoted.push(top);
+    picked = nextPicked;
+    hhi = hhiOf(picked.map((c) => c.source_domain));
+  }
+  const share = picked.length ? picked.length / (base + picked.length) : 0;
+  return {
+    enabled: true, reason: null, quota: cfg.quota, source_cap: cfg.source_cap, hhi_cap: cfg.hhi_cap,
+    reserved_slots: k, candidate_pool: candidates.length, demoted_domains: [...new Set(demoted)],
+    selected: picked.map((c, i) => ({ rank: i + 1, ...c })),
+    exploration_share: round3(share), hhi: round3(hhi),
+  };
+}
+
 // 學習側寫（learning-profile.json）目前是全 1 的中性權重。之後 events.jsonl 有流量、
 // replay 跑起來以後，topic_weights 會開始偏離 1，趨勢排序就會反映人審的實際偏好。
 function loadProfile() {
@@ -355,6 +477,32 @@ function selfTest() {
     console.log("  skip 決定論檢查：找不到每日檔，無法取樣");
   }
 
+  // L-5 探索配額：數字用假設定，不依賴 canaries.json 現值。
+  const cfg = { enabled: true, quota: 0.25, source_cap: 0.30, hhi_cap: 0.25 };
+  const fakeClusters = Array.from({ length: 6 }, (_, i) => ({ cluster_id: `c${i}` }));
+  const mk = (domain, i, novelty = 1) => ({ source_domain: domain, category: "papers", tier: "B", novelty, published_at: `2026-09-0${(i % 9) + 1}T00:00:00.000Z` });
+  const spread = ["a.example", "b.example", "c.example", "d.example", "e.example", "f.example", "g.example", "h.example"].map((d, i) => mk(d, i));
+  const q1 = applyExplorationQuota(fakeClusters, spread, cfg);
+  check("配額保底：6 叢集 → 2 名額、share = 0.25", q1.reserved_slots === 2 && q1.selected.length === 2 && q1.exploration_share === 0.25);
+  const q0 = applyExplorationQuota(fakeClusters, [], cfg);
+  check("無候選時退回原排序：share 0、hhi 0、selected 空", q0.enabled === false && q0.exploration_share === 0 && q0.hhi === 0 && q0.selected.length === 0);
+  const big = Array.from({ length: 20 }, (_, i) => ({ cluster_id: `c${i}` }));  // 20 叢集 → 7 名額
+  const oneDomain = Array.from({ length: 10 }, (_, i) => mk("arxiv.org", i)).concat(spread);
+  const q2 = applyExplorationQuota(big, oneDomain, cfg);
+  const arxivShare = q2.selected.filter((c) => c.source_domain === "arxiv.org").length / q2.reserved_slots;
+  check("單網域 cap：arxiv 佔比 ≤ 0.30 且名額填滿", q2.reserved_slots === 7 && q2.selected.length === 7 && arxivShare <= 0.30);
+  const twoDomains = Array.from({ length: 6 }, (_, i) => mk(i % 2 ? "x.example" : "y.example", i)).concat(spread.map((c) => ({ ...c, novelty: 0.7 })));
+  const loose = { ...cfg, source_cap: 0.5 };  // 單網域 cap 放寬到 3/7，讓 HHI（19/49）成為唯一超限的閘
+  const q3 = applyExplorationQuota(big, twoDomains, loose);
+  check("HHI cap：兩大網域超限後降權補位，HHI ≤ 0.25 且名額仍填滿", q3.hhi <= 0.25 && q3.demoted_domains.length > 0 && q3.selected.length === 7);
+  const q3b = JSON.stringify(applyExplorationQuota(big, twoDomains, loose));
+  const q4 = applyExplorationQuota(fakeClusters, [mk("a.example", 0), mk("a.example", 1), mk("a.example", 2)], cfg);
+  check("HHI 下限停損：名額 2、候選單一網域 → 只填 1 筆、不清空", q4.selected.length === 1 && q4.hhi === 1);
+  check("探索結果決定論：同輸入兩次逐字元相同", q3b === JSON.stringify(q3));
+  check("HHI：全同網域 = 1、四網域各一 = 0.25、空集合 = 0", hhiOf(["a", "a"]) === 1 && Math.abs(hhiOf(["a", "b", "c", "d"]) - 0.25) < 1e-9 && hhiOf([]) === 0);
+  check("設定缺失或越界時關閉配額而非炸開", applyExplorationQuota(fakeClusters, spread, { enabled: false, reason: "x" }).enabled === false
+    && loadExplorationConfig(path.join(ROOT, "no-such-file.json")).enabled === false);
+
   const failed = cases.filter(([, ok]) => !ok);
   for (const [label, ok] of cases) console.log(`  ${ok ? "ok  " : "FAIL"} ${label}`);
   console.log(`self-test: ${cases.length - failed.length}/${cases.length}`);
@@ -396,11 +544,15 @@ function main() {
     input_summary: { total_items: totalItems, window_days: days.length, categories: categoryCounts },
     clusters,
   };
+  const exploration = applyExplorationQuota(clusters, loadEmergingCandidates(), loadExplorationConfig());
   const candidates = {
     ...meta,
     schema_version: "agent-candidates-v0.1",
     candidate_count: clusters.length,
     candidates: buildCandidates(clusters, meta),
+    exploration_share: exploration.exploration_share,
+    hhi: exploration.hhi,
+    exploration,
   };
   const recommendations = {
     ...meta,
@@ -428,6 +580,9 @@ function main() {
       clusters: clusters.map((c) => ({ cluster_id: c.cluster_id, score: c.score, evidence_count: c.evidence_count })),
       profile_version: profile.profile_version,
       promoted: PROMOTE,
+      exploration_share: exploration.exploration_share,
+      hhi: exploration.hhi,
+      exploration_slots: exploration.selected.length,
     },
   });
 
@@ -436,6 +591,7 @@ function main() {
   for (const c of clusters) {
     console.log(`  ${c.score.toFixed(3)}  ${c.cluster_id.padEnd(28)} 出現 ${String(c.evidence_count).padStart(4)} 次 / 不重複 ${String(c.unique_item_count).padStart(3)} 則 / 金融相關 ${c.score_breakdown.financial_relevance}`);
   }
+  console.log(`探索配額：${exploration.enabled ? `名額 ${exploration.reserved_slots}、實填 ${exploration.selected.length}、share ${exploration.exploration_share}、HHI ${exploration.hhi}${exploration.demoted_domains.length ? `、降權 ${exploration.demoted_domains.join(",")}` : ""}` : `未套用（${exploration.reason}）`}`);
   console.log(`檔案大小：trends ${sizes.trends}B、candidates ${sizes.candidates}B、recommendations ${sizes.recommendations}B`);
   const stats = ledgerStats();
   console.log(`共享帳本：${stats.events_count} 筆事件 ${JSON.stringify(stats.event_types)}`);
