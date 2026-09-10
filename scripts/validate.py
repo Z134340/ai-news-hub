@@ -132,6 +132,41 @@ TRUSTED_DOMAINS = {
     'learn.microsoft.com',
 }
 
+# Tier B 擴充白名單（learning-loop v1 L-3；add-only，只增不減，決策 4）
+# 由 apply-change.mjs add_domain 維護（整檔即 TIER_B_DOMAINS 區段），validate.py 只讀不寫。
+TIER_B_DOMAINS_PATH = Path(__file__).parent / 'tier-b-domains.json'
+SOURCES_REGISTRY_PATH = Path(__file__).parent / 'sources-registry.json'
+
+
+def _normalize_domain(d):
+    d = str(d).strip().lower()
+    if d.startswith('www.'):
+        d = d[4:]
+    return d
+
+
+def load_tier_b_domains(path=TIER_B_DOMAINS_PATH):
+    """讀 tier-b-domains.json 的 domains[]；檔案缺失／格式錯誤一律回空集合，不中斷驗證。"""
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            doc = json.load(f)
+        raw = doc.get('domains', []) if isinstance(doc, dict) else []
+        return {_normalize_domain(d) for d in raw if isinstance(d, str) and d.strip()}
+    except FileNotFoundError:
+        return set()
+    except Exception as e:
+        logger.warning(f"tier-b-domains.json unreadable, ignored: {e}")
+        return set()
+
+
+def merge_tier_b(trusted, tier_b):
+    """add-only：只把 tier_b 併入 trusted，絕不移除既有項目。"""
+    trusted |= set(tier_b)
+    return trusted
+
+
+TRUSTED_DOMAINS = merge_tier_b(TRUSTED_DOMAINS, load_tier_b_domains())
+
 # Required fields per category
 REQUIRED_FIELDS = {
     'papers': ['title', 'authors', 'date', 'summary', 'url'],
@@ -687,6 +722,77 @@ def save_latest_json(repo_root, data, results):
     logger.info(f"Updated {latest_path}")
 
 
+def run_self_test():
+    """不打網路的自測：tier-b 載入、add-only 合併、白名單判定、registry 結構。"""
+    import tempfile
+    failures = []
+
+    def check(name, cond):
+        print(f"  [{'PASS' if cond else 'FAIL'}] {name}")
+        if not cond:
+            failures.append(name)
+
+    with tempfile.TemporaryDirectory() as td:
+        td = Path(td)
+        check('missing tier-b file -> empty set', load_tier_b_domains(td / 'nope.json') == set())
+        bad = td / 'bad.json'
+        bad.write_text('{not json', encoding='utf-8')
+        check('malformed tier-b file -> empty set', load_tier_b_domains(bad) == set())
+        good = td / 'good.json'
+        good.write_text(json.dumps({'schema': 'tier-b-domains-v0.1',
+                                    'domains': ['WWW.Example-B.com', 'sub.example-b.org', '', 7]}),
+                        encoding='utf-8')
+        loaded = load_tier_b_domains(good)
+        check('lowercase + strip www. + drop empty/non-str',
+              loaded == {'example-b.com', 'sub.example-b.org'})
+        base = {'arxiv.org', 'openai.com'}
+        merged = merge_tier_b(set(base), loaded)
+        check('merge is add-only (base kept)', base <= merged and loaded <= merged)
+        check('merge adds nothing else', merged == base | loaded)
+
+    real = load_tier_b_domains()
+    check('repo tier-b-domains.json readable and non-empty', len(real) > 0)
+    check('repo tier-b domains all merged into TRUSTED_DOMAINS', real <= TRUSTED_DOMAINS)
+    sample = sorted(real)[0]
+    ok, dom = check_domain_whitelist(f'https://www.{sample}/x/y')
+    check(f'check_domain_whitelist accepts tier-b domain ({sample})', ok and dom == sample)
+    ok2, _ = check_domain_whitelist('https://definitely-not-listed.invalid/')
+    check('check_domain_whitelist rejects unlisted domain', not ok2)
+    try:
+        with open(TIER_B_DOMAINS_PATH, 'r', encoding='utf-8') as f:
+            doc = json.load(f)
+        check('tier-b schema tag', doc.get('schema') == 'tier-b-domains-v0.1')
+        ds = doc.get('domains', [])
+        check('tier-b domains sorted lowercase unique',
+              ds == sorted(set(ds)) and all(d == d.lower() and '/' not in d for d in ds))
+    except Exception as e:
+        check(f'tier-b file parse ({e})', False)
+
+    try:
+        with open(SOURCES_REGISTRY_PATH, 'r', encoding='utf-8') as f:
+            reg = json.load(f)
+        cats = reg.get('categories', {})
+        check('registry schema tag', reg.get('schema') == 'sources-registry-v0.1')
+        check('registry checked_at is YYYY-MM-DD',
+              bool(datetime.strptime(str(reg.get('checked_at', '')), '%Y-%m-%d')))
+        check('registry has exactly the 10 categories', set(cats) == set(REQUIRED_FIELDS))
+        check('registry every category >= 3 feeds', all(len(v) >= 3 for v in cats.values()))
+        entries = [e for v in cats.values() for e in v]
+        check('registry entries have name/tier/feed/type',
+              all(e.get('name') and e.get('tier') in ('A', 'B', 'C')
+                  and str(e.get('feed', '')).startswith('https://')
+                  and e.get('type') in ('rss', 'atom', 'rdf') for e in entries))
+        check('registry feeds unique within each category',
+              all(len({e['feed'] for e in v}) == len(v) for v in cats.values()))
+    except Exception as e:
+        check(f'registry parse ({e})', False)
+
+    total = len(failures)
+    print(f"self-test: {total} failed")
+    return 1 if failures else 0
+
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Comprehensive validation script for AI News Hub'
@@ -702,8 +808,16 @@ def main():
         action='store_true',
         help='Report only, do not modify files'
     )
+    parser.add_argument(
+        '--self-test',
+        action='store_true',
+        help='Run offline self-tests (tier-b whitelist merge, registry shape) and exit'
+    )
 
     args = parser.parse_args()
+
+    if args.self_test:
+        return run_self_test()
 
     repo_root = get_repo_root()
     logger.info(f"Repository root: {repo_root}")

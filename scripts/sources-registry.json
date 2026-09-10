@@ -1,0 +1,956 @@
+{
+  "schema": "sources-registry-v0.1",
+  "checked_at": "2026-09-11",
+  "check_method": "curl -sI（HEAD、不跟隨轉址）直接回 200；feed 另以 GET 取前 4KB，須含 <rss、<feed 或 rdf:RDF。site 為 null 表示官方站 HEAD 非 200（多為 Cloudflare 403），只登錄 feed。",
+  "tier_legend": {
+    "A": "官方一手來源（廠商／機構／學術）",
+    "B": "主流媒體或高品質專業媒體",
+    "C": "社群／個人／聚合，僅供探索不入白名單"
+  },
+  "consumers": [
+    "scripts/agent/discover-trends.mjs（L-4，讀 categories.*.feed）",
+    "scripts/validate.py --self-test（只驗結構）"
+  ],
+  "categories": {
+    "topnews": [
+      {
+        "name": "OpenAI News",
+        "tier": "A",
+        "lang": "en",
+        "site": null,
+        "feed": "https://openai.com/news/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Google Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://blog.google/",
+        "feed": "https://blog.google/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://deepmind.google/blog/",
+        "feed": "https://deepmind.google/blog/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Microsoft Source AI",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://news.microsoft.com/source/topics/ai/",
+        "feed": "https://news.microsoft.com/source/topics/ai/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "NVIDIA Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://blogs.nvidia.com/",
+        "feed": "https://blogs.nvidia.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "TechCrunch AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://techcrunch.com/category/artificial-intelligence/",
+        "feed": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "The Verge AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.theverge.com/ai-artificial-intelligence",
+        "feed": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "type": "atom"
+      },
+      {
+        "name": "Ars Technica AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://arstechnica.com/ai/",
+        "feed": "https://arstechnica.com/ai/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "MIT Technology Review",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.technologyreview.com/",
+        "feed": "https://www.technologyreview.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "The Decoder",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://the-decoder.com/",
+        "feed": "https://the-decoder.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "MarkTechPost",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.marktechpost.com/",
+        "feed": "https://www.marktechpost.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Hacker News AI (hnrss)",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://hnrss.github.io/",
+        "feed": "https://hnrss.org/newest?q=AI",
+        "type": "rss"
+      }
+    ],
+    "taiwan": [
+      {
+        "name": "iThome",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://www.ithome.com.tw/",
+        "feed": "https://www.ithome.com.tw/rss",
+        "type": "rss"
+      },
+      {
+        "name": "TechNews 科技新報",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://technews.tw/",
+        "feed": "https://technews.tw/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "TechNews 財經新報",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://finance.technews.tw/",
+        "feed": "https://finance.technews.tw/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "中央社 CNA 科技",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://www.cna.com.tw/",
+        "feed": "https://feeds.feedburner.com/rsscna/technology",
+        "type": "rss"
+      },
+      {
+        "name": "Meet 創業小聚",
+        "tier": "C",
+        "lang": "zh-TW",
+        "site": "https://meet.bnext.com.tw/",
+        "feed": "https://rss.bnextmedia.com.tw/feed/meet/rss",
+        "type": "rss"
+      },
+      {
+        "name": "數位時代 bnext",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://www.bnext.com.tw/",
+        "feed": "https://rss.bnextmedia.com.tw/feed/bnext/rss",
+        "type": "rss"
+      },
+      {
+        "name": "iThome AI 專區",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://www.ithome.com.tw/tags/ai",
+        "feed": "https://www.ithome.com.tw/rss/ai",
+        "type": "rss"
+      },
+      {
+        "name": "經濟日報 科技",
+        "tier": "B",
+        "lang": "zh-TW",
+        "site": "https://money.udn.com/money/cate/5591",
+        "feed": "https://money.udn.com/rssfeed/news/1001/5591/5612?ch=money",
+        "type": "rss"
+      },
+      {
+        "name": "自由時報 財經科技",
+        "tier": "C",
+        "lang": "zh-TW",
+        "site": null,
+        "feed": "https://news.ltn.com.tw/rss/business.xml",
+        "type": "rss"
+      }
+    ],
+    "china": [
+      {
+        "name": "量子位 QbitAI",
+        "tier": "B",
+        "lang": "zh-CN",
+        "site": "https://www.qbitai.com/",
+        "feed": "https://www.qbitai.com/feed",
+        "type": "rss"
+      },
+      {
+        "name": "TechNode",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://technode.com/",
+        "feed": "https://technode.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "SCMP Tech",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.scmp.com/tech",
+        "feed": "https://www.scmp.com/rss/36/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "新智元",
+        "tier": "C",
+        "lang": "zh-CN",
+        "site": "https://aiera.com.cn/",
+        "feed": "https://aiera.com.cn/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "IT之家",
+        "tier": "C",
+        "lang": "zh-CN",
+        "site": "https://www.ithome.com/",
+        "feed": "https://www.ithome.com/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "雷鋒網 Leiphone",
+        "tier": "C",
+        "lang": "zh-CN",
+        "site": "https://www.leiphone.com/",
+        "feed": "https://www.leiphone.com/feed",
+        "type": "rss"
+      },
+      {
+        "name": "Qwen Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://qwenlm.github.io/",
+        "feed": "https://qwenlm.github.io/blog/index.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Baidu AI (Paddle) GitHub",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://github.com/PaddlePaddle/PaddleNLP/releases",
+        "feed": "https://github.com/PaddlePaddle/PaddleNLP/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "DeepSeek GitHub",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://github.com/deepseek-ai",
+        "feed": "https://github.com/deepseek-ai/DeepSeek-V3/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "Qwen GitHub Releases",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://github.com/QwenLM/Qwen3/releases",
+        "feed": "https://github.com/QwenLM/Qwen3/releases.atom",
+        "type": "atom"
+      }
+    ],
+    "usa": [
+      {
+        "name": "TechCrunch AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://techcrunch.com/category/artificial-intelligence/",
+        "feed": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "The Verge AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.theverge.com/ai-artificial-intelligence",
+        "feed": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "type": "atom"
+      },
+      {
+        "name": "WIRED AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.wired.com/tag/artificial-intelligence/",
+        "feed": "https://www.wired.com/feed/tag/ai/latest/rss",
+        "type": "rss"
+      },
+      {
+        "name": "Ars Technica AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://arstechnica.com/ai/",
+        "feed": "https://arstechnica.com/ai/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "MIT Technology Review",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.technologyreview.com/",
+        "feed": "https://www.technologyreview.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "NYT Technology",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.nytimes.com/section/technology",
+        "feed": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+        "type": "rss"
+      },
+      {
+        "name": "NIST News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.nist.gov/news-events/news",
+        "feed": "https://www.nist.gov/news-events/news/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "White House News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.whitehouse.gov/",
+        "feed": "https://www.whitehouse.gov/news/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "CISA News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.cisa.gov/news-events/news",
+        "feed": "https://www.cisa.gov/news.xml",
+        "type": "rss"
+      },
+      {
+        "name": "The Decoder",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://the-decoder.com/",
+        "feed": "https://the-decoder.com/feed/",
+        "type": "rss"
+      }
+    ],
+    "techtrends": [
+      {
+        "name": "Hugging Face Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://huggingface.co/blog",
+        "feed": "https://huggingface.co/blog/feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Google Research Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://research.google/blog/",
+        "feed": "https://research.google/blog/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "Google Developers Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://developers.googleblog.com/",
+        "feed": "https://developers.googleblog.com/feeds/posts/default/",
+        "type": "rss"
+      },
+      {
+        "name": "AWS Machine Learning Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://aws.amazon.com/blogs/machine-learning/",
+        "feed": "https://aws.amazon.com/blogs/machine-learning/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Microsoft Azure Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://azure.microsoft.com/en-us/blog/",
+        "feed": "https://azure.microsoft.com/en-us/blog/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Cloudflare Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://blog.cloudflare.com/",
+        "feed": "https://blog.cloudflare.com/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "LangChain Blog",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.langchain.com/blog",
+        "feed": "https://www.langchain.com/blog/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "PyTorch Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://pytorch.org/blog/",
+        "feed": "https://pytorch.org/blog/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "GitHub Blog AI",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://github.blog/ai-and-ml/",
+        "feed": "https://github.blog/ai-and-ml/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Simon Willison",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://simonwillison.net/",
+        "feed": "https://simonwillison.net/atom/everything/",
+        "type": "atom"
+      },
+      {
+        "name": "Microsoft Research Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.microsoft.com/en-us/research/blog/",
+        "feed": "https://www.microsoft.com/en-us/research/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "NVIDIA Technical Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://developer.nvidia.com/blog/",
+        "feed": "https://developer.nvidia.com/blog/feed",
+        "type": "atom"
+      },
+      {
+        "name": "OpenAI Developers",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://developers.openai.com/blog",
+        "feed": "https://developers.openai.com/rss.xml",
+        "type": "rss"
+      }
+    ],
+    "governance": [
+      {
+        "name": "NIST News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.nist.gov/news-events/news",
+        "feed": "https://www.nist.gov/news-events/news/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "OWASP GenAI Security Project",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://genai.owasp.org/",
+        "feed": "https://genai.owasp.org/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "UK AI Security Institute",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.aisi.gov.uk/",
+        "feed": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
+        "type": "atom"
+      },
+      {
+        "name": "UK DSIT",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
+        "feed": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
+        "type": "atom"
+      },
+      {
+        "name": "UK NCSC",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.ncsc.gov.uk/",
+        "feed": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "CISA News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.cisa.gov/news-events/news",
+        "feed": "https://www.cisa.gov/news.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Federal Register AI",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.federalregister.gov/",
+        "feed": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bterm%5D=artificial+intelligence",
+        "type": "rss"
+      },
+      {
+        "name": "CSET Georgetown",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://cset.georgetown.edu/",
+        "feed": "https://cset.georgetown.edu/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Alignment Forum",
+        "tier": "C",
+        "lang": "en",
+        "site": null,
+        "feed": "https://www.alignmentforum.org/feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "EFF Deeplinks",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.eff.org/deeplinks",
+        "feed": "https://www.eff.org/rss/updates.xml",
+        "type": "rss"
+      },
+      {
+        "name": "AI Now / Ada Lovelace Institute",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.adalovelaceinstitute.org/",
+        "feed": "https://www.adalovelaceinstitute.org/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Future of Life Institute",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://futureoflife.org/",
+        "feed": "https://futureoflife.org/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "MIT Sloan Management Review AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://sloanreview.mit.edu/",
+        "feed": "https://sloanreview.mit.edu/feed/",
+        "type": "rss"
+      }
+    ],
+    "papers": [
+      {
+        "name": "arXiv cs.AI",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://arxiv.org/list/cs.AI/recent",
+        "feed": "https://rss.arxiv.org/rss/cs.AI",
+        "type": "rss"
+      },
+      {
+        "name": "arXiv cs.CL",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://arxiv.org/list/cs.CL/recent",
+        "feed": "https://rss.arxiv.org/rss/cs.CL",
+        "type": "rss"
+      },
+      {
+        "name": "arXiv cs.LG",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://arxiv.org/list/cs.LG/recent",
+        "feed": "https://rss.arxiv.org/rss/cs.LG",
+        "type": "rss"
+      },
+      {
+        "name": "arXiv cs.CR",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://arxiv.org/list/cs.CR/recent",
+        "feed": "https://rss.arxiv.org/rss/cs.CR",
+        "type": "rss"
+      },
+      {
+        "name": "arXiv cs.MA",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://arxiv.org/list/cs.MA/recent",
+        "feed": "https://rss.arxiv.org/rss/cs.MA",
+        "type": "rss"
+      },
+      {
+        "name": "Stanford AI Lab Blog",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://ai.stanford.edu/blog/",
+        "feed": "https://ai.stanford.edu/blog/feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "MIT News AI",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://news.mit.edu/topic/artificial-intelligence2",
+        "feed": "https://news.mit.edu/rss/topic/artificial-intelligence2",
+        "type": "rss"
+      },
+      {
+        "name": "Google Research Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://research.google/blog/",
+        "feed": "https://research.google/blog/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "Microsoft Research Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.microsoft.com/en-us/research/blog/",
+        "feed": "https://www.microsoft.com/en-us/research/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://deepmind.google/blog/",
+        "feed": "https://deepmind.google/blog/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Alignment Forum",
+        "tier": "C",
+        "lang": "en",
+        "site": null,
+        "feed": "https://www.alignmentforum.org/feed.xml",
+        "type": "rss"
+      }
+    ],
+    "tutorials": [
+      {
+        "name": "Hugging Face Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://huggingface.co/blog",
+        "feed": "https://huggingface.co/blog/feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "LangChain Blog",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.langchain.com/blog",
+        "feed": "https://www.langchain.com/blog/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "PyTorch Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://pytorch.org/blog/",
+        "feed": "https://pytorch.org/blog/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Simon Willison",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://simonwillison.net/",
+        "feed": "https://simonwillison.net/atom/everything/",
+        "type": "atom"
+      },
+      {
+        "name": "Towards Data Science",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://towardsdatascience.com/",
+        "feed": "https://towardsdatascience.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Lilian Weng",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://lilianweng.github.io/",
+        "feed": "https://lilianweng.github.io/index.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Eugene Yan",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://eugeneyan.com/",
+        "feed": "https://eugeneyan.com/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "Chip Huyen",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://huyenchip.com/",
+        "feed": "https://huyenchip.com/feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "GitHub Blog AI",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://github.blog/ai-and-ml/",
+        "feed": "https://github.blog/ai-and-ml/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "NVIDIA Technical Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://developer.nvidia.com/blog/",
+        "feed": "https://developer.nvidia.com/blog/feed",
+        "type": "atom"
+      },
+      {
+        "name": "freeCodeCamp News",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.freecodecamp.org/news/",
+        "feed": "https://www.freecodecamp.org/news/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "Google Developers Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://developers.googleblog.com/",
+        "feed": "https://developers.googleblog.com/feeds/posts/default/",
+        "type": "rss"
+      },
+      {
+        "name": "MarkTechPost",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.marktechpost.com/",
+        "feed": "https://www.marktechpost.com/feed/",
+        "type": "rss"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Coursera Blog",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://blog.coursera.org/",
+        "feed": "https://blog.coursera.org/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "fast.ai",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.fast.ai/",
+        "feed": "https://www.fast.ai/index.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Udacity Blog",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.udacity.com/blog",
+        "feed": "https://www.udacity.com/blog/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "freeCodeCamp News",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.freecodecamp.org/news/",
+        "feed": "https://www.freecodecamp.org/news/rss/",
+        "type": "rss"
+      },
+      {
+        "name": "Google Developers Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://developers.googleblog.com/",
+        "feed": "https://developers.googleblog.com/feeds/posts/default/",
+        "type": "rss"
+      },
+      {
+        "name": "DeepLearning.AI YouTube",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.youtube.com/@Deeplearningai",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcIXc5mJsHVYTZR1maL5l9w",
+        "type": "atom"
+      },
+      {
+        "name": "Stanford Online YouTube",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.youtube.com/@stanfordonline",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBa5G_ESCn8Yd4vw5U-gIcg",
+        "type": "atom"
+      },
+      {
+        "name": "Andrej Karpathy YouTube",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.youtube.com/@AndrejKarpathy",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ",
+        "type": "atom"
+      },
+      {
+        "name": "Kaggle YouTube",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://www.youtube.com/@kaggle",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSNeZleDn9c74yQc-EKnVTA",
+        "type": "atom"
+      },
+      {
+        "name": "3Blue1Brown YouTube",
+        "tier": "C",
+        "lang": "en",
+        "site": "https://www.youtube.com/@3blue1brown",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
+        "type": "atom"
+      },
+      {
+        "name": "MIT OpenCourseWare YouTube",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.youtube.com/@mitocw",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEBb1b_L6zDS3xTUrIALZOw",
+        "type": "atom"
+      }
+    ],
+    "models": [
+      {
+        "name": "Hugging Face Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://huggingface.co/blog",
+        "feed": "https://huggingface.co/blog/feed.xml",
+        "type": "rss"
+      },
+      {
+        "name": "OpenAI News",
+        "tier": "A",
+        "lang": "en",
+        "site": null,
+        "feed": "https://openai.com/news/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://deepmind.google/blog/",
+        "feed": "https://deepmind.google/blog/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "NVIDIA Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://blogs.nvidia.com/",
+        "feed": "https://blogs.nvidia.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Mistral AI News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://mistral.ai/",
+        "feed": "https://mistral.ai/news/rss",
+        "type": "rss"
+      },
+      {
+        "name": "Qwen Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://qwenlm.github.io/",
+        "feed": "https://qwenlm.github.io/blog/index.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Ollama Releases",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://github.com/ollama/ollama/releases",
+        "feed": "https://github.com/ollama/ollama/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "vLLM Releases",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://github.com/vllm-project/vllm/releases",
+        "feed": "https://github.com/vllm-project/vllm/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "llama.cpp Releases",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://github.com/ggml-org/llama.cpp/releases",
+        "feed": "https://github.com/ggml-org/llama.cpp/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "Transformers Releases",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://github.com/huggingface/transformers/releases",
+        "feed": "https://github.com/huggingface/transformers/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "Microsoft Research Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://www.microsoft.com/en-us/research/blog/",
+        "feed": "https://www.microsoft.com/en-us/research/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Cohere GitHub Releases",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://github.com/cohere-ai/cohere-python/releases",
+        "feed": "https://github.com/cohere-ai/cohere-python/releases.atom",
+        "type": "atom"
+      },
+      {
+        "name": "Stability AI GitHub",
+        "tier": "B",
+        "lang": "en",
+        "site": "https://github.com/Stability-AI/generative-models/releases",
+        "feed": "https://github.com/Stability-AI/generative-models/releases.atom",
+        "type": "atom"
+      }
+    ]
+  }
+}

@@ -73,7 +73,14 @@ def title_similarity(title_a, title_b):
     return SequenceMatcher(None, a, b).ratio()
 ```
 
-**Step 3 — 域名白名單**（同前）
+**Step 3 — 域名白名單**
+- `TRUSTED_DOMAINS`（檔內硬編碼）在 import 時併入 `scripts/tier-b-domains.json` 的 `domains[]`（learning-loop v1 L-3，2026-09-11）。
+- 合併規則：**add-only**（只增不減，決策 4）；每個網域小寫、去 `www.`；檔案缺失或 JSON 壞掉 → 記 warning、視為空集合，不中斷驗證。
+- `tier-b-domains.json` 格式：`{ "schema": "tier-b-domains-v0.1", "note": "...", "domains": ["a.com", ...] }`，整檔即 `apply-change.mjs` 的 `TIER_B_DOMAINS` 區段；只允許 `add_domain` 追加，`validate.py` 只讀不寫。
+- `check_domain_whitelist(url)` 仍是去 `www.` 後精確比對（不做子網域萬用），所以 tier-b 要登錄實際文章網域（如 `blogs.nvidia.com`），不是 feed 主機。
+- 判定為 untrusted 只加 `Untrusted domain: X` 到 issues 並計 warning，不移除項目。
+- 同目錄 `scripts/sources-registry.json`（`sources-registry-v0.1`）登錄 10 分類 × 官方站與 RSS/Atom feed（`name, tier A|B|C, lang, site|null, feed, type rss|atom|rdf`；`checked_at` 為查證日，全部 `curl -sI` 直接 200 且 feed 前 4KB 含 XML 標記；`site: null` 表示官方站 HEAD 非 200 只登錄 feed）。消費者是 L-4 `discover-trends.mjs`；`validate.py` 只在 `--self-test` 驗結構。
+- `--self-test`（不打網路）：tier-b 缺檔／壞檔容忍、小寫去 www、add-only、白名單判定、registry 10 分類且每分類 ≥ 3 feed、分類內 feed 唯一，共 17 項，全 PASS 回 0。
 
 **Step 4 — 欄位完整性**（同前）
 
@@ -105,7 +112,7 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
 - 更新 stats 和 validation 摘要
 - 覆寫 latest.json + 日期歸檔
 
-接受參數：無參數=完整驗證，--category X=單類別，--dry-run=只報告
+接受參數：無參數=完整驗證，--category X=單類別，--dry-run=只報告，--self-test=離線自測後直接 exit（不讀 latest.json）
 全部 try/except 包裹，不因單一項目中斷。
 
 ---
