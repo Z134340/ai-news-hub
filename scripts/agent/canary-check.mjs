@@ -9,7 +9,10 @@
 //     任一項掉超過 revert_drop_pp 個百分點 → 由 rollback.snapshot 還原區段、status: reverted、reverted_at、
 //       帳本 canary_reverted { metric, baseline, observed, drop_pp }，還原的檔寫入 apply-change-staged.txt；
 //     否則 status: auto_applied、confirmed_at、帳本再記一筆 proposal_auto_applied（payload.stage: "confirmed"）。
-// 門檻（canary_nights、revert_drop_pp）只從 agents/_control/canaries.json 讀，程式碼不放常數（紅線②）。
+//   回滾時再數帳本裡同一 proposal_id+category 的 canary_reverted（含本次）；達 freeze_after_reverts →
+//     status: frozen、frozen_at、revert_count，帳本 proposal_frozen { revert_count, freeze_after_reverts }，
+//     apply-change.mjs 看到 frozen 一律拒絕再套用（L-7 / C8）。freeze_after_reverts 缺或 ≤ 0 → 不凍結。
+// 門檻（canary_nights、revert_drop_pp、freeze_after_reverts）只從 agents/_control/canaries.json 讀，程式碼不放常數（紅線②）。
 // 所有寫檔一律經 apply-change.mjs 的 assertWritable()（紅線①只留一處，這裡只 import 不重定義）。
 // staged.txt 分工：00c 每晚新建（列出回退的檔，可為空），08e 只追加。
 // 用法：node scripts/agent/canary-check.mjs [--root DIR] [--dry-run] [--self-test]
@@ -18,7 +21,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertWritable, splitRegion, splitPriorityKeywords, loadCanaries, run as applyRun } from "./apply-change.mjs";
-import { appendEvent as ledgerAppend } from "./lib/ledger.mjs";
+import { appendEvent as ledgerAppend, readEvents as ledgerReadEvents, EVENT_TYPES } from "./lib/ledger.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -96,10 +99,22 @@ export function run(root, opts = {}) {
   const dryRun = !!opts.dryRun;
   const log = opts.log || ((s) => console.log(s));
   const appendEvent = dryRun ? () => null : (opts.appendEvent || ledgerAppend);
-  const out = { schema: SCHEMA, dry_run: dryRun, canaries: 0, observing: 0, reverted: [], confirmed: [], skipped: [], events: [] };
+  const readEvents = opts.readEvents || ledgerReadEvents;
+  const out = { schema: SCHEMA, dry_run: dryRun, canaries: 0, observing: 0, reverted: [], confirmed: [], frozen: [], skipped: [], events: [] };
 
   const canaries = loadCanaries(root);
   const nightsNeeded = Number(canaries.canary_nights), dropPp = Number(canaries.revert_drop_pp);
+  // L-7 凍結門檻：只讀 canaries.json；缺／非數字／≤0 一律視為不凍結（不放預設常數）
+  const freezeAfter = Number(canaries.freeze_after_reverts);
+  const freezeOn = Number.isFinite(freezeAfter) && freezeAfter > 0;
+  // 帳本只在真的要回滾時才讀一次；proposal_id 每晚由 search-reviewer 重編（SP-001 會重用），所以以 id+category 計數
+  let ledgerEvents = null;
+  const priorReverts = (id, cat) => {
+    if (ledgerEvents === null) {
+      try { ledgerEvents = (readEvents() || {}).events || []; } catch { ledgerEvents = []; }
+    }
+    return ledgerEvents.filter((e) => e && e.event_type === "canary_reverted" && e.subject_type === "proposal" && e.subject_id === id && e.payload && e.payload.category === cat).length;
+  };
   if (!canaries.present || !canaries.enabled) {
     log(`canary-check：auto_opt 未啟用（canaries.json ${canaries.present ? "auto_opt.enabled=false" : "不存在"}），只印不改。`);
     out.disabled = true;
@@ -145,6 +160,7 @@ export function run(root, opts = {}) {
       if (dryRun) {
         log(`  ${id}：dry-run，${v.metric} baseline ${v.baseline} → 觀察 ${v.observed}（掉 ${v.drop_pp}pp > ${dropPp}），將回滾 ${rel} [${snap.region}]，不寫檔`);
         out.reverted.push({ id, ...v });
+        if (freezeOn && priorReverts(id, p.category) + 1 >= freezeAfter) log(`  ${id}：dry-run，回退將達 ${freezeAfter} 次（freeze_after_reverts）→ 將凍結，不寫檔`);
         continue;
       }
       fs.writeFileSync(assertWritable(root, rel, { edit: true }), restored, "utf8");
@@ -154,6 +170,15 @@ export function run(root, opts = {}) {
       out.reverted.push({ id, ...v });
       out.events.push(appendEvent({ event_type: "canary_reverted", actor: CHECKER, subject_type: "proposal", subject_id: id, payload: { metric: v.metric, baseline: v.baseline, observed: v.observed, drop_pp: v.drop_pp, nights: nights.length, category: p.category, target_files: [rel], region: snap.region } }));
       log(`  ${id}：${v.metric} baseline ${v.baseline} → 觀察 ${v.observed}（掉 ${v.drop_pp}pp > ${dropPp}），已回滾 ${rel} [${snap.region}] → reverted`);
+      if (freezeOn) {
+        const revertCount = priorReverts(id, p.category) + 1;   // 帳本裡先前的 + 本次
+        if (revertCount >= freezeAfter) {
+          Object.assign(p, { status: "frozen", frozen_at: now.toISOString(), frozen_by: CHECKER, revert_count: revertCount });
+          out.frozen.push({ id, revert_count: revertCount });
+          out.events.push(appendEvent({ event_type: "proposal_frozen", actor: CHECKER, subject_type: "proposal", subject_id: id, payload: { revert_count: revertCount, freeze_after_reverts: freezeAfter, category: p.category, target_files: [rel], region: snap.region } }));
+          log(`  ${id}：同一提案已回退 ${revertCount} 次（≥ freeze_after_reverts ${freezeAfter}）→ frozen，apply-change 不再套用`);
+        }
+      }
       continue;
     }
     if (dryRun) {
@@ -173,7 +198,7 @@ export function run(root, opts = {}) {
       index.updated_at = now.toISOString();
       fs.writeFileSync(assertWritable(root, "data/agent/proposals.json"), `${JSON.stringify(index, null, 2)}\n`, "utf8");
       for (const p of proposals) {
-        if (!p || !p.proposal_id || !(p.reverted_by === CHECKER || p.confirmed_by === CHECKER)) continue;
+        if (!p || !p.proposal_id || !(p.reverted_by === CHECKER || p.confirmed_by === CHECKER || p.frozen_by === CHECKER)) continue;
         const detailRel = `data/agent/proposals/${p.proposal_id}.json`;
         const prev = readJsonIfExists(path.join(root, detailRel)) || {};
         fs.mkdirSync(path.dirname(assertWritable(root, detailRel)), { recursive: true });
@@ -186,7 +211,7 @@ export function run(root, opts = {}) {
     fs.writeFileSync(assertWritable(root, stagedRel), staged.map((s) => `${s}\n`).join(""), "utf8");
   }
   out.changed_files = [...staged];
-  log(`canary-check：canary ${out.canaries}、觀察中 ${out.observing}、回滾 ${out.reverted.length}、確認 ${out.confirmed.length}、略過 ${out.skipped.length}${dryRun ? "（dry-run）" : ""}`);
+  log(`canary-check：canary ${out.canaries}、觀察中 ${out.observing}、回滾 ${out.reverted.length}、凍結 ${out.frozen.length}、確認 ${out.confirmed.length}、略過 ${out.skipped.length}${dryRun ? "（dry-run）" : ""}`);
   return out;
 }
 
@@ -336,6 +361,58 @@ function selfTest() {
     const p = sp(root);
     check("C-9 evaluated + production_applied:false 不被看：status 仍 evaluated、無 reverted_at、無事件", p.status === "evaluated" && p.production_applied === false && !p.reverted_at && events.length === 0 && !isActiveCanary(p));
     check("C-9b isActiveCanary 只認 status=canary 且 production_applied===true", !isActiveCanary({ status: "canary", production_applied: false }) && !isActiveCanary({ status: "evaluated", production_applied: true }) && !isActiveCanary({ status: "canary" }) && isActiveCanary({ status: "canary", production_applied: true }));
+  }
+  // C-10 凍結（L-7 / C8）：帳本已有 1 筆同 id+category 的 canary_reverted，本次再回滾 → 第 2 次 → frozen
+  //   這是 canary-check 的「golden 凍結案例」（本檔沒有 golden 目錄，以自測 fixture 充當）
+  {
+    const FREEZE = { ...CANARIES, freeze_after_reverts: 2 };
+    const priorLedger = { events: [{ event_type: "canary_reverted", actor: CHECKER, subject_type: "proposal", subject_id: "SP-001", payload: { category: "usa", metric: "verified_rate" } }], skipped: [] };
+    const drop = nightsOf(D3, Math.round((BASELINE_VR - 0.101) * 1000) / 1000);
+    // C-10a 第 2 次回退 → frozen、frozen_at、revert_count 2、兩筆事件（先 canary_reverted 再 proposal_frozen）、明細檔同步、區段已還原
+    events.length = 0;
+    const { root } = setup({ canaries: FREEZE }); roots.push(root);
+    const snapBefore = sp(root).rollback.snapshot.before;
+    addNights(root, drop);
+    const logs = []; const res = run(root, { ...opts, log: (s) => logs.push(s), readEvents: () => priorLedger });
+    const p = sp(root);
+    const detail = JSON.parse(r(root, "data/agent/proposals/SP-001.json"));
+    check("C-10a 第 2 次回退 → status frozen、frozen_at、revert_count 2、reverted_at 仍在、res.frozen 1", res.reverted.length === 1 && res.frozen.length === 1 && res.frozen[0].revert_count === 2 && p.status === "frozen" && typeof p.frozen_at === "string" && p.frozen_by === CHECKER && p.revert_count === 2 && typeof p.reverted_at === "string");
+    check("C-10a 事件兩筆：canary_reverted → proposal_frozen {revert_count 2, freeze_after_reverts 2, category usa}，無標題／URL", events.length === 2 && events[0].event_type === "canary_reverted" && events[1].event_type === "proposal_frozen" && events[1].subject_id === "SP-001" && events[1].payload.revert_count === 2 && events[1].payload.freeze_after_reverts === 2 && events[1].payload.category === "usa" && !/http|title/i.test(JSON.stringify(events[1])));
+    check("C-10a 明細檔同步 frozen、區段已還原、staged.txt 列出 usa.md、log 有「frozen」", detail.status === "frozen" && detail.revert_count === 2 && splitRegion(r(root, "scripts/prompts/usa.md"), "SEARCH_QUERIES").body === snapBefore && r(root, "data/agent/.preview/apply-change-staged.txt") === "scripts/prompts/usa.md\n" && logs.some((l) => l.includes("frozen")) && logs.some((l) => l.includes("凍結 1")));
+    // C-10b 凍結後：canary-check 再跑不再看它（canaries 0）；apply-change 再拿到同 id 的 accept → 拒絕再套用、status 仍 frozen、檔案不動
+    events.length = 0;
+    const res2 = run(root, { ...opts, readEvents: () => priorLedger });
+    const usaBefore = r(root, "scripts/prompts/usa.md");
+    const applyLogs = []; const applied = applyRun(root, { now: CHECK_NOW, log: (s) => applyLogs.push(s), appendEvent: (e) => { events.push(e); return e; } });
+    check("C-10b 凍結後 canary-check 不再看（canaries 0、無事件）；apply-change 拒絕再套用（applied 0、status 仍 frozen、檔案不動、log 有「拒絕再套用」）", res2.canaries === 0 && events.length === 0 && applied.applied === 0 && sp(root).status === "frozen" && r(root, "scripts/prompts/usa.md") === usaBefore && applyLogs.some((l) => l.includes("拒絕再套用")));
+    // C-10c 同 id 但不同 category 的舊回退不計 → 只算第 1 次 → reverted 不 frozen
+    events.length = 0;
+    const otherCat = { events: [{ event_type: "canary_reverted", subject_type: "proposal", subject_id: "SP-001", payload: { category: "taiwan" } }], skipped: [] };
+    const { root: rc } = setup({ canaries: FREEZE }); roots.push(rc);
+    addNights(rc, drop);
+    const resc = run(rc, { ...opts, readEvents: () => otherCat });
+    check("C-10c 帳本同 id 但 category 不同 → 只算第 1 次：reverted、不 frozen、1 筆事件", resc.frozen.length === 0 && sp(rc).status === "reverted" && events.length === 1 && events[0].event_type === "canary_reverted");
+    // C-10d freeze_after_reverts 缺 → 即使帳本已有 5 筆也不凍結（門檻只讀 canaries.json）
+    events.length = 0;
+    const many = { events: Array.from({ length: 5 }, () => ({ event_type: "canary_reverted", subject_type: "proposal", subject_id: "SP-001", payload: { category: "usa" } })), skipped: [] };
+    const { root: rd } = setup(); roots.push(rd);
+    addNights(rd, drop);
+    const resd = run(rd, { ...opts, readEvents: () => many });
+    check("C-10d canaries.json 無 freeze_after_reverts → 不凍結（reverted、1 筆事件）", resd.frozen.length === 0 && sp(rd).status === "reverted" && events.length === 1);
+    // C-10e dry-run：只印「將凍結」，不寫檔、不記帳、status 仍 canary
+    events.length = 0;
+    const { root: re } = setup({ canaries: FREEZE }); roots.push(re);
+    addNights(re, drop);
+    const dlogs = []; const rese = run(re, { ...opts, dryRun: true, log: (s) => dlogs.push(s), readEvents: () => priorLedger });
+    check("C-10e dry-run → log 有「將凍結」、status 仍 canary、無事件、frozen 0", dlogs.some((l) => l.includes("將凍結")) && sp(re).status === "canary" && events.length === 0 && rese.frozen.length === 0);
+    // C-10f 帳本讀取失敗 → 視為 0 筆先前回退（fail-open 到「不凍結」，不 crash）
+    events.length = 0;
+    const { root: rf } = setup({ canaries: FREEZE }); roots.push(rf);
+    addNights(rf, drop);
+    const resf = run(rf, { ...opts, readEvents: () => { throw new Error("boom"); } });
+    check("C-10f readEvents 丟例外 → 不 crash、當 0 筆先前回退：reverted、不 frozen", resf.reverted.length === 1 && resf.frozen.length === 0 && sp(rf).status === "reverted");
+    // C-10g 真帳本型別集合含 proposal_frozen、apply-change loadCanaries 帶出 freeze_after_reverts
+    check("C-10g ledger EVENT_TYPES 含 proposal_frozen；loadCanaries 帶出 freeze_after_reverts（缺時 null）", EVENT_TYPES.has("proposal_frozen") && loadCanaries(root).freeze_after_reverts === 2 && loadCanaries(rd).freeze_after_reverts === null);
   }
   for (const x of roots) fs.rmSync(x, { recursive: true, force: true });
   console.log(fails ? `\n${fails} 項失敗` : "\ncanary-check 自測全綠");

@@ -3,6 +3,7 @@
   "per_category_cap": 1,
   "canary_nights": 3,
   "revert_drop_pp": 10,
+  "freeze_after_reverts": 2,
   "auto_opt": {
     "enabled": true
   },

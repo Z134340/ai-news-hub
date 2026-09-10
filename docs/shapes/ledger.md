@@ -7,7 +7,7 @@
 | 欄位 | 值域 |
 |---|---|
 | `ts` | ISO8601 |
-| `event_type` | `outputs_generated` `curation_imported` `output_accepted` `user_correction` `proposal_reviewed` `audit_finding` `human_rating` `proposal_evaluated` `proposal_auto_applied` `canary_reverted` `signal_health`（未知即 throw；`signal_health` 為 learning-loop v1 L-0 加入） |
+| `event_type` | `outputs_generated` `curation_imported` `output_accepted` `user_correction` `proposal_reviewed` `audit_finding` `human_rating` `proposal_evaluated` `proposal_auto_applied` `canary_reverted` `signal_health` `proposal_frozen`（未知即 throw；`signal_health` 為 learning-loop v1 L-0 加入；`proposal_frozen` 為 L-7 加入：`canary-check.mjs` 同一 `subject_id`＋`payload.category` 的 `canary_reverted` 累計達 `canaries.json` `freeze_after_reverts` 次即寫入，payload `{revert_count,freeze_after_reverts,category,target_files[],region}`，提案 `status=frozen`＋`frozen_at`／`frozen_by`／`revert_count`，`apply-change.mjs` 對 frozen 提案拒絕再套用） |
 | `actor` | 預設 `"system"`；回饋為 `"human"` |
 | `subject_type` / `subject_id` | string；`human_rating` 為 `"news_item"` / item_id |
 | `payload` | object |

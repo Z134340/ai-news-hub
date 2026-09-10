@@ -217,7 +217,7 @@ export function editTierBDomains(jsonText, changeType, patch) {
 // ── 配額（只從 canaries.json 讀）────────────────────────────────────────────
 export function loadCanaries(root) {
   const c = readJsonIfExists(path.join(root, "agents/_control/canaries.json"));
-  if (!c) return { present: false, enabled: false, weekly_cap: 0, per_category_cap: 0, canary_nights: null, revert_drop_pp: null };
+  if (!c) return { present: false, enabled: false, weekly_cap: 0, per_category_cap: 0, canary_nights: null, revert_drop_pp: null, freeze_after_reverts: null };
   return {
     present: true,
     enabled: !!(c.auto_opt && c.auto_opt.enabled),
@@ -225,6 +225,7 @@ export function loadCanaries(root) {
     per_category_cap: Number.isFinite(Number(c.per_category_cap)) ? Number(c.per_category_cap) : 0,
     canary_nights: c.canary_nights ?? null,
     revert_drop_pp: c.revert_drop_pp ?? null,
+    freeze_after_reverts: c.freeze_after_reverts ?? null,   // L-7：同一提案回退達此次數即凍結（canary-check.mjs 讀）
   };
 }
 // 週視窗內的配額計數：與 build-change-eval-input.mjs 同一把尺（IN_FLIGHT_STATUSES × 7 天），
@@ -331,6 +332,10 @@ export function run(root, opts = {}) {
       log(`  ${id}：target_files 不在白名單（${targets.join(", ") || "空"}），不併入`); continue;
     }
     const newStatus = verdict === "accept" ? "evaluated" : "rejected";
+    if (existing && existing.status === "frozen") {
+      // L-7：canary-check 已凍結（回退達 freeze_after_reverts 次），不論本輪裁定為何都拒絕再套用、不改寫、不記帳。
+      log(`  ${id}：已凍結（frozen，回退 ${existing.revert_count ?? "?"} 次），拒絕再套用`); continue;
+    }
     if (existing && existing.evaluated_at && (existing.status === newStatus || existing.status === "canary" || existing.status === "auto_applied" || existing.status === "reverted")) {
       // 已處理過（冪等）：不重寫、不重記帳。
       if (existing.status === "evaluated") evaluatedNow.push(existing);

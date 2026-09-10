@@ -138,6 +138,7 @@ def fail_open(reason: str) -> dict[str, Any]:
         "verdicts": [],
         "security_flags": [],
         "notes_zh": [],
+        "verdict_report": {"overall": "fail_open", "score": 0.0, "items": []},
         "source": base["source"],
         "note": base["note"],
     }
@@ -434,6 +435,68 @@ def offline_rubric(payload: dict[str, Any]) -> dict[str, Any]:
 
 
 # --------------------------------------------------------------------------
+# VerdictReport（learning-loop v1 C8 / L-7）：閘 2 先寫 verdict_report，再由它投影出 verdicts[]
+#   verdict_report = {overall: accept|reject|fail_open, score: accepted/input_proposals, items: [...]}
+#   items 每件提案 = 每個 rubric check 一條 {check_id:"CE-n", status:pass|fail, evidence[], location}
+#                  + 一條總結 {check_id:"VERDICT", status:accept|reject, evidence[]=reasons_zh, location, security_flag}
+#   location 是字串值（proposals[<pid>].evidence／quota／model／gate2:*），不是輸出鍵，故不觸 FORBIDDEN_OUTPUT_KEYS。
+# --------------------------------------------------------------------------
+CE_LOCATIONS = {
+    "CE-1": "proposals[{pid}].evidence",
+    "CE-2": "proposals[{pid}].rollback+target_files",
+    "CE-3": "quota",
+    "CE-4": "proposals[{pid}].evidence",
+    "CE-5": "proposals[{pid}].text",
+}
+REPORT_ITEM_KEYS = ("check_id", "proposal_id", "status", "evidence", "location")
+
+
+def _ce_location(check_id: str, pid: str) -> str:
+    return CE_LOCATIONS.get(check_id, "proposals[{pid}]").format(pid=pid)
+
+
+def report_items_for(pid: str, verdict: str, hits: list[str], reasons: list[str], sec: bool, location: str,
+                     check_evidence: list[str] | None = None) -> list[dict[str, Any]]:
+    """一件提案 → VerdictReport items。hits 去重保序；每個 check 的 evidence 取以該 check_id 開頭的理由，沒有就全給。"""
+    seen: set[str] = set()
+    hits_u = [h for h in hits if not (h in seen or seen.add(h))]
+    status = "pass" if verdict == "accept" else "fail"
+    pool = check_evidence if check_evidence is not None else reasons
+    items: list[dict[str, Any]] = []
+    for h in hits_u:
+        ev = [r for r in pool if r.startswith(h)] or list(pool)
+        items.append({"check_id": h, "proposal_id": pid, "status": status,
+                      "evidence": ev[:MAX_REASONS], "location": _ce_location(h, pid)})
+    items.append({"check_id": "VERDICT", "proposal_id": pid, "status": verdict,
+                  "evidence": reasons[:MAX_REASONS], "location": location, "security_flag": sec})
+    return items
+
+
+def build_verdict_report(items: list[dict[str, Any]], n_props: int) -> dict[str, Any]:
+    accepted = sum(1 for it in items if it.get("check_id") == "VERDICT" and it.get("status") == "accept")
+    return {"overall": "accept" if accepted else "reject",
+            "score": round(accepted / n_props, 3) if n_props else 0.0,
+            "items": items}
+
+
+def project_verdicts(report: dict[str, Any]) -> list[dict[str, Any]]:
+    """閘 2 最終 verdicts[] 只由 verdict_report 投影（apply-change 讀的仍是 verdicts[]，契約不變）。"""
+    items = [it for it in _as_list(report.get("items") if isinstance(report, dict) else None) if isinstance(it, dict)]
+    verdicts: list[dict[str, Any]] = []
+    for it in items:
+        if it.get("check_id") != "VERDICT":
+            continue
+        pid, verdict = it.get("proposal_id"), it.get("status")
+        want = "pass" if verdict == "accept" else "fail"
+        hits = [c["check_id"] for c in items
+                if c.get("proposal_id") == pid and c.get("check_id") != "VERDICT" and c.get("status") == want]
+        verdicts.append({"proposal_id": pid, "verdict": verdict, "rubric_hits": hits,
+                         "reasons_zh": [r for r in _as_list(it.get("evidence")) if isinstance(r, str)],
+                         "security_flag": it.get("security_flag") is True})
+    return verdicts
+
+
+# --------------------------------------------------------------------------
 # 閘 2：只丟不補寫
 # --------------------------------------------------------------------------
 def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
@@ -490,7 +553,7 @@ def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]
     flags_out = flags_out[:MAX_FLAGS]
     contaminated = {str(by_id[pid].get("category")) for pid in flagged_ids}
 
-    verdicts: list[dict[str, Any]] = []
+    items: list[dict[str, Any]] = []
     accepted_ids: list[str] = []
     accepted_by_cat: dict[str, int] = {}
     model_accepts = 0
@@ -505,54 +568,56 @@ def reconcile(parsed: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]
             model_accepts += 1
         sec = pid in flagged_ids
 
-        def _reject(hits: list[str], reasons: list[str], why: str | None = None) -> None:
-            seen: set[str] = set()
-            hits_u = [h for h in hits if not (h in seen or seen.add(h))]
-            verdicts.append({"proposal_id": pid, "verdict": "reject", "rubric_hits": hits_u,
-                             "reasons_zh": reasons[:MAX_REASONS], "security_flag": sec})
+        def _reject(hits: list[str], reasons: list[str], why: str | None = None, location: str = "gate2") -> None:
+            # 只寫 verdict_report；verdicts[] 迴圈後由 project_verdicts() 投影，不在這裡直接 append
+            items.extend(report_items_for(pid, "reject", hits, reasons, sec, location))
             if why and model_verdict == "accept":
                 discarded.append({"proposal_id": pid, "category": cat, "reason": why})
 
         if sec:
-            _reject(["CE-5"], ["含操縱文字，依 CE-5 reject"] + model_reasons, "模型 accept 但含操縱文字")
+            _reject(["CE-5"], ["含操縱文字，依 CE-5 reject"] + model_reasons, "模型 accept 但含操縱文字", "gate2:security")
             continue
         if cat in contaminated:
-            _reject(["CE-5"], ["同分類已污染（CE-5）"], "同分類已污染")
+            _reject(["CE-5"], ["同分類已污染（CE-5）"], "同分類已污染", "gate2:security")
             continue
         if whole_void:
-            _reject(model_hits or ["CE-5"], ["模型輸出含越權欄位，整份作廢"], "模型輸出含越權欄位")
+            _reject(model_hits or ["CE-5"], ["模型輸出含越權欄位，整份作廢"], "模型輸出含越權欄位", "gate2:forbidden_key")
             continue
         if v is None:
-            _reject([], ["模型未給判定，預設 reject（閘 2 不補寫）"])
+            _reject([], ["模型未給判定，預設 reject（閘 2 不補寫）"], location="gate2:missing")
             continue
         if model_verdict != "accept":
             if model_verdict != "reject":
                 model_reasons = [f"模型給了非法 verdict「{na.cap_text(model_verdict, 20)}」，視同 reject"] + model_reasons
-            _reject(model_hits, model_reasons)
+            _reject(model_hits, model_reasons, location="model" if model_verdict == "reject" else "gate2:illegal_verdict")
             continue
         # 模型 accept：逐條機械否決
         failed, _passed, mech_reasons = mechanical_rubric(p, payload, quota, contaminated)
         if failed:
             _reject(failed, [r for r in mech_reasons if "不過" in r] + model_reasons,
-                    f"模型 accept 但機械 rubric 不過：{'、'.join(failed)}")
+                    f"模型 accept 但機械 rubric 不過：{'、'.join(failed)}", "gate2:rubric")
             continue
         if not all(h in model_hits for h in ACCEPT_HITS):
-            _reject(["CE-3"], ["模型 accept 但 rubric_hits 未列齊 CE-1～CE-4"], "accept 未列齊 CE-1～CE-4")
+            _reject(["CE-3"], ["模型 accept 但 rubric_hits 未列齊 CE-1～CE-4"], "accept 未列齊 CE-1～CE-4", "gate2:rubric")
             continue
         if len(accepted_ids) >= quota["remaining"]:
-            _reject(["CE-3"], [f"本週配額 remaining {quota['remaining']} 已用完，後續 accept 砍掉"], "超出 remaining")
+            _reject(["CE-3"], [f"本週配額 remaining {quota['remaining']} 已用完，後續 accept 砍掉"], "超出 remaining", "gate2:quota")
             continue
         if accepted_by_cat.get(cat, 0) + quota["in_flight_by_category"].get(cat, 0) >= quota["per_category_cap"]:
-            _reject(["CE-3"], [f"{cat} 本輪已達 per_category_cap {quota['per_category_cap']}"], "超出 per_category_cap")
+            _reject(["CE-3"], [f"{cat} 本輪已達 per_category_cap {quota['per_category_cap']}"], "超出 per_category_cap", "gate2:quota")
             continue
         accepted_ids.append(pid)
         accepted_by_cat[cat] = accepted_by_cat.get(cat, 0) + 1
-        verdicts.append({"proposal_id": pid, "verdict": "accept", "rubric_hits": list(ACCEPT_HITS),
-                         "reasons_zh": (model_reasons or [r for r in mech_reasons if " 過：" in r])[:MAX_REASONS],
-                         "security_flag": False})
+        items.extend(report_items_for(pid, "accept", list(ACCEPT_HITS),
+                                      (model_reasons or [r for r in mech_reasons if " 過：" in r])[:MAX_REASONS],
+                                      False, "model", check_evidence=[r for r in mech_reasons if " 過：" in r]))
+
+    report = build_verdict_report(items, len(props))
+    verdicts = project_verdicts(report)   # 最終 verdicts[] 只讀 verdict_report
 
     return {
         "verdicts": verdicts,
+        "verdict_report": report,
         "security_flags": flags_out,
         "notes_zh": notes,
         "gate2": {
@@ -638,6 +703,17 @@ def _check_hard(check, label: str, hard: dict[str, Any], out: dict[str, Any], fx
         want_ids = sorted(str(p.get("proposal_id")) for p in _as_list(fx.get("proposals")))
         check(f"{label} proposal_ids == 輸入", sorted(vmap) == want_ids, f"實得 {sorted(vmap)}")
     check(f"{label} 輸出無 URL", "http://" not in dumped and "https://" not in dumped)
+    rep = out.get("verdict_report")
+    shape_ok = (isinstance(rep, dict) and rep.get("overall") in ("accept", "reject")
+                and isinstance(rep.get("score"), float) and 0.0 <= rep["score"] <= 1.0
+                and all(isinstance(i, dict) and all(k in i for k in REPORT_ITEM_KEYS) and isinstance(i["evidence"], list)
+                        for i in _as_list(rep.get("items"))))
+    n_acc = sum(1 for v in out["verdicts"] if v.get("verdict") == "accept")
+    check(f"{label} verdict_report 形狀、verdicts == 投影、overall/score 一致",
+          shape_ok and project_verdicts(rep) == out["verdicts"]
+          and (rep["overall"] == "accept") == (n_acc > 0)
+          and rep["score"] == (round(n_acc / len(out["verdicts"]), 3) if out["verdicts"] else 0.0),
+          f"overall={rep.get('overall') if isinstance(rep, dict) else rep!r}")
 
 
 def _contains_key(obj: Any, key: str) -> bool:
@@ -668,7 +744,8 @@ def selftest() -> int:
     # T-1 fail_open 形狀
     fo = fail_open("x")
     check("T-1 fail_open 形狀", fo["source"] == "fail_open" and fo["verdicts"] == [] and fo["schema"] == SCHEMA
-          and fo["rubric_version"] == RUBRIC_VERSION)
+          and fo["rubric_version"] == RUBRIC_VERSION
+          and fo["verdict_report"] == {"overall": "fail_open", "score": 0.0, "items": []})
 
     # T-2 允許清單 regex 與 check-agent-outputs.mjs 一致
     check("T-2 allowlist", all(any(rx.match(t) for rx in ALLOWLIST_RES) for t in
@@ -798,6 +875,43 @@ def selftest() -> int:
         check("T-8b offline_rubric 垃圾提案不 crash", True)
     except Exception as e:  # noqa: BLE001
         check("T-8b offline_rubric 垃圾提案不 crash", False, repr(e))
+
+    # T-9 VerdictReport（C8）：貪婪全 accept 被砍 → overall reject、score 0.0；空輸入 → items 空、score 0.0；
+    #      投影是純函式（改 report 的 VERDICT status 會改 verdicts）；items 只含 CE-n／VERDICT 兩種 check_id
+    try:
+        gfx = None
+        for fxm in _as_list(_as_dict(suites.get("cases")).get("fixtures")):
+            gfx = _load_fixture(fxm["file"]); break
+        if gfx is None:
+            check("T-9 找不到 golden cases fixture", False)
+        else:
+            greedy = {"verdicts": [{"proposal_id": p["proposal_id"], "verdict": "accept", "rubric_hits": list(ACCEPT_HITS),
+                                    "reasons_zh": ["x"], "security_flag": False} for p in gfx["proposals"]]}
+            gq = dict(gfx, quota={"present": True, "weekly_cap": 3, "per_category_cap": 1, "remaining": 0, "in_flight_by_category": {}})
+            g = _finish(gq, greedy)
+            rp = g["verdict_report"]
+            check("T-9 remaining 0 全砍 → overall reject、score 0.0、每件都有 CE-3 fail 與 VERDICT reject",
+                  rp["overall"] == "reject" and rp["score"] == 0.0
+                  and all(v["verdict"] == "reject" for v in g["verdicts"])
+                  and all(any(i["check_id"] == "CE-3" and i["status"] == "fail" and i["proposal_id"] == v["proposal_id"] for i in rp["items"]) for v in g["verdicts"])
+                  and all(RUBRIC_RE.match(i["check_id"]) or i["check_id"] == "VERDICT" for i in rp["items"]),
+                  json.dumps(rp, ensure_ascii=False)[:200])
+            e = _finish({"proposals": [], "quota": gq["quota"]}, {"verdicts": []})
+            check("T-9b 空輸入 → items 空、overall reject、score 0.0", e["verdict_report"] == {"overall": "reject", "score": 0.0, "items": []} and e["verdicts"] == [])
+            # 用上面全砍的 g：把 report 裡每條 VERDICT 改成 accept，投影出的 verdicts 必須跟著全 accept，
+            # 且 rubric_hits 改取 pass 項（原本只有 CE-3 fail，所以變空）→ 證明 verdicts 純由 report 投影、不看別處
+            rp2 = json.loads(json.dumps(rp))
+            flipped = 0
+            for i in rp2["items"]:
+                if i["check_id"] == "VERDICT" and i["status"] == "reject":
+                    i["status"] = "accept"; flipped += 1
+            pv = project_verdicts(rp2)
+            check("T-9c 投影只讀 report：VERDICT 改 accept 後 verdicts 跟著變、rubric_hits 改取 pass 項",
+                  flipped == len(g["verdicts"]) > 0 and all(v["verdict"] == "accept" and v["rubric_hits"] == [] for v in pv)
+                  and [v["proposal_id"] for v in pv] == [v["proposal_id"] for v in g["verdicts"]])
+            check("T-9d fail_open 沒有 verdicts 也沒有 items 可投影", project_verdicts(fail_open("x")["verdict_report"]) == [])
+    except Exception as ex:  # noqa: BLE001
+        check("T-9 VerdictReport 不 crash", False, repr(ex))
 
     if fails:
         print(f"[change-eval] selftest 失敗 {len(fails)} 項")
