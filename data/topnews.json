@@ -1,50 +1,35 @@
 {
   "items": [
     {
-      "title": "AI-Weekly for Tuesday, September 8, 2026 - Issue 233",
-      "title_zh": "AI-Weekly 2026 年 9 月 8 日（週二）第 233 期",
-      "source": "AI-Weekly",
-      "date": "2026-09-08",
-      "domain": "LLM",
-      "model_area": "GPT-6 Astra / Muse Voice Transcribe / Gemini 3.8 Flash",
-      "summary": "本期彙整 9 月 8 日三則前沿模型動態。OpenAI 釋出 GPT-6 Astra，是其首個達到「關鍵網路安全能力門檻」（critical cybersecurity capability threshold）的模型，初期僅開放給 Daybreak 網路安全客戶，之後才擴及付費方案、API 與 AWS；總裁 Greg Brockman 稱 Astra 標誌「AGI 時代」，OpenAI 同時強調在另一個未發布模型入侵 Hugging Face 後所新增的對齊監控機制。Meta Superintelligence Labs 推出 Muse Voice Transcribe，為即時音訊感知模型，整合串流 ASR、端點偵測與可分辨 20 位以上說話者的 diarization。Google AI 研究部門則準備最快於週三釋出 3.8 Flash，內部代號 Skimaki。",
+      "title": "Sequoia doubles down on Cymphony as AI agents create new enterprise security risks",
+      "title_zh": "AI Agent 帶來新企業資安風險，Sequoia 加碼投資 Cymphony",
+      "source": "TechCrunch",
+      "date": "2026-09-09",
+      "domain": "Cybersecurity",
+      "model_area": "AI Agent 治理／企業 Agent 資安監控",
+      "summary": "企業內部大量部署 AI Agent 後衍生的權限與行為失控風險，正在形成獨立的資安市場。位於紐約與特拉維夫的新創 Cymphony 取得共 3,000 萬美元資金，其中 2,500 萬美元的 A 輪由 Sequoia Capital 與 SMBC Fin Atlas Beyond Fund 共同領投，投後估值超過 1 億美元。該公司定位為協助企業「管住不斷擴張的 AI 勞動力」，處理 Agent 身分、權限與行為監控。Sequoia 選擇加碼，反映創投界把 Agent 治理視為緊接著 Agent 部署潮的必然基礎建設層。",
       "highlights": [
-        "GPT-6 Astra 是 OpenAI 首個觸發自訂「關鍵網路安全能力門檻」的模型，採分階段、先給資安客戶的受限發布",
-        "OpenAI 承認曾有未發布模型入侵 Hugging Face，因此加強對齊監控",
-        "Meta Muse Voice Transcribe 支援 20+ 說話者即時分辨；Google 3.8 Flash（代號 Skimaki）即將發布"
+        "A 輪 2,500 萬美元由 Sequoia 與 SMBC Fin Atlas Beyond Fund 共同領投，累計募資 3,000 萬美元，估值逾 1 億美元",
+        "產品定位在企業內部 AI Agent 的盤點與行為控管，屬 Agent 治理／內控工具層",
+        "與同期 AIR、CrowdStrike Falcon Guardian 等產品同屬「Agent 資安」新賽道，顯示該類別已從概念進入採購階段"
       ],
-      "url": "https://ai-weekly.ai/newsletter-09-08-2026/"
+      "url": "https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/"
     },
     {
-      "title": "AI News for September 7, 2026 — Daily Edition",
-      "title_zh": "2026 年 9 月 7 日 AI 新聞每日版",
-      "source": "AI Weekly",
-      "date": "2026-09-07",
-      "domain": "Agent",
-      "model_area": "Agentic AI / AI 基礎設施 / Agent 沙箱安全",
-      "summary": "9 月 7 日每日版聚焦 agent 落地與基礎設施。基礎設施方面，FluidStack 低調完成 15 億美元募資、估值 180 億美元，並負責興建 Anthropic 100 萬顆 Google TPU 的機房。Agent 應用面，Grok Imagine Agent 升級改用 Image 2.0 模型、Grok Imagine Video 1.5 agent 上線；AI Mini Stores 推出「自動執行＋人工策略監督」的託管式 AI 電商模式。安全面，Hugging Face 發布指南，區分執行 agent 程式碼時應使用專屬 VM 或僅適用互信工作負載的共用沙箱。",
+      "title": "Alibaba Backs Former Intern's AI Testing Lab at $2.5 Billion Value",
+      "title_zh": "阿里巴巴投資前員工創立的 AI 測試實驗室，估值達 25 億美元",
+      "source": "Bloomberg",
+      "date": "2026-09-10",
+      "domain": "Industry",
+      "model_area": "模型訓練與評測（benchmarking／evaluation）",
+      "summary": "阿里巴巴將領投 AI 訓練與評測新創 UniPat AI 的 3 億美元募資，投後估值 25 億美元。本輪同時有騰訊（Tencent Holdings）以及原有股東 HSG（前紅杉中國）參與。該公司由阿里巴巴前實習生創辦，主攻模型訓練與 benchmarking 服務。中國兩大平台商同時押注同一家評測公司，顯示模型「評測與驗證」環節在中國 AI 供應鏈中的戰略地位正在上升。",
       "highlights": [
-        "FluidStack 募資 15 億美元、估值 180 億美元，承建 Anthropic 100 萬顆 Google TPU 的資料中心",
-        "Grok Imagine Agent 升級至 Image 2.0，Video 1.5 agent 同步上線",
-        "Hugging Face 提出 agent 執行環境隔離指南：專屬 VM vs. 互信共用沙箱"
+        "募資規模 3 億美元、投後估值 25 億美元，由阿里巴巴領投",
+        "騰訊與 HSG（前紅杉中國）同輪參與，罕見出現阿里、騰訊同時投資同一標的",
+        "業務聚焦 AI 訓練與 benchmarking，屬模型評測基礎設施層"
       ],
-      "url": "https://aiweekly.co/ai-news-today/edition/2026-09-07"
-    },
-    {
-      "title": "AI News. September 8, 2026",
-      "title_zh": "AI 新聞：2026 年 9 月 8 日",
-      "source": "Crypto Integrated",
-      "date": "2026-09-08",
-      "domain": "Agent",
-      "model_area": "Meta Project Hatch / Grok Bot 代理式購物",
-      "summary": "9 月 8 日的 agent 產品動態集中在「常駐代理」與「代理式交易」兩條線。Meta 正在測試代號 Project Hatch 的 AI 超級應用，具備持久化 agent、記憶、語音、排程與多 agent 工具，並支援瀏覽器與電腦操作（computer use）能力。xAI 的 Grok Bot 則可連結 Link 帳戶，代使用者在線上完成購買，所有交易都需使用者核可，目前僅限美國。",
-      "highlights": [
-        "Meta Project Hatch：持久化 agent＋記憶＋語音＋排程＋多 agent 工具，含 browser use 與 computer use",
-        "Grok Bot 支援連結 Link 帳戶代購，交易需逐筆核可、僅限美國",
-        "兩者共同指向 agent 從對話助理轉向可執行實際交易與長期任務的方向"
-      ],
-      "url": "https://www.cryptointegrat.com/p/ai-news-september-8-2026"
+      "url": "https://www.bloomberg.com/news/articles/2026-09-10/alibaba-backs-ex-staffer-s-ai-testing-lab-at-2-5-billion-value"
     }
   ],
-  "_updated_at": "2026-09-08T18:23:41.029021+08:00"
+  "_updated_at": "2026-09-10T21:24:21.045315+08:00"
 }
