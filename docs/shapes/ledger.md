@@ -7,10 +7,10 @@
 | 欄位 | 值域 |
 |---|---|
 | `ts` | ISO8601 |
-| `event_type` | `outputs_generated` `curation_imported` `output_accepted` `user_correction` `proposal_reviewed` `audit_finding` `human_rating` `proposal_evaluated` `proposal_auto_applied` `canary_reverted`（未知即 throw；後三種已為 Phase 3 預留） |
+| `event_type` | `outputs_generated` `curation_imported` `output_accepted` `user_correction` `proposal_reviewed` `audit_finding` `human_rating` `proposal_evaluated` `proposal_auto_applied` `canary_reverted` `signal_health`（未知即 throw；`signal_health` 為 learning-loop v1 L-0 加入） |
 | `actor` | 預設 `"system"`；回饋為 `"human"` |
 | `subject_type` / `subject_id` | string；`human_rating` 為 `"news_item"` / item_id |
 | `payload` | object |
 
-`human_rating.payload`：`rating ∈ {"good","mid","bad"}`（字串，非數字）、`cat`、`item_date`、`title`、`url`、`source`（hostname 去 `www.`）、`uid_hash`（sha256 前 8 碼）。`readEvents()` → `{events, skipped}`；`ledgerStats()` → `{events_count, event_types, skipped_count}`。
+`human_rating.payload`：`rating ∈ {"good","mid","bad"}`（字串，非數字）、`cat`、`item_date`、`title`、`url`、`source`（hostname 去 `www.`）、`uid_hash`（sha256 前 8 碼）。`signal_health.payload`（`check-signal-health.mjs` 每晚一筆，`actor:"system"`、`subject_type:"signal"`、`subject_id:"human_rating"`）：`date, state("yellow"|"green"), reason[]（固定代碼 metrics_history_missing／metrics_ratings_zero_in_window／ledger_human_rating_zero_in_window／cursor_missing／cursor_never_advanced）, silent_nights, nights_observed, metrics_rating_total, ledger_in_window`，只有計數與日期。`readEvents()` → `{events, skipped}`；`ledgerStats()` → `{events_count, event_types, skipped_count}`。
 

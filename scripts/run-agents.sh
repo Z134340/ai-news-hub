@@ -123,6 +123,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
              "$AGENT_SCRIPTS/harvest-precedents.mjs" \
              "$AGENT_SCRIPTS/pull-feedback.mjs" \
              "$AGENT_SCRIPTS/build-category-metrics.mjs" \
+             "$AGENT_SCRIPTS/check-signal-health.mjs" \
              "$AGENT_SCRIPTS/build-search-review-input.mjs" \
              "$SCRIPTS_DIR/newshub_agents.py" \
              "$SCRIPTS_DIR/newshub_roadmap.py" \
@@ -212,6 +213,8 @@ if [[ $SELF_TEST -eq 1 ]]; then
   chk "S-6r slack-notify 自測（N-1..N-7：缺 slack.env 跳過、dry-run 不發、Bearer 標頭、jsonl 追加 ts、ok:false 退 1 不寫、token 不進任何輸出、無 xtrace）" $?
   node "$AGENT_SCRIPTS/read-slack-picks.mjs" --self-test >/dev/null 2>&1
   chk "S-6s read-slack-picks 自測（21 條：缺 slack.env／缺 token／無 sent log／離線／ok:false 皆 exit 0 零寫入、✅ 全收、回覆 P-nnn 部分收、dry-run 不寫、token 不進輸出、memory 零改動）" $?
+  node "$AGENT_SCRIPTS/check-signal-health.mjs" --self-test >/dev/null 2>&1
+  chk "S-6t check-signal-health 自測（T-1..T-11：全 0→yellow、有評分→green、缺 jsonl／缺游標容忍、事件 schema、key 白名單零外洩、dry-run 零寫、門檻讀 canaries.json、視窗外不計、壞行容忍）" $?
 
     # S-7 語法檢查
     bash -n "$0"; chk "S-7 bash -n 通過" $?
@@ -424,6 +427,8 @@ APPLY_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && APPLY_EXTRA=(--dry-run)
 CANARY_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && CANARY_EXTRA=(--dry-run)
+SIGNAL_EXTRA=()
+[[ $DRY_RUN -eq 1 ]] && SIGNAL_EXTRA=(--dry-run)
 PICKS_EXTRA=()
 [[ $DRY_RUN -eq 1 ]] && PICKS_EXTRA=(--dry-run)
 # 08f slack-notify 走 bash -c 固定字串，dry-run 用環境變數告知：只印 payload 摘要、不打 Slack（token 照樣不進輸出）。
@@ -450,6 +455,10 @@ FAILED_STEP=""
 #   夜數 ≥ canaries.json canary_nights 才判：掉超過 revert_drop_pp 就由快照還原區段 → reverted（還原的檔寫進 .preview/apply-change-staged.txt，
 #   每晚新建、可為空，08e 之後只追加），否則 auto_applied。門檻只讀 canaries.json；失敗不阻斷後續步驟。dry-run 只印不寫。
 run_step "00c-canary-check" node "$AGENT_SCRIPTS/canary-check.mjs" ${CANARY_EXTRA[@]+"${CANARY_EXTRA[@]}"}
+FAILED_STEP=""
+# ── 00e：訊號健康閘（learning-loop v1 C2）。近 canaries.json signal_health.silent_nights 晚 human_rating 全 0
+#   → data/agent/signal-health.json state=yellow ＋ 帳本 signal_health 事件；只有計數與日期；非阻塞、dry-run 零寫入 ──
+run_step "00e-signal-health" node "$AGENT_SCRIPTS/check-signal-health.mjs" ${SIGNAL_EXTRA[@]+"${SIGNAL_EXTRA[@]}"}
 FAILED_STEP=""
 # 00d：讀回週報在 Slack 的 ✅／[P-nnn] 回覆 → .preview/precedent-picks.json（Phase 3-F）。
 #      每晚跑、非阻塞；缺 slack.env 或離線都 exit 0。只記「人挑了哪幾筆」，不動 memory/。

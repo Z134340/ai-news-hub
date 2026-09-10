@@ -32,6 +32,7 @@ export const EVENT_TYPES = new Set([
   "proposal_evaluated",  // change-evaluator 對某筆 proposal 的裁定（accept / reject）
   "proposal_auto_applied", // apply-change.mjs 實際改了檔案（含 diff 摘要與 canary 起算日）
   "canary_reverted",     // canary-check.mjs 偵測退化並回滾
+  "signal_health",       // check-signal-health.mjs 每晚一筆：icon 回饋訊號是否沉默（只有計數與日期）
 ]);
 
 function ensureDir() {
