@@ -7,6 +7,8 @@
 // 這個檔含 prompt 區段全文，等於把搜尋策略攤開，所以列入 promote.sh NEVER_FILES，
 // 永不晉升到 data/agent/。沒有任何標題／URL 進來：metrics 行本來就沒有，
 // human_ratings 只取 by_source_domain 的 hostname 與分數。
+// L-6：附上 data/agent/.preview/emerging-candidates.json 的去標題摘要（emerging_candidates），只留 topic_terms／網域／novelty，
+// 供 search-reviewer 起草 add_query；缺檔容忍（available:false）。
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
@@ -155,6 +157,55 @@ export function assertNoLeak(obj) {
   walk(obj, "$");
 }
 
+// ---- emerging_candidates（L-6）：去標題只留主題詞與網域 ----
+export const EMERGING_FILE = "data/agent/.preview/emerging-candidates.json";
+export const EMERGING_MAX_ITEMS = 40;
+export const EMERGING_MAX_TERMS = 12;
+const EMERGING_STOP = new Set(["the", "and", "for", "with", "from", "that", "this", "are", "you", "your", "how", "why", "what", "new", "into", "its", "has", "have", "not", "but", "can", "will", "about", "more", "than", "after", "over", "out"]);
+// 與 discover-trends.mjs 的 tokenize 同規則（小寫拉丁 token ≥3 去停用字 + CJK bigram）；本地複製，不 import 該檔以免帶入 fetch 相依。
+export const EMERGING_MAX_CJK = 4;
+// 去標題規則：拉丁 token 最多 12、CJK 只取不重疊 bigram 最多 4，最後按字典序排序——詞袋（bag of words）保留主題詞、
+// 但無法從序列還原原標題（重疊 bigram 全留等於把標題抄回去，L-6 實跑時發現）。
+export function topicTerms(title, max = EMERGING_MAX_TERMS) {
+  const latin = [];
+  const cjkTerms = [];
+  const seen = new Set();
+  const push = (arr, t, cap) => { if (t && !seen.has(t) && arr.length < cap) { seen.add(t); arr.push(t); } };
+  const s = String(title || "").toLowerCase();
+  for (const m of s.matchAll(/[a-z0-9][a-z0-9+#@.-]{2,}/g)) {
+    const t = m[0].replace(/[.-]+$/, "");
+    if (t.length >= 3 && !EMERGING_STOP.has(t) && !/^https?/.test(t)) push(latin, t, max);
+  }
+  const cjk = s.replace(/[^\u4e00-\u9fff]/g, "");
+  for (let i = 0; i + 1 < cjk.length; i += 2) push(cjkTerms, cjk.slice(i, i + 2), EMERGING_MAX_CJK);
+  return [...latin, ...cjkTerms].sort();
+}
+export function loadEmergingCandidates(root, file = EMERGING_FILE) {
+  const raw = readJsonIfExists(path.join(root, file));
+  const empty = { available: false, generated_at: null, novelty_threshold: null, count: 0, items: [] };
+  if (!raw || !Array.isArray(raw.candidates)) return empty;
+  const items = raw.candidates
+    .filter((c) => c && typeof c === "object")
+    .map((c) => ({
+      source_domain: typeof c.source_domain === "string" ? c.source_domain : null,
+      category: typeof c.category === "string" ? c.category : null,
+      tier: typeof c.tier === "string" ? c.tier : null,
+      novelty: typeof c.novelty === "number" ? Math.round(c.novelty * 100) / 100 : null,
+      published_at: typeof c.published_at === "string" ? c.published_at.slice(0, 10) : null,
+      topic_terms: topicTerms(c.title),
+    }))
+    .filter((c) => c.category && c.topic_terms.length > 0)
+    .sort((a, b) => (b.novelty ?? 0) - (a.novelty ?? 0))
+    .slice(0, EMERGING_MAX_ITEMS);
+  return {
+    available: true,
+    generated_at: typeof raw.generated_at === "string" ? raw.generated_at : null,
+    novelty_threshold: typeof raw.novelty_threshold === "number" ? raw.novelty_threshold : null,
+    count: items.length,
+    items,
+  };
+}
+
 export function build(root, opts) {
   const cfgPath = path.join(root, "assets/js/config.js");
   const doc = {
@@ -168,6 +219,7 @@ export function build(root, opts) {
     human_ratings: loadHumanRatings(root),
     canaries: loadCanaries(root),
     proposals: countPendingProposals(root),
+    emerging_candidates: loadEmergingCandidates(root),
     allowlist_targets: ["scripts/prompts/<cat>.md", "assets/js/config.js", "scripts/tier-b-domains.json"],
     boundary: {
       advisory_only: true, production_write: false, publish: "manual_only",
@@ -211,11 +263,32 @@ function selfTest() {
     check("T-12 URL inside prompt_regions allowed", ok);
     const doc = build(ROOT, { window: 7, metrics: mp });
     check("T-13 build schema", doc.schema === SCHEMA && doc.boundary.never_promote_this_file === true && doc.boundary.proposals_must_be === "pending_review");
+    // L-6 emerging_candidates：缺檔容忍、去標題、build 帶出且過 assertNoLeak
+    const emEmpty = loadEmergingCandidates(tmp, "data/agent/.preview/does-not-exist.json");
+    check("T-14 emerging missing tolerated", emEmpty.available === false && emEmpty.count === 0 && Array.isArray(emEmpty.items));
+    fs.mkdirSync(path.join(tmp, "data/agent/.preview"), { recursive: true });
+    fs.writeFileSync(path.join(tmp, "data/agent/.preview/emerging-candidates.json"), JSON.stringify({
+      schema_version: "emerging-candidates-v0.1", generated_at: "2026-09-10T16:27:58Z", novelty_threshold: 0.6,
+      candidates: [
+        { title: "Pass@k rollout evaluation for LLM agents 論文評測", link: "https://arxiv.org/abs/2609.01234", source_domain: "arxiv.org", source_name: "arXiv cs.AI", category: "papers", tier: "A", published_at: "2026-09-10T03:00:00Z", novelty: 1 },
+        { title: "The and for", link: "https://example.com/x", source_domain: "example.com", category: "papers", tier: "C", published_at: "2026-09-10", novelty: 0.7 },
+        { title: "no category", link: "https://example.com/y", source_domain: "example.com", tier: "C", novelty: 0.9 },
+      ],
+    }));
+    const em = loadEmergingCandidates(tmp);
+    const emJson = JSON.stringify(em);
+    check("T-15 emerging de-titled", em.available === true && em.count === 1 && !/"title"|"link"|"source_name"|https?:/.test(emJson)
+      && em.items[0].topic_terms.includes("pass@k") && em.items[0].topic_terms.includes("rollout") && em.items[0].topic_terms.includes("論文")
+      && em.items[0].source_domain === "arxiv.org" && em.items[0].published_at === "2026-09-10" && em.items[0].topic_terms.length <= EMERGING_MAX_TERMS);
+    let leakOk = true;
+    try { assertNoLeak({ emerging_candidates: em }); } catch { leakOk = false; }
+    check("T-16 build carries emerging_candidates", leakOk && doc.emerging_candidates && typeof doc.emerging_candidates.available === "boolean" && Array.isArray(doc.emerging_candidates.items)
+      && doc.emerging_candidates.items.every((it) => !("title" in it) && !("link" in it) && Array.isArray(it.topic_terms)));
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
   if (fails.length) { console.error("build-search-review-input self-test FAILED: " + fails.join("; ")); return 1; }
-  console.log("build-search-review-input self-test passed (T-1..T-13)");
+  console.log("build-search-review-input self-test passed (T-1..T-16)");
   return 0;
 }
 

@@ -64,6 +64,18 @@ canaries.present == false → 上限 0
 
 不要把 diff 語法(`+`／`-` 前綴、`@@`)寫進 `patch`；不要在 `patch` 裡塞第二個改動——一筆提案只改一行，要改兩行就是兩筆提案(各吃一個配額)。
 
+## 從 `emerging_candidates` 起草 `add_query`（L-6）
+
+`emerging_candidates` 是探索管線從外部 RSS 抓到、與近期語料不相似的標題，經去標題後只剩 `topic_terms` 詞袋、`source_domain`、`category`、`tier`、`novelty`。它只回答「這分類最近冒出了什麼主題」，**不回答「要不要改」**——要不要改仍由 SR-4 決定。步驟：
+
+1. 先確認該 `category` 已通過 SR-4（持續、孤立、非回補）。沒通過就停，候選再多也不提。
+2. 只看 `category` 相同、`tier` 為 A 或 B、`novelty ≥ novelty_threshold` 的 items；至少 2 筆共用同一個或同一組 `topic_terms` 才算主題，單筆孤例不算。
+3. 用共用的主題詞加上該分類慣用的來源詞（arXiv、OpenReview、GitHub 等）組成**一整行**新 query，年份照 SEARCH_QUERIES 既有慣例補在句尾。不要把某筆 `topic_terms` 整串照抄（那等於把標題還原成 query）。
+4. `evidence` 兩則以上：一則是 SR-4 的指標數字，一則寫 `emerging_candidates.items[i..j]` 的索引、`novelty`、`tier` 與共用詞，例如「items[0..2] papers/arxiv.org tier A novelty ≥ 0.92 共用 pass@k／rollout／evaluation」。
+5. `region` 固定 `SEARCH_QUERIES`、`change_type` 為 `add_query`、`risk` 為 `low`、`patch` 為 `{"add": "- <整行 query>"}`；不寫 `list`。同分類若已有 drop／rephrase 提案，add_query 要另占一個配額，先看 SR-3 剩多少。
+
+`emerging_candidates.available` 為 `false` 或 `items` 為空時，本節整段不適用，照舊只用指標判斷。
+
 ## `summary_zh` 怎麼寫
 
 40 字內，格式固定：「<cat> 的 <region> <動作> <對象>」。例如：「papers 的 SEARCH_QUERIES 改寫第 3 條 query，收窄到 arXiv 與 OpenReview」。不寫理由(理由在 `evidence`)，不寫 diff(實際改動寫在 `patch` 欄位，`summary_zh` 只用中文講一次)。
