@@ -1,0 +1,69 @@
+name: 離線自測
+
+# L-9（2026-09-11）：只跑各腳本的 --self-test／--selftest，全部走 fixtures，不打外網、不讀 ~/.ai-news-hub、不寫 data/。
+# 刻意不跑：scripts/agent/promote.sh --self-test（P-2 依本機 .preview 狀態而變，且 promote 紅線不動）、
+# scripts/newshub_roadmap.py --selftest（依賴同機的 Hermes-Agent/curator/TECH_RUBRIC.md，runner 上無此檔）。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/selftest.yml'
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/selftest.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Node self-tests
+        run: |
+          set -euo pipefail
+          for f in check-signal-health discover-trends build-insights build-search-review-input \
+                   build-change-eval-input build-category-metrics build-weekly-report build-timeline \
+                   build-roadmap-input build-review-packet build-current-state-manifest build-system-status \
+                   canary-check apply-change replay-learning read-slack-picks pull-feedback freshness-release-gate; do
+            echo "::group::$f --self-test"
+            node "scripts/agent/$f.mjs" --self-test
+            echo "::endgroup::"
+          done
+          echo "::group::check-agent-outputs --strict --self-test-boundary"
+          node scripts/agent/check-agent-outputs.mjs --strict --self-test-boundary
+          echo "::endgroup::"
+
+      - name: Shell self-tests
+        run: |
+          set -euo pipefail
+          bash scripts/agent/slack-notify.sh --self-test
+          bash scripts/run-agents.sh --self-test
+
+      - name: Python self-tests
+        run: |
+          set -euo pipefail
+          python3 scripts/validate.py --self-test
+          for f in newshub_agents newshub_brief newshub_search_reviewer newshub_change_evaluator; do
+            echo "::group::$f --selftest"
+            python3 "scripts/$f.py" --selftest
+            echo "::endgroup::"
+          done
+
+      - name: Working tree untouched
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then git status --porcelain; echo '自測寫了檔案'; exit 1; fi

@@ -55,7 +55,7 @@ $(cat scripts/prompts/${CAT}.md)"
   --allowedTools "WebSearch" \
   2>>"$LOG_FILE" > "$TMP_FILE" &
 CLAUDE_PID=$!
-( sleep 600 && kill -TERM "$CLAUDE_PID" 2>/dev/null ) &
+( sleep 1200 && kill -TERM "$CLAUDE_PID" 2>/dev/null ) &
 WATCHDOG_PID=$!
 wait "$CLAUDE_PID" 2>/dev/null || true
 kill -TERM "$WATCHDOG_PID" 2>/dev/null
@@ -64,7 +64,7 @@ wait "$WATCHDOG_PID" 2>/dev/null || true
 - `--max-turns 30`：topnews 等需要 9+ 次搜尋的類別，15 turns 不足以完成並產出 JSON
 - `--output-format text`：確保輸出純文字，方便 JSON 提取
 - **macOS 無 `timeout` 指令**：必須用背景執行 + watchdog kill 模式（⚠️ Bug Fix #12）
-- watchdog 600 秒（10 分鐘）：確保最壞情況下 8 類 × 20.5 分 = 19:14 前完成
+- watchdog 1200 秒（20 分鐘）：與 `scripts/run-daily.sh` 的 `TIMEOUT_SEC=1200` 一致；逾時發 SIGTERM，120 秒後再 SIGKILL
 
 **JSON 提取（⚠️ Bug Fix #7）：**
 不要用單行 python，使用完整腳本處理 claude 的多段回應：
@@ -109,7 +109,7 @@ else:
 ### 合併 latest.json
 - python3 合併為 latest.json（含 source: "local"，含 `_updated_at` 各類別時間戳）
 - 非週一：每週類別 (models/tutorials/courses) 從舊 latest.json 讀取，保留原始 `_updated_at` 時間戳
-- 週一：所有 11 類別從當日擷取的 JSON 讀取
+- 週一：所有 10 類別從當日擷取的 JSON 讀取
 
 ### 驗證 + 歸檔
 - python3 scripts/validate.py 八步驟驗證
