@@ -179,7 +179,7 @@ except Exception:
 PY
 )"
 
-TMP_DIR="$(mktemp -d -t slack-notify)"
+TMP_DIR="$(mktemp -d "${TMPDIR:-/tmp}/slack-notify.XXXXXX")"
 trap 'rm -rf "$TMP_DIR"' EXIT
 PAYLOAD="$TMP_DIR/payload.json"
 # payload 只含 channel／text／mrkdwn；token 絕不進這個檔

@@ -3,8 +3,6 @@ name: 離線自測
 # L-9（2026-09-11）：只跑各腳本的 --self-test／--selftest，全部走 fixtures，不打外網、不讀 ~/.ai-news-hub、不寫 data/。
 # 刻意不跑：scripts/agent/promote.sh --self-test（P-2 依本機 .preview 狀態而變，且 promote 紅線不動）、
 # scripts/newshub_roadmap.py --selftest（依賴同機的 Hermes-Agent/curator/TECH_RUBRIC.md，runner 上無此檔）。
-# Shell 自測（run-agents.sh、slack-notify.sh）改跑 macos-latest：兩支都用 BSD 語法的 `mktemp -d -t 前綴`（無 X 模板），
-# GNU mktemp 直接拒收→暫存目錄變數為空→S-9a～e／N-3～N-4c 在 ubuntu 全紅；正式夜跑本來就在 macOS，Linux 相容另列處理。
 on:
   push:
     branches: [main]
@@ -50,26 +48,6 @@ jobs:
           node scripts/agent/check-agent-outputs.mjs --strict --self-test-boundary
           echo "::endgroup::"
 
-      - name: Python self-tests
-        run: |
-          set -euo pipefail
-          python3 scripts/validate.py --self-test
-          for f in newshub_agents newshub_brief newshub_search_reviewer newshub_change_evaluator; do
-            echo "::group::$f --selftest"
-            python3 "scripts/$f.py" --selftest
-            echo "::endgroup::"
-          done
-
-      - name: Working tree untouched
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then git status --porcelain; echo '自測寫了檔案'; exit 1; fi
-
-  selftest-shell:
-    runs-on: macos-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-
       - name: Shell self-tests
         run: |
           set -euo pipefail
@@ -79,6 +57,16 @@ jobs:
           echo "::group::slack-notify.sh --self-test"
           bash scripts/agent/slack-notify.sh --self-test
           echo "::endgroup::"
+
+      - name: Python self-tests
+        run: |
+          set -euo pipefail
+          python3 scripts/validate.py --self-test
+          for f in newshub_agents newshub_brief newshub_search_reviewer newshub_change_evaluator; do
+            echo "::group::$f --selftest"
+            python3 "scripts/$f.py" --selftest
+            echo "::endgroup::"
+          done
 
       - name: Working tree untouched
         run: |

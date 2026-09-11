@@ -237,7 +237,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
 
     # S-9 guard_verdict 的四種判定各跑一次真檔案。這支函式是整套防護的唯一判準，
     #     判錯的後果是「空殼被當成好料晉升」或「好料被舊檔蓋掉」，兩邊都很貴。
-    t9="$(mktemp -d -t agent-guard-test)"
+    t9="$(mktemp -d "${TMPDIR:-/tmp}/agent-guard-test.XXXXXX")"
     printf '{"source":"model","x":1}'     > "$t9/good.json"
     printf '{"source":"fail_open","x":0}' > "$t9/shell.json"
     v9() { guard_verdict "$1" "$2"; }
@@ -269,7 +269,7 @@ if [[ $SELF_TEST -eq 1 ]]; then
 fi
 
 mkdir -p "$PREVIEW_DIR"
-TMP_DIR="$(mktemp -d -t ai-news-hub-agent)"
+TMP_DIR="$(mktemp -d "${TMPDIR:-/tmp}/ai-news-hub-agent.XXXXXX")"
 STEP_LOG="$TMP_DIR/steps.jsonl"
 SNAP_DIR="$TMP_DIR/snapshot"
 mkdir -p "$SNAP_DIR"
