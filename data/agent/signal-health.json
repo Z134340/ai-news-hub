@@ -1,0 +1,48 @@
+{
+  "schema": "signal-health-v1",
+  "generated_at": "2026-09-11T10:17:18.407Z",
+  "date": "2026-09-11",
+  "state": "yellow",
+  "reason": [
+    "metrics_ratings_zero_in_window",
+    "ledger_human_rating_zero_in_window",
+    "cursor_never_advanced"
+  ],
+  "window": {
+    "silent_nights": 7,
+    "since": "2026-09-05",
+    "nights_observed": 5,
+    "dates": [
+      "2026-09-06",
+      "2026-09-07",
+      "2026-09-08",
+      "2026-09-10",
+      "2026-09-11"
+    ]
+  },
+  "metrics_ratings": {
+    "total": 0,
+    "by_cat": {
+      "papers": 0,
+      "topnews": 0,
+      "taiwan": 0,
+      "china": 0,
+      "usa": 0,
+      "techtrends": 0,
+      "governance": 0,
+      "tutorials": 0,
+      "courses": 0,
+      "models": 0
+    }
+  },
+  "ledger_human_rating": {
+    "total": 0,
+    "in_window": 0
+  },
+  "cursor": {
+    "present": true,
+    "last_ts": "1970-01-01T00:00:00.000Z",
+    "seen_count": 0,
+    "advanced": false
+  }
+}

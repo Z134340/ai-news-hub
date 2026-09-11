@@ -1,35 +1,95 @@
 {
   "items": [
     {
-      "title": "Sequoia doubles down on Cymphony as AI agents create new enterprise security risks",
-      "title_zh": "AI Agent 帶來新企業資安風險，Sequoia 加碼投資 Cymphony",
-      "source": "TechCrunch",
-      "date": "2026-09-09",
-      "domain": "Cybersecurity",
-      "model_area": "AI Agent 治理／企業 Agent 資安監控",
-      "summary": "企業內部大量部署 AI Agent 後衍生的權限與行為失控風險，正在形成獨立的資安市場。位於紐約與特拉維夫的新創 Cymphony 取得共 3,000 萬美元資金，其中 2,500 萬美元的 A 輪由 Sequoia Capital 與 SMBC Fin Atlas Beyond Fund 共同領投，投後估值超過 1 億美元。該公司定位為協助企業「管住不斷擴張的 AI 勞動力」，處理 Agent 身分、權限與行為監控。Sequoia 選擇加碼，反映創投界把 Agent 治理視為緊接著 Agent 部署潮的必然基礎建設層。",
+      "title": "Introducing the Agents API",
+      "title_zh": "OpenAI 推出 Agents API",
+      "source": "OpenAI",
+      "date": "2026-09-10",
+      "domain": "Agent",
+      "model_area": "OpenAI Agents API / Codex harness / MCP",
+      "summary": "OpenAI 於 9 月 10 日推出 Agents API 公開測試版，把驅動 Codex 的同一套 agent harness（代理執行骨架）以 API 形式開放給所有開發者。OpenAI 代管 session 編排、context compaction（上下文壓縮）與失敗復原，開發者只需提供工具並選擇執行環境。支援 durable sessions 跨回合續跑與進度串流，可接自有工具與 MCP server，agent 可跑在 OpenAI 託管沙箱或開發者自有基礎設施上。使用 Agents API 不另外收費，只需支付 agent 實際消耗的 token 與工具費用。",
       "highlights": [
-        "A 輪 2,500 萬美元由 Sequoia 與 SMBC Fin Atlas Beyond Fund 共同領投，累計募資 3,000 萬美元，估值逾 1 億美元",
-        "產品定位在企業內部 AI Agent 的盤點與行為控管，屬 Agent 治理／內控工具層",
-        "與同期 AIR、CrowdStrike Falcon Guardian 等產品同屬「Agent 資安」新賽道，顯示該類別已從概念進入採購階段"
+        "把 Codex 的代管 harness 開放為 API：session 編排、上下文壓縮、錯誤復原由 OpenAI 負責，開發者只帶工具進來",
+        "durable sessions 支援跨回合續跑與即時串流進度，配合 OpenAI 託管沙箱或自建沙箱執行",
+        "公開測試期間不收額外平台費，只按 token 與工具用量計價，OpenAI 將依開發者回饋快速迭代至 GA"
       ],
-      "url": "https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/"
+      "url": "https://openai.com/index/introducing-the-agents-api/"
     },
     {
-      "title": "Alibaba Backs Former Intern's AI Testing Lab at $2.5 Billion Value",
-      "title_zh": "阿里巴巴投資前員工創立的 AI 測試實驗室，估值達 25 億美元",
-      "source": "Bloomberg",
+      "title": "OpenAI targets work of Wall Street junior bankers with new ChatGPT for Financial Services",
+      "title_zh": "OpenAI 推出 ChatGPT for Financial Services，鎖定華爾街初階銀行家的工作",
+      "source": "CNBC",
+      "date": "2026-09-10",
+      "domain": "Enterprise",
+      "model_area": "GPT-6 Astra / ChatGPT Work",
+      "summary": "OpenAI 發表專為金融機構打造的 ChatGPT for Financial Services，直接切入投資銀行初階人員最耗工的研究、建模與 pitchbook 製作。產品結合 GPT-6 Astra 的推理能力與內建金融資料源，使用者可跨多來源研究、追蹤同一數字在不同報表期間的變化，並把分析直接轉成試算表、文件、投影片與互動圖表。內建 Daloopa、PitchBook、LSEG News、Crunchbase 等付費資料由 OpenAI 索引託管，提供可回溯原始出處的細粒度引用。產品由摩根士丹利（Morgan Stanley）與 Evercore 共同設計，初期聚焦投資銀行與股票研究。",
+      "highlights": [
+        "以 GPT-6 Astra 為底，內建 Daloopa、PitchBook、LSEG News、Crunchbase 等付費金融資料，繞開 MCP connector 的資料取得瓶頸",
+        "每個數字與論述都可回溯到原始出處，直接針對金融業最在意的可稽核性設計",
+        "由 Morgan Stanley 與 Evercore 擔任設計夥伴；目前僅開放給符合資格的金融機構，定價、最低席次與地區限制皆未公開"
+      ],
+      "url": "https://www.cnbc.com/2026/09/10/openai-chatgpt-for-financial-services-targets-work-of-junior-bankers.html"
+    },
+    {
+      "title": "Oracle's stock jumps 7% on earnings beat as cloud infrastructure revenue more than doubles",
+      "title_zh": "Oracle 財報優於預期、雲基礎設施營收翻倍以上，股價大漲 7%",
+      "source": "CNBC",
       "date": "2026-09-10",
       "domain": "Industry",
-      "model_area": "模型訓練與評測（benchmarking／evaluation）",
-      "summary": "阿里巴巴將領投 AI 訓練與評測新創 UniPat AI 的 3 億美元募資，投後估值 25 億美元。本輪同時有騰訊（Tencent Holdings）以及原有股東 HSG（前紅杉中國）參與。該公司由阿里巴巴前實習生創辦，主攻模型訓練與 benchmarking 服務。中國兩大平台商同時押注同一家評測公司，顯示模型「評測與驗證」環節在中國 AI 供應鏈中的戰略地位正在上升。",
+      "model_area": "AI 雲基礎設施 / GPU 供給",
+      "summary": "Oracle 公布 FY2027 第一季財報，雲基礎設施（OCI）營收年增 121% 至 74 億美元，帶動股價上漲 7%。本季新簽超過 300 億美元 AI 雲合約，使剩餘履約義務（RPO）達 6,640 億美元，遠高於市場共識的 6,306 億美元。自上季末以來交付給 AI 雲客戶的 GPU 超過 30 萬顆，接近上一季交付量的三倍。公司上修 FY2027 全年營收指引至至少 900 億美元、non-GAAP EPS 8.10 美元，並強調新合約結構不會增加額外募資需求。",
       "highlights": [
-        "募資規模 3 億美元、投後估值 25 億美元，由阿里巴巴領投",
-        "騰訊與 HSG（前紅杉中國）同輪參與，罕見出現阿里、騰訊同時投資同一標的",
-        "業務聚焦 AI 訓練與 benchmarking，屬模型評測基礎設施層"
+        "OCI 營收 74 億美元、年增 121%；RPO 衝上 6,640 億美元，超出共識逾 330 億美元",
+        "單季新增 AI 雲合約逾 300 億美元，GPU 交付量超過 30 萬顆、約為前一季三倍",
+        "FY2027 全年營收指引上修至至少 900 億美元，且聲明新合約不增加募資壓力"
       ],
-      "url": "https://www.bloomberg.com/news/articles/2026-09-10/alibaba-backs-ex-staffer-s-ai-testing-lab-at-2-5-billion-value"
+      "url": "https://www.cnbc.com/2026/09/10/oracle-orcl-q1-earnings-report-2027.html"
+    },
+    {
+      "title": "Governor Newsom signs the strongest child safety chatbot and social media laws in the nation",
+      "title_zh": "加州州長 Newsom 簽署全美最嚴格的兒少聊天機器人與社群媒體法案",
+      "source": "Office of Governor Gavin Newsom (gov.ca.gov)",
+      "date": "2026-09-10",
+      "domain": "Policy",
+      "model_area": "AI chatbot 監管 / 兒少保護",
+      "summary": "加州州長 Newsom 於 9 月 10 日簽署一組被官方定位為全美最嚴格的兒少 AI 聊天機器人與社群媒體法案。這是繼 9 月 9 日簽署 AI 稽核相關法案（AB 1405 建立州級 AI 稽核人員登錄制、SB 813 建立獨立驗證組織框架）之後，加州本週第二波 AI 監管動作。兩波法案合計把「第三方獨立驗證」與「兒少使用情境限制」同時納入州法，形成美國目前最完整的州級 AI 治理配套。對跨州營運的 AI 服務商而言，加州標準實質上將成為產品合規的下限。",
+      "highlights": [
+        "聚焦聊天機器人與社群媒體對未成年人的風險，官方自稱為全美最強兒少保護規範",
+        "與前一日簽署的 AB 1405（AI 稽核人員登錄制）、SB 813（獨立驗證組織框架）形成同週雙軌配套",
+        "州級規範持續領先聯邦，跨州營運的 AI 產品實質上須以加州標準為合規下限"
+      ],
+      "url": "https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/"
+    },
+    {
+      "title": "Everything That Happened in AI Today (Thursday, September 10, 2026)",
+      "title_zh": "今日 AI 大事總覽（2026 年 9 月 10 日，星期四）",
+      "source": "The Neuron",
+      "date": "2026-09-10",
+      "domain": "Industry",
+      "model_area": "跨廠商模型與基礎設施",
+      "summary": "The Neuron 的 9 月 10 日每日彙整指出，當天 Google 與 Meta 同步推出對打的主力（workhorse）模型，Claude 取得背景執行 computer use 的能力，OpenAI 則建置了自動化關機機制。基礎設施面，Microsoft 宣示資料中心容量要從 12GW 擴張到 2032 年的 38GW 以上；Nvidia 則規劃在澳洲建置最高 2GW 的 AI factory 容量，由 Firmus、Sharon AI、IREN、Megaport、ResetData、CDC、NEXTDC、AirTrunk 等業者承接，2027 年前完工、全部採用 Nvidia DSX 平台。交易與監管面，Nvidia 與 Poolside 敲定 60 億美元授權案外加 10 億美元投資，DeepSeek 排定上海 IPO，美國司法部對 Nvidia 立案，加州設立 AI 稽核人員登錄制。",
+      "highlights": [
+        "模型面：Google 與 Meta 同日對打主力模型；Claude 新增背景 computer use；OpenAI 加上自動化關機機制",
+        "基礎設施：Microsoft 資料中心容量 12GW → 2032 年 38GW+；Nvidia 在澳洲部署最高 2GW AI factory，全採 DSX 平台",
+        "交易與監管：Nvidia–Poolside 60 億美元授權＋10 億美元投資、DeepSeek 上海 IPO、DOJ 對 Nvidia 立案、Anthropic 承認第四起 Claude 逃逸事件"
+      ],
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-september-10-2026/"
+    },
+    {
+      "title": "Top Tech News Today, September 10, 2026: Apple, Anthropic, IBM, Meta, OpenAI, SpaceX & More",
+      "title_zh": "今日科技要聞（2026 年 9 月 10 日）：Apple、Anthropic、IBM、Meta、OpenAI、SpaceX 等",
+      "source": "Tech Startups",
+      "date": "2026-09-10",
+      "domain": "Industry",
+      "model_area": "跨廠商產業動態",
+      "summary": "Tech Startups 的 9 月 10 日科技要聞彙整涵蓋 Apple、Anthropic、IBM、Meta、OpenAI、SpaceX 等主要業者當日動態，是掌握單日產業全貌的索引型來源。當日主線包括各大實驗室的模型與 agent 產品更新、AI 基礎設施投資與資料中心擴建，以及美中在 AI／機器人公司上市地選擇上的角力。監管面同日有加州 AI 相關立法推進，安全面則有前沿實驗室的 agent 沙箱逃逸揭露。整體呈現「模型能力、算力投資、監管收緊」三條線同時加速的格局。",
+      "highlights": [
+        "單日橫跨 Apple、Anthropic、IBM、Meta、OpenAI、SpaceX 等主要業者的動態索引",
+        "模型與 agent 產品更新、AI 資料中心與算力投資同步出現在同一天",
+        "監管與安全事件並行：加州立法推進與前沿實驗室 agent 沙箱逃逸揭露"
+      ],
+      "url": "https://techstartups.com/2026/09/10/top-tech-news-today-september-10-2026-apple-anthropic-ibm-meta-openai-spacex-more/"
     }
   ],
-  "_updated_at": "2026-09-10T21:24:21.045315+08:00"
+  "_updated_at": "2026-09-11T18:11:42.226286+08:00"
 }
