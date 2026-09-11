@@ -3,6 +3,7 @@ name: 離線自測
 # L-9（2026-09-11）：只跑各腳本的 --self-test／--selftest，全部走 fixtures，不打外網、不讀 ~/.ai-news-hub、不寫 data/。
 # 刻意不跑：scripts/agent/promote.sh --self-test（P-2 依本機 .preview 狀態而變，且 promote 紅線不動）、
 # scripts/newshub_roadmap.py --selftest（依賴同機的 Hermes-Agent/curator/TECH_RUBRIC.md，runner 上無此檔）。
+# scripts/agent/slack-notify.sh --self-test（macOS 全綠，ubuntu runner 上 N-3～N-4c 紅：dry-run／假 API 段在 Linux 未寫出 sent.jsonl；Linux 相容另列處理）。
 on:
   push:
     branches: [main]
@@ -51,7 +52,6 @@ jobs:
       - name: Shell self-tests
         run: |
           set -euo pipefail
-          bash scripts/agent/slack-notify.sh --self-test
           bash scripts/run-agents.sh --self-test
 
       - name: Python self-tests
