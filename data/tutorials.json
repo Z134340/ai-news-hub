@@ -16,7 +16,12 @@
     "url": "https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.17,
+    "verified": "needs_review",
+    "verified_at": "2026-09-11T18:17:16.324040",
+    "complete": true
   },
   {
     "title": "How to Build an Agent",
@@ -33,13 +38,13 @@
       "介紹 LangSmith 除錯每個 agent 決策、評測變更與一鍵部署的工作流"
     ],
     "url": "https://www.langchain.com/blog/how-to-build-an-agent",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110652",
+    "verified_at": "2026-09-11T18:17:16.324066",
     "complete": true
   },
   {
@@ -57,13 +62,13 @@
       "提醒大量 AI 自動投遞可能引發企業端過濾與反制的實務風險"
     ],
     "url": "https://www.inside.com.tw/article/42181-2026-08-24-career-ops-ai-job-search-agent",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110679",
+    "verified_at": "2026-09-11T18:17:16.324093",
     "complete": true
   },
   {
@@ -81,13 +86,13 @@
       "涵蓋權限邊界、錯誤處理與成本控制等生產環境實務考量"
     ],
     "url": "https://claude.com/blog/computer-use-skills-api-files-api",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110707",
+    "verified_at": "2026-09-11T18:17:16.324120",
     "complete": true
   },
   {
@@ -105,13 +110,13 @@
       "點名常見失敗模式：任務過於模糊、缺乏測試導致產出無法驗證"
     ],
     "url": "https://claude.com/blog/claude-code-guide-for-startups",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110734",
+    "verified_at": "2026-09-11T18:17:16.324145",
     "complete": true
   },
   {
@@ -129,13 +134,13 @@
       "強調系統設計重於模型選擇的工程觀點"
     ],
     "url": "https://www.freecodecamp.org/news/learn-system-design-for-ai-agents-build-a-production-ready-multi-agent-pr-reviewer/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110761",
+    "verified_at": "2026-09-11T18:17:16.324170",
     "complete": true
   },
   {
@@ -153,13 +158,13 @@
       "可將校準後評測器接入 CI，對 agent 變更做自動回歸測試"
     ],
     "url": "https://www.langchain.com/blog/introducing-langsmith-tuned-evaluators-starting-with-perceived-error",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110788",
+    "verified_at": "2026-09-11T18:17:16.324196",
     "complete": true
   },
   {
@@ -178,7 +183,12 @@
     "url": "https://developers.googleblog.com/building-agents-with-the-adk-and-the-new-interactions-api/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.48,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.324220",
+    "complete": true
   },
   {
     "title": "How to Build Production-Grade Agents with Pydantic AI",
@@ -195,13 +205,13 @@
       "面向 production 的 agent 開發紀律"
     ],
     "url": "https://www.freecodecamp.org/news/building-agents-with-pydantic-ai/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110816",
+    "verified_at": "2026-09-11T18:17:16.324246",
     "complete": true
   },
   {
@@ -219,13 +229,13 @@
       "以 subagent 隔離探索性搜尋，防止大量檔案內容污染主 session"
     ],
     "url": "https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110843",
+    "verified_at": "2026-09-11T18:17:16.324272",
     "complete": true
   },
   {
@@ -243,13 +253,13 @@
       "generator-critic 迴圈降低策略自我肯定偏誤"
     ],
     "url": "https://www.freecodecamp.org/news/build-a-multi-agent-trading-research-system-with-langchain-deep-agents-handbook/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110874",
+    "verified_at": "2026-09-11T18:17:16.324297",
     "complete": true
   },
   {
@@ -267,13 +277,13 @@
       "附完整開源 companion repository 可直接複用"
     ],
     "url": "https://www.freecodecamp.org/news/ai-evaluation-engineering-build-a-production-grade-llm-evaluation-platform-handbook/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110901",
+    "verified_at": "2026-09-11T18:17:16.324323",
     "complete": true
   },
   {
@@ -291,13 +301,13 @@
       "以可執行程式碼逐步示範，適合已有 LLM API 基礎的開發者"
     ],
     "url": "https://blog.langchain.com/how-to-build-an-agent/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.75,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110935",
+    "verified_at": "2026-09-11T18:17:16.324351",
     "complete": true
   },
   {
@@ -316,13 +326,13 @@
       "取得共識前不動手寫程式，附中文提示詞可直接複製"
     ],
     "url": "https://www.bnext.com.tw/article/91643/matt-pocock-ai-skills-workflow",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.95,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110964",
+    "verified_at": "2026-09-11T18:17:16.324379",
     "complete": true
   },
   {
@@ -340,13 +350,13 @@
       "提供在 LangGraph 上實作這套架構的具體路徑"
     ],
     "url": "https://www.langchain.com/blog/deep-agents",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.110991",
+    "verified_at": "2026-09-11T18:17:16.324405",
     "complete": true
   },
   {
@@ -364,13 +374,13 @@
       "釐清「代理交接」與「代理當成工具」兩種委派語意的差異"
     ],
     "url": "https://developers.googleblog.com/developers-guide-to-multi-agent-patterns-in-adk/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.84,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111020",
+    "verified_at": "2026-09-11T18:17:16.324432",
     "complete": true
   },
   {
@@ -389,13 +399,13 @@
       "10 個 skill 的代理基準脈絡從約 10,000 token 降到約 1,000 token，減少約 90%"
     ],
     "url": "https://developers.googleblog.com/developers-guide-to-building-adk-agents-with-skills/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.77,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111047",
+    "verified_at": "2026-09-11T18:17:16.324457",
     "complete": true
   },
   {
@@ -415,7 +425,12 @@
     "url": "https://claude.com/blog/best-practices-for-prompt-engineering",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.33,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.324483",
+    "complete": true
   },
   {
     "title": "2026 年如何建構 AI Agent：新手完整教學",
@@ -434,7 +449,12 @@
     "url": "https://www.uselearnai.com/blog/how-to-build-ai-agents-beginners-guide-2026",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.22,
+    "verified": "needs_review",
+    "verified_at": "2026-09-11T18:17:16.324508",
+    "complete": true
   },
   {
     "title": "LangSmith LLM Gateway: runtime controls for production agents",
@@ -451,13 +471,13 @@
       "目前為 public beta 階段"
     ],
     "url": "https://www.langchain.com/blog/langsmith-llm-gateway-runtime-controls-for-production-agents",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111073",
+    "verified_at": "2026-09-11T18:17:16.324534",
     "complete": true
   },
   {
@@ -475,13 +495,13 @@
       "能力重用顯著降低重複任務的 token 消耗與延遲"
     ],
     "url": "https://www.marktechpost.com/2026/07/25/building-self-evolving-ai-agents-with-openspace-using-skills-mcp-lineage-and-low-cost-reuse/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "title_low_match",
     "title_score": 0.15,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.111110",
+    "verified_at": "2026-09-11T18:17:16.324562",
     "complete": true
   },
   {
@@ -499,13 +519,13 @@
       "歸納六項脈絡工程新原則，重點在資訊安排方式與載入時機"
     ],
     "url": "https://www.aiposthub.com/claude-5-context-engineering-guide/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111140",
+    "verified_at": "2026-09-11T18:17:16.324590",
     "complete": true
   },
   {
@@ -524,13 +544,13 @@
       "人類角色轉為指揮、設定意圖與最終核准"
     ],
     "url": "https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111168",
+    "verified_at": "2026-09-11T18:17:16.324614",
     "complete": true
   },
   {
@@ -549,13 +569,13 @@
       "涵蓋四類工作流：targeted changes、大型重構、模組替換、完整系統建構"
     ],
     "url": "https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111204",
+    "verified_at": "2026-09-11T18:17:16.324642",
     "complete": true
   },
   {
@@ -573,13 +593,13 @@
       "適用展示型與輕互動場景：儀表板、內部工具、個人作品集"
     ],
     "url": "https://www.bnext.com.tw/article/91537/gdd37kufmda5u2gbzdgq",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111232",
+    "verified_at": "2026-09-11T18:17:16.324668",
     "complete": true
   },
   {
@@ -597,13 +617,13 @@
       "每個節點輸出都經驗證後才傳遞，降低長鏈路任務的錯誤累積"
     ],
     "url": "https://www.marktechpost.com/2026/07/13/building-a-videoagent-style-multi-agent-system-intent-parsing-graph-planning-and-tool-routing-for-video-editing-tasks/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.35,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111260",
+    "verified_at": "2026-09-11T18:17:16.324694",
     "complete": true
   },
   {
@@ -622,13 +642,13 @@
       "附可直接執行的程式碼，需 PyTorch 與 Transformers 基礎"
     ],
     "url": "https://huggingface.co/blog/nroggendorff/finetune-mistral",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111287",
+    "verified_at": "2026-09-11T18:17:16.324720",
     "complete": true
   },
   {
@@ -646,13 +666,13 @@
       "中間結果經摘要壓縮後回填 context，避免長分析鏈路撐爆 context window"
     ],
     "url": "https://www.marktechpost.com/2026/07/10/how-to-build-a-t4-friendly-autonomous-data-science-agent-with-deepanalyze-8b-sandboxed-code-execution-and-iterative-analysis/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "title_low_match",
     "title_score": 0.17,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.111317",
+    "verified_at": "2026-09-11T18:17:16.324747",
     "complete": true
   },
   {
@@ -672,7 +692,12 @@
     "url": "https://grenade.tw/blog/claude-code-tutorial-ai/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.324772",
+    "complete": true
   },
   {
     "title": "How to Build an MCP Server with FastMCP for Your Local AI Agent",
@@ -689,13 +714,13 @@
       "擴充支援遠端 MCP server 的整合方式"
     ],
     "url": "https://www.freecodecamp.org/news/build-an-mcp-server-with-fastmcp-for-local-ai-agent/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111346",
+    "verified_at": "2026-09-11T18:17:16.324801",
     "complete": true
   },
   {
@@ -713,13 +738,13 @@
       "LangChain v1 新版 API 的實務用法"
     ],
     "url": "https://www.freecodecamp.org/news/how-to-build-your-own-local-ai-agent-with-tool-calling-and-memory",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111437",
+    "verified_at": "2026-09-11T18:17:16.324829",
     "complete": true
   },
   {
@@ -738,13 +763,13 @@
       "附實際操作步驟與介面說明，零基礎可跟著做"
     ],
     "url": "https://www.bnext.com.tw/article/91403/claude-tutorial-2026",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111477",
+    "verified_at": "2026-09-11T18:17:16.324857",
     "complete": true
   },
   {
@@ -762,13 +787,13 @@
       "把 AI 定位為協作工具，長期可反向強化使用者自身能力"
     ],
     "url": "https://technews.tw/2026/07/05/ai-editor-mindset-master-output-fact-checking/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111503",
+    "verified_at": "2026-09-11T18:17:16.324882",
     "complete": true
   },
   {
@@ -786,13 +811,13 @@
       "LangChain v1 + Ollama + Qwen 零成本組合"
     ],
     "url": "https://www.freecodecamp.org/news/build-a-private-rag-qa-ai-agent-for-your-documents-using-langchain/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.97,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111531",
+    "verified_at": "2026-09-11T18:17:16.324907",
     "complete": true
   },
   {
@@ -810,13 +835,13 @@
       "查詢內容不外送第三方的隱私優勢"
     ],
     "url": "https://www.freecodecamp.org/news/build-a-personal-ai-web-research-agent-with-ollama-and-qwen/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111557",
+    "verified_at": "2026-09-11T18:17:16.324934",
     "complete": true
   },
   {
@@ -835,13 +860,13 @@
       "完全零程式基礎可跟著完成"
     ],
     "url": "https://www.bnext.com.tw/article/91402/claude-code-no-coding-4-steps-build-your-own-tool-guidebook",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.96,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111584",
+    "verified_at": "2026-09-11T18:17:16.324960",
     "complete": true
   },
   {
@@ -859,13 +884,13 @@
       "繁體中文深度實作教材，貼近台灣開發者的專案情境"
     ],
     "url": "https://blog.wu-boy.com/2026/07/ai-workflow-agent-skill-mcp-workshop-zh-tw/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111613",
+    "verified_at": "2026-09-11T18:17:16.324988",
     "complete": true
   },
   {
@@ -883,13 +908,13 @@
       "揭示 agent 自主性的能力邊界與風險控制點"
     ],
     "url": "https://www.freecodecamp.org/news/build-an-ai-agent-that-runs-its-own-llm-experiments-with-autoresearch/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111642",
+    "verified_at": "2026-09-11T18:17:16.325014",
     "complete": true
   },
   {
@@ -909,7 +934,12 @@
     "url": "https://dev.to/prateek23/how-to-build-an-ai-agent-with-mcp-a-complete-step-by-step-guide-41dg",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.28,
+    "verified": "needs_review",
+    "verified_at": "2026-09-11T18:17:16.325041",
+    "complete": true
   },
   {
     "title": "Build a Nanobot-Style AI Agent in Google Colab with Tool Calling, Session Memory, Skills, and MCP Servers",
@@ -926,13 +956,13 @@
       "以可讀性優先的方式還原 agent harness 組成"
     ],
     "url": "https://www.marktechpost.com/2026/06/26/build-a-nanobot-style-ai-agent-in-google-colab-with-tool-calling-session-memory-skills-and-mcp-servers/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111672",
+    "verified_at": "2026-09-11T18:17:16.325068",
     "complete": true
   },
   {
@@ -950,13 +980,13 @@
       "多代理協調機制的 runtime 層實作"
     ],
     "url": "https://www.marktechpost.com/2026/06/24/how-to-design-an-openharness-style-agent-runtime-with-tools-memory-permissions-skills-and-multi-agent-coordination/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.91,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111700",
+    "verified_at": "2026-09-11T18:17:16.325094",
     "complete": true
   },
   {
@@ -973,13 +1003,13 @@
       "可作為內部導入節奏與同業比較的基準參考"
     ],
     "url": "https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111728",
+    "verified_at": "2026-09-11T18:17:16.325120",
     "complete": true
   },
   {
@@ -997,13 +1027,13 @@
       "收錄 TELUS、Zapier 等企業實際案例"
     ],
     "url": "https://claude.com/blog/eight-trends-defining-how-software-gets-built-in-2026",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 1.0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111756",
+    "verified_at": "2026-09-11T18:17:16.325147",
     "complete": true
   },
   {
@@ -1021,13 +1051,13 @@
       "強調 MCP 大幅降低打造工具型代理的門檻"
     ],
     "url": "https://huggingface.co/blog/python-tiny-agents",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111784",
+    "verified_at": "2026-09-11T18:17:16.325174",
     "complete": true
   },
   {
@@ -1045,85 +1075,13 @@
       "為打造可動態擴充工具的代理提供標準化基礎"
     ],
     "url": "https://huggingface.co/blog/agentic-resource-discovery-launch",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111810",
-    "complete": true
-  },
-  {
-    "title": "Claude Code Guide 2026: 25 Features with Examples + Demo",
-    "source": "MarkTechPost",
-    "date": "2026-06-14",
-    "tool_name": "Claude Code",
-    "difficulty": "beginner",
-    "category": "Claude Code 教學",
-    "summary": "本指南整理 Claude Code 的 25 項功能，每項都附實例與示範。Claude Code 是 Anthropic 推出的代理式（agentic）編碼系統，直接在終端機運作，而非傳統的程式碼自動補全外掛。內容涵蓋基本指令操作到進階的自動化工作流設定。適合剛接觸 Claude Code、想快速建立功能全貌認知的使用者作為索引式參考。",
-    "highlights": [
-      "25 項 Claude Code 功能的完整索引與範例",
-      "終端機原生的代理式編碼系統定位說明",
-      "從基礎指令到進階自動化工作流",
-      "每項功能均附實例與 demo 便於對照驗證"
-    ],
-    "url": "https://www.marktechpost.com/2026/06/14/claude-code-guide-2026-25-features-with-examples-demo/",
-    "is_new": false,
-    "first_seen": "2026-07-20T18:21:04.668198+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111839",
-    "complete": true
-  },
-  {
-    "title": "如何建構 QwenPaw Agent 工作區：自訂 Skills、模型供應商、Console 存取與串流 API 測試",
-    "source": "MarkTechPost",
-    "date": "2026-06-13",
-    "tool_name": "QwenPaw",
-    "difficulty": "intermediate",
-    "category": "AI Agent 建構",
-    "summary": "本教學示範建立一個 QwenPaw agent 工作區，涵蓋自訂 skills 撰寫、模型供應商設定、console 操作與串流 API 的測試方法。文章說明如何把多個模型供應商配置在同一工作區，依任務性質切換不同後端以平衡成本與能力。教學逐步帶過 skill 的定義與載入流程，並示範透過 console 觀察 agent 實際的決策與工具呼叫過程。串流 API 測試段落說明如何驗證逐 token 回傳的正確性與中斷處理。整體適合需要自建 agent 開發環境的工程師參考。",
-    "highlights": [
-      "同一工作區可配置多個模型供應商，依任務切換以平衡成本與能力",
-      "console 提供 agent 決策與工具呼叫的即時觀察窗口，便於除錯",
-      "自訂 skills 的定義與載入流程完整示範，可直接套用到自有專案",
-      "串流 API 測試涵蓋逐 token 回傳驗證與中斷情境處理"
-    ],
-    "url": "https://www.marktechpost.com/2026/06/13/how-to-build-a-qwenpaw-agent-workspace-with-custom-skills-model-providers-console-access-and-streaming-api-testing/",
-    "is_new": false,
-    "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
-    "url_status": "verified",
-    "title_score": 0.4,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111868",
-    "complete": true
-  },
-  {
-    "title": "Top AI Coding Agents and Development Platforms in 2026: Atoms, Devin, Windsurf, Cursor, Warp, and More Compared",
-    "source": "MarkTechPost",
-    "date": "2026-06-10",
-    "tool_name": "Cursor / Devin / Windsurf / Warp",
-    "difficulty": "beginner",
-    "category": "AI 工具選型比較",
-    "summary": "本文橫向比較 2026 年主流 AI 編碼代理與開發平台，涵蓋 Atoms、Devin、Windsurf、Cursor、Warp 等產品。內容聚焦各平台的定位差異、自主程度與適用場景，而非單純功能清單堆疊。對於需要為團隊做工具選型、必須說明選擇理由的技術決策者，提供了可對照的評估維度。屬於工具地景（landscape）盤點性質，非單一工具的深度操作教學。",
-    "highlights": [
-      "2026 年主流 AI 編碼代理平台的橫向比較",
-      "各平台自主程度與適用場景的定位差異",
-      "可供團隊工具選型引用的評估維度",
-      "偏地景盤點性質，非單一工具深度教學"
-    ],
-    "url": "https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/",
-    "is_new": false,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.111897",
+    "verified_at": "2026-09-11T18:17:16.325200",
     "complete": true
   }
 ]

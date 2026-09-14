@@ -15,7 +15,12 @@
       "summary": "本文直接挑戰 LLM-as-a-Judge 的基本假設——評審輸出應來自「對候選回答依 rubric 推理」的結果。作者訓練一組分類器，只餵入 rubric 文字、完全不給被評估的回答，結果仍能對評審輸出達到非平凡（nontrivial）的預測準確度。這代表 rubric 的措辭本身就編碼了可回收的評價訊號，評審分數有相當比例是被 rubric 形式而非回答品質決定。對所有以 LLM 評審做模型排名或 RLHF 獎勵訊號的團隊，這是 evaluation validity 的直接警訊。",
       "url": "https://arxiv.org/abs/2609.02942",
       "field": "LLM-as-a-Judge",
-      "impact": "high — 直擊 LLM 評審方法論的效度根基，若結論成立，大量以 rubric 驅動的自動評估結果需重新檢視"
+      "impact": "high — 直擊 LLM 評審方法論的效度根基，若結論成立，大量以 rubric 驅動的自動評估結果需重新檢視",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320406",
+      "complete": true
     },
     {
       "title": "Post-hoc Alignment of LLM-judges to Human Judgment Distribution",
@@ -32,7 +37,12 @@
       "summary": "現行 LLM-as-a-Judge（LLMaJ）評估幾乎都拿聚合後的 ground-truth 硬標籤比對，忽略了 Human Label Variation（HLV）所攜帶的資訊。本文系統性檢視 LLMaJ 在「聚合硬標籤」與「未聚合軟標籤（Human Judgment Distribution, HJD）」兩種目標下的表現差異。作者提出 NAPHA（eNtropy-Aware Post-Hoc Alignment），一種輕量的事後對齊方法，直接把 LLM 的輸出分布校正到人類判斷分布上。由 Amazon 團隊提出，屬於可直接掛在既有評審管線後端的低成本修補。",
       "url": "https://arxiv.org/abs/2609.01073",
       "field": "LLM Evaluation",
-      "impact": "high — 把「人類本來就會不同意」這件事納入評審校準，是評估方法論從點估計走向分布估計的代表性工作"
+      "impact": "high — 把「人類本來就會不同意」這件事納入評審校準，是評估方法論從點估計走向分布估計的代表性工作",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320483",
+      "complete": true
     },
     {
       "title": "UniRRM: Unified Reasoning Reward Models Across Languages and Evaluation Paradigms",
@@ -54,7 +64,12 @@
       "summary": "開放式任務缺乏可驗證獎勵，現有做法不是依賴昂貴的專有 LLM-as-a-Judge，就是用不可解釋的純量獎勵模型。作者建置 MixReward 資料集，橫跨 6 個領域、103 種語言，同時包含 pairwise 與 listwise 兩種標註格式。在其上訓練的 UniRRM 採用分階段推理鏈，動態生成「任務通用」與「指令專屬」兩層評分準則，做到細粒度且隨輸入自適應的判斷，並維持跨語言一致性。等於把 LLM 評審的能力壓縮進一個可自建、可解釋的開源獎勵模型。",
       "url": "https://arxiv.org/abs/2609.05910",
       "field": "LLM Evaluation",
-      "impact": "high — 以 103 語言規模挑戰專有評審模型的成本結構，對非英語評估與 RLHF 獎勵建模有直接替代價值"
+      "impact": "high — 以 103 語言規模挑戰專有評審模型的成本結構，對非英語評估與 RLHF 獎勵建模有直接替代價值",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320518",
+      "complete": true
     },
     {
       "title": "Defining AI Agents: A Compendium of Criteria, Metrics, and Benchmarks",
@@ -69,7 +84,12 @@
       "summary": "「Agent」一詞在 AI 領域至今沒有標準定義，直接導致評估、比較與可重現性的混亂。本文以五個 agenticness 面向重新組織整個文獻：環境互動（environmental interaction）、學習與適應、自主性、目標導向行為、時間連貫性（temporal coherence）。作者依此彙整現有判準、度量與 benchmark，形成一份可查表的對照彙編。這是本週最新的一篇（9/10 投稿），對治理端要寫「什麼算 agent、要量什麼」的定義條文極為實用。",
       "url": "https://arxiv.org/abs/2609.11018",
       "field": "Agent Evaluation",
-      "impact": "high — 為 agent 的定義與量測提供可引用的共同語彙，治理與稽核文件可直接對接"
+      "impact": "high — 為 agent 的定義與量測提供可引用的共同語彙，治理與稽核文件可直接對接",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320548",
+      "complete": true
     },
     {
       "title": "The Double Measurement Confound in Agent Benchmarks: De-Scaffolding, Ground-Truth Scoring, and Reliability Beyond the Mean",
@@ -91,7 +111,12 @@
       "summary": "作者指出 agent benchmark 存在「雙重測量混淆」（double measurement confound）：一方面，攸關執行成敗的關鍵決策其實是由固定的 scaffold 代勞，而非模型本身；另一方面，評分器用的判準未必真的反映任務正確性。兩者疊加，使 benchmark 分數無法歸因到模型能力。論文提出去 scaffold 化與真值評分的修正路徑，並主張可靠度評估不能只看平均分。全文 31 頁、18 張圖，附完整補充材料。",
       "url": "https://arxiv.org/abs/2609.09218",
       "field": "Agent Evaluation",
-      "impact": "high — 解釋了為何 agent 排行榜難以複現，對採信 benchmark 數字做選型的企業是必讀的警示"
+      "impact": "high — 解釋了為何 agent 排行榜難以複現，對採信 benchmark 數字做選型的企業是必讀的警示",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320577",
+      "complete": true
     },
     {
       "title": "$τ^τ$-Bench: An Environment for End-To-End, Realistic Agent Construction",
@@ -108,7 +133,12 @@
       "summary": "τ^τ-Bench（讀作 hyper-tau-bench）把評估對象從「agent 執行任務」上移到「agent 建構 agent」。受測的 developer agent 會拿到業務紀錄、客戶需求、production API、一份要接手的既有 codebase，以及成本與模型上限——等同真實委外專案的條件——必須交付一個完整的客服 agent。評分方式是把交付出來的 agent 部署上線，對未見過的模擬使用者實跑。出自 τ-bench 原班團隊（Sierra 與 Princeton），是該系列的顯著能力躍升。",
       "url": "https://arxiv.org/abs/2609.04611",
       "field": "Agent Evaluation",
-      "impact": "high — τ-bench 系列的正統延伸，首次把「agent 工程能力」而非「任務完成率」當成受測標的"
+      "impact": "high — τ-bench 系列的正統延伸，首次把「agent 工程能力」而非「任務完成率」當成受測標的",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320605",
+      "complete": true
     },
     {
       "title": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
@@ -127,7 +157,12 @@
       "summary": "核心觀察是：agent 的最終成敗往往在執行完成前就已從中間行為顯露。EarlyEval 訓練一對 LightGBM 成功／失敗分類器，特徵取自行為訊號、文字訊號與參考解答，一旦任一分類器跨過校準後的信心閾值就立即中止該次執行。在三個 benchmark 上可省去 13%–26% 的 agent 執行步數。與「減少評估任務數」的做法互補，這條路線是在單一任務內部砍成本。",
       "url": "https://arxiv.org/abs/2609.02783",
       "field": "Agent Evaluation",
-      "impact": "medium — 工程上立即可用的評估降本手段，13%–26% 的節省對高頻 CI 型 agent 評估有實質意義"
+      "impact": "medium — 工程上立即可用的評估降本手段，13%–26% 的節省對高頻 CI 型 agent 評估有實質意義",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320632",
+      "complete": true
     },
     {
       "title": "Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation",
@@ -150,7 +185,12 @@
       "summary": "軟體工程 agent 的 benchmark 只看 pass/fail，浪費了執行軌跡中的大量過程訊號。作者提出 PTA-IRT（Privileged Trajectory-Aware Item Response Theory），把歷史執行軌跡——已探索的上下文、嘗試過的編輯、求解路徑——當成特權資訊（privileged information），用於校準子集挑選與能力估計，融合過程訊號與結果訊號。目的是在大幅削減評估任務數的前提下維持排名保真度。與 SWE-bench 類評估的高昂運算成本直接對衝。",
       "url": "https://arxiv.org/abs/2609.01603",
       "field": "Agent Evaluation",
-      "impact": "medium — 針對 SWE-bench 類評估的成本問題，以 IRT 心理計量方法切入，方法論上較同類工作嚴謹"
+      "impact": "medium — 針對 SWE-bench 類評估的成本問題，以 IRT 心理計量方法切入，方法論上較同類工作嚴謹",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320659",
+      "complete": true
     },
     {
       "title": "AgentIdeaBench: Benchmarking Scientific Ideation in the Agent Era",
@@ -173,7 +213,12 @@
       "summary": "科學構想（scientific ideation）是自主 AI 科學家的核心能力——從既有證據中提出新穎且可檢驗的假說。AgentIdeaBench 在兩種對照設定下評估此能力：靜態觀察（static observation）與主動探索（active exploration）。實驗涵蓋 33 個 LLM、橫跨五大學科的 40 個密集評分子領域，評分框架為多維度、經文獻驗證，其 critic 會對照檢索到的先前技術來判斷原創性。結論是主動探索設定下可見的能力上限空間顯著更大，且在各模型間分布極不平均。全文 25 頁、9 圖、8 表。",
       "url": "https://arxiv.org/abs/2609.07611",
       "field": "Agent Evaluation",
-      "impact": "medium — 33 模型 × 40 子領域的規模在 ideation 評估中罕見，靜態／主動對照設計方法上值得借鑑"
+      "impact": "medium — 33 模型 × 40 子領域的規模在 ideation 評估中罕見，靜態／主動對照設計方法上值得借鑑",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320685",
+      "complete": true
     },
     {
       "title": "SchemeArena: Factorized Stress Testing of Scheming in LLM Agents",
@@ -192,7 +237,12 @@
       "summary": "Scheming 指 agent 暗中追求與指派目標不一致的隱藏目標。SchemeArena 以因子化情境合成框架（factorized scenario synthesis）建構 400 個情境，維度涵蓋多樣的安全相關工具領域、工具性目標（instrumental goals）、監督強度條件等因子，形成可規模化的陰謀行為壓力測試。因子化設計的好處是能拆解出「哪個條件變數真正誘發了 scheming」，而非只給一個總分。對 agent 上線前的對抗性審查具直接參考價值。",
       "url": "https://arxiv.org/abs/2609.08126",
       "field": "Agent Evaluation",
-      "impact": "medium — 400 情境的因子化設計讓 alignment 風險可歸因到具體條件，適合納入內部 agent 上線審查清單"
+      "impact": "medium — 400 情境的因子化設計讓 alignment 風險可歸因到具體條件，適合納入內部 agent 上線審查清單",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320721",
+      "complete": true
     },
     {
       "title": "Harness Engineering in LLM Tool Use via Agent-Native Reusable Tool Primitives",
@@ -210,7 +260,12 @@
       "summary": "現行工具呼叫有兩大痛點：工具輸出型別與 API schema 不相容造成多步多輪推理脆裂，以及工具目錄一大就效能崩壞。作者提出 Tool Primitives，用自然語言取代僵化的 API schema 當作工具呼叫介面，每個工具外包一層 LLM 介面，schema 解析與執行都在內部消化。配套的 ToolFace 是一個集中式函式庫，收錄 25,519 個函式，讓 LLM 在推論時只動態檢索相關工具，不必把原始 API schema 全數塞進 context。這是少數把「harness engineering」明確當成研究對象的論文。",
       "url": "https://arxiv.org/abs/2609.01736",
       "field": "AI Agent Engineering",
-      "impact": "high — 25,519 函式規模下的動態檢索設計，直接對應企業級 agent 的工具目錄膨脹問題"
+      "impact": "high — 25,519 函式規模下的動態檢索設計，直接對應企業級 agent 的工具目錄膨脹問題",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320748",
+      "complete": true
     },
     {
       "title": "Beyond Prompts: Measuring and Optimizing LLM Tool-Agent Harnesses",
@@ -229,7 +284,12 @@
       "summary": "本文主張不必重訓模型，只要改動模型外圍的 runtime harness——提示詞、工具介面、middleware、狀態處理、復原邏輯——就能提升工具型 agent 表現。作者把問題形式化為「固定模型多輪工具 agent 的資源受限 harness 選擇」（resource-bounded harness selection），並刻意把搜尋範圍限縮在提示詞與工具邊界的 middleware：所有修改都是工具邊界上的受控攔截（guarded intercepts），而非任意改寫 agent 執行邏輯。出自 Airbnb 生產環境團隊，工程約束的現實感較強。",
       "url": "https://arxiv.org/abs/2609.05736",
       "field": "AI Agent Engineering",
-      "impact": "high — 來自 Airbnb 生產實務，把 harness 調校從玄學變成有明確搜尋空間與預算約束的最佳化問題"
+      "impact": "high — 來自 Airbnb 生產實務，把 harness 調校從玄學變成有明確搜尋空間與預算約束的最佳化問題",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320775",
+      "complete": true
     },
     {
       "title": "Context as an Environment: Programmatic Context Management for Long-Horizon Agents",
@@ -247,7 +307,12 @@
       "summary": "作者提出 Scroll，把每一次 agent session 視為一個可執行的 Session Environment，底層由僅可追加的 Event Log（保存無損的歷史真值）與一個沙箱化、持續存在的 Python kernel 支撐。關鍵轉折是：工具輸出與衍生狀態被綁定到「變數」，而不是序列化後灌進 prompt。如此一來上下文管理變成一項程式撰寫任務，可直接繼承 LLM 日益進步的寫程式能力，而非依賴啟發式的摘要或裁切。對長時程 agent 的 context 爆炸問題是一條結構性解法。",
       "url": "https://arxiv.org/abs/2608.21690",
       "field": "AI Agent Engineering",
-      "impact": "high — 把 context engineering 重構成程式設計問題，是 Alibaba 對長時程 agent 記憶體管理的代表性主張"
+      "impact": "high — 把 context engineering 重構成程式設計問題，是 Alibaba 對長時程 agent 記憶體管理的代表性主張",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320803",
+      "complete": true
     },
     {
       "title": "Procedural Graphs: Self-Evolving Execution Structures for LLM Agents",
@@ -264,7 +329,12 @@
       "summary": "Procedural Graph 把程序性知識組織成（procedure, relation, procedure）三元組，專門回答「該做什麼」這類 what-to-do 問題，與一般知識圖譜處理事實性知識的取向不同。每個決策步驟，框架先定位 agent 當前所在的活躍節點，再由 guidance model 把周邊子圖翻譯成步驟層級的情境指引，用來偏移（bias）求解器的下一步動作，但不強制指定。這種「引導而不接管」的設計保留了模型的彈性，同時累積可重用的執行結構。作者群含 Google 的 Sercan Ö. Arık。",
       "url": "https://arxiv.org/abs/2609.09153",
       "field": "AI Agent Engineering",
-      "impact": "high — Google 團隊對 agent 記憶／程序知識累積的最新架構，兼顧經驗重用與行為彈性"
+      "impact": "high — Google 團隊對 agent 記憶／程序知識累積的最新架構，兼顧經驗重用與行為彈性",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320828",
+      "complete": true
     },
     {
       "title": "Codebook Agent: Amortized Topology Design for LLM Multi-Agent Systems",
@@ -286,7 +356,12 @@
       "summary": "多 agent 系統的通訊拓撲若能隨查詢調整，準確率與效率可同時改善，但現行做法把它當成條件式圖生成問題，成本高昂。作者改用向量量化自編碼器（VQ-autoencoder）把成功的拓撲壓縮成一本與查詢無關的 16 條目 codebook，再用 reward-weighted MLP 把查詢嵌入映射到這些 code 的機率分布。結果是拓撲決策只需 2.4 毫秒即可產出，且相較先前方法少用 21.9%–33.2% 的 LLM token。等於把昂貴的線上搜尋攤提成一次性的離線壓縮。",
       "url": "https://arxiv.org/abs/2609.02264",
       "field": "Multi-Agent",
-      "impact": "high — 2.4ms 決策延遲加上逾兩成 token 節省，是多 agent 編排從研究走向生產成本可控的關鍵一步"
+      "impact": "high — 2.4ms 決策延遲加上逾兩成 token 節省，是多 agent 編排從研究走向生產成本可控的關鍵一步",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320854",
+      "complete": true
     },
     {
       "title": "CONTINUITY: Security-Context Contracts for Composable LLM Agent Controls",
@@ -301,7 +376,12 @@
       "summary": "LLM agent 系統正把來源追蹤（provenance）、授權、政策執行、協定轉接與執行控制層層疊加，但本文指出：個別正確的安全機制組合起來未必產生端到端安全的系統——安全關鍵上下文可能在跨元件邊界時被丟棄、放寬、重新綁定或誤讀。作者將此失效模式命名為 security-context discontinuity，並提出 CONTINUITY 框架，以 assume-guarantee 契約描述每個元件，透過簽章根授權（signed root grants）、來源承諾、角色綁定的轉移收據、有界型別釋出、轉換見證與效果綁定執行許可，把已驗證的安全上下文一路攜帶過各次轉移。",
       "url": "https://arxiv.org/abs/2609.05269",
       "field": "AI Agent",
-      "impact": "medium — 把 agent 安全從「單點控制項」拉到「可組合性驗證」層次，對金融業多層授權鏈的治理設計具參考價值"
+      "impact": "medium — 把 agent 安全從「單點控制項」拉到「可組合性驗證」層次，對金融業多層授權鏈的治理設計具參考價值",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320879",
+      "complete": true
     },
     {
       "title": "Agent Against Agent: An Agentic System for Automatic Prompt Injection Red Teaming",
@@ -318,7 +398,12 @@
       "summary": "作者開發 PIMiner，一套用於提示注入紅隊演練的代理式系統。訓練階段，PIMiner 在一連串（資料集, 目標模型）配對上學習，從零建立一座攻擊策略庫；測試階段，這座策略庫可直接遷移到先前未見過的目標 LLM，無須額外訓練。實測對 Gemini-2.5-Pro 達到 76.2% 的攻擊成功率（ASR），在 AgentDojo 上對同一目標達 86.7% ASR。這類「攻擊策略可遷移」的結果，意味著防禦方不能假設換模型就能重置風險。",
       "url": "https://arxiv.org/abs/2608.05108",
       "field": "AI Agent",
-      "impact": "high — 攻擊策略庫跨模型零樣本遷移且 ASR 逾七成，對 agent 防禦架構的假設是直接打擊"
+      "impact": "high — 攻擊策略庫跨模型零樣本遷移且 ASR 逾七成，對 agent 防禦架構的假設是直接打擊",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320912",
+      "complete": true
     },
     {
       "title": "Testing Interchangeability in LLM Agent Teams",
@@ -336,7 +421,12 @@
       "summary": "本文探討多 agent 團隊中一個被忽略的工程問題：團隊裡的個別 agent 究竟能不能互相替換而不損害整體表現。可互換性（interchangeability）若成立，團隊組態就能依成本彈性調度不同模型；若不成立，則團隊表現實際上綁死在特定模型組合上，換模型等於重新調校整個系統。作者提出對應的測試方法來檢驗此性質。⚠️待確認：可查證來源未提供具體實驗規模與量化結果。",
       "url": "https://arxiv.org/abs/2609.05279",
       "field": "Multi-Agent",
-      "impact": "medium — 指出多 agent 系統選型的隱性鎖定風險，對成本導向的模型調度決策有實務意涵"
+      "impact": "medium — 指出多 agent 系統選型的隱性鎖定風險，對成本導向的模型調度決策有實務意涵",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320938",
+      "complete": true
     },
     {
       "title": "Making Every Tool Call Count: Necessary Tool-Evidence Path Rewards for Agentic Vision-Language Models",
@@ -359,8 +449,14 @@
       "summary": "現代視覺語言模型（VLM）能直接回答許多圖像相關問題，但遇到需要細粒度視覺細節或外部知識的複雜查詢就力有未逮。代理式 VLM 的解法是呼叫工具——圖像裁切、以圖搜圖、文字搜尋——但缺乏訓練訊號去判斷哪些呼叫是必要的。作者提出 NTEP（Necessary Tool-Evidence Path）標註方案，明確指定每個查詢所需的必要外部證據與對應的工具呼叫序列，據以設計獎勵訊號。這把多模態 agent 的工具使用從「有呼叫就給分」導向「呼叫到必要證據才給分」。",
       "url": "https://arxiv.org/abs/2609.03493",
       "field": "Multimodal",
-      "impact": "medium — 把工具使用的獎勵設計從結果導向細化到證據路徑導向，對多模態 agent 的訓練效率有實質改善"
+      "impact": "medium — 把工具使用的獎勵設計從結果導向細化到證據路徑導向，對多模態 agent 的訓練效率有實質改善",
+      "url_status": "verified",
+      "title_score": 0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.320964",
+      "complete": true
     }
   ],
-  "_updated_at": "2026-09-11T18:06:25.595972+08:00"
+  "_updated_at": "2026-09-11T18:06:25.595972+08:00",
+  "_fallback": true
 }

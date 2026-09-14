@@ -25,7 +25,12 @@
     "url": "https://www.tun.com/home/google-deepmind-launches-gemini-3-8-flash-and-3-8-flash-cyber/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325562",
+    "complete": true
   },
   {
     "model_name": "Muse Spark",
@@ -53,7 +58,12 @@
     "url": "https://emergent.sh/news/meta-launches-muse-spark-1-3-multimodal-model",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325589",
+    "complete": true
   },
   {
     "model_name": "Claude Fable / Claude Mythos",
@@ -82,7 +92,12 @@
     "url": "https://www.marktechpost.com/2026/09/01/anthropic-releases-claude-fable-5-1-and-claude-mythos-5-1-52-6-on-terminal-bench-science-and-75-cheaper-cache-reads/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.52,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325614",
+    "complete": true
   },
   {
     "model_name": "DeepSeek-V4-Flash-Vision-Exp",
@@ -111,7 +126,12 @@
     "url": "https://www.techtimes.com/articles/326132/20260901/deepseek-open-sources-first-v4-vision-model-benchmark-claims-need-independent-proof.htm",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.49,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325650",
+    "complete": true
   },
   {
     "model_name": "GLM-5.3-Flash",
@@ -140,42 +160,11 @@
     "url": "https://docs.z.ai/release-notes/new-released",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "GLM-5.3-Flash",
-    "version": "5.3-Flash",
-    "institution": "Z.ai (智譜)",
-    "release_date": "2026-08-26",
-    "domain": "Multimodal LLM",
-    "summary": "GLM-5.3-Flash 是 GLM-5 系列第一個原生多模態模型，同時支援文字、影像與影片輸入。架構為 MoE，總參數 320B、每 token 啟用 18B，搭配 hybrid attention（稀疏加線性注意力混合）設計，脈絡視窗達 1M token。Z.ai 表示該混合注意力大幅壓低長脈絡服務成本，同時保留精準的長脈絡檢索能力。訓練語料為其最新的 30T token 多模態預訓練語料庫。官方宣稱在自家評測全面優於 GLM-5.2，但價格僅約十分之一，且權重以 MIT 授權開放。",
-    "advantages": [
-      "首個原生多模態的 GLM-5 系列模型，文字／影像／影片單一模型處理",
-      "MIT 授權開放權重，商用限制極低",
-      "320B 總參數但僅啟用 18B，推論成本接近小模型",
-      "混合稀疏＋線性注意力，1M 長脈絡服務成本大幅下降",
-      "官方稱全面優於 GLM-5.2，價格約為十分之一"
-    ],
-    "benchmarks": [
-      "Total parameters: 320B / Active: 18B",
-      "Context window: 1M tokens",
-      "Pre-training corpus: 30T tokens (multimodal)",
-      "List price: $0.15 input / $0.03 cached / $0.50 output per 1M tokens"
-    ],
-    "highlights": [
-      "Hugging Face transformers v5.16.1 已加入 GLM-5.3-Flash 支援",
-      "50% 促銷價延續至 2026-09-09 16:00 UTC",
-      "定位為「Flash 價格、GLM-5 能力」的高性價比多模態模型",
-      "MIT 授權在中國前沿模型中屬最寬鬆的一類"
-    ],
-    "url": "https://llm-stats.com/blog/research/glm-5.3-flash-launch",
-    "is_new": false,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
-    "url_status": "verified",
-    "title_score": 0.7,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112250",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.24,
+    "verified": "needs_review",
+    "verified_at": "2026-09-11T18:17:16.325676",
     "complete": true
   },
   {
@@ -205,7 +194,12 @@
     "url": "https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325704",
+    "complete": true
   },
   {
     "model_name": "Qwen3.8-27B",
@@ -235,81 +229,11 @@
     "url": "https://datanorth.ai/news/alibaba-releases-qwen3-8-27b",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "GLM-5.3",
-    "version": "5.3",
-    "institution": "Z.ai (智譜)",
-    "release_date": "2026-08-14",
-    "domain": "LLM (Coding / Agentic)",
-    "summary": "GLM-5.3 是 Z.ai 主打程式撰寫與 agentic 工作流的旗艦模型。它建立在與 GLM-5.2 相同的 743B 參數基座之上，所有能力提升都來自擴大的 post-training，而非重新預訓練。官方回報在 Terminal-Bench 3.0、DeepSWE、Agents' Last Exam、AutomationBench 等 agent 導向評測全面優於前代。最受注意的副作用是攻擊性資安能力：CyberGym 得分 84.5%，超越 Claude Fable 5 的 83.8% 與 GPT-5.6 Sol 的 83.6%，成為該評測目前最高的公開分數。整體定位是與封閉前沿模型正面競爭、但在 agentic coding 與資安任務上特別突出的開放路線模型。",
-    "advantages": [
-      "純 post-training 即取得大幅提升，訓練成本效率極高",
-      "CyberGym 84.5% 為目前公開最高分，超越 Fable 5 與 GPT-5.6 Sol",
-      "agentic coding 與長時程自動化任務相較 GLM-5.2 顯著改善",
-      "與封閉前沿模型競爭但採開放權重路線",
-      "在 BenchLM 分類中 Agentic 類別排名第 6"
-    ],
-    "benchmarks": [
-      "CyberGym: 84.5% (GLM-5.2: 77.2%)",
-      "Terminal-Bench 3.0: 28.3%",
-      "DeepSWE v1.1: 66.9%",
-      "Agents' Last Exam: 28.5%",
-      "AutomationBench: 48.2%",
-      "HLE with tools: 62.5%",
-      "GDPval-AA v2: 1,769 Elo",
-      "ExploitBench: 54.4%"
-    ],
-    "highlights": [
-      "攻擊性資安能力意外領先，帶出模型濫用治理議題",
-      "基座與 GLM-5.2 相同（743B），凸顯 post-training scaling 的效益",
-      "同月稍晚再推出多模態版 GLM-5.3-Flash，形成完整產品線",
-      "被多家評測站列為封閉前沿模型的最強開放替代之一"
-    ],
-    "url": "https://datanorth.ai/news/z-ai-releases-glm-5-3",
-    "is_new": false,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112280",
-    "complete": true
-  },
-  {
-    "model_name": "Qwen3.8-27B",
-    "version": "3.8-27B",
-    "institution": "Alibaba (阿里巴巴 Qwen 團隊)",
-    "release_date": "2026-08-14",
-    "domain": "LLM",
-    "summary": "阿里巴巴於 2026 年 8 月 14 日 15:00 UTC（太平洋時間 08:00）正式在 Hugging Face 釋出 Qwen3.8-27B 的官方權重，repo 位址為 Qwen/Qwen3.8-27B，採 Apache 2.0 授權。這是 Qwen3.8 系列中面向一般本機 GPU 硬體的小型 checkpoint，定位與旗艦 Qwen3.8-Max 的 2.4 兆參數 MoE 形成互補。權重內容為 BF16 safetensors，共 18 個分片、合計 55.6 GB，並附帶 tokenizer、chat template 與 config。此規模設計讓企業與個人得以在自有硬體上進行地端部署與微調，不必依賴雲端 API。與 Max 版一同構成阿里「旗艦封閉先行、小型開放跟進」的雙軌發布節奏。",
-    "advantages": [
-      "Apache 2.0 授權，商用限制寬鬆，適合企業內部落地與二次開發",
-      "27B 規模鎖定一般地端 GPU 硬體，降低自建推論的硬體門檻",
-      "官方 BF16 權重完整附 tokenizer 與 chat template，部署摩擦低",
-      "與 Qwen3.8-Max 同代訓練，能力譜系與旗艦一致",
-      "Hugging Face 官方 repo 直接下載，供應鏈來源明確"
-    ],
-    "benchmarks": [
-      "Parameters: 27B",
-      "Weights size: 55.6 GB BF16 safetensors (18 shards)",
-      "License: Apache 2.0"
-    ],
-    "highlights": [
-      "Qwen3.8 系列中第一個真正開放權重落地的 checkpoint",
-      "地端部署導向，適合有資料落地與主權要求的金融／受監管產業",
-      "與 Qwen3.8-Max 形成大小雙軌，方便同一技術棧內做成本分層",
-      "釋出時間點與 GLM-5.3 同日，凸顯中國模型陣營的發布密度"
-    ],
-    "url": "https://www.orcarouter.ai/blog/qwen-3-8-27b-release-date",
-    "is_new": false,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "title_low_match",
-    "title_score": 0.1,
-    "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.112310",
+    "verified_at": "2026-09-11T18:17:16.325731",
     "complete": true
   },
   {
@@ -340,74 +264,11 @@
     "url": "https://deepseek.ai/deepseek-v4",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Gemini 3.7 Flash",
-    "version": "3.7 Flash",
-    "institution": "Google DeepMind",
-    "release_date": "2026-08-13",
-    "domain": "LLM",
-    "summary": "Google DeepMind 於 2026-08-13 由 Demis Hassabis 宣布推出 Gemini 3.7 Flash，定位為軟體工程、網頁開發與知識工作的升級版本。入門定價為每百萬 input tokens 0.75 美元，約為 Gemini 3.6 Flash 原始價格的一半。此版本明確以 coding 與 agent 應用為主要場景，強化工具呼叫與多步驟任務執行。發布後不到三週即被 3.8 Flash 接續，顯示 Google 在 Flash 產品線採取高頻迭代策略。3.8 Flash 沿用其架構，因此 3.7 Flash 可視為當前 Flash 世代的架構基準。",
-    "advantages": [
-      "入門價每百萬 input tokens $0.75，約為 3.6 Flash 的一半",
-      "針對軟體工程、網頁開發與知識工作專門調校",
-      "強化 coding 與 agent 場景的工具使用能力",
-      "作為 3.8 Flash 的架構基底，整合可平滑升級"
-    ],
-    "benchmarks": [
-      "定價: $0.75 / 百萬 input tokens（約為 Gemini 3.6 Flash 的 1/2）"
-    ],
-    "highlights": [
-      "由 Demis Hassabis 親自宣布",
-      "以價格對半的策略搶佔 coding／agent 的高用量市場",
-      "發布不到三週即被 Gemini 3.8 Flash 接續",
-      "3.8 Flash 與 3.8 Flash Cyber 均沿用其底層架構"
-    ],
-    "url": "https://datanorth.ai/news/google-releases-gemini-3-7-flash",
-    "is_new": true,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
-    "title_score": 1.0,
+    "title_score": 0.6,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112377",
-    "complete": true
-  },
-  {
-    "model_name": "DeepSeek-V4-Pro",
-    "version": "V4-Pro-0813",
-    "institution": "DeepSeek",
-    "release_date": "2026-08-13",
-    "domain": "LLM",
-    "summary": "DeepSeek-V4-Pro 於 2026-08-13 進入正式可用（GA）階段，是 DeepSeek V4 系列的旗艦版本。架構為 MoE Transformer，總參數 1.6T、每 token 啟用 49B，並採用 token-wise 壓縮加上 DeepSeek Sparse Attention（DSA），預設脈絡視窗 1M token。V4-Pro 以 33 兆 token 訓練，優化器改用 Muon 而非慣用的 AdamW，是少數在兆級參數規模採用 Muon 的公開模型。能力面主打 agentic 特性，官方宣稱在 agentic coding 評測取得開源 SOTA，世界知識僅落後 Gemini-3.1-Pro，數學／STEM／程式推理則勝過現有所有開放模型。在 Artificial Analysis Intelligence Index 上，V4 Pro 0813（Reasoning, Max Effort）得分 53，明顯高於同規模開放權重模型平均。",
-    "advantages": [
-      "1.6T 總參數但僅啟用 49B，兼顧規模與推論成本",
-      "DeepSeek Sparse Attention 讓 1M 脈絡在成本上可行",
-      "agentic coding 取得開源 SOTA 等級表現",
-      "採用 Muon 優化器，兆級規模訓練效率的公開實證",
-      "開放權重且 API 價格遠低於封閉前沿模型"
-    ],
-    "benchmarks": [
-      "Artificial Analysis Intelligence Index: 53 (V4 Pro 0813, Reasoning Max Effort)",
-      "Total parameters: 1.6T / Active: 49B",
-      "Training tokens: 33T",
-      "Context window: 1M tokens"
-    ],
-    "highlights": [
-      "V4 系列 2026-04-24 先行預覽，Flash 於 07-31、Pro 於 08-13 分兩波 GA",
-      "Muon 優化器取代 AdamW 是本次架構最受討論的改動",
-      "世界知識面僅次於 Gemini-3.1-Pro，為開放模型最高",
-      "與 Kimi K3、Qwen3.8-Max 共同構成 2026 年中國開放權重三強"
-    ],
-    "url": "https://artificialanalysis.ai/models/deepseek-v4-pro",
-    "is_new": false,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
-    "url_status": "verified",
-    "title_score": 0.63,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112336",
+    "verified_at": "2026-09-11T18:17:16.325756",
     "complete": true
   },
   {
@@ -438,13 +299,13 @@
       "多雲多平台同步上架，企業導入摩擦低"
     ],
     "url": "https://codersera.com/blog/grok-4-6-launch-guide-2026/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112406",
+    "verified_at": "2026-09-11T18:17:16.325783",
     "complete": true
   },
   {
@@ -474,13 +335,13 @@
       "NVIDIA 從賣硬體延伸到定義 agent 執行層軟體標準的意圖明顯"
     ],
     "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "verified_no_title",
-    "title_score": 0,
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112434",
+    "verified_at": "2026-09-11T18:17:16.325808",
     "complete": true
   },
   {
@@ -512,66 +373,11 @@
     "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Muse Spark",
-    "version": "1.2",
-    "institution": "Meta (Meta Superintelligence Labs)",
-    "release_date": "2026-08-05",
-    "domain": "Multimodal",
-    "summary": "Meta 於 2026-08-05 發布 Muse Spark 1.2，並同步推出終端機介面的程式碼 agent「Muse Code」。Muse Code 能撰寫與除錯程式、完成較長週期的軟體開發任務，並可同時併行執行多個 sub-agent。此版本延續 Muse Spark 1.1 的多模態推理與工具／電腦使用能力，將重點推向長程軟體工程場景。模型本身維持閉源，透過 Meta 的 model API 提供。此發布是 Muse Spark 家族在三個月內三次改版的中間一環，隨後於 9 月被 1.3 取代。",
-    "advantages": [
-      "搭配終端機 coding agent「Muse Code」，模型與工具鏈整合交付",
-      "支援多個 sub-agent 併行執行，適合長週期軟體開發任務",
-      "延續 1.1 的多模態推理與電腦使用能力",
-      "可處理較長時程的端到端開發任務而非單次補全"
-    ],
-    "benchmarks": [
-      "Muse Spark 家族版本序列: 1.1 (2026-07-09) → 1.2 (2026-08-05) → 1.3 (2026-09-02)"
-    ],
-    "highlights": [
-      "Meta 首次將 Muse 模型與自有終端機 coding agent 綑綁發布",
-      "sub-agent 併行執行為此版核心新增能力",
-      "閉源商用模型，與同月開源的 Muse Glimmer 形成雙軌策略",
-      "三個月內第二次改版，迭代節奏對標 Google Flash 系列"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Muse_Spark",
-    "is_new": true,
-    "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Muse Spark 1.2",
-    "version": "1.2",
-    "institution": "Meta",
-    "release_date": "2026-08-05",
-    "domain": "LLM",
-    "summary": "Meta 於 2026 年 8 月 5 日推出旗艦編碼模型 Muse Spark 1.2，專為複雜軟體工程任務打造。發布當下權重為封閉狀態，沒有 Hugging Face repo，第一方唯一呼叫管道為 Meta 自家的 Model API。模型具備 100 萬 token 上下文長度、改善的首次嘗試（first-attempt）編碼準確率，並與常駐式非同步背景 agent 深度整合。設計用途鎖定除錯大型分散式程式庫、跨數千個檔案驗證變更，以及處理多步驟推理任務。發布五天後的 8 月 10 日，Meta 宣布將開放 Muse Spark 1.2 的權重，使其定位從封閉旗艦轉為美國陣營最強的開放權重候選者。",
-    "advantages": [
-      "100 萬 token 上下文，可跨數千檔案做一致性驗證",
-      "first-attempt 編碼準確率提升，減少 agent 反覆重試的成本",
-      "與常駐非同步背景 agent 深度整合，支援長時程自動化開發",
-      "專為大型 sprawling codebase 除錯設計，而非小型片段生成",
-      "發布五天後宣布開放權重，商用彈性大幅提升"
-    ],
-    "benchmarks": [
-      "Context window: 1,000,000 tokens"
-    ],
-    "highlights": [
-      "從封閉 API 到宣布開放權重僅隔五天，策略轉向極快",
-      "若開放權重確實落地，將是最強的美國開放權重編碼模型",
-      "與持久化背景 agent 的整合是本次發布的架構重點",
-      "發布日期各方統計略有出入（8/5 與 8/6 皆有來源），⚠️待確認"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Muse_Spark",
-    "is_new": false,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
-    "title_score": 0.83,
+    "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112461",
+    "verified_at": "2026-09-11T18:17:16.325834",
     "complete": true
   },
   {
@@ -601,7 +407,12 @@
     "url": "https://www.marktechpost.com/2026/08/03/alibaba-qwen-releases-qwen3-8-max/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.35,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325862",
+    "complete": true
   },
   {
     "model_name": "MiniMax H3",
@@ -631,41 +442,11 @@
     "url": "https://www.scmp.com/tech/article/3362540/video-ai-minimax-challenges-bytedance-low-price-open-weights-new-h3-model",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Qwen3.8-Max",
-    "version": "Qwen3.8-2.4T-A95B",
-    "institution": "Alibaba (Qwen)",
-    "release_date": "2026-08-03",
-    "domain": "Multimodal LLM",
-    "summary": "Qwen3.8-Max 是阿里巴巴 Qwen 團隊迄今最強的模型，於 2026-08-03 對全球使用者開放，隨後在 8 月中釋出開放權重。架構為 MoE，總參數 2.4 兆、推論時啟用約 950 億，脈絡視窗達 1M token（約 75 萬字）。作為多模態基礎模型，它可處理從長文件、電視劇集到直播串流的各類輸入以建立可檢索的知識庫。開放權重部分，Qwen3.8-27B 以 Apache 2.0 於 8/13–14 上架 Hugging Face，而 Max 級的 Qwen3.8-2.4T-A95B 檢查點約於 8/12–13 以自訂授權釋出，是阿里首次開放與商用 Qwen-Max 同級的模型。API 在 OpenRouter 上定價為每百萬 input token $2、output $6，直接對標美國封閉模型價位。",
-    "advantages": [
-      "2.4T 總參數但僅啟用 95B，為目前最大規模的開放權重模型之一",
-      "首次開放與商用 Qwen-Max 同級檢查點，開源生態意義重大",
-      "1M 脈絡視窗支援長文件、影集與直播串流等超長輸入",
-      "同時釋出 27B（Apache 2.0）小型版，涵蓋本機到雲端全場景",
-      "定價對標美國封閉模型，形成價格戰壓力"
-    ],
-    "benchmarks": [
-      "Total parameters: 2.4T / Active: ~95B",
-      "Context window: 1M tokens (約 750,000 words)",
-      "API pricing (OpenRouter): $2 / 1M input, $6 / 1M output"
-    ],
-    "highlights": [
-      "Qwen3.8-27B 以 Apache 2.0 釋出，被視為 2026 年最重要的本機模型之一",
-      "2.4T-A95B 採自訂授權而非 Apache 2.0，開放程度仍有條件",
-      "先開放存取、後釋出權重的分階段策略",
-      "多模態涵蓋長影音，切入企業知識庫建置場景"
-    ],
-    "url": "https://www.marktechpost.com/2026/08/03/alibaba-qwen-releases-qwen3-8-max/",
-    "is_new": false,
-    "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
-    "url_status": "verified",
-    "title_score": 0.35,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112489",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "title_low_match",
+    "title_score": 0.21,
+    "verified": "needs_review",
+    "verified_at": "2026-09-11T18:17:16.325890",
     "complete": true
   },
   {
@@ -693,7 +474,12 @@
     "url": "https://www.technology.org/2026/09/07/ai-videos-new-power-trio-seedance-2-5-minimax-h3-wan-3/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.325915",
+    "complete": true
   },
   {
     "model_name": "DeepSeek-V4-Flash",
@@ -720,47 +506,13 @@
       "承接 V4 預覽版（2026-04-24）後的正式商用化"
     ],
     "url": "https://api-docs.deepseek.com/updates/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "title_low_match",
     "title_score": 0.15,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.112516",
-    "complete": true
-  },
-  {
-    "model_name": "Seedance",
-    "version": "2.5",
-    "institution": "ByteDance (字節跳動)",
-    "release_date": "2026-07-31",
-    "domain": "Multimodal (Video Generation)",
-    "summary": "ByteDance 於 2026 年 7 月 31 日推出 Seedance 2.5 的升級版本，與 MiniMax H3 在同日相隔數小時內發布。此次更新的主打是強化的編輯功能（enhanced editing functions），讓使用者對生成結果有更細緻的後製控制。該模型最早在 6 月 23 日北京的火山引擎 FORCE 大會上亮相，當時宣稱可在單一連續片段中生成 30 秒影片，並支援最多 50 個多模態參考輸入。與 MiniMax 選擇開放權重相反，ByteDance 將 Seedance 2.5 維持在封閉 API 內。兩者同日發布卻採取相反策略，被視為中國 AI 影片市場路線分歧的具體展現。",
-    "advantages": [
-      "單一連續片段生成 30 秒影片，長度與連貫性領先多數競品",
-      "支援最多 50 個多模態參考輸入，可控性高",
-      "本次升級強化編輯功能，提升生成後的可調整程度",
-      "封閉 API 模式便於內容安全與品質管控",
-      "背靠火山引擎的企業級部署與服務體系"
-    ],
-    "benchmarks": [
-      "Continuous single-segment generation: 30 seconds",
-      "Multimodal reference inputs: up to 50"
-    ],
-    "highlights": [
-      "與 MiniMax H3 同日發布，形成封閉 vs 開放的直接對照",
-      "50 個多模態參考輸入是目前影片模型中相當高的可控性上限",
-      "堅持封閉 API，與中國陣營近期的開放權重潮流相反",
-      "首次亮相於 2026 年 6 月 23 日火山引擎 FORCE 大會"
-    ],
-    "url": "https://www.techtimes.com/articles/322528/20260731/chinas-ai-video-battle-picks-sides-seedance-25-stays-closed-minimax-h3-goes-open.htm",
-    "is_new": false,
-    "first_seen": "2026-08-24T18:27:14.357562+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "verified",
-    "title_score": 0.7,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112544",
+    "verified_at": "2026-09-11T18:17:16.325941",
     "complete": true
   },
   {
@@ -788,13 +540,13 @@
       "強化開放權重陣營在中小型高效模型的競爭力"
     ],
     "url": "https://dataconomy.com/2026/07/31/thinking-machines-launches-open-source-inkling-small-model/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "title_low_match",
     "title_score": 0.24,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.112585",
+    "verified_at": "2026-09-11T18:17:16.325968",
     "complete": true
   },
   {
@@ -824,42 +576,11 @@
     "url": "https://blog.robozaps.com/b/gemini-robotics-2-humanoid-robot-ai",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Gemini Robotics ER",
-    "version": "2",
-    "institution": "Google DeepMind",
-    "release_date": "2026-07-30",
-    "domain": "Robotics / Embodied Reasoning",
-    "summary": "Gemini Robotics ER 2 是 Google DeepMind 迄今最強的具身推理（embodied reasoning）模型，扮演機器人的「高階大腦」，負責與人溝通、理解物理世界並規劃長達數分鐘的多步驟任務。模型以 Gemini 3.5 Flash 為基底，接受文字、影像、影片與音訊交錯輸入，上下文視窗最高 128K，輸出最多 64K token。關鍵設計是讓機器人在持續動作的同時推理下一步，避免傳統「停下來思考」的斷點，在時序基準上達到 91.3% 準確率。它可透過動作模型與機器人 API 下達指令，並協調多台異質機器人共享語意理解、互相交接工作，完成單一平台無法獨力完成的任務。此次發布同時將整個 Gemini Robotics 2 技術堆疊從桌面級操作推進到全身控制、五指靈巧操作與多機器人協作。",
-    "advantages": [
-      "邊動邊推理，消除停頓式思考造成的動作斷點，達成即時協調",
-      "多機器人語意共享與工作交接，支援跨平台協作任務",
-      "支援文字、影像、影片、音訊交錯輸入，128K 上下文可承載長任務脈絡",
-      "可規劃長達數分鐘的多步驟任務，屬長時程 agent 能力",
-      "以 Gemini 3.5 Flash 為基底，兼顧推理品質與延遲成本"
-    ],
-    "benchmarks": [
-      "Timing benchmark accuracy: 91.3%",
-      "Context window: up to 128K tokens (interleaved text/image/video/audio)",
-      "Output: up to 64K tokens",
-      "Base model: Gemini 3.5 Flash"
-    ],
-    "highlights": [
-      "DeepMind 同時發布三款實體 AI 模型，涵蓋全身控制、靈巧操作與多機協作",
-      "從桌面級 manipulation 正式跨入 whole body control",
-      "可直接指揮動作模型與機器人 API，形成完整 agent 執行鏈",
-      "官方同步提供 model card 揭露能力邊界"
-    ],
-    "url": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
-    "is_new": false,
-    "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
-    "title_score": 0.95,
+    "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112612",
+    "verified_at": "2026-09-11T18:17:16.325994",
     "complete": true
   },
   {
@@ -890,13 +611,13 @@
       "與同月 GPT-5.6、Grok 4.6 構成 2026 年 7–8 月前沿模型三方對峙"
     ],
     "url": "https://www.anthropic.com/news/claude-opus-5",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.75,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112641",
+    "verified_at": "2026-09-11T18:17:16.326020",
     "complete": true
   },
   {
@@ -925,13 +646,13 @@
       "Pro 分級提供更高品質輸出"
     ],
     "url": "https://www.unite.ai/alibaba-launches-qwen-image-3-0-without-benchmarks-or-weights/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "title_low_match",
     "title_score": 0.23,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.112670",
+    "verified_at": "2026-09-11T18:17:16.326046",
     "complete": true
   },
   {
@@ -960,13 +681,13 @@
       "同期並推出 Gemini Robotics ER 2 具身推理模型"
     ],
     "url": "https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "title_low_match",
     "title_score": 0.28,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.112700",
+    "verified_at": "2026-09-11T18:17:16.326074",
     "complete": true
   },
   {
@@ -993,13 +714,13 @@
       "對金融業的意義：資安 AI 正在往「受管制發放」而非公開 API 的方向走"
     ],
     "url": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-03T18:36:10.777200+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.8,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112742",
+    "verified_at": "2026-09-11T18:17:16.326101",
     "complete": true
   },
   {
@@ -1032,7 +753,12 @@
     "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified": true,
+    "verified_at": "2026-09-11T18:17:16.326127",
+    "complete": true
   },
   {
     "model_name": "Inkling",
@@ -1061,13 +787,13 @@
       "Simon Willison 等技術社群意見領袖第一時間撰文評析"
     ],
     "url": "https://thinkingmachines.ai/news/introducing-inkling/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112772",
+    "verified_at": "2026-09-11T18:17:16.326151",
     "complete": true
   },
   {
@@ -1096,70 +822,11 @@
     "url": "https://openai.com/index/gpt-5-6/",
     "is_new": true,
     "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Muse Spark",
-    "version": "1.1",
-    "institution": "Meta (Meta Superintelligence Labs)",
-    "release_date": "2026-07-09",
-    "domain": "Multimodal",
-    "summary": "Meta 於 2026-07-09 發布 Muse Spark 1.1，並同步推出開發者版本與 model API，是 Muse Spark 家族（2026 年 4 月首度亮相）的第一次正式改版。此版本定位為面向 agentic 任務的多模態推理模型，在工具使用、電腦使用（computer use）、程式撰寫與多模態理解上均有顯著提升。這是 Meta 在 Alexandr Wang 主導的 Superintelligence Labs 重組後，加速 AI 產品化的重要里程碑。開發者版本的推出讓外部團隊首次能將 Muse Spark 整合進自有應用。此版本奠定了後續 1.2（sub-agent 併行）與 1.3（效率優化）的能力基礎。",
-    "advantages": [
-      "工具使用與電腦使用（computer use）能力大幅提升，強化 agent 落地",
-      "同步推出開發者版本與 model API，外部團隊可直接整合",
-      "多模態理解與程式撰寫能力同步改進",
-      "為 Muse Spark 家族後續 1.2、1.3 快速迭代奠定基礎"
-    ],
-    "benchmarks": [
-      "Meta 宣稱在 tool use、computer use、coding、multimodal understanding 有 major gains（未公布逐項數字）"
-    ],
-    "highlights": [
-      "Muse Spark 家族首次正式改版，並首度開放開發者存取",
-      "Meta Superintelligence Labs 重組後加速產品化的指標性發布",
-      "與 OpenAI GPT-5.6 公開發布同日",
-      "computer use 能力為此版核心賣點，直接對標 agent 自動化場景"
-    ],
-    "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-    "is_new": true,
-    "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "GPT-5.6",
-    "version": "5.6 (Sol / Terra / Luna)",
-    "institution": "OpenAI",
-    "release_date": "2026-07-09",
-    "domain": "LLM (Agentic)",
-    "summary": "GPT-5.6 是 OpenAI 於 2026-07-09 在 ChatGPT、API 與 Codex 同步推出的三模型家族：Sol（旗艦）、Terra（均衡）、Luna（最低成本）。命名取自太陽、地球、月亮，對應模型規模，OpenAI 確認三者由同一次基礎訓練蒸餾而來。三個層級共用相同核心規格：1M token 脈絡視窗、128,000 token 最大輸出、2026 年 2 月知識截止。Sol 在 BrowseComp 拿下 92.2%、OSWorld 2.0 拿下 62.6% 的 SOTA 成績，其中 OSWorld 超越 Opus 4.8 且輸出 token 少 85%。最便宜的 Luna 在 Agents' Last Exam、HealthBench Professional 與 DeepSWE 上都勝過 GPT-5.5。與 Cerebras 的推論合作讓 Sol 可達每秒 750 token；2026-07-30 OpenAI 再將 Luna 降價 80%、Terra 降價 20%。",
-    "advantages": [
-      "三層級同源蒸餾，能力落差小而價格帶完整",
-      "BrowseComp 92.2% 與 OSWorld 2.0 62.6% 雙 SOTA，複雜瀏覽與電腦操作領先",
-      "OSWorld 上超越 Opus 4.8 且少用 85% 輸出 token，agent 成本優勢明顯",
-      "Cerebras 推論合作讓旗艦模型達 750 tokens/秒",
-      "發布三週後大幅降價（Luna -80%、Terra -20%）"
-    ],
-    "benchmarks": [
-      "BrowseComp: 92.2% (SOTA)",
-      "OSWorld 2.0: 62.6% (SOTA)",
-      "Context window: 1M tokens / Max output: 128,000 tokens",
-      "Knowledge cutoff: 2026-02",
-      "Inference speed (Sol via Cerebras): up to 750 tokens/sec"
-    ],
-    "highlights": [
-      "Sol / Terra / Luna 三層命名與同源蒸餾為此代產品策略核心",
-      "最便宜的 Luna 全面勝過前代 GPT-5.5，低價層能力躍升",
-      "2026 年 8 月 ChatGPT 更新引入 response effort 滑桿，讓使用者自選推理強度",
-      "與 Claude Opus 5、Grok 4.6 形成 2026 年 7–8 月前沿三方競爭"
-    ],
-    "url": "https://openai.com/index/gpt-5-6/",
-    "is_new": false,
-    "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112800",
+    "verified_at": "2026-09-11T18:17:16.326176",
     "complete": true
   },
   {
@@ -1188,13 +855,13 @@
       "同月 Mistral 另有開放權重新模型家族進入 early access"
     ],
     "url": "https://www.bloomberg.com/news/articles/2026-07-08/mistral-ai-releases-robotics-model-to-support-physical-ai-push",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "needs_review",
     "title_score": 0,
     "verified": "needs_review",
-    "verified_at": "2026-09-06T18:19:44.112827",
+    "verified_at": "2026-09-11T18:17:16.326201",
     "complete": true
   },
   {
@@ -1222,13 +889,13 @@
       "fast/slow thinking 雙模式屬 2026 年推理模型的主流設計"
     ],
     "url": "https://www.digitalapplied.com/blog/tencent-hunyuan-hy3-open-weight-reasoning-model-2026",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-17T18:33:59.894718+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112854",
+    "verified_at": "2026-09-11T18:17:16.326228",
     "complete": true
   },
   {
@@ -1257,13 +924,13 @@
       "屬 code agent 型態，非單純的補全模型"
     ],
     "url": "https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems/",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-10T18:23:31.271335+08:00",
-    "last_seen": "2026-08-10T18:23:31.271335+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.7,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112891",
+    "verified_at": "2026-09-11T18:17:16.326253",
     "complete": true
   },
   {
@@ -1294,179 +961,13 @@
       "瀏覽器與終端機工具使用是此代主打的自主能力"
     ],
     "url": "https://www.anthropic.com/news/claude-sonnet-5",
-    "is_new": false,
+    "is_new": true,
     "first_seen": "2026-08-31T18:33:24.388697+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
+    "last_seen": "2026-09-14T19:21:32.651635+08:00",
     "url_status": "verified",
     "title_score": 0.75,
     "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112916",
-    "complete": true
-  },
-  {
-    "model_name": "GLM-5.2",
-    "version": "5.2",
-    "institution": "Z.ai (Zhipu AI)",
-    "release_date": "2026-06-13",
-    "domain": "LLM",
-    "summary": "Z.ai（智譜 AI）於 2026-06-13 發布 GLM-5.2，為 MoE 架構、約 744B 總參數（部分來源記為 753B）、每 token 活躍約 40B 的開放權重模型，脈絡長度 1,048,576 tokens。權重以 MIT 授權放上 Hugging Face，允許完全自主託管與商用。此模型主打程式碼能力，在 SWE-bench Pro 取得 62.1 分、超越 GPT-5.5 的 58.6，並在 Terminal-Bench 2.1 取得 81.0 的開源 SOTA。定價策略激進，相關報導指其成本約為同級封閉模型的六分之一。GLM-5.2 後續成為 GLM-5.3 與 GLM-5.3-Flash 的基礎模型。",
-    "advantages": [
-      "SWE-bench Pro 62.1，超越 GPT-5.5 的 58.6",
-      "Terminal-Bench 2.1 取得 81.0 的開源 SOTA",
-      "MIT 授權 + Hugging Face 權重，可完全自主託管",
-      "1,048,576 tokens 脈絡，適合整倉庫級程式碼理解",
-      "成本約為同級封閉前沿模型的 1/6"
-    ],
-    "benchmarks": [
-      "SWE-bench Pro: 62.1（GPT-5.5: 58.6）",
-      "Terminal-Bench 2.1: 81.0（開源 SOTA）",
-      "參數規模: ~744B total / ~40B active（MoE）",
-      "脈絡長度: 1,048,576 tokens；授權: MIT"
-    ],
-    "highlights": [
-      "以開源權重在 SWE-bench Pro 超越 GPT-5.5，象徵開源與封閉差距收斂",
-      "MIT 授權在前沿級模型中屬最寬鬆的一檔",
-      "成為 GLM-5.3 與 GLM-5.3-Flash 的共用基礎模型",
-      "運行需約八張 GPU，硬體門檻仍高"
-    ],
-    "url": "https://llm-stats.com/models/glm-5.2",
-    "is_new": true,
-    "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Kimi K2.7 Code",
-    "version": "K2.7",
-    "institution": "Moonshot AI",
-    "release_date": "2026-06-12",
-    "domain": "LLM",
-    "summary": "Kimi K2.7 Code 是月之暗面（Moonshot AI）發布的開源代理編程模型，採 1T 總參數 / 32B 激活 MoE 架構，支援 256K 上下文視窗，並內建 MoonViT 400M 參數視覺編碼器實現原生多模態輸入（文字、圖像、視頻）。模型在 Kimi Code Bench v2 上較 K2.6 提升 21.8%，顯著改善長時程代理編程任務效能。思考 token 用量減少約 30%，有效降低 API 成本與延遲。模型採修改版 MIT 許可證發布，權重已在 Hugging Face 公開。",
-    "advantages": [
-      "Kimi Code Bench v2 較上代提升 21.8%，編程能力大幅躍進",
-      "推理 token 效率提升 30%，顯著降低 API 成本",
-      "原生多模態（文字/圖像/視頻）與代理工作流程深度整合",
-      "256K 長上下文視窗，適合大型代碼倉庫分析",
-      "Modified MIT 開源授權，支援商業應用"
-    ],
-    "benchmarks": [
-      "Kimi Code Bench v2: +21.8% vs K2.6",
-      "Program Bench: +11.0% vs K2.6",
-      "MLS Bench Lite: +31.5% vs K2.6",
-      "Thinking Token Reduction: ~30% vs K2.6"
-    ],
-    "highlights": [
-      "K2 系列中最高效的代理編程模型",
-      "1T 參數 MoE 架構搭配 32B 激活的高效比",
-      "MoonViT 視覺編碼器支援圖像與視頻理解",
-      "模型權重在 Hugging Face 公開，API 通過 platform.moonshot.ai 提供",
-      "長時程代理編程任務效能全面提升"
-    ],
-    "url": "https://www.kimi.com/resources/kimi-k2-7-code",
-    "is_new": false,
-    "first_seen": "2026-06-22T18:46:04.581666+08:00",
-    "last_seen": "2026-07-27T18:13:11.161333+08:00",
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112945",
-    "complete": true
-  },
-  {
-    "model_name": "Claude Fable / Claude Mythos",
-    "version": "5",
-    "institution": "Anthropic",
-    "release_date": "2026-06-09",
-    "domain": "LLM",
-    "summary": "Anthropic 於 2026-06-09 公開發布 Claude Fable 5，是一款「Mythos 級」（Mythos-class）模型，首度將該等級能力開放給一般使用者，同時推出 Claude Mythos 5——相同底層模型但在部分領域解除防護、僅限受限存取。此舉的背景是 Claude Mythos 於 2026-04-07 發布時，Anthropic 因其發掘軟體漏洞的能力而未對外公開。Anthropic 表示 Fable 5 之所以能廣泛釋出，是因為導入了新的防護機制，可在特定高風險領域阻擋回應。這套「同一模型、雙重防護配置」的設計後續延續到 9 月的 5.1 版本。此發布是 2026 年前沿模型治理模式的重要分水嶺。",
-    "advantages": [
-      "首度將 Mythos 級能力以安全防護版本開放給一般使用者",
-      "新防護機制可針對特定高風險領域選擇性阻擋回應",
-      "同一底層模型分為公開版（Fable）與受限版（Mythos），治理彈性高",
-      "受限版保留給經審核組織，兼顧研究需求與濫用風險"
-    ],
-    "benchmarks": [
-      "模型等級: Mythos-class（與 2026-04-07 發布的 Claude Mythos 同級）",
-      "發布形式: Fable 5 一般可用 / Mythos 5 受限存取"
-    ],
-    "highlights": [
-      "Claude Mythos 原因具備發掘軟體漏洞能力而未公開，Fable 5 是其可控釋出版本",
-      "確立「同一模型雙重安全配置」的發布範式，延續至 Fable/Mythos 5.1",
-      "以 safeguards 而非降低能力來換取公開釋出，屬前沿模型治理的新解法",
-      "成為 2026 年第三季各家對標的能力基準線"
-    ],
-    "url": "https://www.cnbc.com/2026/06/09/anthropic-mythos-claude-fable-5.html",
-    "is_new": true,
-    "first_seen": "2026-09-07T18:21:52.992888+08:00",
-    "last_seen": "2026-09-07T18:21:52.992888+08:00"
-  },
-  {
-    "model_name": "Claude Fable 5 / Claude Mythos 5",
-    "version": "5",
-    "institution": "Anthropic",
-    "release_date": "2026-06-09",
-    "domain": "LLM",
-    "summary": "Claude Fable 5 與 Claude Mythos 5 於 2026-06-09 發布，是 Anthropic 首次公開釋出 Mythos 級別模型，位階在 Opus 之上，形成新的模型分層。兩者共用相同底層模型：Fable 5 加上強力安全防護後供一般使用，Mythos 5 則僅提供給少數 Project Glasswing 可信夥伴用於防禦性資安。Anthropic 表示 Fable 5 的能力超越其過去任何一般可用模型，在軟體工程、知識工作、視覺、科學研究等多個領域達到 SOTA。截至 2026-06-16，Fable 5 以 95.0% 位居 SWE-bench Verified 榜首；在更困難的 SWE-bench Pro 上得 80.3%，遠高於 Opus 4.8 的 69.2%。需注意該榜單 100 筆中有 99 筆為自報成績，同一模型家族在標準化 harness 下分數明顯較低。此外 Fable 5 與 Mythos 5 曾於 2026-06-12 因美國商務部出口管制令下架，該命令於 06-30 解除後，Anthropic 於 2026-07-01 全面恢復供應。",
-    "advantages": [
-      "SWE-bench Verified 95.0%，公開榜單第一",
-      "SWE-bench Pro 80.3%，領先 Opus 4.8 達 11 個百分點",
-      "首次公開 Mythos 級別，模型分層向上延伸",
-      "軟體工程、知識工作、視覺、科學研究多領域 SOTA",
-      "Mythos 5 以受限發放方式供防禦性資安使用，體現分級管控設計"
-    ],
-    "benchmarks": [
-      "SWE-bench Verified: 95.0% (as of 2026-06-16)",
-      "SWE-bench Pro: 80.3% (Opus 4.8: 69.2%)",
-      "Artificial Analysis Intelligence Index v4.1: 59.9 (with Opus 4.8 fallback)"
-    ],
-    "highlights": [
-      "曾於 2026-06-12 因美國出口管制下架，06-30 解除、07-01 恢復，為 AI 出口管制首個實務案例",
-      "Project Glasswing 受信任夥伴機制是能力分級發放的具體實作",
-      "榜單 99/100 為自報成績，標準化 harness 下分數落差值得注意",
-      "同一底層模型以不同安全防護分作兩個產品，治理設計具參考價值"
-    ],
-    "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
-    "is_new": false,
-    "first_seen": "2026-08-03T18:36:10.777200+08:00",
-    "last_seen": "2026-08-31T18:33:24.388697+08:00",
-    "url_status": "verified",
-    "title_score": 0.94,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.112971",
-    "complete": true
-  },
-  {
-    "model_name": "Claude Fable 5",
-    "version": "Fable 5",
-    "institution": "Anthropic",
-    "release_date": "2026-06-09",
-    "domain": "LLM",
-    "summary": "Anthropic 於 2026 年 6 月 9 日發布並上線 Claude Fable 5，是首個公開可用的「Mythos 級」模型，層級高於 Claude Opus 4.8。官方定位為公司最具能力的廣泛發布模型，專為最嚴苛的推理與長時程 agentic 工作打造，在 agentic coding 評測上領先，獨立測試回報 SWE-Bench Pro 約 80%。定價為每百萬 input token 10 美元、output token 50 美元（Opus 4.8 的兩倍），支援最高 128k output token。安全面上，Fable 5 搭載 Anthropic 在一般發布中最積極的安全鷹架（safety scaffolding），內含可主動拒絕請求的安全分類器。發布後三天，一項美國政府出口管制指令曾迫使其暫時下架；出口管制於 6 月 30 日解除，Fable 5 自 7 月 1 日起在 Claude Platform、Claude.ai、Claude Code 與 Claude Cowork 全球恢復供應。",
-    "advantages": [
-      "首個公開可用的 Mythos 級模型，能力層級高於 Opus 4.8",
-      "SWE-Bench Pro 約 80%（獨立測試），agentic coding 評測領先",
-      "支援最高 128k output token，適合長篇產出與大規模程式碼生成",
-      "專為長時程 agentic 工作與最嚴苛推理任務設計",
-      "搭載該公司一般發布中最積極的安全鷹架與安全分類器"
-    ],
-    "benchmarks": [
-      "SWE-Bench Pro: ~80% (independent testing)",
-      "Pricing: $10 / 1M input tokens, $50 / 1M output tokens",
-      "Max output: 128k tokens"
-    ],
-    "highlights": [
-      "發布三天後因美國出口管制指令暫時下架，是前沿模型首次因出口管制中斷供應的公開案例——對供應鏈韌性規劃有直接啟示",
-      "出口管制於 6 月 30 日解除，7 月 1 日起全球恢復供應",
-      "安全分類器可主動拒絕請求，是治理層面的內建控制點",
-      "價格為 Opus 4.8 的兩倍，一個月後推出的 Opus 5 以其一半價格提供接近能力"
-    ],
-    "url": "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
-    "is_new": false,
-    "first_seen": "2026-08-17T18:33:59.894718+08:00",
-    "last_seen": "2026-08-24T18:27:14.357562+08:00",
-    "url_status": "verified",
-    "title_score": 0.7,
-    "verified": true,
-    "verified_at": "2026-09-06T18:19:44.113027",
+    "verified_at": "2026-09-11T18:17:16.326280",
     "complete": true
   }
 ]

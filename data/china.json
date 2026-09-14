@@ -8,7 +8,12 @@
       "topic": "AI Agent",
       "summary": "支付寶在 2026 Inclusion·外灘大會上宣布將推出 AI 錢包智能體（AI wallet agent），協助使用者管理由 AI 代理發起的支付，策略重心從「讓交易發生」轉向「讓交易可信」。該智能體將支援 Vibe Pay、Skill Pay 與 Machine Pay 三種支付型態，並涵蓋週期性採購、輔助下單、輔助預訂等電商功能。底層建構在螞蟻的 APASS 信任基礎設施與 KYA（Know Your Agent）框架之上，涵蓋智能體的身分、意圖、授權與行為四個面向。這是目前中國業界把 Agent 當成「交易主體」而非工具的最具體落地動作，直接對應金融業最關心的代理人授權與責任歸屬問題。",
       "discussion": "外灘大會期間最受關注的 Agent 議題之一，中英文科技媒體同步報導；討論焦點集中在 KYA 框架能否成為智能體支付的事實標準，以及授權邊界與盜刷責任如何界定。",
-      "url": "https://technode.com/2026/09/11/alipay-to-launch-an-ai-wallet-agent-for-trusted-ai-payments/"
+      "url": "https://technode.com/2026/09/11/alipay-to-launch-an-ai-wallet-agent-for-trusted-ai-payments/",
+      "url_status": "verified",
+      "title_score": 0.88,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.321855",
+      "complete": true
     },
     {
       "title": "外灘大會聚焦智能體商業，螞蟻、萬事達、阿里等核心建設方談挑戰與機會",
@@ -18,17 +23,12 @@
       "topic": "AI Agent",
       "summary": "9 月 10 日上午在 2026 Inclusion·外灘大會主論壇，螞蟻集團 CEO 韓歆毅、OPPO 高級副總裁兼首席產品官劉作虎、阿里巴巴集團首席科學家周靖人、萬事達卡首席產品官 Jorn Lambert 四人以「當 Agent 成為交易主體」為題對談。與談者認為 Agent 交易仍處早期，但隨著 AI 進入真實經濟活動，商業入口、交易關係與信任機制都在重構。核心待解問題包括：使用者意圖如何被正確理解、Agent 如何取得授權、不同 Agent 之間如何建立互信。韓歆毅以自身用 AI 健康應用「阿福」花四十多元購買堅果、海苔為例說明實際使用情境；劉作虎則透露「小布」相關消費在數月內接近翻倍。生態面上，支付寶揭露與 OPPO 等企業的跨端協同成果，「小布」接入「阿寶」近 200 項服務後，支付寶在 OPPO 手機上的活躍度新增 200 多萬。",
       "discussion": "本場對談是外灘大會當日話題度最高的主論壇之一，多家中文科技媒體轉載；討論集中在 Agent 之間的信任鏈與跨廠牌互通協議誰主導。",
-      "url": "https://www.itbear.com.cn/html/2026-09/1552783.html"
-    },
-    {
-      "title": "Ant International partners with Visa, Mastercard on developing AI payments",
-      "source": "CNBC",
-      "date": "2026-09-10",
-      "company": "Ant International、Visa、Mastercard",
-      "topic": "AI Agent / 金融應用",
-      "summary": "Ant International 宣布與 Visa、萬事達卡合作，共同制定 AI 智能體支付的共通標準，內容包含如何驗證智能體身分與監控其發起的交易。此舉把「Agent 代替人付錢」從單一廠商的封閉實作，推向跨國卡組織層級的標準化議題。對金融機構而言，關鍵在於交易鏈上多出一個非人類主體後，KYC 之外還需要一套 Know Your Agent 的驗證與稽核機制。此合作與支付寶同期公布的 APASS／KYA 架構相互呼應，顯示中國業者正試圖在智能體支付標準上取得先手。",
-      "discussion": "英文財經與科技媒體同步報導，討論焦點在於中國業者是否可能在 Agent 支付標準上先於美國同業定調，以及監管機關的態度。",
-      "url": "https://www.cnbc.com/2026/09/10/ant-international-visa-mastercard-ai-agent-payment-standard.html"
+      "url": "https://www.itbear.com.cn/html/2026-09/1552783.html",
+      "url_status": "verified",
+      "title_score": 0.58,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.321884",
+      "complete": true
     },
     {
       "title": "Ant International scales AMP as agentic payments go global",
@@ -38,7 +38,12 @@
       "topic": "AI Agent / 金融應用",
       "summary": "Ant International 宣布擴大其 AMP（agentic payments）方案的規模，將智能體驅動的支付能力推向跨境市場。報導把此動作放在「agentic payments 全球化」的脈絡下，說明智能體支付正從示範場景走向跨區域的營運部署。對照同期 Visa、Mastercard 的標準合作，可看出螞蟻的策略是「標準」與「通路」雙軌推進。⚠️待確認：本則細部數據未能逐項核對原文。",
       "discussion": "金融科技垂直媒體圈討論為主，關注點在跨境監理與各國支付牌照如何適用於非人類發起的交易。",
-      "url": "https://fintech.global/2026/09/11/ant-international-scales-amp-as-agentic-payments-go-global/"
+      "url": "https://fintech.global/2026/09/11/ant-international-scales-amp-as-agentic-payments-go-global/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.321941",
+      "complete": true
     },
     {
       "title": "工信部印發《「人工智能+軟件」專項行動實施方案》",
@@ -48,7 +53,12 @@
       "topic": "政策 / Agent 軟體",
       "summary": "工信部近日印發《「人工智能+軟件」專項行動實施方案》，明確加速 AI 技術在軟體和資訊技術服務業的融合應用。方案訂出 2028 年目標：推廣應用覆蓋 2 萬家規模以上軟體企業、實施 100 項軟體企業智能化技改項目、打造 100 個重點行業智能體軟體標竿應用、孵化 5 個以上優質開源專案。到 2030 年，關鍵軟體全面實現智能化升級，智能編程、智能體軟體與智能服務成為產業新增長極。方案並支持軟體企業與智慧型手機、智慧家居、智慧網聯汽車等終端廠商聯合創新。值得注意的是，「智能體軟體」被官方明確列為軟體新形態的代表，等於把 Agent 寫進國家級產業政策的 KPI。",
       "discussion": "政策文件當日被 21 財經、界面新聞、IT 之家等多家媒體同步報導；產業界討論集中在「智能體軟體標竿應用」的認定標準與補貼落地方式。",
-      "url": "https://www.chinanews.com.cn/gn/2026/09-11/10694407.shtml"
+      "url": "https://www.chinanews.com.cn/gn/2026/09-11/10694407.shtml",
+      "url_status": "verified",
+      "title_score": 0.67,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.321969",
+      "complete": true
     },
     {
       "title": "騰訊雲廈門峰會：已服務福建超5萬客戶，WorkBuddy加速產業落地",
@@ -58,7 +68,12 @@
       "topic": "AI Agent / 產業應用",
       "summary": "2026 騰訊雲城市峰會 9 月 10 日落地廈門，騰訊集團副總裁、政企業務總裁李強表示騰訊深耕福建 8 年，已聯合 800 多家合作夥伴服務超過 5 萬家福建客戶。會上指出包含 WorkBuddy、騰訊雲智能體開發平台 ADP 在內的騰訊效率智能體工具集，正在政務、製造、金融、零售等數十個行業加速落地。峰會期間騰訊研究院、騰訊雲與 WorkBuddy 聯合發布《邁向自適應製造：製造業智能體實踐白皮書》，提供從場景選擇到實證落地的工程方法與實踐參照。這是騰訊把 Agent 從通用辦公助手推向垂直產業的具體進展。",
       "discussion": "以區域產業與企業服務圈的討論為主；關注點在 ADP 平台與白皮書提出的製造業智能體落地方法是否具可複製性。",
-      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694573.shtml"
+      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694573.shtml",
+      "url_status": "verified",
+      "title_score": 0.68,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.321997",
+      "complete": true
     },
     {
       "title": "數智化轉型發展大會在京舉行 業界建言數智化轉型路徑",
@@ -68,7 +83,12 @@
       "topic": "AI Agent / 產業應用",
       "summary": "數智化轉型發展大會 9 月 10 日在北京舉行，會上發布多項研究成果。其中包括面向新型電力系統的《AI Agent 智能體系統、技術與應用研究報告》，以及 AI 標準化與治理相關的研究成果。會議聚焦企業數智化轉型的實際路徑，而非模型能力本身。對電力這類關鍵基礎設施而言，把 Agent 納入系統設計，意味著可靠性與可稽核性要求會遠高於一般商用場景。",
       "discussion": "以能源、電力與標準化領域的專業社群討論為主，關注 Agent 在關鍵基礎設施的安全邊界。",
-      "url": "https://www.chinanews.com.cn/cj/2026/09-10/10694218.shtml"
+      "url": "https://www.chinanews.com.cn/cj/2026/09-10/10694218.shtml",
+      "url_status": "verified",
+      "title_score": 0.64,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322026",
+      "complete": true
     },
     {
       "title": "Huawei showcases a 7.2Tbps near-package optics module for AI infrastructure",
@@ -78,7 +98,12 @@
       "topic": "AI 基礎設施",
       "summary": "華為在深圳舉行的中國國際光電博覽會（CIOE）上展示其宣稱為業界首款、頻寬達 7.2 Tbps 的近封裝光學（NPO, near-package optics）模組。該模組由 36 個通道組成，每通道 200 Gbps，合計 7.2 Tbps，整合垂直腔面發射雷射（VCSEL）與矽光子等技術。華為表示該模組將用於下一代 SuperPod 平台。在 SK Hynix、NVIDIA、Microsoft 多押注共封裝光學（CPO）的情況下，華為選擇押注 NPO 成為下一代 AI 資料中心的主要構件，路線分歧值得關注。",
       "discussion": "SCMP、DIGITIMES、SDxCentral 等中英文媒體同步報導；業界討論集中在 NPO 與 CPO 的技術路線之爭，以及此舉對繞過先進封裝限制的意義。",
-      "url": "https://technode.com/2026/09/11/huawei-showcases-a-7-2tbps-near-package-optics-module-for-ai-infrastructure/"
+      "url": "https://technode.com/2026/09/11/huawei-showcases-a-7-2tbps-near-package-optics-module-for-ai-infrastructure/",
+      "url_status": "verified",
+      "title_score": 0.9,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322053",
+      "complete": true
     },
     {
       "title": "Xiaomi plans RMB 200 billion in R&D spending over the next five years",
@@ -88,7 +113,12 @@
       "topic": "產業動態 / 投資",
       "summary": "小米創辦人暨執行長雷軍宣布，未來五年將投入人民幣 2,000 億元研發經費，重點聚焦晶片、AI 與作業系統三項核心底層技術。此金額相對上一個五年計畫的 1,050 億元近乎翻倍，上一輪投入成果包含旗艦手機、電動車業務快速成長與中國最大的 IoT 生態。小米今年研發支出預估達 320 至 330 億元，明年將升至約 400 億元。這筆投入的戰略意圖是在自研半導體、自研作業系統與自研 AI 模型三線同時對標 Apple 與華為。",
       "discussion": "中英文財經媒體廣泛報導；討論焦點在 2,000 億元如何在晶片、AI、OS 三線分配，以及自研 AI 模型在小米生態中的定位。",
-      "url": "https://technode.com/2026/09/11/xiaomi-plans-rmb-200-billion-in-rd-spending-over-the-next-five-years/"
+      "url": "https://technode.com/2026/09/11/xiaomi-plans-rmb-200-billion-in-rd-spending-over-the-next-five-years/",
+      "url_status": "verified",
+      "title_score": 0.87,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322081",
+      "complete": true
     },
     {
       "title": "工信部：到2030年我國智能算力規模將達9800EFLOPS",
@@ -98,7 +128,12 @@
       "topic": "政策 / AI 基礎設施",
       "summary": "工信部規劃到 2030 年中國智能算力規模達到 9,800 EFLOPS，2026 至 2030 年資訊基礎設施累計投資將達人民幣 3.8 兆元。截至今年 6 月，中國智能算力為 2,185 EFLOPS，年增 177%，全國已有 52 個單體規模超過萬卡的算力設施。規劃要求「有序部署」萬卡級乃至十萬卡級智能算力叢集，並配套建設面向不同應用的推理算力設施。以 2025 年基線 1,590 EFLOPS 計算，此目標意味著四年要擴張約六倍，也代表中國把算力自主當成國家級工程在推。",
       "discussion": "此規劃在中英文媒體與加密／科技社群均獲轉載，討論集中在國產加速卡能否支撐目標，以及 EFLOPS 精度口徑（FP16）造成的國際比較落差。",
-      "url": "https://cn.technode.com/post/2026-09-11/china-intelligent-computing-capacity-2030/"
+      "url": "https://cn.technode.com/post/2026-09-11/china-intelligent-computing-capacity-2030/",
+      "url_status": "needs_review",
+      "title_score": 0,
+      "verified": "needs_review",
+      "verified_at": "2026-09-11T18:17:16.322110",
+      "complete": true
     },
     {
       "title": "2026外灘大會在上海舉行 產學界關注共創AI新經濟",
@@ -108,7 +143,12 @@
       "topic": "產業動態",
       "summary": "2026 Inclusion·外灘大會於 9 月 9 日至 12 日在上海黃浦世博園區舉行，主題為「共創 AI 新經濟」，參展企業超過 300 家。本屆大會首次聚焦 AI 新經濟，展區呈現從「能生成」走向「能行動」的轉折，超過 40 家具身智能機器人廠商參展。多款機器人採用螞蟻集團的「靈波」通用大腦驅動，在零售藥房場景中於 80 公分寬的窄走道內自主完成接單、藥品識別、分揀與配送，並已在上海國大藥房夜間實際作業。螞蟻的「阿寶」則已適配超過一萬項服務 AI 化，涵蓋外送、交通、文旅、政務等場景。",
       "discussion": "大會為中國 9 月最大型 AI 產業活動之一，中新社、CSDN、網易等多家媒體連日追蹤；討論焦點在具身智能的真實落地率與 Agent 商業化的收費模式。",
-      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694623.shtml"
+      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694623.shtml",
+      "url_status": "verified",
+      "title_score": 0.65,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322140",
+      "complete": true
     },
     {
       "title": "王堅在外灘大會露天對話青年人：人工智能時代的挑戰會由你們解決",
@@ -118,7 +158,12 @@
       "topic": "產業動態 / 人才",
       "summary": "中國工程院院士王堅在 2026 外灘大會的露天對話場合與年輕人交流，主題圍繞人工智慧時代的挑戰由新一代解決。王堅是阿里雲創辦者、中國雲端運算與 AI 基礎設施論述的關鍵人物，其對談內容多被視為產業風向指標。此類面向青年與人才培育的議程，反映外灘大會除技術發布外，亦把人才斷層當作產業議題處理。⚠️待確認：對談具體論點未逐句核對原文。",
       "discussion": "偏向產業意見領袖與青年社群的討論，關注 AI 時代的職涯路徑與基礎研究投入。",
-      "url": "https://www.chinanews.com.cn/sh/2026/09-11/10694644.shtml"
+      "url": "https://www.chinanews.com.cn/sh/2026/09-11/10694644.shtml",
+      "url_status": "verified",
+      "title_score": 0.67,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322167",
+      "complete": true
     },
     {
       "title": "轉人工「太費勁」這項國標為AI客服「立規矩」",
@@ -128,7 +173,12 @@
       "topic": "政策 / 標準",
       "summary": "國家標準《客戶聯絡服務 人工與智能客服協同要求》（GB/T 47746—2026）已於 9 月 1 日正式實施，針對 AI 客服與人工客服的協同方式訂出規範。此標準直接回應消費者長期抱怨的「轉人工太費勁」問題，要求服務業者提供可用的人工轉接路徑。對金融、電信等高度依賴智能客服的行業而言，這是把 AI 服務品質從企業自律拉到國家標準層級的分水嶺。標準實施也意味著純 AI 客服無法完全取代人工通道，合規設計必須保留人類介入點。",
       "discussion": "消費者議題屬性強，中新網當日另有多篇相關報導與評論；社群討論多集中在標準的實際約束力與罰則。",
-      "url": "https://www.chinanews.com.cn/gn/2026/09-11/10694401.shtml"
+      "url": "https://www.chinanews.com.cn/gn/2026/09-11/10694401.shtml",
+      "url_status": "verified",
+      "title_score": 0.41,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322197",
+      "complete": true
     },
     {
       "title": "兩項智能系統在中國國際礦業大會上發布",
@@ -138,7 +188,12 @@
       "topic": "產業應用",
       "summary": "自然資源部於 9 月 11 日在中國國際礦業大會上正式發布兩套 AI 系統：「智能填圖」系統與「智能找礦」系統。兩套系統把 AI 導入地質調查與礦產勘查的核心作業流程。此為 AI 在國家級資源勘探領域的官方部署案例，屬於典型的垂直行業智能化落地，而非通用模型發布。⚠️待確認：系統技術細節與底層模型未在報導中詳述。",
       "discussion": "以地質、礦業與資源產業的專業社群討論為主，一般 AI 社群關注度較低。",
-      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694738.shtml"
+      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694738.shtml",
+      "url_status": "verified",
+      "title_score": 0.44,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322224",
+      "complete": true
     },
     {
       "title": "在AI微短劇裡，他們找到了就業新賽道",
@@ -148,7 +203,12 @@
       "topic": "產業應用 / 就業",
       "summary": "報導指出中國 AI 微短劇產業正在創造新的就業賽道。2025 年「生成式人工智慧動畫製作人員」已被中國人力資源和社會保障部列為新職業類別，2026 年 6 月 AI 剪輯相關崗位的招聘需求年增 179%。此現象顯示生成式 AI 在內容產業的影響並非單純取代，而是同步產生新職能需求。對治理面而言，新職業的快速形成也帶出技能認證與內容標示（AI 生成內容標識）的配套問題。",
       "discussion": "內容產業與就業市場的討論度高；焦點在新崗位的薪資水準與技能門檻是否真能吸納被取代的傳統崗位。",
-      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694616.shtml"
+      "url": "https://www.chinanews.com.cn/cj/2026/09-11/10694616.shtml",
+      "url_status": "verified",
+      "title_score": 0.72,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322252",
+      "complete": true
     },
     {
       "title": "中方：始終堅持人工智能向善發展，堅決反對歪曲事實",
@@ -158,7 +218,12 @@
       "topic": "政策 / 國際",
       "summary": "中方在 9 月 11 日重申始終堅持人工智慧向善發展的立場，並明確反對對相關事實的歪曲。此表態屬於中國在 AI 全球治理議題上的官方定調。在中美 AI 競爭與即將到來的高層會晤背景下，此類表態通常是對外界關於中國 AI 發展路徑質疑的直接回應。⚠️待確認：具體發言人與所回應的個案未逐項核對。",
       "discussion": "屬官方外交表態，國內媒體轉載為主；國際 AI 治理圈關注其與全球治理談判進程的連動。",
-      "url": "https://www.chinanews.com.cn/gn/2026/09-11/10694706.shtml"
+      "url": "https://www.chinanews.com.cn/gn/2026/09-11/10694706.shtml",
+      "url_status": "verified",
+      "title_score": 0.71,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322287",
+      "complete": true
     },
     {
       "title": "浙江杭州：「AI Show」引人關注",
@@ -168,7 +233,12 @@
       "topic": "產業動態",
       "summary": "9 月 10 日，AI Show 2026 杭州國際人工智慧應用暨機器人創新博覽會在浙江舉行。展會涵蓋算力基礎設施、AI 應用、人形機器人與機器人零組件等全產業鏈環節。與上海外灘大會同期舉行，反映長三角地區 AI 產業活動的密集度。展會形式偏重應用展示與供應鏈對接，而非模型能力發布。",
       "discussion": "以長三角地區產業與投資社群關注為主，全國性討論度中等。",
-      "url": "https://www.chinanews.com.cn/tp/2026/09-10/10694175.shtml"
+      "url": "https://www.chinanews.com.cn/tp/2026/09-10/10694175.shtml",
+      "url_status": "verified",
+      "title_score": 0.83,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322315",
+      "complete": true
     },
     {
       "title": "量子位「MEET2027智能未來大會」啟動！年度榜單徵集進行中",
@@ -178,8 +248,46 @@
       "topic": "產業動態",
       "summary": "量子位宣布「MEET2027 智能未來大會」啟動，大會將於今年 12 月在北京舉行，同步展開年度榜單徵集。MEET 系列是中國 AI 產業的年度指標性大會之一，其年度榜單常被用作觀察中國 AI 企業與產品聲量的參考。本則屬產業活動公告而非技術發布，價值在於可從榜單類別看出當年產業關注主軸。",
       "discussion": "中國 AI 創業與投資社群的例行關注事件；討論多在榜單入選名單的預測。",
-      "url": "https://www.qbitai.com/2026/09/487176.html"
+      "url": "https://www.qbitai.com/2026/09/487176.html",
+      "url_status": "verified",
+      "title_score": 0.77,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322344",
+      "complete": true
+    },
+    {
+      "title": "DeepSeek V4.1 Flash 模型正式發布：全面超越 V4 Pro、原生多模態視覺理解，API 定價下調",
+      "source": "IT之家",
+      "date": "2026-09-10",
+      "company": "DeepSeek（深度求索）",
+      "topic": "LLM發布",
+      "summary": "DeepSeek 於 2026 年 9 月 10 日正式發布 V4.1 Flash，為其新一代模型結構系列中最小的一款，並首次原生支援多模態視覺理解。該模型為 552B 參數的 MoE 架構，採用新的 Causal-Encoder-Decoder（CED）結構，輸入與輸出非對稱激活（輸入端激活 8B、輸出端激活 16B），使同級規模下的成本顯著低於已知模型。官方benchmark顯示其智能水準超越包含自家 V4 Pro 在內的多款旗艦模型。新一代結構大幅壓縮 KV Cache，HBM 需求僅為上一代的四分之一、SSD 需求為八分之一。API 定價自 9 月 10 日 12:00 生效，閒時輸入快取命中 0.02 元／百萬 token、快取未命中 1 元、輸出 4 元，尖峰時段為閒時價格的兩倍。",
+      "discussion": "為 9 月 9 至 10 日中文 AI 社群討論度最高的單一事件，IT之家、界面新聞、量子位等主流科技媒體同步報導，LINUX DO、V2EX、博客園等開發者論壇出現大量接入實測與定價換算討論，海外 Hacker News 亦有專串討論。",
+      "url": "https://www.ithome.com/1/000/719.htm",
+      "url_status": "verified",
+      "title_score": 0.81,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322373",
+      "complete": true,
+      "is_backfill": true
+    },
+    {
+      "title": "Introducing DeepSeek-V4.1-Flash: smarter, faster, more efficient.",
+      "source": "DeepSeek 官方網站",
+      "date": "2026-09-10",
+      "company": "DeepSeek（深度求索）",
+      "topic": "LLM發布",
+      "summary": "DeepSeek 官方發布公告，正式推出 DeepSeek-V4.1-Flash，定位為「更強、更快、更普惠」。此版本標誌 V4.1 系列為一條獨立的架構脈絡，而非 V4 的漸進式更新。官方強調新架構在智能水準、成本、速度與端到端耗時四項指標上全面超越 V4 Pro。模型原生支援多模態視覺理解，並針對輸入密集的 agentic 工作負載最佳化。官方同步公布新版 API 定價與 V4 Pro 的下線與流量導流安排。",
+      "discussion": "官方公告為各家媒體與社群轉載的第一手來源，中英文社群均高度轉發，重點集中在「小模型超越自家旗艦」的架構意義與 agent 成本結構改變。",
+      "url": "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified": true,
+      "verified_at": "2026-09-11T18:17:16.322401",
+      "complete": true,
+      "is_backfill": true
     }
   ],
-  "_updated_at": "2026-09-11T18:05:49.810028+08:00"
+  "_updated_at": "2026-09-11T18:05:49.810028+08:00",
+  "_fallback": true
 }
