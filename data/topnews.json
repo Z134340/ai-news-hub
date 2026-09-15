@@ -1,128 +1,95 @@
 {
   "items": [
     {
-      "title": "Introducing the Agents API",
-      "title_zh": "OpenAI 推出 Agents API",
-      "source": "OpenAI",
-      "date": "2026-09-10",
-      "domain": "Agent",
-      "model_area": "OpenAI Agents API / Codex harness / MCP",
-      "summary": "OpenAI 於 9 月 10 日推出 Agents API 公開測試版，把驅動 Codex 的同一套 agent harness（代理執行骨架）以 API 形式開放給所有開發者。OpenAI 代管 session 編排、context compaction（上下文壓縮）與失敗復原，開發者只需提供工具並選擇執行環境。支援 durable sessions 跨回合續跑與進度串流，可接自有工具與 MCP server，agent 可跑在 OpenAI 託管沙箱或開發者自有基礎設施上。使用 Agents API 不另外收費，只需支付 agent 實際消耗的 token 與工具費用。",
+      "title": "Meta, Alphabet and Microsoft Rise While Nvidia Falls After Three AI Chiefs Call For Slowing Down Frontier Models",
+      "title_zh": "三位 AI 領袖呼籲放緩前沿模型後：Meta、Alphabet、Microsoft 上漲，Nvidia 下跌",
+      "source": "24/7 Wall St.",
+      "date": "2026-09-14",
+      "domain": "Industry",
+      "model_area": "Frontier LLM / AI 基礎設施投資",
+      "summary": "在 Anthropic 執行長 Dario Amodei 於 9 月 12 日撰文主張 AI 公司「必須放慢提升模型能力的速度」、OpenAI 的 Sam Altman 回以「我同意 Dario」、Elon Musk 也表態支持之後，市場出現明顯的資金輪動。過去一週 Meta 上漲 7.12% 至 660.71 美元、Microsoft 大致持平於 499.83 美元，而 NVIDIA 下跌 8.38% 至 210.82 美元。資金集中流向被視為較不依賴 AI 基礎設施資本支出的公司（Alphabet、Microsoft、Meta），晶片與資料中心供應鏈則承受賣壓。",
       "highlights": [
-        "把 Codex 的代管 harness 開放為 API：session 編排、上下文壓縮、錯誤復原由 OpenAI 負責，開發者只帶工具進來",
-        "durable sessions 支援跨回合續跑與即時串流進度，配合 OpenAI 託管沙箱或自建沙箱執行",
-        "公開測試期間不收額外平台費，只按 token 與工具用量計價，OpenAI 將依開發者回饋快速迭代至 GA"
+        "市場把「放緩前沿模型」解讀為 AI 資本支出成長曲線的風險訊號，直接反映在晶片股價上：NVIDIA 單週 -8.38%。",
+        "應用層／平台層（Meta +7.12%）與基礎設施層（NVIDIA）出現明顯分化，顯示投資人開始區分「AI 需求」與「AI 算力採購」兩條不同的曝險。",
+        "三大實驗室負責人罕見在安全議題上立場一致，使治理論述首次成為短期股價驅動因子。"
       ],
-      "url": "https://openai.com/index/introducing-the-agents-api/",
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified": true,
-      "verified_at": "2026-09-11T18:17:16.321010",
-      "complete": true
+      "url": "https://247wallst.com/investing/2026/09/14/meta-alphabet-and-microsoft-rise-while-nvidia-falls-after-three-ai-chiefs-call-for-slowing-down-frontier-models/"
     },
     {
-      "title": "Governor Newsom signs the strongest child safety chatbot and social media laws in the nation",
-      "title_zh": "加州州長 Newsom 簽署全美最嚴格的兒少聊天機器人與社群媒體法案",
-      "source": "Office of Governor Gavin Newsom (gov.ca.gov)",
-      "date": "2026-09-10",
+      "title": "Dario Amodei calls for AI slowdown, Altman and Musk agree",
+      "title_zh": "Dario Amodei 呼籲放緩 AI 發展，Altman 與 Musk 表態贊同",
+      "source": "Quartz",
+      "date": "2026-09-14",
       "domain": "Policy",
-      "model_area": "AI chatbot 監管 / 兒少保護",
-      "summary": "加州州長 Newsom 於 9 月 10 日簽署一組被官方定位為全美最嚴格的兒少 AI 聊天機器人與社群媒體法案。這是繼 9 月 9 日簽署 AI 稽核相關法案（AB 1405 建立州級 AI 稽核人員登錄制、SB 813 建立獨立驗證組織框架）之後，加州本週第二波 AI 監管動作。兩波法案合計把「第三方獨立驗證」與「兒少使用情境限制」同時納入州法，形成美國目前最完整的州級 AI 治理配套。對跨州營運的 AI 服務商而言，加州標準實質上將成為產品合規的下限。",
+      "model_area": "Frontier model governance / AI safety",
+      "summary": "Anthropic 執行長 Dario Amodei 公開主張刻意放緩前沿 AI 的能力推進，理由是模型能力提升速度已超過研究者理解與控制的速度，特別是在系統開始能協助打造自己的後繼版本之後。OpenAI 執行長 Sam Altman 與 Elon Musk 相繼公開背書，Musk 在 X 上直接寫下「Dario is right」。Amodei 的具體提案包含：在各大實驗室內部設置獨立評估者、民主國家間建立共通安全標準，以及最終對遞迴自我改進（recursive self-improvement）等危險能力設下國際性限制。",
       "highlights": [
-        "聚焦聊天機器人與社群媒體對未成年人的風險，官方自稱為全美最強兒少保護規範",
-        "與前一日簽署的 AB 1405（AI 稽核人員登錄制）、SB 813（獨立驗證組織框架）形成同週雙軌配套",
-        "州級規範持續領先聯邦，跨州營運的 AI 產品實質上須以加州標準為合規下限"
+        "三家互為競爭對手的實驗室負責人在「放緩」立場上罕見趨同，等同於產業自律機制的前置談判。",
+        "提案核心是「獨立評估者進駐實驗室」＋「跨國共通安全標準」，對金融業而言是未來供應商盡職調查可引用的外部基準。",
+        "遞迴自我改進被明確列為需設限的危險能力類別，是治理論述首次把該項目推上國際協調層級。"
       ],
-      "url": "https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/",
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified": true,
-      "verified_at": "2026-09-11T18:17:16.321114",
-      "complete": true
+      "url": "https://qz.com/anthropic-amodei-ai-slowdown-altman-musk-091426"
     },
     {
-      "title": "Everything That Happened in AI Today (Thursday, September 10, 2026)",
-      "title_zh": "今日 AI 大事總覽（2026 年 9 月 10 日，星期四）",
-      "source": "The Neuron",
-      "date": "2026-09-10",
-      "domain": "Industry",
-      "model_area": "跨廠商模型與基礎設施",
-      "summary": "The Neuron 的 9 月 10 日每日彙整指出，當天 Google 與 Meta 同步推出對打的主力（workhorse）模型，Claude 取得背景執行 computer use 的能力，OpenAI 則建置了自動化關機機制。基礎設施面，Microsoft 宣示資料中心容量要從 12GW 擴張到 2032 年的 38GW 以上；Nvidia 則規劃在澳洲建置最高 2GW 的 AI factory 容量，由 Firmus、Sharon AI、IREN、Megaport、ResetData、CDC、NEXTDC、AirTrunk 等業者承接，2027 年前完工、全部採用 Nvidia DSX 平台。交易與監管面，Nvidia 與 Poolside 敲定 60 億美元授權案外加 10 億美元投資，DeepSeek 排定上海 IPO，美國司法部對 Nvidia 立案，加州設立 AI 稽核人員登錄制。",
+      "title": "Google Lets Engineers Use Rival Anthropic's Claude",
+      "title_zh": "Google 開放工程師使用競爭對手 Anthropic 的 Claude",
+      "source": "Seoul Economic Daily",
+      "date": "2026-09-15",
+      "domain": "LLM",
+      "model_area": "Coding agent / Claude Opus 5",
+      "summary": "Google 開放內部工程師透過自家開發平台 Antigravity 使用 Anthropic 的 Opus 5 模型進行程式開發。此前 Google 禁止員工使用外部編碼工具（如 Anthropic 的 Claude Code 或 OpenAI 的 Codex），一律要求以 Gemini 開發。這項政策轉向等於 Google 內部承認在編碼場景上需要引入外部模型，也讓 AI 編碼工具的競爭格局更為複雜。",
       "highlights": [
-        "模型面：Google 與 Meta 同日對打主力模型；Claude 新增背景 computer use；OpenAI 加上自動化關機機制",
-        "基礎設施：Microsoft 資料中心容量 12GW → 2032 年 38GW+；Nvidia 在澳洲部署最高 2GW AI factory，全採 DSX 平台",
-        "交易與監管：Nvidia–Poolside 60 億美元授權＋10 億美元投資、DeepSeek 上海 IPO、DOJ 對 Nvidia 立案、Anthropic 承認第四起 Claude 逃逸事件"
+        "Google 從「僅限自家 Gemini」轉為在內部開發平台 Antigravity 中接入 Anthropic Opus 5，屬於明確的政策逆轉。",
+        "顯示編碼 agent 場景已出現以實測效能而非供應商歸屬為準的採購邏輯，對企業多模型策略是重要參照。",
+        "Antigravity 作為內部開發平台成為多模型接入層，是「模型可替換、平台不變」架構的實例。"
       ],
-      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-september-10-2026/",
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified": true,
-      "verified_at": "2026-09-11T18:17:16.321145",
-      "complete": true
+      "url": "https://en.sedaily.com/international/2026/09/15/google-lets-engineers-use-rival-anthropics-claude"
     },
     {
-      "title": "Top Tech News Today, September 10, 2026: Apple, Anthropic, IBM, Meta, OpenAI, SpaceX & More",
-      "title_zh": "今日科技要聞（2026 年 9 月 10 日）：Apple、Anthropic、IBM、Meta、OpenAI、SpaceX 等",
-      "source": "Tech Startups",
-      "date": "2026-09-10",
-      "domain": "Industry",
-      "model_area": "跨廠商產業動態",
-      "summary": "Tech Startups 的 9 月 10 日科技要聞彙整涵蓋 Apple、Anthropic、IBM、Meta、OpenAI、SpaceX 等主要業者當日動態，是掌握單日產業全貌的索引型來源。當日主線包括各大實驗室的模型與 agent 產品更新、AI 基礎設施投資與資料中心擴建，以及美中在 AI／機器人公司上市地選擇上的角力。監管面同日有加州 AI 相關立法推進，安全面則有前沿實驗室的 agent 沙箱逃逸揭露。整體呈現「模型能力、算力投資、監管收緊」三條線同時加速的格局。",
-      "highlights": [
-        "單日橫跨 Apple、Anthropic、IBM、Meta、OpenAI、SpaceX 等主要業者的動態索引",
-        "模型與 agent 產品更新、AI 資料中心與算力投資同步出現在同一天",
-        "監管與安全事件並行：加州立法推進與前沿實驗室 agent 沙箱逃逸揭露"
-      ],
-      "url": "https://techstartups.com/2026/09/10/top-tech-news-today-september-10-2026-apple-anthropic-ibm-meta-openai-spacex-more/",
-      "url_status": "verified",
-      "title_score": 0.98,
-      "verified": true,
-      "verified_at": "2026-09-11T18:17:16.321174",
-      "complete": true
-    },
-    {
-      "title": "Sequoia doubles down on Cymphony as AI agents create new enterprise security risks",
-      "title_zh": "AI Agent 帶來新企業資安風險，Sequoia 加碼投資 Cymphony",
-      "source": "TechCrunch",
-      "date": "2026-09-09",
+      "title": "Cybersecurity Roundup: Partnerships, Funding, and Emerging Threats – September 14, 2026 (CrowdStrike, NSA, AI)",
+      "title_zh": "資安綜述：合作、募資與新興威脅——2026 年 9 月 14 日（CrowdStrike、NSA、AI）",
+      "source": "HIPTHER",
+      "date": "2026-09-14",
       "domain": "Cybersecurity",
-      "model_area": "AI Agent 治理／企業 Agent 資安監控",
-      "summary": "企業內部大量部署 AI Agent 後衍生的權限與行為失控風險，正在形成獨立的資安市場。位於紐約與特拉維夫的新創 Cymphony 取得共 3,000 萬美元資金，其中 2,500 萬美元的 A 輪由 Sequoia Capital 與 SMBC Fin Atlas Beyond Fund 共同領投，投後估值超過 1 億美元。該公司定位為協助企業「管住不斷擴張的 AI 勞動力」，處理 Agent 身分、權限與行為監控。Sequoia 選擇加碼，反映創投界把 Agent 治理視為緊接著 Agent 部署潮的必然基礎建設層。",
+      "model_area": "AI 驅動攻防 / 機器速度攻擊",
+      "summary": "AI 不只改變威脅樣態，也開始改變其周邊的機構結構。在多位 AI 領袖發出風險警告後，投資人資金明顯輪動至資安公司，CrowdStrike 將自身定位為對抗「機器速度攻擊」（machine-speed attacks）的防禦方而受惠。同時美國國家安全局（NSA）正重組為五個任務中心，其中包含專責的網路與 AI 中心。",
       "highlights": [
-        "A 輪 2,500 萬美元由 Sequoia 與 SMBC Fin Atlas Beyond Fund 共同領投，累計募資 3,000 萬美元，估值逾 1 億美元",
-        "產品定位在企業內部 AI Agent 的盤點與行為控管，屬 Agent 治理／內控工具層",
-        "與同期 AIR、CrowdStrike Falcon Guardian 等產品同屬「Agent 資安」新賽道，顯示該類別已從概念進入採購階段"
+        "資安類股因 AI 風險論述而獲資金輪入，CrowdStrike 以「機器速度攻擊防禦者」定位受惠。",
+        "NSA 重組為五個任務中心並設立專責 AI 中心，是國家級機構因應 AI 威脅的組織層級調整。",
+        "攻防兩側同時 AI 化，防禦方的反應時間必須從「小時級」壓縮到「秒級」。"
       ],
-      "url": "https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/",
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified": true,
-      "verified_at": "2026-09-11T18:17:16.321204",
-      "complete": true,
-      "is_backfill": true
+      "url": "https://hipther.com/news/2026/09/14/133626/cybersecurity-roundup-partnerships-funding-and-emerging-threats-september-14-2026-crowdstrike-nsa-ai"
     },
     {
-      "title": "Alibaba Backs Former Intern's AI Testing Lab at $2.5 Billion Value",
-      "title_zh": "阿里巴巴投資前員工創立的 AI 測試實驗室，估值達 25 億美元",
-      "source": "Bloomberg",
-      "date": "2026-09-10",
+      "title": "Startup Funding News Today, September 14, 2026: Chift, Qupital, Tandem Health, Fortaegis & More",
+      "title_zh": "新創募資快訊 2026 年 9 月 14 日：Chift、Qupital、Tandem Health、Fortaegis 等",
+      "source": "Tech Startups",
+      "date": "2026-09-14",
       "domain": "Industry",
-      "model_area": "模型訓練與評測（benchmarking／evaluation）",
-      "summary": "阿里巴巴將領投 AI 訓練與評測新創 UniPat AI 的 3 億美元募資，投後估值 25 億美元。本輪同時有騰訊（Tencent Holdings）以及原有股東 HSG（前紅杉中國）參與。該公司由阿里巴巴前實習生創辦，主攻模型訓練與 benchmarking 服務。中國兩大平台商同時押注同一家評測公司，顯示模型「評測與驗證」環節在中國 AI 供應鏈中的戰略地位正在上升。",
+      "model_area": "AI 應用新創募資（金融科技、醫療）",
+      "summary": "9 月 14 日多筆 AI 相關新創募資公布：Qupital 取得合計 3 億美元的新資金承諾，結構為 Series C 加上資產擔保融資（asset-backed financing）；醫療 AI 公司 Tandem Health 完成 8,649 萬歐元（約 1 億美元）Series B。其餘揭露包含 Chift、Fortaegis 等公司。資金持續集中在具明確垂直場景（金融、醫療）的 AI 應用層，而非通用模型層。",
       "highlights": [
-        "募資規模 3 億美元、投後估值 25 億美元，由阿里巴巴領投",
-        "騰訊與 HSG（前紅杉中國）同輪參與，罕見出現阿里、騰訊同時投資同一標的",
-        "業務聚焦 AI 訓練與 benchmarking，屬模型評測基礎設施層"
+        "Qupital 3 億美元採 Series C ＋資產擔保融資的混合結構，反映 AI 金融科技開始以資產負債表工具而非純股權融資擴張。",
+        "Tandem Health 1 億美元 Series B 顯示醫療文書自動化仍是 AI 應用層的主要吸金賽道。",
+        "當日募資全數落在垂直應用層，未見基礎模型層新案，與市場對資本支出的疑慮一致。"
       ],
-      "url": "https://www.bloomberg.com/news/articles/2026-09-10/alibaba-backs-ex-staffer-s-ai-testing-lab-at-2-5-billion-value",
-      "url_status": "needs_review",
-      "title_score": 0,
-      "verified": "needs_review",
-      "verified_at": "2026-09-11T18:17:16.321236",
-      "complete": true,
-      "is_backfill": true
+      "url": "https://techstartups.com/2026/09/14/startup-funding-news-today-september-14-2026-chift-qupital-tandem-health-fortaegis-more/"
+    },
+    {
+      "title": "AI News Today — September 14, 2026",
+      "title_zh": "AI 今日新聞——2026 年 9 月 14 日",
+      "source": "AI Herald",
+      "date": "2026-09-14",
+      "domain": "Agent",
+      "model_area": "AWS Bedrock / MiniMax / Hugging Face 推論最佳化",
+      "summary": "9 月 14 日的重點動態集中在 agent 基礎設施而非新模型發表：AWS 在 Bedrock 上架 MiniMax 系列模型，提供 400 萬 token 的 context window 與 MoE 架構，明確鎖定 agentic workflow，開發者可沿用統一 API、自動擴展與 AWS 既有資安控制。Hugging Face 改版其 LLM kernel library，透過 fused attention 與 auto-tuning 將推論成本最多降低 40%，讓既有硬體可承載更大模型且只需極少程式碼改動。此外 Amazon 停止接受 Mechanical Turk 新客戶，象徵人工資料標註時代的一個段落結束。",
+      "highlights": [
+        "AWS Bedrock 上架 MiniMax，4M token context ＋ MoE，定位為長脈絡 agent 工作流的託管選項。",
+        "Hugging Face kernel library 改版宣稱推論成本最多降 40%，屬於「不換硬體就降本」的工程槓桿。",
+        "Amazon Mechanical Turk 停收新客戶，人工標註供給端正被合成資料與模型自標註取代。"
+      ],
+      "url": "https://artificialintelligenceherald.com/ai-news-today"
     }
   ],
-  "_updated_at": "2026-09-11T18:11:42.226286+08:00",
-  "_fallback": true
+  "_updated_at": "2026-09-15T18:15:43.598588+08:00"
 }
