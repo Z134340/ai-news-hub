@@ -1,95 +1,50 @@
 {
   "items": [
     {
-      "title": "Meta, Alphabet and Microsoft Rise While Nvidia Falls After Three AI Chiefs Call For Slowing Down Frontier Models",
-      "title_zh": "三位 AI 領袖呼籲放緩前沿模型後：Meta、Alphabet、Microsoft 上漲，Nvidia 下跌",
-      "source": "24/7 Wall St.",
-      "date": "2026-09-14",
-      "domain": "Industry",
-      "model_area": "Frontier LLM / AI 基礎設施投資",
-      "summary": "在 Anthropic 執行長 Dario Amodei 於 9 月 12 日撰文主張 AI 公司「必須放慢提升模型能力的速度」、OpenAI 的 Sam Altman 回以「我同意 Dario」、Elon Musk 也表態支持之後，市場出現明顯的資金輪動。過去一週 Meta 上漲 7.12% 至 660.71 美元、Microsoft 大致持平於 499.83 美元，而 NVIDIA 下跌 8.38% 至 210.82 美元。資金集中流向被視為較不依賴 AI 基礎設施資本支出的公司（Alphabet、Microsoft、Meta），晶片與資料中心供應鏈則承受賣壓。",
-      "highlights": [
-        "市場把「放緩前沿模型」解讀為 AI 資本支出成長曲線的風險訊號，直接反映在晶片股價上：NVIDIA 單週 -8.38%。",
-        "應用層／平台層（Meta +7.12%）與基礎設施層（NVIDIA）出現明顯分化，顯示投資人開始區分「AI 需求」與「AI 算力採購」兩條不同的曝險。",
-        "三大實驗室負責人罕見在安全議題上立場一致，使治理論述首次成為短期股價驅動因子。"
-      ],
-      "url": "https://247wallst.com/investing/2026/09/14/meta-alphabet-and-microsoft-rise-while-nvidia-falls-after-three-ai-chiefs-call-for-slowing-down-frontier-models/"
-    },
-    {
-      "title": "Dario Amodei calls for AI slowdown, Altman and Musk agree",
-      "title_zh": "Dario Amodei 呼籲放緩 AI 發展，Altman 與 Musk 表態贊同",
-      "source": "Quartz",
-      "date": "2026-09-14",
-      "domain": "Policy",
-      "model_area": "Frontier model governance / AI safety",
-      "summary": "Anthropic 執行長 Dario Amodei 公開主張刻意放緩前沿 AI 的能力推進，理由是模型能力提升速度已超過研究者理解與控制的速度，特別是在系統開始能協助打造自己的後繼版本之後。OpenAI 執行長 Sam Altman 與 Elon Musk 相繼公開背書，Musk 在 X 上直接寫下「Dario is right」。Amodei 的具體提案包含：在各大實驗室內部設置獨立評估者、民主國家間建立共通安全標準，以及最終對遞迴自我改進（recursive self-improvement）等危險能力設下國際性限制。",
-      "highlights": [
-        "三家互為競爭對手的實驗室負責人在「放緩」立場上罕見趨同，等同於產業自律機制的前置談判。",
-        "提案核心是「獨立評估者進駐實驗室」＋「跨國共通安全標準」，對金融業而言是未來供應商盡職調查可引用的外部基準。",
-        "遞迴自我改進被明確列為需設限的危險能力類別，是治理論述首次把該項目推上國際協調層級。"
-      ],
-      "url": "https://qz.com/anthropic-amodei-ai-slowdown-altman-musk-091426"
-    },
-    {
-      "title": "Google Lets Engineers Use Rival Anthropic's Claude",
-      "title_zh": "Google 開放工程師使用競爭對手 Anthropic 的 Claude",
-      "source": "Seoul Economic Daily",
+      "title": "Google Opens Claude Access To Engineers Across The Company",
+      "title_zh": "Google 開放全公司工程師使用 Anthropic Claude",
+      "source": "Dataconomy",
       "date": "2026-09-15",
       "domain": "LLM",
-      "model_area": "Coding agent / Claude Opus 5",
-      "summary": "Google 開放內部工程師透過自家開發平台 Antigravity 使用 Anthropic 的 Opus 5 模型進行程式開發。此前 Google 禁止員工使用外部編碼工具（如 Anthropic 的 Claude Code 或 OpenAI 的 Codex），一律要求以 Gemini 開發。這項政策轉向等於 Google 內部承認在編碼場景上需要引入外部模型，也讓 AI 編碼工具的競爭格局更為複雜。",
+      "model_area": "Anthropic Claude Opus 5 / Google Antigravity 開發平台",
+      "summary": "Google 開始讓全公司工程師透過內部開發工具存取競爭對手 Anthropic 的 Claude 進行程式撰寫工作。員工可在 Google 自家開發平台 Antigravity 中使用 Anthropic 的 Opus 5 模型。此舉代表 Google 在內部生產力工具上採取模型中立策略，即使自身擁有 Gemini 系列模型，仍引入外部前沿模型供工程團隊選用。",
       "highlights": [
-        "Google 從「僅限自家 Gemini」轉為在內部開發平台 Antigravity 中接入 Anthropic Opus 5，屬於明確的政策逆轉。",
-        "顯示編碼 agent 場景已出現以實測效能而非供應商歸屬為準的採購邏輯，對企業多模型策略是重要參照。",
-        "Antigravity 作為內部開發平台成為多模型接入層，是「模型可替換、平台不變」架構的實例。"
+        "Google 內部開發平台 Antigravity 納入 Anthropic Opus 5，供全公司工程師用於 coding 情境",
+        "顯示大廠內部工具鏈走向多模型並存，而非只綁自家 Gemini",
+        "對企業採購而言，是「同時採用競品前沿模型」的具體先例"
       ],
-      "url": "https://en.sedaily.com/international/2026/09/15/google-lets-engineers-use-rival-anthropics-claude"
+      "url": "https://dataconomy.com/2026/09/15/google-opens-anthropic-claude-access-for-engineers/"
     },
     {
-      "title": "Cybersecurity Roundup: Partnerships, Funding, and Emerging Threats – September 14, 2026 (CrowdStrike, NSA, AI)",
-      "title_zh": "資安綜述：合作、募資與新興威脅——2026 年 9 月 14 日（CrowdStrike、NSA、AI）",
-      "source": "HIPTHER",
-      "date": "2026-09-14",
-      "domain": "Cybersecurity",
-      "model_area": "AI 驅動攻防 / 機器速度攻擊",
-      "summary": "AI 不只改變威脅樣態，也開始改變其周邊的機構結構。在多位 AI 領袖發出風險警告後，投資人資金明顯輪動至資安公司，CrowdStrike 將自身定位為對抗「機器速度攻擊」（machine-speed attacks）的防禦方而受惠。同時美國國家安全局（NSA）正重組為五個任務中心，其中包含專責的網路與 AI 中心。",
-      "highlights": [
-        "資安類股因 AI 風險論述而獲資金輪入，CrowdStrike 以「機器速度攻擊防禦者」定位受惠。",
-        "NSA 重組為五個任務中心並設立專責 AI 中心，是國家級機構因應 AI 威脅的組織層級調整。",
-        "攻防兩側同時 AI 化，防禦方的反應時間必須從「小時級」壓縮到「秒級」。"
-      ],
-      "url": "https://hipther.com/news/2026/09/14/133626/cybersecurity-roundup-partnerships-funding-and-emerging-threats-september-14-2026-crowdstrike-nsa-ai"
-    },
-    {
-      "title": "Startup Funding News Today, September 14, 2026: Chift, Qupital, Tandem Health, Fortaegis & More",
-      "title_zh": "新創募資快訊 2026 年 9 月 14 日：Chift、Qupital、Tandem Health、Fortaegis 等",
-      "source": "Tech Startups",
-      "date": "2026-09-14",
-      "domain": "Industry",
-      "model_area": "AI 應用新創募資（金融科技、醫療）",
-      "summary": "9 月 14 日多筆 AI 相關新創募資公布：Qupital 取得合計 3 億美元的新資金承諾，結構為 Series C 加上資產擔保融資（asset-backed financing）；醫療 AI 公司 Tandem Health 完成 8,649 萬歐元（約 1 億美元）Series B。其餘揭露包含 Chift、Fortaegis 等公司。資金持續集中在具明確垂直場景（金融、醫療）的 AI 應用層，而非通用模型層。",
-      "highlights": [
-        "Qupital 3 億美元採 Series C ＋資產擔保融資的混合結構，反映 AI 金融科技開始以資產負債表工具而非純股權融資擴張。",
-        "Tandem Health 1 億美元 Series B 顯示醫療文書自動化仍是 AI 應用層的主要吸金賽道。",
-        "當日募資全數落在垂直應用層，未見基礎模型層新案，與市場對資本支出的疑慮一致。"
-      ],
-      "url": "https://techstartups.com/2026/09/14/startup-funding-news-today-september-14-2026-chift-qupital-tandem-health-fortaegis-more/"
-    },
-    {
-      "title": "AI News Today — September 14, 2026",
-      "title_zh": "AI 今日新聞——2026 年 9 月 14 日",
-      "source": "AI Herald",
-      "date": "2026-09-14",
+      "title": "Google Launches New Gemini Models to Upgrade Enterprise Voice Agents",
+      "title_zh": "Google 推出新 Gemini 模型，升級企業語音 Agent",
+      "source": "PYMNTS",
+      "date": "2026-09-15",
       "domain": "Agent",
-      "model_area": "AWS Bedrock / MiniMax / Hugging Face 推論最佳化",
-      "summary": "9 月 14 日的重點動態集中在 agent 基礎設施而非新模型發表：AWS 在 Bedrock 上架 MiniMax 系列模型，提供 400 萬 token 的 context window 與 MoE 架構，明確鎖定 agentic workflow，開發者可沿用統一 API、自動擴展與 AWS 既有資安控制。Hugging Face 改版其 LLM kernel library，透過 fused attention 與 auto-tuning 將推論成本最多降低 40%，讓既有硬體可承載更大模型且只需極少程式碼改動。此外 Amazon 停止接受 Mechanical Turk 新客戶，象徵人工資料標註時代的一個段落結束。",
+      "model_area": "Gemini 語音模型 / 企業語音 Agent",
+      "summary": "Google 於 9 月 15 日起開始推出兩款專為驅動語音 Agent 設計的新 AI 模型。這批模型針對企業客服與語音互動場景，目標是提升語音 Agent 的即時對話品質與部署可用性。此舉延續 Google 將 Gemini 模型線切分為特定任務專用版本的策略。",
       "highlights": [
-        "AWS Bedrock 上架 MiniMax，4M token context ＋ MoE，定位為長脈絡 agent 工作流的託管選項。",
-        "Hugging Face kernel library 改版宣稱推論成本最多降 40%，屬於「不換硬體就降本」的工程槓桿。",
-        "Amazon Mechanical Turk 停收新客戶，人工標註供給端正被合成資料與模型自標註取代。"
+        "兩款新模型專門鎖定企業語音 Agent 應用場景，而非通用對話",
+        "語音 Agent 是企業導入 agentic AI 最直接的落地介面之一（客服、外撥、IVR 取代）",
+        "延續 Google 依任務切分模型線（Flash、Cyber、語音）的產品策略"
       ],
-      "url": "https://artificialintelligenceherald.com/ai-news-today"
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/google-launches-new-gemini-models-to-upgrade-enterprise-voice-agents/"
+    },
+    {
+      "title": "Sam Altman says OpenAI's IPO window has been pushed to 2027—but markets aren't the culprit",
+      "title_zh": "Sam Altman 表示 OpenAI 的 IPO 時程已推遲至 2027 年，但原因不是市場",
+      "source": "Fortune",
+      "date": "2026-09-15",
+      "domain": "Policy",
+      "model_area": "OpenAI 公司治理 / AI 安全",
+      "summary": "OpenAI 執行長 Sam Altman 確認公司 2026 年不會公開上市，IPO 窗口推遲至 2027 年，並明確指出原因不是資本市場條件，而是 AI 安全議題。Altman 在接受 Fortune 專訪時表示「考量到安全方面正在發生的一切，現在是個不宜上市的時機」，並稱公司在安全與對齊（alignment）上仍有大量工作待完成。他同時強調公司並未感受到上市壓力，會在業務與社會條件都成熟時才進行。",
+      "highlights": [
+        "OpenAI IPO 明確推遲至 2027 年，Altman 主動把理由歸因於 AI 安全而非市場估值",
+        "Altman 稱釐清產業與政府如何協作是當前核心任務，呼應同期 Anthropic Dario Amodei 對放慢前沿模型步調的公開主張",
+        "對金融業而言，最大 AI 供應商延後上市代表其財務揭露透明度短期內仍受限，供應商風險評估難以依賴公開財報"
+      ],
+      "url": "https://fortune.com/2026/09/15/sam-altman-says-openai-ipo-window-pushed-2027-but-markets-arent-the-culprit/"
     }
   ],
-  "_updated_at": "2026-09-15T18:15:43.598588+08:00"
+  "_updated_at": "2026-09-16T18:12:15.280968+08:00"
 }

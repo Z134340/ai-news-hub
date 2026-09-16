@@ -1,7 +1,7 @@
 {
   "schema": "signal-health-v1",
-  "generated_at": "2026-09-15T10:24:50.512Z",
-  "date": "2026-09-15",
+  "generated_at": "2026-09-16T10:18:52.175Z",
+  "date": "2026-09-16",
   "state": "yellow",
   "reason": [
     "metrics_ratings_zero_in_window",
@@ -10,13 +10,14 @@
   ],
   "window": {
     "silent_nights": 7,
-    "since": "2026-09-09",
-    "nights_observed": 4,
+    "since": "2026-09-10",
+    "nights_observed": 5,
     "dates": [
       "2026-09-10",
       "2026-09-11",
       "2026-09-14",
-      "2026-09-15"
+      "2026-09-15",
+      "2026-09-16"
     ]
   },
   "metrics_ratings": {
