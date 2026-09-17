@@ -1,13 +1,13 @@
 <!-- 自 CLAUDE.md 拆出（2026-09-04）。此檔是權威規範，CLAUDE.md 只留索引；改本檔不必同步回 CLAUDE.md。 -->
 
-## 架構正規化（2026-06 更新，權威現況）
+## 架構正規化（2026-09-18 核對載入順序）
 
 > 本節描述前端與儲存的「正規化後」現況，**優先於下方任何仍以單檔 index.html 描述的舊段落**。
 
 ### 前端：單檔 → 模組化（vanilla，零 build）
-`index.html` 從 1,049 行單檔拆為「結構（107 行）+ `assets/css/app.css` + `assets/js/` 九個模組」。
+`index.html` 已拆為頁面結構、`assets/css/app.css` 與 `assets/js/` 十個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
-`config → firebase → bookmarks → search → render → ui → history → data → main`。
+`config → firebase → bookmarks → search → render → ui → history → data → dashboard → main`。
 仍是純靜態，GitHub Pages 直接服務；相對路徑維持 project page base `/ai-news-hub/`；`.nojekyll` 保留。
 
 ### 儲存：混合冷熱分層（static + Firebase）
@@ -63,13 +63,17 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 ```
 ai-news-hub/
 ├── .nojekyll                        ← 禁用 Jekyll（確保 JSON 直接送達）
-├── index.html                       ← 只剩結構（107 行）+ link css + script src
+├── index.html                       ← 頁面結構 + link css + script src
 ├── firebase.json                    ← Firestore 規則部署設定
 ├── firestore.rules                  ← users（書籤）+ archives（冷封存）安全規則
 ├── FIREBASE-SETUP.md                ← 書籤雲端同步設定指南
 ├── ARCHIVE-SETUP.md                 ← 過期新聞冷封存設定指南
 ├── HANDOFF.md                       ← 交接狀態（done/pending/勿動/checklist）
-├── CLAUDE.md  /  SKILL.md  /  README.md
+├── CLAUDE.md                       ← 共用開發規範與索引
+├── AGENTS.md                       ← Codex 讀取共用規範的入口
+├── README.md                       ← 專案介紹與操作入口
+├── docs/specs/  docs/shapes/        ← 規格與程式速查
+├── docs/legacy/                    ← 歷史文件（含舊 SKILL.md）
 ├── assets/
 │   ├── css/app.css                  ← 全部樣式
 │   └── js/                          ← classic scripts，載入順序固定
@@ -78,6 +82,7 @@ ai-news-hub/
 │       ├── bookmarks.js  search.js  render.js  ui.js
 │       ├── history.js               ← 冷熱合併歷史（static + Firestore）
 │       ├── data.js                  ← 資料載入 + 自動更新偵測
+│       ├── dashboard.js            ← 趨勢儀表板
 │       └── main.js                  ← 啟動序列
 ├── .github/workflows/
 │   ├── health-check.yml  keep-alive.yml  notify.yml

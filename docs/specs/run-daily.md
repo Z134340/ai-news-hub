@@ -129,30 +129,16 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 ```
 每次執行時自動清理 7 天前的 log 和驗證報告。
 
-### Git 推送（⚠️ Bug Fix #8）
-```bash
-git pull --rebase origin main 2>/dev/null || git pull origin main
-git add data/
-# Phase 3-C：apply-change.mjs 把實際改過的白名單檔（scripts/prompts/*.md、assets/js/config.js、scripts/tier-b-domains.json）列在 .preview/apply-change-staged.txt，補進同一個 commit
-[[ -s data/agent/.preview/apply-change-staged.txt ]] && xargs -I{} git add -- {} < data/agent/.preview/apply-change-staged.txt
-# 檔案不存在或為空時，此行是 no-op，行為與原本完全相同
-git diff --staged --quiet && exit 0  # 無變更則結束
+### Git 推送（2026-09-18 對照現行腳本）
 
-# 驗證率 100% → [verified]，否則 [unverified]
-PASS_RATE=$(python3 -c "import json; d=json.load(open('data/latest.json')); print(d.get('validation',{}).get('pass_rate','0%').replace('%',''))" 2>/dev/null || echo 0)
-TAG="[verified]"
-python3 -c "exit(0 if float('${PASS_RATE}') >= 100 else 1)" 2>/dev/null || TAG="[unverified]"
+以下描述現有 `scripts/run-daily.sh` 的行為，不是供開發者手動執行的提交範本：
 
-git commit -m "📰 AI News YYYY-MM-DD ${TAG}"
-# 推送重試 3 次
-for i in 1 2 3; do
-  git push origin main && break
-  if [ $i -eq 3 ]; then
-    echo "❌ Git push 失敗，可能需要重新設定認證" >> "$LOG_FILE"
-  fi
-  sleep 5
-done
-```
+1. detached HEAD 時嘗試重新掛回 `main`；fetch `origin main` 後，以 `git reset --soft origin/main` 對齊基準，保留工作目錄與 index。
+2. 將 `data/` 及 `.preview/apply-change-staged.txt` 列出的自動修改檔加入 index；有暫存差異才 commit。
+3. 依驗證退出碼與 pass rate 決定 `[verified]`／`[unverified]`，訊息含 `[local]`。
+4. push 至 `origin main`，最多重試三次；失敗記錄 stderr，重試前再 fetch／soft reset 並整合。完整錯誤處理以腳本為準。
+
+**影響：soft reset 不會隔離其他開發者的暫存內容；主 checkout 內未推送的本機提交也可能被重新包入每日提交。** 因此開發與整合依根 `CLAUDE.md`「共同開發與提交」使用獨立 worktree。舊文件的 pull/rebase 範例已移除，本次只修文件，未改排程腳本。
 
 ### Email 通知（全自動，零設定）
 

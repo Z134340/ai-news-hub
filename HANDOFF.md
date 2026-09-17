@@ -1,11 +1,25 @@
-# HANDOFF.md — 交接狀態（2026-09-04：auto-opt 自我強化迴圈）
+# HANDOFF.md — Claude Code / Codex 共同交接
 
-> **新 session 先讀這份 §0–§2，再只讀 §2 你那個 session 指定的那一份 `docs/shapes/*.md`。不要整檔讀，不要 `/compact`；context 滿了就更新本檔後 `/clear`。**
-> 舊 session `專案檔案討論` 已連續 14 次 compact 後失效，原因是每次摘要都遺失檔案 shape，導致重複整檔讀取。shape 已固化進 `docs/shapes/`（每檔 1–3 KB，索引在 `docs/shapes/README.md`），規範拆到 `docs/specs/`，CLAUDE.md 只剩 5 KB 索引。本檔只記「做到哪、接下來做什麼、什麼不能碰」。
+> 先讀 `CLAUDE.md`，再讀本檔 §0–§1；只按工項讀後續施工單。共用工作規則在 CLAUDE.md，本檔保存狀態與決策，不依賴聊天記憶。
+> §2、§2b、§6、§7 編號保留供既有引用；其中日期、驗收與 hash 是當時記錄，不能直接當成今日實跑結果。
 
-## 0. 一句話現況
+## 0. 當前交接（2026-09-18）
 
-Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38`）與 Phase 2-C（2-4、2-5，commit `a68e01b`）與 Phase 2-D（2-6、2-7，commit `89255d1`）已 commit 並 push；Phase 2 全部完成；`data/agent/metrics-history.jsonl` 已被 2026-09-04 的每晚 commit `e0f71a4` 掃進版控（tracked），此後由 `run-agents.sh` 的 `00b-category-metrics` 每晚產出；**注意：Phase 2-A 原 commit `8a2d97a` 與 docs 拆分 commit `8e75a91` 都已被 `run-daily.sh` 第 705 行的 `git reset --soft origin/main` 折進 `e0f71a4` 並一起 push 上去（內容完整、hash 作廢），詳見 §4 最後一條**；2026-09-04 另有一個 commit 把 CLAUDE.md 拆成 `docs/specs/` + `docs/shapes/` 並封鎖 `json.tool`／`cat data/*.json`。工作樹另有 `data/*.json` 的每日更新差異（run-daily.sh 產物，不是任何 Phase 的東西，不要手動 commit，也不要 checkout 掉）。
+| 工項 | 負責／分支與基準 | 狀態與變更範圍 | 驗證與下一步 |
+|---|---|---|---|
+| DOC-SHARED：兩工具共用規範 | Codex；`codex/shared-project-guidance`；基準 `e58ac42` | 整理與驗收完成；限共用文件、架構／Git 行為說明與歷史封存。網站程式、排程、runtime 憲章及權限設定未修改 | 驗證詳見下方；交付狀態以包含本列的 Git 提交與遠端分支為準，無追加實作工項 |
+| UI-TRENDS：趨勢儀表板改版 | 尚未指派實作；無實作分支 | 設計方向已確認、尚未實作；決策見 §1 第 14 點，設計範圍見 `docs/specs/frontend-ux.md` 的「趨勢儀表板改版」 | 下一步是細化動態主題來源與連續追蹤的資料契約、更新 A 版設計稿；本次文件整理不構成網站或後端改版授權 |
+
+### DOC-SHARED 驗證紀錄（2026-09-18）
+
+- 文件：差異空白、索引路徑、歷史搬移逐字一致性通過；架構載入順序與 `index.html` 的十個本機腳本一致；變更僅 Markdown。
+- 入口：Claude Code 與 Codex 各以全新只讀工作階段驗收，均正確找到共用規則、A 版與動態六主題方向、未實作狀態、worktree 分工及 runtime 憲章保留規則。
+- 工具限制：本機 Codex CLI `0.149.0` 無法使用預設 `gpt-6-astra`（服務端要求較新版 CLI）；本次以單次 `gpt-5.5` 覆寫完成驗收，未改預設模型、權限或安裝版本。此結果驗證文件載入，不代表原預設 CLI 組合已修復。
+- 基本檢查：十個前端 JS 逐檔語法通過；本機 HTTP 的首頁及十個腳本皆回應 200；封存 `--dry-run` 成功退出但沒有符合條件的資料，未驗證實際上傳或線上服務。
+
+### 既有路線圖與施工單索引
+
+以下保留 2026-09-04～09-11 工項記錄；本次未重驗每日擷取、Firebase、Slack、學習迴圈的線上狀態。接續舊工項前先查該列與近期證據。每日產物是否有未提交差異，必須以當下 `git status` 確認。
 
 | Phase | 內容 | 狀態 | Commit |
 |---|---|---|---|
@@ -14,8 +28,8 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 | 1 | 前端 好/中/不好 按鈕 → localStorage `ainews-fb` → Firestore `feedback/{uid}_{key}` → `pull-feedback.mjs` → 帳本 `human_rating` → `replay-learning.mjs` 聚合成 `learning_summary.human_ratings`；`run-agents.sh` step 00 非阻塞 + S-6i | 已完成（使用者手動項見 §3） | `4a67b37` |
 | 2 | 拆成 4 個 session（見 §2）：S2-A canaries + metrics；S2-B run-agents 接線；S2-C search-reviewer scaffold + input；S2-D `newshub_search_reviewer.py` + 08b 接線 | **S2-A 已 commit（折進 `e0f71a4`）；S2-B 已 commit `ce88f38`；S2-C 已 commit `a68e01b`；S2-D 已 commit `89255d1`** | S2-A `e0f71a4`（原 `8a2d97a` 懸空）；S2-B `ce88f38`；S2-C `a68e01b`；S2-D `89255d1` |
 | 3 | `agents/change-evaluator/`、`apply-change.mjs`、`canary-check.mjs`、週報判例摘要 → Slack Iris 讀回 | 進行中：S3-A 已 commit `5e99f7c`、S3-B 已 commit `663d16a`（change-evaluator runner + 08c/08d，Plan A 350×6）、S3-C 已 commit `ffe6a9e`（apply-change.mjs + 08e／run-daily staged git add）、S3-D 已 commit `f5a2396`（canary-check.mjs + 00c、staged.txt 改追加、S-2c 擴掃）、S3-C2 已 commit `614c4f5`（patch 欄位補齊：閘1 `_valid_patch`、08c 保留 patch＋配額只算 production_applied、08e A-10）；S3-E 已 commit `9c31aff`（週報＋slack-notify＋08f）、S3-F 已 commit `ba9db05`（read-slack-picks＋00d）；**Phase 3 程式碼全部完成**，剩 §3 人工項（Slack app／slack.env）填好後 08f／00d 才會真的送與讀 | — |
-| 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 未開始 | — |
-| 收尾 | CLAUDE.md 補 dashboard.js 載入順序、新步驟；狀態盤點表 | 未開始 | — |
+| 4 | `scripts/tier-b-domains.json` 由 `validate.py` 讀取（add-only） | 已由 §7 L-3 完成（2026-09-11 記錄），不重開同一工項 | 見 L-3 |
+| 收尾 | 架構載入順序與共用文件；其餘新步驟盤點 | 載入順序由 DOC-SHARED 修正並集中於架構規格；其餘步驟狀態尚未全面盤點 | 見 §0 |
 | S-PWR | 電池模式偵測與 17:50 電源提醒（方案 1 加 2，獨立施工單） | 已 commit 並 push；P-1／P-2／P-3 全做，plist 已裝、`launchctl list` 兩個 label 都在；拔電源 kickstart 通知已由使用者驗過（剩電池模式整跑，見 §3） | `62a9a65` |
 | **learning-loop v1** | 雙訊號優化迴圈（icon 回饋 × RSS 探索），規範 `docs/specs/learning-loop-v1.md`，施工單 §7 L-0～L-9 | 2026-09-10 拍板並寫入規範；L-0、L-3～L-10 已 commit（2026-09-11；L-10 Linux 相容 mktemp `e89b8b1`，selftest.yml 已併回單一 ubuntu job 跑綠 run 34547512318），下一步 L-1（需使用者登入點評分）或 L-2；L-5 兩晚驗收與 L-7 實跑驗證待 09-11／09-12 夜跑後看 `.preview/candidates.json`、`.preview/change-eval.json` | — |
 | 跨專案調度 | Hermes 管制塔／launchd 引擎／Iris 櫃台；fleet.yaml 單一真相、時窗重排、清債（見 §6，施工單 F-0～F-4） | 已盤點並規劃（2026-09-05）；§6.4 A 已拍板 commit，F-0 修訂版見 §6.3a；B 預設 B1 | — |
@@ -28,13 +42,16 @@ Phase 0、Phase 1、Phase 2-A（2-1、2-2）、Phase 2-B（2-3，commit `ce88f38
 4. 新網域走 Tier B、只增不減，清單放 `scripts/tier-b-domains.json`；`agents/_control/**` 刻意**不**列入 auto-apply allowlist。
 5. 自動套用上限：每週 3 件、每分類 1 件、canary 3 晚、指標掉超過 10 個百分點即回退；先照這組數字跑一個月，再用 `data/agent/metrics-history.jsonl` 實際波動調整；數字只放 `agents/_control/canaries.json`，改數字不能需要改程式。
 6. 模型步驟一律 pop `ANTHROPIC_API_KEY`、`--allowedTools ""`、`--permission-mode plan`，用既有訂閱，不引入額外計費。
-7. 每個 Phase 各自 commit（trailer `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`），**commit 完立刻 push**（2026-09-05 使用者拍板；原「push 只在使用者明講時」作廢，原因見 §4 最後一條）。
+7. （2026-09-05；2026-09-18 共用規範整理）保留「完成工項後 commit 並立即 push」決策；實際署名、工作分支與安全整合方式統一依 `CLAUDE.md`「共同開發與提交」，不再硬編碼 Claude 型號。
 
 8. （2026-09-10）learning-loop v1 採**方案 1 混合**：RSS/Atom（Node fetch，硬驗證）為主、WebSearch 探索提示為補充；不引入付費趨勢 API。
 9. （2026-09-10）起步值可接受：探索配額 25%、單一來源上限 30% 加 HHI 上限、回饋權重 0.15、訊號斷線判定 7 晚、同案回退 2 次凍結；全部只放 `agents/_control/canaries.json`，先跑一個月再調。
 10. （2026-09-10）**最低限度治理：迴圈關鍵路徑上沒有人工檢核，唯一人工輸入是站上 icon 評分。** 決策 2 的 Slack 週報／picks／判例貼進 memory 改為**可選**（缺 `slack.env` 直接跳過，不影響任何閘門）；機械閘門（閘 2 rubric、canary、回退、凍結）保留；機器仍永不寫 `memory/**`。
 11. （2026-09-10）P5 技術債（L-8、L-9）與 P0–P4 分開排，在 L-0～L-7 之後才動。
 12. （2026-09-10）分工比照 Hermes-Agent SOW：一個工項一個新 session，session prompt 固定寫「先讀 HANDOFF.md §0–§1 與 §7，只做 L-X，只讀它指定的 shape 檔，做完 commit 並 push」。
+
+13. （2026-09-18）Claude Code 與 Codex 共用根 `CLAUDE.md`、本檔與 `docs/specs/`／`docs/shapes/`；根 `AGENTS.md` 僅作入口，不維護第二套內容。兩端權限設定與 runtime 代理憲章保留原用途。
+14. （2026-09-17）趨勢儀表板採 A「研究簡報式」；六個展示位置的主題須跟隨時事更新，不固定為目前六個大分類。**僅設計方向確認，尚未實作**；詳細設計與待定事項只在 `docs/specs/frontend-ux.md` 維護。
 
 ## 2. Phase 2 施工單（拆成 4 個 session，每個 session 只做一列、只讀一份 shape 檔）
 
@@ -47,7 +64,7 @@ Phase 2 原本一個 session 做完會連續 compact（實測 14 次），所以
 | S2-C | 2-4 `agents/search-reviewer/` scaffold；2-5 `build-search-review-input.mjs` + `promote.sh` NEVER_FILES 追加 | 已 commit `a68e01b`（2026-09-05；兩個驗收指令全綠：T-1..T-13、P-1..P-8；`git diff --check` 乾淨；scaffold 18 檔對齊 trend-analyst 目錄層級）。修了兩件事：①T-3 原本用 truthy 判斷，techtrends／governance／tutorials／courses 的 PRIORITY 區段「存在但為空」被當缺席，改 `!= null`；②`.preview/` 頂層有 9 個 2026-08-16 的無 producer 孤兒 JSON 讓 P-2 失敗，**移到 `data/agent/.preview/_orphans-2026-08-16/`（未刪，gitignore 內）**，NEVER_FILES／SKIP_FILES 未動。golden manifest 在 2-6 driver 接上前只驗結構；SR-4 門檻未經多晚語料校準，≥14 晚後重校；Phase 3 接 auto-apply 時 `risk_profile: medium` 要重評 | `docs/shapes/agents-scaffold.md`（改 promote.sh 時另補 `docs/shapes/agent-scripts.md` 的 G 段，≤ 20 行） | `hermes.project.yaml` 有 `learning.mode: shadow`、`approval.*: manual_only`；`node scripts/agent/build-search-review-input.mjs --self-test` 通過；`bash scripts/agent/promote.sh --self-test` 通過，且 `grep -n NEVER_FILES scripts/agent/promote.sh` 含 `search-review-input.json`；commit「Phase 2-C」 |
 | S2-D | 2-6 `scripts/newshub_search_reviewer.py`；2-7 `run-agents.sh` 加 `08b-search-review`、S-8／S-8b／S-1／S-5 調整 | 已 commit `89255d1`（S-5 維持 ×5：4×420=1680≤2100，×6 會超預算；另加 08a-search-review-input、S-6k／S-6l 自測、golden manifest `driver` 接上、hermes test_commands 加 `--selftest`） | `docs/shapes/newshub_agents.md`（改 run-agents.sh 那半段再讀 `docs/shapes/run-agents.md`） | `python3 scripts/newshub_search_reviewer.py --selftest` 通過；`node scripts/agent/check-agent-outputs.mjs --strict --self-test-boundary` 通過；`bash scripts/run-agents.sh --self-test` 全綠；commit「Phase 2-D」 |
 
-S2-C 已在磁碟的檔案是前一個 session 寫的、沒驗過（S2-A 已驗收並 commit）：**先跑驗收指令，過了才 commit，不過就修，不要重寫。** 2-8 的單一「Phase 2」commit 改為四個 commit，trailer 不變。
+歷史安排：Phase 2 曾拆為四個提交；上述各列已記錄驗收結果，不再執行舊「S2-C 尚未驗證」交接。接續時依本次工項確認相關內容，提交規則見 `CLAUDE.md`。
 
 ### 獨立施工單 S-PWR：電池模式偵測與提醒（2026-09-05 拍板「方案 1 加 2」；不屬 Phase 2，不混進 S2-C）
 
@@ -112,7 +129,7 @@ Phase 3 的資料流（一句話）：`08b-search-review` 的 `pending_review` �
 | 3-10 | 新增 `scripts/agent/slack-notify.sh`：`set -euo pipefail`；讀 `~/.config/ai-news-hub/slack.env`（需 `SLACK_BOT_TOKEN`、`SLACK_CHANNEL_ID`；缺檔或缺變數 → log「Slack 未設定，跳過」exit 0）；用 `curl -sS -X POST https://slack.com/api/chat.postMessage`（bot token 而非 webhook，因為 3-11 讀回需要同一支 app）送 `weekly-report.md`；回傳的 `ts` 寫到 `~/.ai-news-hub/learning/weekly-report-sent.jsonl`（`{ts, channel, sent_at, report_date}`）；token 只經 `-H "Authorization: Bearer $SLACK_BOT_TOKEN"` 傳入，`set -x` 不得開；`--self-test`（用假 env 檔＋`SLACK_API_BASE` 指向本機假 server 或 `--dry-run` 只印 payload）。`run-agents.sh` 加 `run_step "08f-weekly-report" bash -c '[[ $(date +%u) -eq 7 ]] && node "$AGENT_SCRIPTS/build-weekly-report.mjs" && bash "$AGENT_SCRIPTS/slack-notify.sh" || true'`（週日跑；放在 `08e` 之後、observer 之前；非阻塞） | `git grep -n "xoxb\|hooks.slack.com"` 為空；缺 slack.env 時 run-agents 全程正常；`bash scripts/agent/slack-notify.sh --self-test` 通過 |
 | 3-11 | 新增 `scripts/agent/read-slack-picks.mjs`：讀 `weekly-report-sent.jsonl` 最近一筆 `ts`，用 `reactions.get` 與 `conversations.replies` 取該訊息的 reaction 與回覆；規則：對訊息本體按 ✅ 視為「全收」，回覆內含 `[P-nnn]` 或 `P-nnn` 視為只收該幾則；產出 `.preview/precedent-picks.json`（`{report_ts, picked:[P-nnn...], picked_all:bool, fetched_at}`）與 append `~/.ai-news-hub/learning/precedent-picks.jsonl`；**不寫 memory/**、不改 precedents.jsonl**，人工把 picks 併入判例時走原本的人審路徑；帳本：`EVENT_TYPES` 沒有對應事件，本 session 不記帳本、不改 `ledger.mjs`（若之後要記，另開施工單加 `precedent_picked`）；缺 slack.env → exit 0 跳過；`--self-test`（假 API 回應）。`run-agents.sh` 加 `run_step "00d-slack-picks" node "$AGENT_SCRIPTS/read-slack-picks.mjs"`（每晚、非阻塞） | `git status --porcelain agents/*/memory` 為空；`--self-test` 通過；離線不 crash |
 
-Phase 4 的細節見 §0（紀律見 CLAUDE.md「auto-opt 路線圖與工作紀律」）；帳本 `EVENT_TYPES` 已預留 `proposal_evaluated`、`proposal_auto_applied`、`canary_reverted`，Phase 3 不需改 `ledger.mjs`（3-7 的「canary 通過」用 `proposal_auto_applied` 加 `payload.stage`，3-11 不記帳本）。
+Phase 4 的細節見 §0（紀律見 CLAUDE.md「讀檔與任務紀律／共同開發與提交」）；帳本 `EVENT_TYPES` 已預留 `proposal_evaluated`、`proposal_auto_applied`、`canary_reverted`，Phase 3 不需改 `ledger.mjs`（3-7 的「canary 通過」用 `proposal_auto_applied` 加 `payload.stage`，3-11 不記帳本）。
 
 ## 3. 需要「人」做的事（agent 無法代）
 
@@ -135,18 +152,12 @@ Phase 4 的細節見 §0（紀律見 CLAUDE.md「auto-opt 路線圖與工作紀�
 - `hermes.project.yaml` 內 `deny_read_write_paths`、`approval.*: manual_only`、`direct_skill_patch:false`、`tool_scope_change:false` 是契約，不放寬。
 - 已取消的評分不會傳到帳本（Phase 1 已知限制，非 bug）。
 - `Hermes-Agent/Hermes-auto-optimization-manual.spec.json` 標記 confidential，不得引用到公開產物。
-- **「commit 不 push」在本 repo 只能撐到當晚 18:00，因此 2026-09-05 起改為 commit 完立刻 push（決策 7）。** `run-daily.sh` 第 701–728 行每晚 `git fetch` → `git reset --soft origin/main` → `git add data/` → commit → `git push origin main`：所有未 push 的本機 commit 會被折進當晚的「📰 AI News」commit 一起推上公開 repo（2026-09-04 已實際發生：`8e75a91`、`8a2d97a`、`fb16719` 三個 commit 折進 `e0f71a4`）。舊決策「push 只在使用者明講時」只對「當天 18:00 之前」成立，已作廢；HANDOFF 記的 hash 隔天可能已作廢，要用 `git diff <hash> HEAD -- <檔案>` 核對內容而不是找 hash。是否改 `run-daily.sh`（例如只 push data/ 的 commit、或改成先 `git rebase` 再 commit）由使用者拍板，不屬任何 Phase。
+- 每日 Git 整合可能吸收主 checkout 中未推送的提交與已暫存內容；2026-09-04 曾將 `8e75a91`、`8a2d97a`、`fb16719` 折進 `e0f71a4`。現行機制見 `docs/specs/run-daily.md`「Git 推送」，開發隔離與整合規則見 `CLAUDE.md`。判斷舊變更是否存在應比對內容，不只找 hash。
 - **GitHub「🔴 Health check: missed」commit 多數是誤判，不代表本機沒跑。** 2026-09-05 前 `health-check.yml` 用「latest.date == 台灣今天」判斷，但 GitHub cron 實測延遲 3–9 小時，跨台灣午夜後「今天」變隔天就誤判（08-28／08-29／09-01／09-05 四次皆誤判）。已改為以 SLOT_DATE（台灣時間 < 20:00 視為前一天的 slot）比較 `latest.date >= SLOT_DATE`，並加 `workflow_dispatch`。看到 missed 先對 `data/logs/<日期>.log` 的「推送成功」時間，再決定要不要補跑。同一次修正也把 `run-daily.sh` 的 `git pull --rebase … 2>/dev/null` 改成會清 `.git/rebase-merge` 殘留、失敗即 abort、錯誤進 log（2026-08-22 起殘留兩週沒人發現）。
 
-## 5. 低 context 工作法（在本專案強制）
+## 5. 共用工作法入口
 
-1. 不整檔讀取：`grep -n` 找行號，`sed -n START,END` 只看要改的段落；資料檔用 `head -c`、`jq keys`、`wc -l`。
-2. 廣泛調查交給 Explore subagent，主 context 只收結論。
-3. 新檔用 heredoc 寫入，不回顯；同一檔的多處修改集中在一次 python heredoc。
-4. 一個 session 只做一個 Phase；做完 commit，然後開新 session，不 `/compact`。
-5. shape 一律先查 `docs/shapes/README.md` 對應的那一份檔，查不到再開檔並回填該檔。規範（run-daily、validate、分類、前端 UX）在 `docs/specs/`，同樣只讀對應那份。
-6. `data/*.json` 只用 `python3 -c` 印 keys／len／前 3 筆；`json.tool` 與 `cat data/*.json` 已在 `.claude/settings.json` deny。
-7. context 快滿：先把本檔 §0 與 §2「磁碟現況」欄更新，然後 `/clear` 開新 session，不 `/compact`。
+讀檔、子代理、上下文交接、驗證與提交紀律統一見 `CLAUDE.md`，不在本檔重複。舊施工單內的工具名／slash commands 是當時操作範例，應依現用工具能力執行等效步驟。
 
 ## 6. 跨專案調度施工單（2026-09-05 規劃；Hermes 管制塔／launchd 引擎／Iris 櫃台）
 
@@ -319,93 +330,6 @@ session prompt 固定寫：「先讀 HANDOFF.md §0–§1 與 §7，只做 L-X�
 
 ---
 
-# 〔封存〕Firebase 熱冷層交接（2026-06-21，2026-07-07 更新，A–I 除 G 外皆已完成）
+## 8. 歷史封存索引
 
-> 給接手的 coding agent / 維護者。**先讀本檔與 `CLAUDE.md`，再讀 `assets/`、`scripts/`、`*.md`。
-> 不要重做已完成的重構——只驗證與接續。**
-
----
-
-## Step 0 — 先做這個（清 lock + 提交基線）
-
-接手的第一件事，**先於任何規劃**：清掉殘留 lock、把目前所有正規化變更（含本檔與 `CLAUDE.md`/`AGENTS.md` 更新）提交成乾淨基線。這樣 agent 讀到的是正確版本、之後的 diff 也有明確起點。Firebase 未設定也可先提交——網站照常運作。
-
-```bash
-cd ~/ai-news-hub
-rm -f .git/index.lock                      # 沙箱遺留，必清否則 git 寫入失敗
-git status                                 # 預期：3 改 + 多個新檔，0 已暫存
-git add -A
-git commit -m "♻️ 正規化：前端拆檔 + Firebase 書籤同步 + 冷封存 + 文件更新"
-```
-
-> 註：此 commit **不含** Firebase 真實憑證（仍是 placeholder），且 `archiver.env` 在 repo 外，安全。
-> 完成後再依第 4 節 checklist 接續（smoke test → Firebase 設定 → 冷封存遷移 → push）。
-
----
-
-## 1. 已完成（已寫入磁碟，**尚未 commit**）
-
-| 區塊 | 內容 | 狀態 |
-|------|------|------|
-| 前端拆檔 | `index.html` 1,049→107 行；`assets/css/app.css` + `assets/js/` 九模組（classic script，順序固定） | ✅ 已驗證 `node --check` + 本機 http 200 |
-| 書籤雲端同步 | `assets/js/firebase.js`（Email/Password + Firestore `users/{uid}`，offline-first） | ✅ 程式完成；待填 config |
-| 冷封存 | `archives/{date}` 設計；`scripts/archive-to-firestore.mjs`（Node 零依賴 REST，scoped writer）；`history.js` 冷熱合併；`run-daily.sh` 已注入每日上傳+prune | ✅ 程式完成；待設定 |
-| 安全規則 | `firestore.rules`（users 本人寫、archives 公開讀/writer 寫）、`firebase.json` | ✅ 待填 `WRITER_UID` + 部署 |
-| 防膨脹 | `.gitignore` +`failed_*.txt`/bundle/emerging/`*.env` | ✅ |
-| 文件 | `FIREBASE-SETUP.md`、`ARCHIVE-SETUP.md`、`CLAUDE.md`（已更新新架構）、`AGENTS.md`（收斂為指標） | ✅ |
-
-驗證紀錄：9 個 JS `node --check` 全過、串接 bundle 語法過、`run-daily.sh`/`repo-slim.sh` `bash -n` 過、`archive-to-firestore.mjs --dry-run` 正確（今日 cutoff 06-14：42 檔搬冷層、06-19 留熱層）。
-
-## 2. 待辦（需「人」在 Mac + Firebase console，agent 無法代）
-
-> **2026-07-07 現況更新（第三輪，冷封存全鏈打通）**：A/B/C/D/E/F 全部完成。**C 已完成**：`firestore.rules`（綁 uid `pYozGzhoIHchJvONuHvjxkVN4b52`）已於 Console 規則編輯器發布。**D 已完成**：writer 帳號 `archiver@ai-news-hub-33c51.firebaseapp.com`。**E 已完成**：`~/.config/ai-news-hub/archiver.env`（chmod 600，off-repo）。**F 已完成**：`node scripts/archive-to-firestore.mjs --older-than 7 --prune` 一次性遷移 49 檔（2026-04-04…06-29）至 Firestore `archives/{date}`，成功 49、失敗 0，本機冷檔已 prune，只留近 7 天熱層（07-01/02/03/06/07）。此後 `run-daily.sh` 每日自動上傳逾 7 天並 prune。**剩餘可選：G repo 瘦身、孤兒帳號清理。**
-> ⚠️ 遷移指令更正：用 `--older-than 7 --prune`（**非** `--all --prune`）。`--all` 會連近 7 天熱層檔一起 prune，破壞「近 7 天走 static」設計；`--older-than 7` 只搬並刪 < (今日-7) 的冷檔。
-> ⚠️ env 變數名更正：實際為 `FB_API_KEY`/`FB_PROJECT_ID`/`WRITER_EMAIL`/`WRITER_PASSWORD`（`archive-to-firestore.mjs` 讀取），非舊述的 `ARCHIVER_EMAIL/PASSWORD`。
-> 備註：另有孤兒帳號 `writer@ai-news-hub-33c51.firebaseapp.com`（uid `S8x1ULOvWbWiIAeLhNZMsSfFWVo1`，密碼遺失、無規則授權、無害），可於 Console → Authentication → Users 選擇性刪除。
-
-| # | 待辦 | 為什麼只能人做 |
-|---|------|----------------|
-| A | 清除殘留 `.git/index.lock`（`rm -f .git/index.lock`） | 先前沙箱無法刪；git 寫入被它擋住 |
-| B | 建 Firebase 專案 → 填 `assets/js/config.js` 的 `FIREBASE_CONFIG` | 需 Google 帳號登入 console |
-| C | ~~啟用 Email/Password、建 Firestore、部署 `firestore.rules`~~ ✅ **2026-07-07 完成**（Console 規則編輯器發布） | 同上 |
-| D | ~~建 writer 帳號 → 取 uid → 換掉 `firestore.rules` 的 `WRITER_UID` → 重部署~~ ✅ **完成** | 同上 |
-| E | ~~建 `~/.config/ai-news-hub/archiver.env`（writer 帳密，off-repo）~~ ✅ **完成** | 機密，不進 repo |
-| F | ~~一次性冷封存遷移：`node scripts/archive-to-firestore.mjs --older-than 7 --prune`~~ ✅ **完成**（49 檔搬 Firestore、本機留近 7 天） | 需 E 的憑證 + 網路 |
-| G | repo 瘦身刪除：`bash scripts/repo-slim.sh`（bundle/failed log/emerging） | 沙箱無刪除權限；Mac 原生 git 可 |
-| H | commit + push | — |
-| I | ~~pmset 每日喚醒~~ ✅ **2026-07-07 完成**：經 `osascript ... with administrator privileges` 授權對話框套用 `pmset repeat wakeorpoweron MTWRFSU 17:55:00`；`pmset -g sched` 已顯示 `wakepoweron at 5:55PM every day`（原為錯誤的 Saturday 8:55PM） | — |
-
-## 3. 勿動 / 勿誤判
-
-- **勿重新內聯**：`assets/js/` 九模組是刻意拆分，別合回單檔。
-- **placeholder 勿自填**：`FIREBASE_CONFIG`（`YOUR_*`）、`firestore.rules` 的 `WRITER_UID` 由人填，勿編造。
-- **機密界定**：`firebaseConfig` apiKey **非機密**（公開前端 ID），可 commit；`archiver.env` 才是機密，已 gitignore + off-repo，**絕不 commit**。
-- **後端擷取/驗證鏈**（`run-daily.sh` 主體、`validate.py`、`merge-stack.py`、`extract-json.py`、prompts/）運作中，除非明確要求只驗證不重寫。run-daily 僅新增了「冷封存上傳」一段。
-- **未填 Firebase 前網站照常**：config 為 placeholder 時全部 no-op，書籤走 localStorage、歷史走 static——可安全先 push 再設定。
-
-## 4. 上線 checklist（建議順序）
-
-```bash
-# 0+1) 清 lock + commit 基線 → 見上方「Step 0」，先完成它
-
-# 2) 本機 smoke test
-python3 -m http.server 8799   # 開 http://localhost:8799 點各頁/書籤/搜尋/歷史
-node --check assets/js/*.js
-node scripts/archive-to-firestore.mjs --older-than 7 --dry-run
-
-# 3) Firebase 設定（依 FIREBASE-SETUP.md + ARCHIVE-SETUP.md）→ 填 config / WRITER_UID / archiver.env → 部署 rules
-
-# 4) 冷封存遷移 + repo 瘦身（先 dry-run 再實跑；--older-than 7 保留熱層 7 天）
-node scripts/archive-to-firestore.mjs --older-than 7 --dry-run
-node scripts/archive-to-firestore.mjs --older-than 7 --prune
-bash scripts/repo-slim.sh
-git add -A && git commit -m "🧹 冷封存遷移 Firestore + repo 瘦身"
-
-# 5) push
-git push origin main
-```
-
-## 5. 已知小事
-- `data/index.json` 目前僅 1 筆（舊歷史索引近乎空）；改用 Firestore 列表後歷史頁會恢復完整封存，run-daily 也會持續更新它。
-- GitHub Pages 為 project page（base `/ai-news-hub/`）；前端全用相對路徑，勿改絕對路徑。
-- **2026-07-06 事件（已處理）**：週一 models/tutorials/courses 抽 0 筆，根因非解析而是 Claude CLI 配額耗盡 + API Connection closed；當日 18:05 準時啟動但跑 87 分鐘（10 類 × 重試）中途撞 session limit，週類別排最後遭餓死。修正：①週一週類別優先擷取 ②配額/連線 sentinel 分級（硬性配額立即跳出、暫時性中斷保留重試）③extract-json.py 加 infra sentinel 診斷（見 commit `4664b31`）。同時發現並修 launchd plist 缺週末（僅 Weekday 1-5 → 已改每日觸發，解釋 07-04/05 的 missed）；pmset 每日喚醒仍待人設定（見第 2 節待辦 I）。
+- [Firebase 熱冷層交接（2026-06-21／07-07）](docs/legacy/HANDOFF-firebase-20260707.md)：原文搬移，保留追溯；舊 Step 0、未提交狀態與上線清單均不是目前待辦。

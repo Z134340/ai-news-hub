@@ -129,17 +129,23 @@ bash scripts/run-daily.sh
 ```
 ai-news-hub/
 ├── README.md                    # 本檔案
-├── SKILL.md                     # Claude 工作流定義（完整技術規範）
-├── index.html                   # 前端單檔 (Vanilla JS, GitHub Pages)
+├── CLAUDE.md                    # Claude Code / Codex 共用規範與索引
+├── AGENTS.md                    # Codex 固定入口（指向 CLAUDE.md）
+├── HANDOFF.md                   # 共用進度、決策與交接
+├── docs/specs/                  # 功能與架構規格
+├── docs/shapes/                 # 程式與資料結構速查
+├── docs/legacy/                 # 歷史文件，非現行規範
+├── index.html                   # 頁面結構 (Vanilla JS, GitHub Pages)
+├── assets/css/  assets/js/      # 前端樣式與模組，順序見架構規格
 ├── .nojekyll                    # 禁用 Jekyll（確保 JSON 直達）
 ├── scripts/
 │   ├── run-daily.sh             # 每日擷取主腳本（含 DOW 排程）
-│   ├── validate.py              # 七步驟 URL 驗證
+│   ├── validate.py              # 驗證流程見 docs/specs/validate.md
 │   ├── extract-json.py          # Claude 回應 JSON 提取
 │   ├── merge-stack.py           # 模型/教學 累積合併（週一）
-│   ├── setup-prompts.sh         # 生成 11 個 prompt 檔案
+│   ├── setup-prompts.sh         # 初始提示詞產生器（勿覆寫活提示詞）
 │   ├── setup-scheduler.sh       # macOS/Linux 排程安裝
-│   └── prompts/                 # 11 個類別提示詞 (.md)
+│   └── prompts/                 # 各分類的活提示詞 (.md)
 ├── data/
 │   ├── latest.json              # 最新新聞資料（含 _updated_at）
 │   ├── index.json               # 歷史索引（保留 7 天）
