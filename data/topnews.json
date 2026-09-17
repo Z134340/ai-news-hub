@@ -1,50 +1,110 @@
 {
   "items": [
     {
-      "title": "Google Opens Claude Access To Engineers Across The Company",
-      "title_zh": "Google 開放全公司工程師使用 Anthropic Claude",
-      "source": "Dataconomy",
-      "date": "2026-09-15",
-      "domain": "LLM",
-      "model_area": "Anthropic Claude Opus 5 / Google Antigravity 開發平台",
-      "summary": "Google 開始讓全公司工程師透過內部開發工具存取競爭對手 Anthropic 的 Claude 進行程式撰寫工作。員工可在 Google 自家開發平台 Antigravity 中使用 Anthropic 的 Opus 5 模型。此舉代表 Google 在內部生產力工具上採取模型中立策略，即使自身擁有 Gemini 系列模型，仍引入外部前沿模型供工程團隊選用。",
-      "highlights": [
-        "Google 內部開發平台 Antigravity 納入 Anthropic Opus 5，供全公司工程師用於 coding 情境",
-        "顯示大廠內部工具鏈走向多模型並存，而非只綁自家 Gemini",
-        "對企業採購而言，是「同時採用競品前沿模型」的具體先例"
-      ],
-      "url": "https://dataconomy.com/2026/09/15/google-opens-anthropic-claude-access-for-engineers/"
-    },
-    {
-      "title": "Google Launches New Gemini Models to Upgrade Enterprise Voice Agents",
-      "title_zh": "Google 推出新 Gemini 模型，升級企業語音 Agent",
-      "source": "PYMNTS",
-      "date": "2026-09-15",
+      "title": "Anthropic's Claude can now create editable documents for you",
+      "title_zh": "Anthropic 的 Claude 現在能為你製作可編輯文件",
+      "source": "Engadget",
+      "date": "2026-09-16",
       "domain": "Agent",
-      "model_area": "Gemini 語音模型 / 企業語音 Agent",
-      "summary": "Google 於 9 月 15 日起開始推出兩款專為驅動語音 Agent 設計的新 AI 模型。這批模型針對企業客服與語音互動場景，目標是提升語音 Agent 的即時對話品質與部署可用性。此舉延續 Google 將 Gemini 模型線切分為特定任務專用版本的策略。",
+      "model_area": "Claude / AI 生產力工具",
+      "summary": "Anthropic 於 9 月 16 日宣布將 Claude Cowork 併入一般 Claude 對話，成為單一的「one Claude」體驗，使用者不再需要自行切換模式，由 Claude 自行判斷該回答簡短問題還是承接研究、報告、試算表、簡報等長工作。同時推出 beta 版的 Claude Docs 與 Claude Slides，可在對話中直接產生文件與投影片，產出為可編輯、可匯出、可分享的檔案。文件預設為私有，使用者可自行選擇分享給同事協作。",
       "highlights": [
-        "兩款新模型專門鎖定企業語音 Agent 應用場景，而非通用對話",
-        "語音 Agent 是企業導入 agentic AI 最直接的落地介面之一（客服、外撥、IVR 取代）",
-        "延續 Google 依任務切分模型線（Flash、Cyber、語音）的產品策略"
+        "Cowork 與一般聊天合併，取消模式選擇，由模型自行決定使用哪項工具",
+        "Claude Docs 與 Claude Slides 以 beta 形式推出，產出可編輯檔案而非純文字回覆",
+        "先對 Pro 與 Max 方案推出，Team 與 Free 隨後跟進，企業管理員至少提前 30 天收到通知"
       ],
-      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/google-launches-new-gemini-models-to-upgrade-enterprise-voice-agents/"
+      "url": "https://www.engadget.com/2259938/anthropics-claude-can-now-create-editable-documents-for-you-cowork-chat-together/"
     },
     {
-      "title": "Sam Altman says OpenAI's IPO window has been pushed to 2027—but markets aren't the culprit",
-      "title_zh": "Sam Altman 表示 OpenAI 的 IPO 時程已推遲至 2027 年，但原因不是市場",
-      "source": "Fortune",
-      "date": "2026-09-15",
-      "domain": "Policy",
-      "model_area": "OpenAI 公司治理 / AI 安全",
-      "summary": "OpenAI 執行長 Sam Altman 確認公司 2026 年不會公開上市，IPO 窗口推遲至 2027 年，並明確指出原因不是資本市場條件，而是 AI 安全議題。Altman 在接受 Fortune 專訪時表示「考量到安全方面正在發生的一切，現在是個不宜上市的時機」，並稱公司在安全與對齊（alignment）上仍有大量工作待完成。他同時強調公司並未感受到上市壓力，會在業務與社會條件都成熟時才進行。",
+      "title": "Salesforce unveils Koa reasoning model for complex CRM tasks",
+      "title_zh": "Salesforce 發表針對複雜 CRM 任務的 Koa 推理模型",
+      "source": "NewsBytes.ph",
+      "date": "2026-09-17",
+      "domain": "Agent",
+      "model_area": "Koa / NVIDIA Nemotron 3 Super / Agentforce",
+      "summary": "Salesforce 在 Dreamforce 發表首個 CRM 推理模型 Koa，以 NVIDIA Nemotron 3 Super 為基底，用源自近三十年企業 CRM 部署知識所生成的專有合成資料做 post-training，專門讓 Agentforce 的 agent 推理多步驟工作流並正確選用工具。Salesforce 表示在其 CRM benchmark 上，Koa 在 CRM 動作的表現已達到或超越領先模型，且錯誤率為其三分之一。模型權重由 Salesforce 自行掌控，post-training 與推論全在自家信任邊界內完成，且未使用客戶資料訓練。客戶試點 10 月於 Agentforce 啟動，美國一般可用預計於冬季。",
       "highlights": [
-        "OpenAI IPO 明確推遲至 2027 年，Altman 主動把理由歸因於 AI 安全而非市場估值",
-        "Altman 稱釐清產業與政府如何協作是當前核心任務，呼應同期 Anthropic Dario Amodei 對放慢前沿模型步調的公開主張",
-        "對金融業而言，最大 AI 供應商延後上市代表其財務揭露透明度短期內仍受限，供應商風險評估難以依賴公開財報"
+        "以 NVIDIA Nemotron 3 Super 為基底做領域後訓練，屬垂直領域專用推理模型而非通用 LLM",
+        "Salesforce 自稱在其 CRM benchmark 上錯誤數為領先模型的三分之一",
+        "權重自持、推論在自家信任邊界內，且宣稱未使用客戶資料訓練——對受監管產業的資料治理是關鍵賣點"
       ],
-      "url": "https://fortune.com/2026/09/15/sam-altman-says-openai-ipo-window-pushed-2027-but-markets-arent-the-culprit/"
+      "url": "https://newsbytes.ph/2026/09/17/salesforce-unveils-koa-reasoning-model-for-complex-crm-tasks/"
+    },
+    {
+      "title": "Factory Raises $200M at $5B Valuation, Tripling in Five Months",
+      "title_zh": "Factory 募得 2 億美元、估值達 50 億美元，五個月內翻三倍",
+      "source": "WOWTALE",
+      "date": "2026-09-16",
+      "domain": "Agent",
+      "model_area": "Coding agent / 軟體工程自動化",
+      "summary": "自主軟體工程 agent 新創 Factory 完成 2 億美元募資，估值達 50 億美元，較五個月前（4 月）Series C 的 15 億美元成長逾三倍。Factory 的產品「Droid」是能自行撰寫、測試、審查、撰寫文件並部署程式碼的 agent，設計理念是由人類監督而非人類逐步指揮。投資方包含 Blackstone、Khosla Ventures、Sequoia Capital、Insight Partners、NEA、Clearlake 等，天使投資人包括 Marc Benioff 與 Brad Gerstner。NVIDIA、Blackstone、Royal Bank of Canada、Palo Alto Networks、Adobe 與 T-Mobile 皆已在 Droid 上運行自家「software factory」。",
+      "highlights": [
+        "估值五個月自 15 億美元躍升至 50 億美元，顯示 coding agent 賽道資本仍高度集中",
+        "定位為「人類監督而非人類指揮」的自主 agent，涵蓋寫碼、測試、審查、部署全流程",
+        "Royal Bank of Canada 等金融機構已是採用者，coding agent 進入受監管產業生產環境"
+      ],
+      "url": "https://en.wowtale.net/2026/09/16/235137/"
+    },
+    {
+      "title": "TypeSafe AI Emerges From Stealth With $40M in Funding With New Model for Composable AI",
+      "title_zh": "TypeSafe AI 帶著 4,000 萬美元募資走出隱身期，推出可組合式 AI 新模型",
+      "source": "AIwire (HPCwire)",
+      "date": "2026-09-16",
+      "domain": "Agent",
+      "model_area": "Composable AI / machine-native AI",
+      "summary": "前沿 AI 實驗室 TypeSafe AI 於 9 月 16 日走出隱身期，宣布完成由 DCVC 領投的 4,000 萬美元種子輪募資。該公司主打「machine-native、可組合（composable）」的 AI 架構，方向是讓模型輸出具備型別安全與可組裝性，而非以自然語言為唯一介面。以種子輪而言 4,000 萬美元屬大型規模，反映資本對 agent 基礎設施層（而非應用層）的押注仍在加碼。",
+      "highlights": [
+        "種子輪即募得 4,000 萬美元，由 DCVC 領投",
+        "訴求 machine-native、可組合的 AI，對應 agent 系統間互通與輸出可驗證的痛點",
+        "屬 agent 基礎設施層投資，而非終端應用"
+      ],
+      "url": "https://www.hpcwire.com/aiwire/2026/09/16/typesafe-ai-emerges-from-stealth-with-40m-in-funding-with-new-model-for-composable-ai/"
+    },
+    {
+      "title": "Google Opens Anthropic's Claude to All Engineers in Bid to Close AI Coding Gap",
+      "title_zh": "Google 向全體工程師開放 Anthropic 的 Claude，力圖補上 AI 編碼落差",
+      "source": "Ground News",
+      "date": "2026-09-16",
+      "domain": "Industry",
+      "model_area": "Claude Opus 5 / Antigravity",
+      "summary": "Google 擴大內部授權，透過自家 Antigravity 平台向全體工程師開放 Anthropic 的 Claude Opus 5。此舉終結了多年來內部優先使用 Gemini、限制競品模型的政策，也緩解了內部因工具選擇而起的緊張。對治理面的意涵是：即便是自有前沿模型的大廠，在實際工程生產力面前仍選擇採用競爭對手模型，模型採用決策正從「戰略對齊」轉向「實測效能」。",
+      "highlights": [
+        "Google 工程師可透過內部 Antigravity 平台使用 Claude Opus 5",
+        "終結多年來偏袒 Gemini 的內部工具限制政策",
+        "顯示大廠內部模型選型正由戰略考量轉為實際編碼效能導向"
+      ],
+      "url": "https://ground.news/article/google-finally-lets-all-engineers-use-anthropics-claude"
+    },
+    {
+      "title": "OpenAI at $1.2T, AI safety and startup funding news",
+      "title_zh": "OpenAI 估值達 1.2 兆美元、AI 安全與新創募資動態",
+      "source": "Venture Daily Digest",
+      "date": "2026-09-16",
+      "domain": "Policy",
+      "model_area": "AI 產業資本與治理",
+      "summary": "9 月 16 日的產業資本盤點指出，OpenAI 已表態 2026 年不會上市，IPO 時程再度後延；Anthropic 則同時推進早期 IPO 討論與新一輪私募，估值可能推升至 3,000 億美元以上。募資面，Shield AI 完成 15 億美元 Series G（屬 22.5 億美元整體資本方案的一部分），估值 127 億美元。整體來看，美國創投支持的科技公司今年在境內公開發行已募得近 900 億美元，為歷史第二高年度紀錄。",
+      "highlights": [
+        "OpenAI 確認 2026 年不上市；Anthropic 走 IPO 與私募雙軌，估值目標逾 3,000 億美元",
+        "Shield AI 完成 15 億美元 Series G，估值 127 億美元",
+        "美國創投支持科技公司今年境內公開發行近 900 億美元，史上第二高"
+      ],
+      "url": "https://www.venturedailydigest.com/p/openai-ai-safety-startup-funding-september-16-2026"
+    },
+    {
+      "title": "AI News Today September 16 2026: 16 Biggest Stories",
+      "title_zh": "2026 年 9 月 16 日 AI 新聞：16 則重點",
+      "source": "Build Fast with AI",
+      "date": "2026-09-16",
+      "domain": "Industry",
+      "model_area": "Agent / AI 安全治理",
+      "summary": "9 月 16 日的每日彙整收錄多則 agent 與治理重點：AIUC（由前 Anthropic 早期員工 Rune Kvist 與前 METR 營運長 Rajiv Dattani 創辦，做 AI agent 的保證與保險）完成 Ribbit Capital 領投的 4,000 萬美元 Series A，累計募資 5,500 萬美元；加拿大與德國各承諾最高 1.5 億美元補助 Yoshua Bengio 於蒙特婁創辦的非營利組織 LawZero，用於「Scientist AI」監控式護欄系統的人力與算力。此外亦收錄 Salesforce Koa 與 Factory 募資等當日 agent 賽道動態。",
+      "highlights": [
+        "AIUC 募得 4,000 萬美元 Series A，切入 AI agent 保證與保險這一新興治理市場",
+        "加拿大與德國各出資最高 1.5 億美元支持 Bengio 的 LawZero「Scientist AI」護欄研究——主權國家直接資助第三方 AI 監控機制",
+        "當日 agent 賽道同時出現企業模型（Koa）、資本（Factory）與治理（AIUC、LawZero）三線並進"
+      ],
+      "url": "https://blog.buildfastwithai.com/ai-news-today-september-16-2026"
     }
   ],
-  "_updated_at": "2026-09-16T18:12:15.280968+08:00"
+  "_updated_at": "2026-09-17T18:22:16.651815+08:00"
 }
