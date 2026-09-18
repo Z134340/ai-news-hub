@@ -112,11 +112,23 @@ const invalid = render(tampered);
 check("tampered authority fails closed", invalid.includes('data-system-status="invalid"')
   && invalid.includes("狀態契約無效") && !invalid.includes("最新公開"));
 
+// Exercise the loader and secondary renderer instead of matching source formatting.
+context.__requests = [];
+context.__legacy = {innerHTML:''};
+context.BRIEFING = {};
+context.TrendTopics = {validSnapshot:()=>false,build:()=>({topics:[],past:[]})};
+context.$ = id => id==='trend-legacy' ? context.__legacy : {innerHTML:'',querySelector:()=>({open:false,addEventListener(){}})};
+context.bindTrendBriefing = context.renderTrendBriefing = ()=>{};
+context.archiveList = async()=>[];
+vm.runInContext("dashFetch = async url => { __requests.push(url); return null; }",context);
+await vm.runInContext("loadDashboard()",context);
 check("dashboard fetches only the public status path",
-  /dashFetch\('data\/agent\/system-status\.json'\)/.test(source)
-  && !/dashFetch\('data\/agent\/\.preview\/system-status\.json'\)/.test(source));
-check("status block is rendered before trend content",
-  source.indexOf("dashSystemStatusBlock() +") < source.indexOf("dashBumpBlock() +"));
+  context.__requests.includes('data/agent/system-status.json')
+  && context.__requests.every(url=>!url.includes('/.preview/')));
+vm.runInContext("dashBumpBlock=()=>'<div>baseline-marker</div>'; dashMatrixBlock=dashTrendBlock=dashBriefBlock=dashOpsBlock=()=>''; renderLegacyDashboard();",context);
+check("status precedes fixed trend content in the secondary observation view",
+  context.__legacy.innerHTML.includes('data-system-status=')
+  && context.__legacy.innerHTML.indexOf('data-system-status=') < context.__legacy.innerHTML.indexOf('baseline-marker'));
 check("responsive and semantic status CSS exists",
   css.includes(".dss-grid{display:grid") && css.includes(".dss-health[data-health=")
   && /@media\(max-width:768px\)[\s\S]*\.dss-grid\{grid-template-columns:1fr 1fr\}/.test(css));
