@@ -4,7 +4,7 @@
 
 | 職責 | 權威系統 | 邊界 |
 |---|---|---|
-| 原始碼、審查、CI、正式分支 | GitHub | `main` 是 Cloudflare production branch；PR／`codex/**` 只產 preview |
+| 原始碼、審查、CI、正式分支 | GitHub | `main` 通過「離線自測」後才由 GitHub Actions 發布 production |
 | 網站託管、TLS、CDN、HTTP headers | Cloudflare Pages | 只部署 `dist/` allowlist 產物，不把整個 repository 當 web root |
 | 登入、書籤、回饋、冷封存 | Firebase Auth + Firestore | Firebase 前端 config 可公開；writer 帳密只留 off-repo |
 | 每日擷取 | 本機 launchd | 擷取、驗證、發布證據與網站部署證據分開記錄 |
@@ -14,15 +14,16 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 ## Cloudflare Pages 專案設定
 
 - 專案名稱：`ai-news-hub`
-- Git 來源：GitHub repository `z134340/ai-news-hub`
+- 發布來源：GitHub repository `Z134340/ai-news-hub` 的 `.github/workflows/cloudflare-pages.yml`
 - Production branch：`main`
-- Preview branches：`codex/**` 與 pull requests
+- 發布閘門：相同 commit 的「離線自測」成功；另保留人工 `workflow_dispatch` 供首次部署及故障復原
 - Build command：`node scripts/build-site.mjs`
 - Build output directory：`dist`
 - Root directory：repository root
+- GitHub Actions secrets：`CLOUDFLARE_ACCOUNT_ID`、只含 Account / Cloudflare Pages / Edit 的 `CLOUDFLARE_API_TOKEN`
 - Build secrets：無；不得把 Firebase writer 帳密放入 Cloudflare
 
-`wrangler.jsonc` 記錄專案名稱、輸出目錄與 compatibility date。Cloudflare dashboard 首次連接 GitHub 仍需帳號持有人授權 GitHub App；完成後以 dashboard 下載／核對設定，不能用猜測值覆蓋。
+`wrangler.jsonc` 記錄專案名稱、輸出目錄與 compatibility date。Cloudflare GitHub App 在 2026-09-18 完整重裝後仍由 Cloudflare callback 回報安裝失敗，因此改用 Cloudflare 官方 Direct Upload CI。部署 Action、Wrangler 與 Ubuntu runner 均固定版本；production workflow 只讀原始碼，token 不寫入 repository 或 Cloudflare build environment。GitHub App 若日後恢復，切換部署模式必須另行驗證，不能讓兩條 production 流程同時發布。
 
 ## 發佈包
 
@@ -47,16 +48,17 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 
 ## 上線順序與回退
 
-1. 分支 CI 建置 `dist/` 並通過現有離線測試。
-2. Cloudflare 連 GitHub，先部署 preview；比對 commit SHA 與發佈包。
+1. `main` 的離線自測建置 `dist/` 並通過現有測試。
+2. `workflow_run` 只取該次成功測試的 `head_sha`，重建 allowlist 發佈包後以 Wrangler Direct Upload 發布；比對 commit SHA 與發佈包。
 3. 驗證首頁、趨勢、搜尋、歷史、Firebase 登入／登出與手機寬度。
-4. 將 `main` 部署到 `*.pages.dev`，保留 GitHub Pages 原站至少一個正常每日週期。
+4. 保留 GitHub Pages 原站，等待至少一個後續正常每日週期由 `main` 觸發同 SHA 的 Cloudflare production deployment。
 5. 若有自訂網域，最後才切 DNS；錯誤時回滾 Cloudflare 前一 deployment 或切回 GitHub Pages。
 6. 新站通過每日排程後，另開工項停用 GitHub Pages 專用 keep-alive；切換前不得刪除回退路徑。
 
 ## 完成證據
 
 - GitHub commit SHA、CI run 與 Cloudflare production deployment SHA 相同。
+- GitHub Actions deployment 只在 CI 成功後執行；憑證不存在時須在部署前明確失敗。
 - production URL 回應 `Cf-Ray`，`_headers` 的安全與 cache headers 生效。
 - `dist/` 檔案清單沒有非 allowlist 檔案。
 - Firebase 規則版本與多帳號／多裝置測試另有證據；Cloudflare 部署成功不代表資料遷移完成。

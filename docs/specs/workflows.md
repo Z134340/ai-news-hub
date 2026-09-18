@@ -56,3 +56,16 @@ Cloudflare 遷移期間保留此回退機制。只有 `docs/specs/deployment.md`
 `selftest.yml` 在 main／codex 分支 push、所有 PR 與手動觸發時執行，無路徑篩選。保留原 26 組離線命令，另加入所有前端 JS 語法、run-daily 語法、前端狀態／同步回歸與 Python 驗證／Git／程序鎖回歸。測試使用暫存資料及本機 bare remote，禁止正式擷取、雲端寫入和 promote。
 
 CI 設定不等於 GitHub 已啟用必須通過的 branch protection；未查證外部設定時不得宣稱必須通過才能合併。Firebase 規則部署與真實帳號驗收另行記錄。
+
+---
+
+## Cloudflare Pages production
+
+`cloudflare-pages.yml` 只在 `main` 的「離線自測」成功後部署該次測試的同一個 `head_sha`，或由 repository 管理者人工觸發首次部署／故障復原。工作流程重新建置 `dist/` allowlist，不使用整個 repository 當 web root。
+
+- 權限只有 `contents: read` 與 `deployments: write`。
+- `cloudflare/wrangler-action` 與 Wrangler 固定版本，runner 固定 `ubuntu-24.04`。
+- production 使用單一 concurrency group；較新的發布會取消尚未完成的舊發布。
+- GitHub secrets 只存 `CLOUDFLARE_ACCOUNT_ID` 與 Pages Edit scoped token；不得加入 Firebase writer 帳密。
+- workflow 不部署 pull request 或外部 fork，避免讓 production token 進入未受信任程式碼路徑。
+- Cloudflare GitHub App callback 的帳號層連線錯誤及 Direct Upload 決策記在 `docs/specs/deployment.md`，不能並行啟用第二條 production 自動部署。
