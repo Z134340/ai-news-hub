@@ -23,6 +23,7 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 - Root directory：repository root
 - GitHub Actions secrets：`CLOUDFLARE_ACCOUNT_ID`、只含 Account / Cloudflare Pages / Edit 的 `CLOUDFLARE_API_TOKEN`
 - Build secrets：無；不得把 Firebase writer 帳密放入 Cloudflare
+- Firebase Authentication 授權網域：`ai-news-hub-7jk.pages.dev`；只授權穩定 production hostname，不加入每次部署產生的 hash hostname
 
 `wrangler.jsonc` 記錄專案名稱、輸出目錄與 compatibility date。Cloudflare GitHub App 在 2026-09-18 完整重裝後仍由 Cloudflare callback 回報安裝失敗，因此改用 Cloudflare 官方 Direct Upload CI。部署 Action、Wrangler 與 Ubuntu runner 均固定版本；production workflow 只讀原始碼，token 不寫入 repository 或 Cloudflare build environment。GitHub App 若日後恢復，切換部署模式必須另行驗證，不能讓兩條 production 流程同時發布。
 
