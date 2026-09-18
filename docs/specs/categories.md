@@ -42,7 +42,8 @@
 **欄位：** title, source, date, category, summary(4-6句), highlights, url
 
 ### 7. ⚖️ 科技治理 Top 20 (`governance`)
-**來源：** MIT Technology Review, OWASP, 台灣金融監督管理委員會 (FSC), 數位發展部 (moda.gov.tw), 國發會 (NDC), Reuters, Bloomberg, iThome, 中央社 CNA, 科技新報
+**來源：** MIT Technology Review, OWASP, 台灣金融監督管理委員會 (FSC), 數位發展部 AI 專區 (https://moda.gov.tw/major-policies/ai/1781), 國發會 (NDC), Reuters, Bloomberg, iThome, 中央社 CNA, 科技新報
+**數發部專區收錄方式：** 以 AI 專區為官方探索入口，追蹤 AI 風險分類、AI 應用影響評估、評測制度與治理政策。僅收錄具可核實發布日期、符合治理主題且在既有 7 天時窗內的政策／新聞原文，使用直接連結；常設專區及無日期資源不得當作當日新聞。此入口透過每日 WebSearch 提示使用，不是 RSS/Atom feed。
 **焦點：** AI 治理, Agent/代理式 AI 治理, AI 安全標準, 金管會金融 AI 政策, 數位發展部政策, EU AI Act, NIST 指南
 **語言：** 繁中+英文搜尋
 **欄位：** title, source, date, category, summary(4-6句), highlights, url
