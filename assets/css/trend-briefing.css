@@ -102,4 +102,4 @@ body.trends-active {
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#trend-briefing *{transition:none}}
 
-@media(max-width:1250px){.trends-active .hdr-right .hdr-info{display:none}}
+@media(max-width:1400px){.trends-active .hdr-right .hdr-info{display:none}}
