@@ -57,13 +57,13 @@ function renderAll() {
   if(!DATA?.data) return;
   const d = DATA.data;
   renderPapers(sortByDate(d.papers||[], true));
-  renderNewsPanel(sortByDate(d.topnews||[], true),'topnews','#f59e0b');
-  renderNewsPanel(sortByDate(d.taiwan||[], true),'taiwan','#34d399');
-  renderNewsPanel(sortByDate(d.china||[], true),'china','#f87171');
-  renderNewsPanel(sortByDate(d.usa||[], true),'usa','#60a5fa');
-  renderNewsPanel(sortByDate(d.techtrends||[], true),'techtrends','#a78bfa');
+  renderNewsPanel(sortByDate(d.topnews||[], true),'topnews','var(--ac)');
+  renderNewsPanel(sortByDate(d.taiwan||[], true),'taiwan','var(--ac)');
+  renderNewsPanel(sortByDate(d.china||[], true),'china','var(--ac)');
+  renderNewsPanel(sortByDate(d.usa||[], true),'usa','var(--ac)');
+  renderNewsPanel(sortByDate(d.techtrends||[], true),'techtrends','var(--ac)');
 
-  renderNewsPanel(sortByDate(d.governance||[], true),'governance','#f472b6');
+  renderNewsPanel(sortByDate(d.governance||[], true),'governance','var(--ac)');
   renderTutorials(sortByDate(filterRecent3M(d.tutorials||[])));
   renderCourses(sortByDate(filterRecent3M(d.courses||[])));
   renderModels(sortByDate(filterRecent3M(d.models||[]), true));
@@ -79,18 +79,18 @@ function renderPapers(items) {
   $('panel-papers').innerHTML = items.map((p,i) => {
     const k=`papers-${i}`, open=openCards[k]!==undefined?openCards[k]:i<3;
     if(openCards[k]===undefined) openCards[k]=i<3;
-    const bid=itemKey(p); REGISTRY[bid]={cat:'papers',catLabel:'📄 論文',catColor:'#6366f1',item:p};
+    const bid=itemKey(p); REGISTRY[bid]={cat:'papers',catLabel:'📄 論文',catColor:'var(--ac)',item:p};
     return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
       <div class="card-row">
-        ${rank(i+1,'#6366f1')}
+        ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(p.title)}</div>${p.title_zh?`<div class="card-title-zh">${esc(p.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${p.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(p.title)}</div>${p.title_zh?`<div class="card-title-zh">${esc(p.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${p.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
-            ${p.institution?badge('#818cf8',svg('building',10)+' '+esc(p.institution)):''}
-            ${p.venue?badge('#f472b6',esc(p.venue)):''}
-            ${p.field?badge('#34d399',esc(p.field)):''}
-            ${p.impact==='high'?badge('#fbbf24',svg('sparkles',10)+' 高影響力'):''}
-            ${p.date?badge('#64748b',esc(p.date)):''}
+            ${p.institution?badge('var(--ac)',svg('building',10)+' '+esc(p.institution)):''}
+            ${p.venue?badge('var(--ac)',esc(p.venue)):''}
+            ${p.field?badge('var(--green)',esc(p.field)):''}
+            ${p.impact==='high'?badge('var(--amber)',svg('sparkles',10)+' 高影響力'):''}
+            ${p.date?badge('var(--tx3)',esc(p.date)):''}
           </div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -114,28 +114,28 @@ function renderNewsPanel(items, key, color) {
     if(openCards[k]===undefined) openCards[k]=i<3;
     const bid=itemKey(n); REGISTRY[bid]={cat:key,catLabel:catLabel,catColor:color,item:n};
     let tags = '';
-    if(n.source) tags += badge('#34d399', esc(n.source));
-    if(n.category) tags += badge('#a78bfa', esc(n.category));
-    if(n.domain) tags += badge('#a78bfa', esc(n.domain));
-    if(n.model_area) tags += badge('#22d3ee', esc(n.model_area));
-    if(n.topic) tags += badge('#22d3ee', svg('tag',10)+' '+esc(n.topic));
-    if(n.company) tags += badge('#fbbf24', svg('building',10)+' '+esc(n.company));
-    if(n.date) tags += badge('#64748b', esc(n.date));
+    if(n.source) tags += badge('var(--tx2)', esc(n.source));
+    if(n.category) tags += badge('var(--ac)', esc(n.category));
+    if(n.domain) tags += badge('var(--ac)', esc(n.domain));
+    if(n.model_area) tags += badge('var(--ac)', esc(n.model_area));
+    if(n.topic) tags += badge('var(--ac)', svg('tag',10)+' '+esc(n.topic));
+    if(n.company) tags += badge('var(--amber)', svg('building',10)+' '+esc(n.company));
+    if(n.date) tags += badge('var(--tx3)', esc(n.date));
 
     return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
       <div class="card-row">
-        ${rank(i+1,color)}
+        ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div>${n.title_zh?`<div class="card-title-zh">${esc(n.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div>${n.title_zh?`<div class="card-title-zh">${esc(n.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
       </div>
       <div class="card-detail" style="display:${open?'block':'none'}">
         <p class="summary">${esc(n.summary)}</p>
-        ${infoBlock('sparkles','#818cf8','關鍵亮點', n.highlights)}
-        ${infoBlock('search','#34d399','關注原因', n.relevance)}
-        ${infoBlock('globe','#22d3ee','討論焦點', n.discussion)}
+        ${infoBlock('sparkles', '關鍵亮點', n.highlights)}
+        ${infoBlock('search', '關注原因', n.relevance)}
+        ${infoBlock('globe', '討論焦點', n.discussion)}
         ${linkOut(n.url,'閱讀全文')}
       </div>
     </div>`;
@@ -150,25 +150,25 @@ function renderTutorials(items) {
   el.innerHTML = items.map((t,i) => {
     const k=`tutorials-${i}`, open=openCards[k]!==undefined?openCards[k]:false;
     if(openCards[k]===undefined) openCards[k]=false;
-    const bid=itemKey(t); REGISTRY[bid]={cat:'tutorials',catLabel:'🛠️ 工具教學',catColor:'#fbbf24',item:t};
+    const bid=itemKey(t); REGISTRY[bid]={cat:'tutorials',catLabel:'🛠️ 工具教學',catColor:'var(--ac)',item:t};
     let tags = '';
-    if(t.source) tags += badge('#34d399', esc(t.source));
-    if(t.tool_name) tags += badge('#818cf8', svg('cpu',10)+' '+esc(t.tool_name));
-    if(t.difficulty) tags += badge(t.difficulty==='beginner'?'#34d399':t.difficulty==='intermediate'?'#f59e0b':'#f87171', esc(t.difficulty==='beginner'?'入門':t.difficulty==='intermediate'?'進階':'高階'));
-    if(t.category) tags += badge('#a78bfa', esc(t.category));
-    if(t.date) tags += badge('#64748b', esc(t.date));
+    if(t.source) tags += badge('var(--tx2)', esc(t.source));
+    if(t.tool_name) tags += badge('var(--ac)', svg('cpu',10)+' '+esc(t.tool_name));
+    if(t.difficulty) tags += badge(t.difficulty==='beginner'?'var(--green)':t.difficulty==='intermediate'?'var(--amber)':'var(--red)', esc(t.difficulty==='beginner'?'入門':t.difficulty==='intermediate'?'進階':'高階'));
+    if(t.category) tags += badge('var(--ac)', esc(t.category));
+    if(t.date) tags += badge('var(--tx3)', esc(t.date));
     return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
       <div class="card-row">
-        ${rank(i+1,'#fbbf24')}
+        ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(t.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${t.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(t.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${t.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
       </div>
       <div class="card-detail" style="display:${open?'block':'none'}">
         <p class="summary">${esc(t.summary)}</p>
-        ${infoBlock('sparkles','#818cf8','學習重點', t.highlights)}
+        ${infoBlock('sparkles', '學習重點', t.highlights)}
         ${linkOut(t.url,'前往教學')}
       </div>
     </div>`;
@@ -182,26 +182,26 @@ function renderCourses(items) {
   el.innerHTML = items.map((c,i) => {
     const k=`courses-${i}`, open=openCards[k]!==undefined?openCards[k]:false;
     if(openCards[k]===undefined) openCards[k]=false;
-    const bid=itemKey(c); REGISTRY[bid]={cat:'courses',catLabel:'🎓 課程',catColor:'#34d399',item:c};
+    const bid=itemKey(c); REGISTRY[bid]={cat:'courses',catLabel:'🎓 課程',catColor:'var(--ac)',item:c};
     let tags = '';
-    if(c.provider||c.source) tags += badge('#34d399', esc(c.provider||c.source));
-    if(c.is_free) tags += badge('#34d399', '✓ 免費');
-    if(c.cert_included) tags += badge('#fbbf24', svg('check',10)+' 含證書');
-    if(c.level) tags += badge('#a78bfa', esc(c.level));
-    if(c.duration) tags += badge('#64748b', svg('clock',10)+' '+esc(c.duration));
+    if(c.provider||c.source) tags += badge('var(--tx2)', esc(c.provider||c.source));
+    if(c.is_free) tags += badge('var(--green)', '✓ 免費');
+    if(c.cert_included) tags += badge('var(--amber)', svg('check',10)+' 含證書');
+    if(c.level) tags += badge('var(--ac)', esc(c.level));
+    if(c.duration) tags += badge('var(--tx3)', svg('clock',10)+' '+esc(c.duration));
     return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
       <div class="card-row">
-        ${rank(i+1,'#34d399')}
+        ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(c.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${c.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(c.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${c.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
       </div>
       <div class="card-detail" style="display:${open?'block':'none'}">
         <p class="summary">${esc(c.summary)}</p>
-        ${c.topics?infoBlock('tag','#22d3ee','課程主題', c.topics):''}
-        ${infoBlock('sparkles','#818cf8','課程亮點', c.highlights)}
+        ${c.topics?infoBlock('tag', '課程主題', c.topics):''}
+        ${infoBlock('sparkles', '課程亮點', c.highlights)}
         ${linkOut(c.url,'前往報名')}
       </div>
     </div>`;
@@ -214,26 +214,26 @@ function renderModels(items) {
   $('panel-models').innerHTML = items.map((m,i) => {
     const k=`models-${i}`, open=openCards[k]!==undefined?openCards[k]:i<3;
     if(openCards[k]===undefined) openCards[k]=i<3;
-    const bid=itemKey(m); REGISTRY[bid]={cat:'models',catLabel:'🚀 模型',catColor:'#8b5cf6',item:m};
+    const bid=itemKey(m); REGISTRY[bid]={cat:'models',catLabel:'🚀 模型',catColor:'var(--ac)',item:m};
     const name = m.model_name||m.title||'未命名模型';
     return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
       <div class="card-row">
-        ${rank(i+1,'#8b5cf6')}
+        ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(name)} ${m.version?`<span style="font-size:12px;color:var(--tx3);font-weight:500">v${esc(m.version)}</span>`:''}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${m.verified?svg('check',14,'#34d399'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(name)} ${m.version?`<span style="font-size:12px;color:var(--tx3);font-weight:500">v${esc(m.version)}</span>`:''}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${m.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
-            ${m.institution?badge('#818cf8',svg('building',10)+' '+esc(m.institution)):''}
-            ${m.domain?badge('#a78bfa',svg('cpu',10)+' '+esc(m.domain)):''}
-            ${m.release_date?badge('#64748b',esc(m.release_date)):''}
+            ${m.institution?badge('var(--ac)',svg('building',10)+' '+esc(m.institution)):''}
+            ${m.domain?badge('var(--ac)',svg('cpu',10)+' '+esc(m.domain)):''}
+            ${m.release_date?badge('var(--tx3)',esc(m.release_date)):''}
           </div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
       </div>
       <div class="card-detail" style="display:${open?'block':'none'}">
         <p class="summary">${esc(m.summary)}</p>
-        ${infoBlock('trophy','#34d399','核心優勢', m.advantages)}
-        ${infoBlock('chart','#fbbf24','基準測試', m.benchmarks)}
-        ${infoBlock('sparkles','#818cf8','關鍵亮點', m.highlights)}
+        ${infoBlock('trophy', '核心優勢', m.advantages)}
+        ${infoBlock('chart', '基準測試', m.benchmarks)}
+        ${infoBlock('sparkles', '關鍵亮點', m.highlights)}
         ${linkOut(m.url,'查看詳情')}
       </div>
     </div>`;

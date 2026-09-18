@@ -16,7 +16,7 @@
 
 ### Header 健康儀表板（全寬單列佈局）
 - 左側：Logo + 標題 + 日期
-- 中間：主分類 Tab（sec-tabs，`flex:1` 置中）
+- 中間：主分類 Tab（sec-tabs，`flex:1` 靠左，窄桌面／平板可獨立一列）
 - 右側（永遠靠右）：狀態膠囊 + 驗證率 + 更新時間 + 搜尋
 - **CSS 關鍵**：`.hdr-inner{width:100%}` 確保容器全寬；`.hdr-right{margin-left:auto}` 固定靠右端
   · 🟢 綠色脈動 = 今日資料已就緒 + 驗證率 ≥ 90%
@@ -65,12 +65,12 @@
 - 前 3 展開，其餘收合
 - 展開：max-height transition 300ms + scroll to top (offset 80px)
 - 右上角：✅ verified / ⚠️ needs_review
-- 各類別色系：論文藍紫/全球金/台灣綠/中國紅/美國藍/模型紫線
+- 全站分類控制、排名與一般標籤採共用淡紫主題；成功、提醒、錯誤與圖表多序列保留語意辨識。
 
 ### 響應式（iPhone 優化）
 - 桌面 >768px / 平板 ≤768px / 手機 ≤480px / iPhone SE ≤370px
 - `viewport-fit=cover` + `env(safe-area-inset-*)` 適配 iPhone 瀏海/Dynamic Island
-- `apple-mobile-web-app-capable` + `theme-color: #06080f` PWA 支援
+- `apple-mobile-web-app-capable` + `theme-color: #fafaff` PWA 支援
 - 主分類 Tab 手機端改為橫向滾動，觸控優化（`touch-action: manipulation`）
 - Sub-tab 自動 scrollIntoView 到當前選中項
 - Sticky header + tabs 高度由 JS 動態計算（`updateStickyOffsets`）
@@ -79,7 +79,18 @@
 
 ### 技術
 - Vanilla JS，零依賴，SVG Sprite 內嵌（含 calendar icon）
-- 色彩：bg #06080f, surface #0d1117, card #111822, accent #818cf8
+- 全站顏色由 `assets/css/app.css` 的 `:root` tokens 維護；儀表板與新聞、搜尋、書籤、歷史、登入窗共用。
+
+### 全站研究簡報視覺（2026-09-18）
+
+- 使用者授權將儀表板 A 版主視覺延伸全站：暖白背景、白色內容卡、淡紫選取底、深紫操作色與深藍灰文字，統一導覽、圓角、留白、標題和資訊層級。
+- `app.css :root` 為顏色唯一程式來源：`--bg/sf/card` 表面、`--tx/tx2/tx3` 文字、`--ac/acl/ac-soft/ac-selected` 品牌與選取、`--green/amber/red/blue/cyan/pink/purple` 狀態及圖表、`--bd/bdH/focus` 邊界與焦點。`trend-briefing.css` 只保留儀表板布局並引用共用 tokens。
+- 主／子分類頁籤統一紫色；名稱、圖示與選取線維持分類辨識。圖表多序列仍保留多色、線型、文字；驗證與失敗狀態仍保留綠／琥珀／紅及文字，不以顏色作唯一線索。
+- 徽章透明背景以 `color-mix` 配合 CSS token 產生，不可在 `var(...)` 後串接十六進位透明度。收藏分類標籤由當前樣式呈現，不用舊收藏的 `catColor` 決定外觀；未遷移或改寫既有收藏記錄。
+- `trends-active` 只控制儀表板寬度與重複標題顯示，搜尋與分頁切換不切換配色。登入、toast、空狀態、搜尋與歷史均繼承同一表面與文字色。
+- 桌面新聞閱讀欄上限 1120px，儀表板維持 1320px；保留既有桌面 1.2 倍檢視比例。手機提高卡片可讀字級、長徽章換行，320px 窄螢幕頁首可分列；只有導覽與既有大圖表可局部橫向捲動。
+- `ResizeObserver` 追蹤頁首高度，搜尋、同步按鈕、字型與響應式換行後重新校正 sticky 子導覽；不支援時仍使用原 resize 與啟動校正。全站鍵盤焦點可見，減少動態效果偏好同樣適用。
+- CSS `color-mix` 需現代瀏覽器。配色更新不更動新聞資料、分組算法、Firebase 權限、擷取或發布流程。
 
 ---
 

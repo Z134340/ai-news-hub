@@ -10,7 +10,7 @@
 | A 版 UI | `assets/js/trend-briefing.js`：`renderTrendBriefing/briefingDetail/briefingChart/bindTrendBriefing` | `BRIEFING` 保存 model、selected、expanded、pending；HTML 使用 esc，互動以 data attributes delegation |
 | 載入隔離 | `assets/js/dashboard.js`：`loadDashboard` | `DASH.news` 固定最新來源，request 防舊回應；原發布 agent artifacts 平行取檔；歷史 payload 補齊後更新 A 版 |
 | 原分類區 | `renderLegacyDashboard` | lazy details；冷層摘要只影響這區；同一 request 的 timeline 更新清除 `_bump` |
-| 樣式與頁籤 | `assets/css/trend-briefing.css`；`assets/js/ui.js`、`search.js` | body `trends-active` 只在 dashboard；離開關閉原抽屜；新 CSS 不改新聞頁主題 |
+| 樣式與頁籤 | `assets/css/trend-briefing.css`；`assets/js/ui.js`、`search.js` | body `trends-active` 只控制 dashboard 布局；離開關閉原抽屜；全站顏色入口見 `site-theme.md` |
 | 回歸 | `scripts/tests/trend-topics.test.mjs`、`scripts/tests/frontend.test.mjs`、`scripts/agent/verify-dashboard-system-status.mjs` | 動態分組、去重、缺日、時窗標籤、上限、穩定詞組 ID、載入競態、歷史隔離、安全 HTML |
 
 載入順序只在 architecture.md 維護。新設計不讀 `.preview` 或私人回饋，也不觸發模型、擷取或寫入。

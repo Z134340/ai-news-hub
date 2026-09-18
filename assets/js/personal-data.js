@@ -7,7 +7,7 @@ function personalNotice(message) {
   let el = $('personalStatus');
   if (!el && document.body) {
     el = document.createElement('div'); el.id = 'personalStatus'; el.setAttribute('role', 'status');
-    el.style.cssText = 'position:fixed;bottom:12px;left:12px;z-index:1000;max-width:90vw;padding:10px;background:var(--bg2,#222);color:var(--tx,#fff);border:1px solid #818cf8;border-radius:8px';
+    el.className = 'personal-notice';
     document.body.appendChild(el);
   }
   if (el) { el.textContent = message; el.hidden = !message; }

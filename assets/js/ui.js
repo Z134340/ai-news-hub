@@ -4,7 +4,7 @@
 function buildTabs() {
   $('secTabs').innerHTML = SECS.map(s => `
     <button class="sec-tab${s.id===curSec?' on':''}" data-sec="${s.id}">
-      <div class="ico-wrap" style="${s.id===curSec?`background:${s.grad}`:''}">${svg(s.ico, 14, s.id===curSec?'#fff':'var(--tx3)')}</div>
+      <div class="ico-wrap">${svg(s.ico, 14, s.id===curSec?'#fff':'var(--tx3)')}</div>
       <div class="s-label">${s.label}${s.id==='bookmarks'?`<span id="bm-tab-cnt" class="bm-cnt" style="display:none"></span>`:''}</div>
       <div class="s-desc">${s.desc}</div>
     </button>
@@ -15,7 +15,7 @@ function buildTabs() {
     <button class="sub-tab${s.id===curSub?' on':''}" data-sub="${s.id}" style="color:${s.id===curSub?s.color:'var(--tx3)'}">
       ${svg(s.ico, 14, s.id===curSub?s.color:'var(--tx3)')}
       <span class="st-label">${s.label}</span>
-      <span class="sub-cnt" id="cnt-${s.id}" style="background:${s.color}20;color:${s.color}">0</span>
+      <span class="sub-cnt" id="cnt-${s.id}" style="background:${tint(s.color, 12.55)};color:${s.color}">0</span>
     </button>
   `).join('');
   $('subTabs').querySelectorAll('.sub-tab').forEach(b => b.addEventListener('click', () => switchSub(b.dataset.sub)));
@@ -30,9 +30,6 @@ function switchSec(id) {
   document.querySelectorAll('.sec-tab').forEach(t => {
     const on = t.dataset.sec === id;
     t.classList.toggle('on', on);
-    const s = SECS.find(x=>x.id===t.dataset.sec);
-    t.querySelector('.ico-wrap').style.background = on ? s.grad : 'rgba(148,163,184,0.08)';
-    t.querySelector('.ico-wrap').style.boxShadow = on ? '0 4px 14px rgba(99,102,241,0.25)' : 'none';
     t.querySelector('svg').setAttribute('stroke', on ? '#fff' : 'var(--tx3)');
   });
   document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === 'panel-'+id));
@@ -92,12 +89,10 @@ function updateHeader() {
   $('hPillText').textContent = isToday ? '資料就緒' : '非今日資料';
   const pill = $('hPill');
   pill.style.cssText='';
-  if(isToday&&vp>=90){pill.className='hdr-pill ok';}
-  else if(isToday){pill.className='hdr-pill ok';pill.style.background='rgba(251,191,36,0.12)';pill.style.color='var(--amber)';pill.style.borderColor='rgba(251,191,36,0.2)';}
-  else{pill.className='hdr-pill ok';pill.style.background='rgba(248,113,113,0.12)';pill.style.color='var(--red)';pill.style.borderColor='rgba(248,113,113,0.2)';}
+  pill.className = 'hdr-pill ' + (!isToday ? 'err' : vp>=90 ? 'ok' : 'warn');
 
-  if(vp>0) $('hValidation').innerHTML = `${svg('shield',12,'#34d399')} 驗證 ${Math.round(vp)}%`;
-  else $('hValidation').innerHTML = `${svg('shield',12,'#fbbf24')} 待驗證`;
+  if(vp>0) $('hValidation').innerHTML = `${svg('shield',12,vp>=90?'var(--green)':'var(--amber)')} 驗證 ${Math.round(vp)}%`;
+  else $('hValidation').innerHTML = `${svg('shield',12,'var(--amber)')} 待驗證`;
   $('hTime').innerHTML = `${svg('clock',12)} 更新 ${fmtTime(DATA.time)}`;
 
   // Banners
@@ -107,7 +102,7 @@ function updateHeader() {
   if(HEALTH?.status==='missed') b.innerHTML += `<div class="banner err"><span>🔴 排程未執行，請確認電腦是否有開機。</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
   // S-PWR P-3：health.errors[0]（配額耗盡／電池模式回退）純文字一行，icon 用 svg
   const herr = Array.isArray(HEALTH?.errors) && HEALTH.errors.length ? String(HEALTH.errors[0]) : '';
-  if(herr) b.innerHTML += `<div class="banner warn"><span>${svg('alert',14,'#fbbf24')} 上次擷取：${esc(herr)}</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
+  if(herr) b.innerHTML += `<div class="banner warn"><span>${svg('alert',14,'var(--amber)')} 上次擷取：${esc(herr)}</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
 }
 
 /* ======== STICKY OFFSETS ======== */

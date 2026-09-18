@@ -4,7 +4,7 @@
 function bmBtn(id) {
   if (!personalId(id)) return '';
   const saved = !!BOOKMARKS[id];
-  return `<button class="bm-btn${saved?' bm-saved':''}" data-bmid="${id}" title="${saved?'移除書籤':'加入書籤'}" onclick="event.stopPropagation();toggleBookmark('${id}')">${svg('bookmark',14,saved?'#818cf8':'var(--tx3)')}</button>`;
+  return `<button class="bm-btn${saved?' bm-saved':''}" data-bmid="${id}" title="${saved?'移除書籤':'加入書籤'}" onclick="event.stopPropagation();toggleBookmark('${id}')">${svg('bookmark',14,saved?'var(--ac)':'var(--tx3)')}</button>`;
 }
 
 /* ======== BOOKMARK FUNCTIONS ======== */
@@ -28,7 +28,7 @@ function toggleBookmark(id) {
     const saved = !!BOOKMARKS[id];
     btn.classList.toggle('bm-saved', saved);
     btn.title = saved ? '移除書籤' : '加入書籤';
-    btn.innerHTML = svg('bookmark', 14, saved ? '#818cf8' : 'var(--tx3)');
+    btn.innerHTML = svg('bookmark', 14, saved ? 'var(--ac)' : 'var(--tx3)');
   });
   if(curSec === 'bookmarks') renderBookmarks();
 }
@@ -54,12 +54,12 @@ function renderBookmarks() {
       const date = item.date || item.release_date || '';
       return `<div class="card" style="cursor:default">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <span class="bm-cat" style="background:${bm.catColor}18;color:${bm.catColor};border:1px solid ${bm.catColor}22">${esc(bm.catLabel)}</span>
+          <span class="bm-cat">${esc(bm.catLabel)}</span>
           <button class="bm-rm" onclick="removeBookmark('${id}')">✕ 移除</button>
         </div>
-        <div class="card-title" style="font-size:14px;margin-bottom:6px">${esc(title)}</div>
+        <div class="card-title" style="margin-bottom:6px">${esc(title)}</div>
         ${item.source?`<div style="font-size:11px;color:var(--tx3);margin-bottom:6px">${esc(item.source)}${date?' · '+esc(date):''}</div>`:''}
-        ${item.summary?`<p class="summary" style="font-size:13px;color:var(--tx2);line-height:1.8;margin-bottom:8px">${esc(item.summary)}</p>`:''}
+        ${item.summary?`<p class="summary" style="color:var(--tx2);line-height:1.8;margin-bottom:8px">${esc(item.summary)}</p>`:''}
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
           ${linkOut(item.url)}
           <span style="font-size:10px;color:var(--tx3)">收藏於 ${fmtCatTime(bm.savedAt)}</span>

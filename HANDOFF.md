@@ -11,6 +11,7 @@
 | ARCH-ROBUST：架構與穩健性稽核 | Codex；`codex/architecture-audit`；基準 `554325f` | 稽核完成；原稽核未修改正式程式／資料／權限。已授權改善接續於下列 ARCH-FIX | 原 26 組既有命令通過；原稽核證據為當時快照，改善驗證見 ARCH-FIX |
 | ARCH-FIX：網站與每日流程穩健性 | Codex；`codex/robustness-fixes`；基準 `bcbc224` | 已實作帳號隔離、刪除同步、連結清理、歷史分頁／逾時與失敗恢復、候選驗證、程序鎖、安全 Git 發布／重試、CI；依使用者「確認建議精準且適當，如適當則執行」授權。規格及程式入口見 `docs/shapes/site-robustness.md` | 本機驗證見下方；交付以包含本列的 Git 提交與遠端分支為準。真實 Firebase 多帳號／多裝置、下一次正常排程及 Pages 部署需各自核對證據；UI-TRENDS 另見下列工項 |
 | UI-TRENDS：趨勢儀表板改版 | Codex；`codex/trends-briefing`；基準 `7ace435` | 2026-09-18 使用者「請實作」授權後，完成 A 版桌面／手機介面、公開新聞的動態焦點分組、來源與缺日顯示；原固定分類保留收合區 | 本機驗證見下方；資料契約見 `docs/specs/frontend-ux.md`，程式入口見 `docs/shapes/trend-briefing.md`。提交、推送與部署以實際 Git／Pages 紀錄為準 |
+| UI-THEME：全站共用主視覺 | Codex；`codex/site-briefing-theme`；基準 `adedb59` | 2026-09-18 使用者授權將儀表板 A 主視覺套用全站；共用顏色 tokens、導覽／卡片／搜尋／收藏／歷史／登入窗、圖表淺底對比；無資料或後端改動 | 規格見 `docs/specs/frontend-ux.md`，入口見 `docs/shapes/site-theme.md`；30 項前端／分組回歸、11 項狀態檢查、13 JS 語法及封存 dry-run 通過；Browser 驗證六主頁、八分類、搜尋、收藏重載／移除、歷史與登入窗；320／390／768／1024／1280px 無整頁橫向溢出。提交／推送／部署須以實際紀錄核對 |
 
 ARCH-ROBUST 本機完整報告：`/Users/zyc/.codex/visualizations/2026/09/17/01a0afad-58b9-7130-b668-afa4f2225154/architecture-audit-20260918.md`。此為稽核 artifact，未能取得時不可自行猜測各工項內容；須由報告恢復或依同一程式基準重做核對。
 

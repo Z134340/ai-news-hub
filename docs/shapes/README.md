@@ -16,3 +16,5 @@
 | `agents/<name>/` scaffold、`hermes.project.yaml` | `docs/shapes/agents-scaffold.md` |
 | `data/agent/*.json` 頂層（不含 `.preview/`） | `docs/shapes/data-agent-json.md` |
 | `data/latest.json`、prompt marker、`PRIORITY_KEYWORDS` | `docs/shapes/latest-json-prompts.md` |
+
+- [全站研究簡報主題](site-theme.md)：共用色彩、元件、響應式與動態樣式入口。

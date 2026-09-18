@@ -7,6 +7,11 @@ buildTabs();
 updateBmTabCount();
 loadData();
 requestAnimationFrame(updateStickyOffsets);
+// Header height also changes after auth, fonts, search, and responsive wrapping.
+if (typeof ResizeObserver !== 'undefined') {
+  const header = document.querySelector('.hdr');
+  if (header) new ResizeObserver(updateStickyOffsets).observe(header);
+}
 initFirebase();   // 可選雲端同步；未設定 config 時自動 no-op
 // 儀表板是預設分頁，必須排在 initFirebase() 之後：它的時間軸要吃冷封存，
 // 而 archiveEnabled() 看的是 initFirebase() 同步設好的 _fb.ready。

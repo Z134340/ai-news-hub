@@ -51,7 +51,7 @@ function renderHistory() {
   $('panel-history').innerHTML = entries.map((e,i)=> {
     const cnt = Number(e.item_count) || (plainRecord(e.stats) ? Object.values(e.stats).reduce((a,b)=>a+(typeof b==='number'?b:0),0) : 0);
     const pr = e.validation_pass_rate ?? e.pass_rate ?? e.validation?.pass_rate;
-    return `<div class="card" style="cursor:pointer" onclick="loadHistDate('${e.date}')"><div class="card-row">${rank(i+1,'#64748b')}<div class="card-body"><div class="card-title">${fmtDate(e.date)}</div><div class="card-badges">${badge('#34d399',cnt+' 筆新聞')}${badge('#818cf8',pr == null ? '驗證 —' : '驗證 '+esc(pr)+'%')}${badge(e._cold?'#a78bfa':'#64748b',e._cold?'封存':esc(e.source||'自動'))}</div></div><span>載入 →</span></div></div>`;
+    return `<div class="card" style="cursor:pointer" onclick="loadHistDate('${e.date}')"><div class="card-row">${rank(i+1)}<div class="card-body"><div class="card-title">${fmtDate(e.date)}</div><div class="card-badges">${badge('var(--green)',cnt+' 筆新聞')}${badge('var(--ac)',pr == null ? '驗證 —' : '驗證 '+esc(pr)+'%')}${badge(e._cold?'var(--purple)':'var(--tx3)',e._cold?'封存':esc(e.source||'自動'))}</div></div><span>載入 →</span></div></div>`;
   }).join('') + (!entries.length && !HISTORY.message ? '<div class="empty">📅 無歷史資料</div>' : '')
   + `<p role="status">${esc(HISTORY.message)}</p>`
   + ((HISTORY.next || HISTORY.message.includes('重試')) ? `<button class="bm-exp" onclick="loadMoreHistory()" ${HISTORY.loading?'disabled':''}>${HISTORY.message.includes('重試')?'重試':'載入更早紀錄'}</button>` : '');

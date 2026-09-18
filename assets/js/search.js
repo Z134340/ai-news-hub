@@ -77,12 +77,12 @@ function renderSearchResults(results, lower) {
     const date = item.date||item.release_date||'';
     return `<div class="card" style="cursor:default">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <span class="srch-cat" style="background:${color}18;color:${color};border:1px solid ${color}22">${label}</span>
+        <span class="srch-cat">${label}</span>
         ${bmBtn(id)}
       </div>
-      <div class="card-title" style="font-size:14px;margin-bottom:6px">${hlText(esc(title),lower)}</div>
+      <div class="card-title" style="margin-bottom:6px">${hlText(esc(title),lower)}</div>
       ${item.source||date?`<div style="font-size:11px;color:var(--tx3);margin-bottom:6px">${esc(item.source||'')}${item.source&&date?' · ':''}${esc(date)}</div>`:''}
-      ${item.summary?`<p class="summary" style="font-size:13px;color:var(--tx2);line-height:1.8;margin-bottom:8px">${hlText(esc(item.summary),lower)}</p>`:''}
+      ${item.summary?`<p class="summary" style="color:var(--tx2);line-height:1.8;margin-bottom:8px">${hlText(esc(item.summary),lower)}</p>`:''}
       ${linkOut(item.url)}
     </div>`;
   }).join('');

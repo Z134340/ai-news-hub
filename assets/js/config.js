@@ -64,37 +64,35 @@ function safeURL(value) {
 
 /* ======== SECTION / SUB CONFIG ======== */
 const SECS = [
-  { id:'dashboard', label:'儀表板', desc:'趨勢時間軸與重點', ico:'chart', grad:'linear-gradient(135deg,#22d3ee,#818cf8)' },
-  { id:'papers', label:'論文研討', desc:'頂尖機構最新研究', ico:'file', grad:'linear-gradient(135deg,#6366f1,#818cf8)' },
-  { id:'news', label:'AI 新聞', desc:'全球各區熱議焦點', ico:'news', grad:'linear-gradient(135deg,#f59e0b,#fbbf24)' },
-  { id:'models', label:'模型快訊', desc:'最新模型與技術突破', ico:'rocket', grad:'linear-gradient(135deg,#8b5cf6,#a78bfa)' },
-  { id:'bookmarks', label:'書籤', desc:'我的收藏文章', ico:'bookmark', grad:'linear-gradient(135deg,#818cf8,#a78bfa)' },
-  { id:'history', label:'歷史紀錄', desc:'過往每日新聞存檔', ico:'calendar', grad:'linear-gradient(135deg,#64748b,#94a3b8)' },
+  { id:'dashboard', label:'儀表板', desc:'趨勢時間軸與重點', ico:'chart' },
+  { id:'papers', label:'論文研討', desc:'頂尖機構最新研究', ico:'file' },
+  { id:'news', label:'AI 新聞', desc:'全球各區熱議焦點', ico:'news' },
+  { id:'models', label:'模型快訊', desc:'最新模型與技術突破', ico:'rocket' },
+  { id:'bookmarks', label:'書籤', desc:'我的收藏文章', ico:'bookmark' },
+  { id:'history', label:'歷史紀錄', desc:'過往每日新聞存檔', ico:'calendar' },
 ];
 const SUBS = [
-  { id:'topnews', label:'全球熱門', ico:'flame', color:'#f59e0b' },
-  { id:'taiwan', label:'台灣熱議', ico:'globe', color:'#34d399' },
-  { id:'china', label:'中國熱議', ico:'globe', color:'#f87171' },
-  { id:'usa', label:'美國熱議', ico:'globe', color:'#60a5fa' },
-  { id:'techtrends', label:'技術趨勢', ico:'rocket', color:'#a78bfa' },
+  { id:'topnews', label:'全球熱門', ico:'flame', color:'var(--ac)' },
+  { id:'taiwan', label:'台灣熱議', ico:'globe', color:'var(--ac)' },
+  { id:'china', label:'中國熱議', ico:'globe', color:'var(--ac)' },
+  { id:'usa', label:'美國熱議', ico:'globe', color:'var(--ac)' },
+  { id:'techtrends', label:'技術趨勢', ico:'rocket', color:'var(--ac)' },
 
-  { id:'governance', label:'科技治理', ico:'alert', color:'#f472b6' },
-  { id:'tutorials', label:'AI工具教學', ico:'file', color:'#fbbf24' },
-  { id:'courses', label:'AI官方課程/證照', ico:'check', color:'#34d399' },
+  { id:'governance', label:'科技治理', ico:'alert', color:'var(--ac)' },
+  { id:'tutorials', label:'AI工具教學', ico:'file', color:'var(--ac)' },
+  { id:'courses', label:'AI官方課程/證照', ico:'check', color:'var(--ac)' },
 ];
 const TITLES = { dashboard:'趨勢儀表板', papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', models:'🚀 最近模型發布快訊', history:'📅 歷史紀錄' };
 
 /* ======== HELPERS ======== */
-function badge(color, inner) { return `<span class="badge" style="background:${color}14;color:${color};border:1px solid ${color}22">${inner}</span>`; }
-function rank(n, color) {
-  const t3 = n<=3;
-  return `<div class="rank ${t3?'top3':'dim'}" style="background:${t3?`linear-gradient(135deg,${color},${color}bb)`:`${color}18`};color:${t3?'#fff':color};${t3?`box-shadow:0 2px 8px ${color}40`:''}">${n}</div>`;
-}
+function tint(color, percent) { return `color-mix(in srgb, ${color} ${percent}%, transparent)`; }
+function badge(color, inner) { return `<span class="badge" style="background:${tint(color,6)};color:${color};border:1px solid ${tint(color,14)}">${inner}</span>`; }
+function rank(n) { return `<div class="rank ${n<=3?'top3':'dim'}">${n}</div>`; }
 function linkOut(url, text='查看原文') { return safeURL(url) ? `<a class="card-link" href="${esc(safeURL(url))}" target="_blank" rel="noopener noreferrer">${svg('ext',12)} ${esc(text)}</a>` : ''; }
-function infoBlock(ico, color, label, text) {
+function infoBlock(ico, label, text) {
   if(!text) return '';
   const t = Array.isArray(text) ? text.join('；') : text;
-  return `<div class="info-block" style="background:${color}0a;border:1px solid ${color}14"><div>${svg(ico,13,color)}</div><div><div class="ib-label" style="color:${color}">${label}</div><p class="ib-text">${esc(t)}</p></div></div>`;
+  return `<div class="info-block"><div>${svg(ico,13,'currentColor')}</div><div><div class="ib-label">${label}</div><p class="ib-text">${esc(t)}</p></div></div>`;
 }
 function dayName(d){const n=new Date(d).getDay();return isNaN(n)?'':['週日','週一','週二','週三','週四','週五','週六'][n]}
 function fmtDate(d){if(!d)return'';const dt=new Date(d);return `${dt.getFullYear()} 年 ${dt.getMonth()+1} 月 ${dt.getDate()} 日 ${dayName(d)}`}
@@ -113,16 +111,16 @@ const NEWS_LABELS = {topnews:'🔥 全球新聞',taiwan:'🇹🇼 台灣',china:
 
 /* ======== SEARCH CATS ======== */
 const SEARCH_CATS = [
-  {key:'papers',    label:'📄 論文',   color:'#6366f1'},
-  {key:'topnews',   label:'🔥 全球新聞', color:'#f59e0b'},
-  {key:'taiwan',    label:'🇹🇼 台灣',   color:'#34d399'},
-  {key:'china',     label:'🇨🇳 中國',   color:'#f87171'},
-  {key:'usa',       label:'🇺🇸 美國',   color:'#60a5fa'},
-  {key:'techtrends',label:'📈 技術趨勢', color:'#a78bfa'},
-  {key:'governance',label:'⚖️ 科技治理', color:'#f472b6'},
-  {key:'tutorials', label:'🛠️ 工具教學', color:'#fbbf24'},
-  {key:'courses',   label:'🎓 課程',   color:'#34d399'},
-  {key:'models',    label:'🚀 模型',   color:'#8b5cf6'},
+  {key:'papers',    label:'📄 論文',   color:'var(--ac)'},
+  {key:'topnews',   label:'🔥 全球新聞', color:'var(--ac)'},
+  {key:'taiwan',    label:'🇹🇼 台灣',   color:'var(--ac)'},
+  {key:'china',     label:'🇨🇳 中國',   color:'var(--ac)'},
+  {key:'usa',       label:'🇺🇸 美國',   color:'var(--ac)'},
+  {key:'techtrends',label:'📈 技術趨勢', color:'var(--ac)'},
+  {key:'governance',label:'⚖️ 科技治理', color:'var(--ac)'},
+  {key:'tutorials', label:'🛠️ 工具教學', color:'var(--ac)'},
+  {key:'courses',   label:'🎓 課程',   color:'var(--ac)'},
+  {key:'models',    label:'🚀 模型',   color:'var(--ac)'},
 ];
 
 /* ======== WEEKLY SET + fmtCatTime ======== */

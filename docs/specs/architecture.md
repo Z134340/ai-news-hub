@@ -5,7 +5,7 @@
 > 本節描述前端與儲存的「正規化後」現況，**優先於下方任何仍以單檔 index.html 描述的舊段落**。
 
 ### 前端：單檔 → 模組化（vanilla，零 build）
-`index.html` 已拆為頁面結構、`assets/css/app.css`、儀表板專用 `assets/css/trend-briefing.css` 與 `assets/js/` 十三個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
+`index.html` 已拆為頁面結構、全站共用主題 `assets/css/app.css`、儀表板布局 `assets/css/trend-briefing.css` 與 `assets/js/` 十三個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
 `config → personal-data → firebase → bookmarks → search → render → ui → history → data → trend-topics → trend-briefing → dashboard → main`。
 仍是純靜態，GitHub Pages 直接服務；相對路徑維持 project page base `/ai-news-hub/`；`.nojekyll` 保留。
@@ -75,7 +75,8 @@ ai-news-hub/
 ├── docs/specs/  docs/shapes/        ← 規格與程式速查
 ├── docs/legacy/                    ← 歷史文件（含舊 SKILL.md）
 ├── assets/
-│   ├── css/app.css                  ← 全部樣式
+│   ├── css/app.css                  ← 共用色彩 tokens 與全站元件
+│   ├── css/trend-briefing.css       ← 儀表板布局（引用共用 tokens）
 │   └── js/                          ← classic scripts，載入順序固定
 │       ├── config.js                ← 常數/icons/helpers/state/FIREBASE_CONFIG
 │       ├── personal-data.js         ← 帳號快取、資料清理與刪除紀錄
