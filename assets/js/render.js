@@ -3,7 +3,7 @@
 /* ======== SKELETON ======== */
 function showSkeleton() {
   const sk = Array(4).fill(`<div class="sk"><div class="sk-line h18 w70"></div><div class="sk-line w40"></div><div class="sk-line w70"></div></div>`).join('');
-  ['panel-papers','sub-topnews','sub-taiwan','sub-china','sub-usa','sub-techtrends','sub-governance','sub-tutorials','sub-courses','panel-models','panel-history'].forEach(id => $(id).innerHTML = sk);
+  ['panel-papers','sub-topnews','sub-taiwan','sub-china','sub-usa','sub-techtrends','sub-governance','sub-tutorials','sub-courses','panel-models','panel-skills','panel-history'].forEach(id => $(id).innerHTML = sk);
 }
 
 /* ======== TOGGLE CARD ======== */
@@ -67,6 +67,7 @@ function renderAll() {
   renderTutorials(sortByDate(filterRecent3M(d.tutorials||[])));
   renderCourses(sortByDate(filterRecent3M(d.courses||[])));
   renderModels(sortByDate(filterRecent3M(d.models||[]), true));
+  renderSkills(d.skills||[]);
 
   // Counts
   SUBS.forEach(s => { const el=$('cnt-'+s.id); if(el) el.textContent=(d[s.id]||[]).length; });
@@ -235,6 +236,40 @@ function renderModels(items) {
         ${infoBlock('chart', '基準測試', m.benchmarks)}
         ${infoBlock('sparkles', '關鍵亮點', m.highlights)}
         ${linkOut(m.url,'查看詳情')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════ HOT AGENT SKILLS ═══════ */
+function renderSkills(items) {
+  const el = $('panel-skills');
+  const sorted = [...items].sort((a,b)=>(Number(b.stars)||0)-(Number(a.stars)||0) || String(a.title||'').localeCompare(String(b.title||'')));
+  if(!sorted.length){el.innerHTML='<div class="empty">✨ 暫無熱門 Skills 資料</div>';return;}
+  el.innerHTML = `<div class="skills-note">GitHub 星數為專案層級的人氣指標；本站先確認跨工具相容性、維護狀態與內容型態，再依星數排序。</div>` + sorted.map((s,i)=>{
+    const k=`skills-${i}`, open=openCards[k]!==undefined?openCards[k]:i<3;
+    if(openCards[k]===undefined) openCards[k]=i<3;
+    const bid=itemKey(s); REGISTRY[bid]={cat:'skills',catLabel:'✨ Skills',catColor:'var(--ac)',item:s};
+    const stars = Number.isFinite(Number(s.stars)) ? Number(s.stars).toLocaleString('en-US') : '—';
+    return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
+      <div class="card-row">
+        ${rank(i+1)}
+        <div class="card-body">
+          <div class="card-head"><div><div class="card-title">${esc(s.title||'未命名 Skill')}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${cardActions(bid)}</div></div>
+          <div class="card-badges">
+            ${badge('var(--amber)',svg('sparkles',10)+' '+stars)}
+            ${s.type?badge('var(--ac)',esc(s.type)):''}
+            ${s.focus?badge('var(--green)',esc(s.focus)):''}
+            ${s.license?badge('var(--tx3)',esc(s.license)):''}
+          </div>
+        </div>
+        <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
+      </div>
+      <div class="card-detail" style="display:${open?'block':'none'}">
+        <p class="summary">${esc(s.summary)}</p>
+        ${infoBlock('cpu','支援工具',s.tools)}
+        ${s.date?`<p class="authors">最近維護：${esc(s.date)} · Forks ${esc(Number(s.forks||0).toLocaleString('en-US'))}</p>`:''}
+        ${linkOut(s.url,'前往 GitHub')}
       </div>
     </div>`;
   }).join('');

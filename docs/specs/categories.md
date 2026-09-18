@@ -1,6 +1,6 @@
 <!-- 自 CLAUDE.md 拆出（2026-09-04）。此檔是權威規範，CLAUDE.md 只留索引；改本檔不必同步回 CLAUDE.md。 -->
 
-## 十大分類規範
+## 十一大分類規範
 
 ### 1. 📄 AI 論文發表 (`papers`)
 **機構（12）：** Google DeepMind, OpenAI, Google Research/Brain, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Anthropic, Apple
@@ -64,5 +64,11 @@
 **筆數上限：** 20 筆
 **欄位：** model_name, version, institution, release_date, domain, summary(5-6句), advantages, benchmarks(含數字), highlights, url
 
----
+### 11. ✨ 熱門 Agent Skills (`skills`)
+**定位：** 跨工具 Agent Skills 專案人氣榜，涵蓋 Claude Code、Codex 與其他支援 Agent Skills 的工具。GitHub 星數屬專案層級，單一技能、技能包與官方技能包必須明確標示，不把同一 repo 的星數冒充個別 Skill 星數。
+**來源：** GitHub REST API；候選白名單只在 `scripts/skills-repositories.json` 維護。初始來源包含 Superpowers、Matt Pocock Skills、Anthropic Skills、Ponytail、UI UX Pro Max、Addy Osmani Agent Skills、Archify、Marketing Skills、Humanizer、Obsidian Skills、Scientific Agent Skills、Diagram Design。
+**納入門檻：** repo 內含 `SKILL.md`；明確支援至少兩種 agent client；非 archived／fork；近期仍有維護；網址與星數由 GitHub API 取得。聚合目錄、規格 repo、一般應用程式與已棄用 repo 不進主榜。
+**排序：** 每日依 `stargazers_count` 由高至低，星數相同時依 repo 全名；API 任一來源失敗時整批不覆寫，沿用上一份成功資料。
+**欄位：** title(repo full name), source, date(last push), summary, url, stars, forks, license, type, focus, tools, verified
 
+---

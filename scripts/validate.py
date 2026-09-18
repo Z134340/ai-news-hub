@@ -179,6 +179,7 @@ REQUIRED_FIELDS = {
     'tutorials': ['title', 'source', 'date', 'summary', 'url'],
     'courses': ['title', 'source', 'date', 'summary', 'url'],
     'models': ['model_name', 'institution', 'release_date', 'summary', 'url'],
+    'skills': ['title', 'source', 'date', 'summary', 'url', 'stars'],
 }
 
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -415,6 +416,7 @@ CATEGORY_DATE_LIMITS = {
     'tutorials': 90,
     'courses': 90,
     'models': None,  # handled by allow_future
+    'skills': 90,
 }
 
 
@@ -456,6 +458,8 @@ def validate_required_fields(item, category):
     def present(value, field):
         if field == 'authors' and isinstance(value, list):
             return bool(value) and all(isinstance(x, str) and x.strip() for x in value)
+        if field == 'stars':
+            return isinstance(value, int) and not isinstance(value, bool) and value >= 0
         return isinstance(value, str) and bool(value.strip())
     missing = [field for field in required if not present(item.get(field), field)]
     return len(missing) == 0, missing
@@ -674,6 +678,16 @@ def run_self_test():
     check(f'check_domain_whitelist accepts tier-b domain ({sample})', ok and dom == sample)
     ok2, _ = check_domain_whitelist('https://definitely-not-listed.invalid/')
     check('check_domain_whitelist rejects unlisted domain', not ok2)
+    check('skills accepts a non-negative integer star count',
+          validate_required_fields({'title':'owner/repo', 'source':'GitHub',
+                                    'date':'2026-09-18', 'summary':'x',
+                                    'url':'https://github.com/owner/repo', 'stars':1},
+                                   'skills')[0])
+    check('skills rejects a formatted string star count',
+          not validate_required_fields({'title':'owner/repo', 'source':'GitHub',
+                                        'date':'2026-09-18', 'summary':'x',
+                                        'url':'https://github.com/owner/repo', 'stars':'1'},
+                                       'skills')[0])
     try:
         with open(TIER_B_DOMAINS_PATH, 'r', encoding='utf-8') as f:
             doc = json.load(f)
@@ -691,7 +705,7 @@ def run_self_test():
         check('registry schema tag', reg.get('schema') == 'sources-registry-v0.1')
         check('registry checked_at is YYYY-MM-DD',
               bool(datetime.strptime(str(reg.get('checked_at', '')), '%Y-%m-%d')))
-        check('registry has exactly the 10 categories', set(cats) == set(REQUIRED_FIELDS))
+        check('registry has exactly the 10 discovery categories', set(cats) == set(REQUIRED_FIELDS) - {'skills'})
         check('registry every category >= 3 feeds', all(len(v) >= 3 for v in cats.values()))
         entries = [e for v in cats.values() for e in v]
         check('registry entries have name/tier/feed/type',

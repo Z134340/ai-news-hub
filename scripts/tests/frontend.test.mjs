@@ -13,7 +13,7 @@ function app(seed={}) {
     localStorage:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,v)},
     window:{listeners:{},addEventListener(name,fn){this.listeners[name]=fn;}},fetch:async()=>{throw Error('unexpected network');}});
   const run = source => vm.runInContext(source,context);
-  for (const file of ['config','personal-data','firebase','bookmarks','data','trend-topics','trend-briefing','dashboard','history']) run(fs.readFileSync(`${root}/assets/js/${file}.js`,'utf8'));
+  for (const file of ['config','personal-data','firebase','bookmarks','search','render','data','trend-topics','trend-briefing','dashboard','history']) run(fs.readFileSync(`${root}/assets/js/${file}.js`,'utf8'));
   const snap = (collection,id) => ({exists:collection.has(id),data:()=>structuredClone(collection.get(id))});
   const db = {collection(name){const collection=name==='users'?users:feedback;return {
     doc(id){return {name,id};},
@@ -115,6 +115,21 @@ test('latest load failure preserves news tab child containers',async()=>{
   const a=app();a.run("showSkeleton=()=>{};");a.nodes.set('panel-news',{innerHTML:'original subpanels'});
   await a.run('loadData()');assert.equal(a.nodes.get('panel-news').innerHTML,'original subpanels');
   assert.match(a.nodes.get('sub-topnews').innerHTML,/載入失敗/);
+});
+
+test('skills render by GitHub stars and escape repository metadata',()=>{
+  const a=app();a.context.fixture=[
+    {title:'safe/low',summary:'low',url:'https://github.com/safe/low',stars:10,forks:1,date:'2026-09-17',tools:['Claude Code','Codex']},
+    {title:'high/repo <img src=x onerror=bad()>',summary:'<script>bad()</script>',url:'https://github.com/safe/high',stars:20,forks:2,date:'2026-09-18',tools:['Claude Code','Codex']}
+  ];
+  a.run('renderSkills(fixture)');const html=a.nodes.get('panel-skills').innerHTML;
+  assert.ok(html.indexOf('high/repo') < html.indexOf('safe/low'));assert.doesNotMatch(html,/<img|<script>/);assert.match(html,/&lt;/);
+});
+
+test('skills can be searched by supported agent client',()=>{
+  const a=app();a.context.fixture={data:{skills:[{title:'owner/skill',source:'GitHub',summary:'design helpers',url:'https://github.com/owner/skill',tools:['Claude Code','Codex']}]}};
+  a.run('DATA=fixture;runSearch("Codex")');const html=a.nodes.get('panel-search').innerHTML;
+  assert.match(html,/owner\/skill/);assert.match(a.nodes.get('secCount').textContent,/1/);
 });
 
 test('dashboard reads its own latest snapshot, independent from historical DATA',async()=>{

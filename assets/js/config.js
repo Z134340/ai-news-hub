@@ -68,6 +68,7 @@ const SECS = [
   { id:'papers', label:'論文研討', desc:'頂尖機構最新研究', ico:'file' },
   { id:'news', label:'AI 新聞', desc:'全球各區熱議焦點', ico:'news' },
   { id:'models', label:'模型快訊', desc:'最新模型與技術突破', ico:'rocket' },
+  { id:'skills', label:'熱門 Skills', desc:'跨工具高星技能', ico:'sparkles' },
   { id:'bookmarks', label:'書籤', desc:'我的收藏文章', ico:'bookmark' },
   { id:'history', label:'歷史紀錄', desc:'過往每日新聞存檔', ico:'calendar' },
 ];
@@ -82,7 +83,7 @@ const SUBS = [
   { id:'tutorials', label:'AI工具教學', ico:'file', color:'var(--ac)' },
   { id:'courses', label:'AI官方課程/證照', ico:'check', color:'var(--ac)' },
 ];
-const TITLES = { dashboard:'趨勢儀表板', papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', models:'🚀 最近模型發布快訊', history:'📅 歷史紀錄' };
+const TITLES = { dashboard:'趨勢儀表板', papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', models:'🚀 最近模型發布快訊', skills:'✨ 熱門 Agent Skills', history:'📅 歷史紀錄' };
 
 /* ======== HELPERS ======== */
 function tint(color, percent) { return `color-mix(in srgb, ${color} ${percent}%, transparent)`; }
@@ -121,6 +122,7 @@ const SEARCH_CATS = [
   {key:'tutorials', label:'🛠️ 工具教學', color:'var(--ac)'},
   {key:'courses',   label:'🎓 課程',   color:'var(--ac)'},
   {key:'models',    label:'🚀 模型',   color:'var(--ac)'},
+  {key:'skills',    label:'✨ Skills', color:'var(--ac)'},
 ];
 
 /* ======== WEEKLY SET + fmtCatTime ======== */

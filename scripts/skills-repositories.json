@@ -1,0 +1,20 @@
+{
+  "schema": "skills-repositories-v1",
+  "checked_at": "2026-09-18",
+  "ranking": "GitHub stargazers_count descending after eligibility review",
+  "eligibility": "Contains Agent Skills, supports at least two agent clients, is not archived, and has recent maintenance evidence.",
+  "repositories": [
+    {"repo":"obra/superpowers","type":"技能包","focus":"軟體開發流程","tools":["Claude Code","Codex","Cursor","Gemini CLI","GitHub Copilot"]},
+    {"repo":"mattpocock/skills","type":"技能包","focus":"軟體工程","tools":["Claude Code","Codex","Cursor"]},
+    {"repo":"anthropics/skills","type":"官方技能包","focus":"文件、設計與開發","tools":["Claude Code","Agent Skills 相容工具"]},
+    {"repo":"DietrichGebert/ponytail","type":"技能包","focus":"簡化程式與技術債","tools":["Claude Code","Codex","Cursor","GitHub Copilot"]},
+    {"repo":"nextlevelbuilder/ui-ux-pro-max-skill","type":"技能包","focus":"UI／UX 設計","tools":["Claude Code","Codex","Cursor","GitHub Copilot"]},
+    {"repo":"addyosmani/agent-skills","type":"技能包","focus":"生產級軟體工程","tools":["Claude Code","Codex","Cursor"]},
+    {"repo":"tt-a1i/archify","type":"單一技能","focus":"架構與流程圖","tools":["Claude Code","Codex","Cursor","OpenCode"]},
+    {"repo":"coreyhaines31/marketingskills","type":"技能包","focus":"行銷、SEO 與成長","tools":["Claude Code","Codex","Cursor","Windsurf"]},
+    {"repo":"blader/humanizer","type":"單一技能","focus":"文字自然化","tools":["Claude Code","Codex","Agent Skills 相容工具"]},
+    {"repo":"kepano/obsidian-skills","type":"技能包","focus":"Obsidian 與知識管理","tools":["Claude Code","Codex","OpenCode"]},
+    {"repo":"K-Dense-AI/scientific-agent-skills","type":"技能包","focus":"科學研究","tools":["Claude Code","Codex","Cursor","Antigravity"]},
+    {"repo":"cathrynlavery/diagram-design","type":"單一技能","focus":"視覺化與圖表設計","tools":["Claude Code","Codex","GitHub Copilot","OpenCode"]}
+  ]
+}

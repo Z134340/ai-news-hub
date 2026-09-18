@@ -122,6 +122,7 @@ a:hover{color:var(--acl)}
 .dr-item-date{font-size:13px;font-weight:600;margin-bottom:3px}
 .dr-item-meta{font-size:11px;color:var(--tx3);display:flex;gap:10px}
 .empty{text-align:center;padding:40px 16px;color:var(--tx3);font-size:14px}
+.skills-note{margin:0 0 14px;padding:10px 13px;border:1px solid var(--bd);border-radius:8px;background:var(--ac-soft);color:var(--tx2);font-size:12px;line-height:1.65}
 
 /* ===== LAPTOP / DESKTOP — 等比例放大至舒適檢視 =====
    只作用於 >768px（筆電/桌面）。zoom 同時放大字級與間距，比例不變，

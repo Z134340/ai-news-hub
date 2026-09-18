@@ -266,7 +266,7 @@ function fixtureDays() {
   const mk = (date, items) => ({
     date,
     file: `fixture-${date}.json`,
-    daily: { date, data: { ai: items } },
+    daily: { date, data: { topnews: items } },
   });
   return [
     mk("2026-04-01", [

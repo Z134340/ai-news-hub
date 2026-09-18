@@ -21,11 +21,12 @@
 
 | 類型 | 分類 | 頻率 |
 |------|------|------|
-| 每日 | papers, topnews, taiwan, china, usa, techtrends, governance | 每天擷取 |
+| 每日 | papers, topnews, taiwan, china, usa, techtrends, governance | 每天透過搜尋擷取 |
+| 每日 | skills | 每天透過 GitHub REST API 更新星數與維護狀態 |
 | 每週 | models, tutorials, courses | 僅週一擷取 |
 
-**週一（DOW=1）：** 擷取全部 10 個類別（含每週類別），執行 `merge-stack.py` 累積合併
-**週二至週日（DOW=2-7）：** 僅擷取 7 個每日類別，每週類別保留上次 `latest.json` 中的資料與時間戳
+**週一（DOW=1）：** 更新全部 11 個類別（含每週類別），執行 `merge-stack.py` 累積合併
+**週二至週日（DOW=2-7）：** 更新 8 個每日類別，每週類別保留上次 `latest.json` 中的資料與時間戳
 
 ### `_updated_at` 每類別時間戳
 
@@ -48,4 +49,3 @@
 非週一時，每週類別的 `_updated_at` 保留上週一的時間戳，前端據此顯示「（每週一更新）」提示。
 
 ---
-

@@ -30,11 +30,17 @@ async function fetchJSON(url, ms=10000, options={}) {
 async function loadData(){
   showSkeleton();
   try{
-    const [dr,hr]=await Promise.all([
+    const [dr,hr,sr]=await Promise.all([
       fetchJSON('data/latest.json?v='+Date.now(),10000),
-      fetchJSON('data/health.json?v='+Date.now(),8000).catch(()=>null)
+      fetchJSON('data/health.json?v='+Date.now(),8000).catch(()=>null),
+      fetchJSON('data/skills.json?v='+Date.now(),8000).catch(()=>null)
     ]);
     if (!dr || !dr.data || typeof dr.data !== 'object' || Array.isArray(dr.data)) throw new Error('invalid_news_data');
+    if (sr && Array.isArray(sr.items)) {
+      dr.data.skills = sr.items;
+      dr.stats = {...(dr.stats||{}),skills:sr.items.length};
+      dr._updated_at = {...(dr._updated_at||{}),skills:sr._updated_at||dr.time};
+    }
     DATA=dr; HEALTH=hr; updateTime=DATA.time;
     renderAll(); updateHeader(); startAutoCheck();
     return true;
@@ -42,7 +48,7 @@ async function loadData(){
     const msg=e.name==='AbortError'?'載入逾時，請重新整理':'載入失敗，請重新整理';
     console.error(e);
     if ($('hPillText')) $('hPillText').textContent = '資料載入失敗';
-    ['panel-papers','panel-models',...SUBS.map(s=>'sub-'+s.id)].forEach(id => { const el = $(id); if (el) el.innerHTML=`<div class="empty">⚠️ ${msg}</div>`; });
+    ['panel-papers','panel-models','panel-skills',...SUBS.map(s=>'sub-'+s.id)].forEach(id => { const el = $(id); if (el) el.innerHTML=`<div class="empty">⚠️ ${msg}</div>`; });
     return false;
   }
 }

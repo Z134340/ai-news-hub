@@ -125,7 +125,7 @@ GitHub Pages CDN 更新靜態檔案
 index.html 載入 → fetch("data/latest.json?v=" + Date.now())
        │                   ↑ cache-busting 參數，強制繞過快取
        ▼
-JSON 解析 → 渲染十大類別卡片 → 你看到最新資料 ✅
+JSON 解析 → 渲染十一類資料卡片 → 你看到最新資料 ✅
 ```
 
 ### 關鍵防快取機制

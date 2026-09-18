@@ -171,7 +171,7 @@ RUN_BASE=$(git rev-parse HEAD) || exit 1
 
 # ── 星期判斷 & 分類排程 ──
 DOW=$(date +%u)  # 1=週一 7=週日
-DAILY_CATS=(papers topnews taiwan china usa techtrends governance)
+DAILY_CATS=(papers topnews taiwan china usa techtrends governance skills)
 WEEKLY_CATS=(models tutorials courses)
 
 if [[ "$DOW" -eq 1 ]]; then
@@ -194,6 +194,14 @@ mkdir -p "$STATUS_DIR"
 
 log "開始擷取 ${#CATEGORIES[@]} 個類別: ${CATEGORIES[*]}"
 log "硬性截止時間: $(date -r $HARD_DEADLINE '+%H:%M:%S' 2>/dev/null || date -d @$HARD_DEADLINE '+%H:%M:%S' 2>/dev/null || echo '計算中')"
+
+# GitHub 星數是結構化資料，直接使用官方 API，避免模型猜測數字。
+if node "$SCRIPTS_DIR/fetch-skills.mjs" >> "$LOG_FILE" 2>&1; then
+    echo OK > "$STATUS_DIR/skills"
+else
+    echo FAIL > "$STATUS_DIR/skills"
+    log "⚠️ [skills] GitHub API 更新失敗，合併階段沿用現有資料"
+fi
 
 # ── fetch_one CAT：單一類別完整擷取（含重試、fallback）──
 # 設計為背景執行（&），結果寫入 STATUS_DIR/$CAT
@@ -417,7 +425,7 @@ import json, os
 from datetime import datetime, timezone, timedelta
 
 DATA_DIR = "data"
-ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models"]
+ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models", "skills"]
 WEEKLY_CATS = {"models", "tutorials", "courses"}
 
 now = datetime.now(timezone(timedelta(hours=8)))

@@ -41,7 +41,9 @@ function runSearch(q) {
         item.title, item.title_zh, item.summary, item.source, item.institution,
         item.company, item.topic, item.category, item.model_name, item.tool_name,
         item.provider, item.field, item.domain, item.model_area, item.venue,
+        item.focus, item.type, item.license,
         Array.isArray(item.authors)?item.authors.join(' '):(item.authors||''),
+        Array.isArray(item.tools)?item.tools.join(' '):(item.tools||''),
         ...(item.highlights||[]), ...(item.advantages||[]),
         ...(Array.isArray(item.topics)?item.topics:(item.topics?[item.topics]:[])),
       ].filter(Boolean).join(' ').toLowerCase();

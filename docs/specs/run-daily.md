@@ -20,7 +20,7 @@
 
 ```bash
 DOW=$(date +%u)  # 1=週一 7=週日
-DAILY_CATS=(papers topnews taiwan china usa techtrends governance)
+DAILY_CATS=(papers topnews taiwan china usa techtrends governance skills)
 WEEKLY_CATS=(models tutorials courses)
 
 if [[ "$DOW" -eq 1 ]]; then
@@ -38,6 +38,8 @@ if isinstance(d, list):
 elif isinstance(d, dict):
     d['_updated_at'] = now
 ```
+
+`skills` 不呼叫 Claude CLI。`scripts/fetch-skills.mjs` 讀取人工核准的候選清單，使用 GitHub REST API 取得星數與 repo metadata，整批成功才以原子 rename 更新 `data/skills.json`；失敗則保留上一份資料並將本次分類記為失敗。
 
 ### 擷取流程
 
@@ -109,7 +111,7 @@ else:
 ### 合併 latest.json
 - python3 合併為 latest.json（含 source: "local"，含 `_updated_at` 各類別時間戳）
 - 非週一：每週類別 (models/tutorials/courses) 從舊 latest.json 讀取，保留原始 `_updated_at` 時間戳
-- 週一：所有 10 類別從當日擷取的 JSON 讀取
+- 週一：所有 11 類別從當日資料檔讀取
 
 ### 驗證 + 歸檔
 - python3 scripts/validate.py 八步驟驗證

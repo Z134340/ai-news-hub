@@ -150,7 +150,7 @@ import json, os
 from datetime import datetime, timezone, timedelta
 
 DATA_DIR = "data"
-ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models"]
+ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models", "skills"]
 
 now = datetime.now(timezone(timedelta(hours=8)))
 
@@ -174,7 +174,18 @@ updated_at = {}
 for cat in ALL_CATEGORIES:
     cat_file = os.path.join(DATA_DIR, f"{cat}.json")
 
-    if cat not in refetched:
+    if cat == "skills":
+        # Skills 有自己的 GitHub API 榜單；補跑新聞時仍從其權威資料檔帶入。
+        try:
+            with open(cat_file) as f:
+                raw = json.load(f)
+            items = raw.get("items", []) if isinstance(raw, dict) else []
+            ts = raw.get("_updated_at", "") if isinstance(raw, dict) else ""
+        except:
+            items = old_data.get(cat, [])
+            ts = old_updated.get(cat, "")
+        print(f"  {cat}: 保留獨立榜單 ({len(items) if isinstance(items, list) else '?'} 筆)")
+    elif cat not in refetched:
         items = old_data.get(cat, [])
         ts = old_updated.get(cat, "")
         print(f"  {cat}: 保留 latest.json 既有 ({len(items) if isinstance(items, list) else '?'} 筆)")

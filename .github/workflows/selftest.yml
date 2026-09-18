@@ -66,8 +66,10 @@ jobs:
         run: |
           set -euo pipefail
           for f in assets/js/*.js; do node --check "$f"; done
+          node --check scripts/fetch-skills.mjs
           bash -n scripts/run-daily.sh
-          node --test scripts/tests/frontend.test.mjs scripts/tests/trend-topics.test.mjs
+          bash -n scripts/supplement-run.sh
+          node --test scripts/tests/frontend.test.mjs scripts/tests/trend-topics.test.mjs scripts/tests/fetch-skills.test.mjs
           python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v
 
       - name: Working tree untouched

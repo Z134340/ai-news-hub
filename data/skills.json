@@ -1,0 +1,229 @@
+{
+  "items": [
+    {
+      "title": "obra/superpowers",
+      "source": "GitHub",
+      "date": "2026-09-18",
+      "summary": "An agentic skills framework & software development methodology that works.",
+      "url": "https://github.com/obra/superpowers",
+      "stars": 288404,
+      "forks": 25792,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "軟體開發流程",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Gemini CLI",
+        "GitHub Copilot"
+      ],
+      "verified": true
+    },
+    {
+      "title": "mattpocock/skills",
+      "source": "GitHub",
+      "date": "2026-09-18",
+      "summary": "Skills for Real Engineers. Straight from my .agents directory.",
+      "url": "https://github.com/mattpocock/skills",
+      "stars": 265042,
+      "forks": 22349,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "軟體工程",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor"
+      ],
+      "verified": true
+    },
+    {
+      "title": "anthropics/skills",
+      "source": "GitHub",
+      "date": "2026-09-10",
+      "summary": "Public repository for Agent Skills",
+      "url": "https://github.com/anthropics/skills",
+      "stars": 176991,
+      "forks": 20966,
+      "license": "逐項確認",
+      "type": "官方技能包",
+      "focus": "文件、設計與開發",
+      "tools": [
+        "Claude Code",
+        "Agent Skills 相容工具"
+      ],
+      "verified": true
+    },
+    {
+      "title": "DietrichGebert/ponytail",
+      "source": "GitHub",
+      "date": "2026-09-14",
+      "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "stars": 141813,
+      "forks": 7603,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "簡化程式與技術債",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "GitHub Copilot"
+      ],
+      "verified": true
+    },
+    {
+      "title": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source": "GitHub",
+      "date": "2026-09-15",
+      "summary": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "stars": 128719,
+      "forks": 13720,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "UI／UX 設計",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "GitHub Copilot"
+      ],
+      "verified": true
+    },
+    {
+      "title": "addyosmani/agent-skills",
+      "source": "GitHub",
+      "date": "2026-09-18",
+      "summary": "Production-grade engineering skills for AI coding agents.",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "stars": 96185,
+      "forks": 10170,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "生產級軟體工程",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor"
+      ],
+      "verified": true
+    },
+    {
+      "title": "tt-a1i/archify",
+      "source": "GitHub",
+      "date": "2026-09-18",
+      "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+      "url": "https://github.com/tt-a1i/archify",
+      "stars": 66516,
+      "forks": 4443,
+      "license": "MIT",
+      "type": "單一技能",
+      "focus": "架構與流程圖",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "OpenCode"
+      ],
+      "verified": true
+    },
+    {
+      "title": "coreyhaines31/marketingskills",
+      "source": "GitHub",
+      "date": "2026-09-05",
+      "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "stars": 50791,
+      "forks": 7693,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "行銷、SEO 與成長",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Windsurf"
+      ],
+      "verified": true
+    },
+    {
+      "title": "blader/humanizer",
+      "source": "GitHub",
+      "date": "2026-09-06",
+      "summary": "Agent skill that removes signs of AI-generated writing from text",
+      "url": "https://github.com/blader/humanizer",
+      "stars": 49820,
+      "forks": 4026,
+      "license": "MIT",
+      "type": "單一技能",
+      "focus": "文字自然化",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Agent Skills 相容工具"
+      ],
+      "verified": true
+    },
+    {
+      "title": "kepano/obsidian-skills",
+      "source": "GitHub",
+      "date": "2026-09-15",
+      "summary": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
+      "url": "https://github.com/kepano/obsidian-skills",
+      "stars": 48548,
+      "forks": 3456,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "Obsidian 與知識管理",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "OpenCode"
+      ],
+      "verified": true
+    },
+    {
+      "title": "K-Dense-AI/scientific-agent-skills",
+      "source": "GitHub",
+      "date": "2026-09-14",
+      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "stars": 45466,
+      "forks": 4124,
+      "license": "MIT",
+      "type": "技能包",
+      "focus": "科學研究",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Antigravity"
+      ],
+      "verified": true
+    },
+    {
+      "title": "cathrynlavery/diagram-design",
+      "source": "GitHub",
+      "date": "2026-09-15",
+      "summary": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "stars": 41026,
+      "forks": 2623,
+      "license": "MIT",
+      "type": "單一技能",
+      "focus": "視覺化與圖表設計",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "GitHub Copilot",
+        "OpenCode"
+      ],
+      "verified": true
+    }
+  ],
+  "_updated_at": "2026-09-18T14:24:47.564Z",
+  "source": "GitHub REST API"
+}

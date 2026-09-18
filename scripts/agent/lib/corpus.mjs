@@ -14,12 +14,15 @@ export const CORPUS_DIR = path.join(os.homedir(), ".ai-news-hub", "corpus");
 
 const DATE_FILE = /^(\d{4}-\d{2}-\d{2})\.json$/;
 
-// 每日檔的 items 藏在 data 這一層的十個分類底下，不是攤平在頂層。
+// 每日檔的 editorial items 藏在 data 這一層的十個內容分類底下，不是攤平在頂層。
 // （踩過一次：直接對頂層做 sum(len(v)) 會得到 0。）
+// skills 是獨立 GitHub 榜單，不可混入新聞趨勢、學習或提案語料。
+export const EDITORIAL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models"];
 export function itemsOf(daily) {
   const buckets = daily && typeof daily.data === "object" ? daily.data : {};
   const out = [];
-  for (const [category, list] of Object.entries(buckets)) {
+  for (const category of EDITORIAL_CATEGORIES) {
+    const list = buckets[category];
     if (!Array.isArray(list)) continue;
     for (const raw of list) {
       const item = normalizeItem(raw, category, daily.date);
