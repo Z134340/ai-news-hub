@@ -1,0 +1,21 @@
+{
+  "schema_version": "official-ai-sources-v1",
+  "checked_at": "2026-09-19",
+  "sources": [
+    {"company":"OpenAI","domains":["openai.com"],"discovery_url":"https://openai.com/news/","coverage":["official_info","model_news"]},
+    {"company":"Anthropic","domains":["anthropic.com"],"discovery_url":"https://www.anthropic.com/news","coverage":["official_info","model_news"]},
+    {"company":"Google DeepMind","domains":["deepmind.google"],"discovery_url":"https://deepmind.google/blog/","model_cards_url":"https://deepmind.google/models/model-cards/","coverage":["official_info","model_news"]},
+    {"company":"Meta AI","domains":["ai.meta.com"],"discovery_url":"https://ai.meta.com/blog/","coverage":["official_info","model_news"]},
+    {"company":"Microsoft","domains":["microsoft.com","news.microsoft.com"],"discovery_url":"https://www.microsoft.com/en-us/research/blog/","coverage":["official_info","model_news"]},
+    {"company":"NVIDIA","domains":["blogs.nvidia.com","developer.nvidia.com"],"discovery_url":"https://blogs.nvidia.com/","coverage":["official_info","model_news"]},
+    {"company":"Mistral AI","domains":["mistral.ai"],"discovery_url":"https://mistral.ai/news/","coverage":["official_info","model_news"]},
+    {"company":"xAI","domains":["x.ai"],"discovery_url":"https://x.ai/news","coverage":["official_info","model_news"]},
+    {"company":"Cohere","domains":["cohere.com"],"discovery_url":"https://cohere.com/newsroom","coverage":["official_info","model_news"]},
+    {"company":"Qwen","domains":["qwenlm.github.io"],"discovery_url":"https://qwenlm.github.io/blog/","coverage":["official_info","model_news"]},
+    {"company":"DeepSeek","domains":["api-docs.deepseek.com"],"discovery_url":"https://api-docs.deepseek.com/updates/","coverage":["official_info","model_news"]},
+    {"company":"Stability AI","domains":["stability.ai"],"discovery_url":"https://stability.ai/news-updates","coverage":["official_info","model_news"]},
+    {"company":"AWS","domains":["aws.amazon.com"],"discovery_url":"https://aws.amazon.com/blogs/machine-learning/","coverage":["official_info"]},
+    {"company":"Google Cloud","domains":["cloud.google.com"],"discovery_url":"https://cloud.google.com/blog/products/ai-machine-learning","coverage":["official_info"]},
+    {"company":"Hugging Face","domains":["huggingface.co"],"discovery_url":"https://huggingface.co/blog","coverage":["official_info"]}
+  ]
+}

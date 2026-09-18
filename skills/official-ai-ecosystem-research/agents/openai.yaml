@@ -1,0 +1,4 @@
+interface:
+  display_name: "官方 AI 生態系調研"
+  short_description: "核驗官方模型與企業生態系消息，產出可追溯繁中研究資料"
+  default_prompt: "Use $official-ai-ecosystem-research to research recent first-party AI company announcements and model releases."

@@ -43,6 +43,7 @@
 | 排程安裝、launchd、電源與喚醒 | `docs/specs/setup-scheduler.md` |
 | 前端 UX、趨勢儀表板與待實作設計 | `docs/specs/frontend-ux.md` |
 | 雙訊號學習迴圈 | `docs/specs/learning-loop-v1.md` |
+| 企業生態系官方資訊／模型快訊調研、來源核驗與研究輸出 | `skills/official-ai-ecosystem-research/SKILL.md` |
 | auto-opt 程式、資料 shape、代理契約定位 | `docs/shapes/README.md` → 對應單檔 |
 | 當前狀態、施工單、使用者已拍板決策 | `HANDOFF.md` |
 

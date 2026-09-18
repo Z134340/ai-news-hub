@@ -76,6 +76,7 @@ ai-news-hub/
 ├── README.md                       ← 專案介紹與操作入口
 ├── docs/specs/  docs/shapes/        ← 規格與程式速查
 ├── docs/legacy/                    ← 歷史文件（含舊 SKILL.md）
+├── skills/                         ← Claude Code／Codex 共用專案技能；由 CLAUDE.md 索引
 ├── assets/
 │   ├── css/app.css                  ← 共用色彩 tokens 與全站元件
 │   ├── css/trend-briefing.css       ← 儀表板布局（引用共用 tokens）
