@@ -66,7 +66,7 @@ function updateTitle() {
   if(curSec==='bookmarks'||curSec==='search') return; // managed by their own render functions
   const items = DATA?.data?.[catId] || [];
   $('secTitle').textContent = TITLES[catId] || '';
-  $('secCount').textContent = `共 ${items.length} 筆`;
+  $('secCount').textContent = DATA ? `共 ${items.length} 筆` : '資料未載入';
   // Per-category update time
   const ts = DATA?._updated_at?.[catId] || DATA?.time || '';
   const timeStr = fmtCatTime(ts);

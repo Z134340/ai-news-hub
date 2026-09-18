@@ -2,26 +2,25 @@
 
 /* ======== BOOKMARK BUTTON ======== */
 function bmBtn(id) {
+  if (!personalId(id)) return '';
   const saved = !!BOOKMARKS[id];
   return `<button class="bm-btn${saved?' bm-saved':''}" data-bmid="${id}" title="${saved?'移除書籤':'加入書籤'}" onclick="event.stopPropagation();toggleBookmark('${id}')">${svg('bookmark',14,saved?'#818cf8':'var(--tx3)')}</button>`;
 }
 
 /* ======== BOOKMARK FUNCTIONS ======== */
-function loadBookmarks() {
-  try { BOOKMARKS = JSON.parse(localStorage.getItem('ainews-bm')||'{}'); } catch { BOOKMARKS = {}; }
-}
+function loadBookmarks() { switchPersonalAccount(null); }
 function saveBookmarks() {
-  localStorage.setItem('ainews-bm', JSON.stringify(BOOKMARKS));
-  updateBmTabCount();
-  if (typeof syncBookmarksToCloud === 'function') syncBookmarksToCloud(); // 已登入則同步雲端，否則 no-op
+  persistPersonal(); updateBmTabCount(); syncBookmarksToCloud();
 }
 function toggleBookmark(id) {
+  if (!personalId(id)) return;
   if(BOOKMARKS[id]) {
+    PERSONAL.deleted[id] = nextPersonalStamp();
     delete BOOKMARKS[id];
   } else {
     const r = REGISTRY[id];
     if(!r) return;
-    BOOKMARKS[id] = {...r, savedAt: new Date().toISOString()};
+    BOOKMARKS[id] = {...r, savedAt: nextPersonalStamp()};
   }
   saveBookmarks();
   // Update all visible bookmark buttons for this id
@@ -55,20 +54,22 @@ function renderBookmarks() {
       const date = item.date || item.release_date || '';
       return `<div class="card" style="cursor:default">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <span class="bm-cat" style="background:${bm.catColor}18;color:${bm.catColor};border:1px solid ${bm.catColor}22">${bm.catLabel}</span>
+          <span class="bm-cat" style="background:${bm.catColor}18;color:${bm.catColor};border:1px solid ${bm.catColor}22">${esc(bm.catLabel)}</span>
           <button class="bm-rm" onclick="removeBookmark('${id}')">✕ 移除</button>
         </div>
         <div class="card-title" style="font-size:14px;margin-bottom:6px">${esc(title)}</div>
         ${item.source?`<div style="font-size:11px;color:var(--tx3);margin-bottom:6px">${esc(item.source)}${date?' · '+esc(date):''}</div>`:''}
         ${item.summary?`<p class="summary" style="font-size:13px;color:var(--tx2);line-height:1.8;margin-bottom:8px">${esc(item.summary)}</p>`:''}
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px">
-          ${item.url?`<a class="card-link" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${svg('ext',12)} 查看原文</a>`:'<span></span>'}
+          ${linkOut(item.url)}
           <span style="font-size:10px;color:var(--tx3)">收藏於 ${fmtCatTime(bm.savedAt)}</span>
         </div>
       </div>`;
     }).join('');
 }
 function removeBookmark(id) {
+  if (!personalId(id)) return;
+  PERSONAL.deleted[id] = nextPersonalStamp();
   delete BOOKMARKS[id];
   saveBookmarks();
   // Update bookmark buttons still visible on page
@@ -113,29 +114,26 @@ function exportBookmarks() {
    同一顆再按一次 = 取消評分。 */
 const FB_RATINGS = ['good', 'mid', 'bad'];
 const FB_META = { good:{ico:'thumbup',label:'好'}, mid:{ico:'thumbmid',label:'中'}, bad:{ico:'thumbdown',label:'不好'} };
-function loadFeedback() {
-  try { FEEDBACK = JSON.parse(localStorage.getItem('ainews-fb') || '{}'); } catch (e) { FEEDBACK = {}; }
-}
-function saveFeedback(id, rec) {
-  localStorage.setItem('ainews-fb', JSON.stringify(FEEDBACK));
-  if (typeof syncFeedbackToCloud === 'function') syncFeedbackToCloud(id, rec);
-}
+function loadFeedback() { /* Loaded atomically together with bookmarks. */ }
+function saveFeedback(id, rec) { persistPersonal(); syncFeedbackToCloud(id, rec); }
 function rateItem(id, rating) {
-  if (!FB_RATINGS.includes(rating)) return;
+  if (!personalId(id) || !FB_RATINGS.includes(rating)) return;
   const cur = FEEDBACK[id];
   let rec = null;
   if (cur && cur.rating === rating) {
+    PERSONAL.feedbackDeleted[id] = nextPersonalStamp();
     delete FEEDBACK[id];
   } else {
     const r = (typeof REGISTRY !== 'undefined' && REGISTRY[id]) || {}, it = r.item || {};
     rec = { rating, cat: r.cat || '', item_date: it.date || it.release_date || '',
-            title: it.title || it.model_name || '', url: it.url || '', ts: new Date().toISOString() };
+            title: it.title || it.model_name || '', url: it.url || '', ts: nextPersonalStamp() };
     FEEDBACK[id] = rec;
   }
   saveFeedback(id, rec);
   paintFeedbackButtons(id);
 }
 function fbBtns(id) {
+  if (!personalId(id)) return '';
   const cur = FEEDBACK[id] && FEEDBACK[id].rating;
   return FB_RATINGS.map(r =>
     `<button class="fb-btn fb-${r}${cur === r ? ' fb-on' : ''}" data-fbid="${id}" data-rating="${r}" title="${FB_META[r].label}" onclick="event.stopPropagation();rateItem('${id}','${r}')">${svg(FB_META[r].ico, 13, 'currentColor')}</button>`

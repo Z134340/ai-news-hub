@@ -56,7 +56,11 @@ let srchActive = false, srchQuery = '', srchTimer = null;
 let updateTime = null, autoLock = false;  // data.js 自動更新偵測狀態（避免讀取未宣告變數丟 ReferenceError）
 
 const $ = id => document.getElementById(id);
-const esc = s => { if(!s)return''; const d=document.createElement('div'); d.textContent=s; return d.innerHTML; };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
+function safeURL(value) {
+  if (typeof value !== 'string' || /[\u0000-\u0020\u007f]/.test(value)) return '';
+  try { const u = new URL(value); return ['http:','https:'].includes(u.protocol) && !u.username && !u.password ? u.href : ''; } catch { return ''; }
+}
 
 /* ======== SECTION / SUB CONFIG ======== */
 const SECS = [
@@ -86,7 +90,7 @@ function rank(n, color) {
   const t3 = n<=3;
   return `<div class="rank ${t3?'top3':'dim'}" style="background:${t3?`linear-gradient(135deg,${color},${color}bb)`:`${color}18`};color:${t3?'#fff':color};${t3?`box-shadow:0 2px 8px ${color}40`:''}">${n}</div>`;
 }
-function linkOut(url, text='查看原文') { return url ? `<a class="card-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${svg('ext',12)} ${text}</a>` : ''; }
+function linkOut(url, text='查看原文') { return safeURL(url) ? `<a class="card-link" href="${esc(safeURL(url))}" target="_blank" rel="noopener noreferrer">${svg('ext',12)} ${esc(text)}</a>` : ''; }
 function infoBlock(ico, color, label, text) {
   if(!text) return '';
   const t = Array.isArray(text) ? text.join('；') : text;

@@ -116,7 +116,7 @@ else:
 - 歸檔日期 JSON + 更新 index.json（保留 7 天）
 
 ### 健康狀態
-- 每次執行後更新 data/health.json
+- 通過前置檢查且完成資料處理後更新 data/health.json；前置失敗使用下方 off-repo local-health，不發布失敗候選
 - 成功時：status="ok"，consecutive_failures=0
 - 部分成功：status="partial"
 - 全失敗：status="failed"，consecutive_failures +1
@@ -129,16 +129,27 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 ```
 每次執行時自動清理 7 天前的 log 和驗證報告。
 
-### Git 推送（2026-09-18 對照現行腳本）
+### Git 發布與失敗恢復（2026-09-18）
 
-以下描述現有 `scripts/run-daily.sh` 的行為，不是供開發者手動執行的提交範本：
+`scripts/publish-daily.py` 是每日發布的唯一實作；不可使用 soft reset、強制推送或整樹覆蓋。
 
-1. detached HEAD 時嘗試重新掛回 `main`；fetch `origin main` 後，以 `git reset --soft origin/main` 對齊基準，保留工作目錄與 index。
-2. 將 `data/` 及 `.preview/apply-change-staged.txt` 列出的自動修改檔加入 index；有暫存差異才 commit。
-3. 依驗證退出碼與 pass rate 決定 `[verified]`／`[unverified]`，訊息含 `[local]`。
-4. push 至 `origin main`，最多重試三次；失敗記錄 stderr，重試前再 fetch／soft reset 並整合。完整錯誤處理以腳本為準。
+1. 取得程序鎖後才開啟每日 log；前置失敗記於 `~/.ai-news-hub/publication/local-health.json`，不弄髒 tracked health 而阻擋下一輪。
+2. 正式 checkout 須位於 main、乾淨且無未完成 Git 操作。fetch 後先重試有可信 receipt 的推送候選，再 fast-forward；不能把未知本機提交當成每日產物。
+3. 擷取後在臨時路徑合併候選，以 `validate.py --input` 驗證。合併／驗證失敗停止，保留上一份 latest；通過後原子替換 latest、日封存與索引。索引或 health 寫入失敗不得發布。
+4. 發布前確認 HEAD 未被其他工具移動、index 原本為空。只 stage `data/`（尊重 ignore）及經程式 allowlist 驗證的自動修改 manifest；未知程式變更一律停止。
+5. 先 commit 本輪差異，再 fetch／rebase 最新 origin/main／普通 push。遠端非重疊修改保留；衝突 abort 並保留本機候選，回非零。push 最多三次，每次重新三方整合。
+6. 推送成功後寫 off-repo `~/.ai-news-hub/publication/last-run.json`，含結果、實際 SHA 與時間；不為更新已發布狀態再造第二次發布。
+7. fetch／push 暫時失敗的 receipt 記 `candidate`、`retryable:true`。下輪僅在 main 乾淨且 HEAD 精確符合該候選時重試；不符合即停止。真正衝突、未知變更、commit 失敗或確定性處理失敗須人工核對現場，不自動 reset。
 
-**影響：soft reset 不會隔離其他開發者的暫存內容；主 checkout 內未推送的本機提交也可能被重新包入每日提交。** 因此開發與整合依根 `CLAUDE.md`「共同開發與提交」使用獨立 worktree。舊文件的 pull/rebase 範例已移除，本次只修文件，未改排程腳本。
+#### 人工恢復
+
+先讀每日 log、上述 receipt 與 Git 差異。對衝突保留候選提交，於隔離 worktree 依雙方內容解決並驗證，再由單一整合者整合。對未提交的產物先另存候選並核對基準、分類完整性及驗證報告；只有確認是本輪失敗產物後才依明確範圍移出排程 checkout。不得為恢復而無差別清除工作目錄、index 或提示詞。
+
+#### 鎖與退出碼
+
+`run-locked.py` 使用 Python fcntl 原子鎖，子程序繼承鎖 FD；不 unlink 鎖 inode。正常退出、前置失敗、TERM／INT 都清理子程序；先 TERM，限時後 KILL。持鎖者結束後才允許下一輪。重複啟動回 75；TERM／INT 回 143／130。必要資料處理、Git 發布失敗或擷取 partial／failed 皆非零；可用的 partial 資料仍允許發布。
+
+`health.last_success` 明確代表 `local_processing` 完整成功，並非網站部署；candidate health 的 `publication` 固定為 `pending`，實際推送查 off-repo receipt，網站部署查 Pages 證據。`needs_review` 不再計入驗證率；未滿 100% 的提交標示 `[unverified]`。
 
 ### Email 通知（全自動，零設定）
 
@@ -164,4 +175,3 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 - 不會彈出視窗或提示
 
 ---
-

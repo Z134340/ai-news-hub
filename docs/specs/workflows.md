@@ -48,3 +48,9 @@
 
 ---
 
+
+## 離線自測 CI
+
+`selftest.yml` 在 main／codex 分支 push、所有 PR 與手動觸發時執行，無路徑篩選。保留原 26 組離線命令，另加入所有前端 JS 語法、run-daily 語法、前端狀態／同步回歸與 Python 驗證／Git／程序鎖回歸。測試使用暫存資料及本機 bare remote，禁止正式擷取、雲端寫入和 promote。
+
+CI 設定不等於 GitHub 已啟用必須通過的 branch protection；未查證外部設定時不得宣稱必須通過才能合併。Firebase 規則部署與真實帳號驗收另行記錄。

@@ -81,7 +81,7 @@ function renderSearchResults(results, lower) {
       <div class="card-title" style="font-size:14px;margin-bottom:6px">${hlText(esc(title),lower)}</div>
       ${item.source||date?`<div style="font-size:11px;color:var(--tx3);margin-bottom:6px">${esc(item.source||'')}${item.source&&date?' · ':''}${esc(date)}</div>`:''}
       ${item.summary?`<p class="summary" style="font-size:13px;color:var(--tx2);line-height:1.8;margin-bottom:8px">${hlText(esc(item.summary),lower)}</p>`:''}
-      ${item.url?`<a class="card-link" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${svg('ext',12)} 查看原文</a>`:''}
+      ${linkOut(item.url)}
     </div>`;
   }).join('');
 }

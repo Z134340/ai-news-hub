@@ -4,25 +4,17 @@
 
 八步驟驗證（詳細規範）：
 
-**前置檢查（⚠️ Bug Fix #2）：**
-```python
-import os, sys
-path = "data/latest.json"
-if not os.path.exists(path):
-    print("⚠️ latest.json 不存在，跳過驗證")
-    sys.exit(0)
-try:
-    data = json.load(open(path))
-except json.JSONDecodeError:
-    print("❌ latest.json 格式錯誤")
-    sys.exit(1)
-```
+**前置與輸出：**
+- 缺少 input、根物件沒有 `data` 物件、未知分類或分類不是陣列，回非零；不把缺資料當成功。
+- `--input`／`--output` 可指定候選檔；預設仍為 data/latest.json。成功輸出先寫暫存檔再原子替換。
+- `--dry-run` 不寫輸出或報告。移除後無可用資料則回非零，保留原檔。
+- 先檢查 item 型別、必填非空與欄位型別、日期及 HTTP(S) URL，再去重及連線。authors 可為非空字串陣列。異常單筆移除並記錄，不得擊穿其他分類。
 
 **Step 1 — URL 存活檢測（⚠️ Bug Fix #3）：**
 - 優先 HTTP HEAD 請求，timeout=10s
 - 若 HEAD 回傳 405 Method Not Allowed → 改用 GET + stream（只讀 header 不下載 body）
 - User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-- concurrent.futures.ThreadPoolExecutor(max_workers=5)
+- concurrent.futures.ThreadPoolExecutor(max_workers=3)
 - 每批次間隔 0.5 秒
 - 判斷邏輯：
   · 2xx/3xx → verified: true
@@ -59,7 +51,7 @@ def check_url(url):
   · score ≥ 0.3 → 通過（允許翻譯差異與摘要改寫）
   · 0 < score < 0.3 → needs_review（標記但不移除，paywall/動態頁面等）
   · score = 0（完全無法對應）→ verified: false → 移除
-- needs_review 計入 pass_rate（不扣分）
+- needs_review 保留但獨立計數，不計入 verified／pass_rate；通過率分母為輸入總筆數，已移除項目不能被計為成功。
 - 特例：TITLE_CHECK_RELAXED_DOMAINS（arxiv, medium, 中文媒體等）跳過標題比對
 ```python
 TITLE_CHECK_RELAXED_DOMAINS = [
@@ -82,18 +74,18 @@ def title_similarity(title_a, title_b):
 - 同目錄 `scripts/sources-registry.json`（`sources-registry-v0.1`）登錄 10 分類 × 官方站與 RSS/Atom feed（`name, tier A|B|C, lang, site|null, feed, type rss|atom|rdf`；`checked_at` 為查證日，全部 `curl -sI` 直接 200 且 feed 前 4KB 含 XML 標記；`site: null` 表示官方站 HEAD 非 200 只登錄 feed）。消費者是 L-4 `discover-trends.mjs`；`validate.py` 只在 `--self-test` 驗結構。
 - `--self-test`（不打網路）：tier-b 缺檔／壞檔容忍、小寫去 www、add-only、白名單判定、registry 10 分類且每分類 ≥ 3 feed、分類內 feed 唯一，共 17 項，全 PASS 回 0。
 
-**Step 4 — 欄位完整性**（同前）
+**Step 4 — 欄位完整性**：依 REQUIRED_FIELDS 檢查型別與非空內容；欄位／日期不合格不能由 URL 成功覆蓋。模型以 model_name 比對，非字串 optional title 會被隔離。
 
 **Step 5 — 日期合理性**
 - 格式驗證 YYYY-MM-DD（用 try/except datetime.strptime）
 - 各類別分別設定 max_days（CATEGORY_DATE_LIMITS）：
-  · topnews/taiwan/china/usa → max_days=2（今天+昨天）
+  · topnews/taiwan/china/usa → max_days=1（台北日期：今天+昨天；不接受明天或前天）
   · techtrends/governance → max_days=7
   · papers/tutorials/courses → max_days=90
   · models → allow_future（允許未來日期，最多 2 年前）
 ```python
 CATEGORY_DATE_LIMITS = {
-    'papers': 90, 'topnews': 2, 'taiwan': 2, 'china': 2, 'usa': 2,
+    'papers': 90, 'topnews': 1, 'taiwan': 1, 'china': 1, 'usa': 1,
     'techtrends': 7, 'governance': 7, 'tutorials': 90, 'courses': 90, 'models': None,
 }
 def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):

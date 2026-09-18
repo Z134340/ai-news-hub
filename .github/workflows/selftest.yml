@@ -5,14 +5,8 @@ name: 離線自測
 # scripts/newshub_roadmap.py --selftest（依賴同機的 Hermes-Agent/curator/TECH_RUBRIC.md，runner 上無此檔）。
 on:
   push:
-    branches: [main]
-    paths:
-      - 'scripts/**'
-      - '.github/workflows/selftest.yml'
+    branches: [main, 'codex/**']
   pull_request:
-    paths:
-      - 'scripts/**'
-      - '.github/workflows/selftest.yml'
   workflow_dispatch:
 
 permissions:
@@ -67,6 +61,14 @@ jobs:
             python3 "scripts/$f.py" --selftest
             echo "::endgroup::"
           done
+
+      - name: Frontend and pipeline regressions
+        run: |
+          set -euo pipefail
+          for f in assets/js/*.js; do node --check "$f"; done
+          bash -n scripts/run-daily.sh
+          node --test scripts/tests/frontend.test.mjs
+          python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v
 
       - name: Working tree untouched
         run: |

@@ -136,9 +136,7 @@ const DASH = {
 /* ======== 取檔：任何失敗都回 null，讓上層走降級分支 ======== */
 async function dashFetch(url) {
   try {
-    const r = await fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now());
-    if (!r.ok) return null;
-    return await r.json();
+    return await fetchJSON(url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now(), 8000);
   } catch { return null; }
 }
 
@@ -281,7 +279,9 @@ function dashSystemStatusBlock() {
 async function loadDashboard(force) {
   const el = $('panel-dashboard');
   if (!el) return;
-  if (DASH.loaded && !force) return;
+  if ((DASH.loaded || DASH.loading) && !force) return;
+  const request = DASH.request = (DASH.request || 0) + 1;
+  DASH.loading = true;
   el.innerHTML = '<div class="sk"><div class="sk-line h18 w40"></div><div class="sk-line w70"></div><div class="sk-line w40"></div></div>'.repeat(3);
 
   // 七個取檔互相獨立：任何一個 404 只讓它自己的區塊走空狀態，其餘照常渲染。
@@ -295,25 +295,28 @@ async function loadDashboard(force) {
     dashFetch('data/agent/brief-latest.json'),
   ]);
 
-  // 冷層：未啟用 Firebase 或抓不到時回 []，自動退成只有熱層的 8 天。
-  let cold = [];
-  if (typeof archiveList === 'function') {
-    try { cold = (await archiveList()) || []; } catch { cold = []; }
-  }
-
+  if (request !== DASH.request) return;
   const byDate = {};
-  cold.forEach(e => { if (e && e.date) byDate[e.date] = { ...e, _cold:true }; });
-  (Array.isArray(hot) ? hot : []).forEach(e => { if (e && e.date) byDate[e.date] = { ...e, _cold:false }; });
-
-  DASH.days = Object.values(byDate).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  (Array.isArray(hot) ? hot : []).forEach(e => { if (e && archiveDate(e.date)) byDate[e.date] = { ...e, _cold:false }; });
+  DASH.days = Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
   DASH.systemStatus = systemStatus;
   DASH.timeline = timeline;
   DASH.trends = trends;
   DASH.assessment = assessment;
   DASH.roadmap = roadmap;
   DASH.brief = brief;
-  DASH.loaded = true;
-
+  DASH.loaded = true; DASH.loading = false;
+  renderDashboard();
+  // Cold history enriches counts after the primary content has rendered.
+  archiveList().then(cold => {
+    if (request !== DASH.request) return;
+    cold.forEach(e => { if (archiveDate(e.date) && !byDate[e.date]) byDate[e.date] = {...e, _cold:true}; });
+    DASH.days = Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
+    renderDashboard();
+  }).catch(() => { /* Static data remains visible; history offers an explicit retry. */ });
+}
+function renderDashboard() {
+  const el = $('panel-dashboard');
   el.innerHTML =
     dashSystemStatusBlock() +
     dashBumpBlock() +
@@ -596,7 +599,7 @@ function dashMatrixBlock() {
     const relColor = r.rel === null ? '#64748b' : (r.rel > 0.02 ? '#34d399' : (r.rel < -0.02 ? '#f87171' : '#94a3b8'));
     const dup = typeof sy.duplicate_title_ratio === 'number' ? sy.duplicate_title_ratio : null;
     const dupColor = dup === null ? '#64748b' : (dup >= 0.5 ? '#f87171' : (dup >= 0.3 ? '#fbbf24' : '#94a3b8'));
-    return `<button type="button" class="dm-row dm-click" onclick="dashOpenDrawer('${esc(c.cluster_id)}')" aria-label="展開 ${esc(dashClusterZh(c))} 的完整判讀">
+    return `<button type="button" class="dm-row dm-click" data-cluster="${esc(c.cluster_id)}" onclick="dashOpenDrawer(this.dataset.cluster)" aria-label="展開 ${esc(dashClusterZh(c))} 的完整判讀">
       <span class="dm-name"><i class="dm-dot" style="background:${r.style.color}"></i>
         <b>${esc(dashClusterZh(c))}</b><em>${esc(c.cluster_id)}</em></span>
       <span class="dm-sparkwrap">${dashSpark(c.series?.occurrences, r.style.color)}</span>

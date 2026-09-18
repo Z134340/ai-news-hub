@@ -5,16 +5,16 @@
 > 本節描述前端與儲存的「正規化後」現況，**優先於下方任何仍以單檔 index.html 描述的舊段落**。
 
 ### 前端：單檔 → 模組化（vanilla，零 build）
-`index.html` 已拆為頁面結構、`assets/css/app.css` 與 `assets/js/` 十個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
+`index.html` 已拆為頁面結構、`assets/css/app.css` 與 `assets/js/` 十一個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
-`config → firebase → bookmarks → search → render → ui → history → data → dashboard → main`。
+`config → personal-data → firebase → bookmarks → search → render → ui → history → data → dashboard → main`。
 仍是純靜態，GitHub Pages 直接服務；相對路徑維持 project page base `/ai-news-hub/`；`.nojekyll` 保留。
 
 ### 儲存：混合冷熱分層（static + Firebase）
 | 資料 | 儲存 | 說明 |
 |------|------|------|
 | 熱：latest + 近 7 天 archive | static JSON + Pages（不變） | 每次開頁讀，免費、已快取 |
-| 冷：逾 7 天 archive | **Firestore `archives/{date}`** | 僅點歷史時讀；payload 為整日 JSON 字串 |
+| 冷：逾 7 天 archive | **Firestore `archives/{date}`** | 清單使用 REST 欄位投影與分頁；僅選擇日期才讀整日 payload |
 | 使用者：書籤 | **Firestore `users/{uid}`** | 跨 iPhone/桌面同步；Email/Password auth；offline-first（localStorage 為離線快取） |
 
 Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未填（`YOUR_*`）時全部優雅 no-op，網站照常以 localStorage 運作。設定見 `FIREBASE-SETUP.md`（書籤）、`ARCHIVE-SETUP.md`（冷封存）。
@@ -35,15 +35,15 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 │    ├→ 擷取 7/10 類別（每個重試 1 次，10分鐘逾時）   │
 │    ├→ 合併 latest.json                            │
 │    ├→ validate.py 八步驟驗證（URL + 標題一致性）    │
-│    ├→ git push [verified] / [unverified]          │
-│    └→ 寫入 data/health.json                       │
+│    ├→ 寫入 data/health.json（本機處理結果）       │
+│    └→ git push [verified] / [unverified] ＋ receipt │
 │  ~18:56  完成（正常）/ ~19:20（偶爾逾時）           │
 │                                                   │
 ├── 健康檢查：GitHub Actions（本機沒跑時標記）─────────┤
 │                                                   │
-│  19:30  檢查 latest.json 時間戳                    │
-│    ├→ 近 1 小時內有更新 → 跳過                      │
-│    └→ 超過 1 小時沒更新 → 標記 missed              │
+│  20:17  檢查 latest.json 日期                    │
+│    ├→ 已涵蓋本次擷取日 → 跳過                      │
+│    └→ 尚未涵蓋本次擷取日 → 標記 missed              │
 │                                                   │
 ├── 保活：每月 1 號 keep-alive commit ───────────────┤
 │                                                   │
@@ -78,6 +78,7 @@ ai-news-hub/
 │   ├── css/app.css                  ← 全部樣式
 │   └── js/                          ← classic scripts，載入順序固定
 │       ├── config.js                ← 常數/icons/helpers/state/FIREBASE_CONFIG
+│       ├── personal-data.js         ← 帳號快取、資料清理與刪除紀錄
 │       ├── firebase.js              ← 書籤雲端同步 + 冷封存讀取（可選）
 │       ├── bookmarks.js  search.js  render.js  ui.js
 │       ├── history.js               ← 冷熱合併歷史（static + Firestore）
@@ -106,7 +107,7 @@ ai-news-hub/
 run-daily.sh 產出 data/latest.json
        │
        ▼
-git add data/ → git commit → git push origin main
+限定產物 commit → rebase origin/main → 普通 push（衝突停止）
        │
        ▼
 GitHub 收到 push → 觸發 Pages 部署（約 1-3 分鐘）
@@ -137,7 +138,15 @@ JSON 解析 → 渲染十大類別卡片 → 你看到最新資料 ✅
    - 每次開啟頁面產生新 timestamp，強制繞過瀏覽器和 CDN 快取
    - 歷史 JSON 也用相同機制：`fetch("data/2026-04-04.json?v=...")`
 
-3. **30 分鐘自動重新檢查**也帶 cache-busting 參數
+3. **15 分鐘自動重新檢查**也帶 cache-busting 參數
 
 ---
 
+
+## 個人資料與載入邊界（2026-09-18）
+
+- 個人資料契約與相容限制只在 [personal-data.md](personal-data.md) 維護。
+- `fetchJSON` 的逾時涵蓋 response body；靜態資料讀取獨立降級。新聞讀取失敗保留各新聞子頁容器，因此仍可切到歷史。
+- 儀表板先呈現靜態資料，再補冷層摘要；冷層僅取最近最多 90 筆，完整歷史由歷史頁每次 31 筆逐頁載入。這是取得資料範圍，不能當作所有歷史總數。
+- 冷層 REST 查詢只投影 `date/item_count/pass_rate/source`，以日期降冪和 exclusive cursor 分頁；摘要快取 5 分鐘。payload 不隨清單下載；服務失敗保留熱層並於歷史頁顯示重試。
+- 每日 Git 整合、候選資料與失敗恢復見 [run-daily.md](run-daily.md)。CI 執行範圍見 [workflows.md](workflows.md)。

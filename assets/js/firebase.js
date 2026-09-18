@@ -3,7 +3,7 @@
    設計原則：offline-first。未設定 config（保持 YOUR_API_KEY）或未登入時，全部 no-op，
    網站照常以 localStorage 運作；填入真實 config 並登入後，自動跨裝置同步書籤。
 
-   資料模型：users/{uid} 文件，欄位 bookmarks = { bmId: {...} }（單文件 map，1 read / 1 write，最省）。
+   資料模型：users/{uid} 文件，欄位 bookmarks = { bmId: {...} }（版本化 map＋刪除紀錄，完整契約見 docs/specs/personal-data.md）。
    安全：見 firestore.rules（僅本人可讀寫自己 uid 的資料）。 */
 
 let _fb = { app:null, auth:null, db:null, user:null, ready:false };
@@ -22,109 +22,117 @@ function initFirebase() {
     _fb.ready = true;
     _fb.auth.onAuthStateChanged(async (user) => {
       _fb.user = user || null;
+      if (PERSONAL.uid !== (user?.uid || null)) switchPersonalAccount(user?.uid || null);
       updateAuthUI(_fb.user);
-      if (user) { await syncBookmarksFromCloud(); await syncFeedbackFromCloud(); }
+      if (user) await syncPersonalToCloud();
     });
   } catch (e) { console.error('Firebase 初始化失敗', e); }
 }
 
-/* ── 同步：寫入雲端（由 bookmarks.js 的 saveBookmarks 觸發）── */
-async function syncBookmarksToCloud() {
-  if (!_fb.ready || !_fb.user) return;          // 未登入 → no-op，仍只用 localStorage
-  try {
-    await _fb.db.collection('users').doc(_fb.user.uid).set(
-      { bookmarks: BOOKMARKS, updated_at: new Date().toISOString() },
-      { merge: true }
-    );
-  } catch (e) { console.error('書籤上傳失敗', e); }
+/* A transaction merges versioned records and deletion markers in the owner's document.
+   Capture identity before any await. Never move a prior account's cache into a new account. */
+function fbDocId(itemId, uid = PERSONAL.uid) { return `${uid}_${itemId}`; }
+const personalSyncQueues = new Map();
+function syncPersonalToCloud() {
+  const session = personalSession(), key = `${session.uid}:${session.epoch}`;
+  const previous = personalSyncQueues.get(key) || Promise.resolve();
+  const pending = previous.catch(() => {}).then(() => performPersonalSync(session));
+  personalSyncQueues.set(key, pending);
+  pending.finally(() => { if (personalSyncQueues.get(key) === pending) personalSyncQueues.delete(key); });
+  return pending;
 }
-
-/* ── 同步：登入時把雲端與本機聯集（衝突取 savedAt 較新者），再寫回雲端 ── */
-async function syncBookmarksFromCloud() {
-  if (!_fb.ready || !_fb.user) return;
+async function performPersonalSync(session, attempt = 0) {
+  if (!currentPersonal(session)) return;
+  if (!_fb.ready || !session.uid || _fb.user?.uid !== session.uid) return;
+  const localBM = cleanPersonal(BOOKMARKS, 'bookmarks'), localFB = cleanPersonal(FEEDBACK, 'feedback');
+  const deleted = {...PERSONAL.deleted}, feedbackDeleted = {...PERSONAL.feedbackDeleted};
   try {
-    const snap = await _fb.db.collection('users').doc(_fb.user.uid).get();
-    const cloud = (snap.exists && snap.data().bookmarks) ? snap.data().bookmarks : {};
-    const merged = { ...cloud };
-    Object.entries(BOOKMARKS).forEach(([id, local]) => {
-      const c = merged[id];
-      if (!c || (local.savedAt || '') > (c.savedAt || '')) merged[id] = local;
-    });
-    BOOKMARKS = merged;
-    localStorage.setItem('ainews-bm', JSON.stringify(BOOKMARKS));
-    updateBmTabCount();
-    if (typeof curSec !== 'undefined' && curSec === 'bookmarks') renderBookmarks();
-    // 重繪頁面上的書籤按鈕狀態
-    document.querySelectorAll('.bm-btn[data-bmid]').forEach(btn => {
-      const id = btn.dataset.bmid, saved = !!BOOKMARKS[id];
-      btn.classList.toggle('bm-saved', saved);
-      btn.title = saved ? '移除書籤' : '加入書籤';
-      btn.innerHTML = svg('bookmark', 14, saved ? '#818cf8' : 'var(--tx3)');
-    });
-    await syncBookmarksToCloud();   // 把聯集結果寫回，讓兩端一致
-  } catch (e) { console.error('書籤下載失敗', e); }
-}
-
-/* ── 回饋同步：feedback/{uid}_{key} 一筆一文件；取消評分 → 刪文件。
-   docId 用 uid 開頭是 firestore.rules 的硬條件；key 先去掉 Firestore 不接受的字元。── */
-function fbDocId(itemId) {
-  const safe = String(itemId).replace(/[^A-Za-z0-9_-]/g, c => '.' + c.charCodeAt(0).toString(16));
-  return `${_fb.user.uid}_${safe}`;
-}
-async function syncFeedbackToCloud(itemId, rec) {
-  if (!_fb.ready || !_fb.user) return;
-  try {
-    const ref = _fb.db.collection('feedback').doc(fbDocId(itemId));
-    if (!rec) { await ref.delete(); return; }
-    await ref.set({ uid: _fb.user.uid, item_id: itemId, cat: rec.cat || '', rating: rec.rating,
-      item_date: rec.item_date || '', title: rec.title || '', url: rec.url || '', ts: rec.ts }, { merge: true });
-  } catch (e) { console.error('回饋上傳失敗', e); }
-}
-async function syncFeedbackFromCloud() {
-  if (!_fb.ready || !_fb.user) return;
-  try {
-    const snap = await _fb.db.collection('feedback').where('uid', '==', _fb.user.uid).get();
-    const cloud = {};
-    snap.docs.forEach(d => { const x = d.data() || {}; if (x.item_id) cloud[x.item_id] = x; });
-    const merged = { ...FEEDBACK };
-    Object.entries(cloud).forEach(([id, x]) => {
-      const local = merged[id];
-      if (!local || (x.ts || '') > (local.ts || '')) {
-        merged[id] = { rating: x.rating, cat: x.cat || '', item_date: x.item_date || '', title: x.title || '', url: x.url || '', ts: x.ts || '' };
+    const ref = _fb.db.collection('users').doc(session.uid);
+    // Query allows an empty result under existing rules; reading a nonexistent feedback doc does not.
+    const feedbackSnap = await _fb.db.collection('feedback').where('uid', '==', session.uid).get();
+    if (!currentPersonal(session)) return;
+    const legacy = {}, feedbackDocs = {};
+    feedbackSnap.docs.forEach(d => { const x = d.data(); if (personalId(x?.item_id)) { legacy[x.item_id] = x; feedbackDocs[x.item_id] = d.ref; } });
+    const result = await _fb.db.runTransaction(async tx => {
+      const snap = await tx.get(ref);
+      if (!currentPersonal(session)) throw new Error('account_changed');
+      const remote = snap.exists ? snap.data() : {};
+      const bm = mergePersonal(cleanPersonal(remote.bookmarks, 'bookmarks'), cleanPersonal(remote.bookmark_deleted, 'deleted'), localBM, deleted, 'savedAt');
+      const fb = mergePersonal(cleanPersonal(remote.feedback_v2 ? remote.feedback_state : legacy, 'feedback'), cleanPersonal(remote.feedback_deleted, 'deleted'), localFB, feedbackDeleted, 'ts');
+      if (remote.feedback_v2 && Object.keys(remote.feedback_state || {}).some(id => !fb.records[id] && !feedbackDocs[id])) throw new Error('feedback_snapshot_changed');
+      const fields = {bookmarks:bm.records, bookmark_deleted:bm.deleted, feedback_state:fb.records, feedback_deleted:fb.deleted, feedback_v2:true, updated_at:new Date().toISOString()};
+      // update replaces the map field; merge:true alone leaves removed map children behind.
+      if (snap.exists) tx.update(ref, fields); else tx.set(ref, fields);
+      for (const [id, rec] of Object.entries(fb.records)) {
+        if (JSON.stringify(cleanPersonal({[id]:legacy[id]}, 'feedback')[id]) === JSON.stringify(rec)) continue;
+        tx.set(_fb.db.collection('feedback').doc(fbDocId(id, session.uid)), {...rec, uid:session.uid, item_id:id});
       }
+      for (const id of Object.keys(fb.deleted)) if (!fb.records[id] && feedbackDocs[id]) tx.delete(feedbackDocs[id]);
+      return {bm, fb};
     });
-    FEEDBACK = merged;
-    localStorage.setItem('ainews-fb', JSON.stringify(FEEDBACK));
-    paintFeedbackButtons();
-    // 本機較新的那幾筆補上雲，讓兩端一致
-    for (const [id, rec] of Object.entries(FEEDBACK)) {
-      const c = cloud[id];
-      if (!c || (rec.ts || '') > (c.ts || '')) await syncFeedbackToCloud(id, rec);
-    }
-  } catch (e) { console.error('回饋下載失敗', e); }
+    if (!currentPersonal(session)) return;
+    // Retain clicks that occurred while the transaction was in flight.
+    const bm = mergePersonal(result.bm.records, result.bm.deleted, BOOKMARKS, PERSONAL.deleted, 'savedAt');
+    const fb = mergePersonal(result.fb.records, result.fb.deleted, FEEDBACK, PERSONAL.feedbackDeleted, 'ts');
+    BOOKMARKS = bm.records; PERSONAL.deleted = bm.deleted;
+    FEEDBACK = fb.records; PERSONAL.feedbackDeleted = fb.deleted;
+    const savedLocally = persistPersonal(); repaintPersonal();
+    if (savedLocally && $('personalStatus')?.textContent.startsWith('雲端同步')) personalNotice('');
+  } catch (e) {
+    if (!currentPersonal(session)) return;
+    if (attempt < 2 && (e.message === 'feedback_snapshot_changed' || e.code === 'permission-denied')) return performPersonalSync(session, attempt + 1);
+    console.error('個人資料同步失敗', e);
+    personalNotice('雲端同步尚未完成；本機可繼續使用，重新連線後會重試。');
+  }
 }
+function syncBookmarksToCloud() { return syncPersonalToCloud(); }
+function syncBookmarksFromCloud() { return syncPersonalToCloud(); }
+function syncFeedbackToCloud() { return syncPersonalToCloud(); }
+function syncFeedbackFromCloud() { return syncPersonalToCloud(); }
+window.addEventListener('online', () => syncPersonalToCloud());
+window.addEventListener('storage', event => {
+  if (event.key !== personalKey() || !event.newValue) return;
+  try {
+    const v = JSON.parse(event.newValue);
+    if (v.version !== 2) return;
+    const bm = mergePersonal(BOOKMARKS, PERSONAL.deleted, cleanPersonal(v.bookmarks, 'bookmarks'), cleanPersonal(v.deleted, 'deleted'), 'savedAt');
+    const fb = mergePersonal(FEEDBACK, PERSONAL.feedbackDeleted, cleanPersonal(v.feedback, 'feedback'), cleanPersonal(v.feedbackDeleted, 'deleted'), 'ts');
+    BOOKMARKS = bm.records; PERSONAL.deleted = bm.deleted;
+    FEEDBACK = fb.records; PERSONAL.feedbackDeleted = fb.deleted;
+    persistPersonal(); repaintPersonal(); syncPersonalToCloud();
+  } catch { /* A damaged event must not stop the page. */ }
+});
 
 /* ── 冷封存讀取（公開讀，免登入；前端用 JS SDK，後端 run-daily 才用 REST 寫入）── */
 function archiveEnabled() { return _fb.ready && !!_fb.db; }
 
-async function archiveList() {
-  if (!archiveEnabled()) return [];
-  try {
-    const snap = await _fb.db.collection('archives').orderBy('date', 'desc').get();
-    return snap.docs.map(d => {
-      const x = d.data() || {};
-      return { date: x.date || d.id, item_count: x.item_count || 0, pass_rate: x.pass_rate || '', source: x.source || 'firestore' };
-    });
-  } catch (e) { console.error('封存清單讀取失敗', e); return []; }
+const archiveDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
+const archivePages = new Map();
+async function archivePage(cursor = null, limit = 31) {
+  if (!isFirebaseEnabled()) return {entries:[], next:null, available:false};
+  if (cursor !== null && !archiveDate(cursor)) throw new Error('invalid_archive_cursor');
+  limit = Math.max(1, Math.min(90, Number(limit) || 31));
+  const key = `${cursor || ''}:${limit}`, cached = archivePages.get(key);
+  if (cached && Date.now() - cached.time < 300000) return cached.page;
+  const query = {from:[{collectionId:'archives'}], select:{fields:['date','item_count','pass_rate','source'].map(fieldPath=>({fieldPath}))}, orderBy:[{field:{fieldPath:'date'}, direction:'DESCENDING'}], limit:limit+1};
+  if (cursor) query.startAt = {values:[{stringValue:cursor}], before:false};
+  const rows = await fetchJSON(`https://firestore.googleapis.com/v1/projects/${encodeURIComponent(FIREBASE_CONFIG.projectId)}/databases/(default)/documents:runQuery`, 8000, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({structuredQuery:query})});
+  if (!Array.isArray(rows) || rows.some(r => r.error)) throw new Error('invalid_archive_response');
+  const docs = rows.filter(r => r.document).map(r => r.document);
+  const entries = docs.slice(0,limit).map(d => {
+    const f = d.fields || {}, value = k => f[k]?.stringValue ?? f[k]?.integerValue ?? f[k]?.doubleValue;
+    return {date:value('date'), item_count:Number(value('item_count')) || 0, pass_rate:value('pass_rate') ?? null, source:value('source') || 'firestore'};
+  }).filter(e => archiveDate(e.date));
+  const page = {entries, next:docs.length > limit ? entries.at(-1)?.date || null : null, available:true};
+  archivePages.set(key, {time:Date.now(), page});
+  return page;
 }
-
+async function archiveList() { return (await archivePage(null,90)).entries; }
 async function archiveGet(date) {
-  if (!archiveEnabled()) return null;
+  if (!isFirebaseEnabled() || !archiveDate(date)) return null;
   try {
-    const doc = await _fb.db.collection('archives').doc(date).get();
-    if (!doc.exists) return null;
-    const x = doc.data() || {};
-    return x.payload ? JSON.parse(x.payload) : null;
+    const doc = await fetchJSON(`https://firestore.googleapis.com/v1/projects/${encodeURIComponent(FIREBASE_CONFIG.projectId)}/databases/(default)/documents/archives/${date}`, 10000);
+    return doc.fields?.payload?.stringValue ? JSON.parse(doc.fields.payload.stringValue) : null;
   } catch (e) { console.error('封存讀取失敗', e); return null; }
 }
 
@@ -179,7 +187,7 @@ function updateAuthUI(user) {
   if (user) {
     btn.classList.add('on');
     btn.title = '已登入：' + (user.email || '') + '（點擊登出）';
-    btn.onclick = () => { if (confirm('登出雲端同步？書籤仍保留在本機。')) fbLogout(); };
+    btn.onclick = () => { if (confirm('登出雲端同步？此帳號收藏會保留於專屬快取，登出後顯示本機收藏。')) fbLogout(); };
   } else {
     btn.classList.remove('on');
     btn.title = '登入以跨裝置同步書籤';

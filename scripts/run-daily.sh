@@ -6,6 +6,11 @@
 
 set -uo pipefail
 
+# Acquire the lock before opening daily logs or touching generated files.
+if [[ "${ANH_DAILY_LOCK_HELD:-}" != "1" ]]; then
+    exec python3 "$(dirname "$0")/run-locked.py" /tmp/ai-news-hub.lock bash "$0" "$@"
+fi
+
 export TZ=Asia/Taipei
 
 # 確保 PATH 包含常見安裝路徑（launchd 環境可能缺少）
@@ -29,17 +34,19 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"
 }
 
-# ── Lock file：防止重複執行 ──
-LOCK_FILE="/tmp/ai-news-hub.lock"
-if [[ -f "$LOCK_FILE" ]]; then
-    LOCK_PID=$(cat "$LOCK_FILE" 2>/dev/null || echo "")
-    if [[ -n "$LOCK_PID" ]] && kill -0 "$LOCK_PID" 2>/dev/null; then
-        log "⚠️ 另一個實例正在執行 (PID $LOCK_PID)，本次退出"
-        exit 0
-    fi
-    log "⚠️ 發現殘留 lock file（PID $LOCK_PID 已不存在），清除後繼續"
-fi
-echo $$ > "$LOCK_FILE"
+# Cleanup runs on normal return, failed preflight and signals; the wrapper owns the lock.
+_daily_cleanup() {
+    local code=$?
+    trap - EXIT
+    [[ -n "${CAFFEINATE_PID:-}" ]] && kill "$CAFFEINATE_PID" 2>/dev/null || true
+    [[ -n "${DAILY_TMP:-}" ]] && rm -rf -- "$DAILY_TMP"
+    exit "$code"
+}
+trap _daily_cleanup EXIT
+trap 'exit 143' TERM
+trap 'exit 130' INT
+DAILY_TMP=$(mktemp -d "${TMPDIR:-/tmp}/anh-daily.XXXXXX") || exit 1
+export LATEST_CANDIDATE="$DAILY_TMP/latest.json"
 
 # ── 防止系統休眠（caffeinate）──
 # 根本原因修復：pmset sleep=1 分鐘，無 caffeinate 則腳本啟動後不到 1 分鐘 Mac 就睡著，
@@ -57,25 +64,14 @@ if command -v pmset >/dev/null 2>&1 && ! pmset -g batt 2>/dev/null | head -1 | g
     log "⚠️ 電池模式執行：macOS 合蓋會週期性睡眠，擷取可能逾時回退"
 fi
 
-# ── 應變：SIGTERM/SIGINT trap（外部強制終止時仍嘗試合併推送）──
 INTERRUPTED=0
-trap '_handle_interrupt' TERM INT
-_handle_interrupt() {
-    log "⚠️ 收到終止信號，中止批次執行..."
-    INTERRUPTED=1
-    # 終止所有背景 fetch_one 工作（並行時可能有多個）
-    jobs -p | xargs kill -TERM 2>/dev/null || true
-    # 釋放 caffeinate
-    [[ -n "${CAFFEINATE_PID:-}" ]] && kill "$CAFFEINATE_PID" 2>/dev/null || true
-    # 移除 lock file
-    rm -f "$LOCK_FILE" 2>/dev/null || true
-}
 
 update_health_json() {
     local status="$1"
     local message="${2:-}"
 
-    python3 - "$status" "$message" "$DATA_DIR/health.json" << 'PYEOF'
+    mkdir -p "$HOME/.ai-news-hub/publication"
+    python3 - "$status" "$message" "$HOME/.ai-news-hub/publication/local-health.json" << 'PYEOF'
 import json, sys, os
 from datetime import datetime, timezone, timedelta
 
@@ -152,27 +148,26 @@ if ! git -C "$REPO_DIR" ls-remote origin HEAD > /dev/null 2>&1; then
     log "WARNING: Git remote check failed, continuing..."
 fi
 
-# ── Git pull ──
-# 2026-09-05 修正：原本 `git pull --rebase … 2>/dev/null` 把錯誤全部吞掉。2026-08-22 一次 rebase 衝突
-# 留下 .git/rebase-merge 殘留後，之後每天 pull 都靜默失敗，被後面的 fetch+soft-reset 遮住兩週沒人發現。
-# 現在：(1) 先清殘留的 rebase 狀態（用 --quit，不切分支、不動工作樹）；(2) rebase 失敗就 --abort 再退回 merge；
-# (3) merge 也失敗就 --abort；(4) 所有 git 輸出進 log（本檔 stdout/stderr 已導向 LOG_FILE）。
-log "Pulling latest changes..."
-cd "$REPO_DIR"
-for _stale in rebase-merge rebase-apply; do
-    if [[ -d "$REPO_DIR/.git/$_stale" ]]; then
-        log "⚠️ 偵測到殘留的 .git/$_stale（先前 rebase 未完成），執行 git rebase --quit 清除"
-        git rebase --quit || log "⚠️ git rebase --quit 失敗，請手動檢查 .git/$_stale"
+# Refuse pre-existing work/conflicts; only fast-forward before collecting.
+cd "$REPO_DIR" || exit 1
+if [[ "$(git branch --show-current)" != "main" || -n "$(git status --porcelain)" ]]; then
+    log "❌ 排程 checkout 必須位於 main 且乾淨，請先處理未完成工作"
+    exit 1
+fi
+for _state in MERGE_HEAD rebase-merge rebase-apply CHERRY_PICK_HEAD; do
+    if [[ -e "$(git rev-parse --git-path "$_state")" ]]; then
+        log "❌ 有未完成 Git 操作，保留現場並停止"
+        exit 1
     fi
 done
-if ! git pull --rebase origin main; then
-    log "⚠️ git pull --rebase 失敗，abort 後改用 merge"
-    git rebase --abort 2>/dev/null || true
-    if ! git pull --no-rebase origin main; then
-        git merge --abort 2>/dev/null || true
-        log "WARNING: Git pull failed (rebase 與 merge 皆失敗，已還原), continuing..."
-    fi
-fi
+git fetch origin main || exit 1
+# Only a recorded, clean failed-push candidate may be retried automatically.
+python3 "$SCRIPTS_DIR/publish-daily.py" --root "$REPO_DIR" --retry-pending \
+    --receipt "$HOME/.ai-news-hub/publication/last-run.json" || exit 1
+git merge --ff-only origin/main || exit 1
+# Other local-only commits require recovery/review; never repackage them as today's news.
+[[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] || exit 1
+RUN_BASE=$(git rev-parse HEAD) || exit 1
 
 # ── 星期判斷 & 分類排程 ──
 DOW=$(date +%u)  # 1=週一 7=週日
@@ -482,7 +477,7 @@ for cat in ALL_CATEGORIES:
 # ── 至少 20 則：若今日 topnews/taiwan/china/usa 不足，補入符合日期限制的舊資料 ──
 MIN_ITEMS = 20
 # 各類別允許的最大天數（需與 validate.py CATEGORY_DATE_LIMITS 一致）
-NEWS_CAT_DAYS = {"topnews": 2, "taiwan": 2, "china": 2, "usa": 2, "techtrends": 7, "governance": 7}
+NEWS_CAT_DAYS = {"topnews": 1, "taiwan": 1, "china": 1, "usa": 1, "techtrends": 7, "governance": 7}
 for cat in ["topnews", "taiwan", "china", "usa", "techtrends", "governance"]:
     current = merged.get(cat, [])
     if len(current) < MIN_ITEMS:
@@ -491,11 +486,11 @@ for cat in ["topnews", "taiwan", "china", "usa", "techtrends", "governance"]:
             old_items = []
         cat_days = NEWS_CAT_DAYS.get(cat, 7)
         cutoff = (now - timedelta(days=cat_days)).strftime("%Y-%m-%d")
-        existing_urls = {item.get("url","") for item in current if item.get("url")}
+        existing_urls = {item["url"] for item in current if isinstance(item, dict) and isinstance(item.get("url"), str)}
         # 只補入日期在允許範圍內的舊項目（確保不會被 validate.py 移除）
         supplements = [x for x in old_items
-                       if x.get("url","") not in existing_urls
-                       and x.get("date","") >= cutoff]
+                       if isinstance(x, dict) and isinstance(x.get("url"), str) and x["url"] not in existing_urls
+                       and isinstance(x.get("date"), str) and cutoff <= x["date"] <= now.strftime("%Y-%m-%d")]
         needed = MIN_ITEMS - len(current)
         picked = []
         for x in supplements[:needed]:
@@ -515,17 +510,24 @@ output = {
     "_updated_at": updated_at
 }
 
-with open(latest_path, "w") as f:
+with open(os.environ["LATEST_CANDIDATE"], "w") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
 total = sum(output["stats"].values())
 print(f"Merged: {total} items (DOW={dow}, weekly={'included' if dow==1 else 'preserved'})")
 MERGE_PYEOF
+if [[ $? -ne 0 ]]; then update_health_json failed '資料合併失敗'; exit 1; fi
 
 # ── 驗證 ──
 log "執行七步驟驗證..."
 VALIDATION_EXIT=0
-python3 "$SCRIPTS_DIR/validate.py" 2>&1 || VALIDATION_EXIT=$?
+python3 "$SCRIPTS_DIR/validate.py" --input "$LATEST_CANDIDATE" 2>&1 || VALIDATION_EXIT=$?
+if [[ "$VALIDATION_EXIT" -ne 0 ]]; then
+    update_health_json failed '資料驗證失敗；保留上一份 latest.json'
+    exit 1
+fi
+# Validated candidate is installed atomically on the same filesystem.
+cp "$LATEST_CANDIDATE" "$DATA_DIR/latest.json.tmp" && mv "$DATA_DIR/latest.json.tmp" "$DATA_DIR/latest.json" || exit 1
 
 # 讀取驗證通過率
 PASS_RATE=$(python3 -c "
@@ -542,7 +544,7 @@ log "驗證通過率: ${PASS_RATE}%"
 
 # ── 歸檔 ──
 log "歸檔 $TODAY.json..."
-cp "$DATA_DIR/latest.json" "$DATA_DIR/$TODAY.json"
+cp "$DATA_DIR/latest.json" "$DATA_DIR/$TODAY.json.tmp" && mv "$DATA_DIR/$TODAY.json.tmp" "$DATA_DIR/$TODAY.json" || exit 1
 
 # 更新 index.json（保留 7 天）
 python3 << 'INDEX_PYEOF'
@@ -592,11 +594,13 @@ cutoff = (now - timedelta(days=7)).strftime("%Y-%m-%d")
 index = [x for x in index if x.get("date", "") >= cutoff]
 index.sort(key=lambda x: x.get("date", ""), reverse=True)
 
-with open(INDEX_FILE, "w") as f:
+with open(INDEX_FILE + ".tmp", "w") as f:
     json.dump(index, f, indent=2, ensure_ascii=False)
 
+os.replace(INDEX_FILE + ".tmp", INDEX_FILE)
 print(f"Index: {len(index)} entries")
 INDEX_PYEOF
+if [[ $? -ne 0 ]]; then update_health_json failed '歷史索引更新失敗'; exit 1; fi
 
 # ── 冷封存：上傳逾 7 天 archive 到 Firestore，成功後 prune 本機（避免 git 膨脹）──
 ARCHIVER_ENV_FILE="${ARCHIVER_ENV:-$HOME/.config/ai-news-hub/archiver.env}"
@@ -694,7 +698,9 @@ if os.path.exists(health_path):
 
 health = {
     "last_run": now.isoformat(),
-    "last_success": now.isoformat() if status in ("ok", "partial") else old.get("last_success"),
+    "last_success": now.isoformat() if status == "ok" else old.get("last_success"),
+    "last_success_scope": "local_processing",
+    "publication": "pending",
     "last_date": now.strftime("%Y-%m-%d"),
     "source": "local",
     "status": status,
@@ -712,83 +718,17 @@ health = {
 with open(health_path, "w") as f:
     json.dump(health, f, indent=2, ensure_ascii=False)
 HEALTH_PYEOF
+if [[ $? -ne 0 ]]; then log "❌ health.json 寫入失敗"; exit 1; fi
 
-# ── Git push ──
-log "推送到 GitHub..."
-cd "$REPO_DIR"
-
-# HEAD 必須掛在 main 上才推得動。2026-07-15~25 那十天的斷線就是這裡失守：
-# HEAD 處於 detached 狀態時，下面的 commit 落在無名 ref 上，而 `git push
-# origin main` 推的是本地 main 這個凍結不動的分支 → 每次都 non-fast-forward
-# 被拒，日誌卻只印出一句誤導人的「請檢查 Git 認證」。
-if ! git symbolic-ref -q HEAD >/dev/null; then
-    log "⚠️ HEAD 為 detached，重新掛回 main（保留目前 commit）"
-    git checkout -B main >/dev/null 2>&1 || log "⚠️ 掛回 main 失敗，本次推送可能無效"
+# ── Git publication (commit -> three-way rebase -> ordinary push) ──
+TAG="[unverified]"
+[[ "$PASS_RATE" -eq 100 ]] && TAG="[verified]"
+if ! python3 "$SCRIPTS_DIR/publish-daily.py" --root "$REPO_DIR" --base "$RUN_BASE" \
+    --message "📰 AI News $TODAY $TAG [local]" \
+    --receipt "$HOME/.ai-news-hub/publication/last-run.json"; then
+    log "❌ 發布失敗；本機候選提交／檔案已保留供恢復"
+    exit 1
 fi
-
-# fetch 遠端最新狀態（GitHub Actions 可能在擷取過程中已推新 commit）
-git fetch origin main 2>/dev/null || true
-
-# 以遠端最新 HEAD 為基礎重新整合，確保 fast-forward
-# --soft 只移動 HEAD，不動工作目錄與 index，data/ 的修改不受影響
-git reset --soft origin/main 2>/dev/null || true
-
-git add data/ 2>/dev/null || true
-[[ -s data/agent/.preview/apply-change-staged.txt ]] && xargs -I{} git add -- {} < data/agent/.preview/apply-change-staged.txt
-
-if git diff --staged --quiet 2>/dev/null; then
-    log "無變更，跳過推送"
-else
-    # 從 latest.json 讀取驗證率
-    PASS_RATE=$(python3 -c "import json; d=json.load(open('$DATA_DIR/latest.json')); print(d.get('validation',{}).get('pass_rate',0))" 2>/dev/null || echo 0)
-
-    TAG="[verified]"
-    [[ "$VALIDATION_EXIT" -ne 0 ]] && TAG="[unverified]"
-    # 驗證率未達 100% 標記為 unverified
-    python3 -c "exit(0 if float('$PASS_RATE') >= 100 else 1)" 2>/dev/null || TAG="[unverified]"
-
-    git commit -m "📰 AI News $TODAY $TAG [local]" 2>/dev/null || true
-
-    PUSHED=0
-    PUSH_ERR=""
-    for i in 1 2 3; do
-        # 不要把 stderr 丟進 /dev/null。push 失敗的真正原因（non-fast-forward、
-        # 認證失敗、網路不通）只出現在 stderr，吞掉之後日誌就只剩一句猜測，
-        # 這正是這條管線斷了十天沒人看得出原因的直接理由。
-        if PUSH_ERR=$(git push origin main 2>&1); then
-            log "✅ 推送成功"
-            PUSHED=1
-            break
-        fi
-        log "⚠️ 推送第 $i 次失敗：$(printf '%s' "$PUSH_ERR" | tr '\n' ' ' | cut -c1-300)"
-        # 若推送仍失敗，再次 fetch + reset --soft 後重試
-        if [[ $i -lt 3 ]]; then
-            git fetch origin main 2>/dev/null || true
-            git reset --soft origin/main 2>/dev/null || true
-            git add data/ 2>/dev/null || true
-            [[ -s data/agent/.preview/apply-change-staged.txt ]] && xargs -I{} git add -- {} < data/agent/.preview/apply-change-staged.txt
-            git diff --staged --quiet 2>/dev/null || git commit -m "📰 AI News $TODAY $TAG [local]" 2>/dev/null || true
-            sleep 5
-        fi
-    done
-
-    if [[ $PUSHED -eq 0 ]]; then
-        log "❌ 推送失敗（3 次）。git push 最後一次的完整輸出如下："
-        printf '%s\n' "$PUSH_ERR" | sed 's/^/      /'
-        log "   本地 HEAD=$(git rev-parse --short HEAD 2>/dev/null) "\
-"branch=$(git symbolic-ref -q --short HEAD 2>/dev/null || echo DETACHED) "\
-"origin/main=$(git rev-parse --short origin/main 2>/dev/null)"
-    fi
-fi
-
-# ── 釋放 caffeinate（允許系統恢復正常休眠）──
-[[ -n "${CAFFEINATE_PID:-}" ]] && kill "$CAFFEINATE_PID" 2>/dev/null || true
-
-# ── 移除 lock file ──
-rm -f "$LOCK_FILE" 2>/dev/null || true
-
 log "========== 完成 · 狀態: $OVERALL_STATUS · 驗證: ${PASS_RATE}% =========="
-
-# 2026-09-06：整輪非 ok（partial／failed）都回非零，讓 F-3 早報標紅（ZY 拍板 partial 也要標）。
 [[ "$OVERALL_STATUS" == "ok" ]] || exit 1
 exit 0

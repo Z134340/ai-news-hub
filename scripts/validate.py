@@ -18,7 +18,7 @@ import sys
 import os
 import argparse
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import urllib.request
 import urllib.error
@@ -406,10 +406,10 @@ def check_domain_whitelist(url):
 # Per-category maximum age in days (None = use default 90)
 CATEGORY_DATE_LIMITS = {
     'papers': 90,
-    'topnews': 2,
-    'taiwan': 2,
-    'china': 2,
-    'usa': 2,
+    'topnews': 1,
+    'taiwan': 1,
+    'china': 1,
+    'usa': 1,
     'techtrends': 7,
     'governance': 7,
     'tutorials': 90,
@@ -428,7 +428,9 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
 
     try:
         parsed_date = datetime.strptime(date_str, '%Y-%m-%d').date()
-        today = datetime.now().date()
+        if parsed_date.isoformat() != date_str:
+            return False, 'invalid_format'
+        today = datetime.now(timezone(timedelta(hours=8))).date()
 
         # No date range restriction
         if no_limit:
@@ -440,7 +442,7 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
             if parsed_date < today - timedelta(days=730):
                 return False, 'date_too_old'
         else:
-            if parsed_date > today + timedelta(days=1) or parsed_date < today - timedelta(days=max_days):
+            if parsed_date > today or parsed_date < today - timedelta(days=max_days):
                 return False, 'date_out_of_range'
 
         return True, ''
@@ -451,7 +453,11 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
 def validate_required_fields(item, category):
     """Check if item has all required fields."""
     required = REQUIRED_FIELDS.get(category, [])
-    missing = [field for field in required if field not in item]
+    def present(value, field):
+        if field == 'authors' and isinstance(value, list):
+            return bool(value) and all(isinstance(x, str) and x.strip() for x in value)
+        return isinstance(value, str) and bool(value.strip())
+    missing = [field for field in required if not present(item.get(field), field)]
     return len(missing) == 0, missing
 
 
@@ -469,7 +475,7 @@ def remove_duplicates(items):
 
     for item in items:
         url = item.get('url', '')
-        title = item.get('title', '') or item.get('model_name', '')
+        title = item.get('model_name') if isinstance(item.get('model_name'), str) else item.get('title', '')
 
         # Check URL duplicate
         if url in seen_urls:
@@ -495,190 +501,97 @@ def remove_duplicates(items):
 
 
 def validate_items(data, category_filter=None, dry_run=False):
-    """
-    Execute all 7 validation steps.
-    Returns validation results.
-    """
-    results = {
-        'date': datetime.now().isoformat(),
-        'dry_run': dry_run,
-        'total_items': 0,
-        'verified': 0,
-        'warnings': 0,
-        'removed': 0,
-        'details': {},
-        'per_item_results': {}
-    }
+    """Reject invalid structure before dedup/network; compose qualification exactly once."""
+    if not isinstance(data, dict):
+        raise ValueError('category data must be an object')
+    categories = [category_filter] if category_filter else list(data)
+    if any(cat not in REQUIRED_FIELDS or not isinstance(data.get(cat), list) for cat in categories):
+        raise ValueError('unknown category or category is not an array')
+    results = {'date': datetime.now().isoformat(), 'dry_run':dry_run, 'total_items':0,
+               'verified':0, 'needs_review':0, 'warnings':0, 'removed':0,
+               'details':{}, 'per_item_results':{}}
+    candidates = {}
+    for cat in categories:
+        detail = {'total':len(data[cat]), 'verified':0, 'needs_review':0, 'warnings':0, 'removed_items':[], 'items':[]}
+        results['details'][cat] = detail
+        results['total_items'] += len(data[cat])
+        candidates[cat] = []
+        for idx, item in enumerate(data[cat]):
+            issues = []
+            if not isinstance(item, dict):
+                issues.append('Item must be an object')
+            else:
+                if 'title' in item and not isinstance(item['title'], str):
+                    issues.append('Invalid optional title')
+                if 'model_name' in item and not isinstance(item['model_name'], str):
+                    issues.append('Invalid optional model_name')
+                complete, missing = validate_required_fields(item, cat)
+                if not complete:
+                    issues.append(f'Missing or invalid fields: {missing}')
+                date_field = 'release_date' if cat == 'models' else 'date'
+                valid, reason = validate_date(item.get(date_field), allow_future=cat == 'models', max_days=CATEGORY_DATE_LIMITS.get(cat) or 90)
+                if not valid:
+                    issues.append(f'Invalid {date_field}: {reason}')
+                url = item.get('url')
+                if isinstance(url, str):
+                    try:
+                        parsed = urlparse(url)
+                        if parsed.scheme not in ('http', 'https') or not parsed.hostname or parsed.username or any(c.isspace() or ord(c) < 32 for c in url):
+                            issues.append('Invalid URL')
+                    except ValueError:
+                        issues.append('Invalid URL')
+            if issues:
+                detail['items'].append({'index':idx, 'issues':issues, 'remove':True})
+                detail['removed_items'].append(item.get('url', '') if isinstance(item, dict) else '')
+                detail['warnings'] += 1; results['warnings'] += 1; results['removed'] += 1
+            else:
+                candidates[cat].append(item)
+        candidates[cat], duplicates = remove_duplicates(candidates[cat])
+        results['removed'] += duplicates
 
-    # Get categories to process
-    categories = [category_filter] if category_filter else list(data.keys())
-
-    # Step 5: Deduplicate first
-    for category in categories:
-        if category not in data:
-            continue
-
-        items = data[category]
-        deduplicated, dup_removed = remove_duplicates(items)
-        if dup_removed > 0:
-            logger.info(f"Removed {dup_removed} duplicates from {category}")
-            results['removed'] += dup_removed
-        data[category] = deduplicated
-
-    # Step 1: URL Liveness + Title consistency checks (concurrent)
     url_status = {}
-    urls_to_check = []
-
-    for category in categories:
-        if category not in data:
-            continue
-        for idx, item in enumerate(data[category]):
-            url = item.get('url', '')
-            claimed_title = item.get('title', '') or item.get('model_name', '')
-            if url:
-                urls_to_check.append((url, claimed_title, category, idx))
-
-    # Concurrent URL + title checking with batch delays
     with ThreadPoolExecutor(max_workers=3) as executor:
         futures = {}
-        for i, (url, claimed_title, category, idx) in enumerate(urls_to_check):
-            if i > 0 and i % 3 == 0:
-                time.sleep(0.5)  # 0.5s delay between batches
-            future = executor.submit(check_url_and_title, url, claimed_title)
-            futures[future] = (url, category, idx)
-
+        count = 0
+        for cat in categories:
+            for idx, item in enumerate(candidates[cat]):
+                if count and count % 3 == 0:
+                    time.sleep(0.5)
+                count += 1
+                future = executor.submit(check_url_and_title, item['url'], item['model_name'] if cat == 'models' else item['title'])
+                futures[future] = (cat, idx)
         for future in as_completed(futures):
-            url, category, idx = futures[future]
+            key = futures[future]
             try:
-                verified, status, title_score = future.result()
-                url_status[(category, idx)] = (verified, status, title_score)
-            except Exception as e:
-                logger.warning(f"Error checking URL {url}: {e}")
-                url_status[(category, idx)] = (False, 'error', 0.0)
+                url_status[key] = future.result()
+            except Exception:
+                url_status[key] = (False, 'validation_error', 0.0)
 
-    # Process each category
-    for category in categories:
-        if category not in data:
-            continue
-
-        category_results = {
-            'total': 0,
-            'verified': 0,
-            'warnings': 0,
-            'removed_items': [],
-            'items': []
-        }
-
-        items_to_keep = []
-
-        for idx, item in enumerate(data[category]):
-            results['total_items'] += 1
-            category_results['total'] += 1
-
-            item_result = {
-                'index': idx,
-                'url': item.get('url', ''),
-                'issues': [],
-                'remove': False
-            }
-
-            try:
-                # Step 3: Field completeness
-                is_complete, missing = validate_required_fields(item, category)
-                if not is_complete:
-                    item_result['issues'].append(f"Missing fields: {missing}")
-                    category_results['warnings'] += 1
-                    results['warnings'] += 1
-                    item['verified'] = False
-
-                # Step 2: Domain whitelist
-                url = item.get('url', '')
-                if url:
-                    is_trusted, domain = check_domain_whitelist(url)
-                    if not is_trusted:
-                        item_result['issues'].append(f"Untrusted domain: {domain}")
-                        category_results['warnings'] += 1
-                        results['warnings'] += 1
-
-                # Step 1: URL Liveness + Title consistency
-                url_result = url_status.get((category, idx))
-                if url_result:
-                    verified, status, title_score = url_result
-                    item['url_status'] = status
-                    item['title_score'] = round(title_score, 2) if title_score else 0
-                    if verified is True:
-                        item['verified'] = True
-                        category_results['verified'] += 1
-                        results['verified'] += 1
-                    elif verified is None:  # needs_review (403, title_low_match etc)
-                        item['verified'] = 'needs_review'
-                        # Count as verified for pass rate (URL is alive)
-                        category_results['verified'] += 1
-                        results['verified'] += 1
-                        category_results['warnings'] += 1
-                        results['warnings'] += 1
-                    else:
-                        item['verified'] = False
-                        item_result['remove'] = True
-                        item_result['issues'].append(f"URL failed: {status} (title_score={title_score:.2f})")
-                        category_results['warnings'] += 1
-                        results['warnings'] += 1
-
-                # Step 4: Date reasonableness
-                # Models: allow_future for release_date (up to 2 years back)
-                is_models = (category == 'models')
-
-                # Check main date field
-                date_field = {
-                    'papers': 'date',
-                    'topnews': 'date',
-                    'taiwan': 'date',
-                    'china': 'date',
-                    'usa': 'date',
-                    'techtrends': 'date',
-                    'governance': 'date',
-                    'tutorials': 'date',
-                    'courses': 'date',
-                    'models': 'release_date',
-                }.get(category, 'date')
-
-                date_value = item.get(date_field, '')
-                cat_max_days = CATEGORY_DATE_LIMITS.get(category, 90)
-                is_valid, error = validate_date(
-                    date_value,
-                    allow_future=is_models,
-                    no_limit=False,
-                    max_days=cat_max_days if cat_max_days is not None else 90,
-                )
-                if not is_valid:
-                    item_result['issues'].append(f"Invalid {date_field}: {error}")
-                    category_results['warnings'] += 1
-                    results['warnings'] += 1
-
-                # Decide whether to keep item
-                if not item_result['remove']:
-                    items_to_keep.append(item)
-                    item['verified_at'] = datetime.now().isoformat()
-                    item['complete'] = is_complete
-                    if 'verified' not in item:
-                        item['verified'] = True
-                else:
-                    results['removed'] += 1
-                    category_results['removed_items'].append(item.get('url', ''))
-
-                category_results['items'].append(item_result)
-
-            except Exception as e:
-                logger.warning(f"Error validating item in {category}[{idx}]: {e}")
-                item_result['issues'].append(f"Validation error: {str(e)}")
-                category_results['warnings'] += 1
-                results['warnings'] += 1
-                items_to_keep.append(item)
-
-        # Update data with processed items
-        data[category] = items_to_keep
-        results['details'][category] = category_results
-
+    for cat in categories:
+        kept, detail = [], results['details'][cat]
+        for idx, item in enumerate(candidates[cat]):
+            verified, status, score = url_status[(cat, idx)]
+            item['verified'] = True if verified is True else 'needs_review' if verified is None else False
+            item['complete'] = True
+            item['url_status'] = status
+            item['title_score'] = round(score or 0, 2)
+            item['verified_at'] = datetime.now(timezone(timedelta(hours=8))).isoformat()
+            trusted, domain = check_domain_whitelist(item['url'])
+            issues = [] if trusted else [f'Untrusted domain: {domain}']
+            if verified is True:
+                detail['verified'] += 1; results['verified'] += 1
+            elif verified is None:
+                detail['needs_review'] += 1; results['needs_review'] += 1
+                issues.append(f'Source needs review: {status}')
+            else:
+                results['removed'] += 1; detail['removed_items'].append(item['url'])
+                issues.append(f'URL failed: {status}')
+            if issues:
+                detail['warnings'] += 1; results['warnings'] += 1
+            detail['items'].append({'index':idx, 'url':item['url'], 'issues':issues, 'remove':verified is False})
+            if verified is True or verified is None:
+                kept.append(item)
+        data[cat] = kept
     return results
 
 
@@ -696,14 +609,15 @@ def write_validation_report(repo_root, results):
     logger.info(f"Validation report written to {report_path}")
 
 
-def save_latest_json(repo_root, data, results):
+def save_latest_json(repo_root, data, results, output_path=None):
     """Save updated data to data/latest.json"""
-    latest_path = repo_root / 'data' / 'latest.json'
+    latest_path = Path(output_path) if output_path else repo_root / 'data' / 'latest.json'
 
     # Add validation summary
     validation_summary = {
         'total': results['total_items'],
         'verified': results['verified'],
+        'needs_review': results['needs_review'],
         'warnings': results['warnings'],
         'removed': results['removed'],
         'pass_rate': round(results['verified'] / results['total_items'] * 100, 2) if results['total_items'] > 0 else 0
@@ -716,8 +630,10 @@ def save_latest_json(repo_root, data, results):
     if 'data' in data and isinstance(data['data'], dict):
         data['stats'] = {cat: len(items) for cat, items in data['data'].items() if isinstance(items, list)}
 
-    with open(latest_path, 'w', encoding='utf-8') as f:
+    temporary = latest_path.with_name(latest_path.name + '.tmp')
+    with open(temporary, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+    os.replace(temporary, latest_path)
 
     logger.info(f"Updated {latest_path}")
 
@@ -814,6 +730,8 @@ def main():
         help='Run offline self-tests (tier-b whitelist merge, registry shape) and exit'
     )
 
+    parser.add_argument('--input', type=Path, help='Candidate JSON (default data/latest.json)')
+    parser.add_argument('--output', type=Path, help='Validated output path')
     args = parser.parse_args()
 
     if args.self_test:
@@ -822,27 +740,37 @@ def main():
     repo_root = get_repo_root()
     logger.info(f"Repository root: {repo_root}")
 
-    # Load data
-    latest = load_latest_json(repo_root)
-
-    # Extract the inner "data" dict (category -> items)
-    if 'data' in latest and isinstance(latest['data'], dict):
+    # An invalid/missing input is a processing failure, never a successful empty run.
+    try:
+        latest = json.loads((args.input or repo_root / 'data/latest.json').read_text(encoding='utf-8'))
+        if not isinstance(latest, dict) or not isinstance(latest.get('data'), dict):
+            raise ValueError('latest.data must be an object')
         data = latest['data']
-    else:
-        # Fallback: treat the whole object as category data
-        data = {k: v for k, v in latest.items() if isinstance(v, list)}
+        if not data:
+            raise ValueError('category data is empty')
+    except (OSError, ValueError) as error:
+        logger.error('Invalid input: %s', error)
+        return 1
 
     # Run validation
     logger.info("Starting 7-step validation...")
-    results = validate_items(data, category_filter=args.category, dry_run=args.dry_run)
+    try:
+        results = validate_items(data, category_filter=args.category, dry_run=args.dry_run)
+    except ValueError as error:
+        logger.error('Invalid category data: %s', error)
+        return 1
 
     # Write report
-    write_validation_report(repo_root, results)
+    if not args.dry_run:
+        write_validation_report(repo_root, results)
+    if not any(data.values()):
+        logger.error('No usable items remain after validation')
+        return 1
 
     # Save updated data (unless dry-run)
     if not args.dry_run:
         latest['data'] = data
-        save_latest_json(repo_root, latest, results)
+        save_latest_json(repo_root, latest, results, args.output or args.input)
 
     # Print summary
     logger.info("=" * 60)

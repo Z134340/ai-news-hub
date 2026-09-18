@@ -1,68 +1,58 @@
-/* AI News Hub — history.js  歷史紀錄載入（冷熱分層：近 7 天 static / 逾期 Firestore 冷封存） */
-
-async function loadHistDate(date){
-  try{
-    // 先讀 static（熱層，近 7 天）
-    const r = await fetch(`data/${date}.json?v=`+Date.now());
-    let day = null;
-    if(r.ok){ day = await r.json(); }
-    else if(typeof archiveGet === 'function'){ day = await archiveGet(date); } // fallback：Firestore 冷封存
-    if(!day){ console.warn('找不到該日資料：'+date); return; }
-    if(!HIST_VIEWING) DATA_LATEST = DATA;
-    DATA = day;
-    HIST_VIEWING = date;
-    renderAll(); updateHeader(); switchSec('papers');
-    window.scrollTo({top:0,behavior:'smooth'});
-  }catch(e){console.error(e)}
+/* Paginated summary reads; daily payload is fetched only when selected. */
+let HISTORY = {request:0, entries:{}, next:null, loading:false, message:''};
+async function loadHistDate(date) {
+  if (!archiveDate(date)) return;
+  try {
+    let day = await fetchJSON(`data/${date}.json?v=${Date.now()}`,8000).catch(()=>null);
+    if (!day) day = await archiveGet(date);
+    if (!day || !plainRecord(day.data)) { personalNotice('該日資料暫時無法載入，請稍後重試。'); return; }
+    if (!HIST_VIEWING) DATA_LATEST = DATA;
+    DATA = day; HIST_VIEWING = date;
+    renderAll(); updateHeader(); switchSec('papers'); window.scrollTo({top:0,behavior:'smooth'});
+  } catch(e) { console.error(e); personalNotice('歷史資料載入失敗，請稍後重試。'); }
 }
-
-function backToLatest(){
-  if(!DATA_LATEST) return;
-  DATA = DATA_LATEST;
-  DATA_LATEST = null;
-  HIST_VIEWING = null;
-  renderAll(); updateHeader(); switchSec('papers');
-  window.scrollTo({top:0,behavior:'smooth'});
+async function backToLatest() {
+  if (!DATA_LATEST) {
+    const previous = DATA, date = HIST_VIEWING;
+    HIST_VIEWING = null;
+    if (!await loadData()) {
+      DATA = previous; HIST_VIEWING = date; renderAll(); updateHeader();
+      personalNotice('最新資料暫時無法載入，保留目前歷史內容。');
+    }
+    return;
+  }
+  DATA = DATA_LATEST; DATA_LATEST = null; HIST_VIEWING = null;
+  renderAll(); updateHeader(); switchSec('papers'); window.scrollTo({top:0,behavior:'smooth'});
 }
-
-async function loadHistoryPanel(){
-  const el=$('panel-history');
-  el.innerHTML='<div class="empty">載入中...</div>';
-  try{
-    // 熱層：近 7 天 static index.json
-    let hot = [];
-    try{
-      const r=await fetch('data/index.json?v='+Date.now());
-      if(r.ok) hot = await r.json();
-    }catch{}
-    // 冷層：Firestore 封存（逾期）。未啟用 Firebase 時回傳 []，自動退回 static-only。
-    let cold = [];
-    if(typeof archiveList === 'function') cold = await archiveList();
-
-    // 合併去重（同日以 static 熱層為準），日期新到舊
-    const byDate = {};
-    cold.forEach(e=>{ if(e.date) byDate[e.date] = {...e, _cold:true}; });
-    hot.forEach(e=>{ if(e.date) byDate[e.date] = {...e, _cold:false}; });
-    const entries = Object.values(byDate).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-
-    if(!entries.length){el.innerHTML='<div class="empty">📅 無歷史資料</div>';return;}
-    el.innerHTML=entries.map((e,i)=>{
-      const cnt = e.item_count || (e.stats ? Object.values(e.stats).reduce((a,b)=>a+(typeof b==='number'?b:0),0) : 0);
-      const pr  = e.validation_pass_rate ?? e.pass_rate ?? e.validation?.pass_rate ?? 0;
-      return `<div class="card" style="cursor:pointer" onclick="loadHistDate('${e.date}')">
-        <div class="card-row">
-          ${rank(i+1,'#64748b')}
-          <div class="card-body">
-            <div class="card-head"><div class="card-title">${fmtDate(e.date)}</div></div>
-            <div class="card-badges">
-              ${badge('#34d399', cnt+' 筆新聞')}
-              ${badge('#818cf8','驗證 '+pr+'%')}
-              ${badge(e._cold?'#a78bfa':'#64748b', e._cold?'封存':(e.source||'自動'))}
-            </div>
-          </div>
-          <div style="color:var(--ac);font-size:12px;font-weight:600;white-space:nowrap">載入 →</div>
-        </div>
-      </div>`;
-    }).join('');
-  }catch(err){console.error(err);el.innerHTML='<div class="empty">載入失敗</div>';}
+async function loadHistoryPanel() {
+  const request = HISTORY.request + 1;
+  HISTORY = {request, entries:{}, next:null, loading:false, message:'封存清單載入中…'};
+  $('panel-history').innerHTML = '<div class="empty">載入中…</div>';
+  const hot = await fetchJSON('data/index.json?v='+Date.now(),8000).catch(()=>[]);
+  if (request !== HISTORY.request) return;
+  (Array.isArray(hot) ? hot : []).forEach(e => { if (e && archiveDate(e.date)) HISTORY.entries[e.date] = {...e,_cold:false}; });
+  renderHistory(); await loadMoreHistory();
+}
+async function loadMoreHistory() {
+  if (HISTORY.loading) return;
+  const request = HISTORY.request;
+  HISTORY.loading = true; HISTORY.message = '封存清單載入中…'; renderHistory();
+  try {
+    const page = await archivePage(HISTORY.next);
+    if (request !== HISTORY.request) return;
+    page.entries.forEach(e => { if (!HISTORY.entries[e.date]) HISTORY.entries[e.date] = {...e,_cold:true}; });
+    HISTORY.next = page.next;
+    HISTORY.message = page.available ? '' : '封存服務未啟用，目前僅顯示本機歷史。';
+  } catch { if (request === HISTORY.request) HISTORY.message = '封存清單暫時無法取得，可重試。'; }
+  finally { if (request === HISTORY.request) { HISTORY.loading = false; renderHistory(); } }
+}
+function renderHistory() {
+  const entries = Object.values(HISTORY.entries).sort((a,b)=>b.date.localeCompare(a.date));
+  $('panel-history').innerHTML = entries.map((e,i)=> {
+    const cnt = Number(e.item_count) || (plainRecord(e.stats) ? Object.values(e.stats).reduce((a,b)=>a+(typeof b==='number'?b:0),0) : 0);
+    const pr = e.validation_pass_rate ?? e.pass_rate ?? e.validation?.pass_rate;
+    return `<div class="card" style="cursor:pointer" onclick="loadHistDate('${e.date}')"><div class="card-row">${rank(i+1,'#64748b')}<div class="card-body"><div class="card-title">${fmtDate(e.date)}</div><div class="card-badges">${badge('#34d399',cnt+' 筆新聞')}${badge('#818cf8',pr == null ? '驗證 —' : '驗證 '+esc(pr)+'%')}${badge(e._cold?'#a78bfa':'#64748b',e._cold?'封存':esc(e.source||'自動'))}</div></div><span>載入 →</span></div></div>`;
+  }).join('') + (!entries.length && !HISTORY.message ? '<div class="empty">📅 無歷史資料</div>' : '')
+  + `<p role="status">${esc(HISTORY.message)}</p>`
+  + ((HISTORY.next || HISTORY.message.includes('重試')) ? `<button class="bm-exp" onclick="loadMoreHistory()" ${HISTORY.loading?'disabled':''}>${HISTORY.message.includes('重試')?'重試':'載入更早紀錄'}</button>` : '');
 }
