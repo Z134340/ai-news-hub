@@ -59,4 +59,5 @@ jobs:
             --project-name=ai-news-hub
             --branch=main
             --commit-hash=${{ env.DEPLOY_SHA }}
+            --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

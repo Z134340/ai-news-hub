@@ -14,6 +14,7 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 ## Cloudflare Pages 專案設定
 
 - 專案名稱：`ai-news-hub`
+- Production URL：`https://ai-news-hub-7jk.pages.dev`（Cloudflare 配發；專案名稱仍為 `ai-news-hub`）
 - 發布來源：GitHub repository `Z134340/ai-news-hub` 的 `.github/workflows/cloudflare-pages.yml`
 - Production branch：`main`
 - 發布閘門：相同 commit 的「離線自測」成功；另保留人工 `workflow_dispatch` 供首次部署及故障復原
