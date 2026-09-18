@@ -1,6 +1,6 @@
 # AI News Hub — 全自動 AI 新聞聚合平台
 
-一個零成本、全自動的 AI 新聞聚合系統，每天自動收集、驗證、發佈 AI 相關新聞，展示於響應式 GitHub Pages 前端。
+一個全自動的 AI 新聞聚合系統，每天自動收集、驗證、發佈 AI 相關新聞。網站正遷移至 Cloudflare Pages，GitHub 管理原始碼與 CI，Firebase 提供登入、個人資料與冷封存；切換完成前 GitHub Pages 保留為回退。
 
 ## 架構圖
 

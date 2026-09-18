@@ -8,12 +8,12 @@
 `index.html` 已拆為頁面結構、全站共用主題 `assets/css/app.css`、儀表板布局 `assets/css/trend-briefing.css` 與 `assets/js/` 十三個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
 `config → personal-data → firebase → bookmarks → search → render → ui → history → data → trend-topics → trend-briefing → dashboard → main`。
-仍是純靜態，GitHub Pages 直接服務；相對路徑維持 project page base `/ai-news-hub/`；`.nojekyll` 保留。
+仍是純靜態與相對路徑。Cloudflare Pages 遷移工項以 `scripts/build-site.mjs` 產生 allowlist `dist/`，GitHub Pages 在新站通過正常每日週期前保留為回退。正式部署與切換狀態以 [deployment.md](deployment.md) 與 `HANDOFF.md` 證據為準；程式存在不代表已切換。
 
 ### 儲存：混合冷熱分層（static + Firebase）
 | 資料 | 儲存 | 說明 |
 |------|------|------|
-| 熱：latest + 近 7 天 archive | static JSON + Pages（不變） | 每次開頁讀，免費、已快取 |
+| 熱：latest + 近 7 天 archive | static JSON + Cloudflare Pages（切換前由 GitHub Pages 服務） | 每次開頁讀；屬唯讀發佈資產 |
 | 冷：逾 7 天 archive | **Firestore `archives/{date}`** | 清單使用 REST 欄位投影與分頁；僅選擇日期才讀整日 payload |
 | 使用者：書籤 | **Firestore `users/{uid}`** | 跨 iPhone/桌面同步；Email/Password auth；offline-first（localStorage 為離線快取） |
 
@@ -66,6 +66,8 @@ ai-news-hub/
 ├── index.html                       ← 頁面結構 + link css + script src
 ├── firebase.json                    ← Firestore 規則部署設定
 ├── firestore.rules                  ← users（書籤）+ archives（冷封存）安全規則
+├── wrangler.jsonc                   ← Cloudflare Pages 專案與輸出目錄
+├── cloudflare/_headers              ← 靜態回應 cache／安全 headers
 ├── FIREBASE-SETUP.md                ← 書籤雲端同步設定指南
 ├── ARCHIVE-SETUP.md                 ← 過期新聞冷封存設定指南
 ├── HANDOFF.md                       ← 交接狀態（done/pending/勿動/checklist）
@@ -95,6 +97,7 @@ ai-news-hub/
 │   ├── validate.py  extract-json.py  merge-stack.py
 │   ├── setup-prompts.sh  setup-scheduler.sh  supplement-run.sh
 │   ├── archive-to-firestore.mjs    ← 冷封存上傳（Node 零依賴 REST，scoped writer）
+│   ├── build-site.mjs              ← 產生 Cloudflare allowlist dist/
 │   ├── repo-slim.sh                ← 一次性 repo 瘦身（本機跑）
 │   └── prompts/  (10 個 .md，含 courses.md)
 ├── data/

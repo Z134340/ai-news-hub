@@ -8,6 +8,7 @@ data/logs/validate-*.json
 data/logs/failed_*.txt
 *.tmp
 tmp_*
+dist/
 
 # repo 瘦身：不追蹤本機 git bundle 備份與後端中繼產物
 ai-news-hub.bundle

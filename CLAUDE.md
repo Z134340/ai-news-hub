@@ -39,6 +39,7 @@
 | `scripts/run-daily.sh` 擷取與每日 Git 整合行為 | `docs/specs/run-daily.md` |
 | `scripts/validate.py`、Tier B、日期上限 | `docs/specs/validate.md` |
 | GitHub Actions 健康檢查與保活 | `docs/specs/workflows.md` |
+| Cloudflare Pages、GitHub 部署來源、發佈包與回退 | `docs/specs/deployment.md` |
 | 排程安裝、launchd、電源與喚醒 | `docs/specs/setup-scheduler.md` |
 | 前端 UX、趨勢儀表板與待實作設計 | `docs/specs/frontend-ux.md` |
 | 雙訊號學習迴圈 | `docs/specs/learning-loop-v1.md` |

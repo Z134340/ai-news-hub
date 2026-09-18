@@ -37,6 +37,8 @@
 
 **目的：** 防止 GitHub Pages 因 60 天無活動被停用。
 
+Cloudflare 遷移期間保留此回退機制。只有 `docs/specs/deployment.md` 的 production 與正常每日週期驗收完成後，才能另行停用；不能因 Cloudflare preview 成功就先刪除。
+
 ```yaml
 觸發：每月 1 號 UTC 00:00
 邏輯：
