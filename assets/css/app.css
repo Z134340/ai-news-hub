@@ -124,12 +124,11 @@ a:hover{color:var(--acl)}
 .empty{text-align:center;padding:40px 16px;color:var(--tx3);font-size:14px}
 .skills-note{margin:0 0 14px;padding:10px 13px;border:1px solid var(--bd);border-radius:8px;background:var(--ac-soft);color:var(--tx2);font-size:12px;line-height:1.65}
 
-/* ===== LAPTOP / DESKTOP — 等比例放大至舒適檢視 =====
-   只作用於 >768px（筆電/桌面）。zoom 同時放大字級與間距，比例不變，
-   且會等比例收斂 layout 寬度，故不產生水平卷軸；JS sticky 定位（updateStickyOffsets）
-   在同一 zoom 座標系下仍精準對齊。平板/手機（≤768px）維持原本優化尺寸不受影響。 */
+/* ===== LAPTOP / DESKTOP — Header 保持辨識度，內容採緊湊資訊密度 =====
+   舊版放大整個 body，連主內容也一起放大。現在只維持 Header 的既有視覺尺寸，
+   讓下方內容回到原生比例，同一個 viewport 能看到更多卡片與摘要。 */
 @media(min-width:769px){
-  body{zoom:1.2}
+  .hdr{zoom:1.2}
 }
 
 /* ===== RESPONSIVE — TABLET ===== */
@@ -484,10 +483,10 @@ button:disabled{cursor:wait;opacity:.6}
 }
 @media(max-width:800px){
  .hdr{padding:12px 16px}
- .content{padding:24px 18px 40px}
- .sec-title{font-size:26px}
- .sec-head{flex-wrap:wrap;gap:8px;margin-bottom:20px}
- .sec-updated{font-size:11px;white-space:normal}
+ .content{padding:20px 16px 36px}
+ .sec-title{font-size:24px}
+ .sec-head{flex-wrap:wrap;gap:8px;margin-bottom:16px}
+ .sec-updated{font-size:10px;white-space:normal}
 }
 @media(max-width:480px){
  .hdr{padding-top:calc(10px + env(safe-area-inset-top,0px));padding-left:calc(12px + env(safe-area-inset-left,0px));padding-right:calc(12px + env(safe-area-inset-right,0px));padding-bottom:0}
@@ -496,12 +495,12 @@ button:disabled{cursor:wait;opacity:.6}
  .srch-toggle{padding:4px 7px}
  .sec-tab{padding:8px 10px;min-height:44px}.sec-tab .s-label{font-size:12px}
  .sub-tab{min-height:44px}.sub-tab .st-label{font-size:12px}
- .content{padding:24px 16px calc(40px + env(safe-area-inset-bottom,0px))}
- .sec-title{font-size:25px}.sec-count{font-size:12px}
- .card{padding:16px 14px;border-radius:9px;margin-bottom:10px}
- .card-title{font-size:15px;line-height:1.65}.card-title-zh{font-size:12px;line-height:1.7}
- .card-detail p.summary{font-size:14px;line-height:1.85}.badge{font-size:11px}
- .info-block .ib-label{font-size:11px}.info-block .ib-text{font-size:12px}
+ .content{padding:18px 12px calc(34px + env(safe-area-inset-bottom,0px))}
+ .sec-title{font-size:22px}.sec-count{font-size:11px}
+ .card{padding:14px 12px;border-radius:9px;margin-bottom:8px}
+ .card-title{font-size:14px;line-height:1.55}.card-title-zh{font-size:11px;line-height:1.6}
+ .card-detail p.summary{font-size:13px;line-height:1.75}.badge{font-size:10px}
+ .info-block .ib-label{font-size:10px}.info-block .ib-text{font-size:11px}
  .auth-modal{padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
  .srch-bar{padding:8px 0 12px}.srch-field{font-size:16px}
 }
