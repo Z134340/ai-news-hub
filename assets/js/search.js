@@ -18,6 +18,7 @@ function toggleSearch() {
   }
 }
 function exitSearchPanel() {
+  document.body.classList.toggle('trends-active', curSec==='dashboard');
   document.querySelectorAll('.panel').forEach(p => {
     if(p.id==='panel-search') p.classList.remove('on');
     else p.classList.toggle('on', p.id==='panel-'+curSec);
@@ -47,6 +48,7 @@ function runSearch(q) {
       if(haystack.includes(lower)) results.push({item,label,color,key});
     });
   });
+  document.body.classList.remove('trends-active');
   // Show search panel
   document.querySelectorAll('.panel').forEach(p => {
     p.classList.toggle('on', p.id==='panel-search');

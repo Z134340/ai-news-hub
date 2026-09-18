@@ -9,8 +9,8 @@
 |---|---|---|---|
 | DOC-SHARED：兩工具共用規範 | Codex；`codex/shared-project-guidance`；基準 `e58ac42` | 整理與驗收完成；限共用文件、架構／Git 行為說明與歷史封存。網站程式、排程、runtime 憲章及權限設定未修改 | 驗證詳見下方；交付狀態以包含本列的 Git 提交與遠端分支為準，無追加實作工項 |
 | ARCH-ROBUST：架構與穩健性稽核 | Codex；`codex/architecture-audit`；基準 `554325f` | 稽核完成；原稽核未修改正式程式／資料／權限。已授權改善接續於下列 ARCH-FIX | 原 26 組既有命令通過；原稽核證據為當時快照，改善驗證見 ARCH-FIX |
-| ARCH-FIX：網站與每日流程穩健性 | Codex；`codex/robustness-fixes`；基準 `bcbc224` | 已實作帳號隔離、刪除同步、連結清理、歷史分頁／逾時與失敗恢復、候選驗證、程序鎖、安全 Git 發布／重試、CI；依使用者「確認建議精準且適當，如適當則執行」授權。規格及程式入口見 `docs/shapes/site-robustness.md` | 本機驗證見下方；交付以包含本列的 Git 提交與遠端分支為準。真實 Firebase 多帳號／多裝置、下一次正常排程及 Pages 部署需各自核對證據；UI-TRENDS 尚未實作 |
-| UI-TRENDS：趨勢儀表板改版 | 尚未指派實作；無實作分支 | 設計方向已確認、尚未實作；決策見 §1 第 14 點，設計範圍見 `docs/specs/frontend-ux.md` 的「趨勢儀表板改版」 | 下一步是細化動態主題來源與連續追蹤的資料契約、更新 A 版設計稿；本次文件整理不構成網站或後端改版授權 |
+| ARCH-FIX：網站與每日流程穩健性 | Codex；`codex/robustness-fixes`；基準 `bcbc224` | 已實作帳號隔離、刪除同步、連結清理、歷史分頁／逾時與失敗恢復、候選驗證、程序鎖、安全 Git 發布／重試、CI；依使用者「確認建議精準且適當，如適當則執行」授權。規格及程式入口見 `docs/shapes/site-robustness.md` | 本機驗證見下方；交付以包含本列的 Git 提交與遠端分支為準。真實 Firebase 多帳號／多裝置、下一次正常排程及 Pages 部署需各自核對證據；UI-TRENDS 另見下列工項 |
+| UI-TRENDS：趨勢儀表板改版 | Codex；`codex/trends-briefing`；基準 `7ace435` | 2026-09-18 使用者「請實作」授權後，完成 A 版桌面／手機介面、公開新聞的動態焦點分組、來源與缺日顯示；原固定分類保留收合區 | 本機驗證見下方；資料契約見 `docs/specs/frontend-ux.md`，程式入口見 `docs/shapes/trend-briefing.md`。提交、推送與部署以實際 Git／Pages 紀錄為準 |
 
 ARCH-ROBUST 本機完整報告：`/Users/zyc/.codex/visualizations/2026/09/17/01a0afad-58b9-7130-b668-afa4f2225154/architecture-audit-20260918.md`。此為稽核 artifact，未能取得時不可自行猜測各工項內容；須由報告恢復或依同一程式基準重做核對。
 
@@ -28,6 +28,13 @@ ARCH-ROBUST 本機完整報告：`/Users/zyc/.codex/visualizations/2026/09/17/01
 - 本機瀏覽器驗證首頁、新聞、收藏新增／重載保留／移除、最新資料 503 後開啟歷史、回到最新失敗仍保留歷史。測試服務停用 Firebase 登入與寫入；封存 dry-run 找到 1 個候選（2026-09-10），不代表實際上傳。
 - 已知界線：Firebase 真實多帳號／多裝置驗收待做；單文件容量、用戶端時間戳排序與舊客戶端相容限制見 `docs/specs/personal-data.md`。趨勢來源時效與 system-status 缺檔仍按既有人工發布流程處理，沒有啟用 preview promotion。
 - 共用規則入口不變；spec／shape 已更新。測試綠燈代表上述離線與本機情境通過，不代表零技術債、正式排程成功或網站已部署。
+
+### UI-TRENDS 驗證紀錄（2026-09-18）
+
+- 30 項前端與分組回歸通過（原 16 項＋14 項本次情境），十三個前端 JS 逐檔語法與差異空白檢查通過。封存 dry-run 成功退出、沒有符合條件的 archive，不代表驗證上傳。
+- 本機 Browser 驗證桌面／手機版、主題切換與焦點、重新整理保留選題、舊分類收合、新聞頁、搜尋標題／關閉恢復、歷史 9/17 → 趨勢仍為 9/18。相容調整包含搜尋時移除新主題樣式、離開儀表板關閉原抽屜。
+- 本次資料來源為已發布新聞，沒有修改資料檔、執行擷取或晉升 preview。分詞不是語意判讀、無同義詞 registry、可用歷史僅已取得的熱層快照；這些範圍限制如實顯示於觀測說明，不能宣稱已有九十日動態主題追蹤。
+- 本機結果不代替 Pages 發布證據；請以包含本工項的提交與相同 SHA 的 CI／Pages 結果核對。
 
 ### 既有路線圖與施工單索引
 
@@ -63,7 +70,7 @@ ARCH-ROBUST 本機完整報告：`/Users/zyc/.codex/visualizations/2026/09/17/01
 12. （2026-09-10）分工比照 Hermes-Agent SOW：一個工項一個新 session，session prompt 固定寫「先讀 HANDOFF.md §0–§1 與 §7，只做 L-X，只讀它指定的 shape 檔，做完 commit 並 push」。
 
 13. （2026-09-18）Claude Code 與 Codex 共用根 `CLAUDE.md`、本檔與 `docs/specs/`／`docs/shapes/`；根 `AGENTS.md` 僅作入口，不維護第二套內容。兩端權限設定與 runtime 代理憲章保留原用途。
-14. （2026-09-17）趨勢儀表板採 A「研究簡報式」；六個展示位置的主題須跟隨時事更新，不固定為目前六個大分類。**僅設計方向確認，尚未實作**；詳細設計與待定事項只在 `docs/specs/frontend-ux.md` 維護。
+14. （2026-09-17）趨勢儀表板採 A「研究簡報式」；六個展示位置的主題須跟隨時事更新，不固定為目前六個大分類。2026-09-18 已確認畫面密度並授權實作；詳細行為與限制只在 `docs/specs/frontend-ux.md` 維護。
 
 ## 2. Phase 2 施工單（拆成 4 個 session，每個 session 只做一列、只讀一份 shape 檔）
 

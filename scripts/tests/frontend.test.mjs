@@ -7,13 +7,13 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 function app(seed={}) {
   const storage = new Map(Object.entries(seed)), nodes = new Map(), users = new Map(), feedback = new Map(), writes=[];
-  const node = () => ({style:{},dataset:{},classList:{toggle(){},add(){},remove(){}},setAttribute(){},appendChild(){},textContent:'',innerHTML:''});
+  const node = () => ({style:{},dataset:{},classList:{toggle(){},add(){},remove(){}},setAttribute(){},appendChild(){},addEventListener(){},querySelector(){return {open:false,addEventListener(){}};},contains(){return false;},textContent:'',innerHTML:''});
   const context = vm.createContext({URL,DOMException,AbortController,setTimeout,clearTimeout,console:{error(){},warn(){}},
     document:{getElementById(id){if(!nodes.has(id)) nodes.set(id,node());return nodes.get(id);},querySelectorAll(){return[];},createElement:node,body:node()},
     localStorage:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,v)},
     window:{listeners:{},addEventListener(name,fn){this.listeners[name]=fn;}},fetch:async()=>{throw Error('unexpected network');}});
   const run = source => vm.runInContext(source,context);
-  for (const file of ['config','personal-data','firebase','bookmarks','data','dashboard','history']) run(fs.readFileSync(`${root}/assets/js/${file}.js`,'utf8'));
+  for (const file of ['config','personal-data','firebase','bookmarks','data','trend-topics','trend-briefing','dashboard','history']) run(fs.readFileSync(`${root}/assets/js/${file}.js`,'utf8'));
   const snap = (collection,id) => ({exists:collection.has(id),data:()=>structuredClone(collection.get(id))});
   const db = {collection(name){const collection=name==='users'?users:feedback;return {
     doc(id){return {name,id};},
@@ -82,8 +82,8 @@ test('archive query selects summaries, bounds pages, and uses exclusive cursor',
   const page=await a.run("archivePage('2026-09-18',2)");assert.equal(page.entries.length,2);assert.equal(page.next,'2026-09-16');assert.equal(query.limit,3);assert.equal(query.startAt.before,false);assert.ok(!query.select.fields.some(x=>x.fieldPath==='payload'));
 });
 test('cold storage delay does not block dashboard static render',async()=>{
-  const a=app();a.run("dashFetch=async()=>null;archiveList=()=>new Promise(()=>{});dashSystemStatusBlock=()=>'<p>ready</p>';dashBumpBlock=dashMatrixBlock=dashTrendBlock=dashBriefBlock=dashOpsBlock=()=>'';");
-  await a.run('loadDashboard()');assert.match(a.nodes.get('panel-dashboard').innerHTML,/ready/);
+  const a=app();a.run("dashFetch=async()=>null;archiveList=()=>new Promise(()=>{});renderTrendBriefing=()=>{$('trend-briefing').innerHTML='<p>ready</p>'};");
+  await a.run('loadDashboard()');assert.match(a.nodes.get('trend-briefing').innerHTML,/ready/);
 });
 test('history rejects injected date before any request',async()=>{
   const a=app();let called=false;a.context.fetch=async()=>{called=true;throw Error();};await a.run(`loadHistDate("2026-01-01');alert(1);//")`);assert.equal(called,false);
@@ -115,4 +115,41 @@ test('latest load failure preserves news tab child containers',async()=>{
   const a=app();a.run("showSkeleton=()=>{};");a.nodes.set('panel-news',{innerHTML:'original subpanels'});
   await a.run('loadData()');assert.equal(a.nodes.get('panel-news').innerHTML,'original subpanels');
   assert.match(a.nodes.get('sub-topnews').innerHTML,/載入失敗/);
+});
+
+test('dashboard reads its own latest snapshot, independent from historical DATA',async()=>{
+  const a=app();a.context.fixture={date:'2026-09-18',data:{topnews:[]}};
+  a.run("DATA={date:'2026-09-01',data:{}};dashFetch=async url=>url==='data/latest.json'?fixture:null;renderTrendBriefing=()=>{};archiveList=async()=>[];");
+  await a.run('loadDashboard()');assert.equal(a.run('BRIEFING.model.end'),'2026-09-18');assert.equal(a.run('DATA.date'),'2026-09-01');
+});
+test('superseded dashboard requests cannot overwrite latest news or focus',async()=>{
+  const a=app();let resolveFirst;let reads=0;
+  a.context.testFetch=async url=>{
+    if(url!=='data/latest.json') return null;
+    if(++reads===1) return new Promise(r=>resolveFirst=r);
+    return {date:'2026-09-18',data:{topnews:[]}};
+  };
+  a.run('dashFetch=testFetch;renderTrendBriefing=()=>{};archiveList=async()=>[];BRIEFING.selected="keep-selection";');
+  const first=a.run('loadDashboard()');await a.run('loadDashboard(true)');resolveFirst({date:'2026-09-17',data:{}});await first;
+  assert.equal(a.run('BRIEFING.model.end'),'2026-09-18');assert.equal(a.run('BRIEFING.selected'),'keep-selection');
+});
+test('archive reads are bounded and wrong-date archives never become observations',async()=>{
+  const a=app();let active=0,peak=0;
+  a.context.testFetch=async url=>{
+    if(url==='data/latest.json')return {date:'2026-09-18',data:{}};
+    if(url==='data/index.json')return Array.from({length:20},(_,i)=>({date:`2026-09-${String(i+1).padStart(2,'0')}`}));
+    if(/^data\/2026/.test(url)) {active++;peak=Math.max(peak,active);await new Promise(r=>setTimeout(r,2));active--;return {date:'2026-01-01',data:{}};}
+    return null;
+  };
+  a.run('dashFetch=testFetch;renderTrendBriefing=()=>{};archiveList=async()=>[];');await a.run('loadDashboard()');
+  assert.ok(peak<=4);assert.equal(a.run('BRIEFING.model.observed'),1);
+});
+test('invalid latest data produces a retryable empty model instead of old focus',async()=>{
+  const a=app();a.run("dashFetch=async()=>({date:'invalid',data:[]});renderTrendBriefing=()=>{};archiveList=async()=>[];");await a.run('loadDashboard()');
+  assert.equal(a.run('BRIEFING.model.end'),null);assert.equal(a.run('BRIEFING.pending'),false);assert.equal(a.run('DASH.loading'),false);
+});
+test('briefing renders untrusted news as escaped text and safe links',()=>{
+  const a=app();a.context.fixture={date:'2026-09-18',data:{topnews:[1,2].map(i=>({title:'Orion protocol <img src=x onerror=alert(1)>',date:'2026-09-18',url:`https://source${i}.example/article`,summary:'<script>bad()</script>'}))}};
+  a.run("BRIEFING.model=TrendTopics.build([fixture],fixture.date);renderTrendBriefing();");
+  const html=a.nodes.get('trend-briefing').innerHTML;assert.doesNotMatch(html,/<img|<script>/);assert.match(html,/&lt;/);assert.match(html,/noopener noreferrer/);
 });

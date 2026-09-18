@@ -278,53 +278,59 @@ function dashSystemStatusBlock() {
 /* ======== 主載入 ======== */
 async function loadDashboard(force) {
   const el = $('panel-dashboard');
-  if (!el) return;
-  if ((DASH.loaded || DASH.loading) && !force) return;
+  if (!el || ((DASH.loaded || DASH.loading) && !force)) return;
   const request = DASH.request = (DASH.request || 0) + 1;
-  DASH.loading = true;
-  el.innerHTML = '<div class="sk"><div class="sk-line h18 w40"></div><div class="sk-line w70"></div><div class="sk-line w40"></div></div>'.repeat(3);
-
-  // 七個取檔互相獨立：任何一個 404 只讓它自己的區塊走空狀態，其餘照常渲染。
-  const [hot, systemStatus, timeline, trends, assessment, roadmap, brief] = await Promise.all([
-    dashFetch('data/index.json'),
-    dashFetch('data/agent/system-status.json'),
-    dashFetch('data/agent/timeline.json'),
-    dashFetch('data/agent/trends.json'),
-    dashFetch('data/agent/trend-assessment.json'),
-    dashFetch('data/agent/roadmap.json'),
-    dashFetch('data/agent/brief-latest.json'),
-  ]);
-
-  if (request !== DASH.request) return;
-  const byDate = {};
-  (Array.isArray(hot) ? hot : []).forEach(e => { if (e && archiveDate(e.date)) byDate[e.date] = { ...e, _cold:false }; });
-  DASH.days = Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
-  DASH.systemStatus = systemStatus;
-  DASH.timeline = timeline;
-  DASH.trends = trends;
-  DASH.assessment = assessment;
-  DASH.roadmap = roadmap;
-  DASH.brief = brief;
-  DASH.loaded = true; DASH.loading = false;
-  renderDashboard();
-  // Cold history enriches counts after the primary content has rendered.
-  archiveList().then(cold => {
+  DASH.loading = true; BRIEFING.pending = true;
+  if (!DASH.loaded) {
+    el.innerHTML = '<div id="trend-briefing"></div><details class="tb-legacy"><summary>既有分類長期觀測與系統資訊</summary><div id="trend-legacy"></div></details>';
+    bindTrendBriefing();
+    el.querySelector('.tb-legacy').addEventListener('toggle', e => { if(e.target.open) renderLegacyDashboard(); });
+  }
+  renderTrendBriefing();
+  // Published agent artifacts remain independent from the current-news briefing.
+  const legacy = Promise.all(['system-status','timeline','trends','trend-assessment','roadmap','brief-latest'].map(n=>dashFetch('data/agent/'+n+'.json'))).then(values=>{
     if (request !== DASH.request) return;
-    cold.forEach(e => { if (archiveDate(e.date) && !byDate[e.date]) byDate[e.date] = {...e, _cold:true}; });
-    DASH.days = Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
-    renderDashboard();
-  }).catch(() => { /* Static data remains visible; history offers an explicit retry. */ });
+    [DASH.systemStatus,DASH.timeline,DASH.trends,DASH.assessment,DASH.roadmap,DASH.brief] = values;
+    DASH._bump = null;
+    if(el.querySelector('.tb-legacy')?.open) renderLegacyDashboard();
+  });
+  const [hot, news] = await Promise.all([dashFetch('data/index.json'),dashFetch('data/latest.json')]);
+  if (request !== DASH.request) return;
+  DASH.news = TrendTopics.validSnapshot(news) ? news : null;
+  const byDate = {};
+  (Array.isArray(hot) ? hot : []).forEach(e=>{if(e && archiveDate(e.date)) byDate[e.date]={...e,_cold:false};});
+  DASH.days = Object.values(byDate).sort((a,b)=>a.date.localeCompare(b.date));
+  const snapshots = DASH.news ? [DASH.news] : [];
+  BRIEFING.model = TrendTopics.build(snapshots,DASH.news?.date);
+  DASH.loaded = true;
+  renderTrendBriefing();
+  // At most 13 bounded public reads, four at a time. A failed day stays a gap.
+  const dates = DASH.news ? Object.keys(byDate).filter(d=>d<DASH.news.date && d>=TrendTopics.shift(DASH.news.date,-13)).sort().reverse().slice(0,13) : [];
+  let next=0;
+  await Promise.all(Array.from({length:Math.min(4,dates.length)},async()=>{
+    while(next<dates.length && request===DASH.request) {
+      const date=dates[next++], snapshot=await dashFetch('data/'+date+'.json');
+      if(TrendTopics.validSnapshot(snapshot) && snapshot.date===date) snapshots.push(snapshot);
+    }
+  }));
+  if(request!==DASH.request) return;
+  BRIEFING.model=TrendTopics.build(snapshots,DASH.news?.date);
+  BRIEFING.pending=false; DASH.loading=false;
+  renderTrendBriefing();
+  // Cold summaries update only the secondary view; never reset selection or focus.
+  archiveList().then(cold=>{
+    if(request!==DASH.request) return;
+    cold.forEach(e=>{if(archiveDate(e.date)&&!byDate[e.date])byDate[e.date]={...e,_cold:true};});
+    DASH.days=Object.values(byDate).sort((a,b)=>a.date.localeCompare(b.date));
+    if(el.querySelector('.tb-legacy')?.open) renderLegacyDashboard();
+  }).catch(()=>{});
+  await legacy;
 }
-function renderDashboard() {
-  const el = $('panel-dashboard');
-  el.innerHTML =
-    dashSystemStatusBlock() +
-    dashBumpBlock() +
-    dashMatrixBlock() +
-    dashTrendBlock() +
-    dashBriefBlock() +
-    dashOpsBlock();
+function renderLegacyDashboard() {
+  const el=$('trend-legacy'); if(!el) return;
+  el.innerHTML='<p class="tb-fine tb-pad">以下為既有固定分類的歷史觀測，與上方動態焦點分開。資料截至 '+esc(DASH.timeline?.window?.end||'尚無')+'；不代表最新時事。</p>'+dashSystemStatusBlock()+dashBumpBlock()+dashMatrixBlock()+dashTrendBlock()+dashBriefBlock()+dashOpsBlock();
 }
+function renderDashboard() { renderTrendBriefing(); renderLegacyDashboard(); }
 
 /* ======== timeline.json 共用取值層 ========
    移動平均的定義與上游 trend_metrics 逐字相同：取序列尾端 n 個「日曆日」，
@@ -899,7 +905,7 @@ function dashTrendBlock() {
   (DASH.roadmap?.roadmaps || []).forEach(r => { if (r.cluster_id) rmap[r.cluster_id] = r; });
 
   const srcDate = t.source_latest_date || '';
-  const today = DATA?.date || new Date().toISOString().slice(0, 10);
+  const today = DASH.news?.date || new Date().toISOString().slice(0, 10);
   const staleDays = srcDate ? Math.round((new Date(today) - new Date(srcDate)) / 86400000) : null;
   const staleBadge = (staleDays !== null && staleDays > 1)
     ? badge('#fbbf24', `語料日 ${srcDate}，落後今日 ${staleDays} 天`)

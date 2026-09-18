@@ -5,9 +5,9 @@
 > 本節描述前端與儲存的「正規化後」現況，**優先於下方任何仍以單檔 index.html 描述的舊段落**。
 
 ### 前端：單檔 → 模組化（vanilla，零 build）
-`index.html` 已拆為頁面結構、`assets/css/app.css` 與 `assets/js/` 十一個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
+`index.html` 已拆為頁面結構、`assets/css/app.css`、儀表板專用 `assets/css/trend-briefing.css` 與 `assets/js/` 十三個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
-`config → personal-data → firebase → bookmarks → search → render → ui → history → data → dashboard → main`。
+`config → personal-data → firebase → bookmarks → search → render → ui → history → data → trend-topics → trend-briefing → dashboard → main`。
 仍是純靜態，GitHub Pages 直接服務；相對路徑維持 project page base `/ai-news-hub/`；`.nojekyll` 保留。
 
 ### 儲存：混合冷熱分層（static + Firebase）
@@ -83,6 +83,8 @@ ai-news-hub/
 │       ├── bookmarks.js  search.js  render.js  ui.js
 │       ├── history.js               ← 冷熱合併歷史（static + Firestore）
 │       ├── data.js                  ← 資料載入 + 自動更新偵測
+│       ├── trend-topics.js         ← 動態焦點純函式（公開新聞）
+│       ├── trend-briefing.js        ← A 版畫面與互動
 │       ├── dashboard.js            ← 趨勢儀表板
 │       └── main.js                  ← 啟動序列
 ├── .github/workflows/

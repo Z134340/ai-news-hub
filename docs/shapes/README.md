@@ -4,6 +4,7 @@
 
 | 要改的目標 | 先讀 |
 |---|---|
+| A 版趨勢簡報、動態焦點與觀測 | `docs/shapes/trend-briefing.md` |
 | 前端個人資料／冷層、`validate.py`、`run-daily.sh`／發布與程序鎖 | `docs/shapes/site-robustness.md` |
 | `scripts/run-agents.sh`（L3 判讀層、step 清單、self-test S-1～S-8b） | `docs/shapes/run-agents.md` |
 | `scripts/newshub_agents.py`（模型 runner，可 import） | `docs/shapes/newshub_agents.md` |

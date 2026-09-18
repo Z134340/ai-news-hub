@@ -25,6 +25,8 @@ function switchSec(id) {
   // Clear search state when switching sections
   if(srchActive) { srchActive=false; $('srchBar').style.display='none'; $('srchToggleBtn').classList.remove('on'); $('srchField').value=''; srchQuery=''; clearTimeout(srchTimer); updateStickyOffsets(); }
   curSec = id;
+  document.body.classList.toggle('trends-active', id==='dashboard');
+  if(id!=='dashboard') dashCloseDrawer();
   document.querySelectorAll('.sec-tab').forEach(t => {
     const on = t.dataset.sec === id;
     t.classList.toggle('on', on);
@@ -89,9 +91,10 @@ function updateHeader() {
 
   $('hPillText').textContent = isToday ? '資料就緒' : '非今日資料';
   const pill = $('hPill');
+  pill.style.cssText='';
   if(isToday&&vp>=90){pill.className='hdr-pill ok';}
-  else if(isToday){pill.className='hdr-pill ok';pill.style.background='rgba(251,191,36,0.12)';pill.style.color='#fbbf24';pill.style.borderColor='rgba(251,191,36,0.2)';}
-  else{pill.className='hdr-pill ok';pill.style.background='rgba(248,113,113,0.12)';pill.style.color='#f87171';pill.style.borderColor='rgba(248,113,113,0.2)';}
+  else if(isToday){pill.className='hdr-pill ok';pill.style.background='rgba(251,191,36,0.12)';pill.style.color='var(--amber)';pill.style.borderColor='rgba(251,191,36,0.2)';}
+  else{pill.className='hdr-pill ok';pill.style.background='rgba(248,113,113,0.12)';pill.style.color='var(--red)';pill.style.borderColor='rgba(248,113,113,0.2)';}
 
   if(vp>0) $('hValidation').innerHTML = `${svg('shield',12,'#34d399')} 驗證 ${Math.round(vp)}%`;
   else $('hValidation').innerHTML = `${svg('shield',12,'#fbbf24')} 待驗證`;
