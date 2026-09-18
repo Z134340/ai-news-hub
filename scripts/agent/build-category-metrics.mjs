@@ -22,7 +22,7 @@ const valueOf = (name, fallback) => {
 };
 
 export const SCHEMA = "category-metrics-v0.1";
-export const CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models"];
+export const CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "official_info", "models"];
 // 唯一允許出現在 jsonl 每行的 key。多一個就是洩漏風險，self-test 會擋。
 export const ALLOWED_KEYS = [
   "schema", "date", "generated_at", "cat", "items", "verified", "verified_rate",
@@ -175,7 +175,7 @@ function selfTest() {
     };
     const hr = { by_category: [{ id: "topnews", good: 2, mid: 0, bad: 1, score: 0.333, feedback_count: 3 }] };
     const rows = computeRows(latest, re, hr, "2026-09-03T18:40:00+08:00");
-    check("T-5 ten categories", rows.length === 10);
+    check("T-5 all editorial categories", rows.length === CATEGORIES.length);
     const tn = rows.find((r) => r.cat === "topnews");
     check("T-6 topnews counts", tn.items === 3 && tn.verified === 1 && tn.needs_review === 1 && tn.title_low_match === 1 && tn.backfill === 1 && tn.priority_hits === 1);
     check("T-7 topnews rates", tn.verified_rate === 0.333 && tn.priority_hit_rate === 0.333 && tn.validation_pass_rate === 95.9);
@@ -200,7 +200,7 @@ function selfTest() {
     writeIdempotent(out, rows);
     writeIdempotent(out, rows);
     const lines = fs.readFileSync(out, "utf8").split("\n").filter(Boolean);
-    check("T-16 idempotent by date", lines.length === 11);
+    check("T-16 idempotent by date", lines.length === CATEGORIES.length + 1);
     check("T-17 other dates kept, junk dropped", lines.filter((l) => JSON.parse(l).date === "2026-09-02").length === 1);
 
     const cfg = fs.readFileSync(path.join(ROOT, "assets/js/config.js"), "utf8");

@@ -71,8 +71,9 @@ def title_similarity(title_a, title_b):
 - `tier-b-domains.json` 格式：`{ "schema": "tier-b-domains-v0.1", "note": "...", "domains": ["a.com", ...] }`，整檔即 `apply-change.mjs` 的 `TIER_B_DOMAINS` 區段；只允許 `add_domain` 追加，`validate.py` 只讀不寫。
 - `check_domain_whitelist(url)` 仍是去 `www.` 後精確比對（不做子網域萬用），所以 tier-b 要登錄實際文章網域（如 `blogs.nvidia.com`），不是 feed 主機。
 - 判定為 untrusted 只加 `Untrusted domain: X` 到 issues 並計 warning，不移除項目。
-- 同目錄 `scripts/sources-registry.json`（`sources-registry-v0.1`）登錄 10 分類 × 官方站與 RSS/Atom feed（`name, tier A|B|C, lang, site|null, feed, type rss|atom|rdf`；`checked_at` 為查證日，全部 `curl -sI` 直接 200 且 feed 前 4KB 含 XML 標記；`site: null` 表示官方站 HEAD 非 200 只登錄 feed）。消費者是 L-4 `discover-trends.mjs`；`validate.py` 只在 `--self-test` 驗結構。
-- `--self-test`（不打網路）：tier-b 缺檔／壞檔容忍、小寫去 www、add-only、白名單判定、registry 10 分類且每分類 ≥ 3 feed、分類內 feed 唯一，共 17 項，全 PASS 回 0。
+- 同目錄 `scripts/sources-registry.json`（`sources-registry-v0.1`）登錄 11 個 editorial 分類的官方站與 RSS/Atom feed（`name, tier A|B|C, lang, site|null, feed, type rss|atom|rdf`）。消費者是 L-4 `discover-trends.mjs`；`validate.py` 只在 `--self-test` 驗結構。
+- `official_info` 與 `models` 另讀 `skills/official-ai-ecosystem-research/references/official-sources.json` 的公司—網域配對；公司名稱必須與 registry 完全相同，主 URL 與 `evidence_urls` 任一網址不屬於該公司即移除。模型日期不得在未來，官方資訊最多 30 天、模型最多 90 天。
+- `--self-test`（不打網路）：tier-b 缺檔／壞檔容忍、小寫去 www、add-only、白名單判定、官方來源 registry、editorial registry 完整且每分類 ≥ 3 feed、分類內 feed 唯一，全 PASS 回 0。
 
 **Step 4 — 欄位完整性**：依 REQUIRED_FIELDS 檢查型別與非空內容；欄位／日期不合格不能由 URL 成功覆蓋。模型以 model_name 比對，非字串 optional title 會被隔離。
 
@@ -108,4 +109,3 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
 全部 try/except 包裹，不因單一項目中斷。
 
 ---
-

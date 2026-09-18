@@ -79,7 +79,7 @@ REGION_FIXED_TARGET = {
     "TIER_B_DOMAINS": "scripts/tier-b-domains.json",
 }
 ALLOWLIST_RES = (
-    re.compile(r"^scripts/prompts/[a-z]+\.md$"),
+    re.compile(r"^scripts/prompts/[a-z_]+\.md$"),
     re.compile(r"^assets/js/config\.js$"),
     re.compile(r"^scripts/tier-b-domains\.json$"),
 )

@@ -136,6 +136,28 @@ TRUSTED_DOMAINS = {
 # 由 apply-change.mjs add_domain 維護（整檔即 TIER_B_DOMAINS 區段），validate.py 只讀不寫。
 TIER_B_DOMAINS_PATH = Path(__file__).parent / 'tier-b-domains.json'
 SOURCES_REGISTRY_PATH = Path(__file__).parent / 'sources-registry.json'
+OFFICIAL_AI_SOURCES_PATH = Path(__file__).parent.parent / 'skills' / 'official-ai-ecosystem-research' / 'references' / 'official-sources.json'
+
+
+def load_official_ai_sources(path=OFFICIAL_AI_SOURCES_PATH):
+    """Load the single approved company-to-domain registry for enterprise ecosystem items."""
+    try:
+        doc = json.loads(Path(path).read_text(encoding='utf-8'))
+        return {
+            str(source['company']): {
+                str(domain).lower().removeprefix('www.')
+                for domain in source.get('domains', [])
+                if isinstance(domain, str) and domain.strip()
+            }
+            for source in doc.get('sources', [])
+            if isinstance(source, dict) and isinstance(source.get('company'), str)
+        }
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return {}
+
+
+OFFICIAL_AI_COMPANY_DOMAINS = load_official_ai_sources()
+OFFICIAL_AI_DOMAINS = set().union(*OFFICIAL_AI_COMPANY_DOMAINS.values()) if OFFICIAL_AI_COMPANY_DOMAINS else set()
 
 
 def _normalize_domain(d):
@@ -178,7 +200,11 @@ REQUIRED_FIELDS = {
     'governance': ['title', 'source', 'date', 'summary', 'url'],
     'tutorials': ['title', 'source', 'date', 'summary', 'url'],
     'courses': ['title', 'source', 'date', 'summary', 'url'],
-    'models': ['model_name', 'institution', 'release_date', 'summary', 'url'],
+    'official_info': ['title', 'company', 'date', 'event_type', 'summary', 'highlights', 'analysis', 'url', 'evidence_urls'],
+    'models': ['model_name', 'version', 'institution', 'release_date', 'release_status',
+               'domain', 'modalities', 'summary', 'advantages', 'capabilities',
+               'access_channels', 'context_window', 'pricing', 'license', 'benchmarks',
+               'highlights', 'limitations', 'analysis', 'url', 'evidence_urls'],
     'skills': ['title', 'source', 'date', 'summary', 'url', 'stars'],
 }
 
@@ -404,6 +430,29 @@ def check_domain_whitelist(url):
         return False, 'unknown'
 
 
+def check_official_ai_domain(url):
+    """Require an approved first-party host; approved parent domains also cover subdomains."""
+    try:
+        host = (urlparse(url).hostname or '').lower().removeprefix('www.')
+        return bool(host) and any(host == domain or host.endswith('.' + domain)
+                                  for domain in OFFICIAL_AI_DOMAINS), host or 'unknown'
+    except (TypeError, ValueError):
+        return False, 'unknown'
+
+
+def check_official_ai_company_domain(company, url):
+    """Require the exact approved company name and one of that company's domains."""
+    domains = OFFICIAL_AI_COMPANY_DOMAINS.get(company)
+    if not domains:
+        return False, 'unregistered_company'
+    try:
+        host = (urlparse(url).hostname or '').lower().removeprefix('www.')
+        return bool(host) and any(host == domain or host.endswith('.' + domain)
+                                  for domain in domains), host or 'unknown'
+    except (TypeError, ValueError):
+        return False, 'unknown'
+
+
 # Per-category maximum age in days (None = use default 90)
 CATEGORY_DATE_LIMITS = {
     'papers': 90,
@@ -415,7 +464,8 @@ CATEGORY_DATE_LIMITS = {
     'governance': 7,
     'tutorials': 90,
     'courses': 90,
-    'models': None,  # handled by allow_future
+    'official_info': 30,
+    'models': 90,
     'skills': 90,
 }
 
@@ -460,6 +510,12 @@ def validate_required_fields(item, category):
             return bool(value) and all(isinstance(x, str) and x.strip() for x in value)
         if field == 'stars':
             return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+        if field in {'highlights', 'modalities', 'advantages', 'capabilities', 'access_channels', 'limitations'}:
+            return isinstance(value, list) and bool(value) and all(isinstance(x, str) and x.strip() for x in value)
+        if field in {'benchmarks', 'evidence_urls'}:
+            return isinstance(value, list) and all(isinstance(x, str) and x.strip() for x in value)
+        if field in {'context_window', 'pricing', 'license'}:
+            return value is None or (isinstance(value, str) and bool(value.strip()))
         return isinstance(value, str) and bool(value.strip())
     missing = [field for field in required if not present(item.get(field), field)]
     return len(missing) == 0, missing
@@ -470,7 +526,7 @@ def similarity(a, b):
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 
-def remove_duplicates(items):
+def remove_duplicates(items, category=None):
     """Remove duplicates by URL match and title similarity > 0.8."""
     seen_urls = set()
     seen_titles = []
@@ -481,6 +537,13 @@ def remove_duplicates(items):
         url = item.get('url', '')
         title = item.get('model_name') if isinstance(item.get('model_name'), str) else item.get('title', '')
 
+        if category == 'models':
+            title = '|'.join(str(item.get(k) or '').strip().lower()
+                             for k in ('institution', 'model_name', 'version'))
+        elif category == 'official_info':
+            title = '|'.join(str(item.get(k) or '').strip().lower()
+                             for k in ('company', 'title'))
+
         # Check URL duplicate
         if url in seen_urls:
             removed_count += 1
@@ -489,7 +552,7 @@ def remove_duplicates(items):
         # Check title similarity
         is_duplicate = False
         for seen_title in seen_titles:
-            if similarity(title, seen_title) > 0.8:
+            if (title == seen_title if category in ('models', 'official_info') else similarity(title, seen_title) > 0.8):
                 is_duplicate = True
                 break
 
@@ -533,7 +596,7 @@ def validate_items(data, category_filter=None, dry_run=False):
                 if not complete:
                     issues.append(f'Missing or invalid fields: {missing}')
                 date_field = 'release_date' if cat == 'models' else 'date'
-                valid, reason = validate_date(item.get(date_field), allow_future=cat == 'models', max_days=CATEGORY_DATE_LIMITS.get(cat) or 90)
+                valid, reason = validate_date(item.get(date_field), max_days=CATEGORY_DATE_LIMITS.get(cat) or 90)
                 if not valid:
                     issues.append(f'Invalid {date_field}: {reason}')
                 url = item.get('url')
@@ -544,13 +607,32 @@ def validate_items(data, category_filter=None, dry_run=False):
                             issues.append('Invalid URL')
                     except ValueError:
                         issues.append('Invalid URL')
+                if cat in ('official_info', 'models'):
+                    company = item.get('company') if cat == 'official_info' else item.get('institution')
+                    official, domain = check_official_ai_company_domain(company, url)
+                    if not official:
+                        issues.append(f'Non-official AI source for {company}: {domain}')
+                    else:
+                        item['official_source'] = True
+                    evidence_urls = item.get('evidence_urls', [])
+                    if evidence_urls is not None and (not isinstance(evidence_urls, list) or
+                            any(not isinstance(value, str) or not check_official_ai_company_domain(company, value)[0]
+                                for value in evidence_urls)):
+                        issues.append('Invalid or company-mismatched evidence_urls')
+                if cat == 'official_info' and item.get('event_type') not in {
+                        'product', 'api', 'pricing', 'partnership', 'availability',
+                        'safety', 'policy', 'company', 'platform'}:
+                    issues.append('Invalid event_type')
+                if cat == 'models' and item.get('release_status') is not None and item.get('release_status') not in {
+                        'preview', 'beta', 'ga', 'open_weight', 'research', 'updated', 'deprecated'}:
+                    issues.append('Invalid release_status')
             if issues:
                 detail['items'].append({'index':idx, 'issues':issues, 'remove':True})
                 detail['removed_items'].append(item.get('url', '') if isinstance(item, dict) else '')
                 detail['warnings'] += 1; results['warnings'] += 1; results['removed'] += 1
             else:
                 candidates[cat].append(item)
-        candidates[cat], duplicates = remove_duplicates(candidates[cat])
+        candidates[cat], duplicates = remove_duplicates(candidates[cat], cat)
         results['removed'] += duplicates
 
     url_status = {}
@@ -688,6 +770,11 @@ def run_self_test():
                                         'date':'2026-09-18', 'summary':'x',
                                         'url':'https://github.com/owner/repo', 'stars':'1'},
                                        'skills')[0])
+    check('official source registry readable and non-empty', len(OFFICIAL_AI_DOMAINS) >= 12)
+    check('official source accepts approved subdomain', check_official_ai_domain('https://platform.openai.com/docs/models')[0])
+    check('official source rejects media domain', not check_official_ai_domain('https://example.com/model')[0])
+    check('company source accepts matching domain', check_official_ai_company_domain('OpenAI', 'https://platform.openai.com/docs/models')[0])
+    check('company source rejects another approved company domain', not check_official_ai_company_domain('Anthropic', 'https://openai.com/news/')[0])
     try:
         with open(TIER_B_DOMAINS_PATH, 'r', encoding='utf-8') as f:
             doc = json.load(f)
@@ -705,7 +792,7 @@ def run_self_test():
         check('registry schema tag', reg.get('schema') == 'sources-registry-v0.1')
         check('registry checked_at is YYYY-MM-DD',
               bool(datetime.strptime(str(reg.get('checked_at', '')), '%Y-%m-%d')))
-        check('registry has exactly the 10 discovery categories', set(cats) == set(REQUIRED_FIELDS) - {'skills'})
+        check('registry has every editorial discovery category', set(cats) == set(REQUIRED_FIELDS) - {'skills'})
         check('registry every category >= 3 feeds', all(len(v) >= 3 for v in cats.values()))
         entries = [e for v in cats.values() for e in v]
         check('registry entries have name/tier/feed/type',

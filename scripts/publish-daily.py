@@ -44,7 +44,7 @@ def publish(root, base, message):
             path = line.strip()
             if not path:
                 continue
-            if not (path in ('assets/js/config.js','scripts/tier-b-domains.json') or re.fullmatch(r'scripts/prompts/[a-z]+\.md', path)):
+            if not (path in ('assets/js/config.js','scripts/tier-b-domains.json') or re.fullmatch(r'scripts/prompts/[a-z_]+\.md', path)):
                 raise PublishError('auto-change path is outside allowlist')
             if (root / path).is_symlink():
                 raise PublishError('auto-change path is a symlink')

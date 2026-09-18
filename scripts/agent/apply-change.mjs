@@ -6,7 +6,7 @@
 //        → 實際改過的檔路徑寫到 .preview/apply-change-staged.txt，讓 run-daily.sh 補 git add。
 //
 // 紅線（見 HANDOFF.md §1 / §2b）：
-//   ① 只能改 scripts/prompts/[a-z]+.md、assets/js/config.js、scripts/tier-b-domains.json，且只動 marker 區段內的行；
+//   ① 只能改 scripts/prompts/[a-z_]+.md、assets/js/config.js、scripts/tier-b-domains.json，且只動 marker 區段內的行；
 //      agents/_control/**、memory/**、skills/**、.github/**、hermes.project.yaml 永遠不在名單。
 //   ② 配額數字（週上限、每類上限、canary 夜數、回滾門檻）只從 agents/_control/canaries.json 讀，程式裡不放常數。
 //   ③ 所有 writeFileSync 都必須經過 assertWritable()（run-agents.sh 的 S-2c 用靜態字串檢查釘住這件事）。
@@ -38,7 +38,7 @@ export const APPLIER = "apply-change";
 // ── 路徑白名單 ────────────────────────────────────────────────────────────────
 // 可被「編輯」的目標檔（與 check-agent-outputs.mjs 的 AUTO_APPLY_ALLOWED_TARGETS 一致）。
 export const EDIT_ALLOWLIST = [
-  /^scripts\/prompts\/[a-z]+\.md$/,
+  /^scripts\/prompts\/[a-z_]+\.md$/,
   /^assets\/js\/config\.js$/,
   /^scripts\/tier-b-domains\.json$/,
 ];

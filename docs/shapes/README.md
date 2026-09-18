@@ -6,6 +6,7 @@
 |---|---|
 | A 版趨勢簡報、動態焦點與觀測 | `docs/shapes/trend-briefing.md` |
 | 熱門 Agent Skills 候選、GitHub 排名與前端 | `docs/shapes/hot-skills.md` |
+| 企業生態系導覽、官方來源、每日累積與相容性 | `docs/shapes/enterprise-ecosystem.md` |
 | 前端個人資料／冷層、`validate.py`、`run-daily.sh`／發布與程序鎖 | `docs/shapes/site-robustness.md` |
 | `scripts/run-agents.sh`（L3 判讀層、step 清單、self-test S-1～S-8b） | `docs/shapes/run-agents.md` |
 | `scripts/newshub_agents.py`（模型 runner，可 import） | `docs/shapes/newshub_agents.md` |

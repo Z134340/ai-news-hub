@@ -67,7 +67,7 @@ DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 NUM_RE = re.compile(r"(?<![\w.])-?\d+(?:\.\d+)?(?![\w.])")
 DIGIT_RE = re.compile(r"\d")
 ALLOWLIST_RES = (
-    re.compile(r"^scripts/prompts/[a-z]+\.md$"),
+    re.compile(r"^scripts/prompts/[a-z_]+\.md$"),
     re.compile(r"^assets/js/config\.js$"),
     re.compile(r"^scripts/tier-b-domains\.json$"),
 )

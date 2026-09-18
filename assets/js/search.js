@@ -23,7 +23,7 @@ function exitSearchPanel() {
     if(p.id==='panel-search') p.classList.remove('on');
     else p.classList.toggle('on', p.id==='panel-'+curSec);
   });
-  $('subTabs').classList.toggle('vis', curSec==='news');
+  $('subTabs').classList.toggle('vis', Boolean(SUBS_BY_SECTION[curSec]));
   updateTitle();
 }
 function onSrchInput(val) {
@@ -85,7 +85,7 @@ function renderSearchResults(results, lower) {
       <div class="card-title" style="margin-bottom:6px">${hlText(esc(title),lower)}</div>
       ${item.source||date?`<div style="font-size:11px;color:var(--tx3);margin-bottom:6px">${esc(item.source||'')}${item.source&&date?' · ':''}${esc(date)}</div>`:''}
       ${item.summary?`<p class="summary" style="color:var(--tx2);line-height:1.8;margin-bottom:8px">${hlText(esc(item.summary),lower)}</p>`:''}
-      ${linkOut(item.url)}
+      ${linkOut(item.url||item.source_url)}
     </div>`;
   }).join('');
 }

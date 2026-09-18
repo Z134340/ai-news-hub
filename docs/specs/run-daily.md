@@ -20,8 +20,8 @@
 
 ```bash
 DOW=$(date +%u)  # 1=週一 7=週日
-DAILY_CATS=(papers topnews taiwan china usa techtrends governance skills)
-WEEKLY_CATS=(models tutorials courses)
+DAILY_CATS=(papers topnews taiwan china usa techtrends governance official_info models skills)
+WEEKLY_CATS=(tutorials courses)
 
 if [[ "$DOW" -eq 1 ]]; then
     CATEGORIES=( "${DAILY_CATS[@]}" "${WEEKLY_CATS[@]}" )
@@ -101,17 +101,18 @@ else:
 - 2 次都失敗 → 記錄錯誤，echo '[]' > data/${CAT}.json，繼續下一個
 - 類別間隔 10 秒
 
-### 模型/教學 累積合併（僅週一）
-- 週一：執行 `python3 scripts/merge-stack.py` 合併今日與歷史資料，dedup + 加入 is_new/is_expired/first_seen/last_seen 欄位
-- 非週一：跳過，保留上次資料
-- Dedup 鍵值：models=(model_name, version, institution)，tutorials=(title, source, url)
+### 企業生態系每日累積／教學週一累積
+- 每日：執行 `python3 scripts/merge-stack.py --categories official_info models`，以官方 URL 優先去重，分別保留 30／90 天、各最多 20 筆，加入 is_new/first_seen/last_seen。此腳本只更新分類檔，`latest.json` 仍由候選合併與驗證流程單一寫入。
+- 週一：同一支累積腳本另處理 `tutorials`。
+- 非週一：仍累積 `official_info` 與 `models`；只保留上次的 `tutorials` 與 `courses`
+- Dedup 鍵值：先以 canonical URL；缺 URL 時 models=(institution, model_name, version)、official_info=(company, title)、tutorials=(source, title, url)
 - tutorials 僅保留近 3 個月資料，按 date 最新排序
 - 支援 `--dry-run` 模式
 
 ### 合併 latest.json
 - python3 合併為 latest.json（含 source: "local"，含 `_updated_at` 各類別時間戳）
-- 非週一：每週類別 (models/tutorials/courses) 從舊 latest.json 讀取，保留原始 `_updated_at` 時間戳
-- 週一：所有 11 類別從當日資料檔讀取
+- 非週一：每週類別 (tutorials/courses) 從舊 latest.json 讀取，保留原始 `_updated_at` 時間戳
+- 週一：所有 12 類別從當日資料檔讀取
 
 ### 驗證 + 歸檔
 - python3 scripts/validate.py 八步驟驗證
@@ -159,7 +160,7 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 1. 偵測 `data/latest.json` 變更
 2. 讀取 JSON，產生 Markdown 摘要
 3. 建立 GitHub Issue（標題含日期/早午班/筆數/驗證率）
-4. Issue 內容：十大類別各自的筆數 + 前 3 筆標題（含連結）+ 網站 CTA
+4. Issue 內容：十二類別各自的筆數 + 前 3 筆標題（含連結）+ 網站 CTA
 5. 自動關閉 7 天前的舊 Issue
 6. GitHub 內建通知系統自動寄 Email 給 repo owner
 

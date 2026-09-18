@@ -7,9 +7,9 @@
 ```
 本機排程 (每日 18:00)
     ↓
-Claude CLI 擷取 10 類別
-  ├─ 每日 7 類 (論文/全球/台灣/中國/美國/技術趨勢/科技治理)
-  └─ 每週一 3 類 (模型/工具教學/課程)
+Claude CLI 與 GitHub API 更新 12 類別
+  ├─ 每日 10 類（含企業官方資訊、模型快訊與熱門 Skills）
+  └─ 每週一 2 類（工具教學/課程）
     ↓
 validate.py 八步驟驗證
     ↓
@@ -17,7 +17,7 @@ git push → GitHub Pages 自動部署
     ↓
 GitHub Issues 通知 (Email)
 
-健康檢查 (GitHub Actions 19:30)
+健康檢查 (GitHub Actions 20:17)
     ↓
 本機沒跑時標記 missed
 
@@ -32,14 +32,14 @@ GitHub Issues 通知 (Email)
 
 ## 功能特性
 
-- **十大類別聚合**：論文 / 全球新聞 / 台灣 / 中國 / 美國 / 技術趨勢 / 科技治理 / AI 工具教學 / AI 課程 / AI 模型
-- **智慧排程**：每日 7 類 + 每週一 3 類（模型/教學/課程），非週一保留上次資料
+- **十二類別聚合**：論文 / 全球新聞 / 台灣 / 中國 / 美國 / 技術趨勢 / 科技治理 / 企業官方資訊 / 模型快訊 / AI 工具教學 / AI 課程 / 熱門 Skills
+- **智慧排程**：每日 10 類 + 每週一 2 類（教學/課程），企業官方資訊與模型快訊每日累積
 - **八步驟自動驗證**：URL 存活、標題一致性、域名白名單、欄位完整、日期合理、重複檢測、驗證報告、自動修復
 - **優先排序**：LLM-as-a-Judge、Agent evaluation 等主題自動置頂
 - **每類別更新時間**：前端顯示各分類最後擷取時間，每週類別標示「每週一更新」
-- **模型累積合併**：`merge-stack.py` 去重合併歷史+今日資料
+- **企業生態系累積合併**：`merge-stack.py` 依官方 URL 去重合併歷史與今日資料
 - **macOS 自動喚醒**：使用 `pmset` 在排程時自動喚醒 Mac
-- **GitHub Actions 健康檢查**：19:30 檢查本機是否成功執行
+- **GitHub Actions 健康檢查**：20:17 檢查本機是否成功執行
 - **自動 Issue 通知**：Push 時自動建立 GitHub Issues，Email 直達收件箱（零設定）
 - **響應式暗色前端**：Vanilla JS 零依賴，iPhone 全面適配
 - **歷史紀錄**：保留近 7 天資料，可切換檢視
@@ -99,7 +99,7 @@ bash scripts/run-daily.sh
 ```
 
 此步驟會：
-- 擷取 11 類別新聞（依星期判斷每日/每週類別）
+- 擷取 12 類別資訊（依星期判斷每日/每週類別）
 - 執行驗證
 - 提交並推送至 GitHub
 - 建立 GitHub Issue 通知
@@ -142,7 +142,7 @@ ai-news-hub/
 │   ├── run-daily.sh             # 每日擷取主腳本（含 DOW 排程）
 │   ├── validate.py              # 驗證流程見 docs/specs/validate.md
 │   ├── extract-json.py          # Claude 回應 JSON 提取
-│   ├── merge-stack.py           # 模型/教學 累積合併（週一）
+│   ├── merge-stack.py           # 官方資訊/模型每日累積，教學週一累積
 │   ├── setup-prompts.sh         # 初始提示詞產生器（勿覆寫活提示詞）
 │   ├── setup-scheduler.sh       # macOS/Linux 排程安裝
 │   └── prompts/                 # 各分類的活提示詞 (.md)
@@ -310,7 +310,7 @@ MIT License
 
 - 每日/每週智慧分類排程（DOW-based）
 - 每類別 `_updated_at` 時間戳 + 前端顯示
-- `merge-stack.py` 模型/教學 累積合併去重
+- `merge-stack.py` 模型/教學累積合併去重（現行版本另含企業官方資訊每日累積）
 - `setup-prompts.sh` 批量生成 prompt 檔案
 - 優先排序（LLM-as-a-Judge/Agent 等主題置頂）
 - 歷史紀錄改為保留 7 天

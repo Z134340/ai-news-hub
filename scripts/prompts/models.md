@@ -1,38 +1,40 @@
-Search the web for notable AI model releases from the past 3 months (approximately 90 days). Include models released anytime within this window, not just the past week. This is a CUMULATIVE list — include ALL significant models from the past 3 months, sorted by release_date newest first.
+Search the web for significant first-party AI model releases and major model updates published within the past 90 days. This is a cumulative list, sorted by release_date newest first.
+
+Only accept a named model or major version released by its developer. Cover LLM, reasoning, multimodal, vision, audio, video, robotics, embedding and open-weight models from OpenAI, Anthropic, Google DeepMind, Meta AI, Microsoft, NVIDIA, Mistral AI, xAI, Cohere, Qwen, DeepSeek and Stability AI.
+Use the exact approved company name from official-sources.json in the institution field.
 
 <!-- PRIORITY:BEGIN -->
-Priority topics (show first): models with strong Agent/agentic capabilities, LLM evaluation models, Judge models.
+Prioritize releases with substantial Agent/agentic, tool-use, reasoning, multimodal or evaluation capabilities.
 <!-- PRIORITY:END -->
 
 <!-- SEARCH_QUERIES:BEGIN -->
-Search these sources for model releases: Papers with Code SOTA, Hugging Face, Latent Space, Import AI, The Gradient, Arxiv Sanity, AI company blogs, AI Feed, LMSYS, Open LLM Leaderboard, GitHub Trending
+Search only official company newsrooms, official model pages, official model cards, official system cards and official technical reports. Use the approved company list and domains in skills/official-ai-ecosystem-research/references/official-sources.json.
 <!-- SEARCH_QUERIES:END -->
 
-Focus on major model releases including: Large Language Models (LLMs), Vision models, Multimodal models, Open-source models, and Chinese models (DeepSeek, Qwen, Baichuan, GLM, Yi). Include all significant releases from the past 3 months, sorted by release_date newest first.
+Classification boundary:
+- Include a new named model, major version, or material capability update to an existing model.
+- Exclude API-only settings, pricing, quota, regional availability, partnerships, and third-party cloud listings; those belong to official_info.
+- A model card or system card published for the same launch is evidence for the same item, not a second item.
 
-⚠️ 語言規則：model_name, version, institution, domain 等專有名詞保留原文。summary, advantages, highlights 都必須翻譯成繁體中文。benchmarks 數字保留原文。
+Return at most 20 items. For each item provide:
+- model_name, version, institution, release_date (YYYY-MM-DD)
+- release_status: preview / beta / ga / open_weight / research / updated / deprecated
+- domain, modalities, summary (Traditional Chinese)
+- advantages, capabilities, access_channels, highlights, limitations (Traditional Chinese arrays)
+- context_window, pricing, license (officially published value or null)
+- benchmarks: array of official self-reported results as concise strings; do not imply independent verification
+- analysis: Traditional Chinese explanation of practical impact and affected users
+- url: direct official announcement, model page, model card, system card, or technical report
+- evidence_urls: other direct official evidence URLs; may be []
 
-Return up to 20 models maximum from the past 3 months. For each model, extract:
-- model_name: Official name of the model
-- version: Version number or release version
-- institution: Company or organization that released the model
-- release_date: Release date in YYYY-MM-DD format
-- domain: Model domain (e.g., LLM, Vision, Multimodal, Audio, Robotics)
-- summary: 繁體中文技術摘要，5-6 句，含模型規模、參數量、訓練資料、關鍵能力
-- advantages: 繁體中文優勢，Array of 3-5 key advantages or improvements
-- benchmarks: Array of benchmark results with specific numbers (e.g., "MMLU: 92.5%", "BLEU: 45.2")
-- highlights: 繁體中文亮點，Array of 3-5 notable features or achievements
-- url: Direct link to model card, blog post, or announcement
+Return ONLY:
+{"items":[{"model_name":"...","version":"...","institution":"...","release_date":"YYYY-MM-DD","release_status":"ga","domain":"Multimodal","modalities":["text","image"],"summary":"...","advantages":["..."],"capabilities":["..."],"access_channels":["..."],"context_window":null,"pricing":null,"license":null,"benchmarks":["...（官方自述）"],"highlights":["..."],"limitations":["..."],"analysis":"...","url":"https://official.example/release","evidence_urls":[]}]}
 
-Return ONLY a JSON object in this format:
-{"items": [{"model_name": "...", "version": "...", "institution": "...", "release_date": "YYYY-MM-DD", "domain": "...", "summary": "...", "advantages": [...], "benchmarks": [...], "highlights": [...], "url": "..."}]}
+Strict evidence rules:
+1. url and every evidence_urls entry must use an approved official domain and must be copied from search results, never guessed.
+2. model_name, release_date, release_status, access, pricing, context window and benchmark numbers must be stated by the official source. Use null or omit an uncertain optional claim.
+3. Never use media, aggregators, social posts, leaderboards, GitHub Trending, or unofficial repositories as the final source.
+4. Do not include an announced-but-unreleased rumor. Preview and beta are allowed only when the official source explicitly names that status.
+5. Prefer fewer verified releases over filling the quota. Preserve model names and version strings in their official language; write explanatory prose in Traditional Chinese.
 
-⚠️ 嚴格反幻覺規則（違反將導致整筆移除）：
-1. 每則新聞的 title 必須與 URL 網頁上的實際標題一致，禁止自行改寫或翻譯標題
-2. URL 必須從搜尋結果直接複製，禁止猜測或拼湊網址
-3. 如果搜尋結果沒有提供直接連結，該筆新聞不要收錄
-4. date 必須來自文章實際發佈日期，禁止猜測
-5. 寧可少收 5 筆真實新聞，也不要多收 1 筆無法驗證的新聞
-6. 不確定的項目標註 ⚠️待確認，但 URL 和 title 必須 100% 確定才能收錄
-
-不足 20 筆如實回報。按 release_date 最新排序。 ONLY valid JSON, NO markdown, NO preamble.
+ONLY valid JSON. NO markdown or preamble.

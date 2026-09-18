@@ -67,12 +67,41 @@ class ValidationTests(unittest.TestCase):
         self.assertTrue(validate.validate_required_fields(item,'papers')[0])
 
     def test_malformed_optional_model_titles_are_isolated(self):
-        valid = {'model_name':'Model Alpha','institution':'Example','release_date':self.item()['date'],'summary':'details','url':'https://example.com/model'}
+        valid = {'model_name':'Model Alpha','version':'1','institution':'OpenAI',
+                 'release_date':self.item()['date'],'release_status':'ga','domain':'general',
+                 'modalities':['text'],'summary':'details','advantages':['fast'],
+                 'capabilities':['reasoning'],'access_channels':['API'],'context_window':None,
+                 'pricing':None,'license':None,'benchmarks':[],'highlights':['released'],
+                 'limitations':['official limits'],'analysis':'impact',
+                 'url':'https://openai.com/model','evidence_urls':[]}
         for title in [['bad'],{'bad':True},42]:
-            data={'models':[valid.copy(),{**valid,'model_name':'Model Beta','title':title,'url':'https://example.com/beta'}]}
+            data={'models':[valid.copy(),{**valid,'model_name':'Model Beta','title':title,'url':'https://openai.com/beta'}]}
             with patch.object(validate,'check_url_and_title',return_value=(True,'ok',1.0)):
                 result=validate.validate_items(data)
             self.assertEqual(len(data['models']),1);self.assertEqual(result['removed'],1)
+
+    def test_enterprise_ecosystem_requires_official_sources_and_valid_enums(self):
+        date=self.item()['date']
+        good={'title':'Official update','company':'OpenAI','date':date,'event_type':'api',
+              'summary':'details','highlights':['confirmed change'],'analysis':'impact',
+              'url':'https://openai.com/index/update','evidence_urls':[]}
+        data={'official_info':[good,{**good,'title':'Media copy','url':'https://example.com/copy'}]}
+        with patch.object(validate,'check_url_and_title',return_value=(True,'ok',1.0)):
+            result=validate.validate_items(data)
+        self.assertEqual(len(data['official_info']),1)
+        self.assertEqual(result['removed'],1)
+        self.assertTrue(validate.check_official_ai_domain('https://platform.openai.com/docs/models')[0])
+
+    def test_enterprise_ecosystem_rejects_company_domain_mismatch(self):
+        date=self.item()['date']
+        item={'title':'Claimed Anthropic update','company':'Anthropic','date':date,
+              'event_type':'product','summary':'details','highlights':['confirmed'],
+              'analysis':'impact','url':'https://openai.com/news/other','evidence_urls':[]}
+        data={'official_info':[item]}
+        with patch.object(validate,'check_url_and_title',return_value=(True,'ok',1.0)):
+            result=validate.validate_items(data)
+        self.assertEqual(data['official_info'],[])
+        self.assertEqual(result['removed'],1)
 
     def test_input_failure_and_dry_run_preserve_files(self):
         with tempfile.TemporaryDirectory() as td:

@@ -32,12 +32,12 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 │  17:55  macOS 自動喚醒（pmset）                    │
 │  18:00  launchd 觸發 run-daily.sh                 │
 │    ├→ 偵測 Claude CLI 登入狀態                     │
-│    ├→ 擷取 7/10 類別（每個重試 1 次，10分鐘逾時）   │
+│    ├→ 每日更新 10 類，週一另加 2 類（單類逾時 20 分）│
 │    ├→ 合併 latest.json                            │
 │    ├→ validate.py 八步驟驗證（URL + 標題一致性）    │
 │    ├→ 寫入 data/health.json（本機處理結果）       │
 │    └→ git push [verified] / [unverified] ＋ receipt │
-│  ~18:56  完成（正常）/ ~19:20（偶爾逾時）           │
+│  ~19:15  完成（正常）/ ~19:40（偶爾逾時）           │
 │                                                   │
 ├── 健康檢查：GitHub Actions（本機沒跑時標記）─────────┤
 │                                                   │
@@ -100,7 +100,7 @@ ai-news-hub/
 │   ├── archive-to-firestore.mjs    ← 冷封存上傳（Node 零依賴 REST，scoped writer）
 │   ├── build-site.mjs              ← 產生 Cloudflare allowlist dist/
 │   ├── repo-slim.sh                ← 一次性 repo 瘦身（本機跑）
-│   └── prompts/  (10 個 .md，含 courses.md)
+│   └── prompts/  (11 個 .md，含 official_info.md)
 ├── data/
 │   ├── latest.json  index.json  health.json
 │   ├── YYYY-MM-DD.json             ← 近 7 天熱層；逾期自動搬 Firestore archives/
@@ -129,7 +129,7 @@ GitHub Pages CDN 更新靜態檔案
 index.html 載入 → fetch("data/latest.json?v=" + Date.now())
        │                   ↑ cache-busting 參數，強制繞過快取
        ▼
-JSON 解析 → 渲染十一類資料卡片 → 你看到最新資料 ✅
+JSON 解析 → 渲染十二類資料卡片（企業生態系含兩個子分頁）→ 你看到最新資料 ✅
 ```
 
 ### 關鍵防快取機制

@@ -1,6 +1,6 @@
 <!-- 自 CLAUDE.md 拆出（2026-09-04）。此檔是權威規範，CLAUDE.md 只留索引；改本檔不必同步回 CLAUDE.md。 -->
 
-## 十一大分類規範
+## 十二大分類規範
 
 ### 1. 📄 AI 論文發表 (`papers`)
 **機構（12）：** Google DeepMind, OpenAI, Google Research/Brain, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Anthropic, Apple
@@ -58,13 +58,22 @@
 **焦點：** 免費官方 AI/LLM/Agent 課程, 專業 AI 證照, 大學 AI 課程
 **欄位：** title, source, date, provider, is_free, cert_included, level, duration, topics, summary(4-6句), highlights, url
 
-### 10. 🚀 最近模型發布快訊 (`models`)
-**時間範圍：** 近 3 個月內發布的模型（不限於本週/本月）
-**來源：** Papers with Code SOTA, Hugging Face, Latent Space, Import AI, The Gradient, 各大 AI Blog, AI Feed, LMSYS, Open LLM Leaderboard, GitHub Trending, 中國模型(DeepSeek/Qwen/Baichuan/GLM/Yi)
-**筆數上限：** 20 筆
-**欄位：** model_name, version, institution, release_date, domain, summary(5-6句), advantages, benchmarks(含數字), highlights, url
+### 10. 🏢 企業官方資訊 (`official_info`)
+**網站導覽：** 與 `models` 共同歸在主選單「企業生態系」；此分類顯示子分頁「官方資訊」。
+**時間範圍：** 最近 30 天，每日擷取後與既有資料去重累積，最多保留 20 筆。
+**來源：** 僅接受 `skills/official-ai-ecosystem-research/references/official-sources.json` 核准網域中的公司 newsroom、官方 blog、文件、release notes、政策或安全頁面。媒體、聚合站、搜尋摘要與社群貼文只能協助發現，不得成為最終 URL。
+**收錄：** 產品、API、價格、合作、可用區域／平台、安全、政策、公司與平台動態。具名新模型或主要版本歸 `models`；同一事件多篇官方文件合為一筆，其他網址放 `evidence_urls`。
+**欄位：** title(官方原文標題), company, date, event_type(product/api/pricing/partnership/availability/safety/policy/company/platform), summary, highlights, analysis, url, evidence_urls
 
-### 11. ✨ 熱門 Agent Skills (`skills`)
+### 11. 🚀 模型發布快訊 (`models`)
+**網站導覽：** 主選單「企業生態系」的子分頁「模型快訊」；資料 key 仍為 `models`，避免破壞既有封存、書籤與前端相容性。
+**時間範圍：** 最近 90 天，每日擷取後與既有資料去重累積，最多保留 20 筆。
+**來源：** 僅接受模型開發公司的官方公告、模型頁、Model Card、System Card 或技術報告；核准公司與網域只在 `skills/official-ai-ecosystem-research/references/official-sources.json` 維護。排行榜、媒體、聚合站、GitHub Trending 與非官方 repository 不得作為最終 URL。
+**收錄：** 具名新模型、主要版本或既有模型的實質能力更新。純 API 參數、定價、額度、地區上架、合作與第三方雲端平台上架歸 `official_info`。
+**去重：** 優先以 canonical `url`，其次以 `(institution, model_name, version)`；同日 Model Card／System Card 是同一發布的證據，不另建一筆。
+**欄位：** model_name, version, institution, release_date, release_status, domain, modalities, summary, advantages, capabilities, access_channels, context_window, pricing, license, benchmarks(標明官方自述), highlights, limitations, analysis, url, evidence_urls
+
+### 12. ✨ 熱門 Agent Skills (`skills`)
 **定位：** 跨工具 Agent Skills 專案人氣榜，涵蓋 Claude Code、Codex 與其他支援 Agent Skills 的工具。GitHub 星數屬專案層級，單一技能、技能包與官方技能包必須明確標示，不把同一 repo 的星數冒充個別 Skill 星數。
 **來源：** GitHub REST API；候選白名單只在 `scripts/skills-repositories.json` 維護。初始來源包含 Superpowers、Matt Pocock Skills、Anthropic Skills、Ponytail、UI UX Pro Max、Addy Osmani Agent Skills、Archify、Marketing Skills、Humanizer、Obsidian Skills、Scientific Agent Skills、Diagram Design。
 **納入門檻：** repo 內含 `SKILL.md`；明確支援至少兩種 agent client；非 archived／fork；近期仍有維護；網址與星數由 GitHub API 取得。聚合目錄、規格 repo、一般應用程式與已棄用 repo 不進主榜。

@@ -171,15 +171,15 @@ RUN_BASE=$(git rev-parse HEAD) || exit 1
 
 # ── 星期判斷 & 分類排程 ──
 DOW=$(date +%u)  # 1=週一 7=週日
-DAILY_CATS=(papers topnews taiwan china usa techtrends governance skills)
-WEEKLY_CATS=(models tutorials courses)
+DAILY_CATS=(papers topnews taiwan china usa techtrends governance official_info models skills)
+WEEKLY_CATS=(tutorials courses)
 
 if [[ "$DOW" -eq 1 ]]; then
     CATEGORIES=( "${DAILY_CATS[@]}" "${WEEKLY_CATS[@]}" )
-    log "📅 今天是週一，擷取全部類別（含每週類別）"
+    log "📅 今天是週一，擷取全部 12 類（含每週教學與課程）"
 else
     CATEGORIES=( "${DAILY_CATS[@]}" )
-    log "📅 今天是週 ${DOW}，僅擷取每日類別（每週類別保留上次資料）"
+    log "📅 今天是週 ${DOW}，擷取 10 個每日類別（教學與課程保留上次資料）"
 fi
 
 CATEGORIES_OK=0
@@ -223,9 +223,16 @@ fetch_one() {
         local TIMEOUT_SEC=1200
         local TODAY_DATE; TODAY_DATE=$(date +%Y-%m-%d)
         local PROMPT_WITH_DATE
-        PROMPT_WITH_DATE="Today's date is ${TODAY_DATE}. Please prioritize news from today and the past 24-48 hours.
+        local OFFICIAL_SOURCE_SCOPE=""
+        if [[ "$CAT" == "official_info" || "$CAT" == "models" ]]; then
+            OFFICIAL_SOURCE_SCOPE="
 
-$(cat "$SCRIPTS_DIR/prompts/${CAT}.md")"
+Approved official source registry (authoritative; final URLs must match these domains):
+$(cat "$REPO_DIR/skills/official-ai-ecosystem-research/references/official-sources.json")"
+        fi
+        PROMPT_WITH_DATE="Today's date is ${TODAY_DATE}. Follow the category's stated date window exactly. For cumulative categories, do not narrow the search to the past 24-48 hours.
+
+$(cat "$SCRIPTS_DIR/prompts/${CAT}.md")${OFFICIAL_SOURCE_SCOPE}"
 
         : > "$TMP_FILE"
         "$CLAUDE_BIN" -p "$PROMPT_WITH_DATE" \
@@ -379,12 +386,14 @@ run_batch() {
 if [[ "$DOW" -eq 1 ]]; then
     # 週一：最吃 token 的每週累積類別「先跑」，避免配額被日更類別耗盡（見 2026-07-06 事件）。
     # 每週類別每週僅一次擷取機會，日更新聞失敗尚可隔天補；故優先保護每週類別。
-    run_batch "1/3" models tutorials courses
+    run_batch "1/4" official_info models
+    run_batch "2/4" tutorials courses
+    run_batch "3/4" papers taiwan china
+    run_batch "4/4" topnews usa techtrends governance
+else
+    run_batch "1/3" official_info models
     run_batch "2/3" papers taiwan china
     run_batch "3/3" topnews usa techtrends governance
-else
-    run_batch "1/2" papers taiwan china
-    run_batch "2/2" topnews usa techtrends governance
 fi
 
 # ── 彙總結果（讀取各類別狀態檔）──
@@ -409,12 +418,13 @@ fi
 
 log "擷取完成: OK=$CATEGORIES_OK, Failed=$CATEGORIES_FAILED"
 
-# ── 模型快訊 & 工具教學 累積合併（僅週一） ──
+# ── 企業生態系每日累積；工具教學僅週一累積 ──
 if [[ "$DOW" -eq 1 ]]; then
-    log "執行模型快訊 / 工具教學 累積合併..."
-    python3 "$SCRIPTS_DIR/merge-stack.py" >> "$LOG_FILE" 2>&1 || log "⚠️ merge-stack.py 失敗，使用當日資料"
+    log "執行官方資訊 / 模型快訊 / 工具教學累積合併..."
+    python3 "$SCRIPTS_DIR/merge-stack.py" --categories official_info models tutorials >> "$LOG_FILE" 2>&1 || log "⚠️ merge-stack.py 失敗，使用當日資料"
 else
-    log "非週一，跳過 merge-stack.py（保留上次資料）"
+    log "執行官方資訊 / 模型快訊累積合併..."
+    python3 "$SCRIPTS_DIR/merge-stack.py" --categories official_info models >> "$LOG_FILE" 2>&1 || log "⚠️ merge-stack.py 失敗，使用當日資料"
 fi
 
 # ── 合併 latest.json ──
@@ -425,8 +435,8 @@ import json, os
 from datetime import datetime, timezone, timedelta
 
 DATA_DIR = "data"
-ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models", "skills"]
-WEEKLY_CATS = {"models", "tutorials", "courses"}
+ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "official_info", "models", "skills"]
+WEEKLY_CATS = {"tutorials", "courses"}
 
 now = datetime.now(timezone(timedelta(hours=8)))
 dow = now.isoweekday()  # 1=Mon 7=Sun

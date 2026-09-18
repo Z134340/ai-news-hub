@@ -1,251 +1,162 @@
 #!/usr/bin/env python3
-"""
-merge-stack.py — 模型快訊 / AI 工具教學 累積合併腳本
+"""Merge cumulative categories without mutating latest.json.
 
-功能：
-  1. 讀取今日擷取的 data/models.json, data/tutorials.json
-  2. 從 data/latest.json 或歸檔載入歷史資料
-  3. 新資料標記 is_new: true，舊資料標記 is_new: false
-  4. 去重合併（新的在前，舊的在後）
-  5. 每筆記錄 first_seen / last_seen 時間戳
-  6. 教學按 date 最新排序，僅保留近 3 個月
-
-去重鍵：
-  - models:    (model_name, version, institution)
-  - tutorials: (title, source, url)
-
-用法：
-  python3 scripts/merge-stack.py
-  python3 scripts/merge-stack.py --dry-run   # 只顯示不寫入
+The daily merger remains the sole writer of latest.json. This helper only rewrites the
+selected category files, which keeps retries and candidate validation transactional.
 """
 
+import argparse
 import json
 import os
-import sys
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-# ── 設定 ──
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-REPO_DIR = os.path.dirname(SCRIPT_DIR)
-DATA_DIR = os.path.join(REPO_DIR, "data")
-TZ = timezone(timedelta(hours=8))
-NOW = datetime.now(TZ)
-TODAY = NOW.strftime("%Y-%m-%d")
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+NOW = datetime.now(timezone(timedelta(hours=8)))
 NOW_ISO = NOW.isoformat()
 
-DRY_RUN = "--dry-run" in sys.argv
+CATEGORY_POLICY = {
+    "official_info": {"days": 30, "limit": 20, "date": "date", "key": ("company", "title")},
+    "models": {"days": 90, "limit": 20, "date": "release_date", "key": ("institution", "model_name", "version")},
+    "tutorials": {"days": 90, "limit": 20, "date": "date", "key": ("source", "title", "url")},
+}
+TRACKING_KEYS = {"fbclid", "gclid", "ref", "source"}
 
 
 def load_json(path):
-    """載入 JSON 檔案，不存在或格式錯誤回傳空 list/dict"""
-    if not os.path.exists(path):
-        return []
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (json.JSONDecodeError, IOError):
-        return []
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
 
 
-def save_json(path, data):
-    """寫入 JSON 檔案"""
-    if DRY_RUN:
-        print(f"  [dry-run] 跳過寫入 {os.path.basename(path)}")
-        return
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+def items_from(value):
+    if isinstance(value, list):
+        return value
+    if isinstance(value, dict) and isinstance(value.get("items"), list):
+        return value["items"]
+    return []
 
 
-def find_previous_archive():
-    """從 index.json 找到上一期歸檔（非今日的最新一期）"""
-    index = load_json(os.path.join(DATA_DIR, "index.json"))
-    if not isinstance(index, list):
-        return None
-    # 按日期降序，找第一個不是今日的
-    for entry in sorted(index, key=lambda x: x.get("date", ""), reverse=True):
-        if entry.get("date") != TODAY:
-            archive_path = os.path.join(DATA_DIR, f"{entry['date']}.json")
-            if os.path.exists(archive_path):
-                return archive_path
-    return None
+def canonical_url(value):
+    if not isinstance(value, str) or not value.strip():
+        return ""
+    try:
+        parts = urlsplit(value.strip())
+    except ValueError:
+        return str(value).strip().lower()
+    query = [
+        (key, val) for key, val in parse_qsl(parts.query, keep_blank_values=True)
+        if not key.lower().startswith("utm_") and key.lower() not in TRACKING_KEYS
+    ]
+    path = parts.path.rstrip("/") or "/"
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, urlencode(query), ""))
 
 
-def dedup_key_models(item):
-    """模型去重鍵：(model_name, version, institution)"""
-    return (
-        (item.get("model_name") or "").strip().lower(),
-        (item.get("version") or "").strip().lower(),
-        (item.get("institution") or "").strip().lower(),
-    )
+def item_key(item, fields):
+    url = canonical_url(item.get("url") or item.get("source_url") or "")
+    if url:
+        return ("url", url)
+    return tuple(str(item.get(field) or "").strip().lower() for field in fields)
 
 
-def dedup_key_tutorials(item):
-    """教學去重鍵：(title, source, url)"""
-    return (
-        (item.get("title") or "").strip().lower(),
-        (item.get("source") or "").strip().lower(),
-        (item.get("url") or "").strip().lower(),
-    )
-
-
-def merge_category(category, today_items, history_items, dedup_fn):
-    """
-    合併今日資料與歷史資料
-
-    Args:
-        category: 類別名稱 (models / tutorials)
-        today_items: 今日擷取的項目 list
-        history_items: 歷史歸檔中的項目 list
-        dedup_fn: 去重鍵函數
-
-    Returns:
-        合併後的 list
-    """
-    seen = {}  # dedup_key -> merged item
+def merge_category(category, current, history):
+    policy = CATEGORY_POLICY[category]
+    cutoff = (NOW - timedelta(days=policy["days"])).strftime("%Y-%m-%d")
     merged = []
+    seen = set()
+    valid_history = {}
 
-    # ── 處理今日新資料（優先） ──
-    for item in today_items:
-        key = dedup_fn(item)
-        item["is_new"] = True
-        item["first_seen"] = item.get("first_seen") or NOW_ISO
-        item["last_seen"] = NOW_ISO
-        seen[key] = item
-        merged.append(item)
+    for original in history:
+        if not isinstance(original, dict):
+            continue
+        key = item_key(original, policy["key"])
+        date = original.get(policy["date"])
+        if any(key) and isinstance(date, str) and cutoff <= date <= NOW.strftime("%Y-%m-%d"):
+            valid_history.setdefault(key, original)
 
-    # ── 處理歷史資料 ──
-    new_count = len(merged)
-    for item in history_items:
-        key = dedup_fn(item)
-        if key in seen:
-            # 已存在：保留舊的 first_seen，更新 last_seen
-            existing = seen[key]
-            existing["first_seen"] = item.get("first_seen") or item.get("last_seen") or existing["first_seen"]
-            # 合併歷史中有但今日沒有的欄位
-            for k, v in item.items():
-                if k not in existing or existing[k] is None:
-                    existing[k] = v
-        else:
-            # 舊資料：標記為非新
-            item["is_new"] = False
-            item["first_seen"] = item.get("first_seen") or item.get("last_seen") or NOW_ISO
-            item["last_seen"] = item.get("last_seen") or NOW_ISO
-            seen[key] = item
+    for fetched, rows in ((True, current), (False, history)):
+        for original in rows:
+            if not isinstance(original, dict):
+                continue
+            item = dict(original)
+            key = item_key(item, policy["key"])
+            date = item.get(policy["date"])
+            if not any(key) or not isinstance(date, str) or date < cutoff or date > NOW.strftime("%Y-%m-%d") or key in seen:
+                continue
+            seen.add(key)
+            prior = valid_history.get(key) if fetched else None
+            if prior:
+                item = {**prior, **item}
+            item["is_new"] = fetched and prior is None
+            item["first_seen"] = (prior or {}).get("first_seen") or item.get("first_seen") or item.get("last_seen") or NOW_ISO
+            if fetched:
+                item["last_seen"] = NOW_ISO
+            else:
+                item["last_seen"] = item.get("last_seen") or NOW_ISO
             merged.append(item)
 
-    old_count = len(merged) - new_count
-    print(f"  {category}: {new_count} 新 + {old_count} 舊 = {len(merged)} 筆")
+    merged.sort(key=lambda row: row.get(policy["date"], ""), reverse=True)
+    return merged[:policy["limit"]]
 
-    return merged
+
+def run(categories, dry_run=False):
+    latest = load_json(DATA_DIR / "latest.json")
+    history_data = latest.get("data", {}) if isinstance(latest, dict) else {}
+    output = {}
+    for category in categories:
+        current = items_from(load_json(DATA_DIR / f"{category}.json"))
+        history = history_data.get(category, []) if isinstance(history_data.get(category, []), list) else []
+        merged = merge_category(category, current, history)
+        output[category] = merged
+        print(f"{category}: {len(current)} fetched + {len(history)} historical -> {len(merged)} retained")
+        if not dry_run:
+            temporary = DATA_DIR / f".{category}.json.tmp"
+            temporary.write_text(json.dumps(merged, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            os.replace(temporary, DATA_DIR / f"{category}.json")
+    return output
+
+
+def self_test():
+    today = NOW.strftime("%Y-%m-%d")
+    old = (NOW - timedelta(days=10)).strftime("%Y-%m-%d")
+    future = (NOW + timedelta(days=1)).strftime("%Y-%m-%d")
+    current = [
+        {"title": "API update", "company": "OpenAI", "date": today, "url": "https://openai.com/a"},
+        {"title": "New safety policy", "company": "OpenAI", "date": today, "url": "https://openai.com/safety?utm_source=test"},
+        {"title": "Brand new", "company": "Cohere", "date": today, "url": "https://cohere.com/new"},
+        {"title": "Future", "company": "OpenAI", "date": future, "url": "https://openai.com/future"},
+    ]
+    history = [
+        {"title": "API update old copy", "company": "OpenAI", "date": old, "url": "https://openai.com/a", "first_seen": "2026-01-01T00:00:00+08:00"},
+        {"title": "Safety old copy", "company": "OpenAI", "date": old, "url": "https://openai.com/safety"},
+        {"title": "Platform", "company": "Anthropic", "date": old, "url": "https://anthropic.com/b"},
+    ]
+    result = merge_category("official_info", current, history)
+    checks = {
+        "dedupe prefers fetched item": len(result) == 4 and any(item["title"] == "API update" for item in result),
+        "future item removed": all(item["title"] != "Future" for item in result),
+        "new and historical flags": next(item for item in result if item["title"] == "API update")["is_new"] is False
+        and next(item for item in result if item["title"] == "New safety policy")["is_new"] is False
+        and next(item for item in result if item["title"] == "Brand new")["is_new"] is True
+        and next(item for item in result if item["title"] == "Platform")["is_new"] is False,
+    }
+    for label, ok in checks.items():
+        print(f"[{'PASS' if ok else 'FAIL'}] {label}")
+    return 0 if all(checks.values()) else 1
 
 
 def main():
-    print(f"{'[DRY RUN] ' if DRY_RUN else ''}merge-stack.py — {TODAY}")
-    print(f"資料目錄: {DATA_DIR}")
-    print()
-
-    # ── 載入今日擷取資料 ──
-    today_models_raw = load_json(os.path.join(DATA_DIR, "models.json"))
-    today_tutorials_raw = load_json(os.path.join(DATA_DIR, "tutorials.json"))
-
-    # 處理 {items: [...]} 和 [...] 兩種格式
-    def extract_items(raw):
-        if isinstance(raw, dict):
-            return raw.get("items", [])
-        return raw if isinstance(raw, list) else []
-
-    today_models = extract_items(today_models_raw)
-    today_tutorials = extract_items(today_tutorials_raw)
-
-    if not isinstance(today_models, list):
-        today_models = []
-    if not isinstance(today_tutorials, list):
-        today_tutorials = []
-
-    print(f"今日擷取: models={len(today_models)}, tutorials={len(today_tutorials)}")
-
-    # ── 載入歷史資料 ──
-    history_models = []
-    history_tutorials = []
-
-    # 優先從 latest.json 讀取（最完整的累積資料）
-    latest = load_json(os.path.join(DATA_DIR, "latest.json"))
-    if isinstance(latest, dict) and "data" in latest:
-        history_models = latest["data"].get("models", [])
-        history_tutorials = latest["data"].get("tutorials", [])
-        print(f"歷史來源: latest.json (models={len(history_models)}, tutorials={len(history_tutorials)})")
-    else:
-        # fallback: 從上一期歸檔讀取
-        prev_path = find_previous_archive()
-        if prev_path:
-            prev = load_json(prev_path)
-            if isinstance(prev, dict) and "data" in prev:
-                history_models = prev["data"].get("models", [])
-                history_tutorials = prev["data"].get("tutorials", [])
-            print(f"歷史來源: {os.path.basename(prev_path)} (models={len(history_models)}, tutorials={len(history_tutorials)})")
-        else:
-            print("歷史來源: 無（首次執行）")
-
-    print()
-
-    # ── 合併 ──
-    print("合併結果:")
-    merged_models = merge_category("models", today_models, history_models, dedup_key_models)
-    merged_tutorials = merge_category("tutorials", today_tutorials, history_tutorials, dedup_key_tutorials)
-
-    # ── 模型按 release_date 排序（新的在前），僅保留近 3 個月 ──
-    cutoff_3m = (NOW - timedelta(days=90)).strftime("%Y-%m-%d")
-    merged_models = [m for m in merged_models if (m.get("release_date") or "9999") >= cutoff_3m]
-    merged_models.sort(key=lambda x: x.get("release_date") or "", reverse=True)
-    print(f"  models: 保留近 3 個月 {len(merged_models)} 筆")
-
-    # ── 教學按 date 排序（新的在前），僅保留近 3 個月 ──
-    merged_tutorials = [t for t in merged_tutorials if (t.get("date") or "9999") >= cutoff_3m]
-    merged_tutorials.sort(key=lambda x: x.get("date") or "", reverse=True)
-    print(f"  tutorials: 保留近 3 個月 {len(merged_tutorials)} 筆")
-
-    print()
-
-    # ── 寫回 ──
-    # 寫入獨立檔案（供下次合併使用）
-    save_json(os.path.join(DATA_DIR, "models.json"), merged_models)
-    save_json(os.path.join(DATA_DIR, "tutorials.json"), merged_tutorials)
-
-    # 更新 latest.json 中的對應區塊
-    latest_path = os.path.join(DATA_DIR, "latest.json")
-    latest_data = load_json(latest_path)
-    if isinstance(latest_data, dict) and "data" in latest_data:
-        latest_data["data"]["models"] = merged_models
-        latest_data["data"]["tutorials"] = merged_tutorials
-        if "stats" not in latest_data or not isinstance(latest_data["stats"], dict):
-            latest_data["stats"] = {}
-        latest_data["stats"]["models"] = len(merged_models)
-        latest_data["stats"]["tutorials"] = len(merged_tutorials)
-        if "validation" in latest_data and isinstance(latest_data["validation"], dict):
-            latest_data["validation"]["total_items"] = sum(latest_data["stats"].values())
-        save_json(latest_path, latest_data)
-        if not DRY_RUN:
-            print(f"✅ latest.json 已更新 (models={len(merged_models)}, tutorials={len(merged_tutorials)})")
-    else:
-        print("⚠️ latest.json 格式異常，僅更新獨立檔案")
-
-    # ── 摘要 ──
-    print()
-    print("─" * 40)
-    print(f"模型快訊: {len(merged_models)} 筆")
-    for m in merged_models[:5]:
-        flag = "🆕" if m.get("is_new") else "  "
-        print(f"  {flag} {m.get('release_date','')} {m.get('model_name','?')} ({m.get('institution','')})")
-    if len(merged_models) > 5:
-        print(f"  ... 還有 {len(merged_models)-5} 筆")
-
-    print()
-    print(f"AI 工具教學: {len(merged_tutorials)} 筆 (近 3 個月)")
-    for t in merged_tutorials[:5]:
-        flag = "🆕" if t.get("is_new") else "  "
-        print(f"  {flag} {t.get('date','')} {t.get('title','?')[:40]} ({t.get('source','')})")
-    if len(merged_tutorials) > 5:
-        print(f"  ... 還有 {len(merged_tutorials)-5} 筆")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--categories", nargs="+", choices=sorted(CATEGORY_POLICY), default=sorted(CATEGORY_POLICY))
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--self-test", action="store_true")
+    args = parser.parse_args()
+    if args.self_test:
+        raise SystemExit(self_test())
+    run(args.categories, args.dry_run)
 
 
 if __name__ == "__main__":

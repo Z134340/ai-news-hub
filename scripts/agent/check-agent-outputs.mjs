@@ -27,7 +27,7 @@ const APPLIED_STATUSES = new Set(["auto_applied", "canary"]);
 // 前端優先關鍵字陣列、Tier B 網域清單。控制檔 agents/_control/** 刻意不在名單內，
 // 機器不能調自己的閘門門檻與 kill switch。
 const AUTO_APPLY_ALLOWED_TARGETS = [
-  /^scripts\/prompts\/[a-z]+\.md$/,
+  /^scripts\/prompts\/[a-z_]+\.md$/,
   /^assets\/js\/config\.js$/,
   /^scripts\/tier-b-domains\.json$/,
 ];

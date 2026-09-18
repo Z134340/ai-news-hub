@@ -36,6 +36,8 @@ async function loadData(){
       fetchJSON('data/skills.json?v='+Date.now(),8000).catch(()=>null)
     ]);
     if (!dr || !dr.data || typeof dr.data !== 'object' || Array.isArray(dr.data)) throw new Error('invalid_news_data');
+    // 舊封存早於企業生態系上線，缺少新 key 時以空陣列向後相容。
+    if (!Array.isArray(dr.data.official_info)) dr.data.official_info = [];
     if (sr && Array.isArray(sr.items)) {
       dr.data.skills = sr.items;
       dr.stats = {...(dr.stats||{}),skills:sr.items.length};
@@ -48,7 +50,7 @@ async function loadData(){
     const msg=e.name==='AbortError'?'載入逾時，請重新整理':'載入失敗，請重新整理';
     console.error(e);
     if ($('hPillText')) $('hPillText').textContent = '資料載入失敗';
-    ['panel-papers','panel-models','panel-skills',...SUBS.map(s=>'sub-'+s.id)].forEach(id => { const el = $(id); if (el) el.innerHTML=`<div class="empty">⚠️ ${msg}</div>`; });
+    ['panel-papers','panel-skills',...NEWS_SUBS.map(s=>'sub-'+s.id),...ECOSYSTEM_SUBS.map(s=>'sub-'+s.id)].forEach(id => { const el = $(id); if (el) el.innerHTML=`<div class="empty">⚠️ ${msg}</div>`; });
     return false;
   }
 }

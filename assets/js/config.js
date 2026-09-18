@@ -48,6 +48,7 @@ function svg(name, size=14, color='currentColor') {
 /* ======== STATE ======== */
 let DATA = null, HEALTH = null, DATA_LATEST = null, HIST_VIEWING = null;
 let curSec = 'dashboard', curSub = 'topnews';
+const lastSubBySection = { news:'topnews', ecosystem:'official_info' };
 const openCards = {};
 const REGISTRY = {}; // bmId → {cat, catLabel, catColor, item}
 let BOOKMARKS = {};
@@ -67,12 +68,12 @@ const SECS = [
   { id:'dashboard', label:'儀表板', desc:'趨勢時間軸與重點', ico:'chart' },
   { id:'papers', label:'論文研討', desc:'頂尖機構最新研究', ico:'file' },
   { id:'news', label:'AI 新聞', desc:'全球各區熱議焦點', ico:'news' },
-  { id:'models', label:'模型快訊', desc:'最新模型與技術突破', ico:'rocket' },
+  { id:'ecosystem', label:'企業生態系', desc:'官方動態與模型發布', ico:'building' },
   { id:'skills', label:'熱門 Skills', desc:'跨工具高星技能', ico:'sparkles' },
   { id:'bookmarks', label:'書籤', desc:'我的收藏文章', ico:'bookmark' },
   { id:'history', label:'歷史紀錄', desc:'過往每日新聞存檔', ico:'calendar' },
 ];
-const SUBS = [
+const NEWS_SUBS = [
   { id:'topnews', label:'全球熱門', ico:'flame', color:'var(--ac)' },
   { id:'taiwan', label:'台灣熱議', ico:'globe', color:'var(--ac)' },
   { id:'china', label:'中國熱議', ico:'globe', color:'var(--ac)' },
@@ -83,7 +84,14 @@ const SUBS = [
   { id:'tutorials', label:'AI工具教學', ico:'file', color:'var(--ac)' },
   { id:'courses', label:'AI官方課程/證照', ico:'check', color:'var(--ac)' },
 ];
-const TITLES = { dashboard:'趨勢儀表板', papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', models:'🚀 最近模型發布快訊', skills:'✨ 熱門 Agent Skills', history:'📅 歷史紀錄' };
+const ECOSYSTEM_SUBS = [
+  { id:'official_info', label:'官方資訊', ico:'building', color:'var(--ac)' },
+  { id:'models', label:'模型快訊', ico:'rocket', color:'var(--ac)' },
+];
+const SUBS_BY_SECTION = { news:NEWS_SUBS, ecosystem:ECOSYSTEM_SUBS };
+// 保留 SUBS 名稱供既有新聞計數與外部檢查使用。
+const SUBS = NEWS_SUBS;
+const TITLES = { dashboard:'趨勢儀表板', papers:'📄 最新 AI 論文研討', topnews:'🔥 全球熱門 AI 新聞 Top 20', taiwan:'🇹🇼 台灣 AI 熱議 Top 30', china:'🇨🇳 中國 AI 熱議 Top 20', usa:'🇺🇸 美國 AI 熱議 Top 30', techtrends:'📈 技術趨勢 Top 20', governance:'⚖️ 科技治理 Top 18', tutorials:'🛠️ AI 工具教學 Top 10', courses:'🎓 AI 官方課程/證照', ecosystem:'🏢 企業生態系', official_info:'🏢 企業官方資訊', models:'🚀 模型發布快訊', skills:'✨ 熱門 Agent Skills', history:'📅 歷史紀錄' };
 
 /* ======== HELPERS ======== */
 function tint(color, percent) { return `color-mix(in srgb, ${color} ${percent}%, transparent)`; }
@@ -121,12 +129,13 @@ const SEARCH_CATS = [
   {key:'governance',label:'⚖️ 科技治理', color:'var(--ac)'},
   {key:'tutorials', label:'🛠️ 工具教學', color:'var(--ac)'},
   {key:'courses',   label:'🎓 課程',   color:'var(--ac)'},
+  {key:'official_info', label:'🏢 官方資訊', color:'var(--ac)'},
   {key:'models',    label:'🚀 模型',   color:'var(--ac)'},
   {key:'skills',    label:'✨ Skills', color:'var(--ac)'},
 ];
 
 /* ======== WEEKLY SET + fmtCatTime ======== */
-const WEEKLY_SET = new Set(['models','tutorials','courses']);
+const WEEKLY_SET = new Set(['tutorials','courses']);
 
 /* ======== PRIORITY KEYWORDS（優先排序關鍵字，資料化；render.js 的 buildPriorityRegex 會編成 RegExp）========
    latin：英文詞，空白會自動轉成 [\s._-] 並加 \b 邊界；cjk：中文字面值（不加邊界）；cjkPatterns：保留原始 regex 片段。

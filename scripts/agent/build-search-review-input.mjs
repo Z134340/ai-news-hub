@@ -23,7 +23,7 @@ const valueOf = (name, fallback) => {
 };
 
 export const SCHEMA = "search-review-input-v0.1";
-export const PROMPT_CATS = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models"];
+export const PROMPT_CATS = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "official_info", "models"];
 const MARKERS = ["SEARCH_QUERIES", "PRIORITY"];
 
 function readJsonIfExists(p) {
@@ -240,7 +240,7 @@ function selfTest() {
     check("T-2 marker missing → null", extractMarker("no markers", "PRIORITY") === null);
     const regions = loadPromptRegions(ROOT);
     // null = marker 缺席；空字串 = 區段存在但為空（techtrends/governance/tutorials/courses 的 PRIORITY 目前是空的），兩者要分開。
-    check("T-3 ten prompt files with both markers", PROMPT_CATS.every((c) => regions[c].present && regions[c].search_queries != null && regions[c].priority != null));
+    check("T-3 all prompt files have both markers", PROMPT_CATS.every((c) => regions[c].present && regions[c].search_queries != null && regions[c].priority != null));
     const mp = path.join(tmp, "m.jsonl");
     const mk = (date, cat, extra = {}) => JSON.stringify({ date, cat, items: 5, verified_rate: 1, ...extra });
     fs.writeFileSync(mp, [mk("2026-09-01", "usa"), mk("2026-09-02", "usa"), mk("2026-09-03", "usa"), mk("2026-09-03", "usa", { items: 9 }), "junk", mk("2026-09-03", "china")].join("\n") + "\n");

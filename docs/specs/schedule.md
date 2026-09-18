@@ -6,13 +6,13 @@
 |------|------|
 | macOS 喚醒 | 17:55 |
 | 擷取排程 | 18:00 |
-| 預期完成 | ~18:56（正常）/ ~19:20（偶爾逾時）|
-| 你查看 | **傍晚 19:00 後 / 隔天** |
+| 預期完成 | ~19:15（正常）/ ~19:40（偶爾逾時）|
+| 你查看 | **傍晚 19:30 後 / 隔天** |
 
 | 項目 | 設定 |
 |------|------|
 | 時區 | Asia/Taipei (UTC+8) |
-| 健康檢查 | 19:30（GitHub Actions） |
+| 健康檢查 | 20:17（GitHub Actions；UTC 12:17） |
 | 保活 | 每月 1 號 |
 
 ### 每日 vs 每週分類排程（DOW-based）
@@ -21,12 +21,12 @@
 
 | 類型 | 分類 | 頻率 |
 |------|------|------|
-| 每日 | papers, topnews, taiwan, china, usa, techtrends, governance | 每天透過搜尋擷取 |
+| 每日 | papers, topnews, taiwan, china, usa, techtrends, governance, official_info, models | 每天透過搜尋擷取 |
 | 每日 | skills | 每天透過 GitHub REST API 更新星數與維護狀態 |
-| 每週 | models, tutorials, courses | 僅週一擷取 |
+| 每週 | tutorials, courses | 僅週一擷取 |
 
-**週一（DOW=1）：** 更新全部 11 個類別（含每週類別），執行 `merge-stack.py` 累積合併
-**週二至週日（DOW=2-7）：** 更新 8 個每日類別，每週類別保留上次 `latest.json` 中的資料與時間戳
+**週一（DOW=1）：** 更新全部 12 個類別，`merge-stack.py` 累積官方資訊、模型快訊與工具教學
+**週二至週日（DOW=2-7）：** 更新 10 個每日類別，`merge-stack.py` 累積官方資訊與模型快訊；教學與課程保留上次資料與時間戳
 
 ### `_updated_at` 每類別時間戳
 

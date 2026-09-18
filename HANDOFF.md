@@ -3,10 +3,11 @@
 > 先讀 `CLAUDE.md`，再讀本檔 §0–§1；只按工項讀後續施工單。共用工作規則在 CLAUDE.md，本檔保存狀態與決策，不依賴聊天記憶。
 > §2、§2b、§6、§7 編號保留供既有引用；其中日期、驗收與 hash 是當時記錄，不能直接當成今日實跑結果。
 
-## 0. 當前交接（2026-09-18）
+## 0. 當前交接（2026-09-19）
 
 | 工項 | 負責／分支與基準 | 狀態與變更範圍 | 驗證與下一步 |
 |---|---|---|---|
+| DATA-ECOSYSTEM：企業生態系 | Codex；`codex/enterprise-ecosystem`；基準 `8f83a6d` | 依使用者確認後實作：主選單新增「企業生態系」，下分「官方資訊」與沿用 `models` key 的「模型快訊」；兩類每日擷取、30／90 天累積、公司—官方網域配對閘、舊封存缺 key 相容，並接入搜尋與 learning metrics。canonical URL 去重會沿用 `first_seen`，重複公告不重新標成新項目。沒有執行正式擷取或改寫 `latest.json` | 權威規格為 `docs/specs/categories.md`、`schedule.md`、`data-formats.md`；共同來源在 `skills/official-ai-ecosystem-research/references/official-sources.json`。驗證：前端 24、robustness 27、trend＋skills 12、agent 68 項皆通過；`validate.py`、`merge-stack.py` 自測、Skill 有效封包、網站 build 與桌面／390px 瀏覽器驗收皆通過。第一批官方資訊與既有模型資料清理由下一次正常每日排程產生，不能以空種子檔宣稱已有內容或已完成真實排程驗收 |
 | DOC-SHARED：兩工具共用規範 | Codex；`codex/shared-project-guidance`；基準 `e58ac42` | 整理與驗收完成；限共用文件、架構／Git 行為說明與歷史封存。網站程式、排程、runtime 憲章及權限設定未修改 | 驗證詳見下方；交付狀態以包含本列的 Git 提交與遠端分支為準，無追加實作工項 |
 | ARCH-ROBUST：架構與穩健性稽核 | Codex；`codex/architecture-audit`；基準 `554325f` | 稽核完成；原稽核未修改正式程式／資料／權限。已授權改善接續於下列 ARCH-FIX | 原 26 組既有命令通過；原稽核證據為當時快照，改善驗證見 ARCH-FIX |
 | ARCH-FIX：網站與每日流程穩健性 | Codex；`codex/robustness-fixes`；基準 `bcbc224` | 已實作帳號隔離、刪除同步、連結清理、歷史分頁／逾時與失敗恢復、候選驗證、程序鎖、安全 Git 發布／重試、CI；依使用者「確認建議精準且適當，如適當則執行」授權。規格及程式入口見 `docs/shapes/site-robustness.md` | 本機驗證見下方；交付以包含本列的 Git 提交與遠端分支為準。真實 Firebase 多帳號／多裝置、下一次正常排程及 Pages 部署需各自核對證據；UI-TRENDS 另見下列工項 |

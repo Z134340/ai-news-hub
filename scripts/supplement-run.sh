@@ -47,9 +47,16 @@ for CAT in "${CATEGORIES[@]}"; do
     log "── 類別: $CAT ──"
     TMP_FILE="$REPO_DIR/tmp_${CAT}.txt"
     TODAY_DATE=$(date +%Y-%m-%d)
-    PROMPT_WITH_DATE="Today's date is ${TODAY_DATE}. Please prioritize news from today and the past 24-48 hours.
+    OFFICIAL_SOURCE_SCOPE=""
+    if [[ "$CAT" == "official_info" || "$CAT" == "models" ]]; then
+        OFFICIAL_SOURCE_SCOPE="
 
-$(cat "$SCRIPTS_DIR/prompts/${CAT}.md")"
+Approved official source registry (authoritative; final URLs must match these domains):
+$(cat "$REPO_DIR/skills/official-ai-ecosystem-research/references/official-sources.json")"
+    fi
+    PROMPT_WITH_DATE="Today's date is ${TODAY_DATE}. Follow the category's stated date window exactly. For cumulative categories, do not narrow the search to the past 24-48 hours.
+
+$(cat "$SCRIPTS_DIR/prompts/${CAT}.md")${OFFICIAL_SOURCE_SCOPE}"
 
     ATTEMPT=1
     MAX_ATTEMPTS=2
@@ -150,7 +157,7 @@ import json, os
 from datetime import datetime, timezone, timedelta
 
 DATA_DIR = "data"
-ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "models", "skills"]
+ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "official_info", "models", "skills"]
 
 now = datetime.now(timezone(timedelta(hours=8)))
 

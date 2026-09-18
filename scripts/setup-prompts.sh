@@ -221,32 +221,16 @@ Return ONLY a JSON object in this format:
 所有 URL 必須從搜尋結果直接複製。所有數據來自原始出處。不確定標註⚠️待確認。不足 10 筆如實回報。ONLY valid JSON, NO markdown, NO preamble.
 EOF
 
-# ── 10. models ──
-cat > "$PROMPTS_DIR/models.md" << 'EOF'
-Search the web for notable AI model releases from the past 3 months (approximately 90 days). Include models released anytime within this window, not just the past week.
-Priority topics (show first): models with strong Agent/agentic capabilities, LLM evaluation models, Judge models.
-
-Search these sources for model releases: Papers with Code SOTA, Hugging Face, Latent Space, Import AI, The Gradient, Arxiv Sanity, AI company blogs, AI Feed, LMSYS, Open LLM Leaderboard, GitHub Trending
-
-Focus on major model releases including: Large Language Models (LLMs), Vision models, Multimodal models, Open-source models, and Chinese models (DeepSeek, Qwen, Baichuan, GLM, Yi). Include all significant releases from the past 3 months, sorted by release_date newest first.
-
-Return up to 15 models maximum from the past 3 months. For each model, extract:
-- model_name: Official name of the model
-- version: Version number or release version
-- institution: Company or organization that released the model
-- release_date: Release date in YYYY-MM-DD format
-- domain: Model domain (e.g., LLM, Vision, Multimodal, Audio, Robotics)
-- summary: 5-6 sentence technical summary including model size, parameter count, training data, and key capabilities
-- advantages: Array of 3-5 key advantages or improvements
-- benchmarks: Array of benchmark results with specific numbers (e.g., "MMLU: 92.5%", "BLEU: 45.2")
-- highlights: Array of 3-5 notable features or achievements
-- url: Direct link to model card, blog post, or announcement
-
-Return ONLY a JSON object in this format:
-{"items": [{"model_name": "...", "version": "...", "institution": "...", "release_date": "YYYY-MM-DD", "domain": "...", "summary": "...", "advantages": [...], "benchmarks": [...], "highlights": [...], "url": "..."}]}
-
-所有 URL 必須從搜尋結果直接複製。所有數據來自原始出處。不確定標註⚠️待確認。不足 15 筆如實回報。按 release_date 最新排序。ONLY valid JSON, NO markdown, NO preamble.
-EOF
+# ── 10. models / 11. official_info ──
+# 這兩份提示詞與 official-ai-ecosystem-research skill 共用官方來源契約。
+# 為避免產生器與正式提示詞漂移，企業生態系提示詞由已版控的 canonical 檔保留，
+# setup-prompts.sh 不再覆寫它們；若缺檔則明確失敗，要求先還原 repository。
+for ECOSYSTEM_PROMPT in models official_info; do
+  if [[ ! -s "$PROMPTS_DIR/${ECOSYSTEM_PROMPT}.md" ]]; then
+    echo "❌ 缺少 canonical prompt: $PROMPTS_DIR/${ECOSYSTEM_PROMPT}.md" >&2
+    exit 1
+  fi
+done
 
 # ── 完成 ──
 echo ""

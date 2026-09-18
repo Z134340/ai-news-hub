@@ -3,7 +3,7 @@
 /* ======== SKELETON ======== */
 function showSkeleton() {
   const sk = Array(4).fill(`<div class="sk"><div class="sk-line h18 w70"></div><div class="sk-line w40"></div><div class="sk-line w70"></div></div>`).join('');
-  ['panel-papers','sub-topnews','sub-taiwan','sub-china','sub-usa','sub-techtrends','sub-governance','sub-tutorials','sub-courses','panel-models','panel-skills','panel-history'].forEach(id => $(id).innerHTML = sk);
+  ['panel-papers','sub-topnews','sub-taiwan','sub-china','sub-usa','sub-techtrends','sub-governance','sub-tutorials','sub-courses','sub-official_info','sub-models','panel-skills','panel-history'].forEach(id => $(id).innerHTML = sk);
 }
 
 /* ======== TOGGLE CARD ======== */
@@ -66,11 +66,13 @@ function renderAll() {
   renderNewsPanel(sortByDate(d.governance||[], true),'governance','var(--ac)');
   renderTutorials(sortByDate(filterRecent3M(d.tutorials||[])));
   renderCourses(sortByDate(filterRecent3M(d.courses||[])));
+  renderOfficialInfo(sortByDate(d.official_info||[], true));
   renderModels(sortByDate(filterRecent3M(d.models||[]), true));
   renderSkills(d.skills||[]);
 
   // Counts
   SUBS.forEach(s => { const el=$('cnt-'+s.id); if(el) el.textContent=(d[s.id]||[]).length; });
+  ECOSYSTEM_SUBS.forEach(s => { const el=$('cnt-'+s.id); if(el) el.textContent=(d[s.id]||[]).length; });
   updateTitle();
 }
 
@@ -143,7 +145,7 @@ function renderNewsPanel(items, key, color) {
   }).join('');
 }
 
-/* ======== TUTORIALS / COURSES / MODELS ======== */
+/* ======== TUTORIALS / COURSES / ENTERPRISE ECOSYSTEM ======== */
 /* ═══════ TUTORIALS ═══════ */
 function renderTutorials(items) {
   const el = $('sub-tutorials');
@@ -209,10 +211,42 @@ function renderCourses(items) {
   }).join('');
 }
 
+/* ═══════ OFFICIAL INFO ═══════ */
+function renderOfficialInfo(items) {
+  const el = $('sub-official_info');
+  if(!items.length){el.innerHTML='<div class="empty">🏢 暫無企業官方資訊</div>';return;}
+  el.innerHTML = items.map((n,i) => {
+    const k=`official_info-${i}`, open=openCards[k]!==undefined?openCards[k]:i<3;
+    if(openCards[k]===undefined) openCards[k]=i<3;
+    const bid=itemKey(n); REGISTRY[bid]={cat:'official_info',catLabel:'🏢 官方資訊',catColor:'var(--ac)',item:n};
+    return `<div class="card" data-key="${k}" onclick="toggleCard('${k}')">
+      <div class="card-row">
+        ${rank(i+1)}
+        <div class="card-body">
+          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-badges">
+            ${n.company?badge('var(--ac)',svg('building',10)+' '+esc(n.company)):''}
+            ${n.event_type?badge('var(--green)',esc(n.event_type)):''}
+            ${n.official_source?badge('var(--tx2)','官方來源'):''}
+            ${n.date?badge('var(--tx3)',esc(n.date)):''}
+          </div>
+        </div>
+        <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
+      </div>
+      <div class="card-detail" style="display:${open?'block':'none'}">
+        <p class="summary">${esc(n.summary)}</p>
+        ${infoBlock('sparkles', '關鍵亮點', n.highlights)}
+        ${infoBlock('search', '影響分析', n.analysis)}
+        ${linkOut(n.url||n.source_url,'查看官方資訊')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
 /* ═══════ MODELS ═══════ */
 function renderModels(items) {
-  if(!items.length){$('panel-models').innerHTML='<div class="empty">🚀 暫無模型發布</div>';return;}
-  $('panel-models').innerHTML = items.map((m,i) => {
+  if(!items.length){$('sub-models').innerHTML='<div class="empty">🚀 暫無模型發布</div>';return;}
+  $('sub-models').innerHTML = items.map((m,i) => {
     const k=`models-${i}`, open=openCards[k]!==undefined?openCards[k]:i<3;
     if(openCards[k]===undefined) openCards[k]=i<3;
     const bid=itemKey(m); REGISTRY[bid]={cat:'models',catLabel:'🚀 模型',catColor:'var(--ac)',item:m};
@@ -225,6 +259,8 @@ function renderModels(items) {
           <div class="card-badges">
             ${m.institution?badge('var(--ac)',svg('building',10)+' '+esc(m.institution)):''}
             ${m.domain?badge('var(--ac)',svg('cpu',10)+' '+esc(m.domain)):''}
+            ${m.release_status?badge('var(--green)',esc(m.release_status)):''}
+            ${m.official_source?badge('var(--tx2)','官方來源'):''}
             ${m.release_date?badge('var(--tx3)',esc(m.release_date)):''}
           </div>
         </div>
@@ -235,7 +271,9 @@ function renderModels(items) {
         ${infoBlock('trophy', '核心優勢', m.advantages)}
         ${infoBlock('chart', '基準測試', m.benchmarks)}
         ${infoBlock('sparkles', '關鍵亮點', m.highlights)}
-        ${linkOut(m.url,'查看詳情')}
+        ${infoBlock('alert', '限制與注意事項', m.limitations)}
+        ${infoBlock('search', '影響分析', m.analysis)}
+        ${linkOut(m.url||m.source_url,m.official_source?'查看官方發布':'查看詳情')}
       </div>
     </div>`;
   }).join('');

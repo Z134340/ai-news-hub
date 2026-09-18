@@ -11,7 +11,14 @@ function buildTabs() {
   `).join('');
   $('secTabs').querySelectorAll('.sec-tab').forEach(b => b.addEventListener('click', () => switchSec(b.dataset.sec)));
 
-  $('subTabs').innerHTML = SUBS.map(s => `
+  renderSubTabs();
+}
+
+function renderSubTabs() {
+  const subs = SUBS_BY_SECTION[curSec] || [];
+  const selected = lastSubBySection[curSec] || subs[0]?.id || '';
+  if(subs.length) curSub = selected;
+  $('subTabs').innerHTML = subs.map(s => `
     <button class="sub-tab${s.id===curSub?' on':''}" data-sub="${s.id}" style="color:${s.id===curSub?s.color:'var(--tx3)'}">
       ${svg(s.ico, 14, s.id===curSub?s.color:'var(--tx3)')}
       <span class="st-label">${s.label}</span>
@@ -19,12 +26,17 @@ function buildTabs() {
     </button>
   `).join('');
   $('subTabs').querySelectorAll('.sub-tab').forEach(b => b.addEventListener('click', () => switchSub(b.dataset.sub)));
+  subs.forEach(s => { const el=$('cnt-'+s.id); if(el) el.textContent=(DATA?.data?.[s.id]||[]).length; });
 }
 
 function switchSec(id) {
   // Clear search state when switching sections
   if(srchActive) { srchActive=false; $('srchBar').style.display='none'; $('srchToggleBtn').classList.remove('on'); $('srchField').value=''; srchQuery=''; clearTimeout(srchTimer); updateStickyOffsets(); }
   curSec = id;
+  if(SUBS_BY_SECTION[id]) {
+    curSub = lastSubBySection[id] || SUBS_BY_SECTION[id][0].id;
+    renderSubTabs();
+  }
   document.body.classList.toggle('trends-active', id==='dashboard');
   if(id!=='dashboard') dashCloseDrawer();
   document.querySelectorAll('.sec-tab').forEach(t => {
@@ -33,8 +45,8 @@ function switchSec(id) {
     t.querySelector('svg').setAttribute('stroke', on ? '#fff' : 'var(--tx3)');
   });
   document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === 'panel-'+id));
-  $('subTabs').classList.toggle('vis', id==='news');
-  if(id==='news') switchSub(curSub);
+  $('subTabs').classList.toggle('vis', Boolean(SUBS_BY_SECTION[id]));
+  if(SUBS_BY_SECTION[id]) switchSub(curSub);
   if(id==='dashboard') loadDashboard();
   if(id==='history') loadHistoryPanel();
   if(id==='bookmarks') renderBookmarks();
@@ -43,9 +55,11 @@ function switchSec(id) {
 
 function switchSub(id) {
   curSub = id;
+  if(SUBS_BY_SECTION[curSec]) lastSubBySection[curSec] = id;
+  const subs = SUBS_BY_SECTION[curSec] || [];
   document.querySelectorAll('.sub-tab').forEach(t => {
     const on = t.dataset.sub===id;
-    const s = SUBS.find(x=>x.id===t.dataset.sub);
+    const s = subs.find(x=>x.id===t.dataset.sub);
     t.classList.toggle('on', on);
     t.style.color = on ? s.color : 'var(--tx3)';
     t.querySelector('svg').setAttribute('stroke', on?s.color:'var(--tx3)');
@@ -57,7 +71,7 @@ function switchSub(id) {
 
 /* ======== UPDATE TITLE ======== */
 function updateTitle() {
-  const catId = curSec==='news'?curSub:curSec;
+  const catId = SUBS_BY_SECTION[curSec]?curSub:curSec;
   if(curSec==='history'){$('secTitle').textContent=TITLES.history;$('secCount').textContent='';$('secUpdated').innerHTML='';return;}
   // 儀表板的資料不在 DATA.data 底下（它自己去抓 index.json 與 data/agent/*.json），
   // 落到下面的 DATA.data[catId] 只會拿到 undefined 並把筆數印成 0。

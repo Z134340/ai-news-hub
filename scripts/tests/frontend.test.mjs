@@ -132,6 +132,19 @@ test('skills can be searched by supported agent client',()=>{
   assert.match(html,/owner\/skill/);assert.match(a.nodes.get('secCount').textContent,/1/);
 });
 
+test('enterprise ecosystem groups official information and models without changing the models data key',()=>{
+  const a=app();
+  a.context.fixture={data:{
+    official_info:[{title:'Official API update',company:'OpenAI',date:'2099-01-01',event_type:'api',summary:'摘要',highlights:['重點'],analysis:'影響',url:'https://openai.com/update',official_source:true}],
+    models:[{model_name:'Model A',institution:'Anthropic',release_date:'2099-01-01',domain:'Multimodal',summary:'摘要',url:'https://anthropic.com/news/model-a',official_source:true}]
+  }};
+  a.run('updateTitle=()=>{}; DATA=fixture; renderAll()');
+  assert.equal(a.run("SECS.some(s=>s.id==='ecosystem') && !SECS.some(s=>s.id==='models')"),true);
+  assert.match(a.nodes.get('sub-official_info').innerHTML,/Official API update/);
+  assert.match(a.nodes.get('sub-models').innerHTML,/Model A/);
+  assert.match(a.nodes.get('sub-official_info').innerHTML,/官方來源/);
+});
+
 test('dashboard reads its own latest snapshot, independent from historical DATA',async()=>{
   const a=app();a.context.fixture={date:'2026-09-18',data:{topnews:[]}};
   a.run("DATA={date:'2026-09-01',data:{}};dashFetch=async url=>url==='data/latest.json'?fixture:null;renderTrendBriefing=()=>{};archiveList=async()=>[];");

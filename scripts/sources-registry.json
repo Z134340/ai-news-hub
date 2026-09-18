@@ -1,6 +1,6 @@
 {
   "schema": "sources-registry-v0.1",
-  "checked_at": "2026-09-11",
+  "checked_at": "2026-09-19",
   "check_method": "curl -sI（HEAD、不跟隨轉址）直接回 200；feed 另以 GET 取前 4KB，須含 <rss、<feed 或 rdf:RDF。site 為 null 表示官方站 HEAD 非 200（多為 Cloudflare 403），只登錄 feed。",
   "tier_legend": {
     "A": "官方一手來源（廠商／機構／學術）",
@@ -846,6 +846,56 @@
         "type": "atom"
       }
     ],
+    "official_info": [
+      {
+        "name": "OpenAI News",
+        "tier": "A",
+        "lang": "en",
+        "site": null,
+        "feed": "https://openai.com/news/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://deepmind.google/blog/",
+        "feed": "https://deepmind.google/blog/rss.xml",
+        "type": "rss"
+      },
+      {
+        "name": "Microsoft Source AI",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://news.microsoft.com/source/topics/ai/",
+        "feed": "https://news.microsoft.com/source/topics/ai/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "NVIDIA Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://blogs.nvidia.com/",
+        "feed": "https://blogs.nvidia.com/feed/",
+        "type": "rss"
+      },
+      {
+        "name": "Mistral AI News",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://mistral.ai/",
+        "feed": "https://mistral.ai/news/rss",
+        "type": "rss"
+      },
+      {
+        "name": "Qwen Blog",
+        "tier": "A",
+        "lang": "en",
+        "site": "https://qwenlm.github.io/",
+        "feed": "https://qwenlm.github.io/blog/index.xml",
+        "type": "rss"
+      }
+    ],
     "models": [
       {
         "name": "Hugging Face Blog",
@@ -896,60 +946,12 @@
         "type": "rss"
       },
       {
-        "name": "Ollama Releases",
-        "tier": "B",
-        "lang": "en",
-        "site": "https://github.com/ollama/ollama/releases",
-        "feed": "https://github.com/ollama/ollama/releases.atom",
-        "type": "atom"
-      },
-      {
-        "name": "vLLM Releases",
-        "tier": "B",
-        "lang": "en",
-        "site": "https://github.com/vllm-project/vllm/releases",
-        "feed": "https://github.com/vllm-project/vllm/releases.atom",
-        "type": "atom"
-      },
-      {
-        "name": "llama.cpp Releases",
-        "tier": "B",
-        "lang": "en",
-        "site": "https://github.com/ggml-org/llama.cpp/releases",
-        "feed": "https://github.com/ggml-org/llama.cpp/releases.atom",
-        "type": "atom"
-      },
-      {
-        "name": "Transformers Releases",
-        "tier": "B",
-        "lang": "en",
-        "site": "https://github.com/huggingface/transformers/releases",
-        "feed": "https://github.com/huggingface/transformers/releases.atom",
-        "type": "atom"
-      },
-      {
         "name": "Microsoft Research Blog",
         "tier": "A",
         "lang": "en",
         "site": "https://www.microsoft.com/en-us/research/blog/",
         "feed": "https://www.microsoft.com/en-us/research/feed/",
         "type": "rss"
-      },
-      {
-        "name": "Cohere GitHub Releases",
-        "tier": "B",
-        "lang": "en",
-        "site": "https://github.com/cohere-ai/cohere-python/releases",
-        "feed": "https://github.com/cohere-ai/cohere-python/releases.atom",
-        "type": "atom"
-      },
-      {
-        "name": "Stability AI GitHub",
-        "tier": "B",
-        "lang": "en",
-        "site": "https://github.com/Stability-AI/generative-models/releases",
-        "feed": "https://github.com/Stability-AI/generative-models/releases.atom",
-        "type": "atom"
       }
     ]
   }
