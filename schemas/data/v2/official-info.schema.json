@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "official-info.schema.json",
+  "allOf": [
+    {
+      "$ref": "common.schema.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "title",
+        "company",
+        "date",
+        "event_type",
+        "summary",
+        "highlights",
+        "analysis",
+        "evidence_urls"
+      ],
+      "properties": {
+        "company": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "event_type": {
+          "enum": [
+            "product",
+            "api",
+            "pricing",
+            "partnership",
+            "availability",
+            "safety",
+            "policy",
+            "company",
+            "platform"
+          ]
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "analysis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "evidence_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^https?://[^\\s]+$"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -17,7 +17,8 @@ Classification boundary:
 - If several official pages describe one event, create one item and list the additional pages in evidence_urls.
 
 Return at most 20 items. For each item provide:
-- title: exact official page title; do not translate or rewrite
+- source_title: exact official page title; do not translate or rewrite
+- title, display_title: Traditional Chinese display title; keep source_title separate
 - company
 - date: official publication date in YYYY-MM-DD
 - event_type: product / api / pricing / partnership / availability / safety / policy / company / platform
@@ -28,11 +29,11 @@ Return at most 20 items. For each item provide:
 - evidence_urls: other direct official evidence URLs; may be []
 
 Return ONLY:
-{"items":[{"title":"Exact official title","company":"...","date":"YYYY-MM-DD","event_type":"api","summary":"...","highlights":["..."],"analysis":"...","url":"https://official.example/article","evidence_urls":[]}]}
+{"items":[{"source_title":"Exact official title","title":"繁體中文標題","display_title":"繁體中文標題","company":"...","date":"YYYY-MM-DD","event_type":"api","summary":"...","highlights":["..."],"analysis":"...","url":"https://official.example/article","evidence_urls":[]}]}
 
 Strict evidence rules:
 1. url and every evidence_urls entry must use an approved official domain and must be copied from search results, never guessed.
-2. title and date must match the official page. A timeless landing page or undated page is not a news item.
+2. source_title and date must match the official page. A timeless landing page or undated page is not a news item.
 3. Never use media, aggregators, social posts or search snippets as the final source.
 4. Prefer fewer verified items over filling the quota. Keep proper nouns in their official language and write explanatory prose in Traditional Chinese.
 

@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "latest.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "data"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "time": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "generated_at": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "_updated_at": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "validation": {
+      "type": "object"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "papers": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "authors"
+                ]
+              }
+            ]
+          }
+        },
+        "topnews": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "taiwan": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "china": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "usa": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "techtrends": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "governance": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "tutorials": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "courses": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source"
+                ]
+              }
+            ]
+          }
+        },
+        "official_info": {
+          "type": "array",
+          "items": {
+            "$ref": "official-info.schema.json"
+          }
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "$ref": "models.schema.json"
+          }
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "news-item.schema.json"
+              },
+              {
+                "required": [
+                  "source",
+                  "stars"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

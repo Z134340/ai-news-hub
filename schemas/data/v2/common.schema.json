@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_state",
+    "item_id",
+    "canonical_url",
+    "source_title",
+    "display_title"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "contract_state": {
+      "enum": [
+        "current",
+        "legacy"
+      ]
+    },
+    "item_id": {
+      "type": "string",
+      "pattern": "^ahn2_[0-9a-f]{64}$"
+    },
+    "canonical_url": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$"
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$"
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$"
+    },
+    "source_title": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "display_title": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "title_zh": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "model_name": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "legacy": {
+      "type": "object",
+      "required": [
+        "from_version",
+        "missing_fields"
+      ],
+      "properties": {
+        "from_version": {
+          "const": 1
+        },
+        "missing_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "verified": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "const": "needs_review"
+        }
+      ]
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "official_source": {
+      "type": "boolean"
+    },
+    "review_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "url"
+      ]
+    },
+    {
+      "required": [
+        "source_url"
+      ]
+    }
+  ],
+  "if": {
+    "properties": {
+      "contract_state": {
+        "const": "legacy"
+      }
+    }
+  },
+  "then": {
+    "required": [
+      "legacy"
+    ]
+  },
+  "else": {
+    "properties": {
+      "source_title": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "display_title": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "legacy": false
+    }
+  }
+}

@@ -87,7 +87,7 @@ function renderPapers(items) {
       <div class="card-row">
         ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(p.title)}</div>${p.title_zh?`<div class="card-title-zh">${esc(p.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${p.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(p.title)}</div>${p.title_zh?`<div class="card-title-zh">${esc(p.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${p.verified === true?svg('check',14,'var(--green)'):p.verified === 'needs_review'?badge('var(--tx3)','待複核'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
             ${p.institution?badge('var(--ac)',svg('building',10)+' '+esc(p.institution)):''}
             ${p.venue?badge('var(--ac)',esc(p.venue)):''}
@@ -129,7 +129,7 @@ function renderNewsPanel(items, key, color) {
       <div class="card-row">
         ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div>${n.title_zh?`<div class="card-title-zh">${esc(n.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(n.display_title||n.title)}</div>${n.title_zh?`<div class="card-title-zh">${esc(n.title_zh)}</div>`:''}</div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified === true?svg('check',14,'var(--green)'):n.verified === 'needs_review'?badge('var(--tx3)','待複核'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -164,7 +164,7 @@ function renderTutorials(items) {
       <div class="card-row">
         ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(t.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${t.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(t.display_title||t.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${t.verified === true?svg('check',14,'var(--green)'):t.verified === 'needs_review'?badge('var(--tx3)','待複核'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -196,7 +196,7 @@ function renderCourses(items) {
       <div class="card-row">
         ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(c.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${c.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(c.display_title||c.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${c.verified === true?svg('check',14,'var(--green)'):c.verified === 'needs_review'?badge('var(--tx3)','待複核'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">${tags}</div>
         </div>
         <div class="chev${open?' open':''}">${svg('chev',16,'var(--tx3)')}</div>
@@ -223,7 +223,7 @@ function renderOfficialInfo(items) {
       <div class="card-row">
         ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(n.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(n.display_title||n.title)}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${n.verified === true?svg('check',14,'var(--green)'):n.verified === 'needs_review'?badge('var(--tx3)','待複核'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
             ${n.company?badge('var(--ac)',svg('building',10)+' '+esc(n.company)):''}
             ${n.event_type?badge('var(--green)',esc(n.event_type)):''}
@@ -255,7 +255,7 @@ function renderModels(items) {
       <div class="card-row">
         ${rank(i+1)}
         <div class="card-body">
-          <div class="card-head"><div><div class="card-title">${esc(name)} ${m.version?`<span style="font-size:12px;color:var(--tx3);font-weight:500">v${esc(m.version)}</span>`:''}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${m.verified?svg('check',14,'var(--green)'):''}${cardActions(bid)}</div></div>
+          <div class="card-head"><div><div class="card-title">${esc(name)} ${m.version?`<span style="font-size:12px;color:var(--tx3);font-weight:500">v${esc(m.version)}</span>`:''}</div></div><div style="display:flex;align-items:center;gap:3px;flex-shrink:0">${m.verified === true?svg('check',14,'var(--green)'):m.verified === 'needs_review'?badge('var(--tx3)','待複核'):''}${cardActions(bid)}</div></div>
           <div class="card-badges">
             ${m.institution?badge('var(--ac)',svg('building',10)+' '+esc(m.institution)):''}
             ${m.domain?badge('var(--ac)',svg('cpu',10)+' '+esc(m.domain)):''}

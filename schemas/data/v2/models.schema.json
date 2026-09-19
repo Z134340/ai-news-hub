@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "models.schema.json",
+  "allOf": [
+    {
+      "$ref": "common.schema.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "model_name",
+        "version",
+        "institution",
+        "release_date",
+        "domain",
+        "summary",
+        "advantages",
+        "benchmarks",
+        "highlights"
+      ],
+      "properties": {
+        "model_name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "institution": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "analysis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "advantages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "modalities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "access_channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "context_window": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pricing": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "benchmarks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "evidence_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^https?://[^\\s]+$"
+          }
+        },
+        "release_status": {
+          "enum": [
+            "preview",
+            "beta",
+            "ga",
+            "open_weight",
+            "research",
+            "updated",
+            "deprecated"
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "contract_state": {
+            "const": "current"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "model_name",
+          "version",
+          "institution",
+          "release_date",
+          "domain",
+          "summary",
+          "advantages",
+          "benchmarks",
+          "highlights",
+          "release_status",
+          "modalities",
+          "capabilities",
+          "access_channels",
+          "context_window",
+          "pricing",
+          "license",
+          "limitations",
+          "analysis",
+          "evidence_urls"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "date": "2026-09-18",
+  "data": {
+    "topnews": [
+      {
+        "title": "測試新聞",
+        "source_title": "Fixture news",
+        "display_title": "測試新聞",
+        "source": "Fixture publisher",
+        "date": "2026-09-18",
+        "summary": "測試資料，非真實新聞。",
+        "url": "https://example.com/news?b=2&utm_source=test&a=1",
+        "schema_version": 2,
+        "contract_state": "current",
+        "canonical_url": "https://example.com/news?a=1&b=2",
+        "item_id": "ahn2_86c74fefd64bdbe5bde398170fd7ee4525609ac47ba81ea31ecf4d0168e3bb53"
+      }
+    ],
+    "official_info": [
+      {
+        "title": "測試官方公告",
+        "source_title": "Fixture announcement",
+        "display_title": "測試官方公告",
+        "company": "OpenAI",
+        "date": "2026-09-18",
+        "event_type": "api",
+        "summary": "測試資料，非真實公告。",
+        "highlights": [
+          "測試重點"
+        ],
+        "analysis": "測試分析",
+        "url": "https://openai.com/fixture-announcement",
+        "evidence_urls": [],
+        "schema_version": 2,
+        "contract_state": "current",
+        "canonical_url": "https://openai.com/fixture-announcement",
+        "item_id": "ahn2_75a9396352a1c73186003caa8a74e226a453b7a362f77f578b723952e6031cec"
+      }
+    ],
+    "models": [
+      {
+        "model_name": "Fixture Model",
+        "version": "fixture",
+        "institution": "OpenAI",
+        "release_date": "2026-09-18",
+        "domain": "fixture",
+        "summary": "原有測試摘要",
+        "advantages": [
+          "原有優勢"
+        ],
+        "benchmarks": [
+          "原有自述數據，尚未核實"
+        ],
+        "highlights": [
+          "原有重點"
+        ],
+        "url": "https://openai.com/fixture-model?utm_source=test",
+        "verified": true,
+        "source_title": "Fixture Model announcement",
+        "display_title": "模型測試公告",
+        "release_status": "research",
+        "modalities": [
+          "text"
+        ],
+        "capabilities": [
+          "測試能力"
+        ],
+        "access_channels": [
+          "測試通道"
+        ],
+        "context_window": null,
+        "pricing": null,
+        "license": null,
+        "limitations": [
+          "測試限制"
+        ],
+        "analysis": "測試分析",
+        "evidence_urls": [],
+        "schema_version": 2,
+        "contract_state": "current",
+        "canonical_url": "https://openai.com/fixture-model",
+        "item_id": "ahn2_54faa8e7f11ab1b122edac9b36d04d06f73518c5a083e488da5eb47f0ab84da6"
+      }
+    ]
+  }
+}

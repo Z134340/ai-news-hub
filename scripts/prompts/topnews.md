@@ -46,3 +46,5 @@ Return ONLY:
 ⚠️ 日期硬規則：只收錄今天或昨天發布的新聞（date 欄位必須是今天或昨天的日期），超過 2 天的一律排除，不得收錄。筆數不足時如實回報，絕對不可收錄 2 天前的舊新聞。
 ⚠️ 反幻覺規則：URL 必須來自搜尋結果、禁止猜測；title 必須與頁面一致；date 必須來自實際發佈日期；不確定就不收錄。寧可少收，不要捏造。
 ONLY valid JSON. NO markdown. NO preamble.
+
+AH-01 title contract: In addition to the fields above, every item must include source_title (the exact title copied from the source page, never a translation) and display_title (a Traditional Chinese display title). Preserve the existing title/model_name fields. If the exact source title or a reliable translation is unavailable, use null for that new field; never copy an uncertain title or invent evidence. Do not generate schema_version, item_id, canonical_url, or legacy metadata; the deterministic backend supplies them.

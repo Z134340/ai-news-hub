@@ -10,7 +10,10 @@ import json
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from contracts.data_v2 import canonical_url
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -22,7 +25,6 @@ CATEGORY_POLICY = {
     "models": {"days": 90, "limit": 20, "date": "release_date", "key": ("institution", "model_name", "version")},
     "tutorials": {"days": 90, "limit": 20, "date": "date", "key": ("source", "title", "url")},
 }
-TRACKING_KEYS = {"fbclid", "gclid", "ref", "source"}
 
 
 def load_json(path):
@@ -38,21 +40,6 @@ def items_from(value):
     if isinstance(value, dict) and isinstance(value.get("items"), list):
         return value["items"]
     return []
-
-
-def canonical_url(value):
-    if not isinstance(value, str) or not value.strip():
-        return ""
-    try:
-        parts = urlsplit(value.strip())
-    except ValueError:
-        return str(value).strip().lower()
-    query = [
-        (key, val) for key, val in parse_qsl(parts.query, keep_blank_values=True)
-        if not key.lower().startswith("utm_") and key.lower() not in TRACKING_KEYS
-    ]
-    path = parts.path.rstrip("/") or "/"
-    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, urlencode(query), ""))
 
 
 def item_key(item, fields):

@@ -1,0 +1,61 @@
+[
+  {
+    "name": "missing summary",
+    "category": "topnews",
+    "remove": "summary"
+  },
+  {
+    "name": "wrong summary type",
+    "category": "topnews",
+    "set": {
+      "summary": 12
+    }
+  },
+  {
+    "name": "unknown item version",
+    "category": "models",
+    "set": {
+      "schema_version": 99
+    }
+  },
+  {
+    "name": "current model missing capability",
+    "category": "models",
+    "remove": "capabilities"
+  },
+  {
+    "name": "bad date",
+    "category": "official_info",
+    "set": {
+      "date": "2026-02-30"
+    }
+  },
+  {
+    "name": "wrong array type",
+    "category": "models",
+    "set": {
+      "advantages": "fast"
+    }
+  },
+  {
+    "name": "missing source title",
+    "category": "official_info",
+    "remove": "source_title"
+  },
+  {
+    "name": "current null source title",
+    "category": "models",
+    "set": {
+      "source_title": null
+    }
+  },
+  {
+    "name": "unsafe evidence URL",
+    "category": "models",
+    "set": {
+      "evidence_urls": [
+        "javascript:alert(1)"
+      ]
+    }
+  }
+]

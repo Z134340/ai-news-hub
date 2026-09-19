@@ -232,6 +232,14 @@ for ECOSYSTEM_PROMPT in models official_info; do
   fi
 done
 
+# AH-01: apply the same source/display title contract to generated editorial prompts.
+for TITLE_CAT in papers topnews taiwan china usa techtrends governance tutorials courses; do
+  cat >> "$PROMPTS_DIR/${TITLE_CAT}.md" <<'TITLE_CONTRACT'
+
+AH-01 title contract: In addition to the fields above, every item must include source_title (the exact title copied from the source page, never a translation) and display_title (a Traditional Chinese display title). Preserve the existing title/model_name fields. If the exact source title or a reliable translation is unavailable, use null for that new field; never copy an uncertain title or invent evidence. Do not generate schema_version, item_id, canonical_url, or legacy metadata; the deterministic backend supplies them.
+TITLE_CONTRACT
+done
+
 # ── 完成 ──
 echo ""
 echo "✅ 已產生 $(ls "$PROMPTS_DIR"/*.md | wc -l | tr -d ' ') 個 prompt 檔案："
