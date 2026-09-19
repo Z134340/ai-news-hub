@@ -215,6 +215,14 @@ class IdentityTests(unittest.TestCase):
         self.assertEqual(validate.remove_duplicates([a,b],'topnews'),([a],1))
         self.assertEqual(merge.item_key(a,('title',)),merge.item_key(b,('title',)))
 
+    def test_duplicate_canonical_fixture_is_rejected_before_network(self):
+        doc=fixture('duplicate-canonical-v2.json')
+        report=validate.validate_items(doc['data'],offline=True,schema_version=doc['schema_version'])
+        self.assertEqual(report['schema_errors'],[])
+        self.assertEqual(report['removed'],1)
+        self.assertEqual(len(doc['data']['topnews']),1)
+        self.assertEqual(doc['data']['topnews'][0]['title'],'第一筆測試新聞')
+
 class ValidatorTests(unittest.TestCase):
     def test_four_diagnostic_classes_and_no_false_verification(self):
         old=today_item(fixture('legacy-v1.json')['data']['models'][0])

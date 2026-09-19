@@ -57,5 +57,12 @@
         "javascript:alert(1)"
       ]
     }
+  },
+  {
+    "name": "forged primary URL with malformed escape",
+    "category": "topnews",
+    "set": {
+      "url": "https://example.com/%zz"
+    }
   }
 ]
