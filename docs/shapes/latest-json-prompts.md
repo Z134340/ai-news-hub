@@ -10,3 +10,5 @@
 
 
 - `scripts/prompts/governance.md` 是每日 `run-daily.sh` 擷取時讀取的搜尋提示；數發部 AI 專區是 HTML 探索入口（分類來源權威見 `docs/specs/categories.md`），不列入僅接受 RSS/Atom/RDF 的 `scripts/sources-registry.json`。`scripts/setup-prompts.sh` 保留相同入口與收錄限制；修改範本時不得執行整批產生來覆寫活提示。
+
+AH-01：根與項目新增 schema_version、source_title/display_title、canonical_url/item_id 與 legacy metadata，完整權威見 `data-contract-v2.md`／`docs/specs/data-formats.md`；上方舊欄位仍保留。新報告 schema_errors、legacy_compatible、evidence_needs_review、quarantine 的語意見 validator 規範。

@@ -59,3 +59,5 @@ Return ONLY a JSON object in this format:
 6. 不確定的項目標註 ⚠️待確認，但 URL 和 title 必須 100% 確定才能收錄
 
 不足 20 筆如實回報。 ONLY valid JSON, NO markdown, NO preamble.
+
+AH-01 title contract: In addition to the fields above, every item must include source_title (the exact title copied from the source page, never a translation) and display_title (a Traditional Chinese display title). Preserve the existing title/model_name fields. If the exact source title or a reliable translation is unavailable, use null for that new field; never copy an uncertain title or invent evidence. Do not generate schema_version, item_id, canonical_url, or legacy metadata; the deterministic backend supplies them.

@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-18",
+  "data": {
+    "models": [
+      {
+        "model_name": "Fixture Model",
+        "version": "fixture",
+        "institution": "OpenAI",
+        "release_date": "2026-09-18",
+        "domain": "fixture",
+        "summary": "原有測試摘要",
+        "advantages": [
+          "原有優勢"
+        ],
+        "benchmarks": [
+          "原有自述數據，尚未核實"
+        ],
+        "highlights": [
+          "原有重點"
+        ],
+        "url": "https://openai.com/fixture-model?utm_source=test",
+        "verified": true
+      },
+      {
+        "model_name": "Fixture legacy media",
+        "version": "fixture",
+        "institution": "Historical vendor name",
+        "release_date": "2026-09-18",
+        "domain": "fixture",
+        "summary": "原有測試摘要",
+        "advantages": [
+          "原有優勢"
+        ],
+        "benchmarks": [
+          "原有自述數據，尚未核實"
+        ],
+        "highlights": [
+          "原有重點"
+        ],
+        "url": "https://example.com/legacy-media",
+        "verified": true
+      },
+      {
+        "model_name": "Fixture source only",
+        "version": "fixture",
+        "institution": "OpenAI",
+        "release_date": "2026-09-18",
+        "domain": "fixture",
+        "summary": "原有測試摘要",
+        "advantages": [
+          "原有優勢"
+        ],
+        "benchmarks": [
+          "原有自述數據，尚未核實"
+        ],
+        "highlights": [
+          "原有重點"
+        ],
+        "verified": true,
+        "source_url": "https://openai.com/fixture-model?utm_source=test"
+      }
+    ],
+    "topnews": [
+      {
+        "title": "測試新聞",
+        "source": "Fixture publisher",
+        "date": "2026-09-18",
+        "summary": "測試資料，非真實新聞。",
+        "url": "https://example.com/news?b=2&utm_source=test&a=1"
+      }
+    ]
+  }
+}

@@ -18,6 +18,7 @@ Classification boundary:
 
 Return at most 20 items. For each item provide:
 - model_name, version, institution, release_date (YYYY-MM-DD)
+- source_title: exact official page title; display_title: Traditional Chinese display title
 - release_status: preview / beta / ga / open_weight / research / updated / deprecated
 - domain, modalities, summary (Traditional Chinese)
 - advantages, capabilities, access_channels, highlights, limitations (Traditional Chinese arrays)
@@ -28,7 +29,7 @@ Return at most 20 items. For each item provide:
 - evidence_urls: other direct official evidence URLs; may be []
 
 Return ONLY:
-{"items":[{"model_name":"...","version":"...","institution":"...","release_date":"YYYY-MM-DD","release_status":"ga","domain":"Multimodal","modalities":["text","image"],"summary":"...","advantages":["..."],"capabilities":["..."],"access_channels":["..."],"context_window":null,"pricing":null,"license":null,"benchmarks":["...（官方自述）"],"highlights":["..."],"limitations":["..."],"analysis":"...","url":"https://official.example/release","evidence_urls":[]}]}
+{"items":[{"source_title":"Exact official title","display_title":"繁體中文標題","model_name":"...","version":"...","institution":"...","release_date":"YYYY-MM-DD","release_status":"ga","domain":"Multimodal","modalities":["text","image"],"summary":"...","advantages":["..."],"capabilities":["..."],"access_channels":["..."],"context_window":null,"pricing":null,"license":null,"benchmarks":["...（官方自述）"],"highlights":["..."],"limitations":["..."],"analysis":"...","url":"https://official.example/release","evidence_urls":[]}]}
 
 Strict evidence rules:
 1. url and every evidence_urls entry must use an approved official domain and must be copied from search results, never guessed.

@@ -181,3 +181,20 @@ test('briefing renders untrusted news as escaped text and safe links',()=>{
   a.run("BRIEFING.model=TrendTopics.build([fixture],fixture.date);renderTrendBriefing();");
   const html=a.nodes.get('trend-briefing').innerHTML;assert.doesNotMatch(html,/<img|<script>/);assert.match(html,/&lt;/);assert.match(html,/noopener noreferrer/);
 });
+
+test('v2 display and pending-review status preserve existing bookmark keys',()=>{
+  const a=app();
+  const old={model_name:'Legacy model',release_date:'2026-09-18',url:'https://example.com/model?utm_source=old',summary:'保留摘要'};
+  a.context.old=old;
+  const before=a.run('itemKey(old)');
+  a.context.migrated={...old,schema_version:2,canonical_url:'https://example.com/model',item_id:'ahn2_future_backend_id',source_title:null,display_title:null,verified:'needs_review'};
+  assert.equal(a.run('itemKey(migrated)'),before);
+  a.run('renderModels([migrated])');
+  assert.match(a.nodes.get('sub-models').innerHTML,/待複核/);
+  a.context.sourceOnly={model_name:'Legacy source only',release_date:'2026-09-18',source_url:old.url};
+  assert.equal(a.run('itemKey(sourceOnly)'),a.run('itemKey({...sourceOnly,schema_version:2,item_id:"new",canonical_url:"https://example.com/model"})'));
+  a.context.news={title:'Original compatibility title',display_title:'繁體中文顯示標題',source_title:'Original source title',url:'https://example.com/news',summary:'摘要',verified:'needs_review'};
+  a.run('renderOfficialInfo([news])');
+  assert.match(a.nodes.get('sub-official_info').innerHTML,/繁體中文顯示標題/);
+  assert.match(a.nodes.get('sub-official_info').innerHTML,/待複核/);
+});

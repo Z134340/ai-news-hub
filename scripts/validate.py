@@ -27,6 +27,10 @@ import time
 from difflib import SequenceMatcher
 from urllib.parse import urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from contracts.data_v2 import (canonical_url, source_url, prepare_item, legacy_model,
+                               review_reasons, envelope_errors, CATEGORIES)
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -190,23 +194,7 @@ def merge_tier_b(trusted, tier_b):
 TRUSTED_DOMAINS = merge_tier_b(TRUSTED_DOMAINS, load_tier_b_domains())
 
 # Required fields per category
-REQUIRED_FIELDS = {
-    'papers': ['title', 'authors', 'date', 'summary', 'url'],
-    'topnews': ['title', 'source', 'date', 'summary', 'url'],
-    'taiwan': ['title', 'source', 'date', 'summary', 'url'],
-    'china': ['title', 'source', 'date', 'summary', 'url'],
-    'usa': ['title', 'source', 'date', 'summary', 'url'],
-    'techtrends': ['title', 'source', 'date', 'summary', 'url'],
-    'governance': ['title', 'source', 'date', 'summary', 'url'],
-    'tutorials': ['title', 'source', 'date', 'summary', 'url'],
-    'courses': ['title', 'source', 'date', 'summary', 'url'],
-    'official_info': ['title', 'company', 'date', 'event_type', 'summary', 'highlights', 'analysis', 'url', 'evidence_urls'],
-    'models': ['model_name', 'version', 'institution', 'release_date', 'release_status',
-               'domain', 'modalities', 'summary', 'advantages', 'capabilities',
-               'access_channels', 'context_window', 'pricing', 'license', 'benchmarks',
-               'highlights', 'limitations', 'analysis', 'url', 'evidence_urls'],
-    'skills': ['title', 'source', 'date', 'summary', 'url', 'stars'],
-}
+
 
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
@@ -503,22 +491,9 @@ def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
 
 
 def validate_required_fields(item, category):
-    """Check if item has all required fields."""
-    required = REQUIRED_FIELDS.get(category, [])
-    def present(value, field):
-        if field == 'authors' and isinstance(value, list):
-            return bool(value) and all(isinstance(x, str) and x.strip() for x in value)
-        if field == 'stars':
-            return isinstance(value, int) and not isinstance(value, bool) and value >= 0
-        if field in {'highlights', 'modalities', 'advantages', 'capabilities', 'access_channels', 'limitations'}:
-            return isinstance(value, list) and bool(value) and all(isinstance(x, str) and x.strip() for x in value)
-        if field in {'benchmarks', 'evidence_urls'}:
-            return isinstance(value, list) and all(isinstance(x, str) and x.strip() for x in value)
-        if field in {'context_window', 'pricing', 'license'}:
-            return value is None or (isinstance(value, str) and bool(value.strip()))
-        return isinstance(value, str) and bool(value.strip())
-    missing = [field for field in required if not present(item.get(field), field)]
-    return len(missing) == 0, missing
+    """Compatibility entry point; v2 schemas are the single structural authority."""
+    _, issues = prepare_item(item, category)
+    return not issues, issues
 
 
 def similarity(a, b):
@@ -534,7 +509,7 @@ def remove_duplicates(items, category=None):
     removed_count = 0
 
     for item in items:
-        url = item.get('url', '')
+        url = canonical_url(source_url(item))
         title = item.get('model_name') if isinstance(item.get('model_name'), str) else item.get('title', '')
 
         if category == 'models':
@@ -567,16 +542,17 @@ def remove_duplicates(items, category=None):
     return result, removed_count
 
 
-def validate_items(data, category_filter=None, dry_run=False):
+def validate_items(data, category_filter=None, dry_run=False, offline=False, schema_version=1):
     """Reject invalid structure before dedup/network; compose qualification exactly once."""
     if not isinstance(data, dict):
         raise ValueError('category data must be an object')
     categories = [category_filter] if category_filter else list(data)
-    if any(cat not in REQUIRED_FIELDS or not isinstance(data.get(cat), list) for cat in categories):
+    if any(cat not in CATEGORIES or not isinstance(data.get(cat), list) for cat in categories):
         raise ValueError('unknown category or category is not an array')
     results = {'date': datetime.now().isoformat(), 'dry_run':dry_run, 'total_items':0,
                'verified':0, 'needs_review':0, 'warnings':0, 'removed':0,
-               'details':{}, 'per_item_results':{}}
+               'details':{}, 'per_item_results':{}, 'schema_errors':[],
+               'legacy_compatible':[], 'evidence_needs_review':[], 'quarantine':[]}
     candidates = {}
     for cat in categories:
         detail = {'total':len(data[cat]), 'verified':0, 'needs_review':0, 'warnings':0, 'removed_items':[], 'items':[]}
@@ -584,53 +560,48 @@ def validate_items(data, category_filter=None, dry_run=False):
         results['total_items'] += len(data[cat])
         candidates[cat] = []
         for idx, item in enumerate(data[cat]):
-            issues = []
-            if not isinstance(item, dict):
-                issues.append('Item must be an object')
+            original = item
+            item, schema_issues = prepare_item(original, cat)
+            if schema_version == 2 and isinstance(original, dict) and original.get('schema_version') != 2:
+                schema_issues.append('v2 envelope requires v2 items')
+            location = {'category': cat, 'index': idx}
+            issues = list(schema_issues)
+            evidence_issues = []
+            if schema_issues:
+                results['schema_errors'].append({**location, 'reasons': schema_issues})
             else:
-                if 'title' in item and not isinstance(item['title'], str):
-                    issues.append('Invalid optional title')
-                if 'model_name' in item and not isinstance(item['model_name'], str):
-                    issues.append('Invalid optional model_name')
-                complete, missing = validate_required_fields(item, cat)
-                if not complete:
-                    issues.append(f'Missing or invalid fields: {missing}')
+                if item['contract_state'] == 'legacy':
+                    results['legacy_compatible'].append({**location, 'item_id': item['item_id']})
+                evidence_issues = review_reasons(item, cat)
                 date_field = 'release_date' if cat == 'models' else 'date'
-                valid, reason = validate_date(item.get(date_field), max_days=CATEGORY_DATE_LIMITS.get(cat) or 90)
+                # Offline contract checks read old archives without freshness/network policy.
+                valid, reason = validate_date(item.get(date_field), no_limit=offline,
+                                              max_days=CATEGORY_DATE_LIMITS.get(cat) or 90)
                 if not valid:
                     issues.append(f'Invalid {date_field}: {reason}')
-                url = item.get('url')
-                if isinstance(url, str):
-                    try:
-                        parsed = urlparse(url)
-                        if parsed.scheme not in ('http', 'https') or not parsed.hostname or parsed.username or any(c.isspace() or ord(c) < 32 for c in url):
-                            issues.append('Invalid URL')
-                    except ValueError:
-                        issues.append('Invalid URL')
+                url = source_url(item)
                 if cat in ('official_info', 'models'):
                     company = item.get('company') if cat == 'official_info' else item.get('institution')
                     official, domain = check_official_ai_company_domain(company, url)
-                    if not official:
-                        issues.append(f'Non-official AI source for {company}: {domain}')
-                    else:
-                        item['official_source'] = True
-                    evidence_urls = item.get('evidence_urls', [])
-                    if evidence_urls is not None and (not isinstance(evidence_urls, list) or
-                            any(not isinstance(value, str) or not check_official_ai_company_domain(company, value)[0]
-                                for value in evidence_urls)):
-                        issues.append('Invalid or company-mismatched evidence_urls')
-                if cat == 'official_info' and item.get('event_type') not in {
-                        'product', 'api', 'pricing', 'partnership', 'availability',
-                        'safety', 'policy', 'company', 'platform'}:
-                    issues.append('Invalid event_type')
-                if cat == 'models' and item.get('release_status') is not None and item.get('release_status') not in {
-                        'preview', 'beta', 'ga', 'open_weight', 'research', 'updated', 'deprecated'}:
-                    issues.append('Invalid release_status')
+                    mismatched = any(not check_official_ai_company_domain(company, value)[0]
+                                     for value in item.get('evidence_urls', []))
+                    item['official_source'] = official and not mismatched
+                    if not official or mismatched:
+                        reason = f'Non-official or company-mismatched evidence: {company}: {domain}'
+                        if legacy_model(item, cat):
+                            evidence_issues.append(reason)
+                        else:
+                            issues.append(reason)
             if issues:
-                detail['items'].append({'index':idx, 'issues':issues, 'remove':True})
-                detail['removed_items'].append(item.get('url', '') if isinstance(item, dict) else '')
+                detail['items'].append({'index':idx, 'issues':issues, 'remove':True,
+                                        'classification':'schema_error' if schema_issues else 'quarantine'})
+                detail['removed_items'].append(source_url(item) if isinstance(item, dict) else '')
+                results['quarantine'].append({**location, 'reasons': issues, 'original': original})
                 detail['warnings'] += 1; results['warnings'] += 1; results['removed'] += 1
             else:
+                item['review_reasons'] = evidence_issues
+                if evidence_issues:
+                    results['evidence_needs_review'].append({**location, 'item_id': item['item_id'], 'reasons': evidence_issues})
                 candidates[cat].append(item)
         candidates[cat], duplicates = remove_duplicates(candidates[cat], cat)
         results['removed'] += duplicates
@@ -641,10 +612,13 @@ def validate_items(data, category_filter=None, dry_run=False):
         count = 0
         for cat in categories:
             for idx, item in enumerate(candidates[cat]):
-                if count and count % 3 == 0:
+                if not offline and count and count % 3 == 0:
                     time.sleep(0.5)
                 count += 1
-                future = executor.submit(check_url_and_title, item['url'], item['model_name'] if cat == 'models' else item['title'])
+                if offline:
+                    url_status[(cat, idx)] = (None, 'offline_not_checked', 0.0)
+                    continue
+                future = executor.submit(check_url_and_title, source_url(item), item.get('source_title') or '')
                 futures[future] = (cat, idx)
         for future in as_completed(futures):
             key = futures[future]
@@ -657,12 +631,14 @@ def validate_items(data, category_filter=None, dry_run=False):
         kept, detail = [], results['details'][cat]
         for idx, item in enumerate(candidates[cat]):
             verified, status, score = url_status[(cat, idx)]
+            if verified is True and item.get('review_reasons'):
+                verified, status = None, 'evidence_needs_review'
             item['verified'] = True if verified is True else 'needs_review' if verified is None else False
-            item['complete'] = True
+            item['complete'] = not bool(item.get('review_reasons'))
             item['url_status'] = status
             item['title_score'] = round(score or 0, 2)
             item['verified_at'] = datetime.now(timezone(timedelta(hours=8))).isoformat()
-            trusted, domain = check_domain_whitelist(item['url'])
+            trusted, domain = check_domain_whitelist(source_url(item))
             issues = [] if trusted else [f'Untrusted domain: {domain}']
             if verified is True:
                 detail['verified'] += 1; results['verified'] += 1
@@ -670,11 +646,12 @@ def validate_items(data, category_filter=None, dry_run=False):
                 detail['needs_review'] += 1; results['needs_review'] += 1
                 issues.append(f'Source needs review: {status}')
             else:
-                results['removed'] += 1; detail['removed_items'].append(item['url'])
+                results['removed'] += 1; detail['removed_items'].append(source_url(item))
+                results['quarantine'].append({'category': cat, 'index': idx, 'reasons': [status], 'original': item.copy()})
                 issues.append(f'URL failed: {status}')
             if issues:
                 detail['warnings'] += 1; results['warnings'] += 1
-            detail['items'].append({'index':idx, 'url':item['url'], 'issues':issues, 'remove':verified is False})
+            detail['items'].append({'index':idx, 'url':source_url(item), 'issues':issues, 'remove':verified is False})
             if verified is True or verified is None:
                 kept.append(item)
         data[cat] = kept
@@ -792,7 +769,7 @@ def run_self_test():
         check('registry schema tag', reg.get('schema') == 'sources-registry-v0.1')
         check('registry checked_at is YYYY-MM-DD',
               bool(datetime.strptime(str(reg.get('checked_at', '')), '%Y-%m-%d')))
-        check('registry has every editorial discovery category', set(cats) == set(REQUIRED_FIELDS) - {'skills'})
+        check('registry has every editorial discovery category', set(cats) == set(CATEGORIES) - {'skills'})
         check('registry every category >= 3 feeds', all(len(v) >= 3 for v in cats.values()))
         entries = [e for v in cats.values() for e in v]
         check('registry entries have name/tier/feed/type',
@@ -831,6 +808,7 @@ def main():
         help='Run offline self-tests (tier-b whitelist merge, registry shape) and exit'
     )
 
+    parser.add_argument('--offline', action='store_true', help='Read-only schema/legacy checks; no network or freshness rejection')
     parser.add_argument('--input', type=Path, help='Candidate JSON (default data/latest.json)')
     parser.add_argument('--output', type=Path, help='Validated output path')
     args = parser.parse_args()
@@ -846,6 +824,9 @@ def main():
         latest = json.loads((args.input or repo_root / 'data/latest.json').read_text(encoding='utf-8'))
         if not isinstance(latest, dict) or not isinstance(latest.get('data'), dict):
             raise ValueError('latest.data must be an object')
+        problems = envelope_errors(latest)
+        if problems:
+            raise ValueError('; '.join(problems))
         data = latest['data']
         if not data:
             raise ValueError('category data is empty')
@@ -856,21 +837,29 @@ def main():
     # Run validation
     logger.info("Starting 7-step validation...")
     try:
-        results = validate_items(data, category_filter=args.category, dry_run=args.dry_run)
+        results = validate_items(data, category_filter=args.category, dry_run=args.dry_run or args.offline,
+                                 offline=args.offline, schema_version=latest.get('schema_version', 1))
     except ValueError as error:
         logger.error('Invalid category data: %s', error)
         return 1
 
+    if args.offline:
+        print(json.dumps({key: results[key] for key in ('schema_errors', 'legacy_compatible', 'evidence_needs_review', 'quarantine')}, ensure_ascii=False, indent=2))
+        return 1 if results['schema_errors'] or results['quarantine'] else 0
+
     # Write report
-    if not args.dry_run:
+    if not args.dry_run and not args.offline:
         write_validation_report(repo_root, results)
     if not any(data.values()):
         logger.error('No usable items remain after validation')
         return 1
 
     # Save updated data (unless dry-run)
-    if not args.dry_run:
+    if not args.dry_run and not args.offline:
         latest['data'] = data
+        # A filtered run leaves other categories untouched, so retains the root version.
+        if not args.category:
+            latest['schema_version'] = 2
         save_latest_json(repo_root, latest, results, args.output or args.input)
 
     # Print summary

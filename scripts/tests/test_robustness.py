@@ -26,7 +26,7 @@ publisher = module('publisher', 'publish-daily.py')
 class ValidationTests(unittest.TestCase):
     def item(self, days=0, **extra):
         today = datetime.now(timezone(timedelta(hours=8))).date()
-        return {'title':'A real research release', 'source':'example', 'summary':'Useful technical details', 'date':(today-timedelta(days=days)).isoformat(), 'url':'https://example.com/a', **extra}
+        return {'title':'A real research release', 'source_title':'A real research release', 'display_title':'研究發布', 'source':'example', 'summary':'Useful technical details', 'date':(today-timedelta(days=days)).isoformat(), 'url':'https://example.com/a', **extra}
 
     def run_validation(self, items, response=(True,'ok',1.0)):
         data = {'topnews':items}

@@ -1,111 +1,60 @@
-<!-- 自 CLAUDE.md 拆出（2026-09-04）。此檔是權威規範，CLAUDE.md 只留索引；改本檔不必同步回 CLAUDE.md。 -->
+<!-- 驗證規範權威入口；資料結構與版本定義見 data-formats.md。 -->
 
-## validate.py 規範
+## validate.py 規範（AH-01）
 
-八步驟驗證（詳細規範）：
+`schemas/data/v2/` 是結構權威；`scripts/contracts/data_v2.py` 提供離線相容 migration、canonical URL 與 item_id。程式定位見 `docs/shapes/data-contract-v2.md`。
 
-**前置與輸出：**
-- 缺少 input、根物件沒有 `data` 物件、未知分類或分類不是陣列，回非零；不把缺資料當成功。
-- `--input`／`--output` 可指定候選檔；預設仍為 data/latest.json。成功輸出先寫暫存檔再原子替換。
-- `--dry-run` 不寫輸出或報告。移除後無可用資料則回非零，保留原檔。
-- 先檢查 item 型別、必填非空與欄位型別、日期及 HTTP(S) URL，再去重及連線。authors 可為非空字串陣列。異常單筆移除並記錄，不得擊穿其他分類。
+### 輸入、版本與診斷
 
-**Step 1 — URL 存活檢測（⚠️ Bug Fix #3）：**
-- 優先 HTTP HEAD 請求，timeout=10s
-- 若 HEAD 回傳 405 Method Not Allowed → 改用 GET + stream（只讀 header 不下載 body）
-- User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-- concurrent.futures.ThreadPoolExecutor(max_workers=3)
-- 每批次間隔 0.5 秒
-- 判斷邏輯：
-  · 2xx/3xx → verified: true
-  · 403 → needs_review（不移除，某些網站正常擋 bot）
-  · 405 → 已用 GET 重試，依 GET 結果判斷
-  · 404/410 → verified: false → 移除
-  · 5xx → verified: false → 移除
-  · 超時/DNS 錯誤/ConnectionError → verified: false → 移除
-  · URL 格式不合法 → verified: false → 移除
-```python
-def check_url(url):
-    try:
-        req = urllib.request.Request(url, method='HEAD', headers={'User-Agent': UA})
-        resp = urllib.request.urlopen(req, timeout=10)
-        return resp.status
-    except urllib.error.HTTPError as e:
-        if e.code == 405:
-            # HEAD 不支援，改 GET
-            try:
-                req = urllib.request.Request(url, headers={'User-Agent': UA})
-                resp = urllib.request.urlopen(req, timeout=10)
-                return resp.status
-            except:
-                return e.code
-        return e.code
-    except Exception:
-        return 0  # 連線失敗
-```
+- 缺 input、根非物件、data 非物件／空分類集合、未知分類、分類非陣列、未知版本，回非零；不得把缺資料當成功。
+- 無版本／整數 1 可相容轉成 v2，保留原始 URL、title、model_name 與日期。v2 根要求 v2 items；畸形 v2 不得降格成 legacy。
+- `--input`／`--output` 指定候選；預設仍為 `data/latest.json`。只有全分類成功處理才把 root 升成 2；單分類時其他分類不改。
+- 先 schema，再身分一致性、日期、官方來源、去重、網路；任何後續成功不能覆蓋先前缺陷。
 
-**Step 2 — 標題一致性檢測（反幻覺核心）：**
-- 對 verified URL 抓取頁面內容，提取 `<title>` 或 `<h1>` 標籤
-- 計算頁面標題與新聞 title 欄位的相似度（SequenceMatcher）
-- 評分規則：
-  · score ≥ 0.3 → 通過（允許翻譯差異與摘要改寫）
-  · 0 < score < 0.3 → needs_review（標記但不移除，paywall/動態頁面等）
-  · score = 0（完全無法對應）→ verified: false → 移除
-- needs_review 保留但獨立計數，不計入 verified／pass_rate；通過率分母為輸入總筆數，已移除項目不能被計為成功。
-- 特例：TITLE_CHECK_RELAXED_DOMAINS（arxiv, medium, 中文媒體等）跳過標題比對
-```python
-TITLE_CHECK_RELAXED_DOMAINS = [
-    "arxiv.org", "medium.com", "ithome.com.tw", "technews.tw",
-    "digitimes.com", "inside.com.tw", "cna.com.tw", "nikkei.com",
-]
-def title_similarity(title_a, title_b):
-    from difflib import SequenceMatcher
-    a = re.sub(r'[^\w\s]', '', title_a.lower())
-    b = re.sub(r'[^\w\s]', '', title_b.lower())
-    return SequenceMatcher(None, a, b).ratio()
-```
+| Report 欄位 | 意義與處理 |
+|---|---|
+| `schema_errors` | 錯型別、缺必要欄位、未知版本、非法 URL、ID／canonical 不符。記分類、index、reason；原件亦放 quarantine |
+| `legacy_compatible` | 成功讀取的舊格式；不是 verified，也不免除日期／來源／網路檢查 |
+| `evidence_needs_review` | 缺來源標題、明確繁中顯示標題、模型新欄位，或舊模型缺公司官方證據。原有內容保留；不能計入 verified |
+| `quarantine` | schema／身分錯誤、當前格式公司網域不符、超出發布日期範圍、URL 硬失敗等；包含原因及原件供複核。不是 AH-02 已落地的儲存層 |
 
-**Step 3 — 域名白名單**
-- `TRUSTED_DOMAINS`（檔內硬編碼）在 import 時併入 `scripts/tier-b-domains.json` 的 `domains[]`（learning-loop v1 L-3，2026-09-11）。
-- 合併規則：**add-only**（只增不減，決策 4）；每個網域小寫、去 `www.`；檔案缺失或 JSON 壞掉 → 記 warning、視為空集合，不中斷驗證。
-- `tier-b-domains.json` 格式：`{ "schema": "tier-b-domains-v0.1", "note": "...", "domains": ["a.com", ...] }`，整檔即 `apply-change.mjs` 的 `TIER_B_DOMAINS` 區段；只允許 `add_domain` 追加，`validate.py` 只讀不寫。
-- `check_domain_whitelist(url)` 仍是去 `www.` 後精確比對（不做子網域萬用），所以 tier-b 要登錄實際文章網域（如 `blogs.nvidia.com`），不是 feed 主機。
-- 判定為 untrusted 只加 `Untrusted domain: X` 到 issues 並計 warning，不移除項目。
-- 同目錄 `scripts/sources-registry.json`（`sources-registry-v0.1`）登錄 11 個 editorial 分類的官方站與 RSS/Atom feed（`name, tier A|B|C, lang, site|null, feed, type rss|atom|rdf`）。消費者是 L-4 `discover-trends.mjs`；`validate.py` 只在 `--self-test` 驗結構。
-- `official_info` 與 `models` 另讀 `skills/official-ai-ecosystem-research/references/official-sources.json` 的公司—網域配對；公司名稱必須與 registry 完全相同，主 URL 與 `evidence_urls` 任一網址不屬於該公司即移除。模型日期不得在未來，官方資訊最多 30 天、模型最多 90 天。
-- `--self-test`（不打網路）：tier-b 缺檔／壞檔容忍、小寫去 www、add-only、白名單判定、官方來源 registry、editorial registry 完整且每分類 ≥ 3 feed、分類內 feed 唯一，全 PASS 回 0。
+上述不是互斥計數：一筆可以同時 legacy_compatible 與 evidence_needs_review；schema_error 的原件也出現在 quarantine。`details[category].items` 記錄移除／保留原因，`removed` 另包含既有去重計數。全量驗證後沒有可用 item 回非零並保留輸入檔。
 
-**Step 4 — 欄位完整性**：依 REQUIRED_FIELDS 檢查型別與非空內容；欄位／日期不合格不能由 URL 成功覆蓋。模型以 model_name 比對，非字串 optional title 會被隔離。
+### 舊模型與來源證據
 
-**Step 5 — 日期合理性**
-- 格式驗證 YYYY-MM-DD（用 try/except datetime.strptime）
-- 各類別分別設定 max_days（CATEGORY_DATE_LIMITS）：
-  · topnews/taiwan/china/usa → max_days=1（台北日期：今天+昨天；不接受明天或前天）
-  · techtrends/governance → max_days=7
-  · papers/tutorials/courses → max_days=90
-  · models → allow_future（允許未來日期，最多 2 年前）
-```python
-CATEGORY_DATE_LIMITS = {
-    'papers': 90, 'topnews': 1, 'taiwan': 1, 'china': 1, 'usa': 1,
-    'techtrends': 7, 'governance': 7, 'tutorials': 90, 'courses': 90, 'models': None,
-}
-def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
-    ...
-    if parsed_date > today + timedelta(days=1) or parsed_date < today - timedelta(days=max_days):
-        return False, 'date_out_of_range'
-```
+- 舊模型核心欄位已存在且型別正確，只缺新版能力、限制、價格或分析時可保留；缺欄位不填虛構內容。已提供但型別錯誤的欄位仍隔離。
+- 舊模型且缺新版欄位時，非官方媒體、舊公司名稱或公司證據不配對只降為 needs_review，不能標官方來源。完整當前模型／官方資訊若公司—網域不符仍隔離，沒有放寬新收錄來源規則。
+- `official_source` 僅在主 URL 與全部 evidence_urls 都命中該公司核准網域時為 true；這只是網域身分，不是文章內容／數值已核實。
+- HTTP 成功時仍需檢查缺證據原因；缺 source_title 或其他上述證據，verified=`needs_review`、complete=false。不會把 model_name／翻譯 title 複製成原文證據。
+- 當前 prompt 已要求分開 source_title／display_title；既有封存不在本工項批次補證或重寫。
 
-**Step 6 — 重複檢測**（同前）
+### 網路檢查與標題核對
 
-**Step 7 — 驗證報告** → `data/logs/validate-YYYY-MM-DD.json`
+1. HTTP HEAD timeout=10s；405 轉 GET；最多 3 workers、每三筆間隔 0.5 秒。
+2. 403 為 needs_review；404/410/5xx、連線錯誤或非法 URL 移除並記原因。本文不把暫時性網路錯誤視為內容偽造；分類沿用／退避屬後續 AH-02/AH-07。
+3. 若有 `source_title`，抓頁面 title/h1 比對：相似度 ≥0.3 通過，介於 0 與 0.3 待複核，完全不符移除；TITLE_CHECK_RELAXED_DOMAINS 保留既有跳過標題比對規則。
+4. 沒有 source_title 時只檢查連線，結果保持缺證據待複核。抓頁失敗但 HEAD 成功的既有處理仍在；不宣稱已完成內容級證據驗證。
+5. 普通分類不在 TRUSTED_DOMAINS 只記 warning；官方資訊／模型另以公司網域配對判定。
 
-**Step 8 — 自動修復**
-- 移除 verified: false 項目
-- 注入 verified/verified_at/url_status/complete 欄位
-- 更新 stats 和 validation 摘要
-- 覆寫 latest.json + 日期歸檔
+### 網域 registry
 
-接受參數：無參數=完整驗證，--category X=單類別，--dry-run=只報告，--self-test=離線自測後直接 exit（不讀 latest.json）
-全部 try/except 包裹，不因單一項目中斷。
+- `scripts/tier-b-domains.json` 的 domains 在 import 時 add-only 併入硬編碼 TRUSTED_DOMAINS；小寫、去 www，缺失／壞檔記 warning，不刪既有白名單。
+- 普通白名單以實際 hostname 精確比對，沒有子網域萬用；公司 registry 允許登錄網域及其子網域。
+- 企業來源唯一名單：`skills/official-ai-ecosystem-research/references/official-sources.json`；company/institution 必須精確符合登錄公司名。
+- `scripts/sources-registry.json` 管 11 個 editorial discovery 分類的官方站與 RSS/Atom feed；skills 為獨立 GitHub API 榜單，不在 feed registry。
+- learning-loop、auto-apply 白名單、manual_only 與 promotion 規則未改。
 
----
+### 日期、去重與保存
+
+- YYYY-MM-DD 必須是真實日期。正式候選：topnews/taiwan/china/usa 1 天、techtrends/governance 7 天、official_info 30 天、papers/tutorials/courses/models/skills 90 天；不接受未來日期。
+- 所有分類以共用 canonical URL 去重；企業兩分類保留既有完整名稱 tuple 的第二層去重，一般新聞保留標題相似度 >0.8 的既有規則。item_id 不使用陣列位置。
+- Report 預設 `data/logs/validate-YYYY-MM-DD.json`，只有非 dry-run／非 offline 才寫。
+- 成功輸出先寫暫存檔再原子替換指定 output/input；更新 stats、validation，pass_rate 分母是輸入總筆數、只計 verified=true。needs_review 與已移除項不計成功。
+- validator 本身不覆寫日期封存；封存由既有每日流程在候選驗證後處理，本工項沒有執行。
+
+### 離線與驗收入口
+
+- `--dry-run`：不寫 output/report，但仍可能連網，不是離線模式。
+- `--offline --input FILE`：只做契約／來源結構診斷，不連網、不寫 output/report、不以今日時窗淘汰歷史資料；所有未實測來源維持未驗證。有 schema_error/quarantine 回 1，只有相容／待複核回 0。禁止把退出 0 當發布核准。
+- `--self-test`：不讀 latest、不連網；測 tier-b／registry／型別，相應 fixture 不受實際日期影響。
+- `python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v`：包含 AH-01 契約／migration 和既有 robustness；既有 Node／Shell 自測依 `.github/workflows/selftest.yml`。

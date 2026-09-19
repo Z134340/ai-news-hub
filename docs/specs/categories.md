@@ -2,6 +2,8 @@
 
 ## 十二大分類規範
 
+AH-01 共用資料契約見 `data-formats.md`：所有 editorial producer 分開輸出 source_title 與 display_title；舊欄位保留相容，不以缺新欄位為由整批刪除模型。這是結構／相容規則，不代表放寬下述新收錄來源或已完成發布閘。
+
 ### 1. 📄 AI 論文發表 (`papers`)
 **機構（12）：** Google DeepMind, OpenAI, Google Research/Brain, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Anthropic, Apple
 **頂會（12）：** NeurIPS, ICML, ICLR, CVPR, ICCV, ECCV, ACL, EMNLP, NAACL, SIGGRAPH, AAAI, IJCAI
@@ -63,7 +65,7 @@
 **時間範圍：** 最近 30 天，每日擷取後與既有資料去重累積，最多保留 20 筆。
 **來源：** 僅接受 `skills/official-ai-ecosystem-research/references/official-sources.json` 核准網域中的公司 newsroom、官方 blog、文件、release notes、政策或安全頁面。媒體、聚合站、搜尋摘要與社群貼文只能協助發現，不得成為最終 URL。
 **收錄：** 產品、API、價格、合作、可用區域／平台、安全、政策、公司與平台動態。具名新模型或主要版本歸 `models`；同一事件多篇官方文件合為一筆，其他網址放 `evidence_urls`。
-**欄位：** title(官方原文標題), company, date, event_type(product/api/pricing/partnership/availability/safety/policy/company/platform), summary, highlights, analysis, url, evidence_urls
+**欄位：** source_title(官方原文標題), title/display_title(繁體中文顯示標題), company, date, event_type(product/api/pricing/partnership/availability/safety/policy/company/platform), summary, highlights, analysis, url, evidence_urls
 
 ### 11. 🚀 模型發布快訊 (`models`)
 **網站導覽：** 主選單「企業生態系」的子分頁「模型快訊」；資料 key 仍為 `models`，避免破壞既有封存、書籤與前端相容性。
@@ -71,7 +73,7 @@
 **來源：** 僅接受模型開發公司的官方公告、模型頁、Model Card、System Card 或技術報告；核准公司與網域只在 `skills/official-ai-ecosystem-research/references/official-sources.json` 維護。排行榜、媒體、聚合站、GitHub Trending 與非官方 repository 不得作為最終 URL。
 **收錄：** 具名新模型、主要版本或既有模型的實質能力更新。純 API 參數、定價、額度、地區上架、合作與第三方雲端平台上架歸 `official_info`。
 **去重：** 優先以 canonical `url`，其次以 `(institution, model_name, version)`；同日 Model Card／System Card 是同一發布的證據，不另建一筆。
-**欄位：** model_name, version, institution, release_date, release_status, domain, modalities, summary, advantages, capabilities, access_channels, context_window, pricing, license, benchmarks(標明官方自述), highlights, limitations, analysis, url, evidence_urls
+**欄位：** source_title(官方原文標題), display_title(繁體中文顯示標題), model_name, version, institution, release_date, release_status, domain, modalities, summary, advantages, capabilities, access_channels, context_window, pricing, license, benchmarks(標明官方自述), highlights, limitations, analysis, url, evidence_urls
 
 ### 12. ✨ 熱門 Agent Skills (`skills`)
 **定位：** 跨工具 Agent Skills 專案人氣榜，涵蓋 Claude Code、Codex 與其他支援 Agent Skills 的工具。GitHub 星數屬專案層級，單一技能、技能包與官方技能包必須明確標示，不把同一 repo 的星數冒充個別 Skill 星數。
