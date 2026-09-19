@@ -54,15 +54,22 @@ jobs:
       TARGET_SHA: ${{ inputs.target_sha }}
       EXPECTED_RELEASE_ID: ${{ inputs.expected_release_id }}
       PRODUCTION_URL: https://ai-news-hub-7jk.pages.dev
-      RECEIPT_PATH: ${{ runner.temp }}/rollback-receipt.json
-      TARGET_RECEIPT_PATH: ${{ runner.temp }}/target-evidence/deployment-receipt.json
-      PLAN_RECEIPT_PATH: ${{ runner.temp }}/plan-evidence/rollback-receipt.json
       RECEIPT_ARTIFACT: rollback-${{ inputs.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
     outputs:
       deploy_sha: ${{ steps.execute.outputs.deploy_sha }}
       release_id: ${{ steps.execute.outputs.release_id }}
       receipt_artifact: rollback-${{ inputs.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
+      - name: Configure runtime receipt paths
+        env:
+          RUNTIME_RECEIPT_PATH: ${{ runner.temp }}/rollback-receipt.json
+          RUNTIME_TARGET_RECEIPT_PATH: ${{ runner.temp }}/target-evidence/deployment-receipt.json
+          RUNTIME_PLAN_RECEIPT_PATH: ${{ runner.temp }}/plan-evidence/rollback-receipt.json
+        run: |
+          printf 'RECEIPT_PATH=%s\n' "$RUNTIME_RECEIPT_PATH" >> "$GITHUB_ENV"
+          printf 'TARGET_RECEIPT_PATH=%s\n' "$RUNTIME_TARGET_RECEIPT_PATH" >> "$GITHUB_ENV"
+          printf 'PLAN_RECEIPT_PATH=%s\n' "$RUNTIME_PLAN_RECEIPT_PATH" >> "$GITHUB_ENV"
+
       - name: Validate pinned rollback inputs
         run: |
           set -euo pipefail

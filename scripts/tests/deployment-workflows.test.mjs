@@ -7,6 +7,14 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 
+test('offline selftest includes pinned GitHub Actions semantic validation', () => {
+  const workflow = read('.github/workflows/selftest.yml');
+  assert.match(workflow, /name: GitHub Actions semantic validation/);
+  assert.match(workflow, /ACTIONLINT_VERSION: '1\.7\.12'/);
+  assert.match(workflow, /ACTIONLINT_SHA256: [a-f0-9]{64}/);
+  assert.match(workflow, /actionlint" \.github\/workflows\/\*\.yml/);
+});
+
 test('production workflow pins manual target and notifies only after stable verification', () => {
   const workflow = read('.github/workflows/cloudflare-pages.yml');
   assert.match(workflow, /target_sha:[\s\S]*required: true/);
@@ -19,6 +27,8 @@ test('production workflow pins manual target and notifies only after stable veri
   assert.match(workflow, /needs\.deploy\.result == 'success'/);
   assert.match(workflow, /if: failure\(\) && steps\.requested\.outcome == 'success'/);
   assert.doesNotMatch(workflow, /paths:\s*\n\s*- data\/latest\.json/);
+  assert.match(workflow, /RUNTIME_RECEIPT_PATH: \$\{\{ runner\.temp \}\}\/deployment-receipt\.json/);
+  assert.doesNotMatch(workflow, /^      RECEIPT_PATH: \$\{\{ runner\.temp \}\}/m);
 });
 
 test('notification workflow requires a verified receipt and contains an idempotency gate', () => {
@@ -40,4 +50,8 @@ test('rollback workflow separates plan and execute and reuses the verifier after
   const verify = workflow.indexOf('Verify rolled-back production with the shared verifier');
   assert.ok(upload > 0 && verify > upload);
   assert.match(workflow, /inputs\.mode == 'execute'/);
+  assert.match(workflow, /RUNTIME_RECEIPT_PATH: \$\{\{ runner\.temp \}\}\/rollback-receipt\.json/);
+  assert.match(workflow, /RUNTIME_TARGET_RECEIPT_PATH: \$\{\{ runner\.temp \}\}\/target-evidence\/deployment-receipt\.json/);
+  assert.match(workflow, /RUNTIME_PLAN_RECEIPT_PATH: \$\{\{ runner\.temp \}\}\/plan-evidence\/rollback-receipt\.json/);
+  assert.doesNotMatch(workflow, /^      (?:RECEIPT_PATH|TARGET_RECEIPT_PATH|PLAN_RECEIPT_PATH): \$\{\{ runner\.temp \}\}/m);
 });

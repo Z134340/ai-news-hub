@@ -43,13 +43,17 @@ jobs:
       CI_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.target_sha }}
       CI_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.ci_run_id }}
       PRODUCTION_URL: https://ai-news-hub-7jk.pages.dev
-      RECEIPT_PATH: ${{ runner.temp }}/deployment-receipt.json
       RECEIPT_ARTIFACT: deployment-receipt-${{ github.run_id }}-${{ github.run_attempt }}
     outputs:
       deploy_sha: ${{ steps.requested.outputs.deploy_sha }}
       release_id: ${{ steps.verify.outputs.release_id }}
       receipt_artifact: deployment-receipt-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
+      - name: Configure runtime receipt path
+        env:
+          RUNTIME_RECEIPT_PATH: ${{ runner.temp }}/deployment-receipt.json
+        run: printf 'RECEIPT_PATH=%s\n' "$RUNTIME_RECEIPT_PATH" >> "$GITHUB_ENV"
+
       - name: Validate explicit manual CI evidence
         if: github.event_name == 'workflow_dispatch'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
