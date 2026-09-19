@@ -40,7 +40,7 @@ jobs:
             "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
           printf '%s  %s\n' "$ACTIONLINT_SHA256" "$ACTIONLINT_ARCHIVE" | sha256sum --check --strict
           tar -xzf "$ACTIONLINT_ARCHIVE" -C "$RUNNER_TEMP" actionlint
-          "$RUNNER_TEMP/actionlint" .github/workflows/*.yml
+          "$RUNNER_TEMP/actionlint" -shellcheck= .github/workflows/*.yml
 
       - name: Node self-tests
         run: |

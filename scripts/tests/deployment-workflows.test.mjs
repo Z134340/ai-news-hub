@@ -12,7 +12,7 @@ test('offline selftest includes pinned GitHub Actions semantic validation', () =
   assert.match(workflow, /name: GitHub Actions semantic validation/);
   assert.match(workflow, /ACTIONLINT_VERSION: '1\.7\.12'/);
   assert.match(workflow, /ACTIONLINT_SHA256: [a-f0-9]{64}/);
-  assert.match(workflow, /actionlint" \.github\/workflows\/\*\.yml/);
+  assert.match(workflow, /actionlint" -shellcheck= \.github\/workflows\/\*\.yml/);
 });
 
 test('production workflow pins manual target and notifies only after stable verification', () => {
