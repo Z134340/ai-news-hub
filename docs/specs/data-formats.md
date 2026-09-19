@@ -16,9 +16,9 @@
 }
 ```
 
-`_updated_at` 欄位為各類別最後一次成功擷取的時間戳。非週一時，每週類別 (tutorials/courses) 的時間戳保留自上一次週一擷取。`official_info` 與 `models` 每日更新並各自累積 30／90 天。
+AH-02 起，`_updated_at` 是各分類合格內容最後實質改變的時間，`_checked_at` 記最近嘗試，`_update_outcome` 分開本輪結果與實際供應資料。無可靠內容不填 updated；舊快照原值保留。精確契約、結果矩陣与例外見 `category-quality.md`。
 
-`data/skills.json` 為 `{items, _updated_at, source}`；items 欄位見分類規範。首頁載入時會讀取這份當前榜單，下一次每日合併也會把它寫進 `latest.data.skills`。歷史快照沒有 `skills`，或舊封存沒有 `official_info` 時，前端須視為空陣列，不得中斷載入。
+`data/skills.json` 為 `{items, _updated_at, source}`；items 欄位見分類規範。AH-02 daily 擷取改寫私有候選；此 public 檔保留相容用途。有 `_update_outcome` 的 latest 已包含品質閘選出的 Skills，前端不再用此舊檔覆蓋；較舊版本仍可讀取。歷史快照沒有 `skills`，或舊封存沒有 `official_info` 時，前端須視為空陣列，不得中斷載入。
 
 ## data/health.json 格式
 
@@ -91,7 +91,11 @@ python3 -B scripts/validate.py --input /tmp/history-v2.json --offline
 ```
 
 - CLI 只接受新的 output/report 路徑；不覆寫 input、本 worktree data 目錄或既有檔。實際營運資料 migration 仍須另行授權，不能把上例改成正式檔並宣稱已切換。
-- 正常退出 0；有隔離項時輸出相容資料＋含完整原始 item 的 report 並退出 2；輸入／路徑錯誤退出 1。不得丟棄 report；quarantine 是離線診斷 sidecar，不是 AH-02 的正式儲存層。
+- 正常退出 0；有隔離項時輸出相容資料＋含完整原始 item 的 report 並退出 2；輸入／路徑錯誤退出 1。不得丟棄 report；此 migration 的 quarantine 仍是離線診斷 sidecar；AH-02 私有發布儲存層另見 `category-quality.md`。
 - 純函式不注入當前時間，保留項目順序；同輸入重跑序列化結果一致，對已成功遷移輸出重跑不改資料。所有事實欄位逐值保留；僅新增 metadata、降級審核狀態與重算 counts。
 - 缺證據時 verified 降為 needs_review，complete=false；官方來源標記需主 URL 與全部 evidence URL 都符合公司配對。原 validation 存入 `legacy_validation`，新 validation 的 scope=`retained_after_migration`，total/pass_rate 僅反映保留項；隔離數量與原件以 sidecar 為準，不保留與已降級項目矛盾的舊成功率。
 - 回退資料使用未改動 input；不要反向推算缺欄位。程式回退以 AH-01 提交的 revert 在獨立分支驗證，保留 AH-00 規劃及之後每日資料；不得 reset/force-push。
+
+## AH-02 metadata schema
+
+`latest.schema.json` 新增 `_checked_at`（各分類含時區 ISO date-time）與 `_update_outcome`（各分類必填 attempt、serving，拒絕未知 enum／欄位）。兩者為 additive，舊封存可缺；AH-02 發布器總是輸出 outcome。跨欄位時間先後、無可靠資料不填 updated、no_change 不改 payload 由分類品質閘驗證；不靠 schema 單獨宣告發布合格。

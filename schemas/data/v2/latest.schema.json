@@ -216,6 +216,42 @@
         }
       },
       "additionalProperties": false
+    },
+    "_checked_at": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "_update_outcome": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "attempt",
+          "serving"
+        ],
+        "properties": {
+          "attempt": {
+            "enum": [
+              "updated",
+              "no_change",
+              "fetch_failed",
+              "validation_failed",
+              "not_scheduled"
+            ]
+          },
+          "serving": {
+            "enum": [
+              "current",
+              "last_known_good",
+              "no_reliable_data"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
     }
   }
 }

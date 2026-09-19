@@ -441,21 +441,11 @@ def check_official_ai_company_domain(company, url):
         return False, 'unknown'
 
 
-# Per-category maximum age in days (None = use default 90)
-CATEGORY_DATE_LIMITS = {
-    'papers': 90,
-    'topnews': 1,
-    'taiwan': 1,
-    'china': 1,
-    'usa': 1,
-    'techtrends': 7,
-    'governance': 7,
-    'tutorials': 90,
-    'courses': 90,
-    'official_info': 30,
-    'models': 90,
-    'skills': 90,
-}
+# One explicit policy source for publication windows and category gates.
+from contracts.category_quality import check_policy
+QUALITY_POLICY = json.loads((Path(__file__).parent / 'category-quality-policy.json').read_text(encoding='utf-8'))
+check_policy(QUALITY_POLICY)
+CATEGORY_DATE_LIMITS = {cat: rule['max_age_days'] for cat, rule in QUALITY_POLICY['categories'].items()}
 
 
 def validate_date(date_str, allow_future=False, no_limit=False, max_days=90):
@@ -554,6 +544,7 @@ def validate_items(data, category_filter=None, dry_run=False, offline=False, sch
                'details':{}, 'per_item_results':{}, 'schema_errors':[],
                'legacy_compatible':[], 'evidence_needs_review':[], 'quarantine':[]}
     candidates = {}
+    origins = {}
     for cat in categories:
         detail = {'total':len(data[cat]), 'verified':0, 'needs_review':0, 'warnings':0, 'removed_items':[], 'items':[]}
         results['details'][cat] = detail
@@ -576,7 +567,7 @@ def validate_items(data, category_filter=None, dry_run=False, offline=False, sch
                 date_field = 'release_date' if cat == 'models' else 'date'
                 # Offline contract checks read old archives without freshness/network policy.
                 valid, reason = validate_date(item.get(date_field), no_limit=offline,
-                                              max_days=CATEGORY_DATE_LIMITS.get(cat) or 90)
+                                              max_days=CATEGORY_DATE_LIMITS.get(cat, 90))
                 if not valid:
                     issues.append(f'Invalid {date_field}: {reason}')
                 url = source_url(item)
@@ -602,6 +593,7 @@ def validate_items(data, category_filter=None, dry_run=False, offline=False, sch
                 item['review_reasons'] = evidence_issues
                 if evidence_issues:
                     results['evidence_needs_review'].append({**location, 'item_id': item['item_id'], 'reasons': evidence_issues})
+                origins[id(item)] = (idx, original)
                 candidates[cat].append(item)
         candidates[cat], duplicates = remove_duplicates(candidates[cat], cat)
         results['removed'] += duplicates
@@ -631,7 +623,7 @@ def validate_items(data, category_filter=None, dry_run=False, offline=False, sch
         kept, detail = [], results['details'][cat]
         for idx, item in enumerate(candidates[cat]):
             verified, status, score = url_status[(cat, idx)]
-            if verified is True and item.get('review_reasons'):
+            if verified is True and (item.get('review_reasons') or item['contract_state'] == 'legacy'):
                 verified, status = None, 'evidence_needs_review'
             item['verified'] = True if verified is True else 'needs_review' if verified is None else False
             item['complete'] = not bool(item.get('review_reasons'))
@@ -647,7 +639,8 @@ def validate_items(data, category_filter=None, dry_run=False, offline=False, sch
                 issues.append(f'Source needs review: {status}')
             else:
                 results['removed'] += 1; detail['removed_items'].append(source_url(item))
-                results['quarantine'].append({'category': cat, 'index': idx, 'reasons': [status], 'original': item.copy()})
+                original_index, original_item = origins[id(item)]
+                results['quarantine'].append({'category': cat, 'index': original_index, 'reasons': [status], 'original': original_item})
                 issues.append(f'URL failed: {status}')
             if issues:
                 detail['warnings'] += 1; results['warnings'] += 1

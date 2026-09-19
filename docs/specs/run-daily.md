@@ -30,100 +30,31 @@ else
 fi
 ```
 
-每個類別成功擷取後，注入 `_updated_at` 時間戳至該類別 JSON：
-```python
-now = datetime.now(timezone(timedelta(hours=8))).isoformat()
-if isinstance(d, list):
-    d = {'items': d, '_updated_at': now}
-elif isinstance(d, dict):
-    d['_updated_at'] = now
-```
+### AH-02 候選、驗證與分類發布
 
-`skills` 不呼叫 Claude CLI。`scripts/fetch-skills.mjs` 讀取人工核准的候選清單，使用 GitHub REST API 取得星數與 repo metadata，整批成功才以原子 rename 更新 `data/skills.json`；失敗則保留上一份資料並將本次分類記為失敗。
+品質政策、狀態與私有儲存權威見 `category-quality.md`；程式定位见 `../shapes/category-quality.md`。
 
-### 擷取流程
+1. 擷取結果寫入私有 durable incoming 目錄；每次模型嘗試原件獨立保存。`skills` 以 `fetch-skills.mjs --output` 指定候選檔，不寫正式分類檔。
+2. Claude 仍用 `-p --max-turns 30 --output-format text --allowedTools WebSearch`，watchdog 1200 秒與最多兩次嘗試／重試等待 30 秒不變。非零 exit 即失敗；`extract-json.py --strict` 明確區分成功空陣列和解析失敗。
+3. OK／FAIL／SKIP 狀態保留到品質閘；失敗不把任意 latest 填回候選。未排程分類以 `not_scheduled` 表達。
+4. `category-publication.py` 逐分類呼叫既有 validator。官方資訊／模型／教學由 `merge-stack.merge_category` 純函式，只與自己的可靠歷史累積。不再從任意舊快照補足 20 筆。
+5. 合格分類前進，失敗分類沿用可靠前版；無可靠前版明確為空及 unavailable 狀態。正式歷史檔不在此流程自動升格為 LKG。
+6. 私有 store 原子完成後輸出 selected candidate，daily 才原子替換 public latest。保留日封存／index／health 和既有 Git 發布流程；這些不構成跨檔／遠端交易。
+7. 正式分類 JSON 不再作 daily 中間檔，保留相容用途；前端在 AH-02 latest 存在時不再用獨立 skills.json 覆蓋已選內容。書籤 ID 不變。
+8. `supplement-run.sh [cat...]` 轉交 `run-daily.sh --categories ...`，與每日流程共用鎖、品質與 Git；預設補跑分類不變。這表示補跑同樣要求 main／乾淨工作目錄及 preflight。
 
-**claude CLI 呼叫方式（⚠️ 關鍵 Bug Fix #1）：**
-```bash
-TODAY_DATE=$(date +%Y-%m-%d)
-PROMPT_WITH_DATE="Today's date is ${TODAY_DATE}. Please prioritize news from today and the past 24-48 hours.
+### 驗證與歸檔
 
-$(cat scripts/prompts/${CAT}.md)"
+`_updated_at` 只在合格內容改變時前進；`_checked_at` 記嘗試；`_update_outcome` 分開 attempt 與 serving。有效空結果的課程可為 no_change；無可靠資料則不創造 updated 時戳。詳細正反例只在 `category-quality.md` 維護。
 
-# macOS 相容 timeout（無 timeout 指令，用 watchdog 代替）
-"$CLAUDE_BIN" -p "$PROMPT_WITH_DATE" \
-  --max-turns 30 \
-  --output-format text \
-  --allowedTools "WebSearch" \
-  2>>"$LOG_FILE" > "$TMP_FILE" &
-CLAUDE_PID=$!
-( sleep 1200 && kill -TERM "$CLAUDE_PID" 2>/dev/null ) &
-WATCHDOG_PID=$!
-wait "$CLAUDE_PID" 2>/dev/null || true
-kill -TERM "$WATCHDOG_PID" 2>/dev/null
-wait "$WATCHDOG_PID" 2>/dev/null || true
-```
-- `--max-turns 30`：topnews 等需要 9+ 次搜尋的類別，15 turns 不足以完成並產出 JSON
-- `--output-format text`：確保輸出純文字，方便 JSON 提取
-- **macOS 無 `timeout` 指令**：必須用背景執行 + watchdog kill 模式（⚠️ Bug Fix #12）
-- watchdog 1200 秒（20 分鐘）：與 `scripts/run-daily.sh` 的 `TIMEOUT_SEC=1200` 一致；逾時發 SIGTERM，120 秒後再 SIGKILL
-
-**JSON 提取（⚠️ Bug Fix #7）：**
-不要用單行 python，使用完整腳本處理 claude 的多段回應：
-```python
-import json, re, sys
-raw = sys.stdin.read()
-# claude 可能回傳多段文字（思考 + 搜尋 + 最終回答）
-# 需要找到最後一個完整的 JSON 物件
-matches = list(re.finditer(r'\{[^{}]*"items"\s*:\s*\[[\s\S]*?\]\s*\}', raw))
-if matches:
-    data = json.loads(matches[-1].group())
-    items = data.get("items", [])
-    json.dump(items, sys.stdout, ensure_ascii=False, indent=2)
-else:
-    # fallback：找任何 JSON 物件
-    m = re.search(r'\{[\s\S]*\}', raw)
-    if m:
-        try:
-            data = json.loads(m.group())
-            items = data.get("items", [])
-            json.dump(items, sys.stdout, ensure_ascii=False, indent=2)
-        except json.JSONDecodeError:
-            json.dump([], sys.stdout)
-    else:
-        json.dump([], sys.stdout)
-```
-將此邏輯存為 `scripts/extract-json.py`，擷取時用：
-`cat tmp_file | python3 scripts/extract-json.py > data/${CAT}.json`
-
-**重試與間隔：**
-- 每個類別最多 2 次嘗試（初始 + 重試 1 次），重試等待 30 秒
-- 2 次都失敗 → 記錄錯誤，echo '[]' > data/${CAT}.json，繼續下一個
-- 類別間隔 10 秒
-
-### 企業生態系每日累積／教學週一累積
-- 每日：執行 `python3 scripts/merge-stack.py --categories official_info models`，以官方 URL 優先去重，分別保留 30／90 天、各最多 20 筆，加入 is_new/first_seen/last_seen。此腳本只更新分類檔，`latest.json` 仍由候選合併與驗證流程單一寫入。
-- 週一：同一支累積腳本另處理 `tutorials`。
-- 非週一：仍累積 `official_info` 與 `models`；只保留上次的 `tutorials` 與 `courses`
-- Dedup 鍵值：先以 canonical URL；缺 URL 時 models=(institution, model_name, version)、official_info=(company, title)、tutorials=(source, title, url)
-- tutorials 僅保留近 3 個月資料，按 date 最新排序
-- 支援 `--dry-run` 模式
-
-### 合併 latest.json
-- python3 合併為 latest.json（含 source: "local"，含 `_updated_at` 各類別時間戳）
-- 非週一：每週類別 (tutorials/courses) 從舊 latest.json 讀取，保留原始 `_updated_at` 時間戳
-- 週一：所有 12 類別從當日資料檔讀取
-
-### 驗證 + 歸檔
-- python3 scripts/validate.py 八步驟驗證
-- 歸檔日期 JSON + 更新 index.json（保留 7 天）
+每日品質閘處理／儲存失敗回非零並保留舊 latest；單分類擷取／驗證失敗不阻止其他分類前進。selected latest 再寫日封存及 index（保留七天）。
 
 ### 健康狀態
 - 通過前置檢查且完成資料處理後更新 data/health.json；前置失敗使用下方 off-repo local-health，不發布失敗候選
 - 成功時：status="ok"，consecutive_failures=0
 - 部分成功：status="partial"
 - 全失敗：status="failed"，consecutive_failures +1
-- 記錄 categories_ok/failed、驗證率、錯誤訊息
+- categories_ok/failed 由品質閘結果計算；no_change 且有可靠內容才算 ok。保存逐類結果於 latest，總驗證率不能作分類閘門。
 
 ### Log 清理（⚠️ Bug Fix #11）
 ```bash
@@ -138,7 +69,7 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 
 1. 取得程序鎖後才開啟每日 log；前置失敗記於 `~/.ai-news-hub/publication/local-health.json`，不弄髒 tracked health 而阻擋下一輪。
 2. 正式 checkout 須位於 main、乾淨且無未完成 Git 操作。fetch 後先重試有可信 receipt 的推送候選，再 fast-forward；不能把未知本機提交當成每日產物。
-3. 擷取後在臨時路徑合併候選，以 `validate.py --input` 驗證。合併／驗證失敗停止，保留上一份 latest；通過後原子替換 latest、日封存與索引。索引或 health 寫入失敗不得發布。
+3. 依上節 AH-02 分類品質閘產生 selected candidate；儲存或處理失敗停止。selected latest、日封存與索引各自原子替換；索引或 health 寫入失敗不得發布。
 4. 發布前確認 HEAD 未被其他工具移動、index 原本為空。只 stage `data/`（尊重 ignore）及經程式 allowlist 驗證的自動修改 manifest；未知程式變更一律停止。
 5. 先 commit 本輪差異，再 fetch／rebase 最新 origin/main／普通 push。遠端非重疊修改保留；衝突 abort 並保留本機候選，回非零。push 最多三次，每次重新三方整合。
 6. 推送成功後寫 off-repo `~/.ai-news-hub/publication/last-run.json`，含結果、實際 SHA 與時間；不為更新已發布狀態再造第二次發布。
@@ -152,7 +83,7 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 
 `run-locked.py` 使用 Python fcntl 原子鎖，子程序繼承鎖 FD；不 unlink 鎖 inode。正常退出、前置失敗、TERM／INT 都清理子程序；先 TERM，限時後 KILL。持鎖者結束後才允許下一輪。重複啟動回 75；TERM／INT 回 143／130。必要資料處理、Git 發布失敗或擷取 partial／failed 皆非零；可用的 partial 資料仍允許發布。
 
-`health.last_success` 明確代表 `local_processing` 完整成功，並非網站部署；candidate health 的 `publication` 固定為 `pending`，實際推送查 off-repo receipt，網站部署查 Pages 證據。`needs_review` 不再計入驗證率；未滿 100% 的提交標示 `[unverified]`。
+`health.last_success` 明確代表 `local_processing` 完整成功，並非網站部署；candidate health 的 `publication` 固定為 `pending`，實際推送查 off-repo receipt，網站部署查 Pages 證據。`needs_review` 不計入驗證率；只有 selected pass_rate=100 且本輪分類狀態為 ok 才標 `[verified]`。沿用可靠資料可能仍顯示 selected rate=100，但 failed／partial 的提交為 `[unverified]`。
 
 ### Email 通知（全自動，零設定）
 

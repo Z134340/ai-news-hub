@@ -147,7 +147,35 @@ def extract_json_items(raw: str) -> list:
     return []
 
 
+def strict_items(raw):
+    """Lossless parse result: [] is success only for an explicit JSON items array.
+
+    No repair/fallback to empty on errors. Original text is saved by the caller.
+    """
+    if not raw.strip() or detect_infra_error(raw):
+        raise ValueError('empty or infrastructure failure')
+    cleaned = strip_code_fences(raw).strip()
+    try:
+        document = json.loads(cleaned)
+    except ValueError:
+        candidates = list(iter_balanced_objects(cleaned))
+        if not candidates:
+            raise ValueError('no JSON candidate')
+        document = json.loads(candidates[-1])
+    rows = document.get('items') if isinstance(document, dict) else document
+    if not isinstance(rows, list):
+        raise ValueError('items must be an explicit array')
+    return rows
+
+
 def main():
+    if '--strict' in sys.argv[1:]:
+        try:
+            json.dump(strict_items(sys.stdin.read()), sys.stdout, ensure_ascii=False, indent=2)
+            return 0
+        except (ValueError, TypeError) as exc:
+            print('extract-json.py: ' + str(exc), file=sys.stderr)
+            return 1
     try:
         raw = sys.stdin.read()
         if not raw.strip():
@@ -173,4 +201,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

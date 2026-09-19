@@ -14,6 +14,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from contracts.data_v2 import canonical_url
+from contracts.category_quality import check_policy
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -21,10 +22,16 @@ NOW = datetime.now(timezone(timedelta(hours=8)))
 NOW_ISO = NOW.isoformat()
 
 CATEGORY_POLICY = {
-    "official_info": {"days": 30, "limit": 20, "date": "date", "key": ("company", "title")},
-    "models": {"days": 90, "limit": 20, "date": "release_date", "key": ("institution", "model_name", "version")},
-    "tutorials": {"days": 90, "limit": 20, "date": "date", "key": ("source", "title", "url")},
+    "official_info": {"limit": 20, "date": "date", "key": ("company", "title")},
+    "models": {"limit": 20, "date": "release_date", "key": ("institution", "model_name", "version")},
+    "tutorials": {"limit": 20, "date": "date", "key": ("source", "title", "url")},
 }
+
+# Publication windows have one authority; the cumulative limit/order remains here.
+_quality_policy = json.loads((ROOT / 'scripts/category-quality-policy.json').read_text(encoding='utf-8'))
+check_policy(_quality_policy)
+for _category, _policy in CATEGORY_POLICY.items():
+    _policy['days'] = _quality_policy['categories'][_category]['max_age_days']
 
 
 def load_json(path):
@@ -49,9 +56,11 @@ def item_key(item, fields):
     return tuple(str(item.get(field) or "").strip().lower() for field in fields)
 
 
-def merge_category(category, current, history):
+def merge_category(category, current, history, now=None):
+    now = now or NOW
+    now_iso = now.isoformat()
     policy = CATEGORY_POLICY[category]
-    cutoff = (NOW - timedelta(days=policy["days"])).strftime("%Y-%m-%d")
+    cutoff = (now - timedelta(days=policy["days"])).strftime("%Y-%m-%d")
     merged = []
     seen = set()
     valid_history = {}
@@ -61,7 +70,7 @@ def merge_category(category, current, history):
             continue
         key = item_key(original, policy["key"])
         date = original.get(policy["date"])
-        if any(key) and isinstance(date, str) and cutoff <= date <= NOW.strftime("%Y-%m-%d"):
+        if any(key) and isinstance(date, str) and cutoff <= date <= now.strftime("%Y-%m-%d"):
             valid_history.setdefault(key, original)
 
     for fetched, rows in ((True, current), (False, history)):
@@ -71,18 +80,18 @@ def merge_category(category, current, history):
             item = dict(original)
             key = item_key(item, policy["key"])
             date = item.get(policy["date"])
-            if not any(key) or not isinstance(date, str) or date < cutoff or date > NOW.strftime("%Y-%m-%d") or key in seen:
+            if not any(key) or not isinstance(date, str) or date < cutoff or date > now.strftime("%Y-%m-%d") or key in seen:
                 continue
             seen.add(key)
             prior = valid_history.get(key) if fetched else None
             if prior:
                 item = {**prior, **item}
             item["is_new"] = fetched and prior is None
-            item["first_seen"] = (prior or {}).get("first_seen") or item.get("first_seen") or item.get("last_seen") or NOW_ISO
+            item["first_seen"] = (prior or {}).get("first_seen") or item.get("first_seen") or item.get("last_seen") or now_iso
             if fetched:
-                item["last_seen"] = NOW_ISO
+                item["last_seen"] = now_iso
             else:
-                item["last_seen"] = item.get("last_seen") or NOW_ISO
+                item["last_seen"] = item.get("last_seen") or now_iso
             merged.append(item)
 
     merged.sort(key=lambda row: row.get(policy["date"], ""), reverse=True)

@@ -28,24 +28,8 @@
 **週一（DOW=1）：** 更新全部 12 個類別，`merge-stack.py` 累積官方資訊、模型快訊與工具教學
 **週二至週日（DOW=2-7）：** 更新 10 個每日類別，`merge-stack.py` 累積官方資訊與模型快訊；教學與課程保留上次資料與時間戳
 
-### `_updated_at` 每類別時間戳
+### 分類更新與檢查時間（AH-02）
 
-`latest.json` 新增 `_updated_at` 欄位，記錄每個類別最近一次實際擷取的時間：
+`_updated_at[category]` 只記合格內容實質改變的時間；成功但無變更或沿用可靠前版均不改。`_checked_at[category]` 記本分類最近一次嘗試（含失敗）；未排程保留原值，包括從未有可靠內容的分類。沒有可靠內容不填 `_updated_at`。
 
-```json
-{
-  "date": "2026-04-07",
-  "time": "...",
-  "data": { ... },
-  "_updated_at": {
-    "papers": "2026-04-07T07:35:00+08:00",
-    "topnews": "2026-04-07T07:38:00+08:00",
-    "models": "2026-04-07T07:50:00+08:00",
-    ...
-  }
-}
-```
-
-非週一時，每週類別的 `_updated_at` 保留上週一的時間戳，前端據此顯示「（每週一更新）」提示。
-
----
+`_update_outcome` 分開 `attempt` 與 `serving`，完整 enum／正反例／儲存語意見 `category-quality.md`。非週一的 tutorials／courses 為 not_scheduled；補跑明確指定分類則照常檢查。既有歷史快照的舊 `_updated_at` 保留原值，不推算內容更新時間，不自動當成 LKG。

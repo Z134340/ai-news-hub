@@ -1,6 +1,6 @@
 <!-- 驗證規範權威入口；資料結構與版本定義見 data-formats.md。 -->
 
-## validate.py 規範（AH-01）
+## validate.py 規範（AH-01／AH-02）
 
 `schemas/data/v2/` 是結構權威；`scripts/contracts/data_v2.py` 提供離線相容 migration、canonical URL 與 item_id。程式定位見 `docs/shapes/data-contract-v2.md`。
 
@@ -16,9 +16,9 @@
 | `schema_errors` | 錯型別、缺必要欄位、未知版本、非法 URL、ID／canonical 不符。記分類、index、reason；原件亦放 quarantine |
 | `legacy_compatible` | 成功讀取的舊格式；不是 verified，也不免除日期／來源／網路檢查 |
 | `evidence_needs_review` | 缺來源標題、明確繁中顯示標題、模型新欄位，或舊模型缺公司官方證據。原有內容保留；不能計入 verified |
-| `quarantine` | schema／身分錯誤、當前格式公司網域不符、超出發布日期範圍、URL 硬失敗等；包含原因及原件供複核。不是 AH-02 已落地的儲存層 |
+| `quarantine` | schema／身分錯誤、當前格式公司網域不符、超出發布日期範圍、URL 硬失敗等；包含原因及原件供複核。CLI report 仍是診斷；AH-02 原件保留／私有儲存見 `category-quality.md` |
 
-上述不是互斥計數：一筆可以同時 legacy_compatible 與 evidence_needs_review；schema_error 的原件也出現在 quarantine。`details[category].items` 記錄移除／保留原因，`removed` 另包含既有去重計數。全量驗證後沒有可用 item 回非零並保留輸入檔。
+上述不是互斥計數：一筆可以同時 legacy_compatible 與 evidence_needs_review；schema_error 的原件也出現在 quarantine。AH-02 修正 URL 檢查失敗的原始 index／item，不再使用去重後位置或已注入 metadata 的副本。`details[category].items` 記錄移除／保留原因，`removed` 另包含既有去重計數。全量驗證後沒有可用 item 回非零並保留輸入檔。
 
 ### 舊模型與來源證據
 
@@ -31,7 +31,7 @@
 ### 網路檢查與標題核對
 
 1. HTTP HEAD timeout=10s；405 轉 GET；最多 3 workers、每三筆間隔 0.5 秒。
-2. 403 為 needs_review；404/410/5xx、連線錯誤或非法 URL 移除並記原因。本文不把暫時性網路錯誤視為內容偽造；分類沿用／退避屬後續 AH-02/AH-07。
+2. 403 為 needs_review；404/410/5xx、連線錯誤或非法 URL 移除並記原因。本文不把暫時性網路錯誤視為內容偽造；分類沿用已由 AH-02 實作，退避仍屬後續 AH-07。
 3. 若有 `source_title`，抓頁面 title/h1 比對：相似度 ≥0.3 通過，介於 0 與 0.3 待複核，完全不符移除；TITLE_CHECK_RELAXED_DOMAINS 保留既有跳過標題比對規則。
 4. 沒有 source_title 時只檢查連線，結果保持缺證據待複核。抓頁失敗但 HEAD 成功的既有處理仍在；不宣稱已完成內容級證據驗證。
 5. 普通分類不在 TRUSTED_DOMAINS 只記 warning；官方資訊／模型另以公司網域配對判定。
@@ -58,3 +58,9 @@
 - `--offline --input FILE`：只做契約／來源結構診斷，不連網、不寫 output/report、不以今日時窗淘汰歷史資料；所有未實測來源維持未驗證。有 schema_error/quarantine 回 1，只有相容／待複核回 0。禁止把退出 0 當發布核准。
 - `--self-test`：不讀 latest、不連網；測 tier-b／registry／型別，相應 fixture 不受實際日期影響。
 - `python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v`：包含 AH-01 契約／migration 和既有 robustness；既有 Node／Shell 自測依 `.github/workflows/selftest.yml`。
+
+## AH-02 發布接入
+
+`category-publication.py` 逐分類呼叫 `validate_items`，保存 raw input 後才移除／去重；輸出的 needs_review 可留作診斷但不能發布或作 LKG。顯式 legacy 即使 HTTP 成功也降為 needs_review，不計 verified。新 producer 的完整欄位透過明確 adapter 建立 current；歷史 migration 不變。
+
+日期時窗改由 `scripts/category-quality-policy.json` 共用；無新增網路驗證器、快取或 TTL。分類閘比通用 validator 更嚴格：verified_no_title 不合格、任何候選移除／去重都使該分類沿用前版。舊 CLI 的根結構錯誤／全無可用資料仍非零，daily 不再用整批 CLI exit 取代逐類發布判定。

@@ -2,7 +2,7 @@
 
 ## 十二大分類規範
 
-AH-01 共用資料契約見 `data-formats.md`：所有 editorial producer 分開輸出 source_title 與 display_title；舊欄位保留相容，不以缺新欄位為由整批刪除模型。這是結構／相容規則，不代表放寬下述新收錄來源或已完成發布閘。
+AH-01 共用資料契約見 `data-formats.md`：所有 editorial producer 分開輸出 source_title 與 display_title；舊欄位保留相容，不以缺新欄位為由整批刪除模型。新收錄来源要求不變；AH-02 的分類發布政策、no-change 與可靠前版契約見 `category-quality.md`。
 
 ### 1. 📄 AI 論文發表 (`papers`)
 **機構（12）：** Google DeepMind, OpenAI, Google Research/Brain, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Anthropic, Apple
@@ -79,7 +79,7 @@ AH-01 共用資料契約見 `data-formats.md`：所有 editorial producer 分開
 **定位：** 跨工具 Agent Skills 專案人氣榜，涵蓋 Claude Code、Codex 與其他支援 Agent Skills 的工具。GitHub 星數屬專案層級，單一技能、技能包與官方技能包必須明確標示，不把同一 repo 的星數冒充個別 Skill 星數。
 **來源：** GitHub REST API；候選白名單只在 `scripts/skills-repositories.json` 維護。初始來源包含 Superpowers、Matt Pocock Skills、Anthropic Skills、Ponytail、UI UX Pro Max、Addy Osmani Agent Skills、Archify、Marketing Skills、Humanizer、Obsidian Skills、Scientific Agent Skills、Diagram Design。
 **納入門檻：** repo 內含 `SKILL.md`；明確支援至少兩種 agent client；非 archived／fork；近期仍有維護；網址與星數由 GitHub API 取得。聚合目錄、規格 repo、一般應用程式與已棄用 repo 不進主榜。
-**排序：** 每日依 `stargazers_count` 由高至低，星數相同時依 repo 全名；API 任一來源失敗時整批不覆寫，沿用上一份成功資料。
-**欄位：** title(repo full name), source, date(last push), summary, url, stars, forks, license, type, focus, tools, verified
+**排序：** 每日依 `stargazers_count` 由高至低，星數相同時依 repo 全名；API 任一來源失敗時整批失敗，由 AH-02 品質閘沿用可靠前版；沒有可靠前版則明確無可靠資料。
+**欄位：** title/source_title/display_title(repo full name), source, date(last push), summary, url, stars, forks, license, type, focus, tools, verified
 
 ---

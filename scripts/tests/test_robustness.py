@@ -26,7 +26,13 @@ publisher = module('publisher', 'publish-daily.py')
 class ValidationTests(unittest.TestCase):
     def item(self, days=0, **extra):
         today = datetime.now(timezone(timedelta(hours=8))).date()
-        return {'title':'A real research release', 'source_title':'A real research release', 'display_title':'研究發布', 'source':'example', 'summary':'Useful technical details', 'date':(today-timedelta(days=days)).isoformat(), 'url':'https://example.com/a', **extra}
+        item = {'title':'A real research release', 'source_title':'A real research release', 'display_title':'研究發布', 'source':'example', 'summary':'Useful technical details', 'date':(today-timedelta(days=days)).isoformat(), 'url':'https://example.com/a', **extra}
+        # Current fixture tests source validation; legacy has its own explicit test.
+        from contracts.data_v2 import canonical_url, stable_item_id
+        url = item.get('url')
+        if isinstance(url, str) and canonical_url(url):
+            item.update(schema_version=2, contract_state='current', canonical_url=canonical_url(url), item_id=stable_item_id(url))
+        return item
 
     def run_validation(self, items, response=(True,'ok',1.0)):
         data = {'topnews':items}
@@ -283,13 +289,14 @@ class DailyFlowTests(unittest.TestCase):
             base=Path(td);data=base/'data';data.mkdir();scripts=base/'scripts';scripts.mkdir()
             old=json.dumps({'data':{'models':[]},'_updated_at':{}})
             (data/'latest.json').write_text(old)
-            (scripts/'validate.py').write_text('raise SystemExit(1)')
+            (scripts/'category-publication.py').write_text("from pathlib import Path\nPath('gate_called').write_text('yes')\nraise SystemExit(1)")
             script=base/'flow.sh'
-            script.write_text('set -uo pipefail\nlog(){ :; }\nupdate_health_json(){ :; }\n'+flow+'\ntouch reached_end\n')
-            result=subprocess.run(['bash',str(script)],cwd=base,env={**os.environ,'DATA_DIR':str(data),'SCRIPTS_DIR':str(scripts),'TODAY':'2026-09-18','LATEST_CANDIDATE':str(base/'candidate.json')},capture_output=True,text=True)
+            script.write_text('set -uo pipefail\nlog(){ :; }\nupdate_health_json(){ :; }\nCATEGORIES=(topnews)\n'+flow+'\ntouch reached_end\n')
+            result=subprocess.run(['bash',str(script)],cwd=base,env={**os.environ,'DATA_DIR':str(data),'SCRIPTS_DIR':str(scripts),'TODAY':'2026-09-18','LATEST_CANDIDATE':str(base/'candidate.json'),'CANDIDATE_DIR':str(base/'raw'),'STATUS_DIR':str(base/'status'),'QUALITY_STORE':str(base/'quality')},capture_output=True,text=True)
             self.assertNotEqual(result.returncode,0)
             self.assertEqual((data/'latest.json').read_text(),old)
             self.assertFalse((data/'2026-09-18.json').exists());self.assertFalse((base/'reached_end').exists())
+            self.assertTrue((base/'gate_called').exists())
 
     def test_preflight_failure_writes_only_off_repo_state(self):
         source=(ROOT/'scripts/run-daily.sh').read_text()

@@ -9,6 +9,7 @@
 | 安全外連 | `assets/js/config.js`：`esc`、`safeURL`、`linkOut` | `scripts/tests/frontend.test.mjs` |
 | 逾時與歷史 | `assets/js/data.js`：`fetchJSON`、`loadData`；`firebase.js`：`archivePage`、`archiveGet`；`history.js`：歷史清單與回到最新；`dashboard.js`：先靜態後冷層 | `docs/specs/architecture.md`；前端回歸 |
 | 候選驗證 | `scripts/validate.py`：`validate_items`、CLI `--input`／`--output`／`--dry-run` | `docs/specs/validate.md`、`data-formats.md`；`docs/shapes/data-contract-v2.md`；`scripts/tests/test_robustness.py`、`test_data_contract.py` |
+| 分類品質／可靠前版 | `scripts/category-publication.py`、`contracts/category_quality.py` | `docs/specs/category-quality.md`、`docs/shapes/category-quality.md`；`test_category_quality.py` |
 | 排程鎖與發布 | `scripts/run-locked.py`：`run_locked`；`scripts/publish-daily.py`：`publish`、`push_candidate`、`retry_pending`；`run-daily.sh` 組合流程 | `docs/specs/run-daily.md`；Python 回歸 |
 
 驗證入口為 `.github/workflows/selftest.yml`；本機模型與暫存 Git remote 測試，不代表正式 Firebase、實際每日擷取或部署驗收。

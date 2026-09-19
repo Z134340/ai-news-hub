@@ -5,7 +5,7 @@ references fail closed. Every schema is also usable by Draft 2020-12 validators.
 """
 import json
 import re
-from datetime import date
+from datetime import date, datetime
 from functools import lru_cache
 from pathlib import Path
 
@@ -106,6 +106,13 @@ def errors(value, schema, path='$', root=None):
                     raise ValueError()
             except ValueError:
                 result.append(f'{path}: invalid date')
+    if isinstance(value, str) and schema.get('format') == 'date-time':
+        try:
+            if (not re.fullmatch(r'\d{4}-\d{2}-\d{2}[Tt]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:[Zz]|[+-]\d{2}:\d{2})', value)
+                    or datetime.fromisoformat(value.replace('t', 'T').replace('z', 'Z')).tzinfo is None):
+                raise ValueError()
+        except ValueError:
+            result.append(f'{path}: invalid date-time')
     if isinstance(value, (int, float)) and not isinstance(value, bool) and value < schema.get('minimum', float('-inf')):
         result.append(f'{path}: below minimum')
     return result

@@ -24,6 +24,8 @@ export async function collectSkills({fetchImpl=globalThis.fetch, registryPath=RE
     const description = nonEmpty(repo.description) ? repo.description.trim() : entry.focus;
     return {
       title: repo.full_name,
+      source_title: repo.full_name,
+      display_title: repo.full_name,
       source: 'GitHub',
       date: String(repo.pushed_at || '').slice(0,10),
       summary: description,
@@ -51,5 +53,7 @@ export async function run(options={}) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  run().then(result=>console.log(`skills: ${result.items.length} repositories`)).catch(error=>{ console.error(error.message); process.exitCode=1; });
+  const args = process.argv.slice(2);
+  if (args.length && (args.length !== 2 || args[0] !== '--output')) throw new Error('usage: fetch-skills.mjs [--output PATH]');
+  run(args.length ? {outputPath: path.resolve(args[1])} : {}).then(result=>console.log(`skills: ${result.items.length} repositories`)).catch(error=>{ console.error(error.message); process.exitCode=1; });
 }

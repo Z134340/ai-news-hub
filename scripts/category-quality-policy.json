@@ -1,0 +1,17 @@
+{
+  "schema": "category-quality-policy-v1",
+  "categories": {
+    "papers": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 90, "reason": "論文寧缺勿濫；每筆來源通過既有驗證"},
+    "topnews": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 1, "reason": "Top 20 是上限目標，不以湊數取代品質"},
+    "taiwan": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 1, "reason": "各地區獨立判定，不被全球成功率掩蓋"},
+    "china": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 1, "reason": "各地區獨立判定，不被全球成功率掩蓋"},
+    "usa": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 1, "reason": "各地區獨立判定，不被全球成功率掩蓋"},
+    "techtrends": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 7, "reason": "近七天且全數合格，避免推論掩蓋缺證據"},
+    "governance": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 7, "reason": "具日期的治理原文；常設頁不能當新新聞"},
+    "tutorials": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 90, "reason": "成功空結果可無變更；累積只用可靠前版"},
+    "courses": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 90, "reason": "成功空結果明確為 no_change，失敗不冒充沒新課程"},
+    "official_info": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 30, "reason": "公司與全部證據網址配對必須 100% 正確"},
+    "models": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 90, "reason": "缺新版欄位或官方證據者不可新發布或成為可靠前版"},
+    "skills": {"min_items": 1, "min_verified_ratio": 1, "max_hard_errors": 0, "max_age_days": 90, "reason": "API 榜單須整批成功，缺來源不沿用為新擷取"}
+  }
+}

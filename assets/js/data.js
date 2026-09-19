@@ -38,7 +38,8 @@ async function loadData(){
     if (!dr || !dr.data || typeof dr.data !== 'object' || Array.isArray(dr.data)) throw new Error('invalid_news_data');
     // 舊封存早於企業生態系上線，缺少新 key 時以空陣列向後相容。
     if (!Array.isArray(dr.data.official_info)) dr.data.official_info = [];
-    if (sr && Array.isArray(sr.items)) {
+    // AH-02 latest already contains the gate-selected skills; a side file cannot override it.
+    if (!dr._update_outcome && sr && Array.isArray(sr.items)) {
       dr.data.skills = sr.items;
       dr.stats = {...(dr.stats||{}),skills:sr.items.length};
       dr._updated_at = {...(dr._updated_at||{}),skills:sr._updated_at||dr.time};

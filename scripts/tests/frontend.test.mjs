@@ -198,3 +198,21 @@ test('v2 display and pending-review status preserve existing bookmark keys',()=>
   assert.match(a.nodes.get('sub-official_info').innerHTML,/繁體中文顯示標題/);
   assert.match(a.nodes.get('sub-official_info').innerHTML,/待複核/);
 });
+
+test('AH-02 selected skills cannot be overwritten by an ungated side file',async()=>{
+  const a=app();a.run('showSkeleton=()=>{};renderAll=()=>{};updateHeader=()=>{};startAutoCheck=()=>{};');
+  a.context.fetch=async url=>({ok:true,json:async()=>url.includes('latest.json')?
+    {data:{skills:[]},_updated_at:{},_checked_at:{skills:'2026-09-19T09:00:00+08:00'},_update_outcome:{skills:{attempt:'validation_failed',serving:'no_reliable_data'}}}:
+    url.includes('skills.json')?{items:[{title:'ungated'}],_updated_at:'new'}:{}});
+  assert.equal(await a.run('loadData()'),true);
+  assert.equal(a.run('DATA.data.skills.length'),0);
+  assert.equal(a.run('DATA._updated_at.skills'),undefined);
+});
+
+test('pre-AH-02 latest still accepts the legacy skills side file',async()=>{
+  const a=app();a.run('showSkeleton=()=>{};renderAll=()=>{};updateHeader=()=>{};startAutoCheck=()=>{};');
+  a.context.fetch=async url=>({ok:true,json:async()=>url.includes('latest.json')?{data:{skills:[]}}:
+    url.includes('skills.json')?{items:[{title:'legacy'}],_updated_at:'original'}:{}});
+  assert.equal(await a.run('loadData()'),true);
+  assert.equal(a.run('DATA.data.skills[0].title'),'legacy');
+});

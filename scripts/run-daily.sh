@@ -182,6 +182,21 @@ else
     log "📅 今天是週 ${DOW}，擷取 10 個每日類別（教學與課程保留上次資料）"
 fi
 
+if [[ $# -gt 0 ]]; then
+    [[ "$1" == "--categories" && $# -gt 1 ]] || exit 2
+    shift
+    CATEGORIES=("$@")
+    for CAT in "${CATEGORIES[@]}"; do
+        case "$CAT" in papers|topnews|taiwan|china|usa|techtrends|governance|official_info|models|skills|tutorials|courses) ;; *) exit 2 ;; esac
+    done
+fi
+# Durable private raw attempts survive interruptions; never staged by git add data/.
+QUALITY_STORE="$HOME/.ai-news-hub/publication/category-quality"
+QUALITY_INCOMING="${QUALITY_STORE}-incoming"
+mkdir -p "$QUALITY_INCOMING" || exit 1
+CANDIDATE_DIR=$(mktemp -d "$QUALITY_INCOMING/${TODAY}.XXXXXX") || exit 1
+export CANDIDATE_DIR
+
 CATEGORIES_OK=0
 CATEGORIES_FAILED=0
 
@@ -189,18 +204,20 @@ SCRIPT_START=$(date +%s)
 HARD_DEADLINE=$(( SCRIPT_START + 9900 ))   # 2 小時 45 分鐘
 
 # 狀態目錄：各 fetch_one 子程序寫入 OK/FAIL/SKIP，主程序統計用
-STATUS_DIR="$LOG_DIR/.status_$$"
+STATUS_DIR="$CANDIDATE_DIR/status"
 mkdir -p "$STATUS_DIR"
 
 log "開始擷取 ${#CATEGORIES[@]} 個類別: ${CATEGORIES[*]}"
 log "硬性截止時間: $(date -r $HARD_DEADLINE '+%H:%M:%S' 2>/dev/null || date -d @$HARD_DEADLINE '+%H:%M:%S' 2>/dev/null || echo '計算中')"
 
 # GitHub 星數是結構化資料，直接使用官方 API，避免模型猜測數字。
-if node "$SCRIPTS_DIR/fetch-skills.mjs" >> "$LOG_FILE" 2>&1; then
-    echo OK > "$STATUS_DIR/skills"
-else
-    echo FAIL > "$STATUS_DIR/skills"
-    log "⚠️ [skills] GitHub API 更新失敗，合併階段沿用現有資料"
+if [[ " ${CATEGORIES[*]} " == *" skills "* ]]; then
+    if node "$SCRIPTS_DIR/fetch-skills.mjs" --output "$CANDIDATE_DIR/skills.json" >> "$LOG_FILE" 2>&1; then
+        echo OK > "$STATUS_DIR/skills"
+    else
+        echo FAIL > "$STATUS_DIR/skills"
+        log "⚠️ [skills] GitHub API 更新失敗，由品質閘判定可靠前版"
+    fi
 fi
 
 # ── fetch_one CAT：單一類別完整擷取（含重試、fallback）──
@@ -210,7 +227,7 @@ fetch_one() {
     local ATTEMPT=1
     local MAX_ATTEMPTS=2
     local SUCCESS=0
-    local TMP_FILE="$REPO_DIR/tmp_${CAT}.txt"
+    local TMP_FILE=""
 
     log "[$CAT] 開始"
 
@@ -234,6 +251,7 @@ $(cat "$REPO_DIR/skills/official-ai-ecosystem-research/references/official-sourc
 
 $(cat "$SCRIPTS_DIR/prompts/${CAT}.md")${OFFICIAL_SOURCE_SCOPE}"
 
+        TMP_FILE="$CANDIDATE_DIR/${CAT}.attempt${ATTEMPT}.txt"
         : > "$TMP_FILE"
         "$CLAUDE_BIN" -p "$PROMPT_WITH_DATE" \
             --max-turns 30 \
@@ -264,23 +282,14 @@ $(cat "$SCRIPTS_DIR/prompts/${CAT}.md")${OFFICIAL_SOURCE_SCOPE}"
             fi
         ) &
         local WD_PID=$!
-        wait "$CUR_PID" 2>/dev/null || true
+        local FETCH_EXIT=0
+        wait "$CUR_PID" 2>/dev/null || FETCH_EXIT=$?
         kill -KILL "$WD_PID" 2>/dev/null
         wait "$WD_PID" 2>/dev/null || true
 
         if [[ -s "$TMP_FILE" ]]; then
-            python3 "$SCRIPTS_DIR/extract-json.py" < "$TMP_FILE" > "$DATA_DIR/${CAT}.json" 2>>"$LOG_FILE" || true
-            local COUNT
-            COUNT=$(python3 -c "
-import json
-try:
-    d = json.load(open('$DATA_DIR/${CAT}.json'))
-    print(len(d) if isinstance(d, list) else 0)
-except:
-    print(0)
-" 2>/dev/null || echo "0")
-            if [[ "$COUNT" -gt 0 ]]; then
-                log "[$CAT] ✅ $COUNT 筆 (嘗試 ${ATTEMPT}/2)"
+            if [[ "$FETCH_EXIT" -eq 0 ]] && python3 "$SCRIPTS_DIR/extract-json.py" --strict < "$TMP_FILE" > "$CANDIDATE_DIR/${CAT}.json" 2>>"$LOG_FILE"; then
+                log "[$CAT] ✅ 成功解析候選（含明確空結果；待分類品質閘）"
                 SUCCESS=1
                 break
             elif grep -qiE 'session limit|usage limit|rate limit|hit your limit|reached your|quota' "$TMP_FILE" 2>/dev/null; then
@@ -288,17 +297,14 @@ except:
                 REASON=$(grep -iE 'session limit|usage limit|rate limit|hit your limit|reached your|quota' "$TMP_FILE" 2>/dev/null | head -1 | cut -c1-120)
                 log "[$CAT] 🚫 配額耗盡（非解析問題，重試無效）：${REASON}"
                 echo "$REASON" > "$STATUS_DIR/$CAT.reason" 2>/dev/null || true
-                cp "$TMP_FILE" "$LOG_DIR/failed_${CAT}_attempt${ATTEMPT}_${TODAY}.txt" 2>/dev/null || true
                 break
             elif grep -qiE 'API Error|Connection closed|overloaded' "$TMP_FILE" 2>/dev/null; then
                 # 暫時性連線 / 過載：重試可能成功，保留重試機會（僅末次失敗才記錄原因）
                 REASON=$(grep -iE 'API Error|Connection closed|overloaded' "$TMP_FILE" 2>/dev/null | head -1 | cut -c1-120)
                 log "[$CAT] ⚠️ 嘗試 ${ATTEMPT}：暫時性連線/過載（非解析問題），將重試：${REASON}"
                 [[ $ATTEMPT -ge $MAX_ATTEMPTS ]] && echo "$REASON" > "$STATUS_DIR/$CAT.reason" 2>/dev/null || true
-                cp "$TMP_FILE" "$LOG_DIR/failed_${CAT}_attempt${ATTEMPT}_${TODAY}.txt" 2>/dev/null || true
             else
                 log "[$CAT] ⚠️ 嘗試 ${ATTEMPT}：抽出 0 筆（解析失敗），保留 tmp 供除錯"
-                cp "$TMP_FILE" "$LOG_DIR/failed_${CAT}_attempt${ATTEMPT}_${TODAY}.txt" 2>/dev/null || true
             fi
         else
             log "[$CAT] ⚠️ 嘗試 ${ATTEMPT}：Claude 無輸出"
@@ -308,65 +314,26 @@ except:
     done
 
     if [[ $SUCCESS -eq 1 ]]; then
-        python3 -c "
-import json
-from datetime import datetime, timezone, timedelta
-now = datetime.now(timezone(timedelta(hours=8))).isoformat()
-path = '$DATA_DIR/${CAT}.json'
-try:
-    with open(path) as f:
-        d = json.load(f)
-    if isinstance(d, list):
-        d = {'items': d, '_updated_at': now}
-    elif isinstance(d, dict):
-        d['_updated_at'] = now
-    with open(path, 'w') as f:
-        json.dump(d, f, indent=2, ensure_ascii=False)
-except:
-    pass
-" 2>/dev/null || true
         echo "OK" > "$STATUS_DIR/$CAT"
     else
-        log "[$CAT] ❌ 2 次失敗，嘗試 fallback 到上次資料"
-        local FB
-        FB=$(python3 -c "
-import json
-from datetime import datetime, timezone, timedelta
-now = datetime.now(timezone(timedelta(hours=8))).isoformat()
-try:
-    latest = json.load(open('$DATA_DIR/latest.json'))
-    items = latest.get('data', {}).get('$CAT', [])
-    ts = latest.get('_updated_at', {}).get('$CAT', '')
-    if isinstance(items, list) and len(items) > 0:
-        with open('$DATA_DIR/${CAT}.json', 'w') as f:
-            json.dump({'items': items, '_updated_at': ts or now, '_fallback': True}, f, indent=2, ensure_ascii=False)
-        print(len(items))
-    else:
-        print(0)
-except:
-    print(0)
-" 2>/dev/null || echo "0")
-        if [[ "$FB" -gt 0 ]]; then
-            log "[$CAT] 🔁 fallback 成功，沿用 ${FB} 筆"
-        else
-            log "[$CAT] ⛔ 無 fallback，寫入空陣列"
-            echo '[]' > "$DATA_DIR/${CAT}.json"
-        fi
+        log "[$CAT] ❌ 擷取失敗；由分類品質閘判定可靠前版"
         echo "FAIL" > "$STATUS_DIR/$CAT"
     fi
 
-    rm -f "$TMP_FILE"
 }
 
 # ── run_batch 批次標籤 cat...：並行啟動一批 fetch_one，等全部完成 ──
 run_batch() {
     local label="$1"; shift
-    local cats=("$@")
+    local cats=()
+    for CAT in "$@"; do
+        [[ " ${CATEGORIES[*]} " == *" $CAT "* ]] && cats+=("$CAT")
+    done
+    [[ ${#cats[@]} -gt 0 ]] || return 0
 
     if [[ "$INTERRUPTED" -eq 1 ]] || [[ $(date +%s) -gt "$HARD_DEADLINE" ]]; then
         log "⏰ 超過截止時間，跳過批次 $label (${cats[*]})"
         for CAT in "${cats[@]}"; do
-            [[ ! -s "$DATA_DIR/${CAT}.json" ]] && echo '[]' > "$DATA_DIR/${CAT}.json"
             echo "SKIP" > "$STATUS_DIR/$CAT"
         done
         return
@@ -383,7 +350,7 @@ run_batch() {
 }
 
 # ── 批次執行 ──
-if [[ "$DOW" -eq 1 ]]; then
+if [[ "$DOW" -eq 1 || " ${CATEGORIES[*]} " == *" tutorials "* || " ${CATEGORIES[*]} " == *" courses "* ]]; then
     # 週一：最吃 token 的每週累積類別「先跑」，避免配額被日更類別耗盡（見 2026-07-06 事件）。
     # 每週類別每週僅一次擷取機會，日更新聞失敗尚可隔天補；故優先保護每週類別。
     run_batch "1/4" official_info models
@@ -409,143 +376,35 @@ for CAT in "${CATEGORIES[@]}"; do
         fi
     fi
 done
-rm -rf "$STATUS_DIR"
 
 if [[ -n "$QUOTA_NOTE" ]]; then
-    QUOTA_NOTE="配額/連線耗盡: ${QUOTA_NOTE}（秒級重試無效，已回退舊資料）"
+    QUOTA_NOTE="配額/連線耗盡: ${QUOTA_NOTE}（秒級重試無效，可靠前版由品質閘判定）"
     log "🚫 $QUOTA_NOTE"
 fi
 
 log "擷取完成: OK=$CATEGORIES_OK, Failed=$CATEGORIES_FAILED"
 
-# ── 企業生態系每日累積；工具教學僅週一累積 ──
-if [[ "$DOW" -eq 1 ]]; then
-    log "執行官方資訊 / 模型快訊 / 工具教學累積合併..."
-    python3 "$SCRIPTS_DIR/merge-stack.py" --categories official_info models tutorials >> "$LOG_FILE" 2>&1 || log "⚠️ merge-stack.py 失敗，使用當日資料"
-else
-    log "執行官方資訊 / 模型快訊累積合併..."
-    python3 "$SCRIPTS_DIR/merge-stack.py" --categories official_info models >> "$LOG_FILE" 2>&1 || log "⚠️ merge-stack.py 失敗，使用當日資料"
-fi
-
-# ── 合併 latest.json ──
-log "合併 latest.json..."
-
-python3 << 'MERGE_PYEOF'
-import json, os
-from datetime import datetime, timezone, timedelta
-
-DATA_DIR = "data"
-ALL_CATEGORIES = ["papers", "topnews", "taiwan", "china", "usa", "techtrends", "governance", "tutorials", "courses", "official_info", "models", "skills"]
-WEEKLY_CATS = {"tutorials", "courses"}
-
-now = datetime.now(timezone(timedelta(hours=8)))
-dow = now.isoweekday()  # 1=Mon 7=Sun
-
-# 讀取上一期 latest.json（用於非週一保留每週類別資料）
-old_latest = {}
-latest_path = os.path.join(DATA_DIR, "latest.json")
-if os.path.exists(latest_path):
-    try:
-        old_latest = json.load(open(latest_path))
-    except:
-        old_latest = {}
-
-old_data = old_latest.get("data", {})
-old_updated = old_latest.get("_updated_at", {})
-
-merged = {}
-updated_at = {}
-
-for cat in ALL_CATEGORIES:
-    cat_file = os.path.join(DATA_DIR, f"{cat}.json")
-
-    if cat in WEEKLY_CATS and dow != 1:
-        # 非週一：保留上次的每週類別資料
-        items = old_data.get(cat, [])
-        ts = old_updated.get(cat, "")
-        print(f"  {cat}: 保留舊資料 ({len(items) if isinstance(items, list) else '?'} 筆) [每週一更新]")
-    else:
-        # 從今日擷取的 JSON 讀取
-        try:
-            with open(cat_file) as f:
-                raw = json.load(f)
-            if isinstance(raw, dict) and "items" in raw:
-                items = raw["items"]
-                ts = raw.get("_updated_at", now.isoformat())
-            elif isinstance(raw, dict) and "_updated_at" in raw and "items" not in raw:
-                ts = raw["_updated_at"]
-                items = {k: v for k, v in raw.items() if k != "_updated_at"}
-                items = list(items.values())[0] if len(items) == 1 else []
-            elif isinstance(raw, list):
-                items = raw
-                ts = now.isoformat()
-            else:
-                items = []
-                ts = now.isoformat()
-        except:
-            items = []
-            ts = now.isoformat()
-
-    if not isinstance(items, list):
-        items = []
-
-    merged[cat] = items
-    updated_at[cat] = ts or now.isoformat()
-
-# ── 至少 20 則：若今日 topnews/taiwan/china/usa 不足，補入符合日期限制的舊資料 ──
-MIN_ITEMS = 20
-# 各類別允許的最大天數（需與 validate.py CATEGORY_DATE_LIMITS 一致）
-NEWS_CAT_DAYS = {"topnews": 1, "taiwan": 1, "china": 1, "usa": 1, "techtrends": 7, "governance": 7}
-for cat in ["topnews", "taiwan", "china", "usa", "techtrends", "governance"]:
-    current = merged.get(cat, [])
-    if len(current) < MIN_ITEMS:
-        old_items = old_data.get(cat, [])
-        if not isinstance(old_items, list):
-            old_items = []
-        cat_days = NEWS_CAT_DAYS.get(cat, 7)
-        cutoff = (now - timedelta(days=cat_days)).strftime("%Y-%m-%d")
-        existing_urls = {item["url"] for item in current if isinstance(item, dict) and isinstance(item.get("url"), str)}
-        # 只補入日期在允許範圍內的舊項目（確保不會被 validate.py 移除）
-        supplements = [x for x in old_items
-                       if isinstance(x, dict) and isinstance(x.get("url"), str) and x["url"] not in existing_urls
-                       and isinstance(x.get("date"), str) and cutoff <= x["date"] <= now.strftime("%Y-%m-%d")]
-        needed = MIN_ITEMS - len(current)
-        picked = []
-        for x in supplements[:needed]:
-            y = dict(x); y["is_backfill"] = True   # 標記補入項目，供 metrics/回饋分析區分「當日新鮮」與「舊料補位」
-            picked.append(y)
-        merged[cat] = current + picked
-        if supplements[:needed]:
-            print(f"  {cat}: 今日 {len(current)} 筆 < {MIN_ITEMS}，補入 {len(supplements[:needed])} 筆（≥{cutoff}）→ 共 {len(merged[cat])} 筆")
-
-output = {
-    "date": now.strftime("%Y-%m-%d"),
-    "time": now.isoformat(),
-    "generated_at": now.strftime("%H:%M"),
-    "source": "local",
-    "data": merged,
-    "stats": {cat: len(merged.get(cat, [])) for cat in ALL_CATEGORIES},
-    "_updated_at": updated_at
-}
-
-with open(os.environ["LATEST_CANDIDATE"], "w") as f:
-    json.dump(output, f, indent=2, ensure_ascii=False)
-
-total = sum(output["stats"].values())
-print(f"Merged: {total} items (DOW={dow}, weekly={'included' if dow==1 else 'preserved'})")
-MERGE_PYEOF
-if [[ $? -ne 0 ]]; then update_health_json failed '資料合併失敗'; exit 1; fi
-
-# ── 驗證 ──
-log "執行七步驟驗證..."
-VALIDATION_EXIT=0
-python3 "$SCRIPTS_DIR/validate.py" --input "$LATEST_CANDIDATE" 2>&1 || VALIDATION_EXIT=$?
-if [[ "$VALIDATION_EXIT" -ne 0 ]]; then
-    update_health_json failed '資料驗證失敗；保留上一份 latest.json'
+# ── 合併 latest.json：逐分類驗證、可靠前版與原子儲存 ──
+log "執行 AH-02 分類品質閘..."
+if ! python3 "$SCRIPTS_DIR/category-publication.py" \
+    --candidate-dir "$CANDIDATE_DIR" --status-dir "$STATUS_DIR" \
+    --scheduled "${CATEGORIES[@]}" --store "$QUALITY_STORE" \
+    --output "$LATEST_CANDIDATE"; then
+    update_health_json failed '分類品質閘處理或儲存失敗；保留上一份 latest.json'
     exit 1
 fi
-# Validated candidate is installed atomically on the same filesystem.
+# latest is the public selected snapshot; category files remain legacy inputs.
+# AH-02 readers never overlay those files onto the gated latest snapshot.
 cp "$LATEST_CANDIDATE" "$DATA_DIR/latest.json.tmp" && mv "$DATA_DIR/latest.json.tmp" "$DATA_DIR/latest.json" || exit 1
+# Aggregate health counts come FROM the per-category decisions, never the reverse.
+COUNTS=$(python3 - "$LATEST_CANDIDATE" "${CATEGORIES[@]}" <<'COUNTS_PYEOF'
+import json, sys
+outcomes = json.load(open(sys.argv[1]))['_update_outcome']
+ok = sum(outcomes[c]['attempt'] in ('updated', 'no_change') and outcomes[c]['serving'] != 'no_reliable_data' for c in sys.argv[2:])
+print(ok, len(sys.argv[2:]) - ok)
+COUNTS_PYEOF
+) || exit 1
+read -r CATEGORIES_OK CATEGORIES_FAILED <<< "$COUNTS"
 
 # 讀取驗證通過率
 PASS_RATE=$(python3 -c "
@@ -740,7 +599,7 @@ if [[ $? -ne 0 ]]; then log "❌ health.json 寫入失敗"; exit 1; fi
 
 # ── Git publication (commit -> three-way rebase -> ordinary push) ──
 TAG="[unverified]"
-[[ "$PASS_RATE" -eq 100 ]] && TAG="[verified]"
+[[ "$PASS_RATE" -eq 100 && "$OVERALL_STATUS" == "ok" ]] && TAG="[verified]"
 if ! python3 "$SCRIPTS_DIR/publish-daily.py" --root "$REPO_DIR" --base "$RUN_BASE" \
     --message "📰 AI News $TODAY $TAG [local]" \
     --receipt "$HOME/.ai-news-hub/publication/last-run.json"; then
