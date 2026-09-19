@@ -83,7 +83,7 @@
 | 2026-09-19 | `main` `1230eba` | AH-00 建立；線上 Cloudflare 與本機 latest hash 一致；GitHub Pages 仍啟用；repository ruleset 為空；下一工項 AH-01 |
 | 2026-09-19 | AH-01 分支 `codex/ah-01-data-contract-v2`；規劃基準 `37947c2`；兩次 fetch 的 `origin/main` 均為 `1230eba`，已包含於基準 | 五份 v2 schemas、離線 migration／診斷、共用 URL／ID 與標題契約已實作且離線驗收通過；未改正式資料或部署，下一工項 AH-02。Gate A 整體尚未完成 |
 | 2026-09-19 | `origin/main` `d35ad49`；AH-01 realigned 分支 `codex/ah-01-data-contract-v2-realigned`；實作 `a3a0f52`、反例補強 `6c516fc` | 重新對齊停用 GitHub Pages 後的最新基準；AH-05 依 main 與 `HANDOFF.md` 的既有外部證據改標完成。AH-01 doc×code re-scan、完整離線回歸、七份實際快照 migration 與明確偽造／canonical 重複反例通過；未做 production mutation／部署／live 驗收，下一工項 AH-02。Gate A 與 Gate B 整體均未完成 |
-| 2026-09-19 | AH-02 分支 `codex/ah-02-category-quality-gates`；既有實作 `a2982ec` 後以普通 merge 納入指定 AH-01 `4ba34f492c3d4da320d9d0906cc33cba117feb0d`；worktree `/private/tmp/ai-news-hub-ah02-20260919` | 分類政策、私有 candidate／validated／quarantine／LKG 儲存、每日與補跑共同入口、時間與 outcome 已實作；本工項離線驗收完成，下一工項 AH-03。未整合 main／部署／正式擷取；Gate A 整體尚未完成 |
+| 2026-09-19 | AH-02 分支 `codex/ah-02-category-quality-gates`；既有實作 `a2982ec`；以普通 merge `f6ab241d81df3faf66873e044bb557d4de5ea018` 納入指定 AH-01 `4ba34f492c3d4da320d9d0906cc33cba117feb0d`；worktree `/private/tmp/ai-news-hub-ah02-20260919` | 分類政策、私有 candidate／validated／quarantine／LKG 儲存、每日與補跑共同入口、時間與 outcome 已實作；doc×code re-scan 後補同批 mixed fixture，103 項 Python 與既有離線回歸通過。本工項離線驗收完成，下一工項 AH-03。未整合 main／部署／正式擷取；Gate A 整體尚未完成 |
 
 ### AH-01 驗收與邊界（2026-09-19）
 
