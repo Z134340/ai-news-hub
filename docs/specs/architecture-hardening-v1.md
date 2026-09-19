@@ -134,4 +134,4 @@ Re-scan：分類閘及補跑繞過問題已處理；既有複查發現的「中�
 
 未執行：正式每日擷取／真實來源品質驗收、production migration／私有 store 啟用、正式 latest 或封存寫入、Firebase 雲端、多裝置、Cloudflare 部署／GitHub Pages 設定、真實通知、main 整合。本次未做互動瀏覽器 UI 驗收；前端行為由 Node 執行載入器與本機 HTTP fixture 驗證。GitHub CI 以推送後同 SHA 結果另行核對，不以本機通過冒稱遠端通過。上述限制不影響本工項要求的離線驗收完成，亦不代表 Gate A 完成或已獲 production 啟用授權。
 
-風險／回退：既有快照沒有補證，初次啟用若無合格候選與私有 LKG，分類會明確為空而非沿用未核實資料；嚴格整批政策遇來源暫時失效會增加沿用率。verified 仍只代表既有機械來源檢查，不保證摘要／翻譯／數值經人工核實。私有原件／世代尚無自動清理，須管理磁碟；本機 generation、public 檔與 Git／部署非跨系統交易。需要撤回時在隔離分支 revert AH-02 merge／實作提交並 push，保留 AH-00／AH-01 與每日提交，不 reset／force-push；此次未改正式資料，無 production 資料回遷。store 回退流程見 `category-quality.md`。
+風險／回退：既有快照沒有補證，初次啟用若無合格候選與私有 LKG，分類會明確為空而非沿用未核實資料；嚴格整批政策遇來源暫時失效會增加沿用率。verified 仍只代表既有機械來源檢查，不保證摘要／翻譯／數值經人工核實。私有原件／世代尚無自動清理，須管理磁碟；本機 generation、public 檔與 Git／部署非跨系統交易。需要撤回時，在隔離分支先依反向順序 revert AH-02 closeout 文件提交，最後執行 `git revert -m 2 f6ab241d81df3faf66873e044bb557d4de5ea018`，以保留指定 AH-01 第二父提交；不另 revert `a2982ec`，不 reset／force-push。此次未改正式資料，無 production 資料回遷。store 回退流程見 `category-quality.md`。
