@@ -2,6 +2,7 @@
 /* Build the allowlisted static artifact deployed by Cloudflare Pages. */
 
 import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -19,6 +20,7 @@ function copyFile(relative, { optional = false } = {}) {
     if (optional) return false;
     throw new Error(`required deployment file is missing: ${relative}`);
   }
+  if (!fs.lstatSync(source).isFile()) throw new Error(`deployment source must be a regular file: ${relative}`);
   const target = path.join(OUT, relative);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.copyFileSync(source, target);
@@ -39,11 +41,20 @@ function assertJson(relative) {
   JSON.parse(fs.readFileSync(path.join(OUT, relative), 'utf8'));
 }
 
+// Validate the source before clearing/building; never mint a release from legacy data.
+const release = JSON.parse(execFileSync('python3', [path.join(ROOT, 'scripts/release-manifest.py'), '--verify-site', path.join(ROOT, 'data')], {encoding:'utf8', env:{...process.env, PYTHONDONTWRITEBYTECODE:'1'}}));
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 copyFile('index.html');
 copyTree('assets');
 for (const name of REQUIRED_DATA) copyFile(`data/${name}`);
+if (release) {
+  copyFile(release.data_path);
+  copyFile('data/release-manifest.json');
+  // Detect a concurrent source switch during copy.
+  execFileSync('python3', [path.join(ROOT, 'scripts/release-manifest.py'), '--verify-site', path.join(OUT, 'data')], {env:{...process.env, PYTHONDONTWRITEBYTECODE:'1'}});
+}
 for (const name of AGENT_DATA) copyFile(`data/agent/${name}`, { optional: true });
 for (const name of fs.readdirSync(path.join(ROOT, 'data')).sort()) {
   if (/^\d{4}-\d{2}-\d{2}\.json$/.test(name)) copyFile(`data/${name}`);

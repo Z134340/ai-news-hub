@@ -29,8 +29,8 @@
 | AH-00 | 架構稽核與 Session 規劃 | 本文件、共用 Session 規則、目前基準與優先序 | 無 | ✅ 已完成 | living backlog 已建立；下一工項 Prompt 可直接執行 |
 | AH-01 | 資料契約 v2 與相容遷移 | JSON Schema、`schema_version`、模型舊資料 migration、`source_title`、canonical URL、穩定 `item_id` | AH-00 | ✅ 本工項離線驗收完成 | 舊封存可讀；缺欄位不靠猜測補值；模型格式升級不再整批誤刪；離線正反 fixture 通過 |
 | AH-02 | 分類級品質閘與可靠資料沿用 | candidate／published／quarantine、分類門檻、last-known-good、`_checked_at`／`_update_outcome` | AH-01 | ✅ 本工項離線驗收完成 | 未達標分類不覆蓋正式資料；其他分類可發布；課程可區分 no-change 與 failed |
-| AH-03 | 發布 manifest 與高效率讀取 | `release-manifest` schema、release ID、內容 hash、前端只在版本改變時取大型資料、版本化 cache | AH-02 | ⏭ 下一步（未實作） | manifest 小型輪詢；內容與 manifest hash 綁定；舊前端相容與載入失敗降級通過 |
-| AH-04 | 部署後驗證、通知與 Cloudflare 回滾 | CI post-deploy smoke/hash/header、通知改為部署成功後、指定已驗證 SHA 的人工回退 | AH-03 | ⬜ 未開始 | 通知不早於 production；錯誤 hash 阻擋成功；回退流程有 dry-run／驗收證據 |
+| AH-03 | 發布 manifest 與高效率讀取 | `release-manifest` schema、release ID、內容 hash、前端只在版本改變時取大型資料、版本化 cache | AH-02 | ✅ 本工項離線驗收完成 | manifest 小型輪詢；內容與 manifest hash 綁定；舊前端相容與載入失敗降級通過 |
+| AH-04 | 部署後驗證、通知與 Cloudflare 回滾 | CI post-deploy smoke/hash/header、通知改為部署成功後、指定已驗證 SHA 的人工回退 | AH-03 | ⏭ 下一步（未實作） | 通知不早於 production；錯誤 hash 阻擋成功；回退流程有 dry-run／驗收證據 |
 | AH-05 | 單一正式入口與文件收斂 | 停用 GitHub Pages、移除 keep-alive、修正 CTA／README／架構與 Ops 文件 | AH-04 | ⬜ 未開始 | Cloudflare 正式 URL 正常；GitHub Pages 不再部署；無舊正式網址與 stale runbook |
 | AH-06 | L3 判讀移出關鍵路徑 | `run-agents.sh` 改為發布後獨立排程／工作；狀態與新聞發布分離 | AH-02 | ⬜ 未開始 | 新聞發布不等待 L3；preview／manual-only 邊界、鎖、失敗降級與觀測維持 |
 | AH-07 | 增量驗證與來源健康度 | 新資料完整驗證、內容 hash／TTL、needs-review 退避、來源 circuit breaker、7／30 日指標 | AH-01, AH-02 | ⬜ 未開始 | 不重驗未變且 TTL 有效資料；錯誤不被快取為成功；可重現、可清除、可觀測 |
@@ -82,8 +82,8 @@
 |---|---|---|
 | 2026-09-19 | `main` `1230eba` | AH-00 建立；線上 Cloudflare 與本機 latest hash 一致；GitHub Pages 仍啟用；repository ruleset 為空；下一工項 AH-01 |
 | 2026-09-19 | AH-01 分支 `codex/ah-01-data-contract-v2`；規劃基準 `37947c2`；兩次 fetch 的 `origin/main` 均為 `1230eba`，已包含於基準 | 五份 v2 schemas、離線 migration／診斷、共用 URL／ID 與標題契約已實作且離線驗收通過；未改正式資料或部署，下一工項 AH-02。Gate A 整體尚未完成 |
-
 | 2026-09-19 | AH-02 分支 `codex/ah-02-category-quality-gates`；基準 AH-01 `cc2644b416d0b503ef0484acbe6156ccb763985a`；`origin/main` `1230eba` 已在祖先鏈 | 分類政策、私有 candidate／validated／quarantine／LKG 儲存、每日與補跑共同入口、時間與 outcome 已實作；本工項離線驗收完成，下一工項 AH-03。未整合 main／部署／正式擷取；Gate A 整體尚未完成 |
+| 2026-09-19 | AH-03 分支 `codex/ah-03-release-manifest`；指定基準 AH-02 `a2982ece9d130661cfc6297050a51e5aa5e004bd`；`origin/main` `1230eba` 已在祖先鏈 | manifest／immutable payload／版本化快取與每日、dashboard、build 接線完成；本工項離線驗收通過，下一工項 AH-04。Gate A 的 manifest 離線條件完成，來源／翻譯真實證據與正式啟用未驗，整體仍未完成 |
 
 ### AH-01 驗收與邊界（2026-09-19）
 
@@ -135,3 +135,32 @@ Re-scan：分類閘及補跑繞過問題已處理；只讀複查發現的「中�
 未執行：正式每日擷取／真實來源品質驗收、production migration／私有 store 啟用、正式 latest 或封存寫入、Firebase 雲端、多裝置、Cloudflare 部署／GitHub Pages 設定、真實通知、main 整合。本次未做互動瀏覽器 UI 驗收；前端行為由 Node 執行載入器與本機 HTTP fixture 驗證。GitHub CI 以推送後同 SHA 結果另行核對，不以本機通過冒稱遠端通過。上述限制不影響本工項要求的離線驗收完成，亦不代表 Gate A 完成或已獲 production 啟用授權。
 
 風險／回退：既有快照沒有補證，初次啟用若無合格候選與私有 LKG，分類會明確為空而非沿用未核實資料；嚴格整批政策遇來源暫時失效會增加沿用率。verified 仍只代表既有機械來源檢查，不保證摘要／翻譯／數值經人工核實。私有原件／世代尚無自動清理，須管理磁碟；本機 generation、public 檔與 Git／部署非跨系統交易。需要撤回時在隔離分支 revert AH-02 提交並 push，保留 AH-00／AH-01 與每日提交，不 reset／force-push；此次未改正式資料，無 production 資料回遷。store 回退流程見 `category-quality.md`。
+
+
+### AH-03 驗收與邊界（2026-09-19）
+
+- worktree `/private/tmp/ai-news-hub-ah03`；從指定 AH-02 提交建立，fetch main／AH-01／AH-02 後確認最新每日 `1230eba` 已在祖先鏈，無需另造合併。保留 AH-00～AH-02，未在 main checkout 開發。
+- schema／release ID／完整 UTF-8 bytes SHA-256、不可變內容、先 blob／latest 後 manifest、品質 current 鎖定、過時 candidate 拒絕均已落地。權威語意：[release-manifest.md](release-manifest.md)；程式入口：[shape](../shapes/release-manifest.md)。
+- 前端小型輪詢、memory／localStorage 版本 cache、首頁／dashboard 併發合併、原始 bytes 與 UI mutation 分離、明確 legacy／cached／failed 狀態已接線；原 canonical URL／item_id／itemKey、品質時間與原件完整保留。
+
+| 驗收 | 實際結果／可重跑入口 |
+|---|---|
+| Python 全套 | 119/119；`python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v`：原 AH-01 31、AH-02 43、robustness 27，加 AH-03 18；其中一項執行下列新增 Node suite |
+| Node 全套 | 65/65；原 frontend／trend-topics／fetch-skills 39，加 `release-data.test.mjs` 26。既有 CI Python discover 已帶入新增 suite，未修改 workflow |
+| Manifest 正反例／精確綁定 | 必填、錯版本／型別／多餘欄位、非法日期、路徑、hash／size／time／release ID；UTF-8 bytes 不重編碼造新內容，無效 UTF-8 拒絕 |
+| 寫入／重跑 | blob／latest／manifest 三處失敗注入、rename 失敗、舊 manifest 可讀、build 拒絕混版、同 current 冪等、過時 candidate／損壞 LKG／blob 拒絕；舊 blob 保留 |
+| 高效率讀取／降級 | 同版／重新開頁／兩入口併發不重抓；換版才取 blob；畸形 JSON／schema、內容交錯、錯 hash、corrupt cache、quota／停用、Web Crypto 缺失、body timeout；無 hash 成功時不得寫 verified cache／提示新版成功 |
+| validator／merge | `validate.py --self-test` 24/24、`merge-stack.py --self-test` 3/3；未連來源網路 |
+| 既有離線回歸 | 25 組全通過：18 agent Node self-test、strict boundary、run-agents 68 項、slack-notify、4 Python wrapper selftest；命令與既有 `.github/workflows/selftest.yml` 相同 |
+| 語法／空白 | 13 份前端 JS、build-site／新 Node suite 逐檔語法；3 份修改 Python AST、daily／supplement Shell、`git diff --check` 通過 |
+| Allowlist／封存 | 暫存 site release 與 legacy build 通過，混版 build 失敗；dist 僅帶 manifest 引用 blob，排除 scripts/docs/schemas/.git/private-quarantine；archive dry-run 找到 1 個 fixture，未連 Firebase／未上傳 |
+| 真實本機 HTTP fixture | 首頁／data.js／latest／manifest 200；Python installer 產物經實際 Node fetch＋Web Crypto 核對；連續兩次載入 = 2 manifest、1 blob、0 latest。已納入 `test_http_python_release_is_verified_by_real_js_bytes` |
+| 勿動範圍 | 正式 data、Firebase、Cloudflare headers／workflow／Wrangler、GitHub Pages／通知與 learning 控制檔零差異；main checkout 保持原狀 |
+
+Re-scan：dashboard 另抓 latest 與並行啟動的重複下載已一併納入共用 loader。唯讀複查找到的「HTTP 200 畸形 JSON 誤當 transport fallback」與「前端 Date.parse 正規化不存在日期」均已修復並有反例。AH-01／AH-02 legacy／needs_review 不得成為可靠資料的界線維持；沒有補來源或翻譯證據。Gate A 仍未整體完成，不代表 production 啟用授權。AH-04～AH-13 本 Session 未實作。
+
+未執行：正式每日擷取／來源連線／production store 啟用、正式 latest／日期封存／分類資料寫入、main 整合、Firebase 雲端／多帳號、互動瀏覽器 UI、Cloudflare／GitHub Pages 部署、真實通知與 post-deploy 驗證。HTTP fixture／Node VM 不冒充外部或互動瀏覽器驗收。GitHub CI 須以推送後相同 SHA 查證，不能以本機測試代替。
+
+風險／回退：hash 僅證明內容一致性；舊快照無 manifest 仍以明示未驗版本的相容模式讀取。無 Web Crypto 時無法接受新的 manifest 內容。全部歷次 blob 在 workspace／Git 累積、dist 只帶當前 blob；retention 尚未實作。跨檔／Git／部署仍不是整體交易；完整失敗矩陣與回滾見 release spec。程式回退在隔離分支 revert AH-03 並測試／push，保留 AH-00～AH-02 和每日提交，不 reset／force-push；此次沒有正式資料需要回遷。
+
+下一 Session 完整 Prompt：[ah-04-next-session.md](ah-04-next-session.md)。先 fetch 並核對 AH-03 交付與最新 main；若發現 AH-03 未通過必須先接續 AH-03，不可跳過驗收缺口。

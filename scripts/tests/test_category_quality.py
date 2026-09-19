@@ -394,7 +394,7 @@ class StorageAndAdapter(unittest.TestCase):
         result=subprocess.run([sys.executable,'-B',str(ROOT/'scripts/category-publication.py'),
             '--candidate-dir',str(source),'--status-dir',str(status),'--scheduled','courses',
             '--store',str(self.store),'--output',str(self.output),'--checked-at',AT],capture_output=True,text=True)
-        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertEqual(result.returncode,0,result.stderr+result.stdout)
         d=pub.read_json(self.output)
         self.assertEqual(d['_update_outcome']['courses'],{'attempt':'fetch_failed','serving':'no_reliable_data'})
 
@@ -424,6 +424,7 @@ with patch.object(m.validate,'check_url_and_title',return_value=(True,'verified'
     raise SystemExit(m.main())
 """.replace('ROOT_SCRIPTS',repr(str(ROOT/'scripts'))).replace('REAL_SCRIPT',repr(str(ROOT/'scripts/category-publication.py')))
         (scripts/'category-publication.py').write_text(wrapper)
+        (scripts/'release-manifest.py').write_text("import runpy, sys\nsys.path.insert(0, "+repr(str(ROOT/'scripts'))+")\nrunpy.run_path("+repr(str(ROOT/'scripts/release-manifest.py'))+", run_name='__main__')\n")
         daily=(ROOT/'scripts/run-daily.sh').read_text()
         flow=daily[daily.index('# ── 合併 latest.json'):daily.index('# ── 冷封存：')]
         shell=self.root/'flow.sh'
@@ -432,7 +433,7 @@ with patch.object(m.validate,'check_url_and_title',return_value=(True,'verified'
              'CANDIDATE_DIR':str(source),'STATUS_DIR':str(status),'QUALITY_STORE':str(self.store),
              'LATEST_CANDIDATE':str(self.output),'TODAY':AT[:10]}
         result=subprocess.run(['bash',str(shell)],cwd=self.root,env=env,capture_output=True,text=True)
-        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertEqual(result.returncode,0,result.stderr+result.stdout)
         self.assertEqual((self.root/'counts').read_text(),'1 1')
         d=pub.read_json(data/'latest.json')
         self.assertTrue(d['data']['topnews']);self.assertEqual(d['data']['courses'],[])

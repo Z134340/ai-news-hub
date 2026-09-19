@@ -13,7 +13,7 @@
 ### 儲存：混合冷熱分層（static + Firebase）
 | 資料 | 儲存 | 說明 |
 |------|------|------|
-| 熱：latest + 近 7 天 archive | static JSON + Cloudflare Pages（切換前由 GitHub Pages 服務） | 每次開頁讀；屬唯讀發佈資產 |
+| 熱：latest + 近 7 天 archive | static JSON + Cloudflare Pages（切換前由 GitHub Pages 服務） | 每次開頁查 manifest；快取有效且版本相同不重抓 latest payload；屬唯讀發佈資產 |
 | 冷：逾 7 天 archive | **Firestore `archives/{date}`** | 清單使用 REST 欄位投影與分頁；僅選擇日期才讀整日 payload |
 | 使用者：書籤 | **Firestore `users/{uid}`** | 跨 iPhone/桌面同步；Email/Password auth；offline-first（localStorage 為離線快取） |
 
@@ -108,47 +108,13 @@ ai-news-hub/
 └── （off-repo）~/.config/ai-news-hub/archiver.env  ← writer 帳密，絕不進 git
 ```
 
-## 資料流完整路徑（從產出到你眼前）
+## 新聞讀取與發布路徑（AH-03）
 
-```
-run-daily.sh 產出 data/latest.json
-       │
-       ▼
-限定產物 commit → rebase origin/main → 普通 push（衝突停止）
-       │
-       ▼
-GitHub 收到 push → 觸發 Pages 部署（約 1-3 分鐘）
-       │
-       ▼
-GitHub Pages CDN 更新靜態檔案
-       │
-       ▼
-你打開 https://你的帳號.github.io/ai-news-hub/
-       │
-       ▼
-index.html 載入 → fetch("data/latest.json?v=" + Date.now())
-       │                   ↑ cache-busting 參數，強制繞過快取
-       ▼
-JSON 解析 → 渲染十二類資料卡片（企業生態系含兩個子分頁）→ 你看到最新資料 ✅
-```
+AH-02 selected candidate → AH-03 不可變 blob／相容 latest／manifest → 既有 Git 發布 → Pages allowlist 建置。各階段成功獨立記錄；本機 manifest 不等於部署成功。
 
-### 關鍵防快取機制
+前端首頁與 dashboard 共用 manifest loader，併發請求合併；相同版本從獨立原始 bytes cache 讀，換版才下載大型內容並核對 hash。每 15 分鐘只檢查 manifest；舊網站與故障降級均有明確狀態。歷史檔、health 與 agent artifacts 仍獨立讀取，保留現行 cache bust／timeout。
 
-1. **`.nojekyll` 檔案**（空檔案放在根目錄）：
-   - 禁用 GitHub Pages 的 Jekyll 靜態網站產生器
-   - 確保 JSON 檔案不被 Jekyll 過濾或延遲處理
-   - 確保 data/ 目錄下的所有 .json 檔案直接作為靜態資源送達
-
-2. **Cache-busting 請求**：
-   - index.html 中所有 fetch JSON 的請求附加 `?v={timestamp}` 參數
-   - 例：`fetch("data/latest.json?v=1743753600000")`
-   - 每次開啟頁面產生新 timestamp，強制繞過瀏覽器和 CDN 快取
-   - 歷史 JSON 也用相同機制：`fetch("data/2026-04-04.json?v=...")`
-
-3. **15 分鐘自動重新檢查**也帶 cache-busting 參數
-
----
-
+精確 schema、cache namespace、降級矩陣、建置與回滾只在 [release-manifest.md](release-manifest.md) 維護。`.nojekyll` 保留舊 GitHub Pages 相容；此次沒有修改或停用任何部署設定。
 
 ## 個人資料與載入邊界（2026-09-18）
 

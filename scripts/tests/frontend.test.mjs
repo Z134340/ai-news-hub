@@ -201,7 +201,7 @@ test('v2 display and pending-review status preserve existing bookmark keys',()=>
 
 test('AH-02 selected skills cannot be overwritten by an ungated side file',async()=>{
   const a=app();a.run('showSkeleton=()=>{};renderAll=()=>{};updateHeader=()=>{};startAutoCheck=()=>{};');
-  a.context.fetch=async url=>({ok:true,json:async()=>url.includes('latest.json')?
+  a.context.fetch=async url=>({ok:!url.includes('release-manifest'),status:404,json:async()=>url.includes('latest.json')?
     {data:{skills:[]},_updated_at:{},_checked_at:{skills:'2026-09-19T09:00:00+08:00'},_update_outcome:{skills:{attempt:'validation_failed',serving:'no_reliable_data'}}}:
     url.includes('skills.json')?{items:[{title:'ungated'}],_updated_at:'new'}:{}});
   assert.equal(await a.run('loadData()'),true);
@@ -211,7 +211,7 @@ test('AH-02 selected skills cannot be overwritten by an ungated side file',async
 
 test('pre-AH-02 latest still accepts the legacy skills side file',async()=>{
   const a=app();a.run('showSkeleton=()=>{};renderAll=()=>{};updateHeader=()=>{};startAutoCheck=()=>{};');
-  a.context.fetch=async url=>({ok:true,json:async()=>url.includes('latest.json')?{data:{skills:[]}}:
+  a.context.fetch=async url=>({ok:!url.includes('release-manifest'),status:404,json:async()=>url.includes('latest.json')?{data:{skills:[]}}:
     url.includes('skills.json')?{items:[{title:'legacy'}],_updated_at:'original'}:{}});
   assert.equal(await a.run('loadData()'),true);
   assert.equal(a.run('DATA.data.skills[0].title'),'legacy');

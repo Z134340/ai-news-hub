@@ -17,3 +17,5 @@
 | `scripts/tests/test_category_quality.py` | 全分類／失敗／損壞／時間／隔離／寫入故障／重跑／daily 安裝 seam，全部暫存 fixture |
 
 檔案位置與結果語意只在上述 spec 維護。這是 local quality store，不是 AH-03 release manifest；public deployment／Firebase 未在本工項操作。
+
+AH-03 接續入口：[release-manifest.md](release-manifest.md)。內容發布與原始 bytes cache 保留既有 v2、品質閘與書籤契約。

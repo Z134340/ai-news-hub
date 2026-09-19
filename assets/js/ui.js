@@ -116,6 +116,7 @@ function updateHeader() {
   if(HEALTH?.status==='missed') b.innerHTML += `<div class="banner err"><span>🔴 排程未執行，請確認電腦是否有開機。</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
   // S-PWR P-3：health.errors[0]（配額耗盡／電池模式回退）純文字一行，icon 用 svg
   const herr = Array.isArray(HEALTH?.errors) && HEALTH.errors.length ? String(HEALTH.errors[0]) : '';
+  if(!HIST_VIEWING && typeof releaseNotice==='function') releaseNotice();
   if(herr) b.innerHTML += `<div class="banner warn"><span>${svg('alert',14,'var(--amber)')} 上次擷取：${esc(herr)}</span><button class="banner-x" onclick="this.parentElement.remove()">×</button></div>`;
 }
 

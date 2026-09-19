@@ -18,3 +18,5 @@
 `latest.data.models` 與其他分類 key 不改名；舊封存缺分類仍可讀。`item_id` 是來源頁身分，同一來源頁跨分類相同，不是模型實體／版本 ID。不得以這個欄位直接替換書籤 key；AH-08 的 alias／雙讀／資料遷移尚未執行。
 
 AH-02 接續入口：`category-quality.md`。v2 latest additive metadata／分類品質與原件儲存已落地；AH-01 migration sidecar 保持原用途，未改書籤 ID。
+
+AH-03 接續入口：[release-manifest.md](release-manifest.md)。內容發布與原始 bytes cache 保留既有 v2、品質閘與書籤契約。

@@ -33,11 +33,12 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 
 - `index.html`、`assets/**`
 - `data/latest.json`、`health.json`、`index.json`、`skills.json`
+- optional `data/release-manifest.json` 及其唯一引用的 `data/releases/<sha256>.json`；存在時先核對精確 hash／latest 一致性，來源與輸出都驗證；缺失維持 legacy 相容（[契約](release-manifest.md)）
 - 近期香港日檔 `data/YYYY-MM-DD.json`
 - 儀表板使用的已發布 `data/agent/*.json`
 - `cloudflare/_headers` → `dist/_headers`
 
-建置會解析必要 JSON 並拒絕 symlink／特殊檔案。`dist/` 不入版控；CI 重新建置並確認 `scripts/`、`docs/`、規則與維運檔不在 web root。
+建置需要 Node 與 Python 標準函式庫（不需第三方套件），會解析必要 JSON 並拒絕 symlink／特殊檔案。`dist/` 不入版控；CI 重新建置並確認 `scripts/`、`docs/`、規則與維運檔不在 web root。
 
 ## 快取與安全 headers
 

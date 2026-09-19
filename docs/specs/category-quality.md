@@ -1,6 +1,6 @@
 # AH-02：分類品質閘與可靠資料沿用
 
-本文件定義本機分類選擇與儲存交易；資料項目沿用 `data-formats.md` 的 v2 schemas、canonical URL、item_id 與 migration。`published` 在此指本機已選出的快照，不代表已 Git push、部署或線上驗收；外部發布仍依 `run-daily.md`。AH-03 release manifest 尚未實作。
+本文件定義本機分類選擇與儲存交易；資料項目沿用 `data-formats.md` 的 v2 schemas、canonical URL、item_id 與 migration。`published` 在此指本機已選出的快照，不代表已 Git push、部署或線上驗收；外部發布仍依 `run-daily.md`。AH-03 內容發布與版本化讀取見 [release-manifest.md](release-manifest.md)。
 
 ## 分層與資料流
 
@@ -12,7 +12,7 @@
 | quarantine | 同 generation 的 `quarantine.json` 與 `result.json.candidate_validation` | 完整分類原件、來源檔位置、原始陣列位置、原因與 validator 明細；不進 public data、Git 或網站 |
 | last-known-good | `result.json.last_known_good[category]` | 只由已通過品質閘的新候選產生，含原項目、內容雜湊、更新／檢查時間；每次讀取重驗契約與可靠條件 |
 | locally published | 同 generation 的 `published.json`，再輸出指定候選檔 | 合格分類的新內容與失敗分類的可靠前版組合；沒有可靠前版則空陣列＋明確狀態，不捏造替代內容 |
-| public | daily 在品質閘正常完成後原子替換 `data/latest.json`，再依既有流程寫日封存／index／health | 不把未核准原件或 quarantine 送到 `git add data/`；Gate A 整體仍未完成 |
+| public | daily 在品質閘正常完成後經 AH-03 installer 寫不可變 blob／相容 latest／manifest，再寫日封存／index／health | 不把未核准原件或 quarantine 送到 `git add data/`；Gate A 整體仍未完成 |
 
 以下 `store` 指 `~/.ai-news-hub/publication/category-quality/`，與 `category-quality-incoming/` 為同層獨立目錄。`store/current` 是唯一原子切換點，指向不可變 generation。檔案先寫暫存、flush/fsync、rename；generation 完整後才切換 pointer。寫入失敗保留舊 generation，candidate 原件與未完成 stage 供追查。輸出候選檔失敗也不切換 pointer。私有 store、output 與來源目錄須互相隔離；CLI 拒绝 repo 內 store、正式 data output 與覆寫來源。
 

@@ -99,3 +99,7 @@ python3 -B scripts/validate.py --input /tmp/history-v2.json --offline
 ## AH-02 metadata schema
 
 `latest.schema.json` 新增 `_checked_at`（各分類含時區 ISO date-time）與 `_update_outcome`（各分類必填 attempt、serving，拒絕未知 enum／欄位）。兩者為 additive，舊封存可缺；AH-02 發布器總是輸出 outcome。跨欄位時間先後、無可靠資料不填 updated、no_change 不改 payload 由分類品質閘驗證；不靠 schema 單獨宣告發布合格。
+
+## AH-03 release manifest
+
+`data/release-manifest.json`（manifest v1）綁定 AH-02 selected v2 snapshot 的精確 bytes、內容 release ID 與 `data/releases/<sha256>.json`；`latest.json` 保留 byte-identical 舊前端相容入口。不更換 itemKey、不改分類時間。Schema、產生順序與失敗語意只在 [release-manifest.md](release-manifest.md) 維護；本機產生不等於已部署。

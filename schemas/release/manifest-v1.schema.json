@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI News Hub local content release manifest v1",
+  "type": "object",
+  "required": ["schema_version", "data_schema_version", "release_id", "data_sha256", "data_path", "data_bytes", "snapshot_time", "scope"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "data_schema_version": {"const": 2},
+    "release_id": {"type": "string", "pattern": "^ahn-release-v1-[0-9a-f]{64}$"},
+    "data_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "data_path": {"type": "string", "pattern": "^data/releases/[0-9a-f]{64}\\.json$"},
+    "data_bytes": {"type": "integer", "minimum": 1},
+    "snapshot_time": {"type": "string", "format": "date-time"},
+    "scope": {"const": "local_snapshot"}
+  }
+}

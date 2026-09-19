@@ -13,3 +13,5 @@
 | 排程鎖與發布 | `scripts/run-locked.py`：`run_locked`；`scripts/publish-daily.py`：`publish`、`push_candidate`、`retry_pending`；`run-daily.sh` 組合流程 | `docs/specs/run-daily.md`；Python 回歸 |
 
 驗證入口為 `.github/workflows/selftest.yml`；本機模型與暫存 Git remote 測試，不代表正式 Firebase、實際每日擷取或部署驗收。
+
+AH-03 接續入口：[release-manifest.md](release-manifest.md)。內容發布與原始 bytes cache 保留既有 v2、品質閘與書籤契約。

@@ -395,7 +395,8 @@ if ! python3 "$SCRIPTS_DIR/category-publication.py" \
 fi
 # latest is the public selected snapshot; category files remain legacy inputs.
 # AH-02 readers never overlay those files onto the gated latest snapshot.
-cp "$LATEST_CANDIDATE" "$DATA_DIR/latest.json.tmp" && mv "$DATA_DIR/latest.json.tmp" "$DATA_DIR/latest.json" || exit 1
+python3 "$SCRIPTS_DIR/release-manifest.py" --store "$QUALITY_STORE" \
+    --candidate "$LATEST_CANDIDATE" --data-dir "$DATA_DIR" || exit 1
 # Aggregate health counts come FROM the per-category decisions, never the reverse.
 COUNTS=$(python3 - "$LATEST_CANDIDATE" "${CATEGORIES[@]}" <<'COUNTS_PYEOF'
 import json, sys

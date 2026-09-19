@@ -39,7 +39,7 @@ fi
 3. OK／FAIL／SKIP 狀態保留到品質閘；失敗不把任意 latest 填回候選。未排程分類以 `not_scheduled` 表達。
 4. `category-publication.py` 逐分類呼叫既有 validator。官方資訊／模型／教學由 `merge-stack.merge_category` 純函式，只與自己的可靠歷史累積。不再從任意舊快照補足 20 筆。
 5. 合格分類前進，失敗分類沿用可靠前版；無可靠前版明確為空及 unavailable 狀態。正式歷史檔不在此流程自動升格為 LKG。
-6. 私有 store 原子完成後輸出 selected candidate，daily 才原子替換 public latest。保留日封存／index／health 和既有 Git 發布流程；這些不構成跨檔／遠端交易。
+6. 私有 store 原子完成後輸出 selected candidate，daily 經 AH-03 installer 寫不可變 blob、相容 latest，最後切換 manifest（[精確契約](release-manifest.md)）。保留日封存／index／health 和既有 Git 發布流程；這些不構成跨檔／遠端交易。
 7. 正式分類 JSON 不再作 daily 中間檔，保留相容用途；前端在 AH-02 latest 存在時不再用獨立 skills.json 覆蓋已選內容。書籤 ID 不變。
 8. `supplement-run.sh [cat...]` 轉交 `run-daily.sh --categories ...`，與每日流程共用鎖、品質與 Git；預設補跑分類不變。這表示補跑同樣要求 main／乾淨工作目錄及 preflight。
 
