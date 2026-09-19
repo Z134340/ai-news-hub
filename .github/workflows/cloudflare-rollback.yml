@@ -1,0 +1,236 @@
+name: Cloudflare Pages rollback
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: plan performs no mutation; execute requires a prior matching plan receipt
+        required: true
+        type: choice
+        options: [plan, execute]
+      target_sha:
+        description: Full 40-character known-good commit SHA
+        required: true
+        type: string
+      expected_release_id:
+        description: Verified ahr1_ release ID expected from target_sha
+        required: true
+        type: string
+      verified_receipt_run_id:
+        description: Workflow run ID containing the target verified deployment receipt
+        required: true
+        type: string
+      verified_receipt_run_attempt:
+        description: Run attempt containing the target verified deployment receipt
+        required: true
+        default: '1'
+        type: string
+      plan_run_id:
+        description: Required for execute; prior rollback plan workflow run ID
+        required: false
+        type: string
+      plan_run_attempt:
+        description: Required for execute; prior rollback plan run attempt
+        required: false
+        default: '1'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-pages-production
+  cancel-in-progress: false
+
+jobs:
+  rollback:
+    permissions:
+      actions: read
+      contents: read
+      deployments: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TARGET_SHA: ${{ inputs.target_sha }}
+      EXPECTED_RELEASE_ID: ${{ inputs.expected_release_id }}
+      PRODUCTION_URL: https://ai-news-hub-7jk.pages.dev
+      RECEIPT_PATH: ${{ runner.temp }}/rollback-receipt.json
+      TARGET_RECEIPT_PATH: ${{ runner.temp }}/target-evidence/deployment-receipt.json
+      PLAN_RECEIPT_PATH: ${{ runner.temp }}/plan-evidence/rollback-receipt.json
+      RECEIPT_ARTIFACT: rollback-${{ inputs.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+    outputs:
+      deploy_sha: ${{ steps.execute.outputs.deploy_sha }}
+      release_id: ${{ steps.execute.outputs.release_id }}
+      receipt_artifact: rollback-${{ inputs.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Validate pinned rollback inputs
+        run: |
+          set -euo pipefail
+          [[ "$TARGET_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$EXPECTED_RELEASE_ID" =~ ^ahr1_[a-f0-9]{64}$ ]]
+          [[ "${{ inputs.verified_receipt_run_id }}" =~ ^[0-9]+$ ]]
+          [[ "${{ inputs.verified_receipt_run_attempt }}" =~ ^[0-9]+$ ]]
+          if [ "${{ inputs.mode }}" = execute ]; then
+            [[ "${{ inputs.plan_run_id }}" =~ ^[0-9]+$ ]]
+            [[ "${{ inputs.plan_run_attempt }}" =~ ^[0-9]+$ ]]
+          fi
+
+      - name: Checkout rollback tooling
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+
+      - name: Download known-good target receipt
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: deployment-receipt-${{ inputs.verified_receipt_run_id }}-${{ inputs.verified_receipt_run_attempt }}
+          path: ${{ runner.temp }}/target-evidence
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.verified_receipt_run_id }}
+
+      - name: Require exact verified rollback target
+        run: >-
+          node scripts/post-deploy.mjs inspect
+          --receipt "$TARGET_RECEIPT_PATH"
+          --status verified
+          --deploy-sha "$TARGET_SHA"
+          --release-id "$EXPECTED_RELEASE_ID"
+
+      - name: Checkout exact rollback target
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ env.TARGET_SHA }}
+          path: rollback-target
+
+      - name: Rebuild exact allowlisted target
+        run: |
+          set -euo pipefail
+          test "$(git -C rollback-target rev-parse HEAD)" = "$TARGET_SHA"
+          node rollback-target/scripts/build-site.mjs
+          ACTUAL_RELEASE_ID="$(node -p "require('./rollback-target/dist/data/release-manifest.json').release_id")"
+          test "$ACTUAL_RELEASE_ID" = "$EXPECTED_RELEASE_ID"
+
+      - name: Create dry-run rollback plan
+        id: plan
+        if: inputs.mode == 'plan'
+        run: >-
+          node scripts/post-deploy.mjs rollback-plan
+          --target-receipt "$TARGET_RECEIPT_PATH"
+          --manifest rollback-target/dist/data/release-manifest.json
+          --target-sha "$TARGET_SHA"
+          --expected-release-id "$EXPECTED_RELEASE_ID"
+          --workflow-run-id "${{ github.run_id }}"
+          --workflow-run-attempt "${{ github.run_attempt }}"
+          --production-url "$PRODUCTION_URL"
+          --attempts 6
+          --base-delay-ms 2000
+          --timeout-ms 10000
+          --receipt "$RECEIPT_PATH"
+          --github-output "$GITHUB_OUTPUT"
+
+      - name: Download prior dry-run plan
+        if: inputs.mode == 'execute'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: rollback-plan-${{ inputs.plan_run_id }}-${{ inputs.plan_run_attempt }}
+          path: ${{ runner.temp }}/plan-evidence
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.plan_run_id }}
+
+      - name: Bind execution to the prior plan and current production identity
+        id: execute
+        if: inputs.mode == 'execute'
+        run: >-
+          node scripts/post-deploy.mjs rollback-init
+          --plan-receipt "$PLAN_RECEIPT_PATH"
+          --target-receipt "$TARGET_RECEIPT_PATH"
+          --manifest rollback-target/dist/data/release-manifest.json
+          --workflow-run-id "${{ github.run_id }}"
+          --workflow-run-attempt "${{ github.run_attempt }}"
+          --production-url "$PRODUCTION_URL"
+          --attempts 6
+          --base-delay-ms 2000
+          --timeout-ms 10000
+          --receipt "$RECEIPT_PATH"
+          --github-output "$GITHUB_OUTPUT"
+
+      - name: Verify deployment credentials exist
+        if: inputs.mode == 'execute'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_API_TOKEN"
+
+      - name: Upload rollback target to Cloudflare Pages
+        id: cloudflare
+        if: inputs.mode == 'execute'
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.135.0'
+          command: >-
+            pages deploy rollback-target/dist
+            --project-name=ai-news-hub
+            --branch=main
+            --commit-hash=${{ env.TARGET_SHA }}
+            --commit-dirty=true
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Record rollback upload
+        if: inputs.mode == 'execute'
+        run: >-
+          node scripts/post-deploy.mjs uploaded
+          --receipt "$RECEIPT_PATH"
+          --deployment-url "${{ steps.cloudflare.outputs.deployment-url || env.PRODUCTION_URL }}"
+
+      - name: Verify rolled-back production with the shared verifier
+        if: inputs.mode == 'execute'
+        run: >-
+          node scripts/post-deploy.mjs verify
+          --receipt "$RECEIPT_PATH"
+          --attempts 6
+          --base-delay-ms 2000
+          --timeout-ms 10000
+
+      - name: Record failed rollback stage
+        if: failure() && steps.execute.outcome == 'success'
+        run: >-
+          node scripts/post-deploy.mjs failed
+          --receipt "$RECEIPT_PATH"
+          --stage rollback_workflow
+          --error-code workflow_step_failed
+
+      - name: Preserve rollback receipt history
+        if: always() && (steps.plan.outcome == 'success' || steps.execute.outcome == 'success')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ${{ env.RECEIPT_ARTIFACT }}
+          path: ${{ env.RECEIPT_PATH }}
+          if-no-files-found: error
+          retention-days: 90
+
+  notify:
+    needs: rollback
+    if: inputs.mode == 'execute' && needs.rollback.result == 'success'
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+    uses: ./.github/workflows/notify.yml
+    with:
+      receipt_artifact: ${{ needs.rollback.outputs.receipt_artifact }}
+      deploy_sha: ${{ needs.rollback.outputs.deploy_sha }}
+      release_id: ${{ needs.rollback.outputs.release_id }}
+      receipt_file: rollback-receipt.json

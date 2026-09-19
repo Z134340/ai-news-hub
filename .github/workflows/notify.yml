@@ -1,28 +1,76 @@
-name: Push Notification
+name: Verified Production Notification
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - data/latest.json
+  workflow_call:
+    inputs:
+      receipt_artifact:
+        required: true
+        type: string
+      deploy_sha:
+        required: true
+        type: string
+      release_id:
+        required: true
+        type: string
+      receipt_file:
+        required: false
+        default: deployment-receipt.json
+        type: string
 
 permissions:
+  actions: read
   contents: read
   issues: write
+
+concurrency:
+  group: production-notify-${{ inputs.deploy_sha }}-${{ inputs.release_id }}
+  cancel-in-progress: false
 
 jobs:
   notify:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.deploy_sha }}
 
-      - name: Create GitHub Issue Notification
-        uses: actions/github-script@v7
+      - name: Download immutable verification receipt
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ${{ inputs.receipt_artifact }}
+          path: ${{ runner.temp }}/verified-receipt
+
+      - name: Require verified receipt identity
+        run: >-
+          node scripts/post-deploy.mjs inspect
+          --receipt "${{ runner.temp }}/verified-receipt/${{ inputs.receipt_file }}"
+          --status verified
+          --deploy-sha "${{ inputs.deploy_sha }}"
+          --release-id "${{ inputs.release_id }}"
+
+      - name: Create idempotent verified notification
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          RECEIPT_PATH: ${{ runner.temp }}/verified-receipt/${{ inputs.receipt_file }}
         with:
           script: |
             const fs = require('fs');
             const path = require('path');
+            const {pathToFileURL} = require('url');
+            const helpers = await import(pathToFileURL(path.join(process.env.GITHUB_WORKSPACE, 'scripts/deployment-notification.mjs')));
+            const receipt = JSON.parse(fs.readFileSync(process.env.RECEIPT_PATH, 'utf8'));
+
+            const existingIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              labels: 'ai-news-production',
+              per_page: 100,
+            });
+            if (!helpers.shouldNotify(receipt, existingIssues)) {
+              core.info('Verified production notification already exists for this deployment identity');
+              return;
+            }
 
             // Read latest.json
             const latestPath = path.join(process.env.GITHUB_WORKSPACE, 'data/latest.json');
@@ -58,15 +106,21 @@ jobs:
             // Get validation rate
             const validationRate = latestData.validation?.pass_rate || healthData.validation_pass_rate || 'N/A';
 
-            // Create issue title
-            const title = `✅ AI News ${date} ${period} · ${totalCount} 筆 · 驗證 ${validationRate}`;
+            // Create issue title only after the verified receipt gate above.
+            const action = receipt.kind === 'rollback' ? 'Cloudflare 回滾已驗證' : 'Cloudflare production 已驗證';
+            const title = `✅ ${action} · AI News ${date} ${period} · ${totalCount} 筆`;
 
             // Build issue body
-            let body = `## 📊 每日新聞摘要\n\n`;
+            let body = `${helpers.notificationMarker(receipt)}\n## ${action}\n\n`;
 
             // Status table
             body += `| 欄位 | 內容 |\n`;
             body += `|------|------|\n`;
+            body += `| 驗證結果 | verified |\n`;
+            body += `| 部署 SHA | \`${receipt.deploy_sha}\` |\n`;
+            body += `| Release ID | \`${receipt.expected.release_id}\` |\n`;
+            body += `| Content set SHA-256 | \`${receipt.expected.content_set_sha256}\` |\n`;
+            body += `| Receipt ID | \`${receipt.receipt_id}\` |\n`;
             body += `| 日期 | ${date} |\n`;
             body += `| 時間 | ${timeStr.includes('T') ? timeStr.split('T')[1].slice(0,5) : (timeStr.slice(0,5) || 'N/A')} |\n`;
             body += `| 來源數 | ${latestData.source_count || 'N/A'} |\n`;
@@ -93,7 +147,7 @@ jobs:
             body += `🔗 [前往 AI News Hub 查看完整內容](https://ai-news-hub-7jk.pages.dev/)\n`;
 
             // Create or get the label
-            const labelName = 'ai-news-daily';
+            const labelName = 'ai-news-production';
             try {
               await github.rest.issues.getLabel({
                 owner: context.repo.owner,
@@ -107,7 +161,7 @@ jobs:
                   repo: context.repo.repo,
                   name: labelName,
                   color: '0366d6',
-                  description: 'AI News daily notification',
+                  description: 'Verified AI News Hub production deployments',
                 });
               }
             }

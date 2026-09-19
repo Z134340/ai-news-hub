@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-news-hub.local/schemas/deployment-receipt-v1.schema.json",
+  "title": "AI News Hub deployment and rollback receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "receipt_id", "kind", "idempotency_key", "deploy_sha", "checkout_sha", "ci", "workflow", "production_url", "cloudflare_deployment_url", "expected", "rollback", "events", "final_status", "verification"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["deployment", "rollback"]},
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "deploy_sha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "checkout_sha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "ci": {
+      "type": "object", "additionalProperties": false, "required": ["run_id", "sha"],
+      "properties": {"run_id": {"type": "string", "minLength": 1}, "sha": {"type": "string", "pattern": "^[a-f0-9]{40}$"}}
+    },
+    "workflow": {
+      "type": "object", "additionalProperties": false, "required": ["run_id", "run_attempt"],
+      "properties": {"run_id": {"type": "string", "minLength": 1}, "run_attempt": {"type": "integer", "minimum": 1}}
+    },
+    "production_url": {"type": "string", "format": "uri"},
+    "cloudflare_deployment_url": {"type": ["string", "null"], "format": "uri"},
+    "expected": {"$ref": "release-manifest-v1.schema.json"},
+    "rollback": {"type": ["object", "null"]},
+    "events": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["sequence", "status", "stage", "at"],
+        "properties": {
+          "sequence": {"type": "integer", "minimum": 1},
+          "status": {"enum": ["requested", "uploaded", "verified", "failed"]},
+          "stage": {"type": "string", "minLength": 1},
+          "at": {"type": "string", "format": "date-time"},
+          "details": {"type": "object"}
+        }
+      }
+    },
+    "final_status": {"enum": ["requested", "uploaded", "verified", "failed"]},
+    "verification": {"type": ["object", "null"]}
+  }
+}

@@ -6,25 +6,70 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+    inputs:
+      target_sha:
+        description: Full 40-character commit SHA to deploy
+        required: true
+        type: string
+      ci_run_id:
+        description: Successful 離線自測 workflow run ID for exactly target_sha
+        required: true
+        type: string
+      expected_release_id:
+        description: Expected ahr1_ release ID rebuilt from target_sha
+        required: true
+        type: string
 
 permissions:
   contents: read
-  deployments: write
 
 concurrency:
   group: cloudflare-pages-production
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
+    permissions:
+      actions: read
+      contents: read
+      deployments: write
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
-      DEPLOY_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+      DEPLOY_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.target_sha }}
+      CI_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.target_sha }}
+      CI_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.ci_run_id }}
+      PRODUCTION_URL: https://ai-news-hub-7jk.pages.dev
+      RECEIPT_PATH: ${{ runner.temp }}/deployment-receipt.json
+      RECEIPT_ARTIFACT: deployment-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+    outputs:
+      deploy_sha: ${{ steps.requested.outputs.deploy_sha }}
+      release_id: ${{ steps.verify.outputs.release_id }}
+      receipt_artifact: deployment-receipt-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
+      - name: Validate explicit manual CI evidence
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          TARGET_SHA: ${{ env.DEPLOY_SHA }}
+          CI_RUN_ID: ${{ env.CI_RUN_ID }}
+        with:
+          script: |
+            if (!/^[a-f0-9]{40}$/.test(process.env.TARGET_SHA || '')) core.setFailed('target_sha must be a full lowercase commit SHA');
+            if (!/^\d+$/.test(process.env.CI_RUN_ID || '')) core.setFailed('ci_run_id must be numeric');
+            const response = await github.rest.actions.getWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: Number(process.env.CI_RUN_ID),
+            });
+            const run = response.data;
+            if (run.conclusion !== 'success') core.setFailed('the supplied CI run is not successful');
+            if (run.head_sha !== process.env.TARGET_SHA) core.setFailed('the supplied CI run does not validate target_sha');
+            if (run.name !== '離線自測') core.setFailed('the supplied run is not the 離線自測 workflow');
+
       - name: Checkout validated revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -36,19 +81,47 @@ jobs:
           node-version: '22'
           package-manager-cache: false
 
-      - name: Verify deployment credentials exist
+      - name: Verify checkout and deployment credentials
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$DEPLOY_SHA"
+          test "$DEPLOY_SHA" = "$CI_SHA"
           test -n "$CLOUDFLARE_ACCOUNT_ID"
           test -n "$CLOUDFLARE_API_TOKEN"
 
       - name: Build allowlisted site artifact
         run: node scripts/build-site.mjs
 
+      - name: Verify manual release identity
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_RELEASE_ID: ${{ inputs.expected_release_id }}
+        run: |
+          set -euo pipefail
+          ACTUAL_RELEASE_ID="$(node -p "require('./dist/data/release-manifest.json').release_id")"
+          test "$ACTUAL_RELEASE_ID" = "$EXPECTED_RELEASE_ID"
+
+      - name: Create requested deployment receipt
+        id: requested
+        run: >-
+          node scripts/post-deploy.mjs init
+          --receipt "$RECEIPT_PATH"
+          --receipt-id "deployment-${{ github.run_id }}-${{ github.run_attempt }}"
+          --manifest dist/data/release-manifest.json
+          --deploy-sha "$DEPLOY_SHA"
+          --ci-sha "$CI_SHA"
+          --checkout-sha "$(git rev-parse HEAD)"
+          --ci-run-id "$CI_RUN_ID"
+          --workflow-run-id "${{ github.run_id }}"
+          --workflow-run-attempt "${{ github.run_attempt }}"
+          --production-url "$PRODUCTION_URL"
+          --github-output "$GITHUB_OUTPUT"
+
       - name: Deploy validated revision to Cloudflare Pages
+        id: cloudflare
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -61,3 +134,49 @@ jobs:
             --commit-hash=${{ env.DEPLOY_SHA }}
             --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Record Cloudflare upload
+        run: >-
+          node scripts/post-deploy.mjs uploaded
+          --receipt "$RECEIPT_PATH"
+          --deployment-url "${{ steps.cloudflare.outputs.deployment-url || env.PRODUCTION_URL }}"
+
+      - name: Verify stable production URL
+        id: verify
+        run: >-
+          node scripts/post-deploy.mjs verify
+          --receipt "$RECEIPT_PATH"
+          --attempts 6
+          --base-delay-ms 2000
+          --timeout-ms 10000
+          --github-output "$GITHUB_OUTPUT"
+
+      - name: Record failed deployment stage
+        if: failure() && steps.requested.outcome == 'success'
+        run: >-
+          node scripts/post-deploy.mjs failed
+          --receipt "$RECEIPT_PATH"
+          --stage workflow
+          --error-code workflow_step_failed
+
+      - name: Preserve deployment receipt history
+        if: always() && steps.requested.outcome == 'success'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ${{ env.RECEIPT_ARTIFACT }}
+          path: ${{ env.RECEIPT_PATH }}
+          if-no-files-found: error
+          retention-days: 90
+
+  notify:
+    needs: deploy
+    if: needs.deploy.result == 'success'
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+    uses: ./.github/workflows/notify.yml
+    with:
+      receipt_artifact: ${{ needs.deploy.outputs.receipt_artifact }}
+      deploy_sha: ${{ needs.deploy.outputs.deploy_sha }}
+      release_id: ${{ needs.deploy.outputs.release_id }}

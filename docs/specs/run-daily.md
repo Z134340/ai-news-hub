@@ -87,23 +87,9 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 
 `health.last_success` 明確代表 `local_processing` 完整成功，並非網站部署；candidate health 的 `publication` 固定為 `pending`，實際推送查 off-repo receipt，網站部署查 Pages 證據。`needs_review` 不計入驗證率；只有 selected pass_rate=100 且本輪分類狀態為 ok 才標 `[verified]`。沿用可靠資料可能仍顯示 selected rate=100，但 failed／partial 的提交為 `[unverified]`。
 
-### Email 通知（全自動，零設定）
+### Production verified 通知
 
-**機制：** Git push 成功後，GitHub Actions 自動觸發 `notify.yml`：
-1. 偵測 `data/latest.json` 變更
-2. 讀取 JSON，產生 Markdown 摘要
-3. 建立 GitHub Issue（標題含日期/早午班/筆數/驗證率）
-4. Issue 內容：十二類別各自的筆數 + 前 3 筆標題（含連結）+ 網站 CTA
-5. 自動關閉 7 天前的舊 Issue
-6. GitHub 內建通知系統自動寄 Email 給 repo owner
-
-**不需要：** App Password、Gmail 設定、任何額外帳號
-**需要確認：** GitHub → Settings → Notifications → Email 已勾選 Issues
-
-**通知 Issue 標題格式：**
-`✅ AI News 2026-04-04 🌆 午班 · 68 筆 · 驗證 96%`
-
-**Label：** `ai-news-daily`（自動建立）
+Git push、每日資料處理或 `data/latest.json` 變更本身不再觸發成功通知。`notify.yml` 只能由 Cloudflare deploy／rollback workflow 在固定 production URL 的 post-deploy verification 成功、verified receipt 已保存後呼叫；排序、冪等與通知證據只在 `deployment.md` 維護。GitHub Issues／Email 是否實際送達仍取決於 repository 與使用者的外部通知設定，不能由 workflow 定義冒稱已啟用。
 
 ### 完全靜默
 - 所有輸出導向 data/logs/YYYY-MM-DD.log

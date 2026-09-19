@@ -50,11 +50,13 @@ CI 設定不等於 GitHub 已啟用必須通過的 branch protection；未查證
 
 ## Cloudflare Pages production
 
-`cloudflare-pages.yml` 只在 `main` 的「離線自測」成功後部署該次測試的同一個 `head_sha`，或由 repository 管理者人工觸發首次部署／故障復原。工作流程重新建置 `dist/` allowlist，不使用整個 repository 當 web root。
+`cloudflare-pages.yml` 只在 `main` 的「離線自測」成功後部署該次測試的同一個 `head_sha`；人工 deploy 也必須釘住完整 target SHA、成功 CI run ID 與 expected release ID。工作流程重新建置 `dist/` allowlist，不使用整個 repository 當 web root。
 
 - 權限只有 `contents: read` 與 `deployments: write`。
 - `cloudflare/wrangler-action` 與 Wrangler 固定版本，runner 固定 `ubuntu-24.04`。
-- production 使用單一 concurrency group；較新的發布會取消尚未完成的舊發布。
+- production deploy 與 rollback 共用單一 concurrency group；不取消已開始的 production mutation。
 - GitHub secrets 只存 `CLOUDFLARE_ACCOUNT_ID` 與 Pages Edit scoped token；不得加入 Firebase writer 帳密。
 - workflow 不部署 pull request 或外部 fork，避免讓 production token 進入未受信任程式碼路徑。
 - Cloudflare GitHub App callback 的帳號層連線錯誤及 Direct Upload 決策記在 `docs/specs/deployment.md`，不能並行啟用第二條 production 自動部署。
+- upload 後必須以 `scripts/post-deploy.mjs` 對固定 production URL 驗 manifest／四資產／headers；終態 receipt 以唯一 artifact 保存。`notify.yml` 僅為 verified receipt 的 reusable workflow，不再監聽 main push。
+- 人工 rollback 只走 `cloudflare-rollback.yml` 的 plan／execute 雙階段；完整 identity、receipt、重試、通知與失敗契約只在 `docs/specs/deployment.md` 維護。
