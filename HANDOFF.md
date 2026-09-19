@@ -7,6 +7,7 @@
 
 | 工項 | 負責／分支與基準 | 狀態與變更範圍 | 驗證與下一步 |
 |---|---|---|---|
+| AH-00：架構強化 Session 規劃 | Codex；`codex/architecture-session-plan`；基準 `1230eba` | 2026-09-19 依使用者要求，將整體架構改善拆成 AH-00～AH-13 living backlog，並把「每個 Session 完成後交付下一個可直接貼上的 Prompt」寫入共用規則。只修改文件，不改 production 程式、資料、Firebase 或外部服務 | 權威 backlog：`docs/specs/architecture-hardening-v1.md`。下一步只做 AH-01「資料契約 v2 與相容遷移」；其餘工項依相依順序逐次執行 |
 | OPS-10AM：每日排程改為上午 10:00 | Codex；`codex/daily-10am`；基準 `ced31a5` | 2026-09-19 依使用者要求，擷取改為每日 10:00、macOS 喚醒 09:55、電池提醒 09:50；健康檢查改為 12:17（UTC 04:17），跨日延遲判斷門檻同步改為 12:00。為避免 09:20 的模型工作重疊，Hermes EAGA optimizer 改至 12:30；fleet 單一真相已提交 `de2a4f5` | `launchctl print` 已確認三個時段為 09:50／10:00／12:30，`pmset -g sched` 已確認每日 09:55 喚醒；排程契約、Shell 語法、validator 23 項與 agent 68 項自測通過。首次 10:00 正式執行後仍須驗收擷取、驗證、推送及 Cloudflare 同 SHA 部署 |
 | DATA-ECOSYSTEM：企業生態系 | Codex；`codex/enterprise-ecosystem`；基準 `8f83a6d` | 依使用者確認後實作：主選單新增「企業生態系」，下分「官方資訊」與沿用 `models` key 的「模型快訊」；兩類每日擷取、30／90 天累積、公司—官方網域配對閘、舊封存缺 key 相容，並接入搜尋與 learning metrics。canonical URL 去重會沿用 `first_seen`，重複公告不重新標成新項目。沒有執行正式擷取或改寫 `latest.json` | 權威規格為 `docs/specs/categories.md`、`schedule.md`、`data-formats.md`；共同來源在 `skills/official-ai-ecosystem-research/references/official-sources.json`。驗證：前端 24、robustness 27、trend＋skills 12、agent 68 項皆通過；`validate.py`、`merge-stack.py` 自測、Skill 有效封包、網站 build 與桌面／390px 瀏覽器驗收皆通過。第一批官方資訊與既有模型資料清理由下一次正常每日排程產生，不能以空種子檔宣稱已有內容或已完成真實排程驗收 |
 | DOC-SHARED：兩工具共用規範 | Codex；`codex/shared-project-guidance`；基準 `e58ac42` | 整理與驗收完成；限共用文件、架構／Git 行為說明與歷史封存。網站程式、排程、runtime 憲章及權限設定未修改 | 驗證詳見下方；交付狀態以包含本列的 Git 提交與遠端分支為準，無追加實作工項 |

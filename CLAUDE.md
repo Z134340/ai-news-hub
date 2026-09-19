@@ -40,6 +40,7 @@
 | `scripts/validate.py`、Tier B、日期上限 | `docs/specs/validate.md` |
 | GitHub Actions 健康檢查與部署 | `docs/specs/workflows.md` |
 | Cloudflare Pages、GitHub 部署來源、發佈包與回退 | `docs/specs/deployment.md` |
+| 架構強化 living backlog、Session 相依與 release gates | `docs/specs/architecture-hardening-v1.md` |
 | 排程安裝、launchd、電源與喚醒 | `docs/specs/setup-scheduler.md` |
 | 前端 UX、趨勢儀表板與待實作設計 | `docs/specs/frontend-ux.md` |
 | 雙訊號學習迴圈 | `docs/specs/learning-loop-v1.md` |
@@ -56,6 +57,7 @@
 5. 一個工作階段聚焦一份施工單或一個明確工項；Phase 可拆成多個工項，不把「一個工項」誤解為一次完成整個 Phase。
 6. 新檔可用 heredoc；同一檔多處修改集中處理；修改後只讀必要差異並驗證，不反覆全文輸出。
 7. 長任務、切換工具或上下文將滿時，先更新交接再接續。工具支援時另開新工作階段；若系統自動摘要，從共用文件恢復，不將聊天摘要或私人記憶當作唯一交接。
+8. 多 Session 工程依 `HANDOFF.md`／對應 living backlog 的工項 ID 逐次執行，一個 Session 只做一個工項。每次完成並更新交接後，最終回覆必須附上「下一個 Session 可直接貼上執行的完整 Prompt」，至少包含專案路徑、必讀文件、工項 ID、前置條件、變更範圍、勿動範圍、驗收、提交／推送與交接要求；若 backlog 已完成，明確寫無下一工項，不虛構 Prompt。
 
 ## 共同開發與提交
 
