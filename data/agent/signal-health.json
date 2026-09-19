@@ -1,7 +1,7 @@
 {
   "schema": "signal-health-v1",
-  "generated_at": "2026-09-18T12:04:20.034Z",
-  "date": "2026-09-18",
+  "generated_at": "2026-09-19T02:30:13.387Z",
+  "date": "2026-09-19",
   "state": "yellow",
   "reason": [
     "metrics_ratings_zero_in_window",
@@ -10,14 +10,15 @@
   ],
   "window": {
     "silent_nights": 7,
-    "since": "2026-09-12",
-    "nights_observed": 5,
+    "since": "2026-09-13",
+    "nights_observed": 6,
     "dates": [
       "2026-09-14",
       "2026-09-15",
       "2026-09-16",
       "2026-09-17",
-      "2026-09-18"
+      "2026-09-18",
+      "2026-09-19"
     ]
   },
   "metrics_ratings": {
@@ -32,7 +33,8 @@
       "governance": 0,
       "tutorials": 0,
       "courses": 0,
-      "models": 0
+      "models": 0,
+      "official_info": 0
     }
   },
   "ledger_human_rating": {

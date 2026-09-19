@@ -1,20 +1,80 @@
 {
   "items": [
     {
-      "title": "Release agentproto — September 17, 2026 release · agentproto/ts",
-      "title_zh": "agentproto/ts 發布 2026 年 9 月 17 日版本",
-      "source": "GitHub",
-      "date": "2026-09-17",
-      "domain": "Agent",
-      "model_area": "Agent 框架／模型路由（AIP-57 MODEL-ROUTING）",
-      "summary": "agentproto 於 2026-09-17 發布 TypeScript SDK 新版本，首度推出 @agentproto/model-routing 套件，作為 AIP-57 MODEL-ROUTING 規格的參考實作。該套件的設計目標是回答「某一次請求實際由哪個模型服務」，刻意做成無 I/O、無時鐘、無隨機性的純函式，讓路由決策可重現、可稽核。同版另將 OpenCode Go 與 Zen 納入 adapter 層的一級計費端點，並加入三項 session 可見度的 runtime 改進。",
+      "title": "Google, Anthropic, and OpenAI Unveil Cyber AI Models, Safeguards, and Access Programs",
+      "title_zh": "Google、Anthropic 與 OpenAI 同步發表資安專用 AI 模型、防護機制與存取計畫",
+      "source": "The Hacker News",
+      "date": "2026-09-18",
+      "domain": "Cybersecurity",
+      "model_area": "Claude Fable 5.1 / Claude Mythos 5.1 / Gemini 3.8 Flash Cyber",
+      "summary": "三大前沿實驗室在同一波發表中把資安專用模型與分級存取綁在一起。Anthropic 推出 Claude Fable 5.1 與 Claude Mythos 5.1，兩者套用不同強度的防護措施，其中 Mythos 5.1 只透過受信任存取計畫（trusted access program）開放，用途限定在資安與生命科學。Google 則發表 Gemini 3.8 Flash Cyber，自稱是其最強的資安模型，並以新的 Fairwind Program 讓高優先度的防禦方優先取得。整體模式是「高能力模型不公開發行，改以白名單防禦者為通路」。",
       "highlights": [
-        "新增 @agentproto/model-routing：以無副作用（no I/O／no clock／no randomness）的純決策函式實作模型路由，路由結果可重現，適合需要留痕的 agent 治理情境",
-        "adapter 層新增 OpenCode Go 與 Zen 為一級計費端點，擴大多供應商成本歸因的覆蓋範圍",
-        "三項 session 可見度 runtime 改進，強化 agent 執行過程的可觀測性"
+        "Claude Mythos 5.1 不走一般 API 通路，僅限受信任存取計畫，適用範圍限縮於資安與生命科學",
+        "Google 以 Fairwind Program 作為 Gemini 3.8 Flash Cyber 的分流機制，優先給防禦方而非一般開發者",
+        "三家同時採「能力愈強、通路愈窄」的發布策略，對金融業意味著資安類前沿模型未來多需個案申請而非自助開通"
       ],
-      "url": "https://github.com/agentproto/ts/releases/tag/release/2026-09-17"
+      "url": "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html"
+    },
+    {
+      "title": "Anthropic Unifies Claude Chat and Cowork Into Single Interface, Adds Slides and Docs Features",
+      "title_zh": "Anthropic 將 Claude 對話與 Cowork 整併為單一介面，並新增 Slides 與 Docs 功能",
+      "source": "The AI Insider",
+      "date": "2026-09-18",
+      "domain": "Agent",
+      "model_area": "Claude / Claude Cowork / Artifacts",
+      "summary": "Anthropic 把原本分離的 Claude 一般對話與 agentic 工具 Cowork 合併到同一個視窗，使用者不必再自行判斷該切到哪個分頁，改由 Claude 自動路由請求。Artifacts 互動工作區也納入同一介面。同時以 beta 形式推出 Claude Docs 與 Claude Slides 兩項新功能，搭配 Claude Design 工具一併擴大推送。更新先開放給 Pro 與 Max 訂閱者，涵蓋網頁、桌面與行動端，Team 與 Free 方案後續跟進。",
+      "highlights": [
+        "對話與 agent 執行合流為單一入口，路由決策從使用者手上移到模型端，是 agent 產品「隱藏編排層」的典型走向",
+        "新增 Docs 與 Slides beta，Claude 從產出文字轉向直接產出可編輯交付物",
+        "分層推送順序為 Pro／Max 先行，Team 與 Free 延後，企業採用需留意版本落差"
+      ],
+      "url": "https://theaiinsider.tech/2026/09/18/anthropic-unifies-claude-chat-and-cowork-into-single-interface-adds-slides-and-docs-features/"
+    },
+    {
+      "title": "Anthropic says its model Claude is helping to build the next version of itself",
+      "title_zh": "Anthropic 表示 Claude 正在協助打造自己的下一個版本",
+      "source": "CTV News",
+      "date": "2026-09-18",
+      "domain": "LLM",
+      "model_area": "Claude",
+      "summary": "Anthropic 公開表示，現行的 Claude 模型已實際參與公司開發下一代、能力更強版本的工作。這等於官方承認模型研發流程本身已進入「以模型開發模型」的階段。對治理面而言，重點不在行銷語言，而在於研發鏈中人類審核的位置與可稽核性如何界定。",
+      "highlights": [
+        "官方承認模型已介入自身後續版本的開發流程，而非僅用於周邊工程輔助",
+        "此說法直接牽動「能力提升速度應否放慢」的產業辯論脈絡",
+        "治理關注點應放在模型參與研發時的人工審核節點與紀錄保存，而非能力宣稱本身"
+      ],
+      "url": "https://guelph.ctvnews.ca/sci-tech/article/anthropic-says-its-model-claude-is-helping-to-build-the-next-version-of-itself/"
+    },
+    {
+      "title": "California Gov. Newsom issues executive order to rein in AI 'before it's too late'",
+      "title_zh": "加州州長 Newsom 簽署行政命令，要「在來不及之前」管住 AI",
+      "source": "CNBC",
+      "date": "2026-09-18",
+      "domain": "Policy",
+      "model_area": "AI safety regulation",
+      "summary": "加州州長 Gavin Newsom 簽署行政命令，針對 AI 潛在風險採取行動，要求組成專家團隊提出強化州級 AI 安全法規的建議。同日 Newsom 並公開主張 AI 需要「kill switch」（緊急停止機制），並呼籲聯邦層級採納加州的監管做法。加州是多數前沿實驗室的所在地，州法實質上具有跨州外溢效果。",
+      "highlights": [
+        "行政命令核心是成立專家小組，產出強化州級 AI 安全立法的具體建議，屬於立法前置作業而非直接規範",
+        "Newsom 主張導入緊急停止機制，並要求聯邦比照加州標準",
+        "對金融業的意涵：美國 AI 監理短期內仍以州級先行、聯邦落後的分歧格局推進，跨境合規需以最嚴州法為基準"
+      ],
+      "url": "https://www.cnbc.com/2026/09/18/california-newsom-executive-order-ai.html"
+    },
+    {
+      "title": "For AI agents, it's the best of times, it's the worst of times",
+      "title_zh": "對 AI agent 而言，這是最好的時代，也是最壞的時代",
+      "source": "SiliconANGLE",
+      "date": "2026-09-18",
+      "domain": "Agent",
+      "model_area": "Agentic AI / enterprise agents",
+      "summary": "SiliconANGLE 於 2026-09-18 刊出的 AI agent 產業評論，主題聚焦在 agent 同時處於高速擴張與嚴重落地落差的雙面局勢。註記：本則僅能由搜尋結果確認標題、來源與發佈日期，內文細節與具體數據未能逐字核對，摘要不代為補述未經查證的內容。",
+      "highlights": [
+        "發佈日期與來源已由搜尋結果確認為 2026-09-18 SiliconANGLE",
+        "內文論點與數據未能開啟原文核對，屬未能驗證，閱讀時請以原文為準",
+        "同期產業脈絡為 agent 產品大量發布與企業導入成效落差並存"
+      ],
+      "url": "https://siliconangle.com/2026/09/18/for-ai-agents-its-the-best-of-times-its-the-worst-of-times/"
     }
   ],
-  "_updated_at": "2026-09-18T19:53:49.789913+08:00"
+  "_updated_at": "2026-09-19T10:25:35.740427+08:00"
 }
