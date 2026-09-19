@@ -18,6 +18,8 @@
 
 AH-02 起，`_updated_at` 是各分類合格內容最後實質改變的時間，`_checked_at` 記最近嘗試，`_update_outcome` 分開本輪結果與實際供應資料。無可靠內容不填 updated；舊快照原值保留。精確契約、結果矩陣与例外見 `category-quality.md`。
 
+Cloudflare allowlist build 會為 latest／health／index／skills 的實際 bytes 產生 `data/release-manifest.json`；其 schema、release ID、hash、cache 與 legacy 讀取規則只在 `release-manifest.md` 維護。manifest 標示的資料 schema 依檔內實際版本，不會把尚未 production migration 的無版本 latest 冒稱 v2。
+
 `data/skills.json` 為 `{items, _updated_at, source}`；items 欄位見分類規範。AH-02 daily 擷取改寫私有候選；此 public 檔保留相容用途。有 `_update_outcome` 的 latest 已包含品質閘選出的 Skills，前端不再用此舊檔覆蓋；較舊版本仍可讀取。歷史快照沒有 `skills`，或舊封存沒有 `official_info` 時，前端須視為空陣列，不得中斷載入。
 
 ## data/health.json 格式

@@ -1,6 +1,6 @@
 # AH-02：分類品質閘與可靠資料沿用
 
-本文件定義本機分類選擇與儲存交易；資料項目沿用 `data-formats.md` 的 v2 schemas、canonical URL、item_id 與 migration。`published` 在此指本機已選出的快照，不代表已 Git push、部署或線上驗收；外部發布仍依 `run-daily.md`。AH-03 release manifest 尚未實作。
+本文件定義本機分類選擇與儲存交易；資料項目沿用 `data-formats.md` 的 v2 schemas、canonical URL、item_id 與 migration。`published` 在此指本機已選出的快照，不代表已 Git push、部署或線上驗收；外部發布仍依 `run-daily.md`。Cloudflare build 內的 AH-03 release identity／內容 hash 另見 `release-manifest.md`，不改變本文件的 LKG 可信邊界。
 
 ## 分層與資料流
 

@@ -135,6 +135,8 @@ const DASH = {
 /* ======== 取檔：任何失敗都回 null，讓上層走降級分支 ======== */
 async function dashFetch(url) {
   try {
+    const managed = releaseReadJSON(url);
+    if (managed !== null) return managed;
     return await fetchJSON(url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now(), 8000);
   } catch { return null; }
 }

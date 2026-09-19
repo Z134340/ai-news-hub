@@ -3,14 +3,8 @@
 ## index.html 前端 UX 規範
 
 ### 載入
-- 開啟 → 骨架屏 shimmer → fetch latest.json?v={Date.now()} → 淡入內容
-- **health.json 並行載入，但 404 時靜默忽略（⚠️ Bug Fix #5）**：
-  ```javascript
-  const healthData = await fetch("data/health.json?v=" + Date.now())
-    .then(r => r.ok ? r.json() : null)
-    .catch(() => null);
-  // healthData 為 null 時，Header 不顯示健康指標，不影響主功能
-  ```
+- 開啟 → 骨架屏 shimmer → 先讀小型 release manifest → 只取 hash 改變的核心資產 → 全數驗證後淡入內容。精確版本、cache 與降級規則見 `release-manifest.md`。
+- manifest release 未變時不重抓大型 latest；health 與 skills 與同一 release 一次切換，避免混用不同版本。manifest 明確 404 的舊 deployment 才沿用既有直接讀取，且不標成已驗證 release。
 - **latest.json 不存在（首次部署 / 404）→ 顯示友善提示「🕐 首次部署完成，等待下一次 10:00 擷取」+ 手動擷取按鈕**
 - **fetch 失敗（網路錯誤）→ 顯示「⚠️ 無法載入資料」+ 重試按鈕（3 秒後自動重試一次）**
 
@@ -32,22 +26,7 @@
 - health.json `errors[0]` 非空 → 黃色橫幅（svg alert icon，純文字）：「上次擷取：{errors[0]}」；來源為配額耗盡備註或 S-PWR 電池模式回退備註（`ui.js` updateHeader）
 
 ### 自動更新偵測（⚠️ Bug Fix #9）
-- 每 **15 分鐘**靜默 fetch latest.json?v={Date.now()}（排程每日早上一次，較頻繁檢查以利補跑後即時更新）
-- **使用鎖定機制防止疊加**：
-  ```javascript
-  let isChecking = false;
-  setInterval(async () => {
-    if (isChecking) return;
-    isChecking = true;
-    try {
-      const r = await fetch("data/latest.json?v=" + Date.now());
-      if (!r.ok) return;
-      const j = await r.json();
-      if (j.time !== currentTime) showUpdateBanner();
-    } catch {} 
-    finally { isChecking = false; }
-  }, 15 * 60 * 1000);
-  ```
+- 每 **15 分鐘**靜默輪詢小型 release manifest（排程每日早上一次，較頻繁檢查以利補跑後即時更新）。鎖定機制仍防止重疊；release 不變時不抓 latest，release 改變時只抓必要資產一次，hash 不符不得顯示新版到達。
 - time 變更 → 頂部滑入藍色提示「📰 新資料已到，點擊重新載入」
 - 點擊 → 平滑更新，不閃爍
 - **比對 time（非 date）**：若當日有補跑（supplement-run），time 會變而 date 不變，用 time 欄位才能偵測到該次更新

@@ -3,17 +3,18 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs';
 import path from 'node:path';
+import {webcrypto} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 function app(seed={}) {
   const storage = new Map(Object.entries(seed)), nodes = new Map(), users = new Map(), feedback = new Map(), writes=[];
   const node = () => ({style:{},dataset:{},classList:{toggle(){},add(){},remove(){}},setAttribute(){},appendChild(){},addEventListener(){},querySelector(){return {open:false,addEventListener(){}};},contains(){return false;},textContent:'',innerHTML:''});
-  const context = vm.createContext({URL,DOMException,AbortController,setTimeout,clearTimeout,console:{error(){},warn(){}},
+  const context = vm.createContext({URL,DOMException,AbortController,TextEncoder,crypto:webcrypto,setTimeout,clearTimeout,console:{error(){},warn(){}},
     document:{getElementById(id){if(!nodes.has(id)) nodes.set(id,node());return nodes.get(id);},querySelectorAll(){return[];},createElement:node,body:node()},
     localStorage:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,v)},
     window:{listeners:{},addEventListener(name,fn){this.listeners[name]=fn;}},fetch:async()=>{throw Error('unexpected network');}});
   const run = source => vm.runInContext(source,context);
-  for (const file of ['config','personal-data','firebase','bookmarks','search','render','data','trend-topics','trend-briefing','dashboard','history']) run(fs.readFileSync(`${root}/assets/js/${file}.js`,'utf8'));
+  for (const file of ['config','personal-data','firebase','bookmarks','search','render','release','data','trend-topics','trend-briefing','dashboard','history']) run(fs.readFileSync(`${root}/assets/js/${file}.js`,'utf8'));
   const snap = (collection,id) => ({exists:collection.has(id),data:()=>structuredClone(collection.get(id))});
   const db = {collection(name){const collection=name==='users'?users:feedback;return {
     doc(id){return {name,id};},
@@ -201,7 +202,7 @@ test('v2 display and pending-review status preserve existing bookmark keys',()=>
 
 test('AH-02 selected skills cannot be overwritten by an ungated side file',async()=>{
   const a=app();a.run('showSkeleton=()=>{};renderAll=()=>{};updateHeader=()=>{};startAutoCheck=()=>{};');
-  a.context.fetch=async url=>({ok:true,json:async()=>url.includes('latest.json')?
+  a.context.fetch=async url=>url.includes('release-manifest.json')?{ok:false,status:404,text:async()=>''}:({ok:true,json:async()=>url.includes('latest.json')?
     {data:{skills:[]},_updated_at:{},_checked_at:{skills:'2026-09-19T09:00:00+08:00'},_update_outcome:{skills:{attempt:'validation_failed',serving:'no_reliable_data'}}}:
     url.includes('skills.json')?{items:[{title:'ungated'}],_updated_at:'new'}:{}});
   assert.equal(await a.run('loadData()'),true);
@@ -211,7 +212,7 @@ test('AH-02 selected skills cannot be overwritten by an ungated side file',async
 
 test('pre-AH-02 latest still accepts the legacy skills side file',async()=>{
   const a=app();a.run('showSkeleton=()=>{};renderAll=()=>{};updateHeader=()=>{};startAutoCheck=()=>{};');
-  a.context.fetch=async url=>({ok:true,json:async()=>url.includes('latest.json')?{data:{skills:[]}}:
+  a.context.fetch=async url=>url.includes('release-manifest.json')?{ok:false,status:404,text:async()=>''}:({ok:true,json:async()=>url.includes('latest.json')?{data:{skills:[]}}:
     url.includes('skills.json')?{items:[{title:'legacy'}],_updated_at:'original'}:{}});
   assert.equal(await a.run('loadData()'),true);
   assert.equal(a.run('DATA.data.skills[0].title'),'legacy');

@@ -68,10 +68,11 @@ jobs:
           set -euo pipefail
           for f in assets/js/*.js; do node --check "$f"; done
           node --check scripts/build-site.mjs
+          node --check scripts/build-release-manifest.mjs
           node --check scripts/fetch-skills.mjs
           bash -n scripts/run-daily.sh
           bash -n scripts/supplement-run.sh
-          node --test scripts/tests/frontend.test.mjs scripts/tests/trend-topics.test.mjs scripts/tests/fetch-skills.test.mjs
+          node --test scripts/tests/frontend.test.mjs scripts/tests/trend-topics.test.mjs scripts/tests/fetch-skills.test.mjs scripts/tests/release-manifest.test.mjs
           python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v
 
       - name: Build Cloudflare Pages artifact
@@ -81,8 +82,11 @@ jobs:
           test -f dist/index.html
           test -f dist/_headers
           test -f dist/data/latest.json
+          test -f dist/data/release-manifest.json
           test ! -e dist/scripts
           test ! -e dist/docs
+          test ! -e dist/schemas
+          test ! -e dist/data/agent/.preview
           rm -rf dist
 
       - name: Working tree untouched

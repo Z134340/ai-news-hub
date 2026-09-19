@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeReleaseManifest } from './build-release-manifest.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'dist');
@@ -57,7 +58,10 @@ for (const name of fs.readdirSync(path.join(OUT, 'data'))) {
   if (/^\d{4}-\d{2}-\d{2}\.json$/.test(name)) assertJson(`data/${name}`);
 }
 
-const forbidden = /(^|\/)(?:\.git|\.env|OPS-RUNBOOK\.md|firestore\.rules|scripts|docs)(?:\/|$)/;
+// The manifest is written last, after every managed file exists and parses.
+writeReleaseManifest(OUT);
+
+const forbidden = /(^|\/)(?:\.git|\.env|OPS-RUNBOOK\.md|firestore\.rules|scripts|docs|schemas|candidate|quarantine|store)(?:\/|$)/;
 function visit(dir, prefix = '') {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const relative = path.posix.join(prefix, entry.name);

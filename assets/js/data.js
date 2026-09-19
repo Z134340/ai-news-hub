@@ -2,11 +2,18 @@
 
 /* ======== AUTO-UPDATE (15 min) ======== */
 let autoCheckTimer = null;
+function showReleaseNotice(bundle){
+  const b=$('banners'), existing=b?.querySelector('.release-degraded');
+  if(bundle?.state?.degraded){
+    if(!existing)b.innerHTML=`<div class="banner warn release-degraded"><span>⚠️ 新版資料驗證失敗，已保留上一份可靠內容。</span></div>`+b.innerHTML;
+  }else if(existing && typeof existing.remove==='function')existing.remove();
+}
 function startAutoCheck(){
   if (autoCheckTimer) return;
   autoCheckTimer = setInterval(async()=>{
     if(autoLock||HIST_VIEWING)return;autoLock=true;
-    try{const j=await fetchJSON('data/latest.json?v='+Date.now(),8000);
+    try{const bundle=await loadReleaseBundle();showReleaseNotice(bundle);
+      const j=bundle.mode==='manifest' ? bundle.assets['data/latest.json'] : await fetchJSON('data/latest.json?v='+Date.now(),8000);
       if(j.time&&j.time!==updateTime){const b=$('banners');if(!b.querySelector('.upd'))b.innerHTML=`<div class="banner upd" onclick="location.reload()"><span>📰 新資料已到，點擊重新載入</span></div>`+b.innerHTML;}
     }catch{}finally{autoLock=false}
   },15*60*1000);
@@ -30,11 +37,14 @@ async function fetchJSON(url, ms=10000, options={}) {
 async function loadData(){
   showSkeleton();
   try{
-    const [dr,hr,sr]=await Promise.all([
-      fetchJSON('data/latest.json?v='+Date.now(),10000),
-      fetchJSON('data/health.json?v='+Date.now(),8000).catch(()=>null),
-      fetchJSON('data/skills.json?v='+Date.now(),8000).catch(()=>null)
-    ]);
+    const bundle=await loadReleaseBundle();
+    const [dr,hr,sr]=bundle.mode==='manifest'
+      ? [bundle.assets['data/latest.json'],bundle.assets['data/health.json'],bundle.assets['data/skills.json']]
+      : await Promise.all([
+        fetchJSON('data/latest.json?v='+Date.now(),10000),
+        fetchJSON('data/health.json?v='+Date.now(),8000).catch(()=>null),
+        fetchJSON('data/skills.json?v='+Date.now(),8000).catch(()=>null)
+      ]);
     if (!dr || !dr.data || typeof dr.data !== 'object' || Array.isArray(dr.data)) throw new Error('invalid_news_data');
     // 舊封存早於企業生態系上線，缺少新 key 時以空陣列向後相容。
     if (!Array.isArray(dr.data.official_info)) dr.data.official_info = [];
@@ -45,7 +55,7 @@ async function loadData(){
       dr._updated_at = {...(dr._updated_at||{}),skills:sr._updated_at||dr.time};
     }
     DATA=dr; HEALTH=hr; updateTime=DATA.time;
-    renderAll(); updateHeader(); startAutoCheck();
+    renderAll(); updateHeader(); showReleaseNotice(bundle); startAutoCheck();
     return true;
   }catch(e){
     const msg=e.name==='AbortError'?'載入逾時，請重新整理':'載入失敗，請重新整理';

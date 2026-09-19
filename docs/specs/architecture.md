@@ -5,9 +5,9 @@
 > 本節描述前端與儲存的「正規化後」現況，**優先於下方任何仍以單檔 index.html 描述的舊段落**。
 
 ### 前端：單檔 → 模組化（vanilla，零 build）
-`index.html` 已拆為頁面結構、全站共用主題 `assets/css/app.css`、儀表板布局 `assets/css/trend-briefing.css` 與 `assets/js/` 十三個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
+`index.html` 已拆為頁面結構、全站共用主題 `assets/css/app.css`、儀表板布局 `assets/css/trend-briefing.css` 與 `assets/js/` 十四個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
-`config → personal-data → firebase → bookmarks → search → render → ui → history → data → trend-topics → trend-briefing → dashboard → main`。
+`config → personal-data → firebase → bookmarks → search → render → ui → history → release → data → trend-topics → trend-briefing → dashboard → main`。
 仍是純靜態與相對路徑。正式站由 `scripts/build-site.mjs` 產生 allowlist `dist/`，再由 GitHub Actions 發布至 Cloudflare Pages。GitHub Pages 已於 2026-09-19 完成正常每日週期驗收後停用。正式部署狀態以 [deployment.md](deployment.md) 與 `HANDOFF.md` 證據為準；程式存在不代表已發布。
 
 ### 儲存：混合冷熱分層（static + Firebase）
@@ -83,6 +83,7 @@ ai-news-hub/
 │       ├── firebase.js              ← 書籤雲端同步 + 冷封存讀取（可選）
 │       ├── bookmarks.js  search.js  render.js  ui.js
 │       ├── history.js               ← 冷熱合併歷史（static + Firestore）
+│       ├── release.js               ← manifest-first、hash 驗證與版本化 LKG cache
 │       ├── data.js                  ← 資料載入 + 自動更新偵測
 │       ├── trend-topics.js         ← 動態焦點純函式（公開新聞）
 │       ├── trend-briefing.js        ← A 版畫面與互動
@@ -96,6 +97,7 @@ ai-news-hub/
 │   ├── setup-prompts.sh  setup-scheduler.sh  supplement-run.sh
 │   ├── archive-to-firestore.mjs    ← 冷封存上傳（Node 零依賴 REST，scoped writer）
 │   ├── build-site.mjs              ← 產生 Cloudflare allowlist dist/
+│   ├── build-release-manifest.mjs  ← dist 核心資產 hash 與穩定 release ID
 │   ├── repo-slim.sh                ← 一次性 repo 瘦身（本機跑）
 │   └── prompts/  (11 個 .md，含 official_info.md)
 ├── data/
@@ -123,25 +125,19 @@ Cloudflare Pages CDN 更新 allowlist 靜態檔案
 你打開 https://ai-news-hub-7jk.pages.dev/
        │
        ▼
-index.html 載入 → fetch("data/latest.json?v=" + Date.now())
-       │                   ↑ cache-busting 參數，強制繞過快取
+index.html 載入 → 先取小型 release-manifest.json
+       │          ├→ release 未變：重驗版本化 cache，不重抓大型內容
+       │          └→ release 改變：只抓 hash 改變資產，全數驗證後切換
        ▼
 JSON 解析 → 渲染十二類資料卡片（企業生態系含兩個子分頁）→ 你看到最新資料 ✅
 ```
 
-### 關鍵防快取機制
+### 關鍵讀取與快取機制
 
-1. **Cloudflare cache headers**：
-   - `cloudflare/_headers` 對 HTML 與 `data/*` 設定 `no-store`
-   - `scripts/build-site.mjs` 只發布 allowlist 內的網站與資料檔
-
-2. **Cache-busting 請求**：
-   - index.html 中所有 fetch JSON 的請求附加 `?v={timestamp}` 參數
-   - 例：`fetch("data/latest.json?v=1743753600000")`
-   - 每次開啟頁面產生新 timestamp，強制繞過瀏覽器和 CDN 快取
-   - 歷史 JSON 也用相同機制：`fetch("data/2026-04-04.json?v=...")`
-
-3. **15 分鐘自動重新檢查**也帶 cache-busting 參數
+- HTML 與 `data/*` 維持 Cloudflare revalidation headers；發布包只含 allowlist。
+- 核心 latest／health／index／skills 由 `release-manifest.json` 綁定精確 bytes hash；前端十五分鐘只輪詢小型 manifest，版本未變不重抓大型資料。
+- 新 release 的 required assets 全數通過後才切換；失敗沿用前一份可重驗、相容的內容，沒有可靠前版就明確失敗。舊 deployment 的 manifest 404 才走既有未驗證讀取。
+- 日期封存與 agent artifacts 仍按需 cache-busting 讀取，不冒稱 manifest-verified。完整 identity、cache key、失效與錯誤矩陣只在 [release-manifest.md](release-manifest.md) 維護。
 
 ---
 

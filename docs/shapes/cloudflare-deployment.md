@@ -3,6 +3,7 @@
 | 目的 | 檔案／設定 |
 |---|---|
 | allowlist 建置 | `scripts/build-site.mjs` |
+| 核心資產 manifest／hash | `scripts/build-release-manifest.mjs`；契約與前端讀取見 `docs/specs/release-manifest.md` |
 | response headers | `cloudflare/_headers` |
 | Pages 設定真本 | `wrangler.jsonc` |
 | CI 建置閘 | `.github/workflows/selftest.yml` 的 `Build Cloudflare Pages artifact` |

@@ -28,7 +28,8 @@ async function loadHistoryPanel() {
   const request = HISTORY.request + 1;
   HISTORY = {request, entries:{}, next:null, loading:false, message:'封存清單載入中…'};
   $('panel-history').innerHTML = '<div class="empty">載入中…</div>';
-  const hot = await fetchJSON('data/index.json?v='+Date.now(),8000).catch(()=>[]);
+  const cached = releaseReadJSON('data/index.json');
+  const hot = cached === null ? await fetchJSON('data/index.json?v='+Date.now(),8000).catch(()=>[]) : cached;
   if (request !== HISTORY.request) return;
   (Array.isArray(hot) ? hot : []).forEach(e => { if (e && archiveDate(e.date)) HISTORY.entries[e.date] = {...e,_cold:false}; });
   renderHistory(); await loadMoreHistory();

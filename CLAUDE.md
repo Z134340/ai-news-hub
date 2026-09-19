@@ -36,6 +36,7 @@
 | 時區、每日／每週分類排程、`_updated_at` | `docs/specs/schedule.md` |
 | 新聞分類的來源、優先主題與欄位 | `docs/specs/categories.md` |
 | `data/latest.json`、`data/health.json` 格式 | `docs/specs/data-formats.md` |
+| release manifest、內容 hash、release ID、前端 cache 與降級 | `docs/specs/release-manifest.md` |
 | `scripts/run-daily.sh` 擷取與每日 Git 整合行為 | `docs/specs/run-daily.md` |
 | `scripts/validate.py`、Tier B、日期上限 | `docs/specs/validate.md` |
 | GitHub Actions 健康檢查與部署 | `docs/specs/workflows.md` |

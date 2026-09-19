@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-news-hub.local/schemas/release-manifest-v1.schema.json",
+  "title": "AI News Hub release manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "compatibility_version", "cache_version", "release_id", "created_at", "content_set_sha256", "assets"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "compatibility_version": {"const": "ai-news-hub-web-data-v1"},
+    "cache_version": {"const": 1},
+    "release_id": {"type": "string", "pattern": "^ahr1_[a-f0-9]{64}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "content_set_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "assets": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "bytes", "media_type", "schema_version", "required"],
+        "properties": {
+          "path": {"enum": ["data/latest.json", "data/health.json", "data/index.json", "data/skills.json"]},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "bytes": {"type": "integer", "minimum": 0},
+          "media_type": {"const": "application/json"},
+          "schema_version": {"type": "integer", "minimum": 1},
+          "required": {"const": true}
+        }
+      }
+    }
+  }
+}

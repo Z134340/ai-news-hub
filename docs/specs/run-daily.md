@@ -75,6 +75,8 @@ find "$DATA_DIR/logs" -name "validate-*.json" -mtime +7 -delete 2>/dev/null
 6. 推送成功後寫 off-repo `~/.ai-news-hub/publication/last-run.json`，含結果、實際 SHA 與時間；不為更新已發布狀態再造第二次發布。
 7. fetch／push 暫時失敗的 receipt 記 `candidate`、`retryable:true`。下輪僅在 main 乾淨且 HEAD 精確符合該候選時重試；不符合即停止。真正衝突、未知變更、commit 失敗或確定性處理失敗須人工核對現場，不自動 reset。
 
+每日流程不先產生或發布 release manifest。CI／Cloudflare allowlist build 在所有 tracked public data 完整複製並解析後，才依 `release-manifest.md` 產生 `dist/data/release-manifest.json`；因此 daily 的分類 LKG、本機 generation、Git commit、build release 與 production deployment 仍是不同證據階段。
+
 #### 人工恢復
 
 先讀每日 log、上述 receipt 與 Git 差異。對衝突保留候選提交，於隔離 worktree 依雙方內容解決並驗證，再由單一整合者整合。對未提交的產物先另存候選並核對基準、分類完整性及驗證報告；只有確認是本輪失敗產物後才依明確範圍移出排程 checkout。不得為恢復而無差別清除工作目錄、index 或提示詞。
