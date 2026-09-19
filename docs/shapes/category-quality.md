@@ -14,6 +14,6 @@
 | `scripts/supplement-run.sh` | 轉交 daily `--categories`，共用鎖／品質／Git，消除繞過入口 |
 | `assets/js/data.js` | 有 `_update_outcome` 時信任 selected latest，不以舊 skills.json 蓋回；舊快照相容 |
 | `schemas/data/v2/latest.schema.json` | 新增 `_checked_at` 時間與 `_update_outcome` 雙維度 enum；不變更 itemKey |
-| `scripts/tests/test_category_quality.py` | 全分類／失敗／損壞／時間／隔離／寫入故障／重跑／daily 安裝 seam，全部暫存 fixture |
+| `scripts/tests/test_category_quality.py`、`scripts/tests/fixtures/category-quality/mixed-batch.json` | 全分類／同批 updated＋failed＋no_change／損壞／時間／隔離／寫入故障／重跑／daily 安裝 seam，所有寫入使用暫存 fixture |
 
 檔案位置與結果語意只在上述 spec 維護。這是 local quality store，不是 AH-03 release manifest；public deployment／Firebase 未在本工項操作。

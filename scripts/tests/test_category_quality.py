@@ -34,6 +34,7 @@ AT = datetime.now(timezone(timedelta(hours=8))).replace(hour=9, minute=0, second
 NEXT = (datetime.fromisoformat(AT) + timedelta(hours=1)).isoformat()
 LATER = (datetime.fromisoformat(AT) + timedelta(hours=2)).isoformat()
 FIXTURE = pub.read_json(ROOT / 'scripts/tests/fixtures/data-contract/valid-v2.json')
+MIXED_FIXTURE = pub.read_json(ROOT / 'scripts/tests/fixtures/category-quality/mixed-batch.json')
 
 
 def item(cat, suffix='one'):
@@ -80,6 +81,43 @@ class CategoryDecisions(unittest.TestCase):
         self.assertEqual(result['_update_outcome']['courses'], {'attempt':'fetch_failed','serving':'last_known_good'})
         self.assertEqual(result['_update_outcome']['topnews']['attempt'], 'updated')
         self.assertEqual(result['_updated_at']['topnews'], NEXT)
+
+    def test_mixed_fixture_updates_fails_and_nochanges_independently(self):
+        old = old_state()
+        incoming = candidates()
+        updated = MIXED_FIXTURE['updated']
+        failed = MIXED_FIXTURE['failed']
+        no_change = MIXED_FIXTURE['no_change']
+        incoming[updated['category']]['items'][0]['summary'] = updated['summary']
+        incoming[failed['category']] = {
+            'status': failed['status'],
+            'reasons': [failed['reason']],
+            'source_location': f"/fixture/{failed['category']}.json",
+            'original': {'transport': 'timeout'},
+        }
+        incoming[no_change['category']] = {
+            'status': no_change['status'],
+            'items': no_change['items'],
+            'source_location': f"/fixture/{no_change['category']}.json",
+            'original': [],
+        }
+
+        result = decide(incoming, old, NEXT, POLICY)
+        published = result['published']
+        self.assertEqual(published['_update_outcome'][updated['category']],
+                         {'attempt': 'updated', 'serving': 'current'})
+        self.assertEqual(published['_update_outcome'][failed['category']],
+                         {'attempt': 'fetch_failed', 'serving': 'last_known_good'})
+        self.assertEqual(published['_update_outcome'][no_change['category']],
+                         {'attempt': 'no_change', 'serving': 'last_known_good'})
+        self.assertEqual(published['data'][failed['category']], old[failed['category']]['items'])
+        self.assertEqual(published['data'][no_change['category']], old[no_change['category']]['items'])
+        self.assertEqual(published['_updated_at'][failed['category']], AT)
+        self.assertEqual(published['_updated_at'][no_change['category']], AT)
+        self.assertEqual(published['_updated_at'][updated['category']], NEXT)
+        self.assertEqual(result['quarantine'][0]['category'], failed['category'])
+        self.assertEqual(result['quarantine'][0]['original'], {'transport': 'timeout'})
+        self.assertIn(failed['reason'], result['quarantine'][0]['reasons'])
 
     def test_all_fail_retains_exact_previous_payloads(self):
         old = old_state(); incoming = candidates()

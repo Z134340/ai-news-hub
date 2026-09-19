@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "data": {
+    "topnews": [
+      {
+        "title": "第一筆測試新聞",
+        "source_title": "First fixture news",
+        "display_title": "第一筆測試新聞",
+        "source": "Fixture publisher",
+        "date": "2026-09-18",
+        "summary": "第一筆測試資料，非真實新聞。",
+        "url": "https://example.com/news?b=2&utm_source=test&a=1",
+        "schema_version": 2,
+        "contract_state": "current",
+        "canonical_url": "https://example.com/news?a=1&b=2",
+        "item_id": "ahn2_86c74fefd64bdbe5bde398170fd7ee4525609ac47ba81ea31ecf4d0168e3bb53"
+      },
+      {
+        "title": "第二筆偽裝成不同標題的重複新聞",
+        "source_title": "Second title for the same source page",
+        "display_title": "第二筆偽裝成不同標題的重複新聞",
+        "source": "Another fixture publisher",
+        "date": "2026-09-18",
+        "summary": "URL 經正規化後與第一筆相同。",
+        "url": "https://EXAMPLE.com:443/news?a=1&b=2&gclid=fake#fragment",
+        "schema_version": 2,
+        "contract_state": "current",
+        "canonical_url": "https://example.com/news?a=1&b=2",
+        "item_id": "ahn2_86c74fefd64bdbe5bde398170fd7ee4525609ac47ba81ea31ecf4d0168e3bb53"
+      }
+    ]
+  }
+}

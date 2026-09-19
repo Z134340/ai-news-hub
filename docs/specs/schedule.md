@@ -13,7 +13,6 @@
 |------|------|
 | 時區 | Asia/Taipei (UTC+8) |
 | 健康檢查 | 12:17（GitHub Actions；UTC 04:17） |
-| 保活 | 每月 1 號 |
 
 ### 每日 vs 每週分類排程（DOW-based）
 

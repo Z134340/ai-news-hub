@@ -2,7 +2,7 @@
 
 ## 十二大分類規範
 
-AH-01 共用資料契約見 `data-formats.md`：所有 editorial producer 分開輸出 source_title 與 display_title；舊欄位保留相容，不以缺新欄位為由整批刪除模型。新收錄来源要求不變；AH-02 的分類發布政策、no-change 與可靠前版契約見 `category-quality.md`。
+AH-01 共用資料契約見 `data-formats.md`：所有 editorial producer 分開輸出 source_title 與 display_title；舊欄位保留相容，不以缺新欄位為由整批刪除模型。這是結構／相容規則，不代表放寬下述新收錄來源或已完成發布閘。AH-02 的分類發布政策、no-change 與可靠前版契約見 `category-quality.md`。
 
 ### 1. 📄 AI 論文發表 (`papers`)
 **機構（12）：** Google DeepMind, OpenAI, Google Research/Brain, Meta AI (FAIR), Stanford, MIT CSAIL, UC Berkeley BAIR, Microsoft Research, Tsinghua, CMU, Anthropic, Apple

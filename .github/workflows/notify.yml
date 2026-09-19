@@ -89,9 +89,8 @@ jobs:
             }
 
             // Footer CTA
-            const { owner, repo } = context.repo;
             body += `---\n`;
-            body += `🔗 [前往 AI News Hub 查看完整內容](https://${owner}.github.io/${repo}/)\n`;
+            body += `🔗 [前往 AI News Hub 查看完整內容](https://ai-news-hub-7jk.pages.dev/)\n`;
 
             // Create or get the label
             const labelName = 'ai-news-daily';

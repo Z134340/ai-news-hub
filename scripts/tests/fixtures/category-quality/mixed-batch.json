@@ -1,0 +1,17 @@
+{
+  "schema": "category-quality-mixed-batch-v1",
+  "updated": {
+    "category": "topnews",
+    "summary": "Mixed fixture updated summary"
+  },
+  "failed": {
+    "category": "china",
+    "status": "fetch_failed",
+    "reason": "fixture_network_timeout"
+  },
+  "no_change": {
+    "category": "courses",
+    "status": "no_change",
+    "items": []
+  }
+}

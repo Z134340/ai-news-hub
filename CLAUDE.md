@@ -38,7 +38,7 @@
 | `data/latest.json`、`data/health.json` 格式 | `docs/specs/data-formats.md` |
 | `scripts/run-daily.sh` 擷取與每日 Git 整合行為 | `docs/specs/run-daily.md` |
 | `scripts/validate.py`、Tier B、日期上限 | `docs/specs/validate.md` |
-| GitHub Actions 健康檢查與保活 | `docs/specs/workflows.md` |
+| GitHub Actions 健康檢查與部署 | `docs/specs/workflows.md` |
 | Cloudflare Pages、GitHub 部署來源、發佈包與回退 | `docs/specs/deployment.md` |
 | 架構強化 living backlog、Session 相依與 release gates | `docs/specs/architecture-hardening-v1.md` |
 | 排程安裝、launchd、電源與喚醒 | `docs/specs/setup-scheduler.md` |

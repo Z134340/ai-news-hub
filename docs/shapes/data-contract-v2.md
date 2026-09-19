@@ -16,5 +16,4 @@
 | Fixtures／測試 | `scripts/tests/fixtures/data-contract/`、`test_data_contract.py`；由既有 CI 的 unittest discover 自動收集；另有既有 Python／Node 回歸 |
 
 `latest.data.models` 與其他分類 key 不改名；舊封存缺分類仍可讀。`item_id` 是來源頁身分，同一來源頁跨分類相同，不是模型實體／版本 ID。不得以這個欄位直接替換書籤 key；AH-08 的 alias／雙讀／資料遷移尚未執行。
-
 AH-02 接續入口：`category-quality.md`。v2 latest additive metadata／分類品質與原件儲存已落地；AH-01 migration sidecar 保持原用途，未改書籤 ID。

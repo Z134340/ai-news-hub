@@ -33,20 +33,9 @@
 
 ---
 
-## .github/workflows/keep-alive.yml 規範
+## 已退役：.github/workflows/keep-alive.yml
 
-**目的：** 防止 GitHub Pages 因 60 天無活動被停用。
-
-Cloudflare 遷移期間保留此回退機制。只有 `docs/specs/deployment.md` 的 production 與正常每日週期驗收完成後，才能另行停用；不能因 Cloudflare preview 成功就先刪除。
-
-```yaml
-觸發：每月 1 號 UTC 00:00
-邏輯：
-  1. checkout
-  2. 更新 data/health.json 的 keep_alive 時間戳
-  3. git commit -m "🔄 Keep alive" + push
-權限：contents: write
-```
+GitHub Pages 已於 2026-09-19 在 Cloudflare production 通過正常每日週期驗收後停用；只為 Pages 存在的每月保活 workflow 同步移除。`data/health.json` 的既有 `keep_alive` 欄位只保留歷史相容，不再由排程更新，也不得作為 Cloudflare 健康證據。
 
 ---
 

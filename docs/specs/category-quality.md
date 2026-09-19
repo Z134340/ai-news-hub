@@ -66,4 +66,4 @@
 - 原件與 generations 不自動清除；磁碟保留／清理須另行明確管理，不能套用 public logs 的七天刪除規則。磁碟滿時停止寫入並保留可靠前版。
 - 本工項未執行正式 capture／migration／部署。程式回退在獨立分支 revert AH-02 提交，保留 AH-00／AH-01 和後續每日提交；不得 reset／force-push。未來若要回退 store，先停 publisher、備份整個私有 store、逐分類核對指定世代，再經授權原子切換 pointer；不把任意舊 latest 當可靠前版。
 
-離線入口：`python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v`。I/O／網路檢查函式可注入 fixture；CLI 正常執行有新候選時會使用既有 validator 連來源網路，因此不可把正常 CLI 呼叫誤稱離線驗收。原件／報告不應放公開 repo。
+離線入口：`python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v`。`scripts/tests/fixtures/category-quality/mixed-batch.json` 明列同一輪 updated／fetch_failed／no_change 三分類情境；測試以完整十二分類基線套用該 fixture，驗證彼此不污染。I/O／網路檢查函式可注入 fixture；CLI 正常執行有新候選時會使用既有 validator 連來源網路，因此不可把正常 CLI 呼叫誤稱離線驗收。原件／報告不應放公開 repo。

@@ -8,12 +8,12 @@
 `index.html` 已拆為頁面結構、全站共用主題 `assets/css/app.css`、儀表板布局 `assets/css/trend-briefing.css` 與 `assets/js/` 十三個本地模組（不含外部 Firebase SDK）；此處是模組清單與順序的唯一規範來源。
 皆為 **classic script、共用全域作用域**（維持 inline onclick 行為），載入順序**不可調換**：
 `config → personal-data → firebase → bookmarks → search → render → ui → history → data → trend-topics → trend-briefing → dashboard → main`。
-仍是純靜態與相對路徑。Cloudflare Pages 遷移工項以 `scripts/build-site.mjs` 產生 allowlist `dist/`，GitHub Pages 在新站通過正常每日週期前保留為回退。正式部署與切換狀態以 [deployment.md](deployment.md) 與 `HANDOFF.md` 證據為準；程式存在不代表已切換。
+仍是純靜態與相對路徑。正式站由 `scripts/build-site.mjs` 產生 allowlist `dist/`，再由 GitHub Actions 發布至 Cloudflare Pages。GitHub Pages 已於 2026-09-19 完成正常每日週期驗收後停用。正式部署狀態以 [deployment.md](deployment.md) 與 `HANDOFF.md` 證據為準；程式存在不代表已發布。
 
 ### 儲存：混合冷熱分層（static + Firebase）
 | 資料 | 儲存 | 說明 |
 |------|------|------|
-| 熱：latest + 近 7 天 archive | static JSON + Cloudflare Pages（切換前由 GitHub Pages 服務） | 每次開頁讀；屬唯讀發佈資產 |
+| 熱：latest + 近 7 天 archive | static JSON + Cloudflare Pages | 每次開頁讀；屬唯讀發佈資產 |
 | 冷：逾 7 天 archive | **Firestore `archives/{date}`** | 清單使用 REST 欄位投影與分頁；僅選擇日期才讀整日 payload |
 | 使用者：書籤 | **Firestore `users/{uid}`** | 跨 iPhone/桌面同步；Email/Password auth；offline-first（localStorage 為離線快取） |
 
@@ -45,8 +45,6 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 │    ├→ 已涵蓋本次擷取日 → 跳過                      │
 │    └→ 尚未涵蓋本次擷取日 → 標記 missed              │
 │                                                   │
-├── 保活：每月 1 號 keep-alive commit ───────────────┤
-│                                                   │
 └── 前端：自動載入 + 健康監控 + iPhone 響應式 ────────┘
 │                                                   │
 │  ~11:30  你打開網站（iPhone / 桌面）                 │
@@ -62,7 +60,6 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 
 ```
 ai-news-hub/
-├── .nojekyll                        ← 禁用 Jekyll（確保 JSON 直接送達）
 ├── index.html                       ← 頁面結構 + link css + script src
 ├── firebase.json                    ← Firestore 規則部署設定
 ├── firestore.rules                  ← users（書籤）+ archives（冷封存）安全規則
@@ -92,7 +89,7 @@ ai-news-hub/
 │       ├── dashboard.js            ← 趨勢儀表板
 │       └── main.js                  ← 啟動序列
 ├── .github/workflows/
-│   ├── health-check.yml  keep-alive.yml  notify.yml
+│   ├── health-check.yml  cloudflare-pages.yml  notify.yml
 ├── scripts/
 │   ├── run-daily.sh                ← 每日擷取主腳本（含 DOW 排程 + 冷封存上傳）
 │   ├── validate.py  extract-json.py  merge-stack.py
@@ -117,13 +114,13 @@ run-daily.sh 產出 data/latest.json
 限定產物 commit → rebase origin/main → 普通 push（衝突停止）
        │
        ▼
-GitHub 收到 push → 觸發 Pages 部署（約 1-3 分鐘）
+GitHub 收到 push → 離線自測通過後觸發 Cloudflare Pages 部署
        │
        ▼
-GitHub Pages CDN 更新靜態檔案
+Cloudflare Pages CDN 更新 allowlist 靜態檔案
        │
        ▼
-你打開 https://你的帳號.github.io/ai-news-hub/
+你打開 https://ai-news-hub-7jk.pages.dev/
        │
        ▼
 index.html 載入 → fetch("data/latest.json?v=" + Date.now())
@@ -134,10 +131,9 @@ JSON 解析 → 渲染十二類資料卡片（企業生態系含兩個子分頁�
 
 ### 關鍵防快取機制
 
-1. **`.nojekyll` 檔案**（空檔案放在根目錄）：
-   - 禁用 GitHub Pages 的 Jekyll 靜態網站產生器
-   - 確保 JSON 檔案不被 Jekyll 過濾或延遲處理
-   - 確保 data/ 目錄下的所有 .json 檔案直接作為靜態資源送達
+1. **Cloudflare cache headers**：
+   - `cloudflare/_headers` 對 HTML 與 `data/*` 設定 `no-store`
+   - `scripts/build-site.mjs` 只發布 allowlist 內的網站與資料檔
 
 2. **Cache-busting 請求**：
    - index.html 中所有 fetch JSON 的請求附加 `?v={timestamp}` 參數
