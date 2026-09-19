@@ -30,7 +30,7 @@
 | AH-01 | 資料契約 v2 與相容遷移 | JSON Schema、`schema_version`、模型舊資料 migration、`source_title`、canonical URL、穩定 `item_id` | AH-00 | ✅ 本工項離線驗收完成 | 舊封存可讀；缺欄位不靠猜測補值；模型格式升級不再整批誤刪；離線正反 fixture 通過 |
 | AH-02 | 分類級品質閘與可靠資料沿用 | candidate／published／quarantine、分類門檻、last-known-good、`_checked_at`／`_update_outcome` | AH-01 | ✅ 本工項離線驗收完成 | 未達標分類不覆蓋正式資料；其他分類可發布；課程可區分 no-change 與 failed |
 | AH-03 | 發布 manifest 與高效率讀取 | `release-manifest` schema、release ID、內容 hash、前端只在版本改變時取大型資料、版本化 cache | AH-02 | ✅ 本工項離線驗收完成 | manifest 小型輪詢；內容與 manifest hash 綁定；舊前端相容與載入失敗降級通過 |
-| AH-04 | 部署後驗證、通知與 Cloudflare 回滾 | CI post-deploy smoke/hash/header、通知改為部署成功後、指定已驗證 SHA 的人工回退 | AH-03 | ⬜ 未開始 | 通知不早於 production；錯誤 hash 阻擋成功；回退流程有 dry-run／驗收證據 |
+| AH-04 | 部署後驗證、通知與 Cloudflare 回滾 | CI post-deploy smoke/hash/header、通知改為部署成功後、指定已驗證 SHA 的人工回退 | AH-03 | 🟡 implementation／offline validation／repository config 完成；等待 live gate | 通知不早於 production；錯誤 hash 阻擋成功；回退流程有 dry-run／驗收證據 |
 | AH-05 | 單一正式入口與文件收斂 | 停用 GitHub Pages、移除 keep-alive、修正 CTA／README／架構與 Ops 文件 | 原規劃 AH-04；平台工項先行完成 | ✅ 已完成（`main` `d35ad49`） | Cloudflare 正式 URL 正常；GitHub Pages 已停用並回應 404；Pages 專用 keep-alive、舊網址與 Jekyll 遺留已移除。此狀態不代表 AH-04 或 Gate B 其他項完成 |
 | AH-06 | L3 判讀移出關鍵路徑 | `run-agents.sh` 改為發布後獨立排程／工作；狀態與新聞發布分離 | AH-02 | ⬜ 未開始 | 新聞發布不等待 L3；preview／manual-only 邊界、鎖、失敗降級與觀測維持 |
 | AH-07 | 增量驗證與來源健康度 | 新資料完整驗證、內容 hash／TTL、needs-review 退避、來源 circuit breaker、7／30 日指標 | AH-01, AH-02 | ⬜ 未開始 | 不重驗未變且 TTL 有效資料；錯誤不被快取為成功；可重現、可清除、可觀測 |
@@ -57,6 +57,8 @@
 - 相同 SHA 的 CI、Cloudflare deployment 與線上 hash 一致。
 - 通知只在 post-deploy 驗證成功後產生。
 - Cloudflare 成為單一正式入口；L3 與增量驗證不破壞每日發布主路徑。
+
+離線交付狀態：AH-04 verifier、append-only receipt、verified-only 通知與 Cloudflare rollback plan／execute 工作流已完成實作、repository 設定與離線驗證；AH-05 已完成。AH-01～AH-03 仍未整合／啟用／部署，且本次沒有 production 授權，因此沒有產生新的 live receipt、通知或 rollback 證據；AH-06／AH-07 尚未開始。Gate B 尚未通過，下一個 Session 必須先處理 AH-04 live gate，不前進 AH-06。
 
 ### Gate C — Firebase 資料層（AH-08～AH-10）
 
@@ -87,6 +89,7 @@
 | 2026-09-19 | `origin/main` `d35ad49`；AH-01 realigned 分支 `codex/ah-01-data-contract-v2-realigned`；實作 `a3a0f52`、反例補強 `6c516fc` | 重新對齊停用 GitHub Pages 後的最新基準；AH-05 依 main 與 `HANDOFF.md` 的既有外部證據改標完成。AH-01 doc×code re-scan、完整離線回歸、七份實際快照 migration 與明確偽造／canonical 重複反例通過；未做 production mutation／部署／live 驗收，下一工項 AH-02。Gate A 與 Gate B 整體均未完成 |
 | 2026-09-19 | AH-02 分支 `codex/ah-02-category-quality-gates`；既有實作 `a2982ec`；以普通 merge `f6ab241d81df3faf66873e044bb557d4de5ea018` 納入指定 AH-01 `4ba34f492c3d4da320d9d0906cc33cba117feb0d`；worktree `/private/tmp/ai-news-hub-ah02-20260919` | 分類政策、私有 candidate／validated／quarantine／LKG 儲存、每日與補跑共同入口、時間與 outcome 已實作；doc×code re-scan 後補同批 mixed fixture，103 項 Python 與既有離線回歸通過。本工項離線驗收完成，下一工項 AH-03。未整合 main／部署／正式擷取；Gate A 整體尚未完成 |
 | 2026-09-20 | AH-03 分支 `codex/ah-03-release-manifest-efficient-read`；指定 AH-02 基準 `697ac222ef14d87c873f5b02b100db945d6bc8c0`；實作 `8da8e1c9a4e666dc50227ddb51fc9588060ec92b`；worktree `/private/tmp/ai-news-hub-ah03-20260919` | manifest schema／穩定 identity、build-last 產生、前端最小讀取／逐資產驗 hash／版本化 LKG cache／legacy 分流已實作；re-scan 補上「曾有 verified release 後 manifest 404」不得降格 legacy 的正反例。指定 AH-01／AH-02 與全套離線回歸通過；未改正式資料、設定或外部 state，未部署／live 驗收／授權。Gate A production gate 仍未完成，下一工項 AH-04 |
+| 2026-09-20 | AH-04 分支 `codex/ah-04-post-deploy-verify-notify-rollback`；指定 AH-03 基準 `e723741d1cc597ac141fa8e74413b995f8835180b`；實作 `b7219c5`；worktree `/private/tmp/ai-news-hub-ah04-20260920` | fixed production URL verifier、append-only receipt、verified-only 冪等通知與 rollback plan／execute 已實作；doc×code re-scan 確認四資產／headers／SHA／release identity／workflow 與 allowlist 一致。AH-04 20 項、Node 67 項、Python 103 項及既有離線回歸通過；未整合 main、未變更 production／外部設定，未部署／通知／回滾／live 驗收／取得授權。工項為 partial，下一個 Session 先完成 AH-04 live gate，不前進 AH-06 |
 
 ### AH-01 驗收與邊界（2026-09-19）
 
@@ -161,3 +164,24 @@ Re-scan：文件所列四份 managed assets 與 builder／browser allowlist 一�
 未執行：正式每日擷取／正式資料改寫、private store 啟用、Firebase／Authentication／rules／writer、排程或發布權限變更、Cloudflare deployment、線上 hash／header／rollback、真實通知、main 整合或 production 啟用授權。implementation 與 offline validation 已完成；configuration、production data mutation、deployment、external/live validation、authorization 均未執行／未取得。這不代表 Gate A production gate 通過。
 
 風險／回退：localStorage 有容量與瀏覽器可用性限制；寫 cache 失敗時當頁仍可用已驗證記憶體內容，但 reload 會重抓。manifest 驗證依賴 Web Crypto；不可用時 fail closed 或沿用可重驗前版，不能跳過 hash。需要完整撤回 AH-03 時，從 AH-03 最終 HEAD 在隔離分支執行 `git revert --no-commit 697ac222ef14d87c873f5b02b100db945d6bc8c0..HEAD` 後建立一般 revert commit；此方式把 tree 精確還原到指定 AH-02 SHA，保留 AH-01／AH-02 歷史，不改正式資料，不使用 reset／force-push。
+
+### AH-04 驗收與邊界（2026-09-20）
+
+- worktree `/private/tmp/ai-news-hub-ah04-20260920`；分支 `codex/ah-04-post-deploy-verify-notify-rollback` 直接建立於指定 AH-03 完成提交 `e723741d1cc597ac141fa8e74413b995f8835180b`，該 SHA 尚未包含於 `origin/main`。實作提交 `b7219c5`；main 工作目錄未作開發、未 reset 或 force-push。
+- 唯一權威契約為 `deployment.md`；release identity 與四份 managed assets 仍引用 `release-manifest.md`。normal deploy 只接受已成功 CI 的完整 SHA，部署後以固定 production URL 重抓首頁、manifest 與四份資產，重算 identity／bytes／size／SHA-256 並核 headers；只有 `verified` receipt 可進通知。rollback 必須綁定既有 verified target receipt，先產生不 mutation 的 dry-run plan，execute 時再核目前 production identity 未漂移，並使用同一 verifier 驗收。
+
+| 驗收 | 實際結果／fixture 證據 |
+|---|---|
+| AH-04 verifier／receipt／通知／rollback | 20/20：正確 receipt、stale retry 耗盡、CDN 收斂、manifest schema／identity、size／hash、HTTP／headers、request／body timeout、SHA 不一致、receipt／通知冪等、failed receipt 禁止通知、rollback target／dry-run／stale plan／同一 verifier 正反例 |
+| workflow 結構與語法 | 3/3；normal deploy、notify、rollback 的觸發、SHA／CI binding、receipt artifact、verified-only 通知、plan-before-execute 與 concurrency 契約通過；所有 workflow 可由 PyYAML 解析。這只驗 repository config，未證明 GitHub／Cloudflare 外部設定或 live run |
+| Node 全套 | 67/67：frontend、trend-topics、fetch-skills、release manifest 與 AH-04 suites 全通過 |
+| Python 全套 | 103/103：AH-02 44、AH-01 32、robustness 27 |
+| 既有離線回歸 | validator 24、merge 3、18 個 agent Node self-test、strict boundary、run-agents 68、Slack self-test、4 個 Python wrapper 全通過；未執行模型正式擷取、promotion 或通知 |
+| build、allowlist 與封存 | Cloudflare artifact 成功；排除 scripts／docs／schemas／`.preview`／deployment receipt；archive-to-firestore dry-run 正常結束且沒有合格封存，未寫 Firebase |
+| 勿動範圍 | 正式 `data/`、Firebase、排程、learning／manual-only 邊界、Cloudflare production、GitHub repository／environment 設定零 mutation；main 工作目錄保持原狀 |
+
+Re-scan：文件、schema、scripts 與 workflow 的 asset set、header、SHA、release identity 與 receipt 狀態一致；新檔沒有 placeholder／TODO。舊的 main-push 資料通知觸發已移除，notify 只能由 deploy／rollback job 成功後呼叫，且仍須重新檢查 receipt 為 `verified`。selftest 已納入新測試；YAML 只做本機語法／結構驗證，workflow 尚未在 main 執行，外部 secrets、environment protection、Cloudflare project 與固定 production URL 均待 live gate 核對。
+
+未執行：main 整合、AH-01 正式 migration、AH-02 private store 啟用、AH-03／AH-04 production deployment、live verifier、真實 deployment receipt、通知或 Cloudflare rollback，以及任何外部設定／production mutation。implementation、offline validation 與 repository configuration 已完成；external configuration、production mutation、deployment、live validation 與 authorization 均 pending。AH-04 因此為部分完成，Gate A／Gate B 均未通過；下一個 Session 必須先處理 AH-04 live gate，不可直接開始 AH-06。
+
+風險／回退：fixed production URL 與 Cloudflare CDN 收斂仍須實跑；verified receipt 只能證明該次被讀取資產與 identity／headers 一致，不替代內容真實性或 production 授權。完整撤回 AH-04 repository 變更時，在隔離分支從本工項最終 HEAD 執行 `git revert --no-commit e723741d1cc597ac141fa8e74413b995f8835180b..HEAD` 後建立一般 revert commit，不使用 reset／force-push。production rollback 只能依 `deployment.md` 的 plan／execute 流程，在另行明確授權後進行。
