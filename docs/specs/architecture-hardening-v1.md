@@ -110,7 +110,7 @@
 
 ### AH-02 驗收與邊界（2026-09-19）
 
-- worktree `/private/tmp/ai-news-hub-ah02`，以 AH-01 已推送提交為基準；保留 AH-00 規劃與最新每日資料。權威政策／失敗行為見 `category-quality.md`，程式與測試入口見 `../shapes/category-quality.md`。
+- worktree `/private/tmp/ai-news-hub-ah02-20260919`，以指定 AH-01 `4ba34f492c3d4da320d9d0906cc33cba117feb0d` 為基準；保留 AH-00 規劃與最新每日資料。權威政策／失敗行為見 `category-quality.md`，程式與測試入口見 `../shapes/category-quality.md`。
 - 十二分類各自評估，最低 1 筆、全候選合格、硬錯誤 0；成功空陣列另記 no_change。legacy／needs_review 不得成為新發布或 LKG。只使用經品質閘選出的前版，不自動相信既有 latest／分類檔。
 - 每日與 supplement 先保存私有原件，再逐分類驗證與選擇；已通過的 skills 不再被前端舊 sidefile 蓋掉。保留 v2 schemas、canonical URL／item_id、migration 與原書籤 ID。
 
