@@ -53,9 +53,9 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 1. `main` 的離線自測建置 `dist/` 並通過現有測試。
 2. `workflow_run` 只取該次成功測試的 `head_sha`，重建 allowlist 發佈包後以 Wrangler Direct Upload 發布；比對 commit SHA 與發佈包。
 3. 驗證首頁、趨勢、搜尋、歷史、Firebase 登入／登出與手機寬度。
-4. 保留 GitHub Pages 原站，等待至少一個後續正常每日週期由 `main` 觸發同 SHA 的 Cloudflare production deployment。
-5. 若有自訂網域，最後才切 DNS；錯誤時回滾 Cloudflare 前一 deployment 或切回 GitHub Pages。
-6. 新站通過每日排程後，另開工項停用 GitHub Pages 專用 keep-alive；切換前不得刪除回退路徑。
+4. Cloudflare production 已在 2026-09-19 通過後續正常每日週期的同 SHA 部署驗收；GitHub Pages 隨後依使用者授權停用，舊網址與 Pages API 均回應 404。
+5. 發布故障時，優先回滾 Cloudflare 前一個已知正常 deployment，或從已知正常 Git commit 重新建置並 Direct Upload；GitHub Pages 不再是回退路徑。
+6. 若日後加入自訂網域，先完成 production hostname、Firebase 授權網域與 DNS 回退演練，再切換流量。
 
 ## 完成證據
 
@@ -63,4 +63,5 @@ Cloudflare 不再承擔資料庫職責；Firebase 是唯一應用資料庫。新
 - GitHub Actions deployment 只在 CI 成功後執行；憑證不存在時須在部署前明確失敗。
 - production URL 回應 `Cf-Ray`，`_headers` 的安全與 cache headers 生效。
 - `dist/` 檔案清單沒有非 allowlist 檔案。
+- GitHub Pages API 與舊 `github.io` 網址均回應 404；repository 不再包含 Pages 專用保活 workflow。
 - Firebase 規則版本與多帳號／多裝置測試另有證據；Cloudflare 部署成功不代表資料遷移完成。

@@ -1,6 +1,6 @@
 # AI News Hub — 全自動 AI 新聞聚合平台
 
-一個全自動的 AI 新聞聚合系統，每天自動收集、驗證、發佈 AI 相關新聞。網站正遷移至 Cloudflare Pages，GitHub 管理原始碼與 CI，Firebase 提供登入、個人資料與冷封存；切換完成前 GitHub Pages 保留為回退。
+一個全自動的 AI 新聞聚合系統，每天自動收集、驗證、發佈 AI 相關新聞。Cloudflare Pages 提供正式網站，GitHub 管理原始碼、CI 與部署流程，Firebase 提供登入、個人資料與冷封存。
 
 ## 架構圖
 
@@ -13,7 +13,7 @@ Claude CLI 與 GitHub API 更新 12 類別
     ↓
 validate.py 八步驟驗證
     ↓
-git push → GitHub Pages 自動部署
+git push → 離線自測 → Cloudflare Pages 自動部署
     ↓
 GitHub Issues 通知 (Email)
 
@@ -43,7 +43,6 @@ GitHub Issues 通知 (Email)
 - **自動 Issue 通知**：Push 時自動建立 GitHub Issues，Email 直達收件箱（零設定）
 - **響應式暗色前端**：Vanilla JS 零依賴，iPhone 全面適配
 - **歷史紀錄**：保留近 7 天資料，可切換檢視
-- **每月保活**：防止 GitHub Pages 因長期無活動而停用
 - **Zero Cost**：使用 Claude Pro/Team 訂閱的 CLI 額度運行
 
 ## 快速開始
@@ -71,15 +70,9 @@ gh repo create ai-news-hub \
   --description="全自動 AI 新聞聚合平台"
 ```
 
-#### 2. 啟用 GitHub Pages
+#### 2. 設定 Cloudflare Pages
 
-1. 進入 GitHub 倉庫設定：Settings → Pages
-2. Source 選擇：`Deploy from branch`
-3. Branch 選擇：`main`
-4. Folder 選擇：`/(root)`
-5. Save
-
-> Pages 會在 https://yourname.github.io/ai-news-hub 上線
+依 [部署與回退契約](docs/specs/deployment.md) 建立 Cloudflare Pages 專案、設定最小權限 token 與 GitHub Actions secrets。正式站為 <https://ai-news-hub-7jk.pages.dev/>；GitHub Pages 已停用。
 
 #### 3. 安裝本機排程
 
@@ -119,7 +112,7 @@ bash scripts/run-daily.sh
 
 - **GitHub Actions**：倉庫 → Actions 頁籤，檢查健康檢查工作流執行情況
 
-- **GitHub Pages**：訪問 `https://yourname.github.io/ai-news-hub`
+- **正式網站**：訪問 `https://ai-news-hub-7jk.pages.dev/`
 
 - **Email 通知**：GitHub Settings → Notifications → Email
   - ✅ 確保勾選 `Issues` 和 `Discussions`
@@ -135,9 +128,9 @@ ai-news-hub/
 ├── docs/specs/                  # 功能與架構規格
 ├── docs/shapes/                 # 程式與資料結構速查
 ├── docs/legacy/                 # 歷史文件，非現行規範
-├── index.html                   # 頁面結構 (Vanilla JS, GitHub Pages)
+├── index.html                   # 頁面結構（Vanilla JS）
 ├── assets/css/  assets/js/      # 前端樣式與模組，順序見架構規格
-├── .nojekyll                    # 禁用 Jekyll（確保 JSON 直達）
+├── cloudflare/_headers          # Cloudflare cache 與安全 headers
 ├── scripts/
 │   ├── run-daily.sh             # 每日擷取主腳本（含 DOW 排程）
 │   ├── validate.py              # 驗證流程見 docs/specs/validate.md
@@ -155,7 +148,7 @@ ai-news-hub/
 └── .github/
     └── workflows/
         ├── health-check.yml     # 每日健康檢查
-        ├── keep-alive.yml       # 每月保活
+        ├── cloudflare-pages.yml # 正式站部署
         └── notify.yml           # 推播通知 Issue
 ```
 
@@ -229,18 +222,18 @@ journalctl -u cron -f
 3. 查看 GitHub Issues 中的驗證報告（自動生成）
 4. 檢查網路連線（驗證 URL 存活需要網路）
 
-### GitHub Pages 沒更新
+### Cloudflare Pages 沒更新
 
-**症狀**：訪問 Pages 仍顯示舊資料
+**症狀**：正式站仍顯示舊資料
 
 **解決方案**：
-1. 檢查 Settings → Pages → Source 是否正確設置為 `main` 分支
+1. 檢查相同 commit 的「離線自測」與 `Cloudflare Pages production` workflow 是否成功
 2. 強制重新整理瀏覽器（Ctrl+Shift+R 或 Cmd+Shift+R）
-3. 檢查 `latest.json` 是否已推送到 GitHub：
+3. 檢查 `data/latest.json` 是否已推送到 GitHub：
    ```bash
    git log --oneline --name-only | head -20
    ```
-4. 檢查 GitHub Actions 部署狀態：Settings → Pages → Deployments
+4. 比對正式站 `data/latest.json` 與 repository 同一檔案的 SHA-256；回退方式見 `docs/specs/deployment.md`
 
 ## 常見問題
 
@@ -331,5 +324,5 @@ MIT License
 
 - 首次發佈
 - 完整的自動化擷取、驗證、部署流程
-- GitHub Pages 前端
+- Cloudflare Pages 前端
 - 健康檢查和 Issue 通知
