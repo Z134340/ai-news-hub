@@ -10,7 +10,7 @@ REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT_PATH="$REPO_DIR/scripts/run-daily.sh"
 PLIST_LABEL="com.ainewshub.daily"
 PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_LABEL}.plist"
-# S-PWR P-1：17:50 電源提醒（電池模式時送 macOS 通知；AC 時不動作）
+# S-PWR P-1：09:50 電源提醒（電池模式時送 macOS 通知；AC 時不動作）
 REMINDER_SCRIPT="$REPO_DIR/scripts/power-reminder.sh"
 REMINDER_LABEL="com.ainewshub.power-reminder"
 REMINDER_PATH="$HOME/Library/LaunchAgents/${REMINDER_LABEL}.plist"
@@ -33,21 +33,21 @@ case "$OS" in
     # ── Step 1：自動喚醒 ──
     echo "── Step 1/3：設定自動喚醒 ──"
     echo ""
-    echo "嘗試設定 pmset 自動喚醒 17:55..."
-    if sudo -n pmset repeat wakeorpoweron MTWRFSU 17:55:00 2>/dev/null; then
-      echo "✅ 已設定自動喚醒：每日 17:55"
+    echo "嘗試設定 pmset 自動喚醒 09:55..."
+    if sudo -n pmset repeat wakeorpoweron MTWRFSU 09:55:00 2>/dev/null; then
+      echo "✅ 已設定自動喚醒：每日 09:55"
     else
       echo "⚠️ pmset 需要管理員權限。請手動執行以下任一方案："
       echo ""
       echo "方案 A（手動執行一次）："
-      echo "  sudo pmset repeat wakeorpoweron MTWRFSU 17:55:00"
+      echo "  sudo pmset repeat wakeorpoweron MTWRFSU 09:55:00"
       echo ""
       echo "方案 B（免密碼設定）："
       echo "  echo \"$USER ALL=(ALL) NOPASSWD: /usr/bin/pmset\" | sudo tee /etc/sudoers.d/pmset"
-      echo "  sudo pmset repeat wakeorpoweron MTWRFSU 17:55:00"
+      echo "  sudo pmset repeat wakeorpoweron MTWRFSU 09:55:00"
       echo ""
       echo "方案 C（不需 sudo）："
-      echo "  系統設定 → 電池 → 排程 → 啟動或喚醒：每日 17:55"
+      echo "  系統設定 → 電池 → 排程 → 啟動或喚醒：每日 09:55"
       echo ""
     fi
 
@@ -86,7 +86,7 @@ case "$OS" in
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>18</integer>
+        <integer>10</integer>
         <key>Minute</key>
         <integer>0</integer>
     </dict>
@@ -116,7 +116,7 @@ PLIST
 
     echo "✅ plist 已建立: $PLIST_PATH"
 
-    # ── Step 2b：安裝 17:50 電源提醒 plist（S-PWR P-1）──
+    # ── Step 2b：安裝 09:50 電源提醒 plist（S-PWR P-1）──
     cat > "$REMINDER_PATH" << PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -134,7 +134,7 @@ PLIST
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>17</integer>
+        <integer>9</integer>
         <key>Minute</key>
         <integer>50</integer>
     </dict>
@@ -173,15 +173,15 @@ PLIST
     launchctl load "$PLIST_PATH"
     echo "✅ 排程已載入"
     launchctl load "$REMINDER_PATH"
-    echo "✅ 電源提醒已載入（每日 17:50，電池模式才通知）"
+    echo "✅ 電源提醒已載入（每日 09:50，電池模式才通知）"
 
     echo ""
     echo "============================================"
     echo "  macOS 排程安裝完成"
     echo "============================================"
     echo ""
-    echo "排程時間：每日 18:00（台灣時間）"
-    echo "電源提醒：每日 17:50（電池模式時通知「請接電源」；AC 時不動作）"
+    echo "排程時間：每日 10:00（台灣時間）"
+    echo "電源提醒：每日 09:50（電池模式時通知「請接電源」；AC 時不動作）"
     echo "執行腳本：$SCRIPT_PATH"
     echo "Log 目錄：$REPO_DIR/data/logs/"
     echo ""
@@ -207,13 +207,13 @@ PLIST
       crontab -l 2>/dev/null | grep -v "run-daily.sh" | crontab -
     fi
 
-    # 新增 crontab 條目（07:30 台灣時間）
+    # 新增 crontab 條目（10:00 台灣時間）
     (crontab -l 2>/dev/null; echo "# AI News Hub 每日排程") | crontab -
-    (crontab -l 2>/dev/null; echo "0 18 * * * TZ=Asia/Taipei /bin/bash ${SCRIPT_PATH} >> ${REPO_DIR}/data/logs/cron.log 2>&1") | crontab -
+    (crontab -l 2>/dev/null; echo "0 10 * * * TZ=Asia/Taipei /bin/bash ${SCRIPT_PATH} >> ${REPO_DIR}/data/logs/cron.log 2>&1") | crontab -
 
     echo "✅ crontab 已設定"
     echo ""
-    echo "排程時間：每日 18:00（台灣時間）"
+    echo "排程時間：每日 10:00（台灣時間）"
     echo ""
     echo "驗證排程："
     echo "  crontab -l"
@@ -230,7 +230,7 @@ PLIST
     echo ""
     echo "1. 開啟「工作排程器」（Win+R → taskschd.msc）"
     echo "2. 建立基本工作 → 名稱：AI News Hub Daily"
-    echo "3. 觸發程序 → 每天 → 18:00"
+    echo "3. 觸發程序 → 每天 → 10:00"
     echo "4. 動作 → 啟動程式"
     echo "   程式：bash"
     echo "   引數：${SCRIPT_PATH}"
@@ -242,7 +242,7 @@ PLIST
 
   *)
     echo "❌ 不支援的作業系統: $OS"
-    echo "請手動設定 cron 或工作排程器，每日 07:30 執行："
+    echo "請手動設定 cron 或工作排程器，每日 10:00 執行："
     echo "  bash $SCRIPT_PATH"
     exit 1
     ;;

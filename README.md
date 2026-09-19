@@ -5,7 +5,7 @@
 ## 架構圖
 
 ```
-本機排程 (每日 18:00)
+本機排程 (每日 10:00)
     ↓
 Claude CLI 與 GitHub API 更新 12 類別
   ├─ 每日 10 類（含企業官方資訊、模型快訊與熱門 Skills）
@@ -17,7 +17,7 @@ git push → GitHub Pages 自動部署
     ↓
 GitHub Issues 通知 (Email)
 
-健康檢查 (GitHub Actions 20:17)
+健康檢查 (GitHub Actions 12:17)
     ↓
 本機沒跑時標記 missed
 
@@ -39,7 +39,7 @@ GitHub Issues 通知 (Email)
 - **每類別更新時間**：前端顯示各分類最後擷取時間，每週類別標示「每週一更新」
 - **企業生態系累積合併**：`merge-stack.py` 依官方 URL 去重合併歷史與今日資料
 - **macOS 自動喚醒**：使用 `pmset` 在排程時自動喚醒 Mac
-- **GitHub Actions 健康檢查**：20:17 檢查本機是否成功執行
+- **GitHub Actions 健康檢查**：12:17 檢查本機是否成功執行
 - **自動 Issue 通知**：Push 時自動建立 GitHub Issues，Email 直達收件箱（零設定）
 - **響應式暗色前端**：Vanilla JS 零依賴，iPhone 全面適配
 - **歷史紀錄**：保留近 7 天資料，可切換檢視
@@ -90,7 +90,7 @@ bash scripts/setup-scheduler.sh
 此步驟會：
 - 檢查 Claude CLI 登入狀態
 - 安裝 launchd agent（macOS）或 cron job（Linux）
-- 設置 18:00 自動執行（macOS 17:55 喚醒）
+- 設置 10:00 自動執行（macOS 09:55 喚醒）
 
 #### 4. 手動測試擷取流程
 
@@ -199,7 +199,7 @@ gh auth login
 
 ### 排程沒有執行
 
-**症狀**：18:00 沒有新的 commit
+**症狀**：10:00 沒有新的 commit
 
 **解決方案**：
 ```bash

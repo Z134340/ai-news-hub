@@ -36,7 +36,7 @@ deny_read_write_paths:
   - secrets/
   - "**/*.key"
   - "**/credentials*"
-  # 發布爆炸半徑：run-daily.sh 每天 18:00 會 git add data/ 推上 GitHub Pages。
+  # 發布爆炸半徑：run-daily.sh 每天 10:00 會 git add data/ 並觸發正式站部署。
   # BriefWriter 的輸出是三支裡唯一「人會逐字讀」的,誤推出去就是直接對外發布
   # 一段沒人複核過的中文。
   - ../../data/agent/*.json

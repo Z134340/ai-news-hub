@@ -11,7 +11,7 @@
 // 它是「程式」不是「agent」，理由見 lib/lexicons.mjs 開頭：這裡要的是一致性，
 // 同一批新聞跑兩次必須得到完全一樣的叢集與分數，否則時間軸會出現假趨勢。
 //
-// 發布安全：run-daily.sh 每天 18:00 會跑 `git add data/` 然後 push 到公開的
+// 發布安全：run-daily.sh 每天 10:00 會跑 `git add data/` 然後 push 到正式站
 // GitHub Pages。所以預設輸出到 data/agent/.preview/（已在 .gitignore），
 // 確認過內容再用 --promote 落到正式的 data/agent/。
 //
@@ -586,7 +586,7 @@ function main() {
     },
   });
 
-  console.log(`輸出目錄：${path.relative(ROOT, OUT_DIR)}${PROMOTE ? "（正式路徑，隔天 18:00 會被推上線）" : "（預覽路徑，不會發布）"}`);
+  console.log(`輸出目錄：${path.relative(ROOT, OUT_DIR)}${PROMOTE ? "（正式路徑，下一次 10:00 會被推上線）" : "（預覽路徑，不會發布）"}`);
   console.log(`視窗：${days[0].date} ~ ${latest.date}（${days.length} 天，${totalItems} 筆）`);
   for (const c of clusters) {
     console.log(`  ${c.score.toFixed(3)}  ${c.cluster_id.padEnd(28)} 出現 ${String(c.evidence_count).padStart(4)} 次 / 不重複 ${String(c.unique_item_count).padStart(3)} 則 / 金融相關 ${c.score_breakdown.financial_relevance}`);

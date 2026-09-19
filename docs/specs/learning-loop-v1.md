@@ -37,7 +37,7 @@
 | C7 前端 | 不加新 icon；未登入時在評分按鈕旁以既有 `svg()` 加「登入後才同步」提示 | `assets/js/bookmarks.js` | 不用 emoji |
 | C8 迴圈硬化 | ①閘 2 輸出統一 VerdictReport（`{overall, score, items:[{check_id,status,evidence,location}]}`）；②同一提案被 canary 回退 2 次即凍結（`canaries.json` `freeze_after_reverts:2`），寫 `proposal_frozen` 事件；③模型步驟顯式 `--model` | `newshub_change_evaluator.py`、`canary-check.mjs`、`newshub_agents.py` | 不放寬 HARD_DENY；不新增計費 |
 
-## 4. loop 步驟（每晚 18:00，接在既有 `run-agents.sh`）
+## 4. loop 步驟（每日 10:00，接在既有 `run-agents.sh`）
 
 | 步驟 | 名稱 | 讀 | 寫 | 阻塞 |
 |---|---|---|---|---|

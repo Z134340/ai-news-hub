@@ -11,7 +11,7 @@
     .catch(() => null);
   // healthData 為 null 時，Header 不顯示健康指標，不影響主功能
   ```
-- **latest.json 不存在（首次部署 / 404）→ 顯示友善提示「🕐 首次部署完成，等待明日 18:00 首次擷取」+ 手動擷取按鈕**
+- **latest.json 不存在（首次部署 / 404）→ 顯示友善提示「🕐 首次部署完成，等待下一次 10:00 擷取」+ 手動擷取按鈕**
 - **fetch 失敗（網路錯誤）→ 顯示「⚠️ 無法載入資料」+ 重試按鈕（3 秒後自動重試一次）**
 
 ### Header 健康儀表板（全寬單列佈局）
@@ -32,7 +32,7 @@
 - health.json `errors[0]` 非空 → 黃色橫幅（svg alert icon，純文字）：「上次擷取：{errors[0]}」；來源為配額耗盡備註或 S-PWR 電池模式回退備註（`ui.js` updateHeader）
 
 ### 自動更新偵測（⚠️ Bug Fix #9）
-- 每 **15 分鐘**靜默 fetch latest.json?v={Date.now()}（排程每日傍晚一次，較頻繁檢查以利補跑後即時更新）
+- 每 **15 分鐘**靜默 fetch latest.json?v={Date.now()}（排程每日早上一次，較頻繁檢查以利補跑後即時更新）
 - **使用鎖定機制防止疊加**：
   ```javascript
   let isChecking = false;

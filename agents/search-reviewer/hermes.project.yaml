@@ -35,7 +35,7 @@ deny_read_write_paths:
   - secrets/
   - "**/*.key"
   - "**/credentials*"
-  # 發布爆炸半徑：run-daily.sh 每天 18:00 會 git add data/ 推上 GitHub Pages。
+  # 發布爆炸半徑：run-daily.sh 每天 10:00 會 git add data/ 並觸發正式站部署。
   # 代理人一律只能寫 .preview/，晉升到 data/agent/ 是人工動作。
   - ../../data/agent/*.json
   - ../../data/latest.json

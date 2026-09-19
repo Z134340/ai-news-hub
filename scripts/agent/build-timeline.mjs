@@ -22,7 +22,7 @@
 // 否則時間軸會出現不是來自新聞的波動。判斷（這波升溫是真的還是轉載洗版）
 // 由 TrendAnalyst 做，這支只負責把證據排整齊。
 //
-// 發布安全：run-daily.sh 每天 18:00 會跑 `git add data/` 然後 push 到公開的
+// 發布安全：run-daily.sh 每天 10:00 會跑 `git add data/` 然後 push 到正式站
 // GitHub Pages。所以預設輸出到 data/agent/.preview/（已在 .gitignore），
 // 確認過內容再用 --promote 落到正式的 data/agent/。
 //
@@ -481,7 +481,7 @@ function main() {
     },
   });
 
-  console.log(`輸出目錄：${path.relative(ROOT, OUT_DIR)}${PROMOTE ? "（正式路徑，隔天 18:00 會被推上線）" : "（預覽路徑，不會發布）"}`);
+  console.log(`輸出目錄：${path.relative(ROOT, OUT_DIR)}${PROMOTE ? "（正式路徑，下一次 10:00 會被推上線）" : "（預覽路徑，不會發布）"}`);
   console.log(`視窗：${body.window.start} ~ ${body.window.end}（日曆 ${body.axis.calendar_days} 天／有語料 ${body.axis.observed_days} 天／連續性 ${body.axis.continuity}）`);
   if (body.axis.missing_dates.length) console.log(`缺日 ${body.axis.missing_dates.length} 天：折線在這些點必須斷開`);
   for (const c of body.clusters) {

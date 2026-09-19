@@ -27,21 +27,21 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 ## 全自動架構
 
 ```
-┌── 主力：本機排程（一天一次傍晚班，用 Claude 訂閱）──────┐
+┌── 主力：本機排程（一天一次早班，用 Claude 訂閱）────────┐
 │                                                   │
-│  17:55  macOS 自動喚醒（pmset）                    │
-│  18:00  launchd 觸發 run-daily.sh                 │
+│  09:55  macOS 自動喚醒（pmset）                    │
+│  10:00  launchd 觸發 run-daily.sh                 │
 │    ├→ 偵測 Claude CLI 登入狀態                     │
 │    ├→ 每日更新 10 類，週一另加 2 類（單類逾時 20 分）│
 │    ├→ 合併 latest.json                            │
 │    ├→ validate.py 八步驟驗證（URL + 標題一致性）    │
 │    ├→ 寫入 data/health.json（本機處理結果）       │
 │    └→ git push [verified] / [unverified] ＋ receipt │
-│  ~19:15  完成（正常）/ ~19:40（偶爾逾時）           │
+│  ~11:15  完成（正常）/ ~11:40（偶爾逾時）           │
 │                                                   │
 ├── 健康檢查：GitHub Actions（本機沒跑時標記）─────────┤
 │                                                   │
-│  20:17  檢查 latest.json 日期                    │
+│  12:17  檢查 latest.json 日期                    │
 │    ├→ 已涵蓋本次擷取日 → 跳過                      │
 │    └→ 尚未涵蓋本次擷取日 → 標記 missed              │
 │                                                   │
@@ -49,7 +49,7 @@ Firebase 為**可選增強**：`assets/js/config.js` 的 `FIREBASE_CONFIG` 未�
 │                                                   │
 └── 前端：自動載入 + 健康監控 + iPhone 響應式 ────────┘
 │                                                   │
-│  ~19:00  你打開網站（iPhone / 桌面）                 │
+│  ~11:30  你打開網站（iPhone / 桌面）                 │
 │    ├→ 自動載入 latest.json                         │
 │    ├→ Header 顯示更新時間 + 驗證率 + 健康狀態       │
 │    └→ 每 15 分鐘靜默檢查新版                       │
