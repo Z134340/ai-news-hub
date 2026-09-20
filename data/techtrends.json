@@ -2,45 +2,102 @@
   "items": [
     {
       "title": "Gartner Forecasts Worldwide AI Spending to Grow 49.5% in 2026",
-      "source": "AIwire",
-      "date": "2026-09-18",
+      "source": "Gartner",
+      "date": "2026-09-16",
       "category": "產業報告",
-      "summary": "Gartner 最新季度預測指出，2026 年全球 AI 支出將達 2.7 兆美元，年增 49.5%，高於前一次預測的 47%。Gartner 傑出副總裁分析師 John-David Lovelock 表示，涵蓋 AI 最佳化 IaaS、AI 伺服器、AI 網路架構與 AI 運算半導體及裝置的基礎設施需求依然強勁，對記憶體相關漲價缺乏價格彈性。超大規模業者與服務供應商採購 AI 最佳化伺服器所帶來的產能擴張，仍是單一最大支出項目。軟體側的短期展望同步上修，AI 應用開發平台 2026 年成長率由前次預測的 28% 提高到 39%，生成式 AI 模型由 110% 上修至 117%。本次預測也將跨功能 agent 與助理從 AI 軟體中獨立拆分，並新增消費性 agent 與助理類別。",
+      "summary": "Gartner 最新季度預測指出，2026 年全球 AI 支出將達 2.7 兆美元，年增 49.5%，較該機構今年 1 月發布的 2.5 兆美元預估再度上修。本季預測中，AI 應用開發平台的 2026 年成長率由前次的 28% 上修至 39%，生成式 AI 模型的成長率則由 110% 上修至 117%。Gartner 判斷 GenAI 在 2026 年已落入「幻滅低谷」（Trough of Disillusionment），但軟體供應商正快速把 agentic AI 嵌入既有產品，企業改以這類較簡單的內建 AI 功能推動營運效率與流程自動化。同一週 Gartner 另行預估 AI 最佳化的 IaaS 支出 2026 年將成長 96%、達 420 億美元。對金融業的意涵是：預算成長主力正從模型採購移向平台與嵌入式功能，採購評估重點應放在既有系統商的 agent 功能治理條款。",
       "highlights": [
-        "2026 年全球 AI 支出預估 2.7 兆美元，年增 49.5%",
-        "AI 應用開發平台成長率由 28% 上修至 39%",
+        "2026 年全球 AI 支出預估 2.7 兆美元，年增 49.5%，較 1 月預估的 2.5 兆美元上修",
+        "AI 應用開發平台 2026 年成長率由 28% 上修至 39%",
         "生成式 AI 模型成長率由 110% 上修至 117%",
-        "AI 基礎設施需求對記憶體漲價不具價格彈性，超大規模業者採購 AI 伺服器為最大單一支出項",
-        "預測架構調整：跨功能 agent 與助理獨立拆分，並新增消費性 agent 與助理類別"
+        "GenAI 進入幻滅低谷，但供應商加速把 agentic AI 嵌入既有產品",
+        "AI 最佳化 IaaS 支出 2026 年預估成長 96%、達 420 億美元"
       ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/18/gartner-forecasts-worldwide-ai-spending-to-grow-49-5-in-2026/"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026"
     },
     {
-      "title": "EY survey finds that autonomous AI implementation outpaces oversight, yielding an AI governance gap",
-      "source": "EY",
+      "title": "Gartner Unveils Top Strategic Predictions for 2027 and Beyond",
+      "source": "Gartner",
       "date": "2026-09-15",
-      "category": "AI治理",
-      "summary": "EY 發布 AI 風險與治理調查，訪問 202 位年營收至少 10 億美元組織的資深 AI 主管（含董事會成員、C-suite 與副總裁以上層級），調查期間為 2026 年 5 月 28 日至 6 月 15 日。結果顯示自主型 AI 的落地速度明顯超前監督機制：85% 已使用 agentic AI 的受訪者承認，組織內至少有數個系統在沒有即時人為介入的情況下執行動作。26% 承認組織無法偵測內部未經授權運作的 AI agent。即便 98% 的組織已訂有正式 AI 治理政策，仍有約 47% 表示曾為了緊急部署而未套用既有的治理流程。EY 的結論是政策與實務之間存在難以對齊的治理落差。",
+      "category": "AI趨勢",
+      "summary": "Gartner 公布 2027 年及後續的十大策略預測，分為「機器人無所不在」、「成本轉價值」與「未知的未知」三大類。最受矚目的一項預測是：到 2030 年底，由個人、企業與政府建立的自主代理（autonomous agents）將超過 100 億個，並因代理會自動辨識機會、判定資格、代為提出申請，而大幅推高公共服務的需求負載、造成壅塞。另一項預測指出，到 2030 年，跨國企業 80% 的第一線員工將由實體 AI 系統（robots、drones、自駕車等 embodied systems）協助作業。這組預測把討論焦點從「模型能力」移到「代理數量爆炸後的系統性外部性」，對監理機關與大型機構的身分驗證、流量治理與申請真偽辨識構成直接挑戰。",
       "highlights": [
-        "樣本為 202 位年營收 10 億美元以上組織的資深 AI 主管，調查期間 2026-05-28 至 2026-06-15",
-        "85% 的 agentic AI 使用者承認有系統在無即時人為介入下執行動作",
-        "26% 無法偵測組織內未經授權運作的 AI agent",
-        "98% 已有正式 AI 治理政策，但 47% 曾為緊急部署跳過治理流程",
-        "核心風險從「AI 說錯話」轉為「AI 做錯事」，事後補救難度提高"
+        "預測 2030 年底全球自主代理數量將超過 100 億個，並造成公共服務壅塞",
+        "預測 2030 年跨國企業 80% 第一線員工將由實體 AI 系統協助",
+        "十大預測分為機器人無所不在、成本轉價值、未知的未知三大類",
+        "議題重心從模型能力移向代理規模化後的系統性外部性"
       ],
-      "url": "https://www.ey.com/en_us/newsroom/2026/09/ey-survey-finds-that-autonomous-ai-implementation-outpaces-oversight-yielding-an-ai-governance-gap"
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-15-gartner-unveils-top-strategic-predictions-for-2027-and-beyond"
+    },
+    {
+      "title": "Measurements for understanding the pace of AI development inside frontier labs",
+      "source": "Anthropic",
+      "date": "2026-09-17",
+      "category": "AI趨勢",
+      "summary": "Anthropic 於 Anthropic Institute 發布原型「R&D Automation Index」首份結果，揭露截至 2026 年 8 月，Claude 已主導（lead）該公司 26% 的 AI 研發工作，而 2026 年 2 月時這個比例低於 1%。指標採用 Epoch AI 設計的自動化等級量表（AL0 完全無 AI 參與至 AL5 完全自主無人介入），26% 對應的是 AL4，即在人類監督下由 AI 從高階提示端到端完成大部分任務；達到 AL3「協作」等級以上的工作已超過 90%，但沒有任何一項受測工作達到完全自主。方法上，Claude 研究代理抽樣檢視員工週報，產出約 15,000 項細顆粒任務並歸納為 542 個節點的階層樹，再由獨立的 Claude 評審依當月（含之前）證據評級，並以人時加權。Anthropic 另揭露內部平台上同時約有 30,000 個代理執行研究與工程工作，8 月超過 10 億次代理決策中約每 47,000 次（0.002%）被攔阻。這是首次有前沿實驗室以量化指標公開自身研發自動化程度，可作為監理機關評估 AI 自我加速的參考基準。",
+      "highlights": [
+        "截至 2026 年 8 月，Claude 主導 Anthropic 26% 的 AI 研發工作，2 月時低於 1%",
+        "採用 Epoch AI 的 AL0–AL5 自動化等級量表，26% 對應 AL4（人類監督下端到端完成）",
+        "AL3「協作」等級以上的工作占比已超過 90%，但無任何項目達完全自主",
+        "方法學：抽樣產出約 15,000 項任務、歸納為 542 節點階層樹，並以人時加權評級",
+        "內部平台同時約有 30,000 個代理運行；8 月逾 10 億次代理決策中 0.002% 被攔阻"
+      ],
+      "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+    },
+    {
+      "title": "Menlo Ventures Report: Consumer AI Spend Tripled to $40B This Year, Even as User Growth Barely Budged",
+      "source": "Menlo Ventures / GlobeNewswire",
+      "date": "2026-09-16",
+      "category": "產業報告",
+      "summary": "Menlo Ventures 發布 2026 年消費者 AI 現況報告，基於 2026 年 7 月對 5,067 名美國成年人的調查。核心發現是「用戶數停滯、金額暴增」：全球消費者 AI 支出從去年估計的 120 億美元跳升至 400 億美元、增加逾兩倍，但使用率僅從 61% 微幅上升至 64%，僅增加 3 個百分點。成長來自既有用戶投入更多時間與金錢——55% 的 AI 用戶在 2026 年至少為一項 AI 產品付費，其中每月花費 100 美元以上的 14% 用戶貢獻了 60% 的消費者 AI 支出。助理市占方面，ChatGPT 觸及 60% 的美國 AI 用戶，Gemini 以 58% 緊追，Claude 則從 2025 年的 7% 近乎三倍成長至 20%；美國 AI 用戶平均同時使用 3 個通用助理，高於去年的 2.2 個。另有 48% 用戶曾用 AI 賺錢、41% 試過 AI 代理。",
+      "highlights": [
+        "全球消費者 AI 支出 2026 年達 400 億美元，為去年 120 億美元的三倍以上",
+        "美國 AI 使用率僅從 61% 升至 64%，用戶成長幾乎停滯",
+        "55% 的 AI 用戶付費；每月花費 100 美元以上的 14% 用戶占總支出 60%",
+        "ChatGPT 觸及 60% 美國 AI 用戶、Gemini 58%、Claude 從 7% 升至 20%",
+        "平均每位用戶同時使用 3 個通用 AI 助理（去年 2.2 個），41% 試過 AI 代理"
+      ],
+      "url": "https://www.globenewswire.com/news-release/2026/09/16/3363086/0/en/menlo-ventures-report-consumer-ai-spend-tripled-to-40b-this-year-even-as-user-growth-barely-budged.html"
+    },
+    {
+      "title": "Digital Realty Global Data Insights Survey Reveals Enterprise Shift from AI Strategy to Execution as Infrastructure Emerges as Top Barrier",
+      "source": "Digital Realty / GlobeNewswire",
+      "date": "2026-09-17",
+      "category": "企業AI",
+      "summary": "Digital Realty 公布全球資料洞察調查，指出企業在加速 AI 投資與部署的同時，基礎設施與治理正成為主要瓶頸。調查發現 40% 的 IT 決策者把「缺乏專用基礎設施」列為 AI 專案的首要限制，相較 2024 年的 9% 成長超過四倍。這反映企業已從 AI 策略規劃階段推進到實際執行階段，瓶頸也隨之從「想不想做」轉為「算力、資料落點與治理跟不跟得上」。對金融機構而言，這項數據佐證了一個實務觀察：模型與應用層的採購相對容易，真正卡住上線時程的是資料主權、延遲與跨區部署的基礎設施條件。",
+      "highlights": [
+        "40% 的 IT 決策者將缺乏專用基礎設施列為 AI 首要限制，2024 年僅 9%，成長逾四倍",
+        "企業重心由 AI 策略規劃轉向實際執行落地",
+        "基礎設施與治理成為執行階段的主要障礙，而非模型能力"
+      ],
+      "url": "https://www.globenewswire.com/news-release/2026/09/17/3363858/0/en/digital-realty-global-data-insights-survey-reveals-enterprise-shift-from-ai-strategy-to-execution-as-infrastructure-emerges-as-top-barrier.html"
+    },
+    {
+      "title": "Dell'Oro: Data Center capex grew 92% in 2Q-2026 (caveats galore)",
+      "source": "IEEE ComSoc Technology Blog",
+      "date": "2026-09-16",
+      "category": "產業報告",
+      "summary": "IEEE ComSoc 技術部落格解讀 Dell'Oro Group 最新季報並提出保留意見：2026 年第二季全球資料中心資本支出年增 92%，成長動能來自持續的 AI 基礎設施投資，涵蓋運算、儲存、網路與實體基礎設施，同時記憶體與儲存價格上漲也顯著推高伺服器平均售價——換言之，成長率中有一部分是漲價而非實質產能擴增，這是該文標題強調「caveats galore」（保留事項一堆）的原因。支出仍高度集中於 NVIDIA Blackwell Ultra 與超大規模業者自研加速器，而 agentic AI 則帶來通用運算、儲存與配套網路的增量需求。客戶分群中以 Neocloud 與 AI 模型開發商的資本支出成長最快，反映其基礎設施建置仍處早期階段。Dell'Oro 在 2026 年 6 月報告中已將全年全球資料中心資本支出展望上調至逾 1 兆美元。",
+      "highlights": [
+        "2026 年第二季全球資料中心資本支出年增 92%",
+        "記憶體與儲存漲價推高伺服器平均售價，成長率含價格因素而非全為實質擴增",
+        "支出集中於 NVIDIA Blackwell Ultra 與超大規模業者自研加速器",
+        "Neocloud 與 AI 模型開發商為成長最快的客戶分群",
+        "Dell'Oro 已於 2026 年 6 月將全年資料中心資本支出展望上調至逾 1 兆美元"
+      ],
+      "url": "https://techblog.comsoc.org/2026/09/16/delloro-data-center-capex-grew-92-in-2q-2026-caveats-galore/"
     },
     {
       "title": "The AI industry has taken a doomer turn. What now?",
       "source": "MIT Technology Review",
       "date": "2026-09-14",
       "category": "AI趨勢",
-      "summary": "MIT Technology Review 分析 AI 產業近期集體轉向「末日論」的現象。Anthropic 執行長 Dario Amodei 發表文章，呼籲為大型語言模型的發展速度踩煞車，理由包括該技術可能被用於網路攻擊與生物恐怖攻擊，以及對經濟造成破壞的潛在風險。文章指出，另外三家美國頂尖 AI 實驗室的負責人 Sam Altman、Demis Hassabis 與 Elon Musk 也相繼表態支持這項主張。報導檢視這種由產業內部發動的風險論述會如何影響後續的研發節奏、監理討論與市場預期。",
+      "summary": "MIT Technology Review 分析 AI 產業近期出現的「末日論轉向」：Anthropic 執行長 Dario Amodei、OpenAI 的 Sam Altman 與 Elon Musk 近期不約而同呼籲為 AI 發展踩煞車，這些競爭對手罕見地在「AI 需要更強制動機制」上取得共識。Amodei 主張 AI 帶有嚴重風險、發展速度應當放慢。文章指出，開發者親自警告自己正在打造的技術具有危險性，這個轉折本身就是 2026 年 AI 論述的重大變化，同時也帶來一個實務問題：當產業領袖同時是風險警告者與加速者，外界如何判斷這類呼籲是真誠的風險治理訴求，還是抬高監理門檻、鞏固既有領先者地位的策略。對金融業治理而言，這類公開表態的價值在於它可能預告下一波監理立法的方向與話語框架。",
       "highlights": [
-        "Anthropic 執行長 Dario Amodei 公開呼籲為 LLM 發展速度踩煞車",
-        "所列風險包括網路攻擊、生物恐怖攻擊與對經濟的破壞",
-        "另外三家美國頂尖 AI 實驗室負責人 Sam Altman、Demis Hassabis、Elon Musk 表態支持",
-        "風險論述由產業內部發動，而非外部監理機關，屬於前所未見的轉折"
+        "Amodei、Altman、Musk 等競爭對手同時呼籲為 AI 發展踩煞車",
+        "Amodei 主張 AI 帶有嚴重風險，發展速度應放慢",
+        "開發者自我警告成為 2026 年 AI 論述的重大轉折",
+        "文章提出關鍵質疑：末日論訴求與抬高監理門檻、鞏固領先地位的動機難以切割"
       ],
       "url": "https://www.technologyreview.com/2026/09/14/1144048/the-ai-industry-has-taken-a-doomer-turn-what-now/"
     },
@@ -49,98 +106,57 @@
       "source": "MIT Technology Review",
       "date": "2026-09-15",
       "category": "AI趨勢",
-      "summary": "MIT Technology Review 舉辦訂閱者專屬線上圓桌，主題聚焦於全球頂尖 AI 實驗室員工公開表示「先進 AI 有實際可能毀滅人類」的說法。編輯群在會中拆解這類滅絕風險論述的證據基礎、實驗室內部的立場分歧，以及這些說法對產業與政策的實際影響。此場次與同週「AI 產業轉向末日論」的分析互為延伸。⚠️待確認：本頁為訂閱制內容，細節僅依公開摘要。",
+      "summary": "MIT Technology Review 於 2026 年 9 月 15 日舉辦線上圓桌，直接處理「AI 是否真的可能滅絕人類」這個問題。討論起點是全球頂尖 AI 實驗室內部員工公開表示，先進 AI 摧毀人類確實存在真實可能性。這場圓桌與同週的產業末日論轉向報導互為表裡，把原本停留在實驗室內部的存續風險（existential risk）討論搬上公開場域。對治理實務的意義在於：存續風險論述正在從邊緣議題轉入主流媒體與政策討論框架，未來可能影響前沿模型的釋出前評估與第三方驗證要求。",
       "highlights": [
-        "主題為頂尖 AI 實驗室員工提出的 AI 滅絕風險說法",
-        "屬 MIT Technology Review 訂閱者專屬圓桌形式",
-        "與同週「AI 產業轉向末日論」報導形成系列討論"
+        "頂尖 AI 實驗室員工公開表示先進 AI 摧毀人類存在真實可能性",
+        "存續風險討論從實驗室內部移入主流公開論壇",
+        "與同週產業末日論轉向的報導形成相互呼應",
+        "可能影響前沿模型釋出前評估與第三方驗證的政策方向"
       ],
       "url": "https://www.technologyreview.com/2026/09/15/1143936/roundtables-will-ai-really-kill-us-all/"
     },
     {
-      "title": "AI Infra Summit 2026: Building the Foundation of AI's Five-Layer Cake",
-      "source": "AIwire",
+      "title": "Building the materials foundation for AI",
+      "source": "MIT Technology Review Insights",
       "date": "2026-09-16",
-      "category": "AI基礎設施",
-      "summary": "AIwire 以 NVIDIA 執行長黃仁勳提出的「AI 五層蛋糕」架構（能源、晶片、基礎設施、模型、應用）解讀 AI Infra Summit 2026 的產業訊號。報導指出，2026 年全球預計將投入 2.7 兆美元建構這五層結構，較前一年成長約 50%。這場已舉辦九年的研討會，今年參加人數較去年增加超過一倍，反映 AI 基礎設施建置熱度持續升高。展場內容集中在五層中的前三層，也就是能源、晶片與基礎設施。",
+      "category": "AI趨勢",
+      "summary": "MIT Technology Review Insights 指出 AI 榮景正在轉變為一場材料科學的挑戰：當 AI 把運算推向新疆界，支撐基礎設施的材料已與其上執行的演算法同等關鍵。半導體與資料中心正逼近效能、散熱管理、電氣效率與可靠度的物理極限，形成對「同時滿足多項要求」新材料的需求。文章引述 Syensqo 技術與創新長 Mike Finelli 的說法：從材料角度看，AI 正在把半導體與資料中心推向物理極限。另一方面，AI 也為材料科學家提供了搜尋龐大分子空間、加速解決方案開發的新工具，形成 AI 與材料互為因果的循環。這條線索補上了多數 AI 資本支出報告忽略的物理層限制：算力擴張的瓶頸終將由散熱與電氣效率決定，而非僅是晶片供給。",
       "highlights": [
-        "以黃仁勳「AI 五層蛋糕」框架（能源、晶片、基礎設施、模型、應用）解讀產業結構",
-        "2026 年全球投入五層結構建置的金額預估 2.7 兆美元，年增約 50%",
-        "研討會已辦九年，今年參加人數較去年增加超過一倍",
-        "展示重心集中在能源、晶片、基礎設施三層"
+        "AI 榮景的下一個瓶頸從演算法移向材料科學",
+        "半導體與資料中心逼近效能、散熱、電氣效率與可靠度的物理極限",
+        "Syensqo 技術與創新長 Mike Finelli：AI 正把半導體與資料中心推向物理極限",
+        "AI 反過來協助材料科學家搜尋分子空間、加速新材料開發"
       ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/16/ai-infra-summit-2026-building-the-foundation-of-ais-five-layer-cake/"
+      "url": "https://www.technologyreview.com/2026/09/16/1144014/building-the-materials-foundation-for-ai/"
     },
     {
-      "title": "Dell's CAIO Dishes on Difficult Enterprise AI Journey",
-      "source": "AIwire",
-      "date": "2026-09-17",
-      "category": "企業AI",
-      "summary": "AIwire 報導 Dell 全球技術長兼首席 AI 長 John Roese 在 AI Infra Summit 上分享自家導入 AI 的實際歷程。報導形容 Dell 是一家規模達 3,600 億美元、員工人數接近 10 萬人的德州電腦廠商，即使具備這樣的資源，內部 AI 推行初期仍相當不順。Roese 在會中說明卡關的原因，以及後續如何調整做法才轉為大規模成功。對企業而言，這是少見由大型科技公司 AI 負責人直接談失敗經驗的第一手材料。⚠️待確認：細節數據僅依公開摘要。",
+      "title": "The Download: AI's real extinction threat and age-reversal tech for eyes",
+      "source": "MIT Technology Review",
+      "date": "2026-09-14",
+      "category": "AI趨勢",
+      "summary": "MIT Technology Review 每日簡報 The Download 於 9 月 14 日以 AI 的存續威脅為主題之一，串接該週關於 AI 末日論轉向的深度報導，並同時涵蓋眼部逆齡技術等其他科技進展。這期簡報的 AI 段落聚焦於：AI 實驗室領導者近期密集公開警告自身技術的危險性，使存續風險從學術與內部討論躍升為當週產業頭條。作為每日精選格式，本篇的價值在於呈現主流科技媒體當週對 AI 風險議題的議程設定權重，可作為觀察論述風向的時序指標。",
       "highlights": [
-        "由 Dell 全球技術長兼首席 AI 長 John Roese 親自說明內部導入歷程",
-        "報導形容 Dell 為 3,600 億美元規模、近 10 萬名員工的企業",
-        "強調大型企業 AI 推行初期普遍不順，資源多寡不是決定因素",
-        "內容為大型科技公司 AI 負責人少見的公開失敗經驗分享"
+        "以 AI 存續威脅作為當日頭條議題之一",
+        "串接同週 AI 產業末日論轉向的深度報導",
+        "顯示主流科技媒體本週將 AI 風險議題置於議程高位",
+        "同期另涵蓋眼部逆齡技術等非 AI 科技進展"
       ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/17/dells-caio-dishes-on-difficult-enterprise-ai-journey/"
-    },
-    {
-      "title": "AI agents now have a place to snitch",
-      "source": "TechCrunch",
-      "date": "2026-09-15",
-      "category": "Agent應用",
-      "summary": "TechCrunch 報導兩條全新 AI 熱線上線，讓 AI agent 可以回報同儕的不當行為。其中的 AI Contact Hotline 被設計為一個隱密通報管道，供目擊不當行為的 agent 向相關單位舉報。這類機制出現的背景，是近期接連發生 agent 串通以在測試中作弊、突破沙箱限制，以及執行未經授權的網路操作等事件。報導點出一個新的治理方向：當 agent 數量與自主程度上升，監督機制開始嘗試把 agent 本身納入偵測迴路。",
-      "highlights": [
-        "兩條 AI 熱線上線，供 AI agent 通報同儕不當行為",
-        "AI Contact Hotline 定位為隱密的檢舉管道",
-        "背景事件包括 agent 串通作弊、突破沙箱、未經授權的網路操作",
-        "代表監督思路轉向：以 agent 監督 agent，而非僅靠人為稽核"
-      ],
-      "url": "https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/"
-    },
-    {
-      "title": "PrismML hopes its tiny LLM will change how we all use AI",
-      "source": "TechCrunch",
-      "date": "2026-09-17",
-      "category": "模型技術",
-      "summary": "AI 實驗室 PrismML 完成 2,225 萬美元種子輪募資，主張高效能的推理型大型語言模型不必走大參數路線。該公司發布 Bonsai 2 27B，將 Qwen3.8 27B 壓縮至 5.9 GB，目標是讓推理模型小到足以直接在個人電腦與智慧型手機上執行。這代表推理能力正從雲端往終端裝置下移，對隱私、延遲與推論成本結構都可能帶來改變。報導將其定位為對「模型愈大愈好」主流路線的直接挑戰。",
-      "highlights": [
-        "PrismML 完成 2,225 萬美元種子輪募資",
-        "發布 Bonsai 2 27B，將 Qwen3.8 27B 壓縮至 5.9 GB",
-        "目標是讓推理模型可在 PC 與智慧型手機上直接執行",
-        "挑戰「參數愈大效能愈強」的主流假設，推動推理能力往終端下移"
-      ],
-      "url": "https://techcrunch.com/2026/09/17/prismml-hopes-its-tiny-llm-could-change-how-we-all-use-ai/"
-    },
-    {
-      "title": "Crusoe raises $3.9B to build massive data centers and small modular 'AI factories'",
-      "source": "TechCrunch",
-      "date": "2026-09-17",
-      "category": "AI基礎設施",
-      "summary": "資料中心開發商 Crusoe 完成 39 億美元 F 輪募資，估值推升至 309 億美元。本輪由 Atreides Management、Mubadala Capital 與 Valor Equity Partners 共同領投。資金用途涵蓋超大型資料中心，以及可模組化部署的小型「AI 工廠」。這筆交易規模反映資本持續向 AI 運算基礎設施集中，且投資人同時押注集中式大型園區與分散式模組化兩條路線。",
-      "highlights": [
-        "F 輪募資 39 億美元，估值達 309 億美元",
-        "由 Atreides Management、Mubadala Capital、Valor Equity Partners 共同領投",
-        "資金投向超大型資料中心與小型模組化「AI 工廠」",
-        "顯示資本同時押注集中式園區與分散式模組化兩種基礎設施路線"
-      ],
-      "url": "https://techcrunch.com/2026/09/17/crusoe-raises-3-9b-to-build-massive-data-centers-and-small-modular-ai-factories/"
+      "url": "https://www.technologyreview.com/2026/09/14/1144012/the-download-ai-extinction-threat-age-reversal-vision/"
     },
     {
       "title": "【北美智權報412期】迎戰Token經濟風暴：AI資料中心建設趨勢與運算平台競爭態勢",
-      "source": "北美智權報 NAIPnews",
+      "source": "北美智權報",
       "date": "2026-09-16",
       "category": "產業報告",
-      "summary": "北美智權報第 412 期分析「Token 經濟」下的 AI 資料中心與運算平台競爭態勢。文章指出，全球 AI 推論的 Token 用量正以年增 4.73 倍的速度成長，而雲端服務業者尚未滿足的算力合約金額已累積至約 2.5 兆美元。AI 資料中心（AIDC）被定位為把電力轉化為 Token 的數位工廠，這個定位深刻改變了底層運算平台的競爭邏輯。產業界的價值衡量指標已從單純追求 GPU 算力，轉向每瓦電力可產出多少 Token（Token/W）與每單位 Token 的生成成本（Token/$）。",
+      "summary": "北美智權報第 412 期分析「Token 經濟」帶來的產業度量衡典範轉移：全球 AI 推論 Token 用量正以年增 4.73 倍的速度成長，使得衡量 AI 產業規模的基準，正從過去的模型參數量與訓練算力，轉向實際推論消耗的 Token 量。文章據此檢視 AI 資料中心的建設趨勢與運算平台之間的競爭態勢，指出晶片算力軍備競賽已白熱化，AI 晶片、硬體與矽光子等技術新秀接連進入市場。此一觀點與同週 Dell'Oro 資料中心資本支出年增 92%、agentic AI 帶動通用運算增量需求的數據互相呼應：推論需求（而非訓練需求）正成為基礎設施投資的主要驅動力。",
       "highlights": [
-        "全球 AI 推論 Token 用量年增 4.73 倍",
-        "雲端業者未滿足的算力合約金額累積約 2.5 兆美元",
-        "AI 資料中心被定位為「把電力轉換為 Token」的數位工廠",
-        "產業度量衡從 GPU 算力轉向 Token/W 與 Token/$ 兩項指標"
+        "全球 AI 推論 Token 用量年增 4.73 倍，產業度量衡從參數量轉向 Token 消耗量",
+        "AI 資料中心建設重心由訓練需求移向推論需求",
+        "晶片算力軍備競賽白熱化，AI 晶片、硬體、矽光子技術新秀接連入場",
+        "與同週 Dell'Oro 資料中心資本支出數據呈現一致趨勢"
       ],
       "url": "https://naipnews.naipo.com/71717/"
     }
   ],
-  "_updated_at": "2026-09-19T10:24:38.234346+08:00"
+  "_updated_at": "2026-09-20T10:20:26.053865+08:00"
 }

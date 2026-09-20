@@ -13,7 +13,12 @@
         "Google 以 Fairwind Program 作為 Gemini 3.8 Flash Cyber 的分流機制，優先給防禦方而非一般開發者",
         "三家同時採「能力愈強、通路愈窄」的發布策略，對金融業意味著資安類前沿模型未來多需個案申請而非自助開通"
       ],
-      "url": "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html"
+      "url": "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified_at": "2026-09-19T10:30:11.410521+08:00"
     },
     {
       "title": "Anthropic Unifies Claude Chat and Cowork Into Single Interface, Adds Slides and Docs Features",
@@ -28,7 +33,12 @@
         "新增 Docs 與 Slides beta，Claude 從產出文字轉向直接產出可編輯交付物",
         "分層推送順序為 Pro／Max 先行，Team 與 Free 延後，企業採用需留意版本落差"
       ],
-      "url": "https://theaiinsider.tech/2026/09/18/anthropic-unifies-claude-chat-and-cowork-into-single-interface-adds-slides-and-docs-features/"
+      "url": "https://theaiinsider.tech/2026/09/18/anthropic-unifies-claude-chat-and-cowork-into-single-interface-adds-slides-and-docs-features/",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified_at": "2026-09-19T10:30:11.410565+08:00"
     },
     {
       "title": "Anthropic says its model Claude is helping to build the next version of itself",
@@ -43,22 +53,12 @@
         "此說法直接牽動「能力提升速度應否放慢」的產業辯論脈絡",
         "治理關注點應放在模型參與研發時的人工審核節點與紀錄保存，而非能力宣稱本身"
       ],
-      "url": "https://guelph.ctvnews.ca/sci-tech/article/anthropic-says-its-model-claude-is-helping-to-build-the-next-version-of-itself/"
-    },
-    {
-      "title": "California Gov. Newsom issues executive order to rein in AI 'before it's too late'",
-      "title_zh": "加州州長 Newsom 簽署行政命令，要「在來不及之前」管住 AI",
-      "source": "CNBC",
-      "date": "2026-09-18",
-      "domain": "Policy",
-      "model_area": "AI safety regulation",
-      "summary": "加州州長 Gavin Newsom 簽署行政命令，針對 AI 潛在風險採取行動，要求組成專家團隊提出強化州級 AI 安全法規的建議。同日 Newsom 並公開主張 AI 需要「kill switch」（緊急停止機制），並呼籲聯邦層級採納加州的監管做法。加州是多數前沿實驗室的所在地，州法實質上具有跨州外溢效果。",
-      "highlights": [
-        "行政命令核心是成立專家小組，產出強化州級 AI 安全立法的具體建議，屬於立法前置作業而非直接規範",
-        "Newsom 主張導入緊急停止機制，並要求聯邦比照加州標準",
-        "對金融業的意涵：美國 AI 監理短期內仍以州級先行、聯邦落後的分歧格局推進，跨境合規需以最嚴州法為基準"
-      ],
-      "url": "https://www.cnbc.com/2026/09/18/california-newsom-executive-order-ai.html"
+      "url": "https://guelph.ctvnews.ca/sci-tech/article/anthropic-says-its-model-claude-is-helping-to-build-the-next-version-of-itself/",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0.43,
+      "verified_at": "2026-09-19T10:30:11.410606+08:00"
     },
     {
       "title": "For AI agents, it's the best of times, it's the worst of times",
@@ -73,8 +73,14 @@
         "內文論點與數據未能開啟原文核對，屬未能驗證，閱讀時請以原文為準",
         "同期產業脈絡為 agent 產品大量發布與企業導入成效落差並存"
       ],
-      "url": "https://siliconangle.com/2026/09/18/for-ai-agents-its-the-best-of-times-its-the-worst-of-times/"
+      "url": "https://siliconangle.com/2026/09/18/for-ai-agents-its-the-best-of-times-its-the-worst-of-times/",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0.9,
+      "verified_at": "2026-09-19T10:30:11.410691+08:00"
     }
   ],
-  "_updated_at": "2026-09-19T10:25:35.740427+08:00"
+  "_updated_at": "2026-09-19T10:25:35.740427+08:00",
+  "_fallback": true
 }
