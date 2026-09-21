@@ -1,86 +1,35 @@
 {
   "items": [
     {
-      "title": "Google, Anthropic, and OpenAI Unveil Cyber AI Models, Safeguards, and Access Programs",
-      "title_zh": "Google、Anthropic 與 OpenAI 同步發表資安專用 AI 模型、防護機制與存取計畫",
-      "source": "The Hacker News",
-      "date": "2026-09-18",
-      "domain": "Cybersecurity",
-      "model_area": "Claude Fable 5.1 / Claude Mythos 5.1 / Gemini 3.8 Flash Cyber",
-      "summary": "三大前沿實驗室在同一波發表中把資安專用模型與分級存取綁在一起。Anthropic 推出 Claude Fable 5.1 與 Claude Mythos 5.1，兩者套用不同強度的防護措施，其中 Mythos 5.1 只透過受信任存取計畫（trusted access program）開放，用途限定在資安與生命科學。Google 則發表 Gemini 3.8 Flash Cyber，自稱是其最強的資安模型，並以新的 Fairwind Program 讓高優先度的防禦方優先取得。整體模式是「高能力模型不公開發行，改以白名單防禦者為通路」。",
-      "highlights": [
-        "Claude Mythos 5.1 不走一般 API 通路，僅限受信任存取計畫，適用範圍限縮於資安與生命科學",
-        "Google 以 Fairwind Program 作為 Gemini 3.8 Flash Cyber 的分流機制，優先給防禦方而非一般開發者",
-        "三家同時採「能力愈強、通路愈窄」的發布策略，對金融業意味著資安類前沿模型未來多需個案申請而非自助開通"
-      ],
-      "url": "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
-      "verified": true,
-      "complete": true,
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified_at": "2026-09-19T10:30:11.410521+08:00"
-    },
-    {
-      "title": "Anthropic Unifies Claude Chat and Cowork Into Single Interface, Adds Slides and Docs Features",
-      "title_zh": "Anthropic 將 Claude 對話與 Cowork 整併為單一介面，並新增 Slides 與 Docs 功能",
-      "source": "The AI Insider",
-      "date": "2026-09-18",
-      "domain": "Agent",
-      "model_area": "Claude / Claude Cowork / Artifacts",
-      "summary": "Anthropic 把原本分離的 Claude 一般對話與 agentic 工具 Cowork 合併到同一個視窗，使用者不必再自行判斷該切到哪個分頁，改由 Claude 自動路由請求。Artifacts 互動工作區也納入同一介面。同時以 beta 形式推出 Claude Docs 與 Claude Slides 兩項新功能，搭配 Claude Design 工具一併擴大推送。更新先開放給 Pro 與 Max 訂閱者，涵蓋網頁、桌面與行動端，Team 與 Free 方案後續跟進。",
-      "highlights": [
-        "對話與 agent 執行合流為單一入口，路由決策從使用者手上移到模型端，是 agent 產品「隱藏編排層」的典型走向",
-        "新增 Docs 與 Slides beta，Claude 從產出文字轉向直接產出可編輯交付物",
-        "分層推送順序為 Pro／Max 先行，Team 與 Free 延後，企業採用需留意版本落差"
-      ],
-      "url": "https://theaiinsider.tech/2026/09/18/anthropic-unifies-claude-chat-and-cowork-into-single-interface-adds-slides-and-docs-features/",
-      "verified": true,
-      "complete": true,
-      "url_status": "verified",
-      "title_score": 1.0,
-      "verified_at": "2026-09-19T10:30:11.410565+08:00"
-    },
-    {
-      "title": "Anthropic says its model Claude is helping to build the next version of itself",
-      "title_zh": "Anthropic 表示 Claude 正在協助打造自己的下一個版本",
-      "source": "CTV News",
-      "date": "2026-09-18",
+      "title": "StepFun Launches Step 5 Preview: China's 600B AI Model Priced at $1 Per Million Tokens",
+      "title_zh": "階躍星辰推出 Step 5 Preview：中國 600B 參數模型，輸入每百萬 token 訂價 1 美元",
+      "source": "Eastern Herald",
+      "date": "2026-09-20",
       "domain": "LLM",
-      "model_area": "Claude",
-      "summary": "Anthropic 公開表示，現行的 Claude 模型已實際參與公司開發下一代、能力更強版本的工作。這等於官方承認模型研發流程本身已進入「以模型開發模型」的階段。對治理面而言，重點不在行銷語言，而在於研發鏈中人類審核的位置與可稽核性如何界定。",
+      "model_area": "Sparse MoE / Agentic LLM / 開源權重",
+      "summary": "中國 AI 公司 StepFun（階躍星辰）於 9 月 20 日正式發表旗艦模型 Step 5 Preview，採 600B 總參數、每 token 啟用 27B 的稀疏 MoE 架構，搭配 1M token 長上下文，並在同日開放 API 與 Studio 存取。定位鎖定 agentic 工作負載，強調軟體工程與專業知識任務表現，尤其標榜金融領域能力。訂價為輸入每百萬 token 1 美元、輸出 2.70 美元，另有 95% 的快取折扣；Artificial Analysis 的 Intelligence Index 給分 44。官方並宣布完整模型權重將於 10 月 15 日開源。",
       "highlights": [
-        "官方承認模型已介入自身後續版本的開發流程，而非僅用於周邊工程輔助",
-        "此說法直接牽動「能力提升速度應否放慢」的產業辯論脈絡",
-        "治理關注點應放在模型參與研發時的人工審核節點與紀錄保存，而非能力宣稱本身"
+        "600B 總參數、27B 活躍參數的稀疏 MoE，1M token 上下文，主打長時程 agent 任務",
+        "輸入 1 美元／輸出 2.70 美元（每百萬 token），並提供 95% 快取折扣，屬同級分數中的低價位",
+        "Intelligence Index 44 分，完整權重預定 10 月 15 日開放下載"
       ],
-      "url": "https://guelph.ctvnews.ca/sci-tech/article/anthropic-says-its-model-claude-is-helping-to-build-the-next-version-of-itself/",
-      "verified": true,
-      "complete": true,
-      "url_status": "verified",
-      "title_score": 0.43,
-      "verified_at": "2026-09-19T10:30:11.410606+08:00"
+      "url": "https://easternherald.com/2026/09/20/stepfun-step-5-preview-china-ai-model-open-weights/"
     },
     {
-      "title": "For AI agents, it's the best of times, it's the worst of times",
-      "title_zh": "對 AI agent 而言，這是最好的時代，也是最壞的時代",
-      "source": "SiliconANGLE",
-      "date": "2026-09-18",
-      "domain": "Agent",
-      "model_area": "Agentic AI / enterprise agents",
-      "summary": "SiliconANGLE 於 2026-09-18 刊出的 AI agent 產業評論，主題聚焦在 agent 同時處於高速擴張與嚴重落地落差的雙面局勢。註記：本則僅能由搜尋結果確認標題、來源與發佈日期，內文細節與具體數據未能逐字核對，摘要不代為補述未經查證的內容。",
+      "title": "Trump Announces \"AI Force\" and an Unnamed Czar, Rejecting Global Oversight as China Builds Its Own Framework",
+      "title_zh": "川普宣布成立「AI Force」並將任命 AI 沙皇，拒絕全球性監理，中國同時自建治理架構",
+      "source": "Eastern Herald",
+      "date": "2026-09-20",
+      "domain": "Policy",
+      "model_area": "AI 治理／國家級監理",
+      "summary": "美國總統川普宣布將比照太空軍（Space Force）模式成立「AI Force」，並預告近期任命 AI 沙皇（AI Czar），統籌產業監督但明確避免可能拖慢創新的法規。此舉直接對撞 Anthropic 執行長 Dario Amodei 日前發表的〈We Must Pace the Frontier〉主張：該文提出三步驟放慢前沿模型開發速度，警告若放任發展恐「超出我們理解與控制這些系統的能力」。川普在 Truth Social 上反駁，稱 AI 唯一需要的護欄是「強而聰明的總統」，並點名「Dario（Anthropic！）現在假裝成完美小天使」。這代表白宮政策方向與多家前沿實驗室高層近期的「放慢步調」共識出現明顯分歧。",
       "highlights": [
-        "發佈日期與來源已由搜尋結果確認為 2026-09-18 SiliconANGLE",
-        "內文論點與數據未能開啟原文核對，屬未能驗證，閱讀時請以原文為準",
-        "同期產業脈絡為 agent 產品大量發布與企業導入成效落差並存"
+        "白宮將以太空軍為藍本設立 AI Force，並任命 AI 沙皇，定位為監督而非加嚴管制",
+        "明確拒絕 Amodei 的三步驟「放慢前沿開發」提案，主張監理不應拖慢創新",
+        "美方立場與中國同期自建治理框架形成對照，前沿實驗室的自律倡議缺乏政策端支撐"
       ],
-      "url": "https://siliconangle.com/2026/09/18/for-ai-agents-its-the-best-of-times-its-the-worst-of-times/",
-      "verified": true,
-      "complete": true,
-      "url_status": "verified",
-      "title_score": 0.9,
-      "verified_at": "2026-09-19T10:30:11.410691+08:00"
+      "url": "https://easternherald.com/2026/09/20/trump-ai-force-czar-artificial-intelligence/"
     }
   ],
-  "_updated_at": "2026-09-19T10:25:35.740427+08:00",
-  "_fallback": true
+  "_updated_at": "2026-09-21T10:36:18.556859+08:00"
 }
