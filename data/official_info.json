@@ -1,5 +1,34 @@
 [
   {
+    "title": "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore",
+    "company": "AWS",
+    "date": "2026-09-18",
+    "event_type": "platform",
+    "summary": "AWS 宣布 Amazon Bedrock AgentCore 的新一代 AgentCore Runtime 正式可用，這是 AgentCore 內部負責跑代理程式的 serverless microVM 運算層。新版本改成彈性記憶體管理，會在同一個工作階段進行中把已經用不到的記憶體回收，計費依實際用量而非整段期間的尖峰用量。冷啟動時間改為不受容器映像檔大小與併發程度影響，維持一致表現。官方頁面說明仍保有 serverless 特性：不需預先佈建、可縮到零、以硬體強制隔離每個 session、按用量計費。上線區域為 us-east-1、us-east-2、us-west-2、eu-west-1、ap-northeast-1，啟用方式是在建立或更新 runtime 時把 platformVersion 設為 V2。",
+    "highlights": [
+      "彈性記憶體管理：session 進行中即回收閒置記憶體，依實際用量計費而非尖峰用量",
+      "冷啟動時間與容器映像檔大小、併發數脫鉤，表現趨於一致",
+      "維持 serverless 模型：免預先佈建、可縮到零、硬體強制 session 隔離",
+      "上線五個區域：us-east-1、us-east-2、us-west-2、eu-west-1、ap-northeast-1",
+      "啟用方式為建立／更新 runtime 時設定 platformVersion = V2"
+    ],
+    "analysis": "直接受影響的是已經把生產級 AI 代理部署在 Bedrock AgentCore 上的團隊，特別是代理工作階段時間長、記憶體用量起伏大的情境。實務影響有兩層：一是成本結構改變，過去必須為尖峰記憶體付費，現在改為實際用量計費，記憶體用量鋸齒狀的長時間代理最有機會省下費用；二是冷啟動一致化後，代理服務的延遲尾端會比較可預測，對有 SLA 要求的應用有幫助。需要留意的是這是 platformVersion V2 的選擇性升級，不是自動套用，既有 runtime 必須明確更新設定才會生效，並且目前只在五個區域提供。以下屬推論而非官方陳述：實際節省幅度取決於工作負載的記憶體波動形態，官方頁面並未提供節省比例的量化數字，建議以自家負載實測後再決定是否全面切換。",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/",
+    "evidence_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/"
+    ],
+    "is_new": false,
+    "first_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-21T10:41:49.225614+08:00",
+    "company_note": null
+  },
+  {
     "title": "Introducing Astra for Law",
     "company": "OpenAI",
     "date": "2026-09-18",
@@ -25,66 +54,7 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030817+08:00"
-  },
-  {
-    "title": "The new AgentCore Runtime is now available in Amazon Bedrock AgentCore",
-    "company": "AWS",
-    "date": "2026-09-18",
-    "event_type": "platform",
-    "summary": "AWS 宣布 Amazon Bedrock AgentCore 的新一代 Runtime 正式可用，這是 AgentCore 底下的 serverless microVM 運算層。新版提供彈性記憶體管理，會在工作階段進行中回收未使用的記憶體，讓計費依實際用量而非尖峰用量計算。每個 session 以較小的記憶體配置啟動，依工作負載需要再動態配給。官方測試指出，容器映像檔從 200 MB 到 2 GB 的情況下，新版 P75 冷啟動為 1.9 至 2.0 秒，V1 則為 5.4 至 30 秒。上線區域為 us-east-1、us-east-2、us-west-2、eu-west-1 與 ap-northeast-1。",
-    "highlights": [
-      "新一代 serverless microVM Runtime 於 Bedrock AgentCore 正式可用",
-      "彈性記憶體管理，session 進行中回收未用記憶體，改為依實際用量計費",
-      "P75 冷啟動 1.9–2.0 秒（200 MB–2 GB 映像檔），V1 為 5.4–30 秒",
-      "冷啟動時間不隨映像檔大小或併發數變動",
-      "首發區域五個：us-east-1、us-east-2、us-west-2、eu-west-1、ap-northeast-1"
-    ],
-    "analysis": "受影響者是已在 Bedrock AgentCore 上跑正式環境 agent 的企業開發團隊（事實：官方明列區域與效能數據）。實務影響有兩層：一是冷啟動從最差 30 秒降到 2 秒級距，讓互動式 agent 從「不可用」變成「可用」；二是計費基準從尖峰記憶體改為實際用量，長時間 session 的成本結構會直接改變。對台灣使用者而言，首發區域不含 ap-southeast-1 或 ap-east-2，亞太僅東京（ap-northeast-1），跨區延遲與資料落地需求要先評估（事實：區域清單為官方揭露）。後續觀察點是區域擴張時程與新舊 Runtime 的並行／汰換政策，官方公告未載明 V1 的退場時間（推論：需另行追蹤 release notes）。",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/",
-    "evidence_urls": [
-      "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
-      "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html"
-    ],
-    "is_new": false,
-    "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030803+08:00",
-    "company_note": null
-  },
-  {
-    "title": "Reimagining advertising with AI",
-    "company": "OpenAI",
-    "date": "2026-09-17",
-    "event_type": "product",
-    "summary": "OpenAI 說明其廣告平台的整體構想，同時改造「人如何在 AI 原生環境中接觸商家」與「商家如何用 AI 製作與管理廣告」兩側。官方揭露 ChatGPT Ads 上線不到 200 天，年化營收執行率（annualized revenue run rate）已達 10 億美元，使用者為數以萬計的廣告主並持續全球擴張。在工具整合上，使用 HubSpot 管理客戶的商家可連結 ChatGPT Ads 帳號，在 HubSpot 內直接建立廣告、追蹤成效並跟進名單。美國的 Shopify 商家可透過 Shopify App Store 的新 ChatGPT Ads 應用建立與管理廣告活動。該 Shopify 應用預計自 9 月 23 日起，在已開放 ChatGPT Ads 的市場提供國際版本。",
-    "highlights": [
-      "ChatGPT Ads 上線不到 200 天，年化營收執行率達 10 億美元",
-      "廣告主規模為數以萬計，並持續全球擴張",
-      "HubSpot 使用者可在 HubSpot 內直接建立廣告、追蹤成效與跟進名單",
-      "美國 Shopify 商家可用 Shopify App Store 的 ChatGPT Ads 應用管理活動",
-      "Shopify 應用自 9 月 23 日起在已開放 ChatGPT Ads 的市場提供國際版"
-    ],
-    "analysis": "受影響者是行銷科技採購者、電商賣家與 CRM 平台上的中小企業（事實：官方明列 HubSpot 與 Shopify 兩個整合點）。實務影響在於，OpenAI 正把廣告從 ChatGPT 內的實驗性版位，推進成可由既有 CRM／電商後台直接操作的通路，等於把投放流程嵌進商家原本的工作動線。10 億美元年化執行率是 OpenAI 自行揭露的數字，未見第三方查核，解讀時應視為公司聲明而非經審計財務資訊（推論）。後續觀察點有三：一是 9 月 23 日國際版實際開通的市場清單；二是廣告與模型回應如何區隔標示，關係到監理與消費者保護；三是廣告資料與 ChatGPT 使用資料的界線，企業客戶在資料治理上需要明確條款。",
-    "url": "https://openai.com/index/reimagining-advertising-with-ai/",
-    "evidence_urls": [
-      "https://openai.com/policies/ad-policies/",
-      "https://openai.com/index/our-approach-to-advertising-and-expanding-access/"
-    ],
-    "is_new": false,
-    "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030904+08:00"
+    "verified_at": "2026-09-21T10:41:49.225592+08:00"
   },
   {
     "title": "Introducing the Life Sciences Verification Program",
@@ -109,113 +79,141 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030890+08:00"
-  },
-  {
-    "title": "Mistral x Mozilla: Private, Multilingual AI Browsing",
-    "company": "Mistral AI",
-    "date": "2026-09-16",
-    "event_type": "partnership",
-    "summary": "Mistral 與 Mozilla 宣布合作，Mozilla 的 AI 瀏覽助理 Firefox Smart Window（beta）改由 Mistral 模型驅動。Smart Window 的功能包含協助處理複雜搜尋、找回先前點開又關掉的內容，以及依據瀏覽器分頁整理對使用者重要的資訊來源。初期由 Mistral 支援法國與北美的使用者，英國與德國預計於今年稍後跟進。雙方強調多語與文化脈絡，會以區域語言、方言與文化語境進行訓練與微調。隱私方面，官方說明對話預設不會保存在 Mozilla 伺服器，且 Mistral 等合作夥伴同意零資料保留（zero data retention）。",
-    "highlights": [
-      "Firefox Smart Window（beta）改由 Mistral 模型驅動",
-      "初期覆蓋法國與北美，英國與德國今年稍後跟進",
-      "以區域語言、方言與文化脈絡進行訓練與微調",
-      "對話預設不存於 Mozilla 伺服器，合作夥伴同意零資料保留",
-      "雙方定位為開源陣營之間的合作"
-    ],
-    "analysis": "受影響者是 Firefox 使用者與關注資料主權的歐洲企業（事實：官方明列上線市場與零資料保留條款）。實務影響在於，這是消費端瀏覽器層級少見的「非美系模型＋預設不留存」組合，對有跨境資料疑慮的組織提供了一個可指認的替代方案。對治理工作而言，重點不在模型能力，而在「零資料保留」是合約承諾還是技術強制，官方文字僅說明合作夥伴同意該條款，未揭露稽核或驗證機制（推論：需要進一步看條款細節才能判斷內控可依賴程度）。後續觀察點是英國與德國的實際開通時間，以及 Smart Window 脫離 beta 後的資料處理條款是否改變。",
-    "url": "https://mistral.ai/news/mistral-x-mozilla/",
-    "evidence_urls": [
-      "https://mistral.ai/news/"
-    ],
-    "is_new": false,
-    "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030948+08:00"
-  },
-  {
-    "title": "Cohere & Aleph Alpha: Transatlantic Sovereign AI",
-    "company": "Cohere",
-    "date": "2026-09-16",
-    "event_type": "company",
-    "summary": "Cohere 宣布與 Aleph Alpha 簽署確定性的業務合併協議，延續雙方今年 4 月公布的合作計畫，交易仍待最終主管機關核准。合併後 Cohere 員工人數將超過 1,000 人，橫跨北美與歐洲兩大洲。公司將採柏林與多倫多雙總部制，並保留 Aleph Alpha 的海德堡辦公室作為研究中心。Aleph Alpha 共同創辦人暨 Co-Chief Research Officer Samuel Weinbach 將出任 Cohere 的 Chief Research Officer。Cohere 定位自己為首家同時在大西洋兩岸設有據點的基礎模型開發商，可同時對接加拿大與德國的主權要求。公司並將深化與 Schwarz Group 旗下企業的合作，在 Schwarz Digits 的主權雲服務 STACKIT 上提供主權 AI。",
-    "highlights": [
-      "與 Aleph Alpha 簽署確定性業務合併協議，仍待主管機關核准",
-      "合併後員工逾 1,000 人，採柏林與多倫多雙總部",
-      "海德堡辦公室保留為研究中心",
-      "Samuel Weinbach 出任 Cohere 的 Chief Research Officer",
-      "深化與 Schwarz Group 合作，於 STACKIT 主權雲提供服務"
-    ],
-    "analysis": "受影響者是歐洲與加拿大受監理產業的採購方，以及原本使用 Aleph Alpha 的德國公部門客戶（事實：官方揭露雙總部與 STACKIT 合作）。實務影響在於，主權 AI 供應商正在整併，單一供應商同時滿足兩個管轄區合規要求的模式首次成形，這會改變歐洲公部門與金融業的候選清單。但交易尚待主管機關核准，在核准前不應把它當成既成事實納入採購評估（事實：官方明確標示 subject to final regulatory approvals）。後續觀察點是核准時程、兩家公司模型與 North 平台的整併路線圖，以及既有 Aleph Alpha 客戶的合約承接方式（推論：官方公告未說明既有合約如何過渡）。",
-    "url": "https://cohere.com/blog/cohere-and-aleph-alpha-sign-agreement",
-    "evidence_urls": [
-      "https://cohere.com/blog/cohere-alephalpha-join-forces",
-      "https://cohere.com/newsroom"
-    ],
-    "is_new": false,
-    "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 0.96,
-    "verified_at": "2026-09-20T10:27:49.030961+08:00"
+    "verified_at": "2026-09-21T10:41:49.225639+08:00"
   },
   {
     "title": "Our framework for reporting model misalignment",
     "company": "OpenAI",
     "date": "2026-09-16",
     "event_type": "safety",
-    "summary": "OpenAI 公布模型失準（model misalignment）的通報框架，說明其如何辨識、分類與對外揭露模型行為偏離預期的情況。此文件屬於安全與治理政策類發布，界定了 OpenAI 在何種情況下會對外通報模型失準事件。對治理與風險管理單位而言，這類框架文件是評估供應商透明度承諾的直接依據。公告屬於政策揭露，不涉及新模型發布。本項目的標題與日期取自 OpenAI 官方 index 頁面。",
+    "summary": "OpenAI 公布一套追蹤、調查與揭露模型失準（model misalignment）事件的框架，同時發布過去六個月內觀察到的六份模型異常行為報告。官方說明過去雖有對外公開失準發現的意願，但缺乏系統化做法，導致揭露屬於臨時性質、頻率低於理想。新框架的目的是讓失準報告在觀察到之後更快發布，即使 OpenAI 尚未完整解釋或緩解該行為也照樣公開。揭露範圍涵蓋模型生命週期各階段，包含訓練、評估、測試與部署，並優先揭露新出現的機制、已知行為的顯著變化，以及挑戰既有安全或緩解假設的發現。官方並指出目前業界尚無針對失準揭露的明確標準，希望此框架成為建立標準的第一步。",
     "highlights": [
-      "OpenAI 發布模型失準（model misalignment）的通報框架",
-      "屬於安全治理政策揭露，非產品或模型發表",
-      "官方發布日期為 2026-09-16"
+      "建立系統化流程取代過去臨時性的失準揭露，並同步發布六份近六個月的異常行為報告",
+      "即使尚未完整解釋或緩解該行為，也先行公開報告",
+      "涵蓋訓練、評估、測試、部署等模型生命週期全階段",
+      "揭露門檻包含：模型未經授權行動、與其他模型串連、規避監督，以及推翻已發布安全評估論點的行為",
+      "官方明言業界目前沒有失準揭露的共同標準，此框架定位為起步"
     ],
-    "analysis": "事實：OpenAI 於官方網站公開其模型失準通報框架。受影響對象為導入 OpenAI 模型的企業風控、模型風險管理（MRM）與內稽單位。實務影響在於，金融機構的 AI 供應商管理程序通常要求供應商具備事件通報機制，這份框架可直接引用為供應商盡職調查（due diligence）的佐證文件，也可作為內部 AI 事件分級標準的外部對標基準。推論（非官方明示）：主要模型供應商陸續將內部安全流程文件化並公開，反映的是監管預期正在從「模型能力揭露」轉向「營運事件揭露」。後續觀察重點為該框架是否附帶具體通報時限與嚴重性分級，以及是否納入企業客戶合約條款——若僅停留在自願性部落格文件，對受監管機構的合規價值有限。查證限制：本次工作階段無法直接開啟網頁核對，框架的具體條款內容未逐項確認。",
+    "analysis": "受影響的對象分三層：一是 AI 治理與風險管理單位，多了一個可引用的第三方揭露格式；二是把 OpenAI 模型放進高風險流程的企業，可據此建立自家的失準監控與通報對照；三是政策制定者，這是目前少數由前沿實驗室主動提出的揭露規範。實務影響在於「尚未緩解也照樣公開」這條原則：對採用端而言，未來可能會看到已知但無解的失準案例被公開，代表風險評估必須納入沒有補丁的已知缺陷，而非假設被揭露即已修復。金融業的類比是重大營運事件通報制度——通報義務與修復完成是兩件事，揭露本身不等於風險解除。接下來值得觀察的是揭露頻率與報告顆粒度是否穩定，以及其他實驗室是否跟進形成事實標準；這部分屬推論，官方頁面只表明希望成為第一步，未承諾任何發布節奏或業界共識時程。",
     "url": "https://openai.com/index/model-misalignment-reporting-framework/",
-    "evidence_urls": [],
+    "evidence_urls": [
+      "https://alignment.openai.com/misalignment-reports/"
+    ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-20T10:24:55.063408+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030935+08:00"
+    "verified_at": "2026-09-21T10:41:49.225674+08:00"
+  },
+  {
+    "title": "Reimagining advertising with AI",
+    "company": "OpenAI",
+    "date": "2026-09-16",
+    "event_type": "product",
+    "summary": "OpenAI 說明其廣告業務的整體布局，方向是同時重做廣告的兩端：一端是使用者在 AI 原生環境中與商家互動的方式，另一端是商家用 AI 製作與管理廣告的方式，目標是建立一個以 AI 為核心的廣告平台。官方公布的具體落地包含：一款應用程式自 9 月 23 日起在已開放 ChatGPT Ads 的國際市場提供；使用 HubSpot 管理客戶的商家可以連結 ChatGPT Ads 帳號，直接在 HubSpot 內建立廣告、追蹤成效並跟進潛在客戶，並由 HubSpot 的脈絡資料驅動；美國的 Shopify 商家可透過 Shopify App Store 上的新 ChatGPT Ads 應用建立與管理廣告活動。官方同時揭露營運數字：ChatGPT Ads 上線不到 200 天，年化營收執行率已達 10 億美元，使用者為數以萬計的廣告主，並持續向全球擴張。",
+    "highlights": [
+      "廣告應用程式自 9 月 23 日起在已開放 ChatGPT Ads 的國際市場提供",
+      "HubSpot 整合：可在 HubSpot 內連結 ChatGPT Ads 帳號、建立廣告、追蹤成效與跟進名單",
+      "美國 Shopify 商家可從 Shopify App Store 取得 ChatGPT Ads 應用管理廣告活動",
+      "官方數字：上線不到 200 天，年化營收執行率達 10 億美元",
+      "廣告主規模為數以萬計，官方表示仍在持續全球擴張"
+    ],
+    "analysis": "受影響的是三類角色：投放端的廣告主與電商賣家、既有廣告技術與 CRM 供應商，以及把 ChatGPT 當入口的內容與服務提供者。實務影響是通路變化——ChatGPT Ads 透過 HubSpot 與 Shopify 兩個既有商家工作流直接嵌入，代表中小型商家不必另學新平台就能投放，取得門檻明顯降低。年化營收執行率 10 億美元且不到 200 天達成，是官方自行公布的數字，意義在於確認 ChatGPT 的廣告變現已脫離實驗階段、成為實質營收線。接下來要觀察的是廣告與回答內容的區隔規則、投放成效的可審計程度，以及國際市場開放清單的擴張速度。以下屬推論：年化執行率是把當期營收年化的指標，不等於已實現年度營收，讀者不宜直接與其他平台的實際年營收並列比較；官方頁面未提供分市場或分產業的細分數字。",
+    "url": "https://openai.com/index/reimagining-advertising-with-ai/",
+    "evidence_urls": [],
+    "is_new": false,
+    "first_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-21T10:41:49.225627+08:00"
+  },
+  {
+    "title": "Mistral x Mozilla: Private, Multilingual AI Browsing",
+    "company": "Mistral AI",
+    "date": "2026-09-16",
+    "event_type": "partnership",
+    "summary": "Mistral AI 與 Mozilla 宣布合作，由 Mistral 的模型支援 Mozilla 的 AI 瀏覽助理 Firefox Smart Window（beta）。官方說明 Mistral 將先為法國與北美的使用者提供 Smart Window 的模型能力，英國與德國預計於今年稍後跟進。隱私設計被寫進產品運作方式：預設不在 Mozilla 伺服器上保存對話內容，並要求 Mistral 這類合作夥伴同意零資料保留（zero data retention）。官方把這次合作定位為兩個開源陣營的結合，訴求是把 Firefox 的隱私傳統與 Mistral 的開放權重模型放在一起，讓使用者保有對瀏覽體驗的自主權，並強調多語言能力。",
+    "highlights": [
+      "Firefox Smart Window（beta）改由 Mistral 模型提供支援",
+      "首波覆蓋法國與北美，英國與德國預計今年稍後加入",
+      "預設不在 Mozilla 伺服器保存對話，合作夥伴須同意零資料保留",
+      "雙方定位為開源陣營合作，訴求隱私優先與多語言瀏覽",
+      "Mistral 側以開放權重模型作為技術基礎"
+    ],
+    "analysis": "受影響的主要是一般消費端使用者與關注瀏覽器資料流向的企業 IT 與法遵單位。實務影響有兩點：一是 Mistral 拿到消費級瀏覽器的預設流量入口，這是歐洲模型供應商少見的通用型分發管道；二是零資料保留被寫成合作條件而非事後承諾，對受監理行業評估是否允許員工使用 AI 瀏覽助理，是一個可引用的契約層事實。歐洲市場的意義在於資料留存與主權要求，Mozilla 選擇歐洲供應商而非美國供應商，符合目前歐洲買方對資料落地的偏好。接下來要觀察的是英國與德國的實際上線時間、Smart Window 是否從 beta 轉正式版，以及零資料保留的落實是否有第三方查核。以下屬推論：官方頁面未揭露合作的商業條件、使用的具體模型版本與流量分配方式，也未說明是否為排他性合作。",
+    "url": "https://mistral.ai/news/mistral-x-mozilla/",
+    "evidence_urls": [],
+    "is_new": false,
+    "first_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-21T10:41:49.225651+08:00"
+  },
+  {
+    "title": "Cohere & Aleph Alpha: Transatlantic Sovereign AI",
+    "company": "Cohere",
+    "date": "2026-09-16",
+    "event_type": "company",
+    "summary": "Cohere 宣布與德國 Aleph Alpha 簽署具約束力的業務結合協議（definitive business combination agreement），將兩家公司整合為官方所稱的首個跨大西洋主權 AI 解決方案。這份協議是兩家公司在 2026 年 4 月宣布合作計畫之後的正式簽約階段。官方說明合併後的公司將採雙總部架構，分別設於柏林與多倫多，以同時服務歐洲與北美市場。交易仍須取得最終監理機關核准後才能完成。整體訴求是把 Cohere 的企業級模型與代理平台，與 Aleph Alpha 在歐洲主權 AI 的既有布局結合，對應政府與受監理行業對資料主權的要求。",
+    "highlights": [
+      "由 2026 年 4 月的合作計畫升級為具約束力的業務結合協議",
+      "合併後採柏林與多倫多雙總部，同時覆蓋歐洲與北美",
+      "定位為首個跨大西洋主權 AI 解決方案",
+      "交易尚待最終監理核准，未完成交割",
+      "目標客群為政府與受監理行業的主權 AI 需求"
+    ],
+    "analysis": "受影響的是歐洲政府與受監理行業的採購方，以及原本分別評估 Cohere 與 Aleph Alpha 的企業客戶。實務影響在於供應商整併：原本歐洲買方在「美系模型加資料落地方案」與「歐洲本土模型」之間選擇，現在出現一個同時具備北美企業銷售體系與德國本地實體的選項，對必須寫明資料主權條款的標案較容易對接。金融業的類比是跨境金融機構的併購——監理核准是關鍵路徑，尤其涉及德國與加拿大兩個轄區，核准前不宜把合併後的產品藍圖當成可交付承諾。接下來要觀察的是核准時程、雙品牌與雙模型系列是否整併，以及既有客戶的合約主體變更安排。以下屬推論：官方頁面未揭露交易金額、換股比例或預計交割時間，也未說明產品線整併計畫，這些都不能視為已定案。",
+    "url": "https://cohere.com/blog/cohere-and-aleph-alpha-sign-agreement",
+    "evidence_urls": [
+      "https://cohere.com/blog/cohere-alephalpha-join-forces"
+    ],
+    "is_new": false,
+    "first_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.96,
+    "verified_at": "2026-09-21T10:41:49.225662+08:00"
   },
   {
     "title": "Cohere and OpenText partner to bring trusted agentic AI to governments and regulated industries",
     "company": "Cohere",
     "date": "2026-09-16",
     "event_type": "partnership",
-    "summary": "Cohere 與資訊管理軟體商 OpenText 宣布合作，目標是把可信任的 agentic AI 帶進政府與受監管產業。此合作把 Cohere 的模型能力與 OpenText 在企業內容管理與資訊治理的既有部署結合。公告屬於合作夥伴關係發布，非新模型發表。對已使用 OpenText 資訊治理平台的金融與公部門客戶而言，這提供了在既有治理架構內導入代理式 AI 的管道。本項目的標題與日期取自 Cohere 官方部落格。",
+    "summary": "Cohere 與 OpenText 宣布策略合作，目標是協助政府機關與受監理行業把代理式 AI 從試點階段推進到生產環境。合作的組合方式是把 OpenText 的企業資料與脈絡資產，接上 Cohere 的安全代理平台 North，再搭配 Cohere 的企業級 AI 模型。官方把訴求放在「可信任」上，對應政府與受監理行業對資料治理、部署環境與可控性的要求。這是一項通路與技術整合性質的合作，並非新模型發表。從買方角度看，重點在於原本已使用 OpenText 內容與資訊管理系統的組織，可以在既有資料脈絡上導入代理能力，而不必先完成資料搬遷。",
     "highlights": [
-      "Cohere 與 OpenText 合作推動政府與受監管產業的 agentic AI",
-      "切入點為 OpenText 既有的企業內容與資訊治理部署",
-      "與同日發布的 Aleph Alpha 協議同屬主權／受監管市場策略",
-      "官方發布日期為 2026-09-16"
+      "OpenText 的企業資料與脈絡，接上 Cohere 的安全代理平台 North",
+      "目標明確指向政府與受監理行業的生產環境落地，而非概念驗證",
+      "搭配 Cohere 企業級模型，訴求可信任與可治理",
+      "屬通路與技術整合合作，非新模型或新版本發表",
+      "既有 OpenText 客戶可在原有資料脈絡上導入代理能力"
     ],
-    "analysis": "事實：Cohere 於官方部落格宣布與 OpenText 的合作，鎖定政府與受監管產業的 agentic AI。受影響對象為已導入 OpenText 內容管理、記錄保存或電子發現（eDiscovery）系統的機構，以及其資訊治理與法遵單位。實務影響在於，代理式 AI 在受監管環境的最大障礙不是模型能力，而是存取控制、稽核軌跡與記錄保存要求；透過既有治理平台整合，理論上可沿用已通過稽核的權限與留痕機制，縮短內部核准時程。推論（非官方明示）：Cohere 選擇與治理軟體商而非雲端商結盟，是刻意避開與超大型雲端供應商在市集通路上的正面競爭。後續觀察重點為整合的技術深度——是模型嵌入 OpenText 產品，或僅是共同銷售協議；官方標題未區分，這會直接決定客戶端的導入工作量。查證限制：本次工作階段無法直接開啟網頁核對，整合範圍、上市時程與適用產品線未取得官方確認。",
+    "analysis": "受影響的是已經採用 OpenText 內容與資訊管理堆疊的政府與受監理行業客戶，這類組織通常資料量大、搬遷成本高、法遵限制多。實務影響在於降低導入代理式 AI 的前置成本：資料留在原本的治理邊界內，代理層透過整合取得脈絡，省去建立新資料平台這一段。這一點對金融業特別直接，因為多數機構的文件、合約與稽核軌跡都在既有內容管理系統中，能否在不搬家的前提下接上代理，往往是專案能否過法遵的關鍵。接下來要觀察的是整合的實際交付形式（是連接器、預建代理，還是聯合方案）、支援的部署模式，以及是否有具名的政府參考客戶。以下屬推論：官方頁面未揭露整合的技術細節、上線時程與定價模式，「從試點到生產」目前是方案定位主張，尚無公開的量化成效佐證。",
     "url": "https://cohere.com/blog/cohere-and-open-text-partner-to-bring-trusted-ai",
     "evidence_urls": [],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-20T10:24:55.063408+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.030974+08:00"
+    "verified_at": "2026-09-21T10:41:49.225686+08:00"
   },
   {
     "title": "Introducing Microsoft 365 G7: Intelligence + Trust for the mission ahead",
@@ -235,9 +233,15 @@
     "evidence_urls": [
       "https://www.microsoft.com/en-us/microsoft-365/government"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
+    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-21T10:41:49.225698+08:00"
   },
   {
     "title": "'Now We Can Know Everything and Do Anything,' Jensen Huang Says at Dreamforce",
@@ -262,7 +266,7 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 0.97,
-    "verified_at": "2026-09-20T10:27:49.030987+08:00"
+    "verified_at": "2026-09-21T10:41:49.225710+08:00"
   },
   {
     "title": "Making sovereign, open-weight AI the technology frontier",
@@ -289,7 +293,7 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.031037+08:00"
+    "verified_at": "2026-09-21T10:41:49.225722+08:00"
   },
   {
     "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
@@ -310,69 +314,93 @@
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
     "last_seen": "2026-09-19T10:28:44.953862+08:00",
     "official_source": true,
-    "verified": "needs_review",
+    "verified": true,
     "complete": true,
-    "url_status": "needs_review",
-    "title_score": 0,
-    "verified_at": "2026-09-20T10:27:49.031071+08:00"
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-21T10:41:49.225734+08:00"
   },
   {
     "title": "Introducing the Agents API",
     "company": "OpenAI",
     "date": "2026-09-10",
     "event_type": "api",
-    "summary": "OpenAI 推出 Agents API 公開測試版，把驅動 Codex 的 harness 與基礎設施，以簡單且彈性的 API 形式開放給開發者。官方說明，他們在擴展 Codex 與 ChatGPT for Work 的過程中學到，可用的 agent 需要兩件事：一個能有效管理脈絡與使用工具的強大 harness，以及能讓 agent 連續穩定運行數日的基礎設施。同時推出 OpenAI hosted sandbox，由 OpenAI 負責佈建與管理沙箱，提供 agent 安全且高效能的環境來執行程式碼、處理檔案與產出成品。官方引用金融服務客戶說法，指出把 agent harness 與 sandbox 分離後，失敗的 agent 回應減少了 86%。",
+    "summary": "OpenAI 推出 Agents API 並進入公開測試（public beta），讓開發者透過 API 建立與執行雲端代理，底層使用 Codex 的 harness，並由 OpenAI 全託管。官方說明這個 API 把支撐 Codex 的同一套 harness 與基礎設施，以簡單且有彈性的 API 形式對外提供。harness 負責管理 context、有效率地使用工具並協調子代理（subagents）；基礎設施負責讓代理可以連續穩定運行數天，並提供可操作檔案、執行程式碼與保存中間結果的環境。官方引用測試客戶的數據：一位客戶的評估分數從 0.71 提升到 0.85，並指出 API 的子代理支援大幅加速其工作流程；另一位客戶把案件審查流程遷移到 Agents API 後，維持原有效能的同時單案成本降低 60%、延遲下降、token 使用效率明顯改善。",
     "highlights": [
-      "Agents API 進入公開測試版，開放 Codex 同款 harness 與基礎設施",
-      "同步推出 OpenAI hosted sandbox，由 OpenAI 佈建與管理執行環境",
-      "設計目標是讓 agent 可連續穩定運行數日",
-      "沙箱支援執行程式碼、處理檔案與產出成品",
-      "官方引用客戶數據：harness 與 sandbox 分離後失敗回應減少 86%"
+      "公開測試上線，底層為 Codex 同一套 harness，由 OpenAI 全託管",
+      "harness 內建 context 管理、工具使用與子代理協調",
+      "基礎設施支援代理連續運行數天，並提供檔案操作、程式碼執行與中間結果保存",
+      "客戶數據：評估分數由 0.71 提升至 0.85，子代理支援大幅加速工作流程",
+      "客戶數據：案件審查流程單案成本降低 60%，延遲下降、token 效率改善，效能維持不變"
     ],
-    "analysis": "受影響者是正在自建 agent 執行環境的開發團隊與平台工程單位（事實：官方明確定位為 harness ＋ sandbox 的託管化）。實務影響在於，過去團隊必須自行處理沙箱隔離、長時工作階段續存與脈絡管理這三件苦工，現在可以外包給 API，但代價是執行環境的控制權與可稽核性轉移到供應商端——對金融業內控而言，這正是需要逐項確認的地方（推論：官方公告未揭露沙箱的稽核日誌、資料落地與隔離證明細節）。86% 的失敗率改善是單一客戶的自述數字，非通用基準（事實：官方以客戶引言形式呈現）。後續觀察點是公開測試版轉正式版的時程、定價結構，以及 sandbox 的區域可用性與合規認證。",
+    "analysis": "受影響的是自建代理框架的開發團隊，以及評估要不要繼續維護自家 harness 的工程主管。實務影響在於分工線位移：過去 context 管理、工具調度、子代理協調與長時間執行環境都要自己實作與維運，現在這一層可以外包給託管 API，團隊只需處理任務定義與業務邏輯。官方公布的 60% 單案成本下降與 0.71 到 0.85 的評估分數提升，是少見帶數字的客戶結果，方向上支持「託管 harness 效率優於自建」的論點。金融業的實務對應是案件審查、KYC 覆核、對帳例外處理這類長流程作業，官方引用的客戶案例正是案件審查場景。接下來要觀察的是 beta 到正式版的時程、定價結構、資料留存與稽核能力，以及長時間執行代理的失敗恢復語意。以下屬推論而非官方陳述：這兩筆客戶數據是特定工作負載的結果，未揭露基準線配置與評估方法，不能當成一般可複製的預期值；另外 public beta 階段的服務水準與介面穩定性都不宜假設等同正式版。",
     "url": "https://openai.com/index/introducing-the-agents-api/",
     "evidence_urls": [
-      "https://developers.openai.com/api/docs/guides/agents",
-      "https://openai.com/news/product-releases/"
+      "https://developers.openai.com/api/docs/changelog"
     ],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.031130+08:00"
+    "verified_at": "2026-09-21T10:41:49.225745+08:00"
   },
   {
     "title": "Introducing ChatGPT for Financial Services",
     "company": "OpenAI",
     "date": "2026-09-10",
     "event_type": "product",
-    "summary": "OpenAI 推出 ChatGPT for Financial Services，是針對金融業調校的 ChatGPT Work 體驗，結合內建金融資料與 GPT‑6 Astra 的推理能力。用途聚焦於研究撰寫、財務模型建置與客戶端交付物的製作。產品由與 Morgan Stanley 及 Evercore 的設計夥伴關係形塑，據此界定金融機構的主要痛點所在。內建的付費資料來源包含 Daloopa、PitchBook、LSEG News 與 Crunchbase，用以解決資料取得的障礙。初期聚焦投資銀行與股票研究兩個場景，官方指出這兩個團隊最大的痛點是可靠的資料取得與高品質產出物製作。",
+    "summary": "OpenAI 推出 ChatGPT for Financial Services，這是針對金融業調整過的 ChatGPT Work 體驗，把內建的金融資料與 GPT-6 Astra 的推理能力結合，用來協助團隊產出研究、財務模型與客製化的客戶素材。內建資料來自 Daloopa、PitchBook、LSEG News、Crunchbase 等付費資料供應商，資料由 OpenAI 建立索引並代管，因此團隊可以直接使用這些資料集，不必另外談合約或自行建置連接器。資料的加值功能包含細顆粒度引註（granular citations），讓銀行業使用者可以把數字與論述追溯回原始來源，在分析推進過程中隨時核對證據。產品由 OpenAI 與 Morgan Stanley、Evercore 的設計夥伴關係共同塑形，起步聚焦投資銀行與股票研究，因為這兩類團隊在可靠取得資料與產出高品質交付物上的痛點最明顯。",
     "highlights": [
-      "針對金融業調校的 ChatGPT Work 體驗，底層為 GPT‑6 Astra",
-      "內建 Daloopa、PitchBook、LSEG News、Crunchbase 等付費資料",
-      "設計夥伴為 Morgan Stanley 與 Evercore",
-      "初期聚焦投資銀行與股票研究",
-      "主打研究撰寫、財務模型與客戶端交付物製作"
+      "以 ChatGPT Work 為基礎的金融業專屬體驗，推理層使用 GPT-6 Astra",
+      "內建 Daloopa、PitchBook、LSEG News、Crunchbase 等付費資料，由 OpenAI 索引與代管",
+      "免另談資料合約、免自建連接器，可直接開始使用資料集",
+      "細顆粒度引註，可把數字與論述追溯回原始來源並逐步核對證據",
+      "設計夥伴為 Morgan Stanley 與 Evercore，首波聚焦投資銀行與股票研究"
     ],
-    "analysis": "受影響者是投資銀行、股票研究團隊，以及銀行內部的 AI 導入負責人（事實：官方明列初期場景與設計夥伴）。實務影響在於，內建授權資料來源這一步解決了金融業導入 LLM 最實際的卡點——資料授權與引用來源可追溯，過去多數機構得自行談資料商授權再串接。值得注意的是，官方揭露的初期場景是 sell-side 的投研與投行，未涵蓋風控、法遵或零售銀行（事實），台灣金融機構若期待直接對應本地監理場景，落差不小（推論）。後續觀察點有三：資料授權在非美國市場的覆蓋範圍、資料留存與模型訓練的隔離條款，以及是否提供可供內稽查核的使用軌跡。",
+    "analysis": "受影響的對象非常集中：投資銀行、股票研究團隊，以及金融機構內部負責採購資料與 AI 工具的單位。實務影響最大的其實不是模型能力，而是資料採購結構的改變——付費金融資料的授權、索引與代管由 OpenAI 一併處理，機構不必為了讓 AI 讀到資料而重新談一輪供應商合約，這一段通常是金融業 AI 專案最耗時的環節。細顆粒度引註則直接對應金融業的可稽核要求：分析結論必須能回溯到來源，否則無法過內控與法遵。以 Morgan Stanley 與 Evercore 作為設計夥伴，代表需求是從賣方研究與投行實際工作流反推的，而非泛用辦公情境。接下來要觀察的是資料授權的使用範圍限制（能否用於對外發布的研究報告）、資料時效與覆蓋深度、模型輸出的留存與稽核機制，以及非投行業務（資產管理、風控、法遵）何時納入。以下屬推論：官方頁面未公布定價、上市地區與可用性條件，也未說明內建資料的授權是否涵蓋商業再散布，受監理機構在導入前仍須自行核對授權條款。",
     "url": "https://openai.com/index/introducing-chatgpt-financial-services/",
-    "evidence_urls": [
-      "https://openai.com/solutions/industries/financial-services/",
-      "https://help.openai.com/en/articles/20001517-chatgpt-for-financial-services"
-    ],
+    "evidence_urls": [],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.031152+08:00"
+    "verified_at": "2026-09-21T10:41:49.225757+08:00"
+  },
+  {
+    "title": "Countering misuse of AI: September 2026",
+    "company": "Anthropic",
+    "date": "2026-09-10",
+    "event_type": "safety",
+    "summary": "Anthropic 發布 2026 年 9 月的威脅情資報告，說明其偵測與反制 AI 濫用的最新結果。報告涵蓋的濫用類型包含網路攻擊行動、influence operations（影響力操作）、監控、詐騙與金融詐欺、生物濫用、常規武器開發，以及模型蒸餾（distillation）。官方說明報告內容為 2025 年 12 月至 2026 年 8 月期間所偵測並中斷的活動，屬回顧性的期間彙整而非單一事件揭露。完整內容另以 PDF 形式發布，標題為 Detecting and countering misuse of AI: September 2026。這份報告延續 Anthropic 定期公開濫用偵測結果的做法，目的是讓外部研究者、其他開發者與政策制定者能取得實際濫用樣態的第一手資料。",
+    "highlights": [
+      "涵蓋期間為 2025 年 12 月至 2026 年 8 月已偵測並中斷的活動",
+      "濫用類型包含網路行動、影響力操作、監控、詐騙與金融詐欺",
+      "另涵蓋生物濫用、常規武器開發與模型蒸餾三類高風險濫用",
+      "完整報告以 PDF 形式發布，屬定期性威脅情資公開"
+    ],
+    "analysis": "受影響的是企業資安與反詐團隊、風險管理單位，以及需要掌握 AI 濫用實況的政策制定者。實務影響在於這是少數由模型供應商提供、帶有實際攔截案例的濫用類型清單，可以直接拿來對照自家的威脅模型是否有缺口——特別是詐騙與金融詐欺、影響力操作這兩類，對金融機構的客戶端風險與品牌風險最直接。模型蒸餾被列為獨立濫用類型值得注意，因為這牽涉的是模型資產本身被複製，而非下游行為濫用，對自建模型的機構是不同性質的風險。接下來要觀察的是報告的發布節奏是否穩定、各類濫用的量化趨勢，以及是否會提供可機器讀取的指標供防禦方比對。以下屬推論：搜尋結果未提供各類濫用的具體案件數與規模分布，報告的量化細節須以 PDF 原文為準；本項所引用的濫用類型清單與涵蓋期間為官方頁面陳述，其餘趨勢判讀屬分析而非官方結論。",
+    "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    "evidence_urls": [
+      "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+      "https://www.anthropic.com/threat-intelligence"
+    ],
+    "is_new": false,
+    "first_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.85,
+    "verified_at": "2026-09-21T10:41:49.225780+08:00"
   },
   {
     "title": "Cloudera and Mistral Partner for Sovereign Enterprise AI",
@@ -401,36 +429,7 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.031168+08:00"
-  },
-  {
-    "title": "Countering misuse of AI: September 2026",
-    "company": "Anthropic",
-    "date": "2026-09-10",
-    "event_type": "safety",
-    "summary": "Anthropic 發布威脅情報報告，涵蓋其自 2025 年 12 月至 2026 年 8 月期間所偵測並中斷的濫用活動。報告分為七個危害領域：網路作戰、影響力作戰、監控、詐騙與舞弊、生物濫用、傳統武器開發，以及模型蒸餾（distillation）。這些案例皆為 Anthropic 在該期間實際處置的事件，而非假設性情境。報告同步提供完整 PDF 版本。Anthropic 將此類報告納入其威脅情報的常態揭露機制。",
-    "highlights": [
-      "涵蓋 2025 年 12 月至 2026 年 8 月實際偵測並中斷的濫用活動",
-      "分為七個危害領域，含網路作戰、影響力作戰與監控",
-      "新增模型蒸餾（distillation）作為獨立危害類別",
-      "詐騙與舞弊、生物濫用、傳統武器開發亦列入",
-      "提供完整 PDF 報告版本"
-    ],
-    "analysis": "受影響者是企業資安團隊、威脅情報分析師與 AI 治理負責人（事實：報告為 Anthropic 官方揭露）。實務影響在於，這類第一手處置紀錄比外部推測的威脅模型更可用——尤其詐騙與舞弊、影響力作戰兩類，與金融機構的反詐與品牌風險直接相關，可作為內部威脅情境庫的輸入來源。特別值得注意的是「模型蒸餾」被列為獨立危害領域，代表未經授權地抽取模型能力已被前沿實驗室視為需要主動反制的行為，這對自建模型的機構在智財保護上有參考意義（推論：Anthropic 未就企業自建模型提出建議）。後續觀察點是這份報告的發布頻率是否固定，以及是否會揭露可供偵測的 IOC 或行為特徵。",
-    "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
-    "evidence_urls": [
-      "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "https://www.anthropic.com/threat-intelligence"
-    ],
-    "is_new": false,
-    "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 0.85,
-    "verified_at": "2026-09-20T10:27:49.031207+08:00"
+    "verified_at": "2026-09-21T10:41:49.225769+08:00"
   },
   {
     "title": "Qwen Code Weekly: Look Back on Workflow Runs, Pair Plan With YOLO, Multitask in Group Chat",
@@ -456,7 +455,36 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.031223+08:00"
+    "verified_at": "2026-09-21T10:41:49.225792+08:00"
+  },
+  {
+    "title": "OpenAI GPT-6 Astra is now generally available on Amazon Bedrock",
+    "company": "AWS",
+    "date": "2026-09-08",
+    "event_type": "availability",
+    "summary": "AWS 宣布 OpenAI 的 GPT-6 Astra 在 Amazon Bedrock 正式可用，屬雲端平台的模型上架與可用性公告。官方說明該模型支援最高 100 萬輸入 token 的 context window，並可依組織的語氣、範本與標準產出內容。使用方式有兩種：直接透過支援的 Amazon Bedrock API 呼叫，或把 ChatGPT Work 與 Codex 設定為改用 Bedrock 上的這個模型。適用情境包含建構自主代理、分析大量文件集、追查複雜軟體問題，以及需要在相互衝突的輸入之間做判斷的應用。安全與治理方面，官方說明可沿用既有 AWS 控制項來保護工作負載、管理存取與稽核模型呼叫活動，並在晶片層強制零維運人員存取（zero-operator access），使 AWS 維運人員在推論期間也無法接觸提示與輸出內容。同時 OpenAI 一併推出 ChatGPT Work 的新企業外掛，把 Astra 的瀏覽器操作能力延伸到常見商務應用。",
+    "highlights": [
+      "支援最高 100 萬輸入 token 的 context window",
+      "可直接呼叫 Bedrock API，或將 ChatGPT Work 與 Codex 指向 Bedrock 上的模型",
+      "沿用既有 AWS 控制項做工作負載保護、存取治理與模型呼叫稽核",
+      "晶片層強制零維運人員存取，推論期間 AWS 維運人員亦無法接觸提示與輸出",
+      "同步推出 ChatGPT Work 企業外掛，延伸瀏覽器操作能力至常見商務應用"
+    ],
+    "analysis": "受影響的是以 AWS 為主要雲端供應商、且受資料落地或供應商治理限制的企業，尤其是無法直接連到模型供應商 API 的受監理行業。實務影響在於採購與合規路徑改變：模型能力在 Bedrock 上取得後，存取控制、稽核軌跡與資料邊界都落在既有 AWS 治理框架內，不必為單一模型供應商另建一套控制與稽核機制。晶片層零維運人員存取是對金融業最有說服力的一條，因為多數機構在內控問卷上都會問到雲端供應商人員能否接觸推論內容。把 ChatGPT Work 與 Codex 指向 Bedrock 的設定選項，實質上讓企業可以在保留熟悉前端工作流的同時，把資料路徑收攏到自家雲帳號。接下來要觀察的是上線區域清單、跨區推論設定、定價與配額，以及企業外掛的權限模型。以下屬推論：本項屬平台上架與可用性公告，模型本身的發表歸模型類別；官方頁面未列出本項的區域與定價細節，導入前須另行核對。",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/",
+    "evidence_urls": [
+      "https://aws.amazon.com/blogs/machine-learning/take-on-your-most-ambitious-work-with-gpt-6-astra-on-amazon-bedrock/",
+      "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-astra.html"
+    ],
+    "is_new": false,
+    "first_seen": "2026-09-20T10:24:55.063408+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.64,
+    "verified_at": "2026-09-21T10:41:49.225828+08:00"
   },
   {
     "title": "Codename MDASH comes to Azure Government",
@@ -477,9 +505,15 @@
       "https://learn.microsoft.com/en-us/security-exposure-management/ai-code-security-overview",
       "https://learn.microsoft.com/en-us/security-exposure-management/mdash-initiative"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
+    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-21T10:41:49.225805+08:00"
   },
   {
     "title": "Making open-source AI weather forecasting models easy to run",
@@ -499,33 +533,14 @@
     "evidence_urls": [
       "https://huggingface.co/blog"
     ],
-    "is_new": true,
-    "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
-  },
-  {
-    "title": "OpenAI GPT-6 Astra is now generally available on Amazon Bedrock",
-    "company": "AWS",
-    "date": "2026-09-08",
-    "event_type": "availability",
-    "summary": "AWS 宣布 OpenAI 的 GPT-6 Astra 模型在 Amazon Bedrock 上正式可用。此為雲端平台的模型上架公告，由 AWS 以平台方身分發布，重點在於供應可用性而非模型本身的技術發表。對已標準化在 Bedrock 上的企業而言，這意味著可在既有的 IAM、VPC 與帳務架構下呼叫該模型，不需另建與 OpenAI 的直接整合。公告屬於平台供應可用性類別。本項目的標題與日期取自 AWS 官方 What's New 公告頁。",
-    "highlights": [
-      "OpenAI GPT-6 Astra 在 Amazon Bedrock 上進入 generally available",
-      "由 AWS 以雲端平台方身分發布的上架公告",
-      "企業可沿用既有 Bedrock 的身分驗證、網路與帳務架構",
-      "官方 What's New 公告日期為 2026-09-08"
-    ],
-    "analysis": "事實：AWS 於官方 What's New 頁面宣告 OpenAI GPT-6 Astra 在 Amazon Bedrock 正式可用。受影響對象為已將 Bedrock 列為標準 AI 存取層的企業，特別是因採購或資安政策而無法直接對接模型供應商 API 的金融機構。實務影響在於，透過雲端市集取用模型，通常可沿用既有的雲端服務合約、資料處理附約與網路隔離設定，大幅縮短法遵核准流程——這往往比模型效能本身更能決定導入時程。推論（非官方明示）：OpenAI 模型出現在 AWS Bedrock，代表其分發策略已不再限於 Microsoft Azure 的獨家通路，這對企業的多雲議價位置是實質利多。後續觀察重點為開放的 AWS 區域清單、是否支援跨區推論，以及與直接向 OpenAI 採購的單位成本差異。查證限制：本次工作階段無法直接開啟網頁核對，可用區域、定價與配額限制未取得官方確認，故未於摘要中陳述。",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/",
-    "evidence_urls": [],
     "is_new": false,
-    "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-20T10:24:55.063408+08:00",
+    "first_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-21T10:40:40.568105+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
-    "title_score": 0.64,
-    "verified_at": "2026-09-20T10:27:49.031237+08:00"
+    "title_score": 0,
+    "verified_at": "2026-09-21T10:41:49.225816+08:00"
   }
 ]

@@ -5,13 +5,12 @@
       "source": "Gartner",
       "date": "2026-09-16",
       "category": "產業報告",
-      "summary": "Gartner 最新預測顯示，2026 年全球 AI 支出將達 2.7 兆美元，較前一年成長 49.5%，較該機構 5 月時預估的 47% 再度上修。AI 應用開發平台的成長率預估從 28% 上調至 39%，原因是企業轉向自建貼合自身需求的客製化 AI 應用。生成式 AI 模型類別的 2026 年成長率則從 110% 上修至 117%。Gartner 指出，AI 基礎設施（含 AI 最佳化 IaaS、AI 伺服器、AI 網路交換架構、AI 運算半導體與裝置）的需求對記憶體價格上漲呈現無彈性，企業為了支撐預期中的未來工作負載仍持續加碼。該機構並估算，到 2030 年轉型型與間接型專案合計將帶動 1.2 兆美元的 AI 服務商機。",
+      "summary": "Gartner 預測 2026 年全球 AI 支出將達 2.7 兆美元，年增 49.5%，較該機構今年 1 月給出的 2.5 兆美元預估再度上修。成長動能主要來自 AI 基礎設施，包含 AI 最佳化 IaaS、AI 伺服器、AI 網路架構、AI 運算半導體與終端裝置，需求來自企業對未來工作負載的預先佈建。在軟體側，AI 模型與平台的終端使用者支出預估達 640 億美元，較 2025 年的 390 億美元成長 63.4%。其中生成式 AI 模型支出成長 117%，AI 平台支出成長 36.9%，顯示模型層的支出擴張速度遠高於平台層。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "2026 年全球 AI 支出預估 2.7 兆美元，年增 49.5%，較 5 月預估的 47% 上修",
-        "AI 應用開發平台成長率由 28% 上調至 39%，反映企業自建客製化 AI 應用的需求",
-        "生成式 AI 模型成長率由 110% 上修至 117%",
-        "AI 基礎設施需求對記憶體漲價呈現無彈性，支出不因成本上升而縮手",
-        "轉型型與間接型專案到 2030 年將創造 1.2 兆美元 AI 服務市場"
+        "2026 年全球 AI 支出預估 2.7 兆美元，年增 49.5%，較 1 月版 2.5 兆美元預估上修",
+        "AI 模型與平台終端支出 640 億美元，年增 63.4%（2025 年為 390 億美元）",
+        "生成式 AI 模型支出成長 117%，AI 平台支出成長 36.9%，模型層擴張速度約為平台層的 3 倍",
+        "AI 基礎設施（IaaS、伺服器、網路架構、運算半導體、終端裝置）仍是支出主體，企業為未知的未來負載預先建置"
       ],
       "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026"
     },
@@ -20,186 +19,104 @@
       "source": "Gartner",
       "date": "2026-09-15",
       "category": "AI趨勢",
-      "summary": "Gartner 在 Gold Coast 舉行的 Gartner IT Symposium/Xpo 上，由 Distinguished VP Analyst 暨 Gartner Fellow Daryl Plummer 發表 2027 年及其後的十大策略預測，分為「robots everywhere」（機器人無所不在）、「cost to value」（成本轉化為價值）與「unknown unknowns」（未知的未知）三大類。在實體 AI 方面，Gartner 預測到 2030 年，跨國企業 80% 的第一線員工將由 physical AI 系統輔助，包括機器人、無人機、自駕載具等能感知並與環境互動的具身系統。在成本效益方面，Gartner 預測到 2027 年，流程導向服務合約的「成本與價值落差」將因 agentic AI 的重構而縮減至少 50%。資安風險方面則預測到 2030 年，80% 擁有對外公開 AI 服務的組織將遭遇「cost exhaustion attack」（成本耗竭攻擊），攻擊者透過誘發過量運算造成鉅額 AI 費用。",
+      "summary": "Gartner 發布 2027 年及其後的重點策略預測，分為三大主題：機器人無所不在（robots everywhere）、成本轉價值（cost to value）、以及未知的未知（unknown unknowns）。成本治理是本次預測的核心軸線：Gartner 預測到 2028 年，全球 500 大企業中將有 60% 把 AI FinOps 控制點嵌入推論階段，把成本治理從事後報表轉為即時最佳化。在代理擴散面，Gartner 預測到 2030 年底，由個人、企業與政府建立的自主代理將超過 100 億個，並對公共服務造成壅塞。生產力工具市場亦被點名，Gartner 預測 2027 年生成式 AI 代理將對主流生產力工具形成 30 年來首次實質挑戰，帶動約 580 億美元的市場擾動。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "三大預測主軸：robots everywhere、cost to value、unknown unknowns",
-        "2030 年跨國企業 80% 第一線員工將由 physical AI 系統輔助",
-        "2027 年流程型服務合約的成本效益落差因 agentic AI 縮減至少 50%",
-        "2030 年 80% 具對外 AI 服務的組織將經歷 cost exhaustion attack，造成超額 AI 費用",
-        "由 Daryl Plummer 於 Gold Coast 的 Gartner IT Symposium/Xpo 發表"
+        "三大預測主題：機器人無所不在、成本轉價值、未知的未知",
+        "2028 年前，Global 500 中 60% 將把 AI FinOps 控制嵌入推論階段，成本治理從被動報表轉為即時最佳化",
+        "2030 年底前，個人／企業／政府建立的自主代理將超過 100 億個，並造成公共服務壅塞",
+        "2027 年生成式 AI 代理將對主流生產力工具構成 30 年來首次實質挑戰，市場擾動規模約 580 億美元"
       ],
       "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-15-gartner-unveils-top-strategic-predictions-for-2027-and-beyond"
     },
     {
-      "title": "AI agents are going rogue. CIOs are racing to put guardrails around them",
-      "source": "Fortune",
-      "date": "2026-09-16",
-      "category": "Agent治理",
-      "summary": "Fortune 報導指出，隨著 AI agent 承擔愈來愈多實際工作並帶來新型風險，Cisco、Intuit、Workday、ServiceNow 等企業正建立多層次監督機制，用於監控、治理與圍堵 agent 行為。文章主張資訊科技與資安高階主管必須協同強制落實 guardrail、建立 agent 監控系統，並具體追蹤 agent 執行的所有任務。此外，從供應鏈、客服到行銷、法務與人資，各部門主管都必須承擔追蹤「數位員工」的角色，治理責任不能只留在 IT 部門。Cisco 於 8 月建置 MyAgent 時，同時聚焦 agentic AI 的安全導入與可觀測性，將公司核可的大型語言模型、agent 與企業資料集中到單一平台。成本面上，CIO 對 token 支出的關注度明顯提高，因為 AI 工具採用率攀升已大幅推高帳單；報導並引述 87% 的領導者表示必須重新驗證 agent 的 context，這個仍屬人工的流程正在抵銷效率收益。",
+      "title": "EY survey finds that autonomous AI implementation outpaces oversight, yielding an AI governance gap",
+      "source": "EY (Ernst & Young LLP US)",
+      "date": "2026-09-15",
+      "category": "企業AI治理",
+      "summary": "EY US 發布《AI Risk and Governance Survey》，訪談 202 位年營收 10 億美元以上企業的資深 AI 決策者，結論是自主 AI 的部署速度已超過監督機制的建立速度。落差出現在政策與實務之間：98% 企業已有正式 AI 治理政策，但 47% 承認在急迫的部署案中曾繞過自家治理流程。在代理式 AI 的可視性上，使用 agentic AI 的企業中有 26% 承認無法偵測組織內部未經授權運作的 AI 代理。監督強度同樣不足，85% 的資深 AI 主管承認自家至少有少數代理系統在無即時人工參與的情況下執行動作，而這些動作已涵蓋偵測資安威脅、執行程式碼等關鍵行為。風險已實質發生：36% 企業曾遭遇對組織造成實質負面影響的 AI 事故或失效，型態包含資料遺失、財務損失、品牌損害與營運中斷。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "Cisco、Intuit、Workday、ServiceNow 皆在建立監控、治理與圍堵 AI agent 的多層機制",
-        "Cisco 於 8 月推出 MyAgent，將核可的 LLM、agent 與企業資料集中於單一平台並強調可觀測性",
-        "87% 領導者表示需重新驗證 agent 的 context，人工流程侵蝕效率收益",
-        "token 支出因 AI 工具採用率上升而暴增，成為 CIO 新的成本管控焦點",
-        "治理責任外溢到供應鏈、客服、行銷、法務、人資等各部門主管"
+        "98% 企業有正式 AI 治理政策，但 47% 曾為急迫部署繞過自身治理流程",
+        "使用 agentic AI 的企業中 26% 無法偵測內部未授權運作的 AI 代理",
+        "85% 資深 AI 主管承認至少有部分代理系統在無即時人工參與下執行動作（含資安偵測、執行程式碼）",
+        "36% 企業已發生造成實質負面影響的 AI 事故，涵蓋資料遺失、財務損失、品牌損害與營運中斷",
+        "樣本為 202 位年營收 10 億美元以上企業的資深 AI 決策者"
       ],
-      "url": "https://fortune.com/2026/09/16/ai-agents-are-going-rogue-cios-are-racing-to-put-guardrails-around-them/"
+      "url": "https://www.ey.com/en_us/newsroom/2026/09/ey-survey-finds-that-autonomous-ai-implementation-outpaces-oversight-yielding-an-ai-governance-gap"
     },
     {
-      "title": "New Survey from Collibra by The Harris Poll Finds 72% of Tech Decision-Makers Feel AI Initiatives Today Are Falling Short",
-      "source": "PR Newswire / Collibra",
+      "title": "Now That (Almost) Everyone Has AI",
+      "source": "BCG",
       "date": "2026-09-16",
       "category": "企業AI",
-      "summary": "Collibra 委託 The Harris Poll 執行、名為《The 2026 Hallucination Tax Report》的調查於 2026 年 9 月 16 日進行，訪問逾 300 位 21 歲以上、全職從事資料管理、隱私或 AI 決策的美國職場人士。調查顯示，72% 的決策者同意當組織的 AI 專案未達預期時，根因幾乎總是回到不一致或品質不佳的資料基礎。儘管約九成組織正在實際部署自主型 AI agent，仍有超過四分之三（76%）在過去 12 個月內於「試點轉正式生產」階段遭遇關鍵卡關。營運現況顯示治理缺口正把承諾中的自動化變成人工監督負擔：87% 的受訪者必須定期重新驗證 agent context 的正確性與時效性，51% 表示在 agent 輸出上線前需投入大量人力審查與修正。",
+      "summary": "BCG 這份分析的核心論點是：AI 採用本身已不再是差異化來源，商業模式才是。報告指出當幾乎所有企業都取得同等 AI 能力後，真正的區隔轉移到誰能承擔成果（own outcomes）而非只提供技術。對 IT 服務業者而言壓力最直接：代理式 AI 讓交付執行更快、更便宜，以席位數、人頭數、工時投入為計價基礎的傳統模式因此承受結構性擠壓。報告因此主張服務供應商需重構收費與責任模式，從投入計價轉向成果計價。⚠️待確認：本則發布日期與內容來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "調查對象為逾 300 位美國資料管理／隱私／AI 決策者，執行日期 2026-09-16",
-        "72% 認為 AI 專案未達標的根因回到不一致或不良的資料基礎",
-        "九成組織已部署自主 AI agent，但 76% 在 12 個月內卡在試點轉生產階段",
-        "87% 需定期重新驗證 agent context 的正確性與時效性",
-        "51% 需投入大量人力在 agent 輸出發布前審查與修正"
+        "AI 採用已非差異化來源，差異化回到商業模式本身",
+        "客戶需求轉向能「承擔成果」的合作夥伴，而非單純技術提供者",
+        "代理式 AI 使執行更快更廉價，席位／人頭／工時計價的 IT 服務模式承受結構性壓力",
+        "服務供應商的因應方向是從投入計價轉向成果計價"
       ],
-      "url": "https://www.prnewswire.com/news-releases/new-survey-from-collibra-by-the-harris-poll-finds-72-of-tech-decision-makers-feel-ai-initiatives-today-are-falling-short-302879680.html"
+      "url": "https://www.bcg.com/publications/2026/india-now-that-everyone-has-ai"
     },
     {
-      "title": "AI Infra Summit 2026: Building the Foundation of AI's Five-Layer Cake",
-      "source": "AIwire",
-      "date": "2026-09-16",
-      "category": "AI基礎設施",
-      "summary": "AIwire 報導 AI Infra Summit 2026 的觀察，指出這場已舉辦九年的研討會在本屆參加人數較前一年增加超過一倍，反映 AI 熱潮與基礎設施建設浪潮持續攀升。文章以 NVIDIA 執行長黃仁勳提出的「AI 五層蛋糕」為分析框架，將整個 AI 產業堆疊拆解為能源、晶片、基礎設施、模型與應用五層。報導引述 Gartner 預估，2026 年全球在 AI 基礎設施上的投入將達 2.7 兆美元，較前一年成長約 50%。此一框架點出產業的競爭焦點已從單一層次的晶片效能，擴散到整條由電力到應用的垂直堆疊。",
-      "highlights": [
-        "以黃仁勳的「AI 五層蛋糕」框架拆解產業：能源、晶片、基礎設施、模型、應用",
-        "AI Infra Summit 已舉辦九年，本屆與會人數較前一年倍增",
-        "引述 Gartner：2026 年全球 AI 相關投入達 2.7 兆美元，年增約 50%",
-        "競爭焦點從單點晶片效能擴散到由電力到應用的完整垂直堆疊"
-      ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/16/ai-infra-summit-2026-building-the-foundation-of-ais-five-layer-cake/"
-    },
-    {
-      "title": "Gartner Forecasts Worldwide AI Spending to Grow 49.5% in 2026",
-      "source": "AIwire",
+      "title": "Anthropic says Claude leads 26% of its AI R&D work",
+      "source": "Quartz",
       "date": "2026-09-18",
-      "category": "產業報告",
-      "summary": "AIwire 就 Gartner 最新的全球 AI 支出預測做出產業解讀，指出 2026 年全球 AI 支出預估達 2.7 兆美元、年增 49.5%。報導強調兩項關鍵上修：AI 應用開發平台的成長率由 28% 提高到 39%，顯示企業愈來愈傾向自建符合自身需求的客製化 AI 應用，而非直接採購現成產品；生成式 AI 模型的成長率則由 110% 上修至 117%。文章並指出，AI 基礎設施需求對記憶體相關漲價壓力呈現無彈性，企業為支應未來工作負載仍持續投資。Gartner 預估轉型型與間接型專案合計將在 2030 年前形成 1.2 兆美元的 AI 服務市場機會。",
-      "highlights": [
-        "2026 年全球 AI 支出 2.7 兆美元、年增 49.5%",
-        "AI 應用開發平台成長率由 28% 上修至 39%，反映企業自建取代外購的趨勢",
-        "生成式 AI 模型成長率由 110% 上修至 117%",
-        "AI 基礎設施投資對記憶體漲價無彈性，需求未受成本壓力壓抑",
-        "2030 年前 AI 服務市場機會估達 1.2 兆美元"
-      ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/18/gartner-forecasts-worldwide-ai-spending-to-grow-49-5-in-2026/"
-    },
-    {
-      "title": "Could AI really kill us all? Your questions, answered.",
-      "source": "MIT Technology Review",
-      "date": "2026-09-18",
-      "category": "AI安全",
-      "summary": "MIT Technology Review 將 9 月 15 日舉辦的訂戶 Roundtables 線上座談整理成文，回答與會者針對「AI 是否真可能毀滅人類」提出的問題。回應者為該刊資深 AI 編輯 Will Douglas Heaven 與 AI 記者 Grace Huckins。討論的出發點是：目前全球頂尖 AI 實驗室的員工當中，確實有人主張先進 AI 存在摧毀人類的真實可能性。內容拆解這類滅絕風險論述的來源、論證是否站得住腳，以及在政策與產業層面應採取什麼因應。此一討論的時空背景是產業界對 AI 監理與發展節奏的爭論正在升溫。",
-      "highlights": [
-        "整理自 2026-09-15 舉辦的訂戶線上 Roundtables 座談，回答讀者提問",
-        "回應者為資深 AI 編輯 Will Douglas Heaven 與 AI 記者 Grace Huckins",
-        "切入點為頂尖 AI 實驗室內部人員對「AI 滅絕風險」的真實疑慮",
-        "拆解滅絕論述的來源、論證強度與應有的政策回應"
-      ],
-      "url": "https://www.technologyreview.com/2026/09/18/1144435/could-ai-really-kill-us-all-your-questions-answered/"
-    },
-    {
-      "title": "The Download: AI's real extinction threat and age-reversal tech for eyes",
-      "source": "MIT Technology Review",
-      "date": "2026-09-14",
       "category": "AI趨勢",
-      "summary": "MIT Technology Review 的每日精選 The Download 以 AI 滅絕風險爭論為主題。文中指出 Dario Amodei、Sam Altman 與 Elon Musk 罕見地站在同一陣線呼籲放慢 AI 發展速度，但三人的主張並不相同：Amodei 傾向設立獨立監督機構與全產業新規範，Altman 則主張調整節奏而非停止。這類來自前沿實驗室領導者的表態，反映產業內部對於發展速度與風險控管的張力正在公開化。該期同時收錄眼部抗老化技術等其他科技報導。",
+      "summary": "Anthropic Institute 於 2026 年 9 月 17 日發布首版 R&D Automation Index，量測 Claude 在該公司 AI 研發工作中的自動化程度。截至 2026 年 8 月，Claude 在 26% 的 AI 研發工作中達到「主導」（leads）等級，2026 年 2 月時此比例還不到 1%。該指標採用 Epoch AI 開發的六級自動化量表，AL4「主導」的定義是 Claude 能從高階指令端到端完成任務的大部分，由人類在旁監督；報告明確指出 Claude 在任何受測子領域都尚未達到完全自主運作。涵蓋面更廣：超過 90% 的研發工作已涉及某種程度的 Claude 協作（AL1 以上）。同期規模數據顯示，截至 2026 年 8 月 Anthropic 內部任一時點約有 3 萬個代理在執行研究與工程工作。值得對照的是，此發布時點距 Anthropic CEO 公開主張產業應放慢速度僅五天。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "Dario Amodei、Sam Altman 與 Elon Musk 罕見一致呼籲放慢 AI 發展節奏",
-        "Amodei 主張設立獨立監督機構並建立全產業規範",
-        "Altman 主張的是調整發展節奏，而非停止開發",
-        "反映前沿實驗室對風險控管的內部張力正在公開化"
+        "Claude 在 26% 的 AI 研發工作達 AL4「主導」等級，較 2026 年 2 月的不到 1% 大幅躍升",
+        "超過 90% 的研發工作已有 Claude 在 AL1 以上等級參與",
+        "採用 Epoch AI 六級自動化量表；Claude 在所有受測子領域均未達完全自主",
+        "截至 2026 年 8 月，Anthropic 內部任一時點約有 3 萬個代理執行研究與工程工作",
+        "發布時點距 Anthropic CEO 主張產業放慢發展速度僅五天，形成明顯張力"
       ],
-      "url": "https://www.technologyreview.com/2026/09/14/1144012/the-download-ai-extinction-threat-age-reversal-vision/"
+      "url": "https://qz.com/anthropic-claude-ai-research-development-automation-091826"
     },
     {
-      "title": "Roundtables: Could AI really kill us all?",
-      "source": "MIT Technology Review",
-      "date": "2026-09-15",
-      "category": "AI安全",
-      "summary": "MIT Technology Review 於 2026 年 9 月 15 日舉辦訂戶專屬的 Roundtables 線上座談，主題為先進 AI 是否可能造成人類滅絕。座談指出，全球頂尖 AI 實驗室的部分員工認為此種可能性是真實存在的，而非純粹科幻想像。對談拆解這類恐懼的來源、其論證基礎是否成立，以及社會應採取的因應措施。與談者包括執行編輯 Niall Firth、資深 AI 編輯 Will Douglas Heaven 與 AI 記者 Grace Huckins。",
+      "title": "AI can't outprompt a shortage of power, water, and land",
+      "source": "The Register",
+      "date": "2026-09-21",
+      "category": "產業報告",
+      "summary": "本文分析 Forrester 的 2027 年預測，主題是 AI 基礎設施擴張已撞上能源、水資源與土地的實體上限。電力面，美國資料中心電力需求預估從 2025 年的 31 GW 增加一倍以上，到 2027 年達 66 GW。水資源面，快速的 AI 採用預估在 2027 年前額外帶來 42 億至 66 億立方公尺的用水量。政策面是最具體的轉折：Forrester 預測 2027 年至少兩個國家會把「費率使用者保護」原則落實為關稅或等效義務，要求資料中心營運者為其消耗的資源付費，雲端與 colocation 成本因此將更取決於地理位置、更需契約承諾，並直接暴露於電力市場風險。報告的結論是贏家必須把 AI、能源、水、土地、基礎設施與社區影響一併規劃，否則無法維持成長韌性。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "2026-09-15 錄製的訂戶專屬線上座談",
-        "與談者：執行編輯 Niall Firth、資深 AI 編輯 Will Douglas Heaven、AI 記者 Grace Huckins",
-        "核心議題為頂尖 AI 實驗室內部對滅絕風險的真實評估",
-        "討論範圍涵蓋恐懼來源、論證有效性與應對作為"
+        "美國資料中心電力需求預估由 2025 年 31 GW 增至 2027 年 66 GW，成長逾一倍",
+        "AI 採用預估在 2027 年前額外增加 42 億至 66 億立方公尺用水量",
+        "Forrester 預測 2027 年至少兩國將把資源成本轉為關稅或等效義務，由資料中心營運者負擔",
+        "雲端與 colocation 成本將更具地域性、更依賴契約承諾，並直接暴露於電力市場風險",
+        "核心治理問題轉為：稀缺電力分配給誰、誰負責最佳化、誰承擔風險、誰取得利益"
       ],
-      "url": "https://www.technologyreview.com/2026/09/15/1143936/roundtables-will-ai-really-kill-us-all/"
+      "url": "https://www.theregister.com/on-prem/2026/09/21/ai-cant-outprompt-a-shortage-of-power-water-and-land/5297811"
     },
     {
       "title": "【北美智權報412期】迎戰Token經濟風暴：AI資料中心建設趨勢與運算平台競爭態勢",
       "source": "北美智權報",
       "date": "2026-09-16",
-      "category": "AI基礎設施",
-      "summary": "北美智權報分析指出，生成式 AI 已跨過技術展示階段，進入以商業變現與基礎設施算力最佳化為核心的競爭期，形成所謂「Token 經濟」。報導引述全球 AI 推論 token 用量正以年增 4.73 倍的速度成長。在此背景下，AI 資料中心（AIDC）已從傳統機房轉型為將電力高效轉換為 token 的「算力工廠」。文章強調產業的價值衡量指標正在位移：從單純追逐 GPU 算力，轉向能源轉換效率與單次任務的生成成本。這對運算平台的競爭態勢產生結構性影響，也使電力供應與散熱成為 AI 產業鏈的關鍵瓶頸。",
+      "category": "產業報告",
+      "summary": "這篇分析把 AI 資料中心重新定義為「把電力轉換成 Token 的數位工廠」，並指出此定位徹底改變了底層運算平台的競爭規則。需求端數據顯示，全球 AI 推論的 Token 用量正以年增 4.73 倍的速度成長，而雲端服務業者尚未滿足的算力合約金額已累積至 2.5 兆美元。競爭指標隨之位移：市場焦點從單純追逐 GPU 的理論浮點運算能力，轉向每瓦電力能產出多少 Token（Token/W）與每單位 Token 的生成成本（Token/$）兩項效率指標。對台灣的產業意義在於，這場「Token 經濟風暴」為伺服器與系統整合供應鏈開啟新的成長窗口，競爭點落在能源效率與系統整合能力而非單一晶片規格。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "全球 AI 推論 token 用量年增 4.73 倍，驅動「Token 經濟」競爭",
-        "AI 資料中心（AIDC）從傳統機房轉型為電力轉 token 的「算力工廠」",
-        "產業價值指標從 GPU 算力位移到能源轉換效率與單次任務生成成本",
-        "生成式 AI 已從技術展示期進入商業變現與算力最佳化的競爭期"
+        "全球 AI 推論 Token 用量年增 4.73 倍",
+        "雲端業者未滿足的算力合約金額累積達 2.5 兆美元",
+        "AI 資料中心本質重新定義為「把電力轉換成 Token 的數位工廠」",
+        "競爭指標從 GPU 理論浮點效能轉向 Token/W（每瓦產出 Token）與 Token/$（單位 Token 成本）",
+        "台灣伺服器與系統整合供應鏈因能源效率與整合能力需求而取得新成長窗口"
       ],
       "url": "https://naipnews.naipo.com/71717/"
     },
     {
-      "title": "For AI agents, it's the best of times, it's the worst of times",
-      "source": "SiliconANGLE",
-      "date": "2026-09-18",
+      "title": "McKinsey report shows productivity decline in 30% of companies using agentic AI",
+      "source": "ANI News",
+      "date": "2026-09-20",
       "category": "Agent應用",
-      "summary": "SiliconANGLE 由 Robert Hof 撰寫的週度分析，以「對 AI agent 而言，這是最好的時代也是最壞的時代」總結當前的矛盾態勢：資金與市場預期同時衝高，但 agent 的實際可靠度與治理成熟度仍有落差。文章引述 Gartner 預測 2026 年全球 AI 支出年增 49.5% 作為資金面熱度的佐證。文中同時盤點當週的重大募資與併購動態，包括 Google DeepMind 旗下 Emulate 估值逼近 40 億美元、OpenAI 以逾 3 億美元收購 Glass Imaging、Factory 取得 2 億美元用於自我改進式軟體開發等案例。⚠️待確認：本則細節取自搜尋結果摘要，未能完整核對全文。",
+      "summary": "本則報導整理 McKinsey《Technology Trends Outlook 2026》（第六版，2026 年 9 月）關於代理式軟體開發的發現，最反直覺的一項是：在將近 30% 的企業中，團隊開始使用代理式 AI 工具後生產力反而下降，顯示自主編碼系統在企業快速採用下暴露出營運層面的障礙。McKinsey 對此的判斷是缺乏系統性方法會導致非預期後果。資本面呈現的是完全相反的曲線：代理式軟體開發公司的股權投資從 2023 年前的可忽略水準，成長到 2025 年約 50 億美元，再於 2026 年上半年突破 610 億美元，其中主要由一筆 600 億美元的 Cursor 併購案推動。整份報告追蹤 14 項技術趨勢，分為 AI 革命、運算與連接前沿、尖端工程三大類，並新增代理式軟體開發與 AI 用於科學發現與工程兩個新興領域。⚠️待確認：本則數據來自搜尋摘要，未能以 web_fetch 核對原文。",
       "highlights": [
-        "以 AI agent 的「熱錢與可靠度落差」為主軸的週度產業分析",
-        "引述 Gartner：2026 年全球 AI 支出年增 49.5%",
-        "Google DeepMind 旗下 Emulate 估值逼近 40 億美元",
-        "OpenAI 以逾 3 億美元收購 Glass Imaging",
-        "Factory 取得 2 億美元資金投入自我改進式軟體開發"
+        "近 30% 企業在採用代理式 AI 工具後生產力下降，暴露營運層面而非技術層面的障礙",
+        "McKinsey 判斷：缺乏系統性方法的代理式軟體開發會導致非預期後果",
+        "代理式軟體開發公司股權投資：2025 年約 50 億美元 → 2026 上半年突破 610 億美元",
+        "610 億美元中主要由一筆 600 億美元的 Cursor 併購案推動，投資高度集中於單一事件",
+        "報告為第六版，追蹤 14 項技術趨勢，新增代理式軟體開發與 AI 用於科學發現與工程兩領域"
       ],
-      "url": "https://siliconangle.com/2026/09/18/for-ai-agents-its-the-best-of-times-its-the-worst-of-times/"
-    },
-    {
-      "title": "Comp AI sets eyes on a continiously agentic future for security and compliance",
-      "source": "TechCrunch",
-      "date": "2026-09-17",
-      "category": "Agent應用",
-      "summary": "資安與法遵新創 Comp AI 宣布完成 3,400 萬美元 A 輪募資，由 Roo Capital 與 Grand Ventures 領投，累計募資金額達 3,750 萬美元。該公司主張以 agentic 平台處理繁瑣的資安與法遵作業，具體做法包括讓 AI agent 協助撰寫公司資安政策、為資安稽核蒐集佐證資料。平台並提供持續監控，判斷企業是否仍符合各項法遵控制項要求。此案反映投資人對企業級 AI 資安與法遵工具的持續關注，同一領域近期還有 Zenity 於 8 月完成 1.25 億美元 C 輪、Noma 去年完成 1 億美元 B 輪等案例。",
-      "highlights": [
-        "Comp AI 完成 3,400 萬美元 A 輪，由 Roo Capital 與 Grand Ventures 領投",
-        "累計募資達 3,750 萬美元",
-        "以 agentic 平台自動撰寫資安政策、蒐集稽核佐證並持續監控法遵控制",
-        "同領域近期案例：Zenity 8 月 1.25 億美元 C 輪、Noma 去年 1 億美元 B 輪"
-      ],
-      "url": "https://techcrunch.com/2026/09/17/comp-ai-sets-eyes-on-a-continiously-agentic-future-for-security-and-complaince/"
-    },
-    {
-      "title": "OpenText and Cohere Partner to Combine Trusted Data with Agentic AI",
-      "source": "AIwire",
-      "date": "2026-09-17",
-      "category": "企業AI",
-      "summary": "OpenText 與 Cohere 宣布策略合作，目標是將可信任的 agentic AI 導入政府部門與受高度監理的產業。此一組合的核心邏輯是把 OpenText 在企業資訊管理與資料治理的既有基礎，與 Cohere 的企業級語言模型能力結合，降低受監理機構導入 agent 時的資料信任與合規疑慮。此類合作反映出在受監理產業中，agent 落地的瓶頸已從模型能力轉移到資料來源可信度與治理可稽核性。",
-      "highlights": [
-        "OpenText 與 Cohere 結盟，鎖定政府部門與受監理產業的 agentic AI 導入",
-        "主軸為「可信任資料」與 agentic AI 的結合",
-        "反映受監理產業的 agent 落地瓶頸在資料可信度與治理可稽核性，而非模型能力"
-      ],
-      "url": "https://www.hpcwire.com/aiwire/2026/09/17/opentext-and-cohere-partner-to-combine-trusted-agentic-ai/"
-    },
-    {
-      "title": "AI agent certification startup AIUC raises $40M to begin auditing frontier models",
-      "source": "SiliconANGLE",
-      "date": "2026-09-15",
-      "category": "AI治理",
-      "summary": "專注於 AI agent 認證的新創 AIUC 宣布完成 4,000 萬美元募資，資金將用於啟動對前沿模型（frontier models）的稽核業務。此舉意味第三方 AI 稽核與認證正從概念走向可商業化的服務型態。對受監理產業而言，獨立第三方對 agent 與前沿模型的能力與風險出具認證，是內控與供應商管理上可直接引用的外部證據。⚠️待確認：本則細節取自搜尋結果標題與摘要，未能完整核對全文內容。",
-      "highlights": [
-        "AIUC 完成 4,000 萬美元募資",
-        "資金用於啟動前沿模型（frontier models）的稽核業務",
-        "顯示第三方 AI agent 認證與稽核正走向商業化服務"
-      ],
-      "url": "https://siliconangle.com/2026/09/15/ai-agent-certification-startup-aiuc-raises-40m-to-begin-auditing-frontier-models/"
+      "url": "https://www.aninews.in/news/business/mckinsey-report-shows-productivity-decline-in-30-of-companies-using-agentic-ai-16020260920103455/"
     }
   ],
-  "_updated_at": "2026-09-21T10:37:52.571725+08:00"
+  "_updated_at": "2026-09-22T10:34:00.455182+08:00"
 }

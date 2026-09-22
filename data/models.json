@@ -1,27 +1,69 @@
 [
   {
+    "model_name": "Grok Voice Transcribe",
+    "version": "2.0",
+    "institution": "xAI",
+    "release_date": "2026-09-18",
+    "release_status": "ga",
+    "domain": "語音辨識",
+    "modalities": [
+      "audio",
+      "text"
+    ],
+    "summary": "xAI 發布 Grok Voice Transcribe 2.0，為語音轉文字模型的新版本，強化多語言辨識與低延遲串流轉錄，供語音代理與即時字幕等應用整合使用。",
+    "advantages": [
+      "延遲表現適合即時語音代理串接",
+      "多語言轉錄涵蓋範圍較前一代擴大"
+    ],
+    "capabilities": [
+      "語音轉文字",
+      "串流即時轉錄",
+      "多語言辨識"
+    ],
+    "access_channels": [
+      "xAI API"
+    ],
+    "highlights": [
+      "Grok 語音堆疊（轉錄／思考／合成）中的轉錄環節改版",
+      "定位為語音 Agent 的前端輸入元件"
+    ],
+    "limitations": [
+      "官方頁面未公布獨立第三方評測結果",
+      "本項細部規格未能以頁面原文逐項核對"
+    ],
+    "context_window": null,
+    "pricing": null,
+    "license": null,
+    "benchmarks": [],
+    "analysis": "語音轉錄是語音 Agent 的入口瓶頸：轉錄錯一個數字，後段推理與工具呼叫全部失準。xAI 在同一季內連續改版 Voice Think Fast 與 Voice Transcribe，顯示其重心由單一對話模型轉向完整語音管線。對金融業客服與電話錄音稽核場景，這類模型的價值在於降低人工覆核比例，但導入前必須自行以本地口音、專有名詞與數字密集語料重測，不能採信廠商通用語言表現。",
+    "url": "https://x.ai/news/grok-voice-transcribe-2",
+    "evidence_urls": [
+      "https://x.ai/news/grok-voice-transcribe-2"
+    ],
+    "is_new": true,
+    "first_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00"
+  },
+  {
     "model_name": "Gemini 3.8 Audio",
-    "version": "3.8 (Live, Live Extended Thinking)",
+    "version": "3.8",
     "institution": "Google DeepMind",
     "release_date": "2026-09-15",
     "release_status": "ga",
-    "domain": "Audio",
+    "domain": "語音多模態",
     "modalities": [
-      "text",
       "audio",
-      "image",
-      "video"
+      "text"
     ],
-    "summary": "Google DeepMind 於 2026-09-15 發布 Gemini 3.8 Audio 模型卡，涵蓋 Live 與 Live Extended Thinking 兩種設定，屬於 Gemini 3 系列原生多模態推理模型，主打高流量、低延遲的即時對話場景，並提供可延長思考時間的版本以兼顧即時語音與較深層推理。",
+    "summary": "Google DeepMind 推出 Gemini 3.8 Audio 系列模型卡，包含 Live 與 Live Extended Thinking 兩種變體，支援即時雙向語音互動，其中 Extended Thinking 變體在回應前保留較長推理時間以處理較複雜的語音任務。",
     "advantages": [
-      "原生多模態架構，語音輸入輸出不需外掛轉譯鏈",
-      "Live Extended Thinking 讓同一模型在即時對話中切換較深推理",
-      "定位為高流量、延遲敏感工作負載的成本效益選擇"
+      "同一代模型提供即時反應與延長推理兩種取捨選項",
+      "原生語音輸入輸出，不需串接外部轉錄與合成"
     ],
     "capabilities": [
       "即時語音對話",
-      "原生多模態理解",
-      "延長思考模式下的多步推理"
+      "延長推理模式",
+      "語音理解與生成"
     ],
     "access_channels": [
       "Gemini API"
@@ -31,27 +73,27 @@
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "模型卡發布日期 2026-09-15（官方自述）",
-      "同時提供 Live 與 Live Extended Thinking 兩種設定"
+      "Live 與 Live Extended Thinking 雙變體並行發布",
+      "以官方模型卡形式公開能力與限制"
     ],
     "limitations": [
-      "官方模型卡未公開逐項基準分數，無法量化與前代差距",
-      "本次查得資料未載明定價與可用區域"
+      "模型卡以外的定價與上下文長度未經原文核對，此處留空",
+      "延長推理變體必然增加回應延遲，與即時互動情境衝突"
     ],
-    "analysis": "對要做語音客服、語音代理或即時會談輔助的團隊而言，這個版本的意義是把「即時回應」與「深度推理」放進同一個模型設定切換，不必再自行串接語音轉文字、推理模型、文字轉語音三段管線，可降低延遲與整合成本。受影響最大的是已在 Gemini API 上建語音代理的開發者，以及對延遲有硬性要求的金融客服與交易輔助場景。",
+    "analysis": "把「要快」與「要準」拆成兩個變體，是這一代語音模型的關鍵設計選擇：即時對話容不下數秒思考，而需要查核與計算的任務又不能搶答。對於受監理的語音場景，Extended Thinking 這條路線比較有意義，因為它允許模型在回覆前完成工具查詢與合規檢核；但這也意味著系統設計必須明確分流，而非期待單一模型同時滿足兩種延遲預算。",
     "url": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
     "evidence_urls": [
-      "https://deepmind.google/models/model-cards/"
+      "https://deepmind.google/models/model-cards/gemini-3-8-audio/"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031340+08:00"
+    "verified_at": "2026-09-21T10:41:49.225842+08:00"
   },
   {
     "model_name": "DeepSeek-V4.1-Flash",
@@ -59,53 +101,49 @@
     "institution": "DeepSeek",
     "release_date": "2026-09-10",
     "release_status": "ga",
-    "domain": "Multimodal",
+    "domain": "通用語言模型",
     "modalities": [
-      "text",
-      "image"
+      "text"
     ],
-    "summary": "DeepSeek 於 2026-09-10 正式發布 DeepSeek-V4.1-Flash，是其新架構家族中體積最小的一款，具備原生多模態視覺理解能力。官方說明新架構的設計目標是更高的能力上限、更快的推理速度、更高吞吐量，並可向上擴展到更大模型。隨此次發布，API 價格同步調降。",
+    "summary": "DeepSeek 發布 V4.1-Flash，為 V4 系列的輕量高速版本更新，延續 V4 架構並針對低延遲與高吞吐場景調整，透過官方 API 文件公告上線。",
     "advantages": [
-      "新架構主打更高吞吐與更快推理",
-      "原生多模態視覺理解，不需外掛視覺模組",
-      "發布同時調降 API 價格"
+      "延續 V4 系列架構的同時降低推理成本",
+      "以 API 文件同步公告，版本切換路徑明確"
     ],
     "capabilities": [
-      "文字生成與推理",
-      "原生視覺理解",
-      "API 服務"
+      "文字生成",
+      "工具呼叫",
+      "程式碼生成"
     ],
     "access_channels": [
-      "DeepSeek API",
-      "DeepSeek App",
-      "DeepSeek Web"
+      "DeepSeek API"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "新架構家族的首個小型成員（官方自述）",
-      "自 2026-09-14 04:00 UTC 起，所有 deepseek-v4-pro 請求改路由至 V4.1-Flash，並按 V4.1-Flash 費率計價，直到 V4.1-Pro 推出"
+      "V4 系列在 90 天窗口內第三次版本動作，迭代節奏密集",
+      "Flash 定位補足 V4-Pro 的成本與延遲缺口"
     ],
     "limitations": [
-      "官方更新公告未附完整基準測試數字",
-      "V4.1-Pro 尚未推出，目前旗艦層級以路由方式暫代"
+      "官方公告未提供完整評測表，此處不列數字",
+      "定價與上下文長度未經原文逐項核對，留空處理"
     ],
-    "analysis": "實務影響在於成本結構：原本用 V4-Pro 的服務會被自動導向較便宜的 V4.1-Flash，等於在未主動調整的情況下模型能力與費率同時改變，既有評測結果與提示詞可能需要重跑驗證。對成本敏感、以中文與多模態為主的應用團隊，這是短期內重新評估供應商組合的時機點。",
+    "analysis": "DeepSeek 在兩個月內走完 V4-Pro 正式上線、視覺實驗版、再到 Flash 輕量版，是典型的「先立旗艦、再鋪成本層」策略。對企業採購的實務含意是：同一供應商內部的模型分層會直接改變單位成本結構，但也把模型治理難度推高——版本淘汰與行為漂移的節奏比年度審查週期快得多，內部模型登錄簿必須改為事件驅動更新，不能沿用季度盤點。",
     "url": "https://api-docs.deepseek.com/news/news260910/",
     "evidence_urls": [
-      "https://api-docs.deepseek.com/updates/"
+      "https://api-docs.deepseek.com/news/news260910/"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031356+08:00"
+    "verified_at": "2026-09-21T10:41:49.225855+08:00"
   },
   {
     "model_name": "GPT-Live-1",
@@ -157,91 +195,72 @@
     "complete": true,
     "url_status": "title_low_match",
     "title_score": 0.22,
-    "verified_at": "2026-09-20T10:27:49.031370+08:00"
+    "verified_at": "2026-09-21T10:41:49.225868+08:00"
   },
   {
-    "model_name": "ChatGPT Images 2.5",
-    "version": "2.5",
-    "institution": "OpenAI",
-    "release_date": "2026-09-08",
+    "model_name": "North Small Translate",
+    "version": "1.0",
+    "institution": "Cohere",
+    "release_date": "2026-09-09",
     "release_status": "ga",
-    "domain": "Vision",
+    "domain": "翻譯",
     "modalities": [
-      "text",
-      "image"
+      "text"
     ],
-    "summary": "OpenAI 於 2026-09-08 發布 ChatGPT Images 2.5 影像生成模型，強調更銳利的細節、更精準的編輯與更快的生成速度。官方指出其光影更自然、材質更豐富，更能保留參考照片中的主體，且在多輪編輯中更可靠地遵循指令。開發者端另提供 GPT-Image-2.5 Flare 與 GPT-Image-2.5 Sunburst 兩種取向。",
+    "summary": "Cohere 發布 North Small Translate 1.0，為 North 系列中專攻翻譯任務的混合專家模型，以總參數 218B、啟用參數 25B 的配置在翻譯品質與推理成本之間取得平衡，並透過官方 changelog 公告。",
     "advantages": [
-      "相較 Images 2.0，生成延遲最多降低 50%",
-      "多輪編輯指令遵循度提升",
-      "參考照片中的主體保留能力增強"
+      "混合專家架構讓啟用參數僅 25B，推理成本低於同等品質的密集模型",
+      "任務專用設計，翻譯場景不需動用通用旗艦模型"
     ],
     "capabilities": [
-      "文字生成影像",
-      "多輪影像編輯",
-      "參考影像主體保留",
-      "Sketch 手繪參考輸入",
-      "模板與共享提示詞"
+      "多語言翻譯",
+      "文字生成"
     ],
     "access_channels": [
-      "ChatGPT（桌面、行動、網頁）",
-      "ChatGPT Work",
-      "Codex",
-      "OpenAI API（GPT-Image-2.5 Flare / Sunburst）"
+      "Cohere API",
+      "Cohere North 平台"
+    ],
+    "highlights": [
+      "總參數 218B、啟用參數 25B 的 MoE 配置",
+      "North 系列走專用小模型路線，而非單一通用大模型"
+    ],
+    "limitations": [
+      "官方 changelog 未列出完整翻譯評測分數",
+      "授權條件與定價未經原文核對，留空處理"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
-    "benchmarks": [
-      "影像生成延遲相較 Images 2.0 最多降低 50%（官方自述）"
-    ],
-    "highlights": [
-      "新增 Sketch 手繪功能，可直接在 ChatGPT 內畫草圖當參考",
-      "Sunburst 取向以較長生成時間換取更高精細度"
-    ],
-    "limitations": [
-      "官方公告未提供與第三方模型的對照基準數字",
-      "Flare 與 Sunburst 的定價與速率限制未於本次查得資料中載明"
-    ],
-    "analysis": "對行銷、簡報與產品設計流程而言，關鍵不是畫質而是「可控性」：多輪編輯穩定、主體保留、加上手繪草圖輸入，代表影像生成從一次性抽卡轉為可迭代的工作流程。對金融業內部素材製作，延遲減半也讓批次產圖的排程成本明顯下降，但仍需注意生成素材的合規與授權審查。",
-    "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+    "benchmarks": [],
+    "analysis": "Cohere 的路線與旗艦競賽相反：不追通用能力上限，而是把單一高頻任務做到成本可控。這對企業內部大量、重複、格式固定的翻譯需求（法遵文件、跨國報表、客服語料）是務實選擇，因為單位成本直接決定能不能全量處理而非抽樣處理。代價是模型組合變複雜，路由與降級邏輯得自己維護。",
+    "url": "https://docs.cohere.com/changelog/north-small-translate-1-0",
     "evidence_urls": [
-      "https://openai.com/news/product-releases/"
+      "https://docs.cohere.com/changelog/north-small-translate-1-0"
     ],
-    "is_new": false,
-    "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 0.6,
-    "verified_at": "2026-09-20T10:27:49.031384+08:00"
+    "is_new": true,
+    "first_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00"
   },
   {
-    "model_name": "GPT-6 Astra",
-    "version": "GPT-6 Astra",
+    "model_name": "GPT-Image-2.5",
+    "version": "2.5",
     "institution": "OpenAI",
-    "release_date": "2026-09-03",
+    "release_date": "2026-09-08",
     "release_status": "ga",
-    "domain": "Reasoning",
+    "domain": "影像生成",
     "modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
-    "summary": "OpenAI 於 2026-09-03 發布 GPT-6 Astra，官方稱其為「目前最有智慧且最對齊的模型」，也是「至今最有能力、且已廣泛部署的模型」，在電腦操作、程式撰寫、資訊安全與科學領域具備頂尖水準。Astra 也是 OpenAI 第一個在其 Preparedness Framework 下達到資安能力 Critical 等級的模型，因此伴隨一整套強化的安全防護措施。",
+    "summary": "OpenAI 推出 ChatGPT Images 2.5，底層為 GPT-Image-2.5 影像模型，官方公告中提及 Sunburst 與 Flare 兩種變體，強化指令遵循與影像編輯一致性，並整合進 ChatGPT 產品體驗。",
     "advantages": [
-      "電腦操作（computer use）與代理任務能力為官方主打重點",
-      "事實錯誤率低於 GPT-5.6 Sol，較不易重現使用者回報的幻覺",
-      "官方宣稱在同類科學代理任務上兼具較高分數與較低 API 成本"
+      "同時在 ChatGPT 產品端與模型端更新，使用路徑直接",
+      "提供兩種變體以對應不同品質與速度取捨"
     ],
     "capabilities": [
-      "長鏈推理",
-      "電腦操作與代理工作流程",
-      "程式撰寫",
-      "資訊安全分析",
-      "科學研究輔助",
-      "工具使用"
+      "文字生成影像",
+      "影像編輯",
+      "指令遵循"
     ],
     "access_channels": [
       "ChatGPT",
@@ -250,104 +269,186 @@
     "context_window": null,
     "pricing": null,
     "license": null,
-    "benchmarks": [
-      "ExploitBench 100%，GPT-5.6 Sol 為 78.5%（官方自述）",
-      "ExploitGym 成功率 42.4%，GPT-5.6 Sol 為 30.3%（官方自述）",
-      "FrontierMath Tier 4 達 98%（官方自述）",
-      "ARC-AGI-3 達 99.9%（官方自述）",
-      "Terminal-Bench Science 0.1 達 64.6%，Claude Fable 5.1 為 52.6%，且估計 API 成本約低 31%（官方自述）",
-      "Gray Swan IPI 每情境 15 次嘗試的估計攻擊成功率 8.5%，GPT-5.6 Sol 為 27.0%（官方自述）",
-      "資安越獄評測拒答率 91.5%，GPT-5.6 Sol 為 59%（官方自述）"
-    ],
+    "benchmarks": [],
     "highlights": [
-      "首個達到 Preparedness Framework 資安 Critical 等級的 OpenAI 模型",
-      "同步發布系統卡、安全總覽與能力應對說明三份官方文件"
+      "Sunburst 與 Flare 雙變體",
+      "與 ChatGroup Images 產品層同步改版"
     ],
     "limitations": [
-      "達到資安 Critical 等級意味相關功能受額外防護與存取限制",
-      "所有基準數字均為官方自述，未經獨立第三方驗證",
-      "本次查得資料未載明脈絡長度與定價"
+      "官方公告未提供可比對的獨立評測數據",
+      "定價與授權未經原文核對，留空處理"
     ],
-    "analysis": "這是本季最具分水嶺意義的一次發布：官方主動把模型標記為資安能力 Critical，等同承認模型本身已進入「可被濫用於實質攻擊」的門檻，因此治理重點從功能評估轉向存取控制與濫用偵測。對金融機構而言，導入評估要同時看兩面——一面是代理與電腦操作能力帶來的流程自動化空間，另一面是供應商端防護是否足以支撐內控要求，採購與資安審查需納入 Preparedness Framework 的能力分級與對應緩解措施。",
-    "url": "https://openai.com/index/gpt-6-astra/",
+    "analysis": "影像模型的競爭已從「畫得好不好」轉向「照不照指令改」——企業用途幾乎都是既有素材的受控修改，而非從零生成。指令遵循與編輯一致性正是這條線上的指標。金融業實際落點在行銷素材與內部簡報生產，風險不在品質而在授權與可辨識性：任何對外素材都需要保留生成紀錄與人工核准節點，否則廣告合規追溯不回去。",
+    "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
     "evidence_urls": [
-      "https://openai.com/index/safety-overview-gpt-6-astra/",
-      "https://openai.com/index/path-to-astra/",
-      "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
-      "https://openai.com/index/gpt-6-astra-next-generation-work/",
-      "https://deploymentsafety.openai.com/gpt-6-astra"
+      "https://openai.com/index/introducing-chatgpt-images-2-5/"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
-    "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031397+08:00"
+    "title_score": 0.75,
+    "verified_at": "2026-09-21T10:41:49.225881+08:00"
   },
   {
-    "model_name": "Claude Fable 5.1 / Claude Mythos 5.1",
-    "version": "5.1",
-    "institution": "Anthropic",
-    "release_date": "2026-09-01",
+    "model_name": "GPT-6 Astra",
+    "version": "6",
+    "institution": "OpenAI",
+    "release_date": "2026-09-03",
     "release_status": "ga",
-    "domain": "Reasoning",
+    "domain": "通用旗艦推理模型",
     "modalities": [
       "text",
       "image"
     ],
-    "summary": "Anthropic 於系統卡標示的 2026-09-01 發布 Claude Fable 5.1 與 Claude Mythos 5.1。兩者底層為同一模型，差別在防護配置：Mythos 5.1 是 Mythos 級的最新模型，在資安與生物領域有能力提升，僅透過信任存取方案與 Claude Security 開放；Fable 5.1 則是加上資安與生物防護後、可一般使用的版本，且防護更精準。",
+    "summary": "OpenAI 發布 GPT-6 Astra 旗艦模型，官方定位為多年研究成果，強調在電腦操作、軟體工程、專業工作與科學任務上的能力，並採分階段釋出，資安相關能力先開放給申請制的 Daybreak 計畫參與企業。",
     "advantages": [
-      "Fable 5.1 可用於原始碼漏洞辨識，不再被資安防護一律擋下",
-      "生物領域防護對良性請求的誤攔次數較 Fable 5 減少 85%",
-      "Mythos 級能力層級高於 Opus 級"
+      "官方定位在電腦操作與軟體工程等長時程代理任務具領先能力",
+      "分階段釋出搭配申請制資安計畫，對高風險能力設有取用門檻"
     ],
     "capabilities": [
-      "長鏈推理",
-      "程式撰寫與原始碼漏洞辨識",
-      "代理工作流程",
-      "多模態理解"
+      "電腦操作（computer use）",
+      "軟體工程",
+      "科學推理",
+      "工具呼叫",
+      "資安分析"
     ],
     "access_channels": [
-      "Claude API（claude-fable-5-1）",
-      "Amazon Web Services",
-      "Google Cloud",
-      "Microsoft Azure",
-      "Claude Security（Mythos 5.1）",
-      "信任存取方案（Mythos 5.1）"
+      "ChatGPT Plus",
+      "ChatGPT Pro",
+      "ChatGPT Business",
+      "ChatGPT Enterprise",
+      "OpenAI API"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
-    "benchmarks": [
-      "生物防護對良性請求的介入次數較 Fable 5 減少 85%（官方自述）"
-    ],
+    "benchmarks": [],
     "highlights": [
-      "同一底層模型以防護配置區分兩個發行層級",
-      "發布前經過跨領域的大規模風險測試，並出具聯合系統卡"
+      "資安能力先經 Daybreak 申請制計畫開放，非全量釋出",
+      "官方強調 computer use 與軟體工程為主要進步面向"
     ],
     "limitations": [
-      "Mythos 5.1 不對一般使用者開放",
-      "本次查得資料未載明脈絡長度與定價",
-      "官方主要揭露安全面數字，能力面基準數字未於本次查得資料中呈現"
+      "官方公告未提供可核對的完整評測表，此處不列數字",
+      "上下文長度與定價僅見於第三方報導，未經官方頁面原文核對，故留空"
     ],
-    "analysis": "這次改版的重點不是能力躍進，而是「防護精準度」：過去資安與生物防護容易把合法的原始碼審查、研究查詢一併擋掉，導致企業導入後可用性不如預期。Fable 5.1 把誤攔降下來，直接影響的是資安團隊與研究單位的實際可用性。對受監理產業，值得記下的治理意涵是：同一模型以不同防護層級分流開放，代表未來供應商合約需要明確界定所採用的是哪一個發行層級。",
-    "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    "analysis": "把資安能力另開申請制通道，是這次發布最值得注意的治理訊號：模型能力已強到廠商自己選擇不全量開放，改以客戶審查作為控制點。對金融業的直接含意有兩層——第一，同一模型名稱下不同客戶拿到的能力邊界可能不同，內部模型登錄必須記錄「取用層級」而非只記錄模型版本；第二，computer use 能力進入旗艦模型主軸，代表代理可以直接操作內部系統介面，權限管控的重心會從 API 範圍轉移到端點操作與交易授權，既有的 API 白名單管制方式已不足。",
+    "url": "https://openai.com/index/gpt-6-astra/",
     "evidence_urls": [
-      "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf",
-      "https://www.anthropic.com/system-cards"
+      "https://openai.com/index/gpt-6-astra/"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031410+08:00"
+    "verified_at": "2026-09-21T10:41:49.225893+08:00"
+  },
+  {
+    "model_name": "Claude Fable 5.1",
+    "version": "5.1",
+    "institution": "Anthropic",
+    "release_date": "2026-09-01",
+    "release_status": "ga",
+    "domain": "通用語言模型",
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "summary": "Anthropic 同步發布 Claude Fable 5.1 與 Claude Mythos 5.1，為 Fable／Mythos 5 系列的版本更新，延續該系列在代理任務與工具使用上的定位，並以官方公告頁一併說明兩款模型。",
+    "advantages": [
+      "同一公告同時更新兩條產品線，版本對應關係清楚",
+      "延續 5 系列的代理與工具使用能力路線"
+    ],
+    "capabilities": [
+      "工具呼叫",
+      "代理任務執行",
+      "程式碼生成",
+      "長文脈處理"
+    ],
+    "access_channels": [
+      "Anthropic API",
+      "Claude 產品"
+    ],
+    "context_window": null,
+    "pricing": null,
+    "license": null,
+    "benchmarks": [],
+    "highlights": [
+      "Fable 5.1 與 Mythos 5.1 併案發布",
+      "屬點版本更新而非新架構世代"
+    ],
+    "limitations": [
+      "官方公告未提供本次版本的獨立評測比較表",
+      "定價與上下文長度未經頁面原文核對，留空處理"
+    ],
+    "analysis": "點版本更新常被低估，但在受監理環境裡它比大版本更麻煩：能力提升不足以重寫使用情境，行為變動卻足以讓既有 prompt 與護欄失效。實務建議是把 x.1 級更新一律納入回歸測試範圍，用固定的內部評測集比對前後版本輸出差異，而不是憑發布公告的定性描述決定是否升版。",
+    "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    "evidence_urls": [
+      "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    ],
+    "is_new": false,
+    "first_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.85,
+    "verified_at": "2026-09-21T10:41:49.225905+08:00"
+  },
+  {
+    "model_name": "Gemini Omni Flash",
+    "version": "Omni Flash",
+    "institution": "Google DeepMind",
+    "release_date": "2026-08-27",
+    "release_status": "ga",
+    "domain": "全模態模型",
+    "modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+    ],
+    "summary": "Google DeepMind 發布 Gemini Omni Flash 模型卡，定位為涵蓋多種模態輸入的高速模型，以 Flash 級延遲與成本處理跨模態任務，官方以模型卡形式公開能力範圍。",
+    "advantages": [
+      "單一模型涵蓋多模態輸入，減少管線串接",
+      "Flash 級定位兼顧延遲與成本"
+    ],
+    "capabilities": [
+      "多模態理解",
+      "文字生成",
+      "低延遲推理"
+    ],
+    "access_channels": [
+      "Gemini API"
+    ],
+    "highlights": [
+      "以 Omni 命名標示全模態定位",
+      "模型卡同步公開，能力邊界有官方依據"
+    ],
+    "limitations": [
+      "官方模型卡未提供完整跨模態評測比較",
+      "定價與上下文長度未經原文核對，留空處理"
+    ],
+    "context_window": null,
+    "pricing": null,
+    "license": null,
+    "benchmarks": [],
+    "analysis": "全模態併入 Flash 級成本帶，意味著跨模態處理從實驗性功能變成可以全量開的日常功能。對金融機構而言最實際的應用是文件與影音的混合稽核——把掃描件、通話錄音、螢幕錄影放進同一條處理鏈。導入的關鍵不是模型能不能讀，而是這些素材本身多半含個資，跨模態處理會讓去敏的難度上升一個量級，因為敏感資訊可能出現在影像畫面或語音中，而非只在文字欄位。",
+    "url": "https://deepmind.google/models/model-cards/gemini-omni-flash/",
+    "evidence_urls": [
+      "https://deepmind.google/models/model-cards/gemini-omni-flash/"
+    ],
+    "is_new": true,
+    "first_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00"
   },
   {
     "model_name": "DeepSeek-V4-Flash-Vision-Exp",
@@ -355,19 +456,20 @@
     "institution": "DeepSeek",
     "release_date": "2026-08-21",
     "release_status": "preview",
-    "domain": "Vision",
+    "domain": "視覺語言模型",
     "modalities": [
       "text",
       "image"
     ],
-    "summary": "DeepSeek 於 2026-08-21 在 API 平台上線多模態視覺理解模型 DeepSeek-V4-Flash-Vision-Exp，官方明確標示為實驗性模型（experimental model），讓開發者先行試用其視覺理解能力。",
+    "summary": "DeepSeek 推出 V4-Flash-Vision-Exp 實驗性視覺模型，為 V4-Flash 加入影像理解能力的實驗版本，官方以 Exp 命名標示其實驗狀態，透過 API 文件公告開放試用。",
     "advantages": [
-      "以 Flash 級成本提供視覺理解",
-      "實驗版可讓開發者提前驗證多模態流程"
+      "在低成本 Flash 層加入視覺能力",
+      "實驗版命名明確，狀態標示不含糊"
     ],
     "capabilities": [
       "影像理解",
-      "圖文混合輸入推理"
+      "文字生成",
+      "圖文混合推理"
     ],
     "access_channels": [
       "DeepSeek API"
@@ -377,79 +479,78 @@
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "官方明確標示為實驗性（Exp）模型"
+      "以 Exp 後綴標示實驗狀態",
+      "V4 系列首度延伸至視覺模態"
     ],
     "limitations": [
-      "實驗性模型，穩定性與長期可用性無保證",
-      "官方公告未附基準測試數字"
+      "官方明示為實驗版本，不宜用於生產環境",
+      "未提供評測數據與穩定性承諾"
     ],
-    "analysis": "這是 DeepSeek 把多模態能力從研究推進到 API 的前導步驟，對評估中國系開源／低成本供應商的團隊而言，實務意義是可先用低成本驗證文件理解、表單擷取這類場景，但因標示為實驗版，不應直接進入生產環境或納入正式流程相依。",
+    "analysis": "Exp 後綴是很值得肯定的做法：它把「可以玩」與「可以上線」在模型名稱層就分開，不需要讀公告細節才知道風險等級。反過來說，內部若允許開發者自行選模型，這種命名也是最容易被忽略的陷阱——實驗版一旦進到概念驗證再順勢上生產，就沒有人會回頭檢查它從未有穩定性承諾。模型白名單應該以完整模型字串比對，而非前綴比對。",
     "url": "https://api-docs.deepseek.com/news/news260821/",
     "evidence_urls": [
-      "https://api-docs.deepseek.com/updates/"
+      "https://api-docs.deepseek.com/news/news260821/"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031423+08:00"
+    "verified_at": "2026-09-21T10:41:49.225917+08:00"
   },
   {
     "model_name": "DeepSeek-V4-Pro",
-    "version": "V4-Pro（GA）",
+    "version": "V4-Pro",
     "institution": "DeepSeek",
     "release_date": "2026-08-13",
     "release_status": "ga",
-    "domain": "LLM",
+    "domain": "通用旗艦語言模型",
     "modalities": [
       "text"
     ],
-    "summary": "DeepSeek 於 2026-08-13 將 DeepSeek-V4-Pro 推向正式版（GA），同步在 App、Web 與 API 三個通路上線。官方指出 GA 版本大幅強化了代理（agent）能力。",
+    "summary": "DeepSeek 宣布 V4-Pro 正式上線，為 V4 系列旗艦模型，採混合專家架構，總參數約 1.6T、啟用參數約 49B，定位於高難度推理與程式任務，透過官方 API 文件公告。",
     "advantages": [
-      "GA 版本大幅強化代理能力（官方自述）",
-      "App、Web、API 三通路同時開放"
+      "1.6T 總參數搭配 49B 啟用參數，推理成本遠低於同級密集模型",
+      "旗艦定位涵蓋高難度推理與程式任務"
     ],
     "capabilities": [
-      "代理工作流程",
-      "工具使用",
-      "長鏈推理",
-      "程式撰寫"
+      "複雜推理",
+      "程式碼生成",
+      "工具呼叫",
+      "長文脈處理"
     ],
     "access_channels": [
-      "DeepSeek API",
-      "DeepSeek App",
-      "DeepSeek Web"
+      "DeepSeek API"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "自預覽版轉為正式版，重點落在 agent 能力"
+      "MoE 架構：總參數約 1.6T、啟用參數約 49B",
+      "由先前的預覽狀態進入正式提供"
     ],
     "limitations": [
-      "自 2026-09-14 04:00 UTC 起請求已改路由至 V4.1-Flash，V4-Pro 端點實質退場",
-      "官方公告未附基準測試數字"
+      "官方公告未提供完整第三方可比對評測",
+      "定價與上下文長度未經原文核對，留空處理"
     ],
-    "analysis": "V4-Pro 的 GA 只維持約一個月就被路由到 V4.1-Flash，這個節奏本身是重點：以中國系供應商為主力的團隊，必須把「模型端點生命週期極短」納入架構假設，避免把提示詞、評測基線與業務邏輯綁死在單一模型版本上。金融業導入時應要求供應商提供明確的端點退場通知期。",
+    "analysis": "1.6T 總參數、49B 啟用的比例（約 3%）是目前 MoE 路線的極端化案例：模型容量與單次推理成本被徹底解耦。這對成本敏感的機構很有吸引力，但治理上要注意一個常被忽略的點——啟用路徑會隨輸入改變，意味著同一模型對不同類型輸入的實際行為一致性低於密集模型，內部評測若只用單一類型語料，很可能量不到真實的表現落差。",
     "url": "https://api-docs.deepseek.com/news/news260813/",
     "evidence_urls": [
-      "https://api-docs.deepseek.com/updates/",
-      "https://api-docs.deepseek.com/news/news260910/"
+      "https://api-docs.deepseek.com/news/news260813/"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.73,
-    "verified_at": "2026-09-20T10:27:49.031441+08:00"
+    "verified_at": "2026-09-21T10:41:49.225930+08:00"
   },
   {
     "model_name": "Gemini 3.7 Flash",
@@ -502,7 +603,7 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-20T10:27:49.031457+08:00"
+    "verified_at": "2026-09-21T10:41:49.225959+08:00"
   },
   {
     "model_name": "Grok 4.6",
@@ -510,325 +611,214 @@
     "institution": "xAI",
     "release_date": "2026-08-12",
     "release_status": "ga",
-    "domain": "LLM",
+    "domain": "通用語言模型",
     "modalities": [
       "text",
       "image"
     ],
-    "summary": "xAI 於 2026-08-12 發布 Grok 4.6，定位為程式撰寫、代理任務與知識工作的前沿模型。官方說明其在 Grok 4.5 的基礎上，特別針對長時間運行的代理，以及更具企圖心的互動式與視覺化工作進行強化。脈絡窗口 500k，支援文字與影像輸入、僅文字輸出，且無文字輸出長度上限。",
+    "summary": "xAI 發布 Grok 4.6，為 Grok 4 系列的版本更新，延續 4.5 的推理與工具使用路線，透過官方新聞頁公告，並整合至 xAI API 與 Grok 產品。",
     "advantages": [
-      "500k 脈絡窗口，適合長文件與長流程代理",
-      "文字輸出無長度上限",
-      "針對長時間運行的代理任務最佳化"
+      "與 4.5 相隔不到一個月推出，迭代節奏快",
+      "延續推理與工具使用主軸"
     ],
     "capabilities": [
-      "程式撰寫",
-      "長時間運行代理",
-      "工具使用",
-      "影像輸入理解",
-      "知識工作"
+      "推理",
+      "工具呼叫",
+      "程式碼生成",
+      "多模態理解"
     ],
     "access_channels": [
       "xAI API",
-      "Cursor",
-      "Grok Build",
-      "OpenRouter",
-      "Vercel",
-      "Cloudflare",
-      "GitHub Copilot",
-      "Amazon Bedrock",
-      "Gemini Enterprise Agent Platform"
+      "Grok 產品"
     ],
-    "context_window": "500k tokens",
-    "pricing": "輸入 $2 / 百萬 tokens；輸出 $6 / 百萬 tokens",
+    "context_window": null,
+    "pricing": null,
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "針對長時間運行代理的專門強化",
-      "輸出不設長度上限，利於長篇產出與大型重構"
+      "90 天窗口內 Grok 4 系列第二次版本更新",
+      "官方新聞頁單獨公告"
     ],
     "limitations": [
-      "僅文字輸出，不支援影像生成",
-      "本次查得官方資料未附逐項基準分數"
+      "官方公告未提供完整可核對評測表",
+      "定價與上下文長度未經原文核對，留空處理"
     ],
-    "analysis": "以每百萬 tokens $2／$6 的價格搭配 500k 脈絡與無輸出上限，Grok 4.6 的競爭點在「長流程單位成本」，而不是單題智力。對需要跑大型程式庫重構、長篇契約比對或多日代理任務的團隊，這個組合會直接改變成本試算；但僅文字輸出的限制，意味視覺化產出仍須另接影像模型。",
+    "analysis": "從 4.5 到 4.6 只隔約四週，這種節奏對使用端是負擔而非利多：每次小版本都可能改變工具呼叫格式偏好與輸出風格，而企業端的回歸測試成本是固定的。實務上應該對這類高頻迭代供應商要求版本釘選（pinned version）與淘汰預告期，否則 Agent 系統的穩定性會被供應商的發版節奏綁住。",
     "url": "https://x.ai/news/grok-4-6",
     "evidence_urls": [
-      "https://x.ai/news/grok-4-6-amazon-bedrock",
-      "https://x.ai/news/grok-4-6-github-copilot",
-      "https://x.ai/news/grok-4-6-vertex-ai"
+      "https://x.ai/news/grok-4-6"
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031470+08:00"
+    "verified_at": "2026-09-21T10:41:49.225988+08:00"
   },
   {
-    "model_name": "NVIDIA Nemotron 3.5 Lightning",
-    "version": "3.5 Lightning",
+    "model_name": "Nemotron 3.5 Lightning",
+    "version": "3.5",
     "institution": "NVIDIA",
     "release_date": "2026-08-11",
     "release_status": "open_weight",
-    "domain": "LLM",
+    "domain": "代理任務專用模型",
     "modalities": [
       "text"
     ],
-    "summary": "NVIDIA 於 2026-08-11 擴充 Nemotron 3 模型家族，推出 Nemotron 3.5 Lightning，官方稱其為同級中效率最高、專為長時間運行代理工作負載設計的模型，架構為 30B 參數的 mixture-of-experts，定位是大型多代理系統中負責特定專門任務的成員。同場並發表 NeMo Switchyard。",
+    "summary": "NVIDIA 擴充 Nemotron 3 模型家族，推出 Nemotron 3.5 Lightning，為 300 億參數混合專家模型（啟用參數 30 億），專為多代理系統中的專項任務設計，針對長時程 AI 代理的高量、低延遲執行最佳化；官方表示相較同級開放模型可達最高 4 倍 token 生成速度與 30% 更快的完成時間。同時發布開源路由函式庫 NeMo Switchyard。",
     "advantages": [
-      "同級中最高效率（官方自述），適合長時間代理工作負載",
-      "30B MoE 架構，可在較小硬體足跡上運行",
-      "Nemotron 家族提供開放權重、訓練資料與配方"
+      "30B 總參數／3B 啟用參數，適合高頻呼叫的代理子任務",
+      "官方稱 token 生成速度最高提升 4 倍、完成時間快 30%（同級開放模型比較）",
+      "開放權重可自行部署，資料不出境"
     ],
     "capabilities": [
-      "專門化任務執行",
-      "多代理系統中的子任務處理",
-      "長時間運行代理"
+      "長時程代理任務執行",
+      "專項任務推理",
+      "低延遲高吞吐推理",
+      "多代理系統整合"
     ],
     "access_channels": [
-      "開放權重下載",
-      "NVIDIA NIM 微服務",
-      "DGX Spark 與 RTX 平台"
+      "Hugging Face",
+      "ModelScope",
+      "OpenRouter",
+      "build.nvidia.com（NVIDIA NIM 微服務）",
+      "NVIDIA Cloud Partners"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
-    "benchmarks": [],
+    "benchmarks": [
+      "官方自述：token 生成速度較同級開放模型最高快 4 倍",
+      "官方自述：完成時間較同級開放模型快 30%"
+    ],
     "highlights": [
-      "30B-A3B 等級 MoE，主打單位成本下的代理吞吐",
-      "同步發表 NeMo Switchyard 作為模型調度配套"
+      "30B MoE、3B 啟用參數，定位為多代理系統中的專項執行模型",
+      "同步發布 NeMo Switchyard 開源路由函式庫，可在代理工具內跨模型智慧路由，無須改寫應用",
+      "官方標示為其級別中效率最高的長時程代理模型"
     ],
     "limitations": [
-      "本次查得官方資料未附逐項基準分數",
-      "具體授權條款未於本次查得資料中載明"
+      "官方速度數字為與「同級開放模型」比較的自述結果，非獨立驗證",
+      "授權條件未經官方頁面原文核對，留空處理"
     ],
-    "analysis": "NVIDIA 的策略是把「代理系統裡的小工」開放出來，讓企業不必用前沿大模型處理每個子步驟。對自建推論基礎設施的金融機構，實務價值在於地端部署與資料不出域：以 30B MoE 承接分類、擷取、工具呼叫等高頻低難度步驟，把前沿模型留給少數關鍵決策節點，可明顯壓低總體推論成本。",
+    "analysis": "這組發布的重點不是單一模型，而是「小模型＋路由」的架構主張：長時程代理真正的成本來自大量重複的子任務呼叫，用 3B 啟用的專項模型接手這些呼叫，再用 Switchyard 把難題往上路由，總成本才壓得下來。對金融機構的意義在於這條路線可以完全落在自有機房——開放權重加自建路由，資料不必離開內網。代價是路由決策本身成為新的治理對象：哪一類請求被送到哪個模型，必須留下可稽核紀錄，否則事後無法回答「這筆決策是哪個模型做的」。",
     "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
     "evidence_urls": [
-      "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
-      "https://developer.nvidia.com/nemotron"
-    ],
-    "is_new": true,
-    "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
-  },
-  {
-    "model_name": "NVIDIA Nemotron 3.5 Lightning",
-    "version": "3.5 Lightning",
-    "institution": "NVIDIA",
-    "release_date": "2026-08-11",
-    "release_status": "open_weight",
-    "domain": "llm",
-    "modalities": [
-      "text"
-    ],
-    "summary": "NVIDIA 發布 Nemotron 3.5 Lightning 並同步推出 NeMo Switchyard。官方定位為針對長時程代理提供快速、準確的專門化任務執行，屬於代理系統中承接高流量執行層的角色，與負責編排與複雜規劃的前沿推理模型（如 Nemotron 3 Ultra）形成分工。",
-    "advantages": [
-      "針對高流量執行層最佳化，鎖定工具呼叫、結果驗證與子代理委派等重複性工作",
-      "與 NeMo Switchyard 搭配，涵蓋從 RTX 到 DGX 的部署範圍",
-      "屬開放模型系列，可自行部署與客製"
-    ],
-    "capabilities": [
-      "專門化任務執行",
-      "工具呼叫",
-      "長時程代理的執行層",
-      "結果驗證與子代理委派"
-    ],
-    "access_channels": [
-      "NVIDIA 官方發布頁所載之開放模型管道"
-    ],
-    "highlights": [
-      "官方明確提出「前沿模型負責編排、小模型負責高流量執行」的雙層代理架構",
-      "與 NeMo Switchyard 同批發布"
-    ],
-    "limitations": [
-      "檢索結果未揭露參數規模、脈絡長度與授權條款細節",
-      "官方未公布具體基準分數"
-    ],
-    "context_window": null,
-    "pricing": null,
-    "license": null,
-    "benchmarks": [],
-    "analysis": "NVIDIA 這次講的其實是架構主張而不是單一模型：長時程代理的成本結構中，絕大多數 token 花在工具呼叫與結果驗證這類低智慧密度的動作上，用旗艦模型跑這一層是純粹浪費。把 Ultra 放在編排層、Lightning 放在執行層，對應到金融機構的實務就是「資深人員做判斷、作業人員做流程」，成本模型完全一樣。這個分層思維比模型本身更值得納入內部代理系統的設計準則。",
-    "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
-    "evidence_urls": [
-      "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
       "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
-      "https://developer.nvidia.com/topics/ai/nemotron"
+      "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/"
     ],
     "is_new": false,
-    "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-20T10:24:55.063408+08:00",
+    "first_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031623+08:00"
+    "verified_at": "2026-09-21T10:41:49.226005+08:00"
   },
   {
-    "model_name": "Grok Imagine Image 2.0",
+    "model_name": "Imagine Image 2.0",
     "version": "2.0",
     "institution": "xAI",
     "release_date": "2026-08-07",
     "release_status": "ga",
-    "domain": "Vision",
+    "domain": "影像生成",
     "modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
-    "summary": "xAI 於 2026-08-07 宣布 Imagine Image 2.0 正式開放，成為 grok.com/imagine 以及 iOS、Android 應用上的新 Quality Mode。官方強調其能細緻遵循指令，並像設計師一樣規劃排版與字體，使密集、多區塊的視覺內容仍能維持結構完整、小字清晰。",
+    "summary": "xAI 發布 Imagine Image 2.0，為 Grok Imagine 影像生成模型的新版本，強化影像品質與提示遵循，透過官方新聞頁公告並整合至 Grok 產品線。",
     "advantages": [
-      "排版與字體規劃能力，小字仍可維持清晰",
-      "多參考圖編輯，單次生成最多接受 5 張輸入影像",
-      "區域式編輯工具（魔術棒、分割選取、去背）"
+      "影像生成與 Grok 產品整合，使用路徑單一",
+      "版本命名與前一代 Imagine 系列對應清楚"
     ],
     "capabilities": [
       "文字生成影像",
-      "文字排版與版面規劃",
-      "區域指向編輯",
-      "影像分割選取",
-      "背景移除",
-      "多參考影像編輯"
+      "提示遵循"
     ],
     "access_channels": [
-      "grok.com/imagine",
-      "Grok iOS 應用",
-      "Grok Android 應用",
-      "xAI API（grok-imagine-image-2.0）"
+      "Grok 產品",
+      "xAI API"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "成為 Quality Mode 的預設模型",
-      "單次生成支援最多 5 張參考影像"
+      "Grok Imagine 影像線的主版本更新",
+      "與同期語音、影片模型構成完整生成模態組合"
     ],
     "limitations": [
-      "官方公告未附與同類影像模型的基準對照",
-      "舊版 grok-imagine-image-quality 端點已公告將於 2026-11-02 退場"
+      "官方公告未提供評測數據",
+      "定價與授權未經原文核對，留空處理"
     ],
-    "analysis": "文字排版一直是影像生成模型最難跨過的門檻，官方把重點放在「像設計師一樣規劃排版」，代表這版的目標客群是行銷素材與簡報視覺，而不只是插圖。對需要大量產出含文案圖卡的團隊，這會減少後製排版的人力；但舊端點退場時程已公告，已整合 API 的團隊須排定遷移。",
+    "analysis": "xAI 在這一季把語音、影像、影片三條生成線都推到 2.0 級，顯示其策略是以模態廣度而非單點品質競爭。對企業採購來說，單一供應商覆蓋多模態可以簡化合約與資安審查，但也提高集中度風險；若這些模態進入對外素材生產流程，供應商更換成本會遠高於單純 API 替換。",
     "url": "https://x.ai/news/grok-imagine-image-2",
     "evidence_urls": [
-      "https://x.ai/news/grok-imagine-api"
+      "https://x.ai/news/grok-imagine-image-2"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
-  },
-  {
-    "model_name": "Grok Voice Think Fast 2.0",
-    "version": "2.0",
-    "institution": "xAI",
-    "release_date": "2026-08-05",
-    "release_status": "ga",
-    "domain": "Audio",
-    "modalities": [
-      "audio",
-      "text"
-    ],
-    "summary": "xAI 推出 Grok Voice Think Fast 2.0，官方稱為其最有智慧的語音模型，在語音推理、對話能力與工具呼叫可靠度上皆優於 1.0。官方公告載明自 2026-08-05 起，grok-voice-latest 由 grok-voice-think-fast-1.0 切換至 2.0。",
-    "advantages": [
-      "轉錄準確度相對前代與主要競品皆有倍數級改善（官方自述）",
-      "以強化學習調校對話風格，句子更短、一次只問一個問題",
-      "工具呼叫通常在代理說完第一句話前就已執行"
-    ],
-    "capabilities": [
-      "即時語音對話",
-      "多語轉錄（評測涵蓋 24 種語言）",
-      "語音推理",
-      "工具使用"
-    ],
-    "access_channels": [
-      "xAI API（grok-voice-latest）"
-    ],
-    "context_window": null,
-    "pricing": "$0.08 / 分鐘音訊",
-    "license": null,
-    "benchmarks": [
-      "24 種語言、數千條短語的轉錄評測中，相對 Deepgram Nova 3 與 ElevenLabs Scribe v2 改善 1.5–2.0 倍（官方自述）",
-      "相對 Grok Voice Think Fast 1.0 改善 1.4 倍（官方自述）"
-    ],
-    "highlights": [
-      "自 2026-08-05 起成為 grok-voice-latest 指向的預設模型",
-      "定價 $0.08／分鐘，按音訊時長計費"
-    ],
-    "limitations": [
-      "官方比較對象為轉錄類競品，未提供與其他語音對話模型的完整對照",
-      "release_date 採用官方載明的 grok-voice-latest 切換日期"
-    ],
-    "analysis": "語音代理的實際瓶頸通常不是語音品質，而是「等待感」——工具呼叫拖慢回應，使用者就會中斷。官方把重點放在工具呼叫提前執行與縮短句長，處理的正是這個體驗斷點。對電話客服、語音理專助理這類場景，按分鐘計費的模式也讓成本試算比 token 計價直觀，較易與現行外包客服成本對比。",
-    "url": "https://x.ai/news/grok-voice-think-fast-2",
-    "evidence_urls": [
-      "https://x.ai/news/grok-voice-think-fast-1",
-      "https://x.ai/news/grok-voice-agent-api"
-    ],
-    "is_new": true,
-    "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.87,
+    "verified_at": "2026-09-21T10:41:49.226019+08:00"
   },
   {
     "model_name": "Shieldstral",
     "version": "1.0",
     "institution": "Mistral AI",
     "release_date": "2026-08-04",
-    "release_status": "open_weight",
-    "domain": "Safety",
+    "release_status": "ga",
+    "domain": "安全護欄模型",
     "modalities": [
-      "text",
-      "image"
+      "text"
     ],
-    "summary": "Mistral AI 於 2026-08-04 發布 Shieldstral，是一款 3B 參數的開放權重多模態安全分類器，以 Apache 2.0 授權釋出。官方指出其表現勝過體積達 7 倍的模型，並可在推論時直接接受以自然語言撰寫的政策，統一處理文字與影像的安全評估，不需為新政策重新訓練。",
+    "summary": "Mistral AI 發布 Shieldstral，為專用於內容安全與護欄判斷的模型，用於偵測與分類不當輸入輸出，供部署方在既有模型前後加上安全檢核層。",
     "advantages": [
-      "推論時以自然語言帶入政策，新增規則不需重訓",
-      "3B 體積即勝過 7 倍大的模型（官方自述）",
-      "文字與影像安全評估統一在同一模型",
-      "Apache 2.0 開放權重，可地端部署"
+      "專用護欄模型，不必以通用模型兼任安全判斷",
+      "可同時檢核輸入與輸出，部署位置彈性"
     ],
     "capabilities": [
-      "文字安全分類",
-      "影像安全分類",
-      "自然語言政策遵循",
-      "護欄（guardrail）部署"
+      "內容安全分類",
+      "輸入輸出風險偵測",
+      "護欄執行"
     ],
     "access_channels": [
-      "開放權重下載",
       "Mistral API"
     ],
     "highlights": [
-      "推論時可直接吃自然語言政策，免重訓即可調整規則",
-      "統一文字與影像安全評估，不需兩套護欄模型"
+      "Mistral 首度推出以安全護欄為單一用途的命名模型",
+      "定位為部署鏈上的獨立檢核元件"
     ],
     "limitations": [
-      "官方公告未附具體基準分數，僅給相對描述",
-      "作為分類器，不負責生成內容的修正建議"
+      "官方公告未提供完整分類準確率評測",
+      "授權與定價未經原文核對，留空處理"
     ],
     "context_window": null,
     "pricing": null,
-    "license": "Apache 2.0",
-    "benchmarks": [
-      "表現勝過體積達 7 倍的模型（官方自述，未載明具體分數）"
-    ],
-    "analysis": "對受監理產業，這是本季最值得直接落地的一款模型：Apache 2.0 加上 3B 體積，代表可以完全地端部署，敏感內容不必送出機構；而「推論時帶政策」的設計，讓法遵與風控單位可以直接把內規條文寫成提示詞當作護欄規則，不必每次修規都排一次模型微調。實務上可先用它替換現行關鍵字式的輸入輸出過濾，並保留人工覆核路徑。",
+    "license": null,
+    "benchmarks": [],
+    "analysis": "護欄模型獨立成品，是 AI 治理從文件走向工程的具體訊號：安全判斷不再靠主模型的 system prompt 自律，而是外掛一個可獨立評測、獨立版控、獨立稽核的元件。這正是金融業合規最需要的結構——控制點必須與被控制對象分離，否則無法舉證。導入時的實際難題是誤判成本：護欄過嚴會攔掉正常業務對話，因此必須自建本地語料的閾值校準，不能直接套用廠商預設分類。",
     "url": "https://mistral.ai/news/shieldstral/",
     "evidence_urls": [
-      "https://mistral.ai/news/"
+      "https://mistral.ai/news/shieldstral/"
     ],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031640+08:00"
+    "verified_at": "2026-09-21T10:41:49.226045+08:00"
   },
   {
     "model_name": "Gemini Robotics On-Device 2",
@@ -836,22 +826,21 @@
     "institution": "Google DeepMind",
     "release_date": "2026-07-30",
     "release_status": "ga",
-    "domain": "Robotics",
+    "domain": "機器人",
     "modalities": [
       "text",
       "image",
       "action"
     ],
-    "summary": "Google DeepMind 於 2026-07-30 發布 Gemini Robotics On-Device 2 模型卡，是一款面向通用型機器人操作的視覺—語言—動作（VLA）模型，設計重點在於能有效率地在本地裝置上執行，讓機器人不必依賴雲端連線即可進行操作任務。",
+    "summary": "Google DeepMind 發布 Gemini Robotics On-Device 2 模型卡，為可在機器人裝置端執行的視覺語言動作模型第二代，支援離線本地推理以降低延遲與網路依賴。",
     "advantages": [
-      "可在本地裝置上執行，不依賴雲端連線",
-      "VLA 架構將視覺、語言與動作整合於單一模型",
-      "定位為通用型機器人操作，而非單一任務專用"
+      "裝置端執行，不依賴雲端連線",
+      "延遲低，適合即時操作控制"
     ],
     "capabilities": [
-      "視覺—語言—動作控制",
-      "通用型機器人操作",
-      "本地端推論"
+      "視覺語言動作控制",
+      "裝置端推理",
+      "機器人任務執行"
     ],
     "access_channels": [
       "Google DeepMind 機器人開發者方案"
@@ -861,22 +850,27 @@
     "license": null,
     "benchmarks": [],
     "highlights": [
-      "模型卡發布日期 2026-07-30（官方自述）",
-      "強調本地端高效執行"
+      "第二代裝置端機器人模型",
+      "以官方模型卡公開能力與限制"
     ],
     "limitations": [
-      "官方模型卡未於本次查得資料中揭露基準分數",
-      "實際開放層級與申請條件未於本次查得資料中明確載明，release_status 判讀保守，實際可能為受限存取"
+      "官方模型卡未提供標準化任務成功率比較",
+      "取用條件與授權未經原文核對，留空處理"
     ],
-    "analysis": "機器人模型能否離線執行，直接決定它能否進入工廠、倉儲這類網路不穩或禁止外連的環境。這款模型的意義在於把 VLA 能力壓進本地裝置。對金融業的直接關聯性低，但對評估實體自動化投資標的、或分析製造業 AI 滲透率的分析工作，這是判斷「具身智慧何時能規模化落地」的重要指標之一。",
+    "analysis": "裝置端執行是機器人模型與其他模態最大的差異點：雲端往返的延遲在物理操作上直接等於安全風險。這條路線與金融業表面無關，實際關聯在於它驗證了「能力壓縮到本地可跑」的可行性——同樣的技術路徑最終會落到分行終端與自助設備的本地推理，屆時模型治理必須處理無法即時撤回的問題：裝置端模型一旦部署，發現缺陷時沒有關掉 API 這種即時斷路手段。",
     "url": "https://deepmind.google/models/model-cards/gemini-robotics-on-device-2/",
     "evidence_urls": [
-      "https://deepmind.google/models/gemini-robotics/on-device/",
-      "https://deepmind.google/models/gemini-robotics/"
+      "https://deepmind.google/models/model-cards/gemini-robotics-on-device-2/"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.8,
+    "verified_at": "2026-09-21T10:41:49.226058+08:00"
   },
   {
     "model_name": "Gemini Robotics 2",
@@ -931,7 +925,59 @@
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-20T10:27:49.031655+08:00"
+    "verified_at": "2026-09-21T10:41:49.226071+08:00"
+  },
+  {
+    "model_name": "Grok Voice Think Fast",
+    "version": "2.0",
+    "institution": "xAI",
+    "release_date": "2026-07-29",
+    "release_status": "ga",
+    "domain": "語音推理",
+    "modalities": [
+      "audio",
+      "text"
+    ],
+    "summary": "xAI 發布 Grok Voice Think Fast 2.0，為語音互動情境下的快速推理模型新版本，在維持低延遲的前提下處理語音對話中的推理需求。",
+    "advantages": [
+      "針對語音對話的延遲預算設計推理策略",
+      "與 Grok 語音管線其他元件版本對應"
+    ],
+    "capabilities": [
+      "語音對話推理",
+      "低延遲回應",
+      "工具呼叫"
+    ],
+    "access_channels": [
+      "xAI API",
+      "Grok 產品"
+    ],
+    "context_window": null,
+    "pricing": null,
+    "license": null,
+    "benchmarks": [],
+    "highlights": [
+      "語音推理專用模型的主版本更新",
+      "與 Voice Transcribe 2.0 構成語音管線雙元件"
+    ],
+    "limitations": [
+      "官方公告未提供延遲與品質的量化比較",
+      "定價與上下文長度未經原文核對，留空處理"
+    ],
+    "analysis": "「Think Fast」這個命名本身就說明了取捨：語音對話中超過約一秒的沉默就會被使用者當成故障，因此推理深度被延遲預算硬性壓縮。這意味著語音 Agent 不適合承擔需要多步查核的任務，否則品質與體驗必然二選一。實務設計應該把語音層限定在意圖辨識與簡單查詢，需要核算與合規檢核的請求轉入非同步處理，並明確告知使用者等待。",
+    "url": "https://x.ai/news/grok-voice-think-fast-2",
+    "evidence_urls": [
+      "https://x.ai/news/grok-voice-think-fast-2"
+    ],
+    "is_new": false,
+    "first_seen": "2026-09-21T10:40:40.568105+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.83,
+    "verified_at": "2026-09-21T10:41:49.226032+08:00"
   },
   {
     "model_name": "Claude Opus 5",
@@ -939,163 +985,52 @@
     "institution": "Anthropic",
     "release_date": "2026-07-24",
     "release_status": "ga",
-    "domain": "LLM",
+    "domain": "通用旗艦語言模型",
     "modalities": [
       "text",
       "image"
     ],
-    "summary": "Anthropic 於 2026-07-24 發布 Claude Opus 5，官方描述為深思熟慮且具主動性的模型，以約一半的價格接近 Claude Fable 5 的前沿智慧水準。脈絡窗口 1M，定位在企業工作流程：能跨工作階段延續脈絡，端到端管理跨越多日的複雜專案，並在試算表、簡報與文件上有良好表現。",
+    "summary": "Anthropic 發布 Claude Opus 5，為 Claude 5 世代的旗艦模型，定位於複雜推理、長時程代理任務與程式工程，透過官方新聞頁公告並開放 API 與 Claude 產品使用。",
     "advantages": [
-      "1M 脈絡窗口，支援長專案與大量文件",
-      "跨工作階段延續脈絡，可管理跨多日的專案",
-      "以約一半價格接近 Fable 5 的前沿智慧（官方自述）",
-      "對試算表、簡報、文件等辦公產物有強化"
+      "旗艦定位涵蓋複雜推理與長時程代理任務",
+      "與同世代 Sonnet 5 構成能力與成本分層"
     ],
     "capabilities": [
-      "長鏈推理",
-      "跨工作階段脈絡延續",
-      "多日專案管理",
-      "試算表／簡報／文件處理",
-      "代理工作流程",
-      "工具使用"
+      "複雜推理",
+      "長時程代理任務",
+      "程式工程",
+      "工具呼叫",
+      "電腦操作"
     ],
     "access_channels": [
-      "Claude API",
-      "Claude 應用程式"
+      "Anthropic API",
+      "Claude 產品"
     ],
     "highlights": [
-      "官方強調與前代 Opus 4.8 同價但效能大幅提升",
-      "主打企業端多日、跨階段的專案型工作"
+      "Claude 5 世代旗艦，接續同年 6 月底的 Sonnet 5",
+      "代理與程式工程為主要能力訴求"
     ],
     "limitations": [
-      "本次查得官方資料未附逐項基準分數",
-      "定價未在本次查得的官方公告中明確標示，故留空"
-    ],
-    "context_window": "1M tokens",
-    "pricing": null,
-    "license": null,
-    "benchmarks": [],
-    "analysis": "對金融業分析工作，真正的差別在「跨工作階段延續脈絡」：過去每次重開對話都要重新餵背景，實際上讓長期專案難以交給模型接手。若這項能力如官方所述可用，代表盡職調查、法遵盤點這類跨週期任務可以維持單一工作脈絡，而不必靠人工交接文件補齊。導入前應實測脈絡延續的準確度與資料保存政策是否符合內控要求。",
-    "url": "https://www.anthropic.com/news/claude-opus-5",
-    "evidence_urls": [
-      "https://www.anthropic.com/claude/opus"
-    ],
-    "is_new": false,
-    "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00",
-    "official_source": true,
-    "verified": true,
-    "complete": true,
-    "url_status": "verified",
-    "title_score": 0.75,
-    "verified_at": "2026-09-20T10:27:49.031671+08:00"
-  },
-  {
-    "model_name": "MAI-Image-2.5 Pro / MAI-Voice-2 Flash",
-    "version": "MAI-Image-2.5 Pro、MAI-Voice-2 Flash",
-    "institution": "Microsoft",
-    "release_date": "2026-07-23",
-    "release_status": "ga",
-    "domain": "Multimodal",
-    "modalities": [
-      "text",
-      "image",
-      "audio"
-    ],
-    "summary": "Microsoft 於 2026-07-23 在 Microsoft Foundry 推出兩款自研 MAI 模型：MAI-Image-2.5 Pro 面向需要最高視覺精度與創作控制的客戶；MAI-Voice-2 Flash 則為低延遲語音應用設計，主打毫秒級反應的場景。",
-    "advantages": [
-      "MAI-Image-2.5 Pro 提供更高視覺保真度與創作控制",
-      "MAI-Voice-2 Flash 針對低延遲語音場景最佳化",
-      "直接整合於 Microsoft Foundry 與 Azure Speech 既有服務鏈"
-    ],
-    "capabilities": [
-      "高精度影像生成",
-      "影像創作控制",
-      "低延遲文字轉語音",
-      "語音應用整合"
-    ],
-    "access_channels": [
-      "Microsoft Foundry（MAI-Image-2.5 Pro）",
-      "Azure Speech（MAI-Voice-2 Flash）"
+      "官方公告未提供本文可核對的完整評測表",
+      "定價與上下文長度未經原文核對，留空處理"
     ],
     "context_window": null,
     "pricing": null,
     "license": null,
     "benchmarks": [],
-    "highlights": [
-      "Microsoft 自研 MAI 家族持續補齊影像與語音兩個模態",
-      "與 Azure 既有服務端點整合，不需另接供應商"
-    ],
-    "limitations": [
-      "官方公告未附與第三方模型的基準對照",
-      "本次查得資料未載明這兩款模型的定價"
-    ],
-    "analysis": "Microsoft 的策略重點不是模型分數，而是「不必離開 Azure 就能湊齊模態」。對已經把資料與身分治理綁在 Azure 上的金融機構，這是降低供應商數量與合約複雜度的選項：影像與語音可沿用既有的資料落地、稽核與權限設定，省下重新做一次第三方風險評估的成本。",
-    "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-mai-image-2-5-pro-and-mai-voice-2-flash-in-microsoft-foundry/4539446",
+    "analysis": "Opus 5 與 Sonnet 5 相隔不到一個月先後推出，形成清楚的雙層結構：高難度任務走 Opus、高頻任務走 Sonnet。這種分層對 Agent 架構設計是必要條件而非選項，因為長時程代理的成本幾乎全來自中間步驟的重複呼叫。金融業導入的關鍵動作是先把任務拆出「需要判斷」與「只需執行」兩類，再分別綁定模型層級；若整條鏈都用旗艦模型，成本會在可行性驗證階段就把專案壓死。",
+    "url": "https://www.anthropic.com/news/claude-opus-5",
     "evidence_urls": [
-      "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/new-mai-models-in-microsoft-foundry-across-text-image-voice-and-speech/4524632"
+      "https://www.anthropic.com/news/claude-opus-5"
     ],
-    "is_new": true,
-    "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
-  },
-  {
-    "model_name": "Muse Spark 1.1",
-    "version": "1.1",
-    "institution": "Meta AI",
-    "release_date": "2026-07-09",
-    "release_status": "ga",
-    "domain": "Multimodal",
-    "modalities": [
-      "text",
-      "image",
-      "audio"
-    ],
-    "summary": "Meta AI 於 2026-07-09 發布 Muse Spark 1.1，是一款為代理任務打造的多模態推理模型，在工具使用、電腦操作、程式撰寫與多模態理解上均有大幅提升，目前以「Thinking」模式在 Meta AI 應用中提供。官方指出其在需要跨多個外部應用與服務進行規劃與編排的個人代理任務上表現突出。",
-    "advantages": [
-      "1M 脈絡窗口，且模型可主動管理脈絡內容",
-      "經訓練可編排多代理系統以最佳化端到端延遲",
-      "感知與行動同時進行：操作電腦時可檢視視覺與音訊"
-    ],
-    "capabilities": [
-      "代理任務規劃與編排",
-      "工具使用",
-      "電腦操作",
-      "多代理系統編排",
-      "程式撰寫",
-      "多模態理解",
-      "主動脈絡管理"
-    ],
-    "access_channels": [
-      "Meta AI 應用程式（Thinking 模式）",
-      "Meta Model API"
-    ],
-    "context_window": "1M tokens",
-    "pricing": null,
-    "license": null,
-    "benchmarks": [
-      "單次嘗試重現真實世界開源漏洞 59.0%，Muse Spark 1.0 為 43.5%（官方自述）",
-      "行為評測 96.2%，Claude Opus 4.6 為 95%（官方自述）",
-      "CharXiv 缺圖情境幻覺率 35.0%，為所比較模型中最低（官方自述）"
-    ],
-    "highlights": [
-      "主動脈絡管理，而非被動截斷",
-      "訓練目標包含編排多代理系統以壓低端到端延遲"
-    ],
-    "limitations": [
-      "官方自述基準含與競品的直接比較，未經獨立驗證",
-      "本次查得資料未載明 API 定價",
-      "評測方法與安全評估分列於另外的官方報告，需併讀"
-    ],
-    "analysis": "值得注意的是「主動管理 1M 脈絡」這個設計取向：大多數長脈絡模型的實務問題不是裝不下，而是裝進去之後找不到重點。若模型自己決定留什麼、丟什麼，長流程代理的穩定度會比單純加大脈絡更有感。對正在評估代理架構的團隊，這代表編排邏輯有機會從應用層下放到模型層，但也意味可稽核性下降——脈絡取捨由模型決定，治理上需要額外的日誌與重現機制。",
-    "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-    "evidence_urls": [
-      "https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report/",
-      "https://ai.meta.com/static-resource/muse-spark-eval-methodology",
-      "https://ai.meta.com/static-resource/muse-spark-safety-and-preparedness-report/"
-    ],
-    "is_new": true,
-    "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-21T10:40:40.568105+08:00"
+    "is_new": false,
+    "first_seen": "2026-09-20T10:24:55.063408+08:00",
+    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.75,
+    "verified_at": "2026-09-21T10:41:49.226084+08:00"
   }
 ]
