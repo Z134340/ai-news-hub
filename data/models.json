@@ -40,9 +40,15 @@
     "evidence_urls": [
       "https://x.ai/news/grok-voice-transcribe-2"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-22T10:37:23.947663+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00"
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.72,
+    "verified_at": "2026-09-22T10:38:30.263199+08:00"
   },
   {
     "model_name": "Gemini 3.8 Audio",
@@ -87,13 +93,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.225842+08:00"
+    "verified_at": "2026-09-22T10:38:30.263239+08:00"
   },
   {
     "model_name": "DeepSeek-V4.1-Flash",
@@ -137,13 +143,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.225855+08:00"
+    "verified_at": "2026-09-22T10:38:30.263277+08:00"
   },
   {
     "model_name": "GPT-Live-1",
@@ -189,13 +195,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-19T10:28:44.953862+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": "needs_review",
     "complete": true,
     "url_status": "title_low_match",
     "title_score": 0.22,
-    "verified_at": "2026-09-21T10:41:49.225868+08:00"
+    "verified_at": "2026-09-22T10:38:30.263314+08:00"
   },
   {
     "model_name": "North Small Translate",
@@ -237,9 +243,15 @@
     "evidence_urls": [
       "https://docs.cohere.com/changelog/north-small-translate-1-0"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-22T10:37:23.947663+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00"
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 0.7,
+    "verified_at": "2026-09-22T10:38:30.263357+08:00"
   },
   {
     "model_name": "GPT-Image-2.5",
@@ -285,13 +297,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
-    "title_score": 0.75,
-    "verified_at": "2026-09-21T10:41:49.225881+08:00"
+    "title_score": 0.51,
+    "verified_at": "2026-09-22T10:38:30.263399+08:00"
   },
   {
     "model_name": "GPT-6 Astra",
@@ -342,13 +354,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.225893+08:00"
+    "verified_at": "2026-09-22T10:38:30.263430+08:00"
   },
   {
     "model_name": "Claude Fable 5.1",
@@ -395,13 +407,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
-    "title_score": 0.85,
-    "verified_at": "2026-09-21T10:41:49.225905+08:00"
+    "title_score": 0.7,
+    "verified_at": "2026-09-22T10:38:30.263467+08:00"
   },
   {
     "model_name": "Gemini Omni Flash",
@@ -446,9 +458,15 @@
     "evidence_urls": [
       "https://deepmind.google/models/model-cards/gemini-omni-flash/"
     ],
-    "is_new": true,
+    "is_new": false,
     "first_seen": "2026-09-22T10:37:23.947663+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00"
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
+    "official_source": true,
+    "verified": true,
+    "complete": true,
+    "url_status": "verified",
+    "title_score": 1.0,
+    "verified_at": "2026-09-22T10:38:30.263504+08:00"
   },
   {
     "model_name": "DeepSeek-V4-Flash-Vision-Exp",
@@ -493,13 +511,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.225917+08:00"
+    "verified_at": "2026-09-22T10:38:30.263535+08:00"
   },
   {
     "model_name": "DeepSeek-V4-Pro",
@@ -544,13 +562,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.73,
-    "verified_at": "2026-09-21T10:41:49.225930+08:00"
+    "verified_at": "2026-09-22T10:38:30.263573+08:00"
   },
   {
     "model_name": "Gemini 3.7 Flash",
@@ -597,13 +615,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-20T10:24:55.063408+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 1.0,
-    "verified_at": "2026-09-21T10:41:49.225959+08:00"
+    "verified_at": "2026-09-22T10:38:30.263611+08:00"
   },
   {
     "model_name": "Grok 4.6",
@@ -650,13 +668,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-19T10:28:44.953862+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.225988+08:00"
+    "verified_at": "2026-09-22T10:38:30.263642+08:00"
   },
   {
     "model_name": "Nemotron 3.5 Lightning",
@@ -711,13 +729,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.226005+08:00"
+    "verified_at": "2026-09-22T10:38:30.263673+08:00"
   },
   {
     "model_name": "Imagine Image 2.0",
@@ -762,13 +780,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
-    "title_score": 0.87,
-    "verified_at": "2026-09-21T10:41:49.226019+08:00"
+    "title_score": 1.0,
+    "verified_at": "2026-09-22T10:38:30.263712+08:00"
   },
   {
     "model_name": "Shieldstral",
@@ -812,13 +830,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.226045+08:00"
+    "verified_at": "2026-09-22T10:38:30.263743+08:00"
   },
   {
     "model_name": "Gemini Robotics On-Device 2",
@@ -864,13 +882,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.8,
-    "verified_at": "2026-09-21T10:41:49.226058+08:00"
+    "verified_at": "2026-09-22T10:38:30.263773+08:00"
   },
   {
     "model_name": "Gemini Robotics 2",
@@ -919,13 +937,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-20T10:24:55.063408+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.7,
-    "verified_at": "2026-09-21T10:41:49.226071+08:00"
+    "verified_at": "2026-09-22T10:38:30.263804+08:00"
   },
   {
     "model_name": "Grok Voice Think Fast",
@@ -971,13 +989,13 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-21T10:40:40.568105+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
-    "title_score": 0.83,
-    "verified_at": "2026-09-21T10:41:49.226032+08:00"
+    "title_score": 0.72,
+    "verified_at": "2026-09-22T10:38:30.263835+08:00"
   },
   {
     "model_name": "Claude Opus 5",
@@ -1025,12 +1043,12 @@
     ],
     "is_new": false,
     "first_seen": "2026-09-20T10:24:55.063408+08:00",
-    "last_seen": "2026-09-22T10:37:23.947663+08:00",
+    "last_seen": "2026-09-23T10:07:01.442890+08:00",
     "official_source": true,
     "verified": true,
     "complete": true,
     "url_status": "verified",
     "title_score": 0.75,
-    "verified_at": "2026-09-21T10:41:49.226084+08:00"
+    "verified_at": "2026-09-22T10:38:30.263868+08:00"
   }
 ]

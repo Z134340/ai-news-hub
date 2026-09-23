@@ -1,29 +1,34 @@
 {
-  "last_run": "2026-09-22T10:48:19.366074+08:00",
+  "last_run": "2026-09-23T10:08:21.162717+08:00",
   "last_success": "2026-09-22T10:48:19.366074+08:00",
   "last_success_scope": "local_processing",
   "publication": "pending",
-  "last_date": "2026-09-22",
+  "last_date": "2026-09-23",
   "source": "local",
-  "status": "ok",
-  "categories_ok": 10,
-  "categories_failed": 0,
-  "validation_pass_rate": 89,
+  "status": "partial",
+  "categories_ok": 1,
+  "categories_failed": 9,
+  "validation_pass_rate": 76,
   "consecutive_failures": 0,
   "last_missed": null,
   "errors": [],
   "power_source": "ac",
   "agent": {
-    "overall": "ok",
+    "overall": "degraded",
     "mode": "full",
     "advisory": true,
     "production_write": false,
     "publish": "manual_only",
-    "finished_at": "2026-09-22T10:48:19.281455+08:00",
-    "duration_sec": 588,
+    "finished_at": "2026-09-23T10:08:21.078704+08:00",
+    "duration_sec": 27,
     "counts": {
-      "ok": 22
+      "ok": 12,
+      "failed": 2,
+      "skipped_dep": 8
     },
-    "failed_steps": []
+    "failed_steps": [
+      "03-trend-assess",
+      "08b-search-review"
+    ]
   }
 }

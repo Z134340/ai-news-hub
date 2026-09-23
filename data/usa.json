@@ -1,23 +1,6 @@
 {
   "items": [
     {
-      "title": "OpenAI proposes development of global AI standards to guide alignment, RSI",
-      "title_zh": "OpenAI 提議建立全球 AI 標準，規範對齊研究與遞迴自我改進",
-      "source": "CNBC",
-      "date": "2026-09-21",
-      "topic": "AI 治理與安全",
-      "summary": "OpenAI 於 9 月 21 日公布一套前沿 AI 安全與資安提案，核心聚焦在對齊（alignment）研究與遞迴自我改進（recursive self-improvement, RSI）兩大議題。公司主張，要安全度過這段能力躍升期，對齊研究的速度必須跟上模型能力成長，才能讓系統維持在人類價值與人類控制之下。提案建議由美國帶頭，串連世界各國共同制定針對前沿 AI 的全球技術標準，其中明確納入 RSI 的風險與效益管理。執行機制上，OpenAI 主張善用既有的 AI 安全研究院網絡（澳洲、加拿大、德國、法國、肯亞、日本、韓國、新加坡、印度、英國等），透過美國的 CAISI 與各國產業組織推動標準設定。RSI 之所以被特別點名，是因為它可能讓基礎模型在沒有人類介入的情況下自我升級，業界因此擔心開發者失去對底層技術的控制或低估非預期後果。OpenAI 甚至認為，前沿 AI 安全與資安實務的國際標準，對於控制前沿推進節奏的重要性可能不亞於對齊研究本身。",
-      "highlights": [
-        "提案雙主軸：對齊研究必須與能力成長同步，以及對遞迴自我改進（RSI）建立效益—風險管理框架。",
-        "主張美國領頭推動全球技術標準，適用對象鎖定前沿模型與前沿開發者，而非一般應用層。",
-        "執行載體是既有的 AI 安全研究院網絡，涵蓋澳、加、德、法、肯亞、日、韓、新、印、英，並透過美國 CAISI 與各國產業機構落地。",
-        "OpenAI 主張國際安全標準對「控制前沿推進速度」的作用，可能與對齊研究本身同等重要。",
-        "RSI 被定義為模型無須人類介入即可自我升級的能力，是這輪提案中風險敘事的核心。"
-      ],
-      "discussion": "社群反應兩極：支持方認為由既有 AI 安全研究院網絡承接標準制定，比另起爐灶的國際條約更務實、落地成本更低；批評方則指出領先實驗室主動設計「前沿門檻」的標準，實質上可能形成監管壁壘，抬高後進者與開源陣營的合規成本。也有評論把這份提案與近期產業界反覆出現的「放慢速度」論調連結，質疑在商業競賽持續加速的同時談自我節制的可信度。",
-      "url": "https://www.cnbc.com/2026/09/21/open-ai-alignment-rsi.html"
-    },
-    {
       "title": "OpenAI forms math advisory group as its AI resolves more than 100 open problems",
       "title_zh": "OpenAI 成立數學顧問小組，宣稱其 AI 已解決超過 100 個未解問題",
       "source": "TechCrunch",
@@ -32,7 +15,12 @@
         "Lean 形式化驗證是此案關鍵：它讓「AI 解題」從宣稱轉為可機器檢核的證據鏈。"
       ],
       "discussion": "數學社群關注焦點不在成果數量，而在「未解問題」的定義與篩選標準——不少評論指出，若題目多為冷門或難度不高的開放問題，100 這個數字的訊號價值有限。另一派意見肯定 Lean 形式化驗證的路線，認為這是目前唯一能讓 AI 數學宣稱可被獨立檢核的機制。對顧問小組本身，批評聲音集中在無否決權的設計，認為這是聲譽背書多於實質治理。",
-      "url": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/"
+      "url": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 1.0,
+      "verified_at": "2026-09-22T10:38:30.261920+08:00"
     },
     {
       "title": "Google's $899 Googlebook is a bet that you'll buy a new laptop for Gemini",
@@ -49,55 +37,36 @@
         "商業命題明確：Google 賭的是使用者願意為了 AI 助理本身而更換整台筆電，而非只是升級軟體。"
       ],
       "discussion": "討論集中在這個賭注的合理性：質疑方認為 Gemini 的核心能力在既有筆電上透過瀏覽器即可取得，899 美元買的是整合體驗而非獨佔功能，說服力不足。支持方則看重 Android 與桌面環境的整合，認為對重度 Android 使用者而言，手機與筆電的連續性是真實痛點。也有評論把重點放在 ChromeOS 的定位——這條產品線實質上宣告 Google 筆電策略改由 Android 承接。",
-      "url": "https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/"
+      "url": "https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0.91,
+      "verified_at": "2026-09-22T10:38:30.261932+08:00"
     },
     {
-      "title": "Trump-Xi summit looms as U.S. and China launch AI dialogue",
-      "title_zh": "川習峰會在即，美中啟動 AI 對話機制",
-      "source": "CNBC",
+      "title": "Anthropic, OpenAI and Two Rivals Face Class Action Over AI Slowdown",
+      "title_zh": "Anthropic、OpenAI 與兩家對手因 AI 減速面臨集體訴訟",
+      "source": "The Korea Economic Daily (en.sedaily)",
       "date": "2026-09-21",
-      "topic": "AI 政策與地緣政治",
-      "summary": "在 9 月 24 日川普與習近平峰會登場前，美中雙方啟動一項 AI 對話機制，成為峰會前最受關注的科技議題。報導指出，對話內容涵蓋一項針對國家安全層級 AI 事故的通報機制構想，意在建立雙邊在高風險情境下的溝通管道。這類機制的設計邏輯與核武時代的熱線類似：不處理戰略競爭本身，而是降低誤判與意外升級的風險。對話啟動的時點本身具訊號意義，顯示 AI 已從貿易與出口管制的附屬議題，升格為元首級議程的獨立項目。⚠️待確認：本則為 CNBC 影音報導，細節以影片內容為準。",
+      "topic": "Policy",
+      "summary": "這則後續報導從國際視角整理四家前沿 AI 實驗室面臨的集體訴訟進展。訴訟指控 Anthropic、OpenAI 與另外兩家競爭對手就放慢前沿模型開發形成非法合意，違反美國反托拉斯法。案件起點是 Anthropic 執行長 Dario Amodei 主張產業應控制前沿推進步調的公開文章，隨後幾家主要實驗室負責人在短時間內相繼呼應。原告主張這種一致性並非巧合，而是限制產出的協同安排，最終由消費者承受產品進展受限的損害。對非美國市場的觀察者而言，這起訴訟的意義在於它可能決定各國 AI 業者在安全自律上的法律曝險邊界。",
       "highlights": [
-        "美中在 9 月 24 日川習峰會前啟動 AI 對話，AI 議題正式進入元首級議程。",
-        "對話涉及國家安全層級 AI 事故的通報機制構想，設計邏輯接近冷戰時期的危機熱線。",
-        "機制目標是降低誤判與意外升級，而非處理戰略競爭或出口管制等結構性分歧。",
-        "對話時點緊貼峰會，具明顯的議程鋪墊與訊號釋放性質。"
+        "四家前沿實驗室面臨集體訴訟，指控就減速開發達成非法合意",
+        "案件起點為 Amodei 主張控制前沿推進步調的公開文章",
+        "原告主張多家實驗室負責人的短期一致表態構成協同限制產出",
+        "訴訟結果可能界定各國 AI 業者在安全自律上的法律曝險邊界"
       ],
-      "discussion": "評論多認為事故通報機制是低成本、低政治敏感度的起手式，屬於雙方都能接受的最小公約數，但也因此實質效力有限——沒有查核與驗證機制的通報，在互信不足下容易流於形式。另有觀點指出，AI 對話是否能與晶片出口管制脫鉤處理，是判斷這條軌道能否持續的關鍵。",
-      "url": "https://www.cnbc.com/video/2026/09/21/trump-xi-summit-looms-as-us-and-china-launch-ai-dialogue.html"
-    },
-    {
-      "title": "Treasury Secretary Bessent: Trump admin. won't give AI leaders a liability shield",
-      "title_zh": "財政部長 Bessent：川普政府不會給 AI 業者責任豁免",
-      "source": "CNBC",
-      "date": "2026-09-21",
-      "topic": "AI 監管與責任",
-      "summary": "美國財政部長 Bessent 在 9 月 21 日表態，川普政府不會為 AI 領導廠商提供責任保護傘（liability shield）。這個立場直接回應產業界近期尋求類似《通訊端正法》第 230 條式責任豁免的遊說訴求，形同關上以聯邦立法為 AI 業者預先免責的大門。對業者而言，這代表模型輸出造成損害時的民事責任風險仍留在公司帳上，無法透過聯邦層級的安全港移轉。這項表態也與同日 OpenAI 提出的全球標準提案形成對照：產業願意接受技術標準，但政府不打算以責任豁免作為交換條件。⚠️待確認：本則為 CNBC 影音報導，細節以影片內容為準。",
-      "highlights": [
-        "財政部長 Bessent 明確表態，川普政府不會給 AI 領導廠商責任豁免。",
-        "此舉關閉了業界比照《通訊端正法》第 230 條爭取聯邦安全港的路徑。",
-        "模型輸出致損的民事責任風險仍留在開發商，無法透過聯邦立法移轉。",
-        "與同日 OpenAI 的全球標準提案形成對照：標準可談，免責不給。"
-      ],
-      "discussion": "產業界的回應集中在合規成本與訴訟風險的不確定性，認為缺乏責任界線會抑制高風險領域（醫療、金融）的模型部署。支持政府立場的一方則認為，責任豁免會消滅業者自我約束的經濟誘因，在能力快速演進的階段尤其危險。也有法律評論指出，聯邦不給豁免的結果是責任認定落到各州法院，反而製造更碎裂的合規地圖。",
-      "url": "https://www.cnbc.com/video/2026/09/21/treasury-secretary-bessent-trump-admin-wont-give-ai-leaders-a-liability-shield.html"
-    },
-    {
-      "title": "CNBC Daily Open: May the 'AI Force' be with you",
-      "title_zh": "CNBC Daily Open：願「AI Force」與你同在",
-      "source": "CNBC",
-      "date": "2026-09-21",
-      "topic": "AI 產業評論",
-      "summary": "CNBC 每日開盤專欄以「AI Force」為題，梳理 9 月 21 日當天的 AI 與市場交會點。內容環繞川普政府近期在 AI 議題上的組織與修辭調整，以及市場對 AI 政策方向的解讀。這類專欄的定位是把政策訊號與當日資產價格反應串起來，屬於評論而非第一手新聞。對追蹤 AI 政策的讀者而言，價值在於它提供了市場端如何定價這些政策訊號的即時觀察。⚠️待確認：本則屬評論專欄，內容以觀點整理為主，非獨立新聞事件。",
-      "highlights": [
-        "CNBC 每日開盤專欄，主題聚焦川普政府 AI 相關的組織與修辭調整。",
-        "內容性質為政策訊號與市場反應的串接評論，非第一手獨家報導。",
-        "可作為觀察市場如何定價美國 AI 政策方向的參考點。"
-      ],
-      "discussion": "這類專欄在社群中的討論多集中在標題的政治修辭上，實質資訊密度不高；認真的政策讀者通常會直接看原始政策文件而非市場評論。",
-      "url": "https://www.cnbc.com/2026/09/21/cnbc-daily-open-trump-china-ai-force.html"
+      "discussion": "亞洲市場的評論多把焦點放在外溢效應：如果美國法院認定安全自律協調可構成反托拉斯違法，跨國 AI 治理協議的設計將必須刻意保留競爭空間，避免落入聯合行為的定義。也有觀點認為，此案凸顯 AI 監理在各法域間缺乏一致框架，導致業者在「做得太少」與「做得太一致」之間都有法律風險。",
+      "url": "https://en.sedaily.com/international/2026/09/21/anthropic-openai-and-two-rivals-face-class-action-over-ai",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0.39,
+      "verified_at": "2026-09-22T10:38:30.261997+08:00",
+      "is_backfill": true
     }
   ],
-  "_updated_at": "2026-09-22T10:37:23.858416+08:00"
+  "_updated_at": "2026-09-22T10:37:23.858416+08:00",
+  "_fallback": true
 }

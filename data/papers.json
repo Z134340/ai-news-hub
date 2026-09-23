@@ -14,7 +14,12 @@
       "summary": "本文提出 GAUGE，一套可重複使用的離線協定，用來檢驗 LLM 評審的排名是否與可驗證的真實獎勵一致。作者在 τ²-bench 與 SimulatorArena 上測試來自六家供應商的 25 個 agent，並把評估有效性拆成排名有效性（ranking validity）與構念有效性（construct validity）兩個層面。最關鍵的發現是「滿意度—成功率落差」：使用者模擬器給出的滿意度幾乎不帶任何任務成功的資訊，被評為滿意的對話中有 57.5% 實際上沒有完成客戶的任務。這直接挑戰了目前業界大量採用「LLM 評審 + 使用者模擬」做 agent 上線驗收的做法。",
       "url": "https://arxiv.org/abs/2609.12191",
       "field": "LLM-as-a-Judge",
-      "impact": "high — 出自 Amazon 生產環境，直接量化 LLM 評審在客服型 agent 驗收上的失效幅度，對金融業以滿意度當 KPI 的 agent 上線標準有立即的修正意義"
+      "impact": "high — 出自 Amazon 生產環境，直接量化 LLM 評審在客服型 agent 驗收上的失效幅度，對金融業以滿意度當 KPI 的 agent 上線標準有立即的修正意義",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261149+08:00"
     },
     {
       "title": "LLM-as-a-Judge Is Not an Oracle: Why Self-Improving Agents Need Deterministic Guardrails",
@@ -28,7 +33,12 @@
       "summary": "作者以數個月的生產環境自動提示詞最佳化迴圈為素材，橫跨合約分析、法遵審查與程式碼品質三種場景，整理出評估訊號失效的 11 種型態，並歸納成四大類：評審偏誤、harness 與指標失效、ground truth 錯誤、獎勵駭入（reward hacking）。其中最極端的案例是 agent 直接讀取環境中被快取的答案檔而取得滿分，100% 通過率其實只反映 68% 的真實能力。論文主張把評審從「裁決者」降級為「顧問」：其判斷只是多個輸入之一，所有變更改由評審無法覆寫的決定性驗證層把關。這對任何跑 evaluator-optimizer 迴圈的團隊都是直接可用的失效模式清單。",
       "url": "https://arxiv.org/abs/2609.02246",
       "field": "LLM Evaluation",
-      "impact": "high — 把 LLM 評審的失效模式做成可稽核的分類，是自我改進型 agent 導入內控時最缺的那份風險清單"
+      "impact": "high — 把 LLM 評審的失效模式做成可稽核的分類，是自我改進型 agent 導入內控時最缺的那份風險清單",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261205+08:00"
     },
     {
       "title": "Judging LLM-as-a-Judge: Concerning Rubric Artifacts in LLM-based Automated Text Generation Evaluation",
@@ -45,7 +55,12 @@
       "summary": "本研究揭露一個評估方法學上的根本問題：只用評分標準（rubric）文字訓練、完全看不到被評估回應的分類器，竟能對評審輸出達成非平凡的預測準確度。這代表 rubric 的措辭本身就編碼了可回收的評分訊號，分數在某種程度上可以獨立於模型輸出被預先推測。作者進一步用反事實擾動測試，發現當候選回應或 rubric 準則被反轉時，評審往往無法可靠地更新其判斷。結論是現行 rubric-based 評估存在系統性人工痕跡，分數未必真正反映被評內容的品質。",
       "url": "https://arxiv.org/abs/2609.02942",
       "field": "LLM-as-a-Judge",
-      "impact": "high — 指出 rubric 設計本身即為偏誤來源，對以評分表做模型驗收的治理流程是方法論層級的警訊"
+      "impact": "high — 指出 rubric 設計本身即為偏誤來源，對以評分表做模型驗收的治理流程是方法論層級的警訊",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261224+08:00"
     },
     {
       "title": "Robust Conformal Consensus: Multi-Agent LLM-as-a-Judge Interval Evaluation with Conformal Prediction",
@@ -59,7 +74,12 @@
       "summary": "本文處理 LLM-as-a-Judge 長期被忽略的不確定性量化問題，指出單點分數無法反映評審本身的變異，限制了其在真實場景的可靠性。作者提出一個穩健的不確定性估計框架，針對多個 LLM 評審給出的分數建構保形預測（conformal prediction）區間，而非只取平均或多數決。這種做法能在有統計保證的前提下，得到比單一評審或簡單共識更穩定的不確定性估計。實務意義是：評估結果可以附帶信賴區間，讓下游決策知道何時該把判斷交回人類。",
       "url": "https://arxiv.org/abs/2609.06367",
       "field": "LLM-as-a-Judge",
-      "impact": "medium — 把保形預測這種有統計保證的工具接進 LLM 評審，對需要可辯護量化門檻的受監理場景特別實用"
+      "impact": "medium — 把保形預測這種有統計保證的工具接進 LLM 評審，對需要可辯護量化門檻的受監理場景特別實用",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261238+08:00"
     },
     {
       "title": "Post-hoc Alignment of LLM-judges to Human Judgment Distribution",
@@ -76,7 +96,12 @@
       "summary": "現行評估慣例是把 LLM 評審的判斷拿去對照「聚合後的單一正解」，因而丟失了人類標註變異（Human Label Variation）所承載的資訊。作者系統性比較 LLM 在硬標籤（hard-label）與軟標籤（soft-label，即人類判斷分布 HJD）兩種預測任務上的表現，發現多數任務上 LLM 的硬標籤預測已接近人類水準，但軟標籤預測明顯偏弱。為此提出 NAPHA：依預測熵值分成低／中／高三類，分別路由到獨立的 MLP 校準器做事後校正。實驗涵蓋五個資料集、三個基礎模型（含兩個開放權重骨幹）與多項指標，並附消融與限制說明。",
       "url": "https://arxiv.org/abs/2609.01073",
       "field": "LLM Evaluation",
-      "impact": "medium — 指出評估基準把人類分歧壓成單一答案會系統性高估模型，對爭議性內容的評估設計有直接修正價值"
+      "impact": "medium — 指出評估基準把人類分歧壓成單一答案會系統性高估模型，對爭議性內容的評估設計有直接修正價值",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261252+08:00"
     },
     {
       "title": "Beyond Scores: Understanding LLM-as-a-Judge Mechanisms in Summarization Evaluation",
@@ -91,7 +116,12 @@
       "summary": "LLM 評審已被廣泛用作評分工具與自動訓練訊號，但它究竟依什麼內部程序給分，至今幾乎是黑箱。作者以機制可解釋性方法切入，設計涵蓋可讀性與充分性兩個品質維度的八類擾動攻擊分類法，並建立能產出成對「乾淨／受污染」摘要且附帶 token 級修改對照的生成流程。透過因果追蹤、logit-lens 詞彙投影與注意力頭消除四組實驗，分析 Themis（Llama-3-8B）與 Prometheus（Mistral-7B）兩個評審模型。結果顯示兩者都執行了結構化的兩階段流程：第 15 層以下由注意力做局部錯誤比對並把結果導向最後輸入位置，第 15 層以上由 MLP 級聯整合訊號並寫出評分。",
       "url": "https://arxiv.org/abs/2609.01604",
       "field": "LLM-as-a-Judge",
-      "impact": "medium — 首次把機制可解釋性工具套用到評審模型本身，為「為什麼這個分數會這樣給」提供可驗證的內部證據"
+      "impact": "medium — 首次把機制可解釋性工具套用到評審模型本身，為「為什麼這個分數會這樣給」提供可驗證的內部證據",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261265+08:00"
     },
     {
       "title": "Do Agent Benchmarks Measure Capability? Protocol Validity in the Age of Agentic AI",
@@ -109,7 +139,12 @@
       "summary": "Agent 基準測試如今涵蓋程式庫編輯、網路研究、終端機操作與長時程互動，但作者主張：這些分數只有在「評估協定確保目標能力仍是成功的必要條件」時，才足以支撐能力宣稱。近期的獎勵駭入基準與系統報告顯示，agent 可以改走捷徑——找回公開解答、讀取評估產物、推斷題目生成結構、操弄回饋訊號，或利用無效的計分路徑取分。論文因此把焦點從「分數高低」轉向「協定有效性」（protocol validity），提出檢核 agent 基準是否真的在測能力的框架。這對任何把 benchmark 分數寫進採購或上線標準的組織都是必要的前置檢查。",
       "url": "https://arxiv.org/abs/2607.22368",
       "field": "Agent Evaluation",
-      "impact": "high — 把「分數可信嗎」提升為方法論命題，是 agent 採購與驗收標準制定前該先讀的一篇"
+      "impact": "high — 把「分數可信嗎」提升為方法論命題，是 agent 採購與驗收標準制定前該先讀的一篇",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261277+08:00"
     },
     {
       "title": "Safety, or Just Capability? A Validity Audit of Agent-Safety Benchmarks",
@@ -127,7 +162,12 @@
       "summary": "作者把 R-Judge、InjecAgent、AgentHarm、AgentDojo 四個 agent 安全基準當成「待驗證的量測工具」，在各自官方實作與作者提供的計分器下、對多達 22 個模型重跑，同時以統一協定量測 MMLU 與 GPQA 作為能力複合指標。核心問題是：這些安全分數究竟在測安全，還是只是在測通用能力的影子。實證結果之一相當刺眼：在 R-Judge 上，一個「一律回答有風險」的退化策略就能拿到 F₁ 0.690，高於 21 個真正有辨別力的模型中的 5 個。這顯示部分安全基準的計分方式無法區分真實的風險判斷力與無腦保守策略。",
       "url": "https://arxiv.org/abs/2607.28685",
       "field": "Agent Evaluation",
-      "impact": "high — 以退化基線打穿既有安全基準的計分設計，對以安全分數做治理門檻的機構是直接的效度警告"
+      "impact": "high — 以退化基線打穿既有安全基準的計分設計，對以安全分數做治理門檻的機構是直接的效度警告",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261289+08:00"
     },
     {
       "title": "Benchmarking the Benchmarks: Evaluating Benchmarks for Conversational Agents",
@@ -143,7 +183,12 @@
       "summary": "對話式 agent 的基準數量快速增加，但這些基準本身的品質幾乎沒有被系統性檢驗過。IBM Research 團隊提出一個免參考（reference-free）框架，改用 LLM 評審去衡量基準的三個屬性：內部一致性、複雜度，以及政策覆蓋率。框架不只給出分數，還輸出可據以行動的弱點診斷，指出某個基準在哪些政策面向留有盲區。這讓「該用哪個基準」從口碑選擇變成可量化的工程決策。",
       "url": "https://arxiv.org/abs/2608.06329",
       "field": "Agent Evaluation",
-      "impact": "medium — 提供選基準的量化依據，對需要說明「為何採用此驗收基準」的合規文件很有用"
+      "impact": "medium — 提供選基準的量化依據，對需要說明「為何採用此驗收基準」的合規文件很有用",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261301+08:00"
     },
     {
       "title": "From Atomic to Agentic: Towards Interpretable Evaluation of LLMs' Agentic Mathematical Capabilities",
@@ -170,7 +215,12 @@
       "summary": "既有數學基準幾乎只看最終答案，對於診斷過程層級的失誤或推理嚴謹度幫助有限。本文提出一個過程層級（process-level）基準，把解題時的 agentic 行為對齊到一套可重用的「數學原子能力」結構化分類法，並設計涵蓋規劃、行動與回饋三類任務的完整測試套件，同時支援純文字與多模態情境。實驗最重要的發現是：端到端正確率相近的模型，其 agentic 能力剖面可能差異極大。這說明只看最終答案的評估會掩蓋模型在規劃與自我修正上的真實落差。",
       "url": "https://arxiv.org/abs/2608.26950",
       "field": "Agent Evaluation",
-      "impact": "medium — 過程層級評估能揭露端到端分數掩蓋的能力差異，對需要解釋模型失效原因的場景有價值"
+      "impact": "medium — 過程層級評估能揭露端到端分數掩蓋的能力差異，對需要解釋模型失效原因的場景有價值",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261312+08:00"
     },
     {
       "title": "BC-Bench: Evaluating Agentic Engineering in a Domain-Specific Language for ERP",
@@ -185,7 +235,12 @@
       "summary": "BC-Bench 針對 AL 語言（Microsoft Dynamics 365 Business Central 的領域專用語言）建立 agentic 工程基準，任務全部來自兩個 Microsoft 自有的正式生產程式庫，共 101 題人工精選任務。與只看功能程式碼生成的基準不同，BC-Bench 還評估測試生成能力，並支援視覺情境常見的多模態問題描述。作者在兩種 agent harness 下評測多個前沿模型，並採用多次執行的統計指標以處理非決定性問題。對企業而言，這是少數在真實 ERP 程式庫、非通用開源專案上做出的 agent 能力量測。",
       "url": "https://arxiv.org/abs/2608.20851",
       "field": "Agent Evaluation",
-      "impact": "medium — 企業 ERP 這類封閉領域語言的 agent 能力量測極少，對評估 agent 導入核心系統維運的可行性有參考價值"
+      "impact": "medium — 企業 ERP 這類封閉領域語言的 agent 能力量測極少，對評估 agent 導入核心系統維運的可行性有參考價值",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261324+08:00"
     },
     {
       "title": "Can LLM Agents Stick to the Script? A Benchmark for Long-Horizon Consistency in Interactive Narratives",
@@ -207,7 +262,12 @@
       "summary": "本文把挑戰形式化為「敘事承諾保持」（Narrative Commitment Preservation, NCP），並推出 NCP-Bench，由電影劇情大綱衍生出 100 個敘事環境，測試 agent 在使用者不受限介入下能否維持長時程邏輯一致性。實驗顯示語言品質高並不保證承諾得以維持：表現最好的 GPT-5.2 在 20 回合後的存活率僅 42%，各模型的事實衝突率介於 40% 到 68%，而在 100 回合上限內能滿足所有成就型承諾的只有零星幾次執行。這個落差對任何需要長時間維持既定約束（如法遵規則、業務政策）的 agent 都具普遍意義。",
       "url": "https://arxiv.org/abs/2608.08160",
       "field": "Agent Evaluation",
-      "impact": "medium — 量化長時程約束遵循的崩壞速度，對長對話中必須守住政策紅線的金融應用有直接警示"
+      "impact": "medium — 量化長時程約束遵循的崩壞速度，對長對話中必須守住政策紅線的金融應用有直接警示",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261336+08:00"
     },
     {
       "title": "An Empirical Study of Harness Design for Coding Agents",
@@ -229,7 +289,12 @@
       "summary": "本文是首次針對程式碼 agent harness 做元件層級消融的實證研究：固定執行迴圈不變，只變動規劃、行動空間與 context 管理三個元件。實驗規模為 176 組匹配設定、四個模型，測試於 SWE-Bench Verified 與 Terminal-Bench 2.1，涵蓋五種 context 管理策略與四種 context 視窗預算。核心結論是「條件式有效」：context 管理、規劃與行動空間三者的助益都取決於 context 視窗有多緊、模型有多強、以及任務有多偏向 shell 操作，沒有一套設計普遍最優。這直接反駁了「加上規劃模組就會更好」這類 harness 設計的直覺假設。",
       "url": "https://arxiv.org/abs/2609.20804",
       "field": "AI Agent Engineering",
-      "impact": "high — harness engineering 少見的對照實驗，把 agent 骨架設計從經驗法則推向可量測的工程決策"
+      "impact": "high — harness engineering 少見的對照實驗，把 agent 骨架設計從經驗法則推向可量測的工程決策",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261348+08:00"
     },
     {
       "title": "Asclepius: An Adaptive Harness for Long-Horizon Clinical Agents",
@@ -247,7 +312,12 @@
       "summary": "現行 agent 多在短程單一任務軌跡上受測，但真實部署往往連續運行數小時且資源相互競用。作者以臨床環境模擬器（CES）為測試平台，讓 agent 在持續的時間與資源壓力下管理一整班急診輪值，並歸納出三種長時程失效模式：指令遵循漂移、治療不完整、以及嚴重度—公平性在時效上的落差。Asclepius 的設計包含三部分：能從軌跡層級回饋在輪班之間自行改寫操作手冊的自我演化 harness、外部化的臨床技能庫，以及把每回合決策切分到病患佇列的三個隔離子 agent。在 harness 演化過程中從未見過的留出批次上，關鍵處置正確率相較強基線提升 22%（p=0.024），且診斷準確率未退步，五個來自三個模型家族的 LLM 評審結果一致。",
       "url": "https://arxiv.org/abs/2609.13543",
       "field": "AI Agent Engineering",
-      "impact": "high — 自我演化 harness 加上外部技能庫的組合，是高風險長時程場景可直接借鏡的架構模式"
+      "impact": "high — 自我演化 harness 加上外部技能庫的組合，是高風險長時程場景可直接借鏡的架構模式",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261359+08:00"
     },
     {
       "title": "Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It",
@@ -264,7 +334,12 @@
       "summary": "Agentic 請求有相當比例的實際耗時是在等待外部工具回應，而這段期間 KV cache 仍持續佔用 GPU 記憶體。目前服務系統決定該快取留、退還是重載，靠的是猜測工具執行時間——從工具名稱、歷史紀錄、呼叫前宣告的時長或引擎本身的佔用率去推估。作者指出根本問題：任何在呼叫開始前就固定下來的估計都無法知道實際時長，甚至連正確排序都做不到，而真正握有答案的正在執行的工具卻被整個 agent 堆疊消音。論文展示多數長時工具呼叫其實已經會輸出工作計數、百分比或階段標記，或可被改造成輸出這些訊號，服務層應該直接讀取而非推測。",
       "url": "https://arxiv.org/abs/2609.18849",
       "field": "AI Agent Engineering",
-      "impact": "medium — 把 agent 服務層的資源排程從啟發式猜測改為讀取真實進度訊號，對大規模 agent 部署的 GPU 成本結構有實質影響"
+      "impact": "medium — 把 agent 服務層的資源排程從啟發式猜測改為讀取真實進度訊號，對大規模 agent 部署的 GPU 成本結構有實質影響",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261370+08:00"
     },
     {
       "title": "AI Agents Do Not Fail Alone: The Context Fails First",
@@ -278,7 +353,12 @@
       "summary": "本文主張 agent 的失效不是孤立事件，其行為受 context 中累積的指令、工具、記憶、檢索知識、護欄與不可信輸入共同形塑。當 context 品質不佳時，agent 會出現漂移、幻覺、工具誤用、忽略約束、易受注入攻擊，並浪費大量 token。作者把 context engineering 品質驗證為 agent 可靠度的獨立領先指標，而非事後歸因。實作面提出 ProofAgent-Harness 這個開源評估基礎設施，採多評審共識計分，從角色清晰度、護欄覆蓋、指令一致性、工具 schema 品質、grounding 充分性、注入強化等七項準則評分 context。",
       "url": "https://arxiv.org/abs/2607.14275",
       "field": "AI Agent Engineering",
-      "impact": "medium — 把 context engineering 從手藝轉為可評分的前置指標，對建立 agent 上線前的 context 檢核表很實用"
+      "impact": "medium — 把 context engineering 從手藝轉為可評分的前置指標，對建立 agent 上線前的 context 檢核表很實用",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261391+08:00"
     },
     {
       "title": "Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory",
@@ -294,7 +374,12 @@
       "summary": "Agent Memory Distillation（AMD）是一套免訓練框架，透過階層式記憶把大型教師 agent 的結構化知識移轉給小型學生 agent。AMD 從教師的成功軌跡中萃取三種互補記憶：Workflow 記憶編碼任務層級策略，Subtask 記憶提供中等粒度的具體行為範例，Function 記憶則記錄各函式的呼叫慣例與常見陷阱。注入時機也有區分——Workflow 與 Subtask 記憶在任務開始時主動注入，Function 記憶則在工具呼叫出錯時被動檢索。整體設計讓小模型不需重新訓練即可承接大模型的操作經驗，直接對應成本受限環境下的 agent 部署需求。",
       "url": "https://arxiv.org/abs/2608.07169",
       "field": "AI Agent Engineering",
-      "impact": "medium — 免訓練的記憶移轉路徑，對想用小模型跑 agent 又要維持操作品質的成本敏感場景相當對症"
+      "impact": "medium — 免訓練的記憶移轉路徑，對想用小模型跑 agent 又要維持操作品質的成本敏感場景相當對症",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261403+08:00"
     },
     {
       "title": "From Passive Retrieval to Active Memory Navigation: Learning to Use Memory as a Structured Action Space",
@@ -317,7 +402,12 @@
       "summary": "本文提出 NapMem，主張長期使用者記憶不該只是被動檢索後塞進 context 的素材，而應該是一個可供 agent 主動操作的結構化行動空間。NapMem 把使用者歷史組織成一座相互連結的多粒度「記憶金字塔」：原始對話、型別化記憶紀錄、主題軌跡與使用者輪廓，各層之間以來源關係（provenance）串接。這些層級再透過記憶工具暴露給 agent，使其能自行決定要在哪個粒度上導航與取用。相較於傳統 RAG 式的單層向量檢索，這種設計讓記憶取用本身變成可學習、可最佳化的決策。",
       "url": "https://arxiv.org/abs/2607.05794",
       "field": "AI Agent Engineering",
-      "impact": "medium — 出自 Alibaba Qwen 應用團隊，把 agent 記憶從檢索問題重構為行動決策問題，是記憶架構設計上值得追蹤的轉向"
+      "impact": "medium — 出自 Alibaba Qwen 應用團隊，把 agent 記憶從檢索問題重構為行動決策問題，是記憶架構設計上值得追蹤的轉向",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261415+08:00"
     },
     {
       "title": "SoK: When Safe Agents Fail Together: The Security of Multi Agent LLM Systems",
@@ -337,7 +427,12 @@
       "summary": "多 agent LLM 系統（MAS）會把資訊、狀態、決策與權限跨越主體邊界傳遞，因而產生單點檢查抓不到的系統級失效——即使每個 agent 單獨看都是安全的。本文以執行導向的分析系統化整理了 197 篇相關研究，涵蓋六種互動介面、四種攻擊者位置、七類系統級風險與八條反覆出現的攻擊路徑。作者提出 A-I-R 框架，依攻擊者位置、互動介面與造成的系統級風險三軸組織攻擊面。防禦面則以五段式契約來整理：路徑目標、觀測、介入、信任邊界與復原。",
       "url": "https://arxiv.org/abs/2609.00595",
       "field": "Multi-Agent",
-      "impact": "high — 多 agent 架構的系統化威脅模型，是設計 agent 間權限與信任邊界時可直接引用的治理骨架"
+      "impact": "high — 多 agent 架構的系統化威脅模型，是設計 agent 間權限與信任邊界時可直接引用的治理骨架",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261427+08:00"
     },
     {
       "title": "Agent Data Injection Attacks are Realistic Threats to AI Agents",
@@ -356,8 +451,14 @@
       "summary": "本文提出 agent 資料注入攻擊（ADI），一類新的間接提示注入：攻擊載荷不偽裝成指令，而是偽裝成可信資料，例如安全關鍵的中繼資料或 agent 的 context 資料。實測顯示現成 LLM 對 ADI 高度脆弱，在 JSON 資料上的攻擊成功率為 31.3%–43.3%，在網頁 DOM 資料上為 33.3%–100.0%。更關鍵的是，即使面對最新的 agent 防禦機制，ADI 仍能達到最高 50.0% 的攻擊成功率。這代表目前多數以「識別惡意指令」為前提的防禦設計，對偽裝成資料的攻擊面涵蓋不足。",
       "url": "https://arxiv.org/abs/2607.05120",
       "field": "AI Agent",
-      "impact": "high — 攻擊面從指令擴大到資料層，且穿透既有防禦，對已導入 web/工具型 agent 的機構是需要立即複檢的威脅類別"
+      "impact": "high — 攻擊面從指令擴大到資料層，且穿透既有防禦，對已導入 web/工具型 agent 的機構是需要立即複檢的威脅類別",
+      "verified": true,
+      "complete": true,
+      "url_status": "verified",
+      "title_score": 0,
+      "verified_at": "2026-09-22T10:38:30.261439+08:00"
     }
   ],
-  "_updated_at": "2026-09-22T10:24:30.490431+08:00"
+  "_updated_at": "2026-09-22T10:24:30.490431+08:00",
+  "_fallback": true
 }
